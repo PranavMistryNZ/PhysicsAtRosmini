@@ -5,6 +5,18 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.3 · 29 October 2026 (Year 13 Waves lab, clickable labs)
+- 1.4 pipe explorer: response curve now dashed; new **Noise (all frequencies)** source, where the
+  pipe picks out its harmonics and the curve turns solid ("loudness out"); click or drag along the
+  graph to set the driving frequency.
+- 1.4 driven oscillator: click or drag along the resonance curve to set the driving frequency.
+- 1.4 resonance tube: drag the water up or down, or click at a height, to set the air column length.
+- 2.3 grating: click a bright spot (beam view or intensity graph) to see its order and angle, with a
+  d sin θ = nλ check.
+- 3.3 Doppler graphs: drag the observer towards or away from the road.
+- Contact email in the Waves and Electrical lab footers is written out ("pmistry [at] …") instead
+  of a clickable link.
+
 ## v1.2 · 28 October 2026 (Year 13 Electrical Systems lab)
 - New lab `y13/electrical.html` for AS91526, covering the whole standard in seven sections:
   00 Course Map, 01 DC Circuits, 02 Capacitors, 03 Flux & Faraday, 04 Inductors,
