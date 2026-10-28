@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SY24GC7K0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SY24GC7K0S');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Physics@Rosmini Hub</title>
+<style>
+/* ============================================================
+   EDIT HERE ONLY: site address, link behaviour and the topic list
+   are in the <script> block near the bottom (look for SITE and TOPICS).
+   ============================================================ */
+:root{
+  --bg:#05060b;--panel:#121526;--panel2:#181c31;--ink:#f3edf5;--muted:#c2bed4;--line:#41445b;
+  --orange:#f0a66a;--yellow:#f0cc6a;--pink:#d99ac6;--lav:#a99be4;--blue:#87bbec;
+  --y11:var(--blue);--y12:var(--pink);--y13:var(--lav);--accent:var(--yellow);
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --bg:#f4f1ea;--panel:#ffffff;--panel2:#f7f4ee;--ink:#1d1b2b;--muted:#565366;--line:#d6d1c6;
+  --orange:#c46a22;--yellow:#a87b00;--pink:#a44c86;--lav:#5b49b8;--blue:#2b6ea8;
+}}
+:root[data-theme="light"]{
+  --bg:#f4f1ea;--panel:#ffffff;--panel2:#f7f4ee;--ink:#1d1b2b;--muted:#565366;--line:#d6d1c6;
+  --orange:#c46a22;--yellow:#a87b00;--pink:#a44c86;--lav:#5b49b8;--blue:#2b6ea8;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.frame{display:grid;grid-template-columns:150px minmax(0,1fr);gap:0 12px;max-width:1280px;margin:0 auto;padding:16px}
+
+/* ---------- LCARS rail ---------- */
+.rail{display:flex;flex-direction:column;gap:8px}
+.elbow{height:96px;background:var(--accent);border-radius:46px 0 0 0;position:relative}
+
+.yr{border:0;cursor:pointer;text-align:right;padding:12px 14px;min-height:76px;border-radius:0 20px 20px 0;
+  font-weight:700;letter-spacing:.06em;font-size:13px;color:#0b0c14;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;
+  transition:transform .15s ease, filter .15s ease;filter:saturate(.75) brightness(.9)}
+.yr .num{font-size:22px;letter-spacing:.02em;line-height:1}
+.yr:hover{filter:none;transform:translateX(3px)}
+.yr[aria-pressed="true"]{filter:none;outline:3px solid var(--ink);outline-offset:-6px}
+.yr[data-y="all"]{background:var(--accent)}
+:root[data-theme="light"] .yr{color:#fff}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .yr{color:#fff}}
+.yr[data-y="11"]{background:var(--y11)}.yr[data-y="12"]{background:var(--y12)}.yr[data-y="13"]{background:var(--y13)}
+.rail-fill{flex:1;min-height:40px;background:var(--orange);border-radius:0 0 0 46px;opacity:.85}
+
+/* ---------- main ---------- */
+.main{display:flex;flex-direction:column;gap:12px;min-width:0}
+.topbar{height:18px;background:var(--accent);border-radius:0 9px 9px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:4px 4px 0}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue)}
+h1{margin:4px 0 0;font-size:clamp(28px,4vw,44px);letter-spacing:.08em;text-transform:uppercase}
+.head-right{display:flex;align-items:center;gap:12px}
+.theme-switch-wrap{display:flex;align-items:center;gap:8px;font-size:12px;white-space:nowrap}
+.theme-label-dark,.theme-label-light{font-weight:700}
+.theme-label-dark{color:var(--ink)}.theme-label-light{color:var(--muted)}
+:root[data-theme="light"] .theme-label-dark{color:#59687a}:root[data-theme="light"] .theme-label-light{color:#17212c}
+.theme-switch{position:relative;display:inline-block;width:52px;height:28px;flex:0 0 auto}
+.theme-switch input{opacity:0;width:0;height:0;position:absolute}
+.theme-slider{position:absolute;inset:0;cursor:pointer;background:#343c58;border:1px solid #6b738d;border-radius:999px;transition:.2s}
+.theme-slider:before{content:"";position:absolute;width:20px;height:20px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.theme-switch input:checked + .theme-slider{background:#d6e2f2;border-color:#8a9bb1}
+.theme-switch input:checked + .theme-slider:before{transform:translateX(24px);background:#1d2633}
+.theme-switch input:focus-visible + .theme-slider{outline:2px solid var(--accent);outline-offset:2px}
+.tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.search{flex:1;min-width:200px;position:relative}
+.search input{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px 12px 40px}
+.search input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);opacity:.7}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:8px 13px;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+.notice{background:var(--panel);border:1px solid var(--orange);border-left:6px solid var(--orange);border-radius:10px;padding:10px 14px;font-size:14px}
+.notice code{background:var(--panel2);padding:1px 5px;border-radius:4px}
+
+.band{display:flex;align-items:center;gap:10px;margin:10px 0 2px}
+.band .bar{height:12px;flex:0 0 46px;border-radius:6px;background:var(--c)}
+.band h2{margin:0;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+.band .line{flex:1;height:2px;background:var(--line)}
+.band .count{font-size:12px;color:var(--muted)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{--c:var(--lav);position:relative;display:flex;flex-direction:column;gap:8px;text-decoration:none;background:var(--panel);
+  border:1px solid var(--line);border-left:8px solid var(--c);border-radius:6px 18px 18px 6px;padding:14px 16px 14px 16px;min-height:150px;
+  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+a.card:hover,a.card:focus-visible{transform:translateY(-3px);border-color:var(--c);box-shadow:0 10px 26px -14px var(--c);outline:none}
+.card .code{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--c);font-weight:700}
+.card h3{margin:0;font-size:19px;line-height:1.2}
+.card p{margin:0;font-size:13.5px;color:var(--muted)}
+.card .meta{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.pill{font-size:11.5px;letter-spacing:.04em;border-radius:999px;padding:3px 9px;border:1px solid var(--line);color:var(--muted)}
+.pill.ext{border-color:var(--c);color:var(--c)}
+.go{margin-left:auto;font-weight:700;font-size:13px;color:var(--c)}
+.card.soon{opacity:.55;border-left-style:dashed}
+.card.soon .go{color:var(--muted);font-weight:400}
+.empty{padding:26px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+
+.foot{display:flex;gap:10px;align-items:center;margin-top:8px}
+.foot .bar{height:12px;border-radius:6px;background:var(--orange);flex:1}
+.foot span{font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+
+/* ---------- phone ---------- */
+@media (max-width:720px){
+  .frame{grid-template-columns:1fr;padding:12px 16px}
+  .rail{flex-direction:row;gap:6px;overflow-x:auto;order:0}
+  .elbow,.rail-fill{display:none}
+  .yr{min-height:52px;min-width:72px;flex:1;border-radius:14px;align-items:center;justify-content:center;text-align:center;padding:8px}
+  .yr .num{font-size:17px}
+  .main{margin-top:10px}
+  .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="frame">
+  <nav class="rail" aria-label="Year level">
+    <div class="elbow" aria-hidden="true"></div>
+    <div id="yearButtons" style="display:contents"></div>
+    <div class="rail-fill" aria-hidden="true"></div>
+  </nav>
+
+  <main class="main">
+    <div class="topbar" aria-hidden="true"></div>
+    <div class="head">
+      <div>
+        <div class="eyebrow" id="eyebrow">Science learning systems</div>
+        <h1 id="title">Physics@Rosmini</h1>
+      </div>
+      <div class="head-right">
+        <div aria-label="Page colour theme" class="theme-switch-wrap"><span class="theme-label-dark">Dark</span><label class="theme-switch" title="Switch between dark and light mode"><input aria-label="Use light mode" id="themeToggle" type="checkbox"/><span class="theme-slider"></span></label><span class="theme-label-light">Light</span></div>
+      </div>
+    </div>
+
+    <div id="notice"></div>
+
+    <div class="tools">
+      <label class="search"><span class="visually-hidden" style="position:absolute;left:-9999px">Search topics</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Search topics or standard numbers…" autocomplete="off">
+      </label>
+      <div class="chips" role="group" aria-label="Assessment type">
+        <button class="chip" data-f="all" aria-pressed="true" type="button">All</button>
+        <button class="chip" data-f="ext" aria-pressed="false" type="button">External</button>
+        <button class="chip" data-f="int" aria-pressed="false" type="button">Internal</button>
+        <button class="chip" data-f="live" aria-pressed="false" type="button">Labs ready</button>
+      </div>
+    </div>
+
+    <div id="out"></div>
+
+    <div class="foot" aria-hidden="true"><div class="bar"></div><span>Physics · Rosmini College</span></div>
+  </main>
+</div>
+
+<script>
+/* =================================================================
+   1. SITE SETTINGS
+   This hub lives at the top of the GitHub repository (index.html).
+   Labs sit in year folders, e.g. y13/waves.html, and are linked with
+   short paths in TOPICS below. Short paths open in the same tab.
+   linkTarget: only used for full web addresses (https://...), e.g. NZQA links.
+   startYear:  "all", 11, 12 or 13. You can also open the hub on a year
+               by adding #13 to its address, e.g. .../physics/#13
+   ================================================================= */
+const SITE = {
+  linkTarget: "_blank",
+  startYear: "all",
+};
+
+/* =================================================================
+   2. YEAR LEVELS (rail buttons)
+   ================================================================= */
+const YEARS = [
+  { y: 11, label: "Year 11", sub: "Physics, Earth & Space Science · L1" },
+  { y: 12, label: "Year 12", sub: "Physics · NCEA Level 2" },
+  { y: 13, label: "Year 13", sub: "Physics · NCEA Level 3" },
+];
+
+/* =================================================================
+   3. TOPICS: one line per card.
+   path: the lab's file inside the repository, e.g. "y13/waves.html".
+         Leave as "" and the card shows "Coming soon".
+   type: "ext" or "int".  as: standard number (or "").
+   ================================================================= */
+const TOPICS = [
+  // ---- Year 13 · NCEA Level 3 Physics ----
+  { y:13, as:"91523", title:"Wave Systems", blurb:"Standing waves, beats, interference, gratings, Doppler.", cr:4, type:"ext", path:"y13/waves.html" },
+  { y:13, as:"91524", title:"Mechanical Systems", blurb:"Momentum, circular & rotational motion, SHM.", cr:6, type:"ext", path:"" },
+  { y:13, as:"91526", title:"Electrical Systems", blurb:"Capacitors, inductors, AC circuits.", cr:6, type:"ext", path:"" },
+  { y:13, as:"91521", title:"Practical Investigation", blurb:"Testing a non-linear physics relationship.", cr:4, type:"int", path:"" },
+  { y:13, as:"91525", title:"Modern Physics", blurb:"Photoelectric effect, atomic spectra, nuclear.", cr:3, type:"int", path:"" },
+
+  // ---- Year 12 · NCEA Level 2 Physics ----
+  { y:12, as:"91170", title:"Waves", blurb:"Wave behaviour and light.", cr:4, type:"ext", path:"" },
+  { y:12, as:"91171", title:"Mechanics", blurb:"Motion, forces, momentum and energy.", cr:6, type:"ext", path:"" },
+  { y:12, as:"91173", title:"Electricity & Electromagnetism", blurb:"Circuits, fields and induction.", cr:6, type:"ext", path:"" },
+  { y:12, as:"91172", title:"Atomic & Nuclear Physics", blurb:"Atomic structure, radioactivity.", cr:3, type:"int", path:"" },
+
+  // ---- Year 11 · edit to match your course ----
+  { y:11, as:"", title:"Motion & Forces", blurb:"Speed, acceleration and Newton's laws.", cr:"", type:"ext", path:"" },
+  { y:11, as:"", title:"Energy", blurb:"Work, power and energy transfer.", cr:"", type:"ext", path:"" },
+  { y:11, as:"", title:"Earth & Space", blurb:"The Earth system and our place in space.", cr:"", type:"int", path:"" },
+];
+
+/* ======================= no need to edit below ======================= */
+const $ = (id) => document.getElementById(id);
+const store = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+                set(k,v){ try { localStorage.setItem(k,v); } catch(e){} } };
+const colour = (y) => `var(--y${y})`;
+
+let state = { year: String(SITE.startYear), filter: "all", q: "" };
+
+function url(t){ return t.path || ""; }
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+function rail(){
+  const btns = [{ y:"all", label:"All years" }, ...YEARS];
+  $("yearButtons").innerHTML = btns.map(b => {
+    const num = b.y === "all" ? "ALL" : "Y" + b.y;
+    return `<button class="yr" type="button" data-y="${b.y}" aria-pressed="${String(b.y)===state.year}">
+      <span class="num">${num}</span><span>${b.y === "all" ? "Overview" : "Physics"}</span></button>`;
+  }).join("");
+  document.querySelectorAll(".yr").forEach(b => b.addEventListener("click", () => {
+    state.year = b.dataset.y; store.set("hub-year", state.year); render();
+  }));
+}
+
+function card(t){
+  const href = url(t), soon = !href, c = colour(t.y);
+  const tag = soon ? "div" : "a";
+  const external = /^https?:/i.test(href);
+  const attrs = soon ? `aria-disabled="true"` : (external ? `href="${esc(href)}" target="${esc(SITE.linkTarget)}" rel="noopener"` : `href="${esc(href)}"`);
+  const code = t.as ? `AS${t.as}` : `Year ${t.y}`;
+  return `<${tag} class="card${soon ? " soon" : ""}" style="--c:${c}" ${attrs}>
+    <span class="code">${esc(code)}</span>
+    <h3>${esc(t.title)}</h3>
+    <p>${esc(t.blurb || "")}</p>
+    <div class="meta">
+      <span class="pill ${t.type}">${t.type === "ext" ? "External" : "Internal"}</span>
+      ${t.cr ? `<span class="pill">${esc(t.cr)} credits</span>` : ""}
+      <span class="go">${soon ? "Coming soon" : "Open lab →"}</span>
+    </div></${tag}>`;
+}
+
+function render(){
+  document.querySelectorAll(".yr").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.y === state.year)));
+  document.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.f === state.filter)));
+  const yr = YEARS.find(y => String(y.y) === state.year);
+  $("title").textContent = yr ? `${yr.label} Physics` : "Physics@Rosmini";
+  $("eyebrow").textContent = yr ? yr.sub : "Science learning systems · choose a year level";
+  document.documentElement.style.setProperty("--accent", yr ? colour(yr.y) : "var(--yellow)");
+
+  const q = state.q.trim().toLowerCase();
+  const match = (t) =>
+    (state.year === "all" || String(t.y) === state.year) &&
+    (state.filter === "all" || (state.filter === "live" ? !!t.path : t.type === state.filter)) &&
+    (!q || [t.title, t.blurb, t.as, "y" + t.y, "year " + t.y].join(" ").toLowerCase().includes(q));
+
+  const groups = YEARS.filter(y => state.year === "all" || String(y.y) === state.year)
+    .slice().sort((a,b) => b.y - a.y)
+    .map(y => ({ y, items: TOPICS.filter(t => t.y === y.y && match(t)) }))
+    .filter(g => g.items.length);
+
+  $("out").innerHTML = groups.length ? groups.map(g => `
+    <section style="--c:${colour(g.y.y)}">
+      <div class="band"><span class="bar"></span><h2>${esc(g.y.label)} · ${esc(g.y.sub.split("·").pop().trim())}</h2><span class="line"></span>
+        <span class="count">${g.items.filter(t=>t.path).length} of ${g.items.length} ready</span></div>
+      <div class="grid">${g.items.map(card).join("")}</div>
+    </section>`).join("") : `<div class="empty">No topics match “${esc(state.q)}”.</div>`;
+}
+
+
+
+$("q").addEventListener("input", e => { state.q = e.target.value; render(); });
+document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => { state.filter = b.dataset.f; render(); }));
+
+// theme (same behaviour as the labs: dark by default, choice remembered)
+(function(){
+  const t = $("themeToggle");
+  const light = store.get("hub-theme") === "light";
+  document.documentElement.dataset.theme = light ? "light" : "dark";
+  t.checked = light;
+  t.addEventListener("change", () => {
+    document.documentElement.dataset.theme = t.checked ? "light" : "dark";
+    store.set("hub-theme", t.checked ? "light" : "dark");
+  });
+})();
+
+// start
+if (SITE.startYear === "all") { const s = store.get("hub-year"); if (s) state.year = s; }
+const h = location.hash.replace("#","").replace(/^y/i,"");
+if (["11","12","13","all"].includes(h)) state.year = h;
+rail(); render();
+</script>
+</body>
+</html>
