@@ -5,6 +5,20 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.4 · 29 October 2026 (Year 12 Mechanics lab)
+- New lab `y12/mechanics.html` for AS91171, the first Year 12 lab, in the Mission Control style
+  (light and dark themes with the Dark/Light slider). Six sections: Course map & exam skills,
+  Motion & projectiles, Forces, torque & springs, Circular motion, Momentum & impulse,
+  Work, energy & power.
+- Interactive labs: motion graphs (d–t and v–t drawn live, area shading); projectile launcher
+  with launch height, predict-first and vx/vy arrows; force vectors (tip to tail, components);
+  torque and balance with tipping; springs (F–x graph, ½kx²); circular motion (string, rover,
+  satellite, release, Δv); docking collisions (stick or elastic, momentum bars); impulse
+  (force–time area); energy track with friction and energy bars.
+- Each section has foundations, a systems check quiz, exam-style problems with worked answers,
+  a pre-flight checklist linked to the course map ratings, and an exam tip. Search covers every phase.
+- Hub: the Year 12 Mechanics card now opens the lab.
+
 ## v1.3 · 29 October 2026 (Year 13 Waves lab, clickable labs)
 - 1.4 pipe explorer: response curve now dashed; new **Noise (all frequencies)** source, where the
   pipe picks out its harmonics and the curve turns solid ("loudness out"); click or drag along the
