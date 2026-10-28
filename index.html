@@ -106,11 +106,10 @@ a.card:hover,a.card:focus-visible{transform:translateY(-3px);border-color:var(--
 .card.soon .go{color:var(--muted);font-weight:400}
 .empty{padding:26px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
 
-.foot{display:flex;gap:10px;align-items:center;margin-top:8px}
-.foot .bar{height:12px;border-radius:6px;background:var(--orange);flex:1}
-.foot span{font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
-.wip{margin:10px 0 0;text-align:right;font-size:12px;line-height:1.5;color:var(--muted)}
-.wip b{color:var(--ink);letter-spacing:.04em}
+.footer{border-top:9px solid var(--orange);margin-top:17px;padding:12px;text-align:right;color:var(--muted);font-size:11px;letter-spacing:.12em}
+.footer span{display:inline-block;margin-top:6px}
+:root[data-theme="light"] .footer{color:#435160}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .footer{color:#435160}}
 
 /* ---------- phone ---------- */
 @media (max-width:720px){
@@ -162,8 +161,7 @@ a.card:hover,a.card:focus-visible{transform:translateY(-3px);border-color:var(--
 
     <div id="out"></div>
 
-    <div class="foot" aria-hidden="true"><div class="bar"></div><span>Physics · Rosmini College</span></div>
-    <p class="wip"><b>Work in progress.</b> These pages are a classroom project built by one teacher, not a finished or official product. Content is still being added and checked, so if you spot a mistake, please let me know.</p>
+    <footer class="footer">PHYSICS · ROSMINI COLLEGE   |   LCARS-INSPIRED CLASSROOM PROTOTYPE<br/><span>Contact: Pranav Mistry · Rosmini College · pmistry [at] rosmini.school.nz</span><br/><span>Work in progress: a classroom project built by one teacher, not a finished or official product. Content is still being added and checked.</span></footer>
   </main>
 </div>
 
