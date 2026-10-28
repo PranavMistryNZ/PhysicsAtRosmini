@@ -527,7 +527,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <section class="pane hidden" data-section="dc" data-view="kirchhoff">
 <div class="section-identity"><strong>1.3 · Kirchhoff's laws</strong><p>Two cells, three resistors: see the junction and loop rules hold for any values.</p></div>
 <h2>Kirchhoff explorer</h2>
-<p class="sub">Three branches join at junctions X (top) and Y (bottom). Each cell's positive terminal faces X. Every cell and resistor is marked + and −: a resistor's + end is where the current goes in. Change the values and watch the currents and the signs. The readout checks \(\Sigma i = 0\) at X and \(\Sigma V = 0\) round both loops with your numbers. A negative current means it flows the opposite way to the arrow, so that cell is being <strong>charged</strong>.</p>
+<p class="sub">Three branches join at junctions X (top) and Y (bottom). Each cell's positive terminal faces X. The arrows show the current directions with the starting values: \(i_1\) arrives at X, while \(i_2\) and \(i_3\) leave it. Every cell and resistor is marked + and −; a resistor's + end is where the current goes in. Change the values and watch the currents and the signs. The readout checks \(\Sigma i = 0\) at X and \(\Sigma V = 0\) round both loops with your numbers. If a current comes out negative, it really flows against its arrow, and the + and − on that resistor swap over.</p>
 <div class="nx-lab">
 <div class="sim"><canvas id="kirCanvas" height="380" aria-label="Circuit with two cells and three resistors in three parallel branches, showing current directions and sizes"></canvas></div>
 <div class="nx-ctlbar">
@@ -546,11 +546,11 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <ol class="nx-list">
 <li><strong>Draw a current arrow in each branch</strong> (any direction will do).</li>
 <li><strong>Mark + and −</strong> on every component: the long plate of each cell is +; each resistor is + where your arrow goes in and − where it comes out.</li>
-<li><strong>Junction X, \(\Sigma i = 0\)</strong> (in is +, out is −): \(i_1\) and \(i_2\) arrive, \(i_3\) leaves, so \(i_1 + i_2 - i_3 = 0\).</li>
+<li><strong>Junction X, \(\Sigma i = 0\)</strong> (in is +, out is −): \(i_1\) arrives, while \(i_2\) and \(i_3\) leave, so \(i_1 - i_2 - i_3 = 0\).</li>
 <li><strong>Left loop, \(\Sigma V = 0\)</strong>, walking clockwise from Y up through cell 1, across to X and down through \(R_3\): rise through the cell (− to +), fall through \(R_1\) and \(R_3\) (+ to −): \(\varepsilon_1 - i_1R_1 - i_3R_3 = 0\).</li>
-<li><strong>Right loop, \(\Sigma V = 0\)</strong>, also clockwise: from Y up through \(R_3\) (against \(i_3\), so − to +: a rise), across to the right, then down through \(R_2\) (against \(i_2\): a rise) and down through cell 2 (+ to −: a fall): \(i_3R_3 + i_2R_2 - \varepsilon_2 = 0\).</li>
-<li><strong>The direction you walk doesn't matter.</strong> Going round the right loop anticlockwise instead gives \(\varepsilon_2 - i_2R_2 - i_3R_3 = 0\). That's the same equation with every sign flipped, which is the same as multiplying both sides by −1, and −0 = 0. The same goes for junctions: counting "out" as + instead of "in" just flips every sign in \(\Sigma i = 0\). Choose one direction and stick to it for each loop.</li>
-<li><strong>Solve</strong> the three equations. A negative current means it really flows against your arrow, and the + and − on that resistor swap over.</li>
+<li><strong>Right loop, \(\Sigma V = 0\)</strong>, also clockwise: from Y up through \(R_3\) (against \(i_3\), so − to +: a rise), across to the right, down through \(R_2\) (with \(i_2\), so + to −: a fall) and down through cell 2 (+ to −: a fall): \(i_3R_3 - i_2R_2 - \varepsilon_2 = 0\).</li>
+<li><strong>The direction you walk doesn't matter.</strong> Going round the right loop anticlockwise instead gives \(\varepsilon_2 + i_2R_2 - i_3R_3 = 0\). That's the same equation with every sign flipped, which is the same as multiplying both sides by −1, and −0 = 0. The same goes for junctions: counting "out" as + instead of "in" just flips every sign in \(\Sigma i = 0\). Choose one direction and stick to it for each loop.</li>
+<li><strong>Solve</strong> the three equations. A negative current means it really flows against your arrow, and the + and − on that resistor swap over. Here \(i_2\) flows <em>into</em> the + terminal of cell 2, so cell 2 is being charged.</li>
 </ol>
 </section>
 
@@ -587,12 +587,12 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p><strong>(b)</strong> Calculate the current in each branch. <span class="exam-level">Excellence</span></p>
 <p><strong>(c)</strong> Explain what is happening to the 6.0 V cell. <span class="exam-level">Excellence</span></p>
 <details class="exam-answer"><summary>Show worked answer · Question Three</summary>
-<p><strong>(a)</strong> Take \(i_{1}\) and \(i_{2}\) upwards through the cells (into X) and \(i_{3}\) downwards through the 6.0 Ω (out of X). Each resistor is + where its current enters.</p>
-<p>Junction X, \(\Sigma i = 0\) (in +, out −): \(i_{1} + i_{2} - i_{3} = 0\)</p>
+<p><strong>(a)</strong> Take \(i_{1}\) upwards through the 12 V cell (into X), and \(i_{2}\) and \(i_{3}\) downwards through the 2.0 Ω and 6.0 Ω branches (out of X). Each resistor is + where its current enters.</p>
+<p>Junction X, \(\Sigma i = 0\) (in +, out −): \(i_{1} - i_{2} - i_{3} = 0\)</p>
 <p>Left loop, \(\Sigma V = 0\) (up through the 12 V cell, − to +, then through 4.0 Ω and 6.0 Ω, + to −): \(12 - 4.0\,i_{1} - 6.0\,i_{3} = 0\)</p>
-<p>Right loop, \(\Sigma V = 0\), also walked clockwise (up through the 6.0 Ω against \(i_3\), down through 2.0 Ω against \(i_2\), then down through the 6.0 V cell from + to −): \(6.0\,i_{3} + 2.0\,i_{2} - 6.0 = 0\)</p>
-<p><strong>(b)</strong> Let \(V\) be the potential of X above Y. Then \(i_{1} = (12 - V)/4.0\), \(i_{2} = (6.0 - V)/2.0\) and \(i_{3} = V/6.0\). Substituting into the junction rule: \((12 - V)/4 + (6 - V)/2 = V/6\), which gives \(V = 6.55 \,\mathrm{V}\). So <strong>\(i_{1} = 1.36\) A</strong>, <strong>\(i_{2} = -0.27\) A</strong>, <strong>\(i_{3} = 1.09\) A</strong>. Check \(\Sigma i = 0\) at X: \(1.36 + (-0.27) - 1.09 = 0\) ✓.</p>
-<p><strong>(c)</strong> \(i_{2}\) is negative, so 0.27 A flows <em>into</em> the positive terminal of the 6.0 V cell, against its emf. The 12 V cell is forcing current backwards through it, so the 6.0 V cell is <strong>being charged</strong>: electrical energy is converted into chemical energy in it (if it is rechargeable).</p></details></div>
+<p>Right loop, \(\Sigma V = 0\), also walked clockwise (up through the 6.0 Ω against \(i_3\): a rise; down through the 2.0 Ω with \(i_2\): a fall; then down through the 6.0 V cell from + to −: a fall): \(6.0\,i_{3} - 2.0\,i_{2} - 6.0 = 0\)</p>
+<p><strong>(b)</strong> Let \(V\) be the potential of X above Y. Then \(i_{1} = (12 - V)/4.0\), \(i_{2} = (V - 6.0)/2.0\) and \(i_{3} = V/6.0\). Substituting into the junction rule: \((12 - V)/4 - (V - 6)/2 - V/6 = 0\), which gives \(V = 6.55 \,\mathrm{V}\). So <strong>\(i_{1} = 1.36\) A</strong>, <strong>\(i_{2} = 0.27\) A</strong>, <strong>\(i_{3} = 1.09\) A</strong>, all positive, so every arrow was the right way round. Check \(\Sigma i = 0\) at X: \(1.36 - 0.27 - 1.09 = 0\) ✓.</p>
+<p><strong>(c)</strong> \(i_{2}\) flows downwards, so 0.27 A flows <em>into</em> the positive terminal of the 6.0 V cell, against its emf. The 12 V cell is forcing current backwards through it, so the 6.0 V cell is <strong>being charged</strong>: electrical energy is converted into chemical energy in it (if it is rechargeable).</p></details></div>
 </section>
 
 <section class="pane hidden" data-section="dc" data-view="apps">
@@ -2302,7 +2302,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
 (()=>{
  const cv=$('kirCanvas');const st={ph:[0,0,0]};
  const P=()=>({E1:+$('kE1').value,E2:+$('kE2').value,R1:+$('kR1').value,R2:+$('kR2').value,R3:+$('kR3').value});
- function solve(){const p=P();const V=(p.E1/p.R1+p.E2/p.R2)/(1/p.R1+1/p.R2+1/p.R3);return{V,I1:(p.E1-V)/p.R1,I2:(p.E2-V)/p.R2,I3:V/p.R3}}
+ function solve(){const p=P();const V=(p.E1/p.R1+p.E2/p.R2)/(1/p.R1+1/p.R2+1/p.R3);return{V,I1:(p.E1-V)/p.R1,I2:(V-p.E2)/p.R2,I3:V/p.R3}}
  st.step=dt=>{const s=solve();const k=40;st.ph[0]+=dt*s.I1*k;st.ph[1]+=dt*s.I2*k;st.ph[2]+=dt*s.I3*k};
  st.draw=function(){const {c,W,H}=fit(cv,380,380);clear(c,W,H);const p=P(),s=solve();
   const nar=W<520;const cx=W/2,xl=nar?62:Math.max(50,cx-Math.min(260,W*0.36)),xr=nar?W-62:Math.min(W-50,cx+Math.min(260,W*0.36)),T=44,B=H-44;
@@ -2315,11 +2315,14 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   line(c,cx,T,cx,T+(B-T)*0.35,WIRE,2);resistorV(c,cx,T+(B-T)*0.35,(B-T)*0.3,'',INK);line(c,cx,T+(B-T)*0.65,cx,B,WIRE,2);text(c,nar?'R₃':'R₃ = '+p.R3+' Ω',cx+14,T+(B-T)*0.5,INK,12,'left','middle');
   dot(c,cx,T,5,INK);dot(c,cx,B,5,INK);text(c,'X  (+'+s.V.toFixed(2)+' V)',cx,T-12,GRN,12,'center');text(c,'Y  (0 V)',cx,B+20,MUT,12,'center');
   // current dots (paths from Y to X for 1 and 2; X to Y for 3)
-  polyDots(c,[[cx,B],[xl,B],[xl,T],[cx,T]],st.ph[0],22,YEL);polyDots(c,[[cx,B],[xr,B],[xr,T],[cx,T]],st.ph[1],22,CYN);polyDots(c,[[cx,T],[cx,B]],st.ph[2],22,ROSE);
+  polyDots(c,[[cx,B],[xl,B],[xl,T],[cx,T]],st.ph[0],22,YEL);polyDots(c,[[cx,T],[xr,T],[xr,B],[cx,B]],st.ph[1],22,CYN);polyDots(c,[[cx,T],[cx,B]],st.ph[2],22,ROSE);
   // arrows and labels
-  const lab=(x,y,I,name,up,col)=>{const pos=I>=0;const dirUp=up?pos:!pos;arrow(c,x,y+(dirUp?14:-14),x,y+(dirUp?-14:14),col,3);text(c,nar?name:name+' = '+Math.abs(I).toFixed(2)+' A'+(I<0?' (reversed)':''),x+(x<cx?-14:14),y,col,12,x<cx?'right':'left','middle')};
-  lab(xl,T+(B-T)*0.55+18,s.I1,'I₁',true,YEL);lab(xr,T+(B-T)*0.55+18,s.I2,'I₂',true,CYN);
-  const y3=T+(B-T)*0.82,pos3=s.I3>=0;arrow(c,cx,y3+(pos3?-14:14),cx,y3+(pos3?14:-14),ROSE,3);text(c,nar?'I₃':'I₃ = '+Math.abs(s.I3).toFixed(2)+' A'+(s.I3<0?' (reversed)':''),cx+14,y3,ROSE,12,'left','middle');
+  const chev=(x,y,dirUp,col)=>{const s2=dirUp?-1:1;c.save();c.lineCap='round';c.lineJoin='round';
+   const draw=(w,cl)=>{c.strokeStyle=cl;c.lineWidth=w;c.beginPath();c.moveTo(x,y-s2*9);c.lineTo(x,y+s2*7);c.stroke();c.beginPath();c.moveTo(x-8,y+s2*0);c.lineTo(x,y+s2*9);c.lineTo(x+8,y+s2*0);c.stroke()};
+   draw(9,BG);draw(4,col);c.restore()};
+  const lab=(x,y,I,name,up,col)=>{const pos=I>=0;const dirUp=up?pos:!pos;chev(x,y,dirUp,col);text(c,nar?name:name+' = '+Math.abs(I).toFixed(2)+' A'+(I<0?' (reversed)':''),x+(x<cx?-14:14),y,col,12,x<cx?'right':'left','middle')};
+  lab(xl,T+(B-T)*0.55+18,s.I1,'I₁',true,YEL);lab(xr,T+(B-T)*0.55+18,s.I2,'I₂',false,CYN);
+  const y3=T+(B-T)*0.82,pos3=s.I3>=0;chev(cx,y3,!pos3,ROSE);text(c,nar?'I₃':'I₃ = '+Math.abs(s.I3).toFixed(2)+' A'+(s.I3<0?' (reversed)':''),cx+14,y3,ROSE,12,'left','middle');
   // voltage loops: walk up through each cell, across the top to X, down through R3
   const loopArc=(x0,y0,r,cw,col,lab)=>{c.save();c.strokeStyle=col;c.lineWidth=2;c.setLineDash([5,4]);c.beginPath();const a0=cw?-Math.PI/2+0.45:-Math.PI/2-0.45,a1=cw?a0+1.75*Math.PI:a0-1.75*Math.PI;c.arc(x0,y0,r,a0,a1,!cw);c.stroke();c.setLineDash([]);c.restore();
    const ex=x0+r*Math.cos(a1),ey=y0+r*Math.sin(a1);arrowHead(c,ex,ey,a1+(cw?Math.PI/2:-Math.PI/2),col,9);if(r<30){text(c,lab,x0,y0,col,12,'center','middle')}else{text(c,lab,x0,y0-5,col,12,'center','middle');text(c,'ΣV = 0',x0,y0+12,col,12,'center','middle')}};
@@ -2330,13 +2333,13 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   pm(xl+18,cyc-13,1);pm(xl+18,cyc+14,-1);pm(xr-18,cyr-13,1);pm(xr-18,cyr+14,-1);
   const rTop=T+(B-T)*0.18,rBot=rTop+(B-T)*0.24,mTop=T+(B-T)*0.35,mBot=mTop+(B-T)*0.3;
   const resPM=(x,top,bot,I,currentUp)=>{if(Math.abs(I)<1e-6)return;const up=currentUp?I>0:I<0;/* current enters at bottom when moving up */pm(x,bot-2,up?1:-1);pm(x,top+2,up?-1:1)};
-  resPM(xl+18,rTop,rBot,s.I1,true);resPM(xr-18,rTop,rBot,s.I2,true);resPM(cx+18,mTop,mBot,s.I3,false);
+  resPM(xl+18,rTop,rBot,s.I1,true);resPM(xr-18,rTop,rBot,s.I2,false);resPM(cx+18,mTop,mBot,s.I3,false);
   const f=x=>(Math.abs(x)<0.005?0:x).toFixed(2),g=x=>x<0?'('+f(x)+')':f(x);
   window.EM.set($('kirReadout'),'\\(i_{1}\\) = <strong>'+f(s.I1)+' A</strong> · \\(i_{2}\\) = <strong>'+f(s.I2)+' A</strong> · \\(i_{3}\\) = <strong>'+f(s.I3)+' A</strong>'+
-   '<br/><b>Junction X, \\(\\Sigma i = 0\\)</b> (in +, out −): \\(i_1 + i_2 - i_3\\) = '+g(s.I1)+' + '+g(s.I2)+' − '+g(s.I3)+' = '+f(s.I1+s.I2-s.I3)+' ✓'+
+   '<br/><b>Junction X, \\(\\Sigma i = 0\\)</b> (in +, out −): \\(i_1 - i_2 - i_3\\) = '+g(s.I1)+' − '+g(s.I2)+' − '+g(s.I3)+' = '+f(s.I1-s.I2-s.I3)+' ✓'+
    '<br/><b class="loopL">Left loop</b>, <b>\\(\\Sigma V = 0\\)</b>: \\(\\varepsilon_1 - i_1R_1 - i_3R_3\\) = '+p.E1+' − '+g(s.I1*p.R1)+' − '+g(s.I3*p.R3)+' = '+f(p.E1-s.I1*p.R1-s.I3*p.R3)+' ✓'+
-   '<br/><b class="loopR">Right loop</b>, <b>\\(\\Sigma V = 0\\)</b>: \\(i_3R_3 + i_2R_2 - \\varepsilon_2\\) = '+g(s.I3*p.R3)+' + '+g(s.I2*p.R2)+' − '+p.E2+' = '+f(s.I3*p.R3+s.I2*p.R2-p.E2)+' ✓'+
-   (s.I2<-1e-6?'<br/><strong>Cell 2 is being charged</strong>: current is forced into its + terminal, and the + and − on \\(R_2\\) have swapped.':'')+(s.I1<-1e-6?'<br/><strong>Cell 1 is being charged</strong>: current is forced into its + terminal, and the + and − on \\(R_1\\) have swapped.':''));
+   '<br/><b class="loopR">Right loop</b>, <b>\\(\\Sigma V = 0\\)</b>: \\(i_3R_3 - i_2R_2 - \\varepsilon_2\\) = '+g(s.I3*p.R3)+' − '+g(s.I2*p.R2)+' − '+p.E2+' = '+f(s.I3*p.R3-s.I2*p.R2-p.E2)+' ✓'+
+   (s.I2>1e-6?'<br/><strong>Cell 2 is being charged</strong>: \\(i_2\\) flows down into its + terminal, against its emf.':'')+(s.I2<-1e-6?'<br/>\\(i_2\\) is negative, so it really flows <em>up</em>, the opposite way to the direction we chose (down). Its arrow flips to show this, and the + and − on \\(R_2\\) swap over. Cell 2 is now supplying energy.':'')+(s.I3<-1e-6?'<br/>\\(i_3\\) is negative, so it really flows <em>up</em> through \\(R_3\\), the opposite way to the direction we chose. Its arrow flips and the + and − on \\(R_3\\) swap over.':'')+(s.I1<-1e-6?'<br/><strong>Cell 1 is being charged</strong>: current is forced into its + terminal, and the + and − on \\(R_1\\) have swapped.':''));
  };
  st.enter=()=>st.draw();
  const upd=()=>{const p=P();$('kE1Out').textContent=p.E1.toFixed(1)+' V';$('kE2Out').textContent=p.E2.toFixed(1)+' V';$('kR1Out').textContent=p.R1.toFixed(1)+' Ω';$('kR2Out').textContent=p.R2.toFixed(1)+' Ω';$('kR3Out').textContent=p.R3.toFixed(1)+' Ω'};
