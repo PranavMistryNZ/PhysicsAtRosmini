@@ -1,8 +1,9 @@
 # Physics@Rosmini · version history
 
-Each version is saved on GitHub as a tag (see the repository's **Tags** list).
-To see or restore an older version, ask Claude, or open the tag on GitHub
-and download the files.
+`main` is the live site. Each finished version is also saved as its own
+branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
+To see or restore an older version, ask Claude, or pick the branch from the
+branch menu on GitHub.
 
 ## v1.0 · 28 October 2026
 - Hub (`index.html`): year-level rail, topic cards, search and filters,
