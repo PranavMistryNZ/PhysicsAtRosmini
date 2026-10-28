@@ -5,6 +5,22 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.2 · 28 October 2026 (Year 13 Electrical Systems lab)
+- New lab `y13/electrical.html` for AS91526, covering the whole standard in seven sections:
+  00 Course Map, 01 DC Circuits, 02 Capacitors, 03 Flux & Faraday, 04 Inductors,
+  05 Transformers, 06 AC Circuits.
+- Interactive labs: battery V–i graph with best-fit ε and r (and a mystery battery);
+  Kirchhoff explorer with + and − markings, clockwise ΣV = 0 loops and Σi = 0 at the junction;
+  parallel-plate builder (connected vs disconnected); RC and LR charge/discharge with τ markers;
+  combining capacitors; magnet and coil; moving loop (ε = BvL); flux–time to emf–time sketcher;
+  switching off an inductor (neon and diode); transformer (AC/DC); transmission losses;
+  rms and heating; phase and reactance with rotating phasors; LCR resonance.
+- Each section has an introduction, quick check, exam-style problems with worked answers and
+  an Applications tab. Course map, exam skills (2025 examiners' report) and formula sheet
+  cover the whole standard.
+- All equations use LaTeX (KaTeX); current is written as lowercase i throughout.
+- Hub: the Electrical Systems card now opens the lab.
+
 ## v1.1 · 28 October 2026 (Year 13 Waves lab)
 - New tabs: **1.4 Resonance** and **1.5 Beats** (split from one tab), and **2.4 Multi-slit**
   (2 to 10 slits with peaks growing as N², square-root intensity option; white light through a
