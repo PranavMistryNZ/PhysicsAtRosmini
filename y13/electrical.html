@@ -184,6 +184,23 @@ select{width:100%;background:#252740;color:white;border:1px solid #6c6b89;border
 .chain .katex,.nx-trap .katex{font-size:1em}
 .katex-display{overflow-x:auto;overflow-y:hidden;padding:2px 0}
 .loopL{color:#8fd694}.loopR{color:#c5a2ff}body.light-mode .loopL{color:#2d7a37}body.light-mode .loopR{color:#68409a}
+/* method table: words left, equations right */
+.methtab-wrap{overflow-x:auto;margin:10px 0}
+.methtab{width:100%;border-collapse:separate;border-spacing:0;border:1px solid #39445d;border-radius:10px;overflow:hidden}
+.methtab th{text-align:left;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:#0c1222;padding:9px 14px;border-bottom:1px solid #39445d}
+.methtab td{padding:12px 14px;border-bottom:1px solid #2b3350;vertical-align:middle;font-size:14px;line-height:1.55;background:#11182b}
+.methtab tr:last-child td{border-bottom:0}
+.methtab td:first-child{width:58%}
+.methtab td b{color:var(--ink)}.methtab td b.loopL{color:#8fd694}.methtab td b.loopR{color:#c5a2ff}
+.methtab .meq{background:#0a1020;border-left:3px solid var(--topic);text-align:center}
+.methtab .meq .katex-display{margin:0}.methtab .meq .katex{font-size:1.18em}
+.methtab .meq.muted{color:var(--muted);font-size:12px;font-style:italic}
+.methtab .mnote-row td{background:#0c1222}
+.mnum{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--topic);color:var(--topic-contrast);font-weight:800;font-size:12px;margin-right:8px;vertical-align:1px}
+body.light-mode .methtab{border-color:#c6d0db}body.light-mode .methtab th{background:#eef3f8;border-color:#c6d0db}
+body.light-mode .methtab td{background:#fff;border-color:#dde3ea}body.light-mode .methtab .meq,body.light-mode .methtab .mnote-row td{background:#f3f6fa}
+body.light-mode .methtab td b.loopL{color:#2d7a37}body.light-mode .methtab td b.loopR{color:#68409a}
+@media(max-width:700px){.methtab thead{display:none}.methtab,.methtab tbody,.methtab tr,.methtab td{display:block;width:100%!important}.methtab td.meq{border-left:3px solid var(--topic)}.methtab .meq.muted{display:none}}
 /* applications */
 .app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin:14px 0 6px}
 .app-card{background:#11182b;border:1px solid #39445d;border-top:4px solid var(--topic);border-radius:10px;padding:13px 14px;min-width:0;display:flex;flex-direction:column;gap:2px;transition:border-color .15s,box-shadow .15s}
@@ -512,6 +529,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="control" id="batrWrap"><label for="batr">Internal resistance, \(r\) <output id="batrOut">1.5 Ω</output></label><input id="batr" max="5" min="0.1" step="0.1" type="range" value="1.5"/></div>
 <div class="control"><label for="batR">Load resistance, \(R\) <output id="batROut">5.0 Ω</output></label><input id="batR" max="30" min="0.2" step="0.2" type="range" value="5"/></div>
 <div class="btn-row"><button class="tool-btn" id="batRec" type="button">Record reading</button><button class="tool-btn secondary" id="batClear" type="button">Clear graph</button><button class="tool-btn secondary" id="batMystery" type="button">Mystery battery</button></div>
+<label class="check-row"><input checked id="batCompare" type="checkbox"/> Compare batteries with different internal resistance (\(r\))</label>
 </div>
 <div class="nx-bar-info"><div class="readout" id="batReadout">…</div><div class="readout" id="batFit" style="border-left-color:#ffd76a">…</div></div>
 </div>
@@ -522,6 +540,19 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <li>The best-fit line meets the \(V\) axis at \(\varepsilon\) (zero current) and the \(i\) axis at \(\varepsilon /r\) (short circuit).</li>
 <li>Power to the load, \(Vi\), is largest when \(R = r\), but then half the energy is wasted in the battery.</li>
 </ul>
+<h3>What makes a good battery?</h3>
+<p class="note">With <strong>Compare batteries</strong> ticked, the graph shows your battery between a good one (\(r\) = 0.2 Ω) and a poor one (\(r\) = 4 Ω), all with the <em>same</em> emf (\(\varepsilon\)). They all start at \(\varepsilon\) when no current flows, so a voltmeter on its own can't tell them apart. The difference shows up only when they supply a current: the gradient of each line is \(-r\).</p>
+<div class="nx-grid2">
+<div class="nx-card" style="border-top:4px solid #5fd39a"><h3>Good battery: small \(r\)</h3><ul class="nx-list">
+<li><strong>Flat line:</strong> the terminal voltage stays close to \(\varepsilon\) even when a large current is drawn, so devices get the voltage they were designed for.</li>
+<li><strong>Little waste:</strong> few "lost volts" (\(ir\)), so little power heats the battery (\(P = i^2r\)). Most of the energy reaches the load and the battery stays cool.</li>
+<li><strong>Large maximum current:</strong> the line meets the current axis far out, at \(i = \varepsilon/r\). A car battery has \(r\) of only about 0.01 Ω so it can drive over 100 A through a starter motor.</li></ul></div>
+<div class="nx-card" style="border-top:4px solid #ff8a7a"><h3>Poor battery: large \(r\)</h3><ul class="nx-list">
+<li><strong>Steep line:</strong> the terminal voltage collapses as soon as current flows, so lamps dim and motors slow.</li>
+<li><strong>Wasted energy:</strong> more of each coulomb's energy is turned into heat inside the battery.</li>
+<li><strong>Small maximum current:</strong> \(\varepsilon/r\) is small, so it simply can't supply a demanding load.</li></ul></div>
+</div>
+<p class="note"><strong>Why batteries "go flat":</strong> as a battery ages or gets cold, its chemistry changes and \(r\) rises. Its emf (\(\varepsilon\)) may hardly change, which is why a tired battery can still read almost its full voltage on a voltmeter but fails as soon as you switch something on.</p>
 </section>
 
 <section class="pane hidden" data-section="dc" data-view="kirchhoff">
@@ -543,15 +574,17 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </div>
 </div>
 <h3>Method for exam questions</h3>
-<ol class="nx-list">
-<li><strong>Draw a current arrow in each branch</strong> (any direction will do).</li>
-<li><strong>Mark + and −</strong> on every component: the long plate of each cell is +; each resistor is + where your arrow goes in and − where it comes out.</li>
-<li><strong>Junction X, \(\Sigma i = 0\)</strong> (in is +, out is −): \(i_1\) arrives, while \(i_2\) and \(i_3\) leave, so \(i_1 - i_2 - i_3 = 0\).</li>
-<li><strong>Left loop, \(\Sigma V = 0\)</strong>, walking clockwise from Y up through cell 1, across to X and down through \(R_3\): rise through the cell (− to +), fall through \(R_1\) and \(R_3\) (+ to −): \(\varepsilon_1 - i_1R_1 - i_3R_3 = 0\).</li>
-<li><strong>Right loop, \(\Sigma V = 0\)</strong>, also clockwise: from Y up through \(R_3\) (against \(i_3\), so − to +: a rise), across to the right, down through \(R_2\) (with \(i_2\), so + to −: a fall) and down through cell 2 (+ to −: a fall): \(i_3R_3 - i_2R_2 - \varepsilon_2 = 0\).</li>
-<li><strong>The direction you walk doesn't matter.</strong> Going round the right loop anticlockwise instead gives \(\varepsilon_2 + i_2R_2 - i_3R_3 = 0\). That's the same equation with every sign flipped, which is the same as multiplying both sides by −1, and −0 = 0. The same goes for junctions: counting "out" as + instead of "in" just flips every sign in \(\Sigma i = 0\). Choose one direction and stick to it for each loop.</li>
-<li><strong>Solve</strong> the three equations. A negative current means it really flows against your arrow, and the + and − on that resistor swap over. Here \(i_2\) flows <em>into</em> the + terminal of cell 2, so cell 2 is being charged.</li>
-</ol>
+<div class="methtab-wrap"><table class="methtab">
+<thead><tr><th>Step</th><th>Equation</th></tr></thead>
+<tbody>
+<tr><td><span class="mnum">1</span><b>Draw a current arrow in each branch.</b> Any direction will do. If you guess wrong, that current just comes out negative.</td><td class="meq muted">no equation yet</td></tr>
+<tr><td><span class="mnum">2</span><b>Mark + and − on every component.</b> Cells: the long plate is +. Resistors: + where your arrow goes in, − where it comes out.</td><td class="meq muted">no equation yet</td></tr>
+<tr><td><span class="mnum">3</span><b>Junction X: \(\Sigma i = 0\).</b> Count currents arriving as + and leaving as −. Here \(i_1\) arrives; \(i_2\) and \(i_3\) leave.</td><td class="meq">\[i_1 - i_2 - i_3 = 0\]</td></tr>
+<tr><td><span class="mnum">4</span><b class="loopL">Left loop: \(\Sigma V = 0\), clockwise.</b> From Y, up through cell 1 (− to +, a rise), across to X, then down through \(R_1\) and \(R_3\) with the current (+ to −, falls).</td><td class="meq">\[\varepsilon_1 - i_1R_1 - i_3R_3 = 0\]</td></tr>
+<tr><td><span class="mnum">5</span><b class="loopR">Right loop: \(\Sigma V = 0\), clockwise.</b> From Y, up through \(R_3\) against \(i_3\) (a rise), across, down through \(R_2\) with \(i_2\) (a fall), then down through cell 2 from + to − (a fall).</td><td class="meq">\[i_3R_3 - i_2R_2 - \varepsilon_2 = 0\]</td></tr>
+<tr><td><span class="mnum">6</span><b>Solve the three equations.</b> A negative answer means that current really flows against your arrow, and the + and − on its resistor swap over. Here \(i_2\) flows into the + terminal of cell 2, so cell 2 is being charged.</td><td class="meq">\[\begin{aligned}i_1&amp;=1.36\ \text{A}\\ i_2&amp;=0.27\ \text{A}\\ i_3&amp;=1.09\ \text{A}\end{aligned}\]</td></tr>
+<tr class="mnote-row"><td><span class="mnum">?</span><b>Does the walking direction matter? No.</b> Walking the right loop anticlockwise flips every sign: it's step 5's equation multiplied by −1, and −0 = 0, so the answers don't change. Junctions are the same: counting currents leaving as + just flips every sign in \(\Sigma i = 0\). Pick one direction (clockwise is a good habit) and stick to it.</td><td class="meq">\[\varepsilon_2 + i_2R_2 - i_3R_3 = 0\]</td></tr>
+</tbody></table></div>
 </section>
 
 <section class="pane hidden" data-section="dc" data-view="check">
@@ -2276,6 +2309,18 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   const g=frame(c,gx,gy,gw,gh,0,Imx,0,Vmx,'','current I',v=>eng(v,'V',2));
   c.fillStyle=BG;c.fillRect(gx+2,gy+1,Math.min(gw-4,330),20);text(c,'Terminal voltage:  V = ε − Ir',gx+6,gy+15,INK,14);
   text(c,'0',gx,gy+gh+13,MUT,10,'center');text(c,eng(Imx,'A',2),gx+gw,gy+gh+13,MUT,10,'right');
+  // compare batteries: same emf, different internal resistance
+  const CMP=[[0.2,'#5fd39a','good'],[4,'#ff8a7a','poor']];let cmpTxt='';
+  if($('batCompare').checked&&!st.mystery){
+   CMP.forEach(([rr,col,tag])=>{const iEnd=Math.min(Imx,p.E/rr);c.setLineDash([7,5]);line(c,g.X(0),g.Y(p.E),g.X(iEnd),g.Y(p.E-rr*iEnd),col,2);c.setLineDash([]);
+    const lbl='r = '+rr+' Ω'+(tag?' ('+tag+')':'');
+    if(p.E/rr<=Imx)text(c,lbl,g.X(iEnd)+6,g.Y(0)-10,col,12,'left');else text(c,lbl,gx+gw-4,g.Y(p.E-rr*Imx)-8,col,12,'right');
+    const vv=p.E-rr*I;if(vv>0)dot(c,g.X(I),g.Y(vv),4,col);
+    cmpTxt+='<br/><span style="color:'+col+'">●</span> \\(r\\) = '+rr+' Ω: \\(V\\) = '+(vv>0?vv.toFixed(2)+' V':'0 V (it cannot supply this current)');});
+   line(c,g.X(I),gy,g.X(I),gy+gh,'rgba(255,255,255,.35)',1,[3,4]);
+   const iY=Math.min(Imx,p.E/p.r);line(c,g.X(0),g.Y(p.E),g.X(iY),g.Y(p.E-p.r*iY),'rgba(255,255,255,.8)',2.4);
+   text(c,'your battery (r = '+p.r.toFixed(1)+' Ω)',g.X(iY*0.5)+8,g.Y(p.E-p.r*iY*0.5)+16,INK,12,'left');
+  }
   const f=fitLine();if(f){const xi=Math.min(Imx,-f.b/f.m>0?-f.b/f.m:Imx);c.setLineDash([6,4]);line(c,g.X(0),g.Y(f.b),g.X(xi),g.Y(f.b+f.m*xi),GRN,2);c.setLineDash([])}
   st.pts.forEach(([x,y])=>dot(c,g.X(x),g.Y(y),4.5,YEL));
   {const f2=fitLine();const eVal=st.mystery?(f2?f2.b:null):p.E;
@@ -2285,12 +2330,13 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
     text(c,'emf (V when I = 0)',gx+gw-6,ye-6,GRN,11,'right')}
    else if(st.mystery)text(c,'ε = ?',gx-10,g.Y(Vmx/2),GRN,12,'right','middle')}
   c.strokeStyle=INK;c.lineWidth=2;c.beginPath();c.arc(g.X(I),g.Y(V),6,0,7);c.stroke();
-  window.EM.set($('batReadout'),'Current \\(i\\) = <strong>'+I.toFixed(3)+' A</strong> · terminal voltage \\(V\\) = <strong>'+V.toFixed(2)+' V</strong><br/>'+(st.mystery?'Lost volts \\(ir\\) = ? (find \\(r\\) first)':'Lost volts \\(ir\\) = '+lost.toFixed(2)+' V (\\(\\varepsilon\\) = '+p.E.toFixed(1)+' V = \\(V + ir\\) ✓)')+'<br/>Power to load \\(Vi\\) = '+eng(V*I,'W',3)+(st.mystery?'':' · wasted in battery \\(i^{2}r\\) = '+eng(I*I*p.r,'W',3)));
+  const cmpHead=cmpTxt?'<br/><b>Same emf (\\(\\varepsilon\\)), different \\(r\\), at \\(i\\) = '+I.toFixed(2)+' A:</b>'+cmpTxt.replace(/(<br\/><span style="color:#ff8a7a">)/,'<br/><span style="color:#e9edf8">●</span> your battery, \\(r\\) = '+p.r.toFixed(1)+' Ω: \\(V\\) = '+V.toFixed(2)+' V$1'):'';
+  window.EM.set($('batReadout'),'Current \\(i\\) = <strong>'+I.toFixed(3)+' A</strong> · terminal voltage \\(V\\) = <strong>'+V.toFixed(2)+' V</strong><br/>'+(st.mystery?'Lost volts \\(ir\\) = ? (find \\(r\\) first)':'Lost volts \\(ir\\) = '+lost.toFixed(2)+' V (\\(\\varepsilon\\) = '+p.E.toFixed(1)+' V = \\(V + ir\\) ✓)')+'<br/>Power to load \\(Vi\\) = '+eng(V*I,'W',3)+(st.mystery?'':' · wasted in battery \\(i^{2}r\\) = '+eng(I*I*p.r,'W',3))+cmpHead);
   window.EM.set($('batFit'),f?'Best-fit line through '+st.pts.length+' points:<br/>intercept → <strong>\\(\\varepsilon \\approx\\) '+f.b.toFixed(2)+' V</strong> · gradient → <strong>\\(r\\) ≈ '+(-f.m).toFixed(2)+' Ω</strong>'+(st.mystery?'<br/>Press <em>Reveal answer</em> to check.':''):'Recorded points: '+st.pts.length+'. Record at least 3 readings at different loads to fit a line.');
  };
  st.enter=()=>st.draw();
  const upd=()=>{$('batEOut').textContent=(+$('batE').value).toFixed(1)+' V';$('batrOut').textContent=(+$('batr').value).toFixed(1)+' Ω';$('batROut').textContent=(+$('batR').value).toFixed(1)+' Ω'};
- bindOut(['batE','batr','batR'],upd);['batE','batr'].forEach(id=>$(id).addEventListener('input',()=>{st.pts=[]}));
+ bindOut(['batE','batr','batR'],upd);$('batCompare').addEventListener('change',()=>st.draw());['batE','batr'].forEach(id=>$(id).addEventListener('input',()=>{st.pts=[]}));
  $('batRec').onclick=()=>{const p=P();const I=p.E/(p.R+p.r);st.pts.push([I,I*p.R])};$('batClear').onclick=()=>{st.pts=[]};
  $('batMystery').onclick=()=>{if(!st.mystery){st.mystery={E:Math.round((3+Math.random()*7)*2)/2,r:Math.round((0.5+Math.random()*2.5)*10)/10};st.pts=[];$('batMystery').textContent='Reveal answer';$('batEWrap').classList.add('hidden');$('batrWrap').classList.add('hidden')}
   else{const m=st.mystery;st.mystery=null;$('batMystery').textContent='Mystery battery';$('batEWrap').classList.remove('hidden');$('batrWrap').classList.remove('hidden');$('batE').value=m.E;$('batr').value=m.r;upd();
