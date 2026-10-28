@@ -5,6 +5,10 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.5 · 29 October 2026 (hub note)
+- Hub footer: added a "Work in progress" note explaining that the pages are one teacher's classroom
+  project, not a finished or official product.
+
 ## v1.4 · 29 October 2026 (Year 12 Mechanics lab)
 - New lab `y12/mechanics.html` for AS91171, the first Year 12 lab, in the Mission Control style
   (light and dark themes with the Dark/Light slider). Six sections: Course map & exam skills,
