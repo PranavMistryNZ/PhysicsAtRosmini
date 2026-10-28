@@ -5,6 +5,23 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.1 · 28 October 2026 (Year 13 Waves lab)
+- New tabs: **1.4 Resonance** and **1.5 Beats** (split from one tab), and **2.4 Multi-slit**
+  (2 to 10 slits with peaks growing as N², square-root intensity option; white light through a
+  double slit, 5 slits or a grating with preset gratings). Later tabs renumbered and links updated.
+- 1.4: tuning-fork demo replaced by a "resonance in a pipe" explorer (closed/open pipe, sweep the
+  driving frequency, peaks at each harmonic, animated standing wave, speaker sending sound).
+  Resonance tube now has a proper labelled tuning fork.
+- 2.2: new "path difference = nλ" explorer (drag P, zoomed path difference with 1λ ticks, both θ
+  angles shown with the shaded triangle, steps to nλ = dx/L). Clearer slits and screen; fringe
+  strip shorter and coloured to match the wavelength; λ, d and L shown on the sliders.
+- 3.2: click the picture to move the Doppler source left or right; f and λ labels ahead and behind.
+- Wording: "path difference" instead of Δr, "fringe spacing" instead of Δx, and notes that x is
+  measured from the central maximum and that dx in nλ = dx/L means d × x.
+- Layout: compact control bars, Home button aligned with the Dark/Light switch, selected rail
+  button matches the hub, no underline on hover; animations run on all devices (the Pause button
+  still stops them).
+
 ## v1.0 · 28 October 2026
 - Hub (`index.html`): year-level rail, topic cards, search and filters,
   Dark/Light switch, Google Analytics tag.
