@@ -5,6 +5,22 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.7 · 30 October 2026 (Year 13 Electrical lab, capacitor explanations and exam skills)
+- 0.2 Exam skills: a four-step structure for "explain" questions, the CEO framework
+  (Conceptualise, Execute, Outcomes) written for electrical systems, two CEO worked examples
+  (battery with internal resistance; charging a capacitor), clickable examiner traps that jump to
+  the right section, and a fuller significant figures and units list.
+- 2.2 parallel plates: the graph is back to V against Q, titled "V = (1/C) Q (gradient = 1/C)",
+  with the capacitance shown under the title. εr is now described as the relative permittivity
+  (dielectric constant), with a note not to confuse it with relative permeability μr.
+- 2.3 RC circuit: click A, B or C (open) on the switch; the capacitor keeps its charge when the
+  switch moves or a slider changes, and the graph keeps its history and scrolls. Charges in every
+  wire are coloured by potential and only move where current flows; bigger + and − marks on both
+  plates. New table of charging and discharging values from 0 to 5τ, with the current row lit.
+  New "Zoom in: why does the current stop?" view showing electrons, the push from the supply and
+  the repulsion from charge on the plate, plus a model exam answer.
+- 4.2 LR circuit: the same clickable A/B/C switch, and charges coloured by potential.
+
 ## v1.6 · 30 October 2026 (Year 13 Electrical lab, interactive Kirchhoff and capacitors)
 - 1.2 internal resistance: charges are coloured by their energy (bright leaving the cell, dimmer after
   the resistor and inside the cell); chevron current arrow; energy bar labelled "energy per coulomb",

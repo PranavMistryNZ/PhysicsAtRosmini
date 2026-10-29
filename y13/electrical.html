@@ -203,6 +203,29 @@ body.light-mode .methtab{border-color:#c6d0db}body.light-mode .methtab th{backgr
 body.light-mode .methtab td{background:#fff;border-color:#dde3ea}body.light-mode .methtab .meq,body.light-mode .methtab .mnote-row td{background:#f3f6fa}body.light-mode .methtab .meq{border-left-color:#dde3ea}
 body.light-mode .methtab td b.loopL{color:#2d7a37}body.light-mode .methtab td b.loopR{color:#68409a}
 @media(max-width:700px){.methtab thead{display:none}.methtab,.methtab tbody,.methtab tr,.methtab td{display:block;width:100%!important}.methtab td.meq{border-left:0}.methtab .meq.muted{display:none}}
+.zoom-answer{margin-top:14px;padding:12px 16px;background:#0c1222;border:1px solid #3a4560;border-radius:8px;font-size:14px;line-height:1.55}.zoom-answer ol{margin:6px 0 8px;padding-left:22px}.zoom-answer li{margin:4px 0}
+body.light-mode .zoom-answer{background:#f3f6fa;border-color:#c6d0db}
+.exptab{width:100%;border-collapse:separate;border-spacing:0;border:1px solid #39445d;border-radius:10px;overflow:hidden;font-size:14px}
+.exptab th{font-size:13px;font-weight:600;color:var(--muted);background:#0c1222;padding:9px 10px;border-bottom:1px solid #39445d;text-align:center}
+.exptab th:first-child,.exptab td:first-child{text-align:left}
+.exptab td{text-align:center;font-variant-numeric:tabular-nums;padding:7px 10px;border-bottom:1px solid #2b3350;background:#11182b;line-height:1.35}.exptab tr:last-child td{border-bottom:0}
+.exptab td:first-child{font-weight:700}.exptab td small{color:var(--muted);font-weight:400}
+.exptab tr.now td{background:#2a2440}.exptab tr.now td:first-child{box-shadow:inset 3px 0 0 var(--topic)}
+body.light-mode .exptab{border-color:#c6d0db}body.light-mode .exptab th{background:#eef3f8;border-color:#c6d0db}body.light-mode .exptab td{background:#fff;border-color:#dde3ea}body.light-mode .exptab tr.now td{background:#fde7ee}
+@media(max-width:700px){.exptab{font-size:12px}.exptab th{font-size:10.5px;padding:6px 3px}.exptab td{padding:6px 3px}.exptab th .katex{font-size:1em}}
+.nx-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.nx-steps>div{background:#11182b;border:1px solid #39445d;border-radius:10px;padding:12px;min-width:0}
+.nx-steps>div>span{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--topic);color:#111;font-weight:800;margin-bottom:6px}
+.nx-steps>div>b{display:block}.nx-steps>div>p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+.nx-steps.nx-steps3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.nx-ceo>div>p{color:var(--ink)!important;font-size:14px!important}.nx-ceo .nx-list{font-size:13.5px;padding-left:18px}.nx-ceo .nx-list li{margin:5px 0}
+.nx-worked{background:#0c1222;border:1px solid #3d4864;border-left:5px solid var(--topic);border-radius:6px;margin:10px 0;padding:0 14px}
+.nx-worked summary{cursor:pointer;padding:12px 0;font-weight:700;color:var(--topic)}.nx-worked[open]{padding-bottom:10px}.nx-worked p{font-size:14px;line-height:1.6}
+.nx-trap[data-go]{cursor:pointer}.nx-trap[data-go]:hover{border-left-color:var(--topic)}
+body.light-mode .nx-steps>div,body.light-mode .nx-worked{background:#f7f9fc;border-color:#c6d0db}body.light-mode .nx-worked{border-left-color:var(--topic)}
+@media(max-width:1000px){.nx-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.nx-steps.nx-steps3{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){.nx-steps{grid-template-columns:minmax(0,1fr)}}
 /* readout table (1.3) */
 .rtab{width:100%;border-collapse:collapse;font-size:14px}
 .rtab th{text-align:left;font-weight:400;padding:7px 12px 7px 0;vertical-align:middle;white-space:nowrap;width:1%}
@@ -395,25 +418,54 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <section class="pane hidden" data-section="map" data-view="skills">
 <h2>Exam skills · writing electrical systems answers</h2>
 <p class="sub">What the examiners look for, built from the NZQA 2025 assessment report for AS91526 and the achievement criteria.</p>
-<h3 class="nx-h3">Use an explanation chain</h3>
-<p class="note">Merit and Excellence explanations link ideas in order and name the physics principle behind each step. Two chains cover most questions:</p>
-<div class="chain" aria-label="Induction chain"><span>Change in current or motion</span><i>→</i><span>change in flux</span><i>→</i><span>induced emf (Faraday)</span><i>→</i><span>opposes the change (Lenz)</span><i>→</i><span>effect on current, time or energy</span></div>
-<div class="chain" aria-label="Capacitor chain"><span>Charge builds on plates</span><i>→</i><span>\(V_{C} = Q/C\) rises</span><i>→</i><span>\(V_{R} = \varepsilon - V_{C}\) falls</span><i>→</i><span>current \(i = V_{R}/R\) falls</span><i>→</i><span>charging slows (exponential)</span></div>
 <div class="nx-grid3">
 <div class="nx-card nx-a"><h3>Achievement</h3><p>Single ideas and one-step calculations: terminal voltage, a time constant, maximum current, identifying resonance when \(X_{L} = X_{C}\); sketching the basic shape of a charge or decay curve.</p></div>
 <div class="nx-card nx-m"><h3>Merit</h3><p>Link two ideas: explain why internal resistance lowers terminal voltage; graph exponential decay accurately; explain that at resonance \(X_{L}\) and \(X_{C}\) cancel so \(Z = R\).</p></div>
 <div class="nx-card nx-e"><h3>Excellence</h3><p>Complete chains using two concepts: how series/parallel changes voltage, capacitance and \(\tau\); resonance as minimum impedance and maximum current; matching energy stored in a capacitor and an inductor.</p></div>
 </div>
+<h3 class="nx-h3">A structure for "explain" questions</h3>
+<div class="nx-steps">
+<div><span>1</span><b>Name the principle</b><p>Kirchhoff's rules, \(Q = CV\), Faraday's law, Lenz's law, reactance…</p></div>
+<div><span>2</span><b>Apply it to this circuit</b><p>Say what is happening here: charge building on the plates, current changing in the coil, flux changing in the core.</p></div>
+<div><span>3</span><b>Link with physics words or an equation</b><p>"As \(V_{C}\) rises, \(V_{R} = \varepsilon - V_{C}\) falls, so \(i = V_{R}/R\) falls."</p></div>
+<div><span>4</span><b>Answer the question asked</b><p>Finish with the conclusion: "so the current decreases to zero when \(V_{C} = \varepsilon\)."</p></div>
+</div>
+<p class="note">Merit and Excellence explanations link ideas in order and name the physics principle behind each step. Two chains cover most questions:</p>
+<div class="chain" aria-label="Induction chain"><span>Change in current or motion</span><i>→</i><span>change in flux</span><i>→</i><span>induced emf (Faraday)</span><i>→</i><span>opposes the change (Lenz)</span><i>→</i><span>effect on current, time or energy</span></div>
+<div class="chain" aria-label="Capacitor chain"><span>Charge builds on plates</span><i>→</i><span>\(V_{C} = Q/C\) rises</span><i>→</i><span>\(V_{R} = \varepsilon - V_{C}\) falls</span><i>→</i><span>current \(i = V_{R}/R\) falls</span><i>→</i><span>charging slows (exponential)</span></div>
+<h3 class="nx-h3">The CEO framework for calculation questions</h3>
+<p class="note">Use the four steps above when the question says <b>explain</b>. When it says <b>calculate</b>, <b>determine</b> or <b>show that</b>, work through <b>C</b>onceptualise, <b>E</b>xecute and <b>O</b>utcomes. The C step is also where you name the physics principle, so it supports explain answers too.</p>
+<div class="nx-steps nx-steps3 nx-ceo">
+<div><span>C</span><b>Conceptualise</b><p>Understand the circuit before you write any maths.</p>
+<ul class="nx-list"><li><b>Core physics:</b> which principle applies? Internal resistance, Kirchhoff, RC or LR time constant, Faraday, transformer, reactance…</li><li><b>Visualise:</b> sketch the circuit and mark current directions, + and − ends, and the loop you will follow. Label knowns and unknowns with units.</li><li><b>Define the system:</b> series or parallel? Charging or discharging? Switch just closed, or steady state? AC or DC? rms or peak?</li></ul></div>
+<div><span>E</span><b>Execute</b><p>Turn the concept into a solution.</p>
+<ul class="nx-list"><li><b>Select equations</b> that link the knowns to the unknown (see 0.3 Formula Sheet).</li><li><b>Solve symbolically first:</b> rearrange for the unknown before you put numbers in.</li><li><b>Substitute</b> values in SI units (µF, mH, kΩ and ms converted), then calculate.</li></ul></div>
+<div><span>O</span><b>Outcomes</b><p>Check the answer makes physical sense.</p>
+<ul class="nx-list"><li><b>Units:</b> Ω, F, H, s for \(\tau\), J for energy, A or V for rms values.</li><li><b>Reality check:</b> \(r\) is usually a few ohms or less; terminal voltage is below the emf when a cell supplies current; a capacitor can't charge above \(\varepsilon\); a step-down transformer has \(V_{s} &lt; V_{p}\) but \(i_{s} &gt; i_{p}\).</li><li><b>Cross-check:</b> Kirchhoff loops should sum to zero; \(\tfrac{1}{2}QV\) and \(\tfrac{1}{2}CV^{2}\) should agree; at resonance \(X_{L} = X_{C}\).</li></ul></div>
+</div>
+<details class="nx-worked"><summary>CEO worked example · battery with internal resistance</summary>
+<p><b>Question:</b> A battery has an emf of 9.0 V. When it supplies a current of 0.60 A to a lamp, the voltage across its terminals is 8.1 V. Calculate the internal resistance of the battery and the resistance of the lamp.</p>
+<p><b>C · Conceptualise:</b> a real cell has internal resistance \(r\), so some of its emf is "lost" inside it: \(\varepsilon = V + ir\). The lamp has the terminal voltage across it. Knowns: \(\varepsilon\) = 9.0 V, \(V\) = 8.1 V, \(i\) = 0.60 A. Unknowns: \(r\) and \(R\).</p>
+<p><b>E · Execute:</b> \(r = \dfrac{\varepsilon - V}{i} = \dfrac{9.0 - 8.1}{0.60}\) = <b>1.5 Ω</b>. The lamp: \(R = \dfrac{V}{i} = \dfrac{8.1}{0.60}\) = 13.5 Ω = <b>14 Ω</b> (2 s.f.).</p>
+<p><b>O · Outcomes:</b> both answers are in ohms ✓. \(r\) is much smaller than \(R\), as it should be for a useful battery ✓. Check with the whole loop: \(i(R + r) = 0.60 \times (13.5 + 1.5)\) = 9.0 V = \(\varepsilon\) ✓.</p>
+</details>
+<details class="nx-worked"><summary>CEO worked example · charging a capacitor</summary>
+<p><b>Question:</b> A 470 µF capacitor is charged through a 22 kΩ resistor from a 12 V supply. Calculate the time constant, and the charge and energy stored once it is fully charged.</p>
+<p><b>C · Conceptualise:</b> this is an RC charging circuit. The current falls as charge builds up, and the capacitor is fully charged when \(V_{C} = \varepsilon\) and \(i = 0\). Knowns: \(C = 470 \times 10^{-6}\) F, \(R = 22 \times 10^{3}\) Ω, \(\varepsilon\) = 12 V. Unknowns: \(\tau\), \(Q\), \(E\).</p>
+<p><b>E · Execute:</b> \(\tau = RC = 22 \times 10^{3} \times 470 \times 10^{-6}\) = 10.34 s = <b>10 s</b> (2 s.f.). \(Q = CV = 470 \times 10^{-6} \times 12\) = <b>5.6 × 10⁻³ C</b>. \(E = \tfrac{1}{2}QV = 0.5 \times 5.64 \times 10^{-3} \times 12\) = <b>3.4 × 10⁻² J</b>.</p>
+<p><b>O · Outcomes:</b> the units are s, C and J ✓. With \(\tau\) ≈ 10 s it takes about \(5\tau\) ≈ 50 s to charge fully, which is believable for a large capacitor and resistor ✓. Cross-check: \(\tfrac{1}{2}CV^{2} = 0.5 \times 470 \times 10^{-6} \times 12^{2}\) = 3.4 × 10⁻² J, the same ✓. The unrounded 5.64 × 10⁻³ C was carried into the energy step and rounded only at the end ✓.</p>
+</details>
+
 <h3 class="nx-h3">Traps the 2025 examiners reported</h3>
 <div class="nx-traps">
-<div class="nx-trap"><b>"Path of least resistance"</b>Current does not "choose" one path. It divides between branches according to their resistances, and every closed path carries some current.</div>
-<div class="nx-trap"><b>emf vs terminal voltage</b>Many could not explain emf outside induction. emf is the energy given to each coulomb by the source; terminal voltage is what's left after the "lost volts" \(ir\).</div>
-<div class="nx-trap"><b>Capacitors in parallel with a switch</b>Students misread what parallel capacitors do when a switch is opened or closed. Track where the charge can go, and remember parallel capacitors share the same voltage.</div>
-<div class="nx-trap"><b>Inductor ≠ capacitor</b>Some said a capacitor opposes the flow of current. An inductor opposes <em>changes in current</em>; a capacitor stores charge and opposes changes in voltage.</div>
-<div class="nx-trap"><b>Peak from rms</b>Many wrote \(V_{\text{max}} = \sqrt{2V_{\text{rms}}}\). Correct: \(V_{\text{max}} = \sqrt{2} \times V_{\text{rms}}\). For 230 V mains, that's 325 V, not 21 V.</div>
-<div class="nx-trap"><b>Forgotten internal resistance</b>At resonance, \(Z = R\) means the <em>total</em> resistance, including the inductor's own. Use total resistance in \(\tau\) and in \(i_{\text{max}}\) too.</div>
-<div class="nx-trap"><b>Charging vs discharging</b>Weaker answers mixed up the two. Charging: \(V_{C}\) rises to \(\varepsilon\) while \(i\) falls. Discharging: \(V_{C}\) and \(i\) both fall, and the current reverses direction.</div>
-<div class="nx-trap"><b>Basic definitions</b>Learn exact meanings: capacitance (charge stored per volt), time constant, emf, reactance, impedance, resonant frequency.</div>
+<div class="nx-trap" data-go="dc:intro"><b>"Path of least resistance"</b>Current does not "choose" one path. It divides between branches according to their resistances, and every closed path carries some current.</div>
+<div class="nx-trap" data-go="dc:battery"><b>emf vs terminal voltage</b>Many could not explain emf outside induction. emf is the energy given to each coulomb by the source; terminal voltage is what's left after the "lost volts" \(ir\).</div>
+<div class="nx-trap" data-go="cap:combine"><b>Capacitors in parallel with a switch</b>Students misread what parallel capacitors do when a switch is opened or closed. Track where the charge can go, and remember parallel capacitors share the same voltage.</div>
+<div class="nx-trap" data-go="ind:intro"><b>Inductor ≠ capacitor</b>Some said a capacitor opposes the flow of current. An inductor opposes <em>changes in current</em>; a capacitor stores charge and opposes changes in voltage.</div>
+<div class="nx-trap" data-go="ac:rms"><b>Peak from rms</b>Many wrote \(V_{\text{max}} = \sqrt{2V_{\text{rms}}}\). Correct: \(V_{\text{max}} = \sqrt{2} \times V_{\text{rms}}\). For 230 V mains, that's 325 V, not 21 V.</div>
+<div class="nx-trap" data-go="ac:lcr"><b>Forgotten internal resistance</b>At resonance, \(Z = R\) means the <em>total</em> resistance, including the inductor's own. Use total resistance in \(\tau\) and in \(i_{\text{max}}\) too.</div>
+<div class="nx-trap" data-go="cap:rc"><b>Charging vs discharging</b>Weaker answers mixed up the two. Charging: \(V_{C}\) rises to \(\varepsilon\) while \(i\) falls. Discharging: \(V_{C}\) and \(i\) both fall, and the current reverses direction.</div>
+<div class="nx-trap" data-go="map:formulas"><b>Basic definitions</b>Learn exact meanings: capacitance (charge stored per volt), time constant, emf, reactance, impedance, resonant frequency.</div>
 <div class="nx-trap"><b>Not attempting every part</b>Some candidates answered only the first parts of a question. Every part is a chance to show evidence, so write something for each.</div>
 </div>
 <h3 class="nx-h3">Graph sketching checklist</h3>
@@ -425,7 +477,13 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <li>For an emf–time graph drawn from a flux–time graph: emf is <strong>minus the gradient</strong>.</li>
 </ul>
 <h3 class="nx-h3">Significant figures and units</h3>
-<p class="note">Give answers to the same number of significant figures as the data (usually 2 or 3), always with units. Minor calculation slips are not penalised if your method is clear, so <strong>write the formula, substitute, then calculate</strong>.</p>
+<ul class="nx-list">
+<li>Convert to SI units first: µF → ×10⁻⁶ F, nF → ×10⁻⁹ F, mH → ×10⁻³ H, kΩ → ×10³ Ω, MΩ → ×10⁶ Ω, ms → ×10⁻³ s.</li>
+<li>Give the final answer to the same number of significant figures as the data (usually 2 or 3), always with a unit. Carry <b>unrounded</b> values through your working and round only at the end.</li>
+<li>In a <b>"show that"</b> question, write the base equation and your unrounded answer, so the marker can see you did not just copy the given value.</li>
+<li>Always show the equation, then the substitution, then the answer with a unit. Minor slips are not penalised if your method is clear.</li>
+<li>Sense-check: terminal voltage &lt; emf when current flows; \(V_{C}\) never exceeds \(\varepsilon\); mains is 230 V rms, 325 V peak.</li>
+</ul>
 <p class="small">Source: <a class="src" href="https://www.nzqa.govt.nz/nqfdocs/ncea-resource/reports/2025/91526-report-2025.pdf" rel="noopener" target="_blank">NZQA assessment report 91526 (2025)</a>.</p>
 </section>
 
@@ -439,7 +497,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </div></div>
 <div class="fs-group"><h3 style="color:#ff9eb5">Capacitors</h3><div class="fs-grid">
 <div class="fs-card"><h4>Capacitance</h4><span class="st given">Given</span><div class="fl">\[Q=CV\]</div><p>\(C\) in farads (F). 1 F stores 1 C per volt.</p><div class="fs-links"><button class="fs-link" data-go="cap:intro" type="button">2.1</button><button class="fs-link" data-go="cap:plates" type="button">2.2</button></div></div>
-<div class="fs-card"><h4>Parallel plates</h4><span class="st given">Given</span><div class="fl">\[C=\dfrac{{\varepsilon}_0{\varepsilon}_rA}{d}\]</div><p>\(\varepsilon _{0} = 8.85 \times 10^{-12} \,\mathrm{F} \,\mathrm{m}^{-1}\); \(\varepsilon _{r}\) is the dielectric constant (1 for air/vacuum).</p><div class="fs-links"><button class="fs-link" data-go="cap:plates" type="button">2.2</button></div></div>
+<div class="fs-card"><h4>Parallel plates</h4><span class="st given">Given</span><div class="fl">\[C=\dfrac{{\varepsilon}_0{\varepsilon}_rA}{d}\]</div><p>\(\varepsilon _{0} = 8.85 \times 10^{-12} \,\mathrm{F} \,\mathrm{m}^{-1}\); \(\varepsilon _{r}\) is the relative permittivity, or dielectric constant (1 for a vacuum, about 1 for air).</p><div class="fs-links"><button class="fs-link" data-go="cap:plates" type="button">2.2</button></div></div>
 <div class="fs-card"><h4>Energy stored</h4><span class="st given">Given</span><div class="fl">\[E=\dfrac{1}{2}QV\]</div><p>Area under the \(V\text{–}Q\) graph. Also \(\tfrac{1}{2}CV^{2}\) and \(Q^{2}/2C\).</p><div class="fs-links"><button class="fs-link" data-go="cap:plates" type="button">2.2</button></div></div>
 <div class="fs-card"><h4>Time constant</h4><span class="st given">Given</span><div class="fl">\[\tau=RC\]</div><p>63% charged after \(\tau\); 37% left after \(\tau\) when discharging; about \(5\tau\) to finish.</p><div class="fs-links"><button class="fs-link" data-go="cap:rc" type="button">2.3</button></div></div>
 <div class="fs-card"><h4>Combining capacitors</h4><span class="st check">Check booklet</span><div class="fl">\[C_{\text{par}}=C_1+C_2\]\[\dfrac{1}{C_{\text{ser}}}=\dfrac{1}{C_1}+\dfrac{1}{C_2}\]</div><p>The opposite way round to resistors.</p><div class="fs-links"><button class="fs-link" data-go="cap:combine" type="button">2.4</button></div></div>
@@ -697,7 +755,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="formula">\[C=\dfrac{{\varepsilon}_0{\varepsilon}_rA}{d}\]</div>
 <ul><li><strong>Bigger plate area A:</strong> more room for charge, so a bigger \(C\).</li>
 <li><strong>Smaller gap \(d\):</strong> the opposite charges attract each other more strongly, so more charge is held for the same voltage, giving a bigger \(C\).</li>
-<li>\(\varepsilon _{0} = 8.85 \times 10^{-12} \,\mathrm{F} \,\mathrm{m}^{-1}\) is the permittivity of free space. \(\varepsilon _{r}\) is the dielectric constant of the material between the plates.</li></ul>
+<li>\(\varepsilon _{0} = 8.85 \times 10^{-12} \,\mathrm{F} \,\mathrm{m}^{-1}\) is the permittivity of free space. \(\varepsilon _{r}\) is the <strong>relative permittivity</strong> (also called the dielectric constant) of the material between the plates: how many times larger it makes \(C\) than a vacuum would. It has no units, and it is 1 for a vacuum and about 1 for air. Don't mix it up with relative <em>permeability</em> \(\mu _{r}\), which is about magnetic materials.</li></ul>
 <p>Between the plates the electric field is uniform, with strength \(E = V/d\) (Level 2 background).</p>
 </div></details>
 <details class="intro-step"><summary>2.1.3 · Dielectrics</summary><div class="intro-step-body">
@@ -735,9 +793,9 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <section class="pane hidden" data-section="cap" data-view="plates">
 <div class="section-identity"><strong>2.2 · Parallel-plate builder</strong><p>Change the plates and the gap, slide a dielectric in, and watch \(C\), \(Q\), \(V\) and the stored energy.</p></div>
 <h2>Parallel-plate capacitor</h2>
-<p class="sub">The diagram shows the charge on each plate and the field between them. <strong>Drag the dielectric down into the gap</strong> (or use the slider) and watch the capacitance grow. The graph plots \(Q\) against \(V\), so its <strong>gradient is the capacitance</strong>: \(Q = CV\). The shaded area between the line and the \(Q\) axis is the energy stored, \(\tfrac{1}{2}QV\). Switch between <strong>connected</strong> (the battery holds \(V\) fixed) and <strong>disconnected</strong> (\(Q\) is trapped on the plates) and change the gap. This is a classic Excellence question.</p>
+<p class="sub">The diagram shows the charge on each plate and the field between them. <strong>Drag the dielectric down into the gap</strong> (or use the slider) and watch the capacitance grow. The graph plots \(V\) against \(Q\): \(V = \tfrac{1}{C}Q\), so its <strong>gradient is \(1/C\)</strong>. More capacitance means a flatter line. The shaded area under the line is the energy stored, \(\tfrac{1}{2}QV\). Switch between <strong>connected</strong> (the battery holds \(V\) fixed) and <strong>disconnected</strong> (\(Q\) is trapped on the plates) and change the gap. This is a classic Excellence question.</p>
 <div class="nx-lab">
-<div class="sim"><canvas id="plateCanvas" height="360" aria-label="Side view of two charged parallel plates with field lines and a sliding dielectric, beside a charge against voltage graph"></canvas></div>
+<div class="sim"><canvas id="plateCanvas" height="360" aria-label="Side view of two charged parallel plates with field lines and a sliding dielectric, beside a voltage against charge graph"></canvas></div>
 <div class="nx-ctlbar">
 <div class="nx-bar-inputs">
 <h3>Controls</h3>
@@ -755,7 +813,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <ul class="nx-list">
 <li><strong>Connected, widen the gap:</strong> \(C\) falls and \(V\) stays fixed, so \(Q = CV\) falls: charge flows back into the battery. Energy \(\tfrac{1}{2}CV^{2}\) falls.</li>
 <li><strong>Disconnected, widen the gap:</strong> \(Q\) can't change, so \(V = Q/C\) rises. Energy \(\tfrac{1}{2}Q^{2}/C\) <em>rises</em>. The extra energy comes from the work you do pulling the attracting plates apart.</li>
-<li><strong>Slide the dielectric in, connected:</strong> \(C\) rises in proportion to how much is inside, \(C = \frac{\varepsilon_0 A}{d}[(1-x) + x\varepsilon_r]\): the filled part and the empty part act like two capacitors in parallel. The graph gets steeper and more charge flows on. Notice the plate charge crowds beside the dielectric.</li>
+<li><strong>Slide the dielectric in, connected:</strong> \(C\) rises in proportion to how much is inside, \(C = \frac{\varepsilon_0 A}{d}[(1-x) + x\varepsilon_r]\): the filled part and the empty part act like two capacitors in parallel. The graph gets flatter (smaller \(1/C\)) and more charge flows on. Notice the plate charge crowds beside the dielectric.</li>
 <li><strong>Insert a dielectric while disconnected:</strong> \(C\) rises, so \(V\) falls and the stored energy falls. The dielectric is pulled into the gap.</li>
 </ul>
 </section>
@@ -764,6 +822,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="section-identity"><strong>2.3 · RC circuit</strong><p>Charge and discharge a capacitor through a resistor; compare with the LR lab (4.2).</p></div>
 <h2>RC circuit lab</h2>
 <p class="sub">A two-way switch connects the capacitor either to the battery through \(R\) (<strong>A, charge</strong>) or straight across \(R\) with the battery removed (<strong>B, discharge</strong>). The current graph is signed: discharge current flows the opposite way and shows as negative.</p>
+<p class="small"><strong>Watch the charges.</strong> Brighter, bigger dots carry more energy per coulomb (higher potential). Charging: they gain \(\varepsilon\) in the cell, lose \(V_{R}\) in the resistor and arrive at the plate with \(V_{C}\) per coulomb, so as \(V_{C}\) builds up, less is lost in \(R\). Discharging: the capacitor is the source, and the charges lose its energy in the resistor.</p>
 <div class="nx-lab">
 <div class="sim"><canvas id="rcCanvas" height="400" aria-label="RC circuit with a two-way switch and charges on the capacitor plates, beside graphs of voltages and current against time"></canvas></div>
 <div class="legend"><span style="--key:#ff9eb5">Capacitor voltage, \(V_{C}\)</span><span style="--key:#f0a66a">Resistor voltage, \(V_{R}\)</span><span style="--key:#78d9f7">Current, \(i\)</span></div>
@@ -773,7 +832,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="control"><label for="rcE">Battery emf, \(\varepsilon\) <output id="rcEOut">12 V</output></label><input id="rcE" max="24" min="1.5" step="0.5" type="range" value="12"/></div>
 <div class="control"><label for="rcR">Resistance, \(R\) <output id="rcROut">10 kΩ</output></label><input id="rcR" max="100" min="1" step="1" type="range" value="10"/></div>
 <div class="control"><label for="rcC">Capacitance, \(C\) <output id="rcCOut">470 µF</output></label><input id="rcC" max="2200" min="10" step="10" type="range" value="470"/></div>
-<div class="btn-row"><button class="tool-btn" id="rcA" type="button">Switch to A (charge)</button><button class="tool-btn" id="rcB" type="button">Switch to B (discharge)</button><button class="tool-btn secondary" id="rcReset" type="button">Reset</button></div>
+<div class="btn-row"><button class="tool-btn" id="rcA" type="button">Switch to A (charge)</button><button class="tool-btn" id="rcB" type="button">Switch to B (discharge)</button><button class="tool-btn secondary" id="rcOpen" type="button">Switch to C (open)</button><button class="tool-btn secondary" id="rcReset" type="button">Reset</button></div>
 <label class="check-row"><input checked id="rcMarks" type="checkbox"/> Show \(\tau\) markers (63% / 37%)</label>
 </div>
 <div class="nx-bar-info"><div class="readout" id="rcReadout">…</div><div class="readout" id="rcNote" style="border-left-color:#ff9eb5">…</div></div>
@@ -787,6 +846,28 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <li>Switch to B partway through charging: the capacitor discharges from whatever voltage it had reached.</li>
 <li>Double \(R\) or double \(C\): \(\tau\) doubles. Only \(R\) changes the starting current.</li>
 </ul>
+<h3>The numbers: charging and discharging equations</h3>
+<p class="sub">These values use the emf, \(R\) and \(C\) set in the lab above, and the row nearest the current time lights up. \(V_{\text{max}} = \varepsilon\) (the capacitor charges until \(V_{C} = \varepsilon\)), \(i_{\text{max}} = \varepsilon /R\), and \(V_{0}\) is the voltage when discharging starts (here \(\varepsilon\)).</p>
+<div class="methtab-wrap"><table class="exptab"><thead><tr><th>Time</th><th>Charging \(V_{C} = V_{\text{max}}\left(1 - e^{-t/\tau }\right)\)</th><th>Charging \(i = i_{\text{max}}e^{-t/\tau }\)</th><th>Discharging \(V_{C} = V_{0}e^{-t/\tau }\)</th></tr></thead><tbody id="rcTab"></tbody></table></div>
+<p class="small">After \(1\tau\) a charging capacitor is at 63% of \(V_{\text{max}}\); a discharging one has fallen to 37% of \(V_{0}\). After about \(5\tau\) it is treated as fully charged or discharged (99.3%).</p>
+
+<h3>Zoom in: why does the current stop?</h3>
+<p class="sub">This is the capacitor from the lab above, magnified, and it follows the same switch. Watch the electrons: the supply pushes them onto the right-hand plate and pulls them off the left-hand plate. Every electron already on the − plate <strong>repels</strong> the next one arriving. Compare the two arrows on the circled electron.</p>
+<div class="nx-lab">
+<div class="sim"><canvas id="capZoomCanvas" height="330" aria-label="Magnified capacitor plates with electrons arriving along the leads, showing the push from the supply and the repulsion from charge already on the plate"></canvas></div>
+<div class="btn-row"><button class="tool-btn" id="capZA" type="button">Charge (A)</button><button class="tool-btn" id="capZB" type="button">Discharge (B)</button><button class="tool-btn secondary" id="capZC" type="button">Open (C)</button><button class="tool-btn secondary" id="capZR" type="button">Reset</button><label class="check-row" style="margin-left:8px"><input id="capZSlow" type="checkbox"/> Slow motion (¼ speed)</label></div>
+<div class="readout" id="capZoomNote" style="margin-top:8px">…</div>
+</div>
+<div class="zoom-answer">
+<p><strong>Exam answer: how and why does the charging current stop?</strong></p>
+<ol>
+<li>When the switch closes, the supply pushes electrons onto one plate and pulls the same number off the other plate, so the plates gain charges \(-Q\) and \(+Q\). No charge crosses the gap.</li>
+<li>Electrons already on the negative plate <strong>repel</strong> further electrons arriving (and the positive plate holds on to its remaining electrons). This build-up of charge makes a p.d. \(V_{C} = Q/C\) across the capacitor that <strong>opposes</strong> the emf of the supply.</li>
+<li>So the p.d. across the resistor, \(V_{R} = \varepsilon - V_{C}\), gets smaller, and the current \(i = V_{R}/R\) decreases.</li>
+<li>The current stops when \(V_{C} = \varepsilon\): the repulsion from the charge on the plate balances the push from the supply, so \(V_{R} = 0\) and \(i = 0\).</li>
+</ol>
+<p class="small"><strong>Avoid:</strong> "the capacitor is full". It is not full: with a bigger emf it would store more charge. The current stops because \(V_{C}\) has risen to equal \(\varepsilon\).</p>
+</div>
 </section>
 
 <section class="pane hidden" data-section="cap" data-view="combine">
@@ -1121,6 +1202,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="section-identity"><strong>4.2 · LR circuit</strong><p>Switch the supply on and off and watch current, resistor voltage and inductor voltage.</p></div>
 <h2>LR circuit lab</h2>
 <p class="sub">A battery, a resistor \(R\) and a real inductor (\(L\) with internal resistance \(r\)) are connected through a two-way switch. Position <strong>A</strong> connects the battery; position <strong>B</strong> removes it but keeps the loop closed so the current can decay.</p>
+<p class="small"><strong>Watch the charges.</strong> Brighter, bigger dots carry more energy per coulomb (higher potential). At switch-on the inductor's back emf takes most of the energy and little is lost in \(R\). With the battery removed (B), the inductor becomes the source: the charges gain energy as they pass through it and lose it in \(R\).</p>
 <div class="nx-lab">
 <div class="sim"><canvas id="lrCanvas" height="400" aria-label="LR circuit diagram with a two-way switch beside graphs of current and voltages against time"></canvas></div>
 <div class="legend"><span style="--key:#78d9f7">Current, \(i\)</span><span style="--key:#f0a66a">Resistor voltage, \(V_{R}\)</span><span style="--key:#d99ac6">Inductor terminal voltage, \(V_{L}\)</span></div>
@@ -1131,7 +1213,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="control"><label for="lrL">Inductance, \(L\) <output id="lrLOut">2.0 H</output></label><input id="lrL" max="10" min="0.1" step="0.1" type="range" value="2"/></div>
 <div class="control"><label for="lrR">Resistor, \(R\) <output id="lrROut">15 Ω</output></label><input id="lrR" max="100" min="1" step="1" type="range" value="15"/></div>
 <div class="control"><label for="lrr">Inductor resistance, \(r\) <output id="lrrOut">5 Ω</output></label><input id="lrr" max="50" min="0" step="1" type="range" value="5"/></div>
-<div class="btn-row"><button class="tool-btn" id="lrA" type="button">Switch to A (on)</button><button class="tool-btn" id="lrB" type="button">Switch to B (off)</button><button class="tool-btn secondary" id="lrReset" type="button">Reset</button></div>
+<div class="btn-row"><button class="tool-btn" id="lrA" type="button">Switch to A (on)</button><button class="tool-btn" id="lrB" type="button">Switch to B (off)</button><button class="tool-btn secondary" id="lrOpen" type="button">Switch to C (open)</button><button class="tool-btn secondary" id="lrReset" type="button">Reset</button></div>
 <label class="check-row"><input checked id="lrMarks" type="checkbox"/> Show \(\tau\) markers (63% / 37%)</label>
 </div>
 <div class="nx-bar-info"><div class="readout" id="lrReadout">…</div><div class="readout" id="lrNote" style="border-left-color:#d99ac6">…</div></div>
@@ -2050,7 +2132,7 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
  st.draw=function(){const {c,W,H}=fit(cv,400,560);clear(c,W,H);const p=P(),T=tau(),Im=p.E/(p.R+p.r),i=I(st.t),vl=VL(st.t),vr=i*p.R;
   const narrow=W<600;const cw=narrow?W:Math.min(330,W*0.38),chh=narrow?200:H;
   // circuit
-  const L0=24,R0=cw-24,T0=narrow?30:70,B0=narrow?175:H-70;
+  const L0=24,R0=cw-24,T0=narrow?54:70,B0=narrow?175:H-70;
   const wcol='#8fa3c4';c.lineCap='round';
   // battery left vertical
   const bx=L0+10,by=(T0+B0)/2;
@@ -2059,9 +2141,9 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   // two-way switch: contact A joins the battery, contact B joins the bottom rail (bypassing the battery); the pivot joins R and the inductor
   const sx=L0+(R0-L0)*0.42,ax=sx-20,pvx=sx+20,byB=T0+30;
   line(c,bx,T0,ax,T0,wcol,2);line(c,ax,byB,ax,B0,wcol,2);
-  c.fillStyle=INK;[[ax,T0],[ax,byB],[pvx,T0]].forEach(([x,y])=>{c.beginPath();c.arc(x,y,3.5,0,7);c.fill()});
-  text(c,'A',ax,T0-10,ORG,12,'center');text(c,'B',ax-12,byB+4,ORG,12,'right');
-  const tip=st.pos==='A'?[ax+2,T0]:st.pos==='B'?[ax+2,byB-2]:[ax+6,T0-16];line(c,pvx,T0,tip[0],tip[1],ORG,3);
+  const cyC=T0-30;c.fillStyle=INK;[[ax,T0],[ax,byB],[pvx,T0],[ax,cyC]].forEach(([x,y])=>{c.beginPath();c.arc(x,y,3.5,0,7);c.fill()});
+  text(c,'A',ax-6,T0-6,ORG,12,'right');text(c,'B',ax-12,byB+4,ORG,12,'right');text(c,'C',ax-12,cyC+4,ORG,12,'right');text(c,'\u200b(open)',ax-26,cyC+4,MUT,10,'right');
+  const tip=st.pos==='A'?[ax+2,T0]:st.pos==='B'?[ax+2,byB-2]:[ax+2,cyC+2];line(c,pvx,T0,tip[0],tip[1],ORG,3);st.sw={ax,byB,pvx,T0,tip,cyC};
   // resistor along the top
   const rx=pvx+(R0-pvx)*0.25;line(c,pvx,T0,rx,T0,wcol,2);c.strokeStyle=INK;c.lineWidth=2;c.strokeRect(rx,T0-8,40,16);text(c,'R',rx+20,T0-14,INK,12,'center');line(c,rx+40,T0,R0,T0,wcol,2);
   // inductor right vertical with r
@@ -2074,10 +2156,17 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   line(c,R0,coilBot,R0,coilBot+6,wcol,2);line(c,R0,iy2-4,R0,B0,wcol,2);
   line(c,R0,B0,bx,B0,wcol,2);
   // current dots on loop (only through the active loop)
-  if(Math.abs(i)>1e-4&&st.pos!=='none'){const loopPts=st.pos==='A'?[[bx,B0],[bx,T0],[ax,T0],[pvx,T0],[R0,T0],[R0,B0],[bx,B0]]:[[ax,B0],[ax,byB],[pvx,T0],[R0,T0],[R0,B0],[ax,B0]];
-   let segs=[],tot=0;for(let k=0;k<loopPts.length-1;k++){const d=Math.hypot(loopPts[k+1][0]-loopPts[k][0],loopPts[k+1][1]-loopPts[k][1]);segs.push(d);tot+=d}
-   c.fillStyle='#ffd76a';for(let s=(st.dots%22);s<tot;s+=22){let acc=0;for(let k=0;k<segs.length;k++){if(acc+segs[k]>=s){const u=(s-acc)/segs[k];c.beginPath();c.arc(loopPts[k][0]+u*(loopPts[k+1][0]-loopPts[k][0]),loopPts[k][1]+u*(loopPts[k+1][1]-loopPts[k][1]),2.6,0,7);c.fill();break}acc+=segs[k]}}}
-  text(c,st.pos==='A'?'Switch at A: battery connected':st.pos==='B'?'Switch at B: battery removed, loop closed':'Switch open',(L0+R0)/2,narrow?chh+2:B0+34,MUT,11,'center');
+  // every wire is full of charges, coloured by potential (bottom wire = 0 V): brighter = more energy per coulomb.
+  // They move only where current flows; elsewhere they sit still with the energy that part of the circuit has.
+  {const A=st.pos==='A',Bp=st.pos==='B',on=st.pos!=='none',ph=st.dots;const vT=A?p.E-i*p.R:Bp?-i*p.R:0,vM=i*p.r,vL=A?p.E:0;
+   const lo=Bp?vT:0,hi=lo+p.E;
+   const segs=[[[[bx,B0],[bx,by+6],[bx,by-8],[bx,T0],[ax,T0]],[0,0,p.E,p.E,p.E],A],
+    [[[ax,B0],[ax,byB]],[0,0],Bp],
+    [[[pvx,T0],[rx,T0],[rx+40,T0],[R0,T0],[R0,iy1],[R0,coilBot],[R0,iy2],[R0,B0]],[vL,vL,vT,vT,vT,vM,0,0],on],
+    [[[R0,B0],[ax,B0]],[0,0],on],
+    [[[ax,B0],[bx,B0]],[0,0],A]];
+   segs.forEach(([pts,vals,mv])=>window.EMS.energyDots(c,pts,vals,mv?ph:0,22,lo,hi))}
+  text(c,(st.pos==='A'?'A: battery connected':st.pos==='B'?'B: battery removed, loop closed':'C: switch open')+'  ·  click A, B or C on the switch',(L0+R0)/2,narrow?chh+2:B0+34,MUT,11,'center');
   // graphs
   const gx=narrow?54:cw+50,gw=W-gx-14,gy=narrow?chh+20:22,gh=(H-gy-46)/2;
   const tMax=6*T;const Imx=nice(Im*1.05),Vmx=nice(p.E*1.02);
@@ -2101,7 +2190,14 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
  const upd=()=>{const p=P();$('lrEOut').textContent=p.E+' V';$('lrLOut').textContent=p.L.toFixed(1)+' H';$('lrROut').textContent=p.R+' Ω';$('lrrOut').textContent=p.r+' Ω'};
  ['lrE','lrL','lrR','lrr'].forEach(id=>$(id).addEventListener('input',()=>{upd();if(st.pos==='A'){st.I0=0;st.t=0}else if(st.pos==='B'){st.I0=P().E/(P().R+P().r);st.t=0}}));upd();
  $('lrA').onclick=()=>sw('A');$('lrB').onclick=()=>{if(st.pos==='none')return;sw('B')};$('lrReset').onclick=()=>{st.pos='none';st.t=0;st.I0=0};
+ $('lrOpen').onclick=()=>{if(st.pos!=='none')sw('none')};
  $('lrMarks').addEventListener('change',()=>{st.marks=$('lrMarks').checked});
+ // click the switch: A, B, or the pivot/arm to open it
+ const swHit=e=>{const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,g=st.sw;if(!g)return null;const d=(a,b)=>Math.hypot(x-a,y-b);
+  if(d(g.ax,g.T0)<14)return'A';if(d(g.ax,g.byB)<14)return'B';if(d(g.ax,g.cyC)<14)return'open';if(d(g.pvx,g.T0)<16||d(g.tip[0],g.tip[1])<14||(x>g.ax-4&&x<g.pvx+4&&y>g.cyC-6&&y<g.byB+4))return'open';return null};
+ cv.addEventListener('click',e=>{let h=swHit(e);if(!h)return;if(h===st.pos)return;if(h==='open'){if(st.pos!=='none')sw('none')}else if(h==='B'){if(st.pos!=='none'&&st.pos!=='B')sw('B')}else if(st.pos!=='A')sw('A')});
+ cv.addEventListener('pointermove',e=>{cv.style.cursor=swHit(e)?'pointer':''});
+
  sims['ind:lr']=st;
 })();
 
@@ -2246,6 +2342,7 @@ function energyDots(c,pts,vals,phase,gap,lo,hi,base){let segs=[],tot=0;for(let k
    c.fillStyle=energyCol(e,base);c.shadowColor=energyCol(1,base);c.shadowBlur=10*e;
    c.beginPath();c.arc(x,y,2.2+1.8*e,0,7);c.fill();break}acc+=segs[k]}}
  c.restore()}
+window.EMS.energyDots=(...a)=>energyDots(...a);
 function polyDots(c,pts,phase,gap,col){let segs=[],tot=0;for(let k=0;k<pts.length-1;k++){const d=Math.hypot(pts[k+1][0]-pts[k][0],pts[k+1][1]-pts[k][1]);segs.push(d);tot+=d}if(tot<=0)return;
  let s0=((phase%gap)+gap)%gap;c.fillStyle=col||YEL;for(let s=s0;s<tot;s+=gap){let acc=0;for(let k=0;k<segs.length;k++){if(acc+segs[k]>=s){const u=(s-acc)/segs[k];c.beginPath();c.arc(pts[k][0]+u*(pts[k+1][0]-pts[k][0]),pts[k][1]+u*(pts[k+1][1]-pts[k][1]),2.6,0,7);c.fill();break}acc+=segs[k]}}}
 function arrowHead(c,x,y,ang,col,sz){sz=sz||8;c.fillStyle=col;c.save();c.translate(x,y);c.rotate(ang);c.beginPath();c.moveTo(sz,0);c.lineTo(-sz*0.6,-sz*0.6);c.lineTo(-sz*0.6,sz*0.6);c.closePath();c.fill();c.restore()}
@@ -2511,22 +2608,22 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   line(c,cx-24,by,cx-12,by,WIRE,2);line(c,cx-12,by-10,cx-12,by+10,INK,2.5);line(c,cx-4,by-5,cx-4,by+5,INK,4);
   if(conn)line(c,cx-4,by,cx+16,by,WIRE,2);else{line(c,cx-4,by,cx+2,by,WIRE,2);line(c,cx+2,by,cx+16,by-12,ORG,2.5);text(c,'\u200bopen',cx+20,by-14,ORG,10)}
   text(c,'d = '+(p.d*1e3).toFixed(1)+' mm',cx,by+22,MUT,11,'center');
-  // Q–V graph: Q up, V across, gradient = C
+  // V–Q graph: V up, Q across, gradient = 1/C
   const gx=narrow?62:sw+56,gy=narrow?sh+44:58,gw=W-gx-18,gh=narrow?H-sh-80:H-98;
-  text(c,'Q = CV   (gradient = C)',gx+gw/2,gy-22,INK,14,'center');
-  const g=frame(c,gx,gy,gw,gh,0,st.vAx,0,st.qAx,'Q',null,q=>eng(q,'C',2));
-  text(c,'0',gx,gy+gh+13,MUT,10,'center');text(c,eng(st.vAx,'V',2),gx+gw,gy+gh+13,MUT,10,'right');text(c,'\u200bp.d. ',gx+gw/2-4,gy+gh+13,MUT,10,'right');text(c,'V',gx+gw/2-4,gy+gh+13,MUT,10,'left');
-  const end=C=>{const v=Math.min(st.vAx,st.qAx/C);return[v,v*C]};
-  // energy: area between the line and the Q axis = ∫V dQ = ½QV
-  c.fillStyle='rgba(255,158,181,.28)';c.beginPath();c.moveTo(g.X(0),g.Y(0));c.lineTo(g.X(k.V),g.Y(k.Q));c.lineTo(g.X(0),g.Y(k.Q));c.closePath();c.fill();
-  line(c,g.X(0),g.Y(k.Q),g.X(k.V),g.Y(k.Q),'rgba(255,255,255,.25)',1,[3,3]);line(c,g.X(k.V),g.Y(k.Q),g.X(k.V),g.Y(0),'rgba(255,255,255,.25)',1,[3,3]);
-  if(p.f>0){const [va,qa]=end(k.C0);line(c,g.X(0),g.Y(0),g.X(va),g.Y(qa),MUT,1.5,[5,4]);text(c,'\u200bair only',g.X(va)-4,g.Y(qa)-8,MUT,10,'right')}
-  const [ve,qe]=end(k.C);line(c,g.X(0),g.Y(0),g.X(ve),g.Y(qe),ROSE,2.6);
-  text(c,'gradient C = '+eng(k.C,'F',3),gx+24,gy+14,ROSE,13,'left');
-  dot(c,g.X(k.V),g.Y(k.Q),5,YEL);
-  text(c,'area = ½QV',g.X(k.V*0.3),g.Y(k.Q*0.72),INK,11,'center');text(c,'= '+eng(k.U,'J',3),g.X(k.V*0.3),g.Y(k.Q*0.72)+14,INK,11,'center');
-  window.EM.set($('plReadout'),'\\(C = \\dfrac{\\varepsilon _{0}A}{d}\\big[(1-x) + x\\,\\varepsilon _{r}\\big]\\) = <strong>'+eng(k.C,'F',3)+'</strong>, with \\(x\\) = fraction filled = '+p.f.toFixed(2)+'<br/>\\(Q\\) = '+eng(k.Q,'C',3)+' · \\(V\\) = '+eng(k.V,'V',3)+'<br/>Field between plates \\(E = V/d\\) = '+eng(k.E,'V m⁻¹',3)+'<br/>Energy stored \\(\\tfrac{1}{2}QV\\) = <strong>'+eng(k.U,'J',3)+'</strong>');
-  window.EM.set($('plNote'),conn?'<strong>Connected:</strong> the battery holds \\(V\\) at '+p.Vb+' V. Changing \\(C\\) changes \\(Q = CV\\): the dot moves up or down the graph as charge flows to or from the battery.':'<strong>Disconnected:</strong> \\(Q\\) is trapped at '+eng(k.Q,'C',3)+'. Changing \\(C\\) changes \\(V = Q/C\\): the dot slides sideways along the graph, and the stored energy \\(Q^{2}/2C\\) changes.');
+  text(c,'V = (1/C) Q   (gradient = 1/C)',gx+gw/2,gy-28,INK,14,'center');
+  const g=frame(c,gx,gy,gw,gh,0,st.qAx,0,st.vAx,'V',null,v=>eng(v,'V',2));
+  text(c,'0',gx,gy+gh+13,MUT,10,'center');text(c,eng(st.qAx,'C',2),gx+gw,gy+gh+13,MUT,10,'right');text(c,'\u200bcharge ',gx+gw/2-4,gy+gh+13,MUT,10,'right');text(c,'Q',gx+gw/2-4,gy+gh+13,MUT,10,'left');
+  const end=C=>{const q=Math.min(st.qAx,st.vAx*C);return[q,q/C]};
+  // energy: area under the V–Q line = ½QV
+  c.fillStyle='rgba(255,158,181,.28)';c.beginPath();c.moveTo(g.X(0),g.Y(0));c.lineTo(g.X(k.Q),g.Y(k.V));c.lineTo(g.X(k.Q),g.Y(0));c.closePath();c.fill();
+  line(c,g.X(0),g.Y(k.V),g.X(k.Q),g.Y(k.V),'rgba(255,255,255,.25)',1,[3,3]);
+  if(p.f>0){const [qa,va]=end(k.C0);line(c,g.X(0),g.Y(0),g.X(qa),g.Y(va),MUT,1.5,[5,4]);text(c,'\u200bair only',g.X(qa)+6,g.Y(va)+12,MUT,10,'left')}
+  const [qe,ve]=end(k.C);line(c,g.X(0),g.Y(0),g.X(qe),g.Y(ve),ROSE,2.6);
+  text(c,'C = '+eng(k.C,'F',3)+(p.f>0?'   (air only: '+eng(k.C0,'F',3)+')':''),gx+gw/2,gy-9,ROSE,12,'center');
+  dot(c,g.X(k.Q),g.Y(k.V),5,YEL);
+  text(c,'area = ½QV',g.X(k.Q*0.66),g.Y(k.V*0.28),INK,11,'center');text(c,'= '+eng(k.U,'J',3),g.X(k.Q*0.66),g.Y(k.V*0.28)+14,INK,11,'center');
+  window.EM.set($('plReadout'),'\\(C = \\dfrac{\\varepsilon _{0}A}{d}\\big[(1-x) + x\\,\\varepsilon _{r}\\big]\\) = <strong>'+eng(k.C,'F',3)+'</strong>, with \\(x\\) = fraction filled = '+p.f.toFixed(2)+', \\(\\varepsilon _{r}\\) = relative permittivity = '+p.er+'<br/>\\(Q\\) = '+eng(k.Q,'C',3)+' · \\(V\\) = '+eng(k.V,'V',3)+'<br/>Field between plates \\(E = V/d\\) = '+eng(k.E,'V m⁻¹',3)+'<br/>Energy stored \\(\\tfrac{1}{2}QV\\) = <strong>'+eng(k.U,'J',3)+'</strong>');
+  window.EM.set($('plNote'),conn?'<strong>Connected:</strong> the battery holds \\(V\\) at '+p.Vb+' V. Changing \\(C\\) changes \\(Q = CV\\): the dot slides sideways along the graph as charge flows to or from the battery.':'<strong>Disconnected:</strong> \\(Q\\) is trapped at '+eng(k.Q,'C',3)+'. Changing \\(C\\) changes \\(V = Q/C\\): the dot moves straight up or down the graph, and the stored energy \\(Q^{2}/2C\\) changes.');
  };
  st.enter=()=>st.draw();
  const upd=()=>{const p=P();$('plAOut').textContent=Math.round(p.A*1e4)+' cm²';$('plDOut').textContent=(p.d*1e3).toFixed(1)+' mm';$('plVOut').textContent=p.Vb+' V';$('plInsOut').textContent=Math.round(p.f*100)+' %';st.draw()};
@@ -2545,47 +2642,130 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
 
 /* ============ 2.3 RC CIRCUIT ============ */
 (()=>{
- const cv=$('rcCanvas');const st={pos:'none',t:0,V0:0,marks:true,dots:0};
+ const cv=$('rcCanvas');const st={pos:'none',t:0,V0:0,marks:true,dots:0,abs:0,hist:[],ev:[],tS:0,started:false,slow:1};
  const P=()=>({E:+$('rcE').value,R:+$('rcR').value*1e3,C:+$('rcC').value*1e-6});
  const tau=()=>{const p=P();return p.R*p.C};
  function Vc(t){const p=P(),T=tau();if(st.pos==='A')return p.E+(st.V0-p.E)*Math.exp(-t/T);if(st.pos==='B')return st.V0*Math.exp(-t/T);return st.V0}
  function I(t){const p=P();if(st.pos==='A')return(p.E-Vc(t))/p.R;if(st.pos==='B')return -Vc(t)/p.R;return 0}
- function sw(pos){st.V0=Vc(st.t);st.pos=pos;st.t=0}
- st.step=dt=>{const T=tau();if(st.pos!=='none'&&st.t<6*T)st.t=Math.min(6*T,st.t+dt*(6*T)/3);const p=P();st.dots+=dt*I(st.t)/(p.E/p.R)*70};
+ function sw(pos){st.V0=Vc(st.t);st.pos=pos;st.t=0;st.tS=st.abs;st.started=true;st.ev.push([st.abs,pos])}
+ st.step=dt=>{const T=tau(),p=P();const lim=st.pos==='none'?T:6*T;
+  if(st.started&&st.t<lim){const d=Math.min(lim-st.t,dt*(6*T)/3*st.slow);st.t+=d;st.abs+=d;const v=Vc(st.t),i=I(st.t);st.hist.push([st.abs,v,i*p.R,i]);while(st.hist.length&&st.hist[0][0]<st.abs-7*T)st.hist.shift();while(st.ev.length&&st.ev[0][0]<st.abs-7*T)st.ev.shift()}
+  st.dots+=dt*I(st.t)/(p.E/p.R)*70*st.slow};
+ st.live=()=>{const p=P();return{vc:Vc(st.t),i:I(st.t),E:p.E,R:p.R,pos:st.pos,started:st.started}};
  st.draw=function(){const {c,W,H}=fit(cv,400,580);clear(c,W,H);const p=P(),T=tau(),i=I(st.t),vc=Vc(st.t),vr=i*p.R,Im=p.E/p.R;
   const narrow=W<600;const cw=narrow?W:Math.min(330,W*0.38),chh=narrow?210:H;
-  const L0=24,R0=cw-30,T0=narrow?34:70,B0=narrow?180:H-70;c.lineCap='round';
+  const L0=24,R0=cw-42,T0=narrow?56:70,B0=narrow?180:H-70;c.lineCap='round';
   const bx=L0+10,by=(T0+B0)/2;line(c,bx,T0,bx,by-14,WIRE,2);line(c,bx,by+14,bx,B0,WIRE,2);line(c,bx-14,by-8,bx+14,by-8,INK,2.5);line(c,bx-7,by+6,bx+7,by+6,INK,4);text(c,'ε = '+p.E+' V',bx+18,by+4,INK,12);
   const sx=L0+(R0-L0)*0.42,ax=sx-20,pvx=sx+20,byB=T0+30;
-  line(c,bx,T0,ax,T0,WIRE,2);line(c,ax,byB,ax,B0,WIRE,2);c.fillStyle=INK;[[ax,T0],[ax,byB],[pvx,T0]].forEach(([x,y])=>{c.beginPath();c.arc(x,y,3.5,0,7);c.fill()});
-  text(c,'A',ax,T0-10,ROSE,12,'center');text(c,'B',ax-12,byB+4,ROSE,12,'right');
-  const tip=st.pos==='A'?[ax+2,T0]:st.pos==='B'?[ax+2,byB-2]:[ax+6,T0-16];line(c,pvx,T0,tip[0],tip[1],ROSE,3);
+  line(c,bx,T0,ax,T0,WIRE,2);line(c,ax,byB,ax,B0,WIRE,2);const cyC=T0-30;c.fillStyle=INK;[[ax,T0],[ax,byB],[pvx,T0],[ax,cyC]].forEach(([x,y])=>{c.beginPath();c.arc(x,y,3.5,0,7);c.fill()});
+  text(c,'A',ax-6,T0-6,ROSE,12,'right');text(c,'B',ax-12,byB+4,ROSE,12,'right');text(c,'C',ax-12,cyC+4,ROSE,12,'right');text(c,'\u200b(open)',ax-26,cyC+4,MUT,10,'right');
+  const tip=st.pos==='A'?[ax+2,T0]:st.pos==='B'?[ax+2,byB-2]:[ax+2,cyC+2];line(c,pvx,T0,tip[0],tip[1],ROSE,3);st.sw={ax,byB,pvx,T0,tip,cyC};
   const rx=pvx+(R0-pvx)*0.2;line(c,pvx,T0,rx,T0,WIRE,2);resistorH(c,rx,T0,40,'R',INK);line(c,rx+40,T0,R0,T0,WIRE,2);
   // capacitor on right vertical
-  const cmid=(T0+B0)/2;line(c,R0,T0,R0,cmid-8,WIRE,2);line(c,R0,cmid+8,R0,B0,WIRE,2);line(c,R0-22,cmid-8,R0+22,cmid-8,INK,3);line(c,R0-22,cmid+8,R0+22,cmid+8,INK,3);text(c,'C',R0-28,cmid,INK,12,'right','middle');
-  const nq=Math.round(clamp(vc/24,0,1)*9);for(let k=0;k<nq;k++){const x=R0-20+k*5;text(c,'+',x,cmid-15,CORAL,10,'center','middle');text(c,'−',x,cmid+15,BLU,12,'center','middle')}
+  const cmid=(T0+B0)/2;line(c,R0,T0,R0,cmid-8,WIRE,2);line(c,R0,cmid+8,R0,B0,WIRE,2);line(c,R0-32,cmid-8,R0+32,cmid-8,INK,3);line(c,R0-32,cmid+8,R0+32,cmid+8,INK,3);text(c,'C',R0-38,cmid,INK,12,'right','middle');
+  // plate charges: +Q on the top plate, −Q on the bottom plate, either side of the wire
+  {const f=clamp(Math.abs(vc)/Math.max(p.E,1),0,1),np=Math.round(f*3);const sgn=(x,y,plus,col)=>{line(c,x-3.2,y,x+3.2,y,col,2.2);if(plus)line(c,x,y-3.2,x,y+3.2,col,2.2)};
+   for(let k=0;k<np;k++)[-1,1].forEach(sd=>{const x=R0+sd*(8.5+k*10.5);sgn(x,cmid-17,true,CORAL);sgn(x,cmid+17,false,'#9fc6ff')})}
   line(c,R0,B0,bx,B0,WIRE,2);
-  if(Math.abs(i)>1e-9&&st.pos!=='none'){const loop=st.pos==='A'?[[bx,B0],[bx,T0],[ax,T0],[pvx,T0],[R0,T0],[R0,cmid-8]]:[[ax,B0],[ax,byB],[pvx,T0],[R0,T0],[R0,cmid-8]];polyDots(c,loop,st.dots,22,YEL);const tail=st.pos==='A'?[[R0,cmid+8],[R0,B0],[bx,B0]]:[[R0,cmid+8],[R0,B0],[ax,B0]];polyDots(c,tail,st.dots,22,YEL)}
-  text(c,st.pos==='A'?'A: charging':st.pos==='B'?'B: discharging through R':'Switch open',(L0+R0)/2,narrow?chh-6:B0+34,MUT,11,'center');
+  // every wire is full of charges, coloured by potential (bottom wire = 0 V): brighter = more energy per coulomb.
+  // They move only where current flows; elsewhere they sit still with the energy that part of the circuit has.
+  {const A=st.pos==='A',Bp=st.pos==='B',on=st.pos!=='none',vL=A?p.E:Bp?0:vc,ph=st.dots;
+   const segs=[[[[bx,B0],[bx,by+6],[bx,by-8],[bx,T0],[ax,T0]],[0,0,p.E,p.E,p.E],A],
+    [[[ax,B0],[ax,byB]],[0,0],Bp],
+    [[[pvx,T0],[rx,T0],[rx+40,T0],[R0,T0],[R0,cmid-8]],[vL,vL,vc,vc,vc],on],
+    [[[R0,cmid+8],[R0,B0],[ax,B0]],[0,0,0],on],
+    [[[ax,B0],[bx,B0]],[0,0],A]];
+   segs.forEach(([pts,vals,mv])=>energyDots(c,pts,vals,mv?ph:0,22,0,p.E))}
+  text(c,(st.pos==='A'?'A: charging':st.pos==='B'?'B: discharging through R':'C: switch open')+'  ·  click A, B or C on the switch',(L0+R0)/2,narrow?chh-6:B0+34,MUT,11,'center');
   const gx=narrow?54:cw+56,gw=W-gx-14,gy=narrow?chh+14:22,gh=(H-gy-46)/2;const tMax=6*T;const Vm=nice(p.E*1.02),Imx=nice(Im*1.02);
   const g1=frame(c,gx,gy,gw,gh,0,tMax,-Vm,Vm,'voltage',null,v=>eng(v,'V',2));const g2=frame(c,gx,gy+gh+26,gw,gh,0,tMax,-Imx,Imx,'current I (signed)','time',v=>eng(v,'A',2));
-  for(let k=1;k<=6;k++){text(c,k+'τ',g2.X(k*T),gy+2*gh+40,MUT,10,'center')}
-  if(st.pos!=='none'){const a=[],b=[],d=[];for(let t=0;t<=st.t+1e-12;t+=tMax/300){a.push([t,Vc(t)]);b.push([t,I(t)*p.R]);d.push([t,I(t)])}
-   path(c,a,g1.X,g1.Y,ROSE,2.6);path(c,b,g1.X,g1.Y,ORG,2.2);path(c,d,g2.X,g2.Y,CYN,2.6);
-   if(st.marks){const tgt=st.pos==='A'?p.E+(st.V0-p.E)*Math.exp(-1):st.V0*Math.exp(-1);line(c,g1.X(0),g1.Y(tgt),g1.X(T),g1.Y(tgt),YEL,1.2,[5,4]);line(c,g1.X(T),g1.Y(tgt),g1.X(T),g1.Y(0),YEL,1.2,[5,4]);text(c,st.pos==='A'?'63%':'37%',g1.X(T)+4,g1.Y(tgt)-4,YEL,11);
-    if(st.pos==='A')line(c,g1.X(0),g1.Y(p.E),gx+gw,g1.Y(p.E),'rgba(255,158,181,.6)',1,[3,4])}}
-  else text(c,'Press "Switch to A" to charge the capacitor',gx+gw/2,gy+gh/2,MUT,13,'center','middle');
-  window.EM.set($('rcReadout'),'\\(\\tau = RC\\) = <strong>'+eng(T,'s',3)+'</strong> · max current \\(\\varepsilon /R\\) = '+eng(Im,'A',3)+'<br/>\\(t\\) = '+eng(st.t,'s',3)+' ('+(st.t/T).toFixed(2)+'\\(\\tau\\))<br/>\\(V_{C}\\) = <strong>'+eng(vc,'V',3)+'</strong> · \\(V_{R}\\) = '+eng(vr,'V',3)+'<br/>Current \\(i\\) = <strong>'+eng(i,'A',3)+'</strong><br/>Charge \\(Q = CV_{C}\\) = '+eng(p.C*vc,'C',3)+' · energy \\(\\tfrac{1}{2}CV^{2}\\) = '+eng(0.5*p.C*vc*vc,'J',3));
+  // continuous record: the graph keeps what happened before each switch, and scrolls once it fills
+  if(st.started){const t0=Math.max(0,st.abs-tMax);const X1=t=>g1.X(t-t0),X2=t=>g2.X(t-t0);const vis=st.hist.filter(h=>h[0]>=t0);
+   st.ev.forEach(([te,ps])=>{if(te<t0)return;const xx=X1(te);line(c,xx,gy,xx,gy+2*gh+26,'rgba(255,255,255,.22)',1,[2,4]);text(c,ps==='none'?'open':ps,xx+4,gy+gh+20,MUT,10)});
+   for(let k=1;k<=6;k++){const tk=st.tS+k*T;if(tk>=t0&&tk<=t0+tMax)text(c,k+'τ',X2(tk),gy+2*gh+40,MUT,10,'center')}
+   path(c,vis.map(h=>[h[0],h[1]]),X1,g1.Y,ROSE,2.6);path(c,vis.map(h=>[h[0],h[2]]),X1,g1.Y,ORG,2.2);path(c,vis.map(h=>[h[0],h[3]]),X2,g2.Y,CYN,2.6);
+   if(st.marks&&st.pos!=='none'&&st.tS>=t0){const tgt=st.pos==='A'?p.E+(st.V0-p.E)*Math.exp(-1):st.V0*Math.exp(-1);const xs=X1(st.tS),xt=X1(st.tS+T);
+    if(st.t>=T){line(c,xs,g1.Y(tgt),xt,g1.Y(tgt),YEL,1.2,[5,4]);line(c,xt,g1.Y(tgt),xt,g1.Y(0),YEL,1.2,[5,4]);text(c,st.pos==='A'?'63%':'37%',xt+4,g1.Y(tgt)-4,YEL,11)}
+    if(st.pos==='A')line(c,xs,g1.Y(p.E),gx+gw,g1.Y(p.E),'rgba(255,158,181,.6)',1,[3,4])}}
+  else text(c,'Click A on the switch to charge the capacitor',gx+gw/2,gy+gh/2,MUT,13,'center','middle');
+  window.EM.set($('rcReadout'),'\\(\\tau = RC\\) = <strong>'+eng(T,'s',3)+'</strong> · max current \\(\\varepsilon /R\\) = '+eng(Im,'A',3)+'<br/>Time since the switch moved, \\(t\\) = '+eng(st.t,'s',3)+' ('+(st.t/T).toFixed(2)+'\\(\\tau\\))<br/>\\(V_{C}\\) = <strong>'+eng(vc,'V',3)+'</strong> · \\(V_{R}\\) = '+eng(vr,'V',3)+'<br/>Current \\(i\\) = <strong>'+eng(i,'A',3)+'</strong><br/>Charge \\(Q = CV_{C}\\) = '+eng(p.C*vc,'C',3)+' · energy \\(\\tfrac{1}{2}CV^{2}\\) = '+eng(0.5*p.C*vc*vc,'J',3));
+  {const tn=st.pos==='none'?-1:Math.round(st.t/T);let rows='';for(let k=0;k<=5;k++){const e=Math.exp(-k);
+    rows+='<tr'+(k===tn&&st.pos!=='none'?' class="now"':'')+'><td>'+(k?k+'τ':'0')+'<br/><small>'+eng(k*T,'s',3)+'</small></td><td>'+eng(p.E*(1-e),'V',3)+'<br/><small>'+Math.round(100*(1-e)*10)/10+'%</small></td><td>'+eng(Im*e,'A',3)+'<br/><small>'+Math.round(100*e*10)/10+'%</small></td><td>'+eng(p.E*e,'V',3)+'<br/><small>'+Math.round(100*e*10)/10+'%</small></td></tr>'}
+   const tb=$('rcTab');if(tb&&tb._h!==rows){tb.innerHTML=rows;tb._h=rows}}
   let note;if(st.pos==='none')note=vc>1e-6?'Switch open: the capacitor holds its charge.':'Uncharged capacitor, no current.';
   else if(st.pos==='A')note=st.t<0.05*T?'Just switched on: \\(V_{C} \\approx 0\\), so all of \\(\\varepsilon\\) is across \\(R\\) and the current is at its maximum.':st.t>4.9*T?'Fully charged: \\(V_{C} = \\varepsilon\\), \\(V_{R} = 0\\), no current.':'Charging: \\(V_{C} + V_{R} = \\varepsilon\\) at every instant. As \\(V_{C}\\) rises, \\(V_{R}\\) and \\(i\\) fall.';
   else note=st.t>4.9*T?'Discharged: the stored energy has become heat in R.':'Discharging: the current has <strong>reversed</strong> and decays with \\(V_{C}\\).';
   window.EM.set($('rcNote'),note);
  };
  const upd=()=>{const p=P();$('rcEOut').textContent=p.E+' V';$('rcROut').textContent=Math.round(p.R/1e3)+' kΩ';$('rcCOut').textContent=Math.round(p.C*1e6)+' µF'};
- ['rcE','rcR','rcC'].forEach(id=>$(id).addEventListener('input',()=>{upd();if(st.pos==='A'){st.V0=0;st.t=0}else if(st.pos==='B'){st.V0=P().E;st.t=0}}));upd();
- $('rcA').onclick=()=>sw('A');$('rcB').onclick=()=>{if(st.pos==='none'&&st.V0<=0)return;sw('B')};$('rcReset').onclick=()=>{st.pos='none';st.t=0;st.V0=0};
+ // changing a slider keeps the charge already on the capacitor and carries on from there
+ ['rcE','rcR','rcC'].forEach(id=>$(id).addEventListener('input',()=>{upd();if(st.started){st.V0=Vc(st.t);st.t=0;st.tS=st.abs}}));upd();
+ $('rcA').onclick=()=>sw('A');$('rcB').onclick=()=>{if(st.pos==='none'&&st.V0<=0)return;sw('B')};$('rcReset').onclick=()=>{st.pos='none';st.t=0;st.V0=0;st.abs=0;st.hist=[];st.ev=[];st.tS=0;st.started=false};
+ $('rcOpen').onclick=()=>{if(st.pos!=='none')sw('none')};
  $('rcMarks').addEventListener('change',()=>{st.marks=$('rcMarks').checked});
+ // click the switch: A, B, or the pivot/arm to open it
+ const swHit=e=>{const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,g=st.sw;if(!g)return null;const d=(a,b)=>Math.hypot(x-a,y-b);
+  if(d(g.ax,g.T0)<14)return'A';if(d(g.ax,g.byB)<14)return'B';if(d(g.ax,g.cyC)<14)return'open';if(d(g.pvx,g.T0)<16||d(g.tip[0],g.tip[1])<14||(x>g.ax-4&&x<g.pvx+4&&y>g.cyC-6&&y<g.byB+4))return'open';return null};
+ cv.addEventListener('click',e=>{let h=swHit(e);if(!h)return;if(h===st.pos)return;if(h==='open'){if(st.pos!=='none')sw('none')}else if(h==='B'){if(st.pos!=='B'&&!(st.pos==='none'&&Vc(st.t)<=0))sw('B')}else if(st.pos!=='A')sw('A')});
+ cv.addEventListener('pointermove',e=>{cv.style.cursor=swHit(e)?'pointer':''});
+
  sims['cap:rc']=st;
+})();
+
+/* ============ 2.3 ZOOM: WHY THE CURRENT STOPS ============ */
+(()=>{
+ const cv=$('capZoomCanvas');if(!cv)return;const rc=sims['cap:rc'];const z={ph:0};
+ const EL='#7fb2ff',PLUS='#ff8a7a',PUSH='#8fd694',REP='#ffb36b';
+ z.step=dt=>{rc.step(dt);const L=rc.live();const Im=L.E/L.R;z.ph+=dt*(L.i/Im)*55*rc.slow};
+ function electron(x,y,r){c0.fillStyle=EL;c0.beginPath();c0.arc(x,y,r,0,7);c0.fill();c0.strokeStyle='#0b1020';c0.lineWidth=1.6;c0.beginPath();c0.moveTo(x-r*0.5,y);c0.lineTo(x+r*0.5,y);c0.stroke()}
+ function ion(x,y,r){c0.strokeStyle=PLUS;c0.lineWidth=2;c0.beginPath();c0.arc(x,y,r,0,7);c0.stroke();c0.beginPath();c0.moveTo(x-r*0.5,y);c0.lineTo(x+r*0.5,y);c0.moveTo(x,y-r*0.5);c0.lineTo(x,y+r*0.5);c0.stroke()}
+ function arrow(x1,y,x2,col,w){if(Math.abs(x2-x1)<2)return;line(c0,x1,y,x2,y,col,w);arrowHead(c0,x2,y,x2>x1?0:Math.PI,col,7)}
+ let c0;
+ z.draw=function(){rc.draw();const {c,W,H}=fit(cv,330,470);c0=c;clear(c,W,H);const L=rc.live();const f=clamp(L.vc/L.E,0,1);
+  const narrow=W<600;const cx=W/2,gap=Math.min(170,W*(narrow?0.34:0.22)),ph=narrow?170:200,cy=narrow?138:H/2-10;
+  const lx=cx-gap/2,rx=cx+gap/2,pt=cy-ph/2,pb=cy+ph/2,pw=12;
+  // plates
+  c.fillStyle='#c9ced9';c.fillRect(lx-pw,pt,pw,ph);c.fillRect(rx,pt,pw,ph);
+  text(c,'​+ plate',lx-pw/2,pt-10,PLUS,12,'center');text(c,'​− plate',rx+pw/2,pt-10,EL,12,'center');
+  // leads (electrons move along them)
+  const yl=cy,xL=12,xR=W-12;line(c,xL,yl,lx-pw,yl,WIRE,3);line(c,rx+pw,yl,xR,yl,WIRE,3);
+  text(c,'​'+(narrow?'to +':'to the + terminal'),xL+2,yl+22,MUT,11,'left');text(c,'​'+(narrow?'from −':'from the − terminal'),xR-2,yl+22,MUT,11,'right');
+  const gapE=28,s0=((-z.ph%gapE)+gapE)%gapE;
+  for(let x=xL+s0;x<lx-pw-6;x+=gapE)electron(x,yl,5.5);
+  for(let x=rx+pw+6+s0;x<xR;x+=gapE)if(!(Math.abs(x-(rx+pw+(narrow?34:46)))<12))electron(x,yl,5.5);
+  // charge on the plates: electrons crowd the inner face of the − plate; the + plate is left short of electrons
+  const N=Math.round(f*12);for(let k=0;k<N;k++){const y=pt+(k+0.5)*ph/N;electron(rx-9,y,6);ion(lx+9,y,6)}
+  // field between the plates
+  const nl=Math.round(f*7);for(let k=0;k<nl;k++){const y=pt+(k+0.5)*ph/nl+ph/(2*Math.max(nl,1))*0;line(c,lx+20,y,rx-20,y,'rgba(255,215,106,.45)',1.2);arrowHead(c,rx-20,y,0,'rgba(255,215,106,.7)',5)}
+  // the next electron arriving, and the forces on it
+  const ex=rx+pw+(narrow?34:46);electron(ex,yl,8);c.strokeStyle='#fff';c.lineWidth=1.5;c.beginPath();c.arc(ex,yl,11,0,7);c.stroke();
+  const A=L.pos==='A',Bp=L.pos==='B',K=narrow?70:84;const push=A?K:0,rep=K*f;
+  let ex2=ex,ya=yl-26,yr=yl-62;
+  if(narrow){ex2=cx+10;const y0=pb+112;text(c,'​forces on the circled electron',cx,y0-36,INK,12,'center');electron(ex2,y0+30,8);c.strokeStyle='#fff';c.lineWidth=1.5;c.beginPath();c.arc(ex2,y0+30,11,0,7);c.stroke();yr=y0;ya=y0+30;}
+  if(push>0){arrow(ex2+12+push,ya,ex2+12,PUSH,3);text(c,'push from the supply (ε)',narrow?cx:ex+K+14,narrow?ya+28:ya+4,PUSH,12,narrow?'center':'left')}
+  else text(c,Bp?'​no supply in the loop (switch at B)':'​switch open: no complete circuit',narrow?cx:ex+K+14,narrow?ya+28:ya+4,MUT,12,narrow?'center':'left');
+  if(rep>1){arrow(ex2-4,yr,ex2+rep,REP,3);text(c,'repulsion from the charge on the plate (V_C)',narrow?cx:ex+K+14,narrow?yr-12:yr+4,REP,12,narrow?'center':'left');
+   for(let k=0;k<Math.min(N,5);k++){const yy=pt+(k*2.5+0.5)*ph/Math.max(N,1);if(yy>pb)break;line(c,rx-9,yy,ex-9,yl,'rgba(255,179,107,.25)',1,[3,4])}}
+  // net
+  const net=push-rep;const yn=narrow?ya+62:yl+40;
+  text(c,Math.abs(net)>2?'​net push':'​net push = 0: balanced, no current',narrow?cx:ex+K+14,narrow?yn+20:yn+4,INK,12,narrow?'center':'left');
+  if(Math.abs(net)>2){arrow(ex2+net/2,yn,ex2-net/2,net>0?PUSH:REP,3)}
+  // flow labels
+  const thr=0.025*L.E/L.R;const dir=L.i>thr?'left':L.i<-thr?'right':'none';
+  text(c,dir==='none'?'​no flow':'​electron flow '+(dir==='left'?'←':'→'),cx,pb+24,EL,12,'center');
+  text(c,dir==='none'?'':'​conventional current i '+(dir==='left'?'→':'←'),cx,pb+42,MUT,11,'center');
+  text(c,'​no charge crosses the gap',cx,pt-28,MUT,10,'center');
+  const Im=L.E/L.R;
+  window.EM.set($('capZoomNote'),!L.started?'Press <strong>Charge (A)</strong> to start.':
+   A?(f>0.995?'<strong>Charged:</strong> \\(V_{C} = \\varepsilon\\). The repulsion from the charge on the plate now balances the push from the supply, so \\(V_{R} = \\varepsilon - V_{C} = 0\\) and the current has stopped.':
+     '<strong>Charging:</strong> push from the supply \\(\\varepsilon\\) = '+L.E+' V, opposed by \\(V_{C}\\) = '+L.vc.toFixed(2)+' V. Net \\(V_{R} = \\varepsilon - V_{C}\\) = '+(L.E-L.vc).toFixed(2)+' V, so \\(i = V_{R}/R\\) = '+eng(L.i,'A',3)+'. More charge on the plate means more repulsion, so the current keeps falling.'):
+   Bp?'<strong>Discharging:</strong> with the supply gone, nothing pushes electrons on. The repulsion from the charge on the plate drives them back off it, round through \\(R\\), so the current reverses and dies away as the charge (and \\(V_{C}\\)) falls.':
+   '<strong>Switch open:</strong> no complete circuit, so no current. The charge stays on the plates and \\(V_{C}\\) = '+L.vc.toFixed(2)+' V stays.');
+ };
+ z.enter=()=>{if(rc.enter)rc.enter();z.draw()};
+ sims['cap:rc']={step:z.step,draw:z.draw,enter:z.enter,get pos(){return rc.pos},get sw(){return rc.sw},get V0(){return rc.V0},get t(){return rc.t}};
+ [['capZA','rcA'],['capZB','rcB'],['capZC','rcOpen'],['capZR','rcReset']].forEach(([a,b])=>{$(a).onclick=()=>$(b).click()});
+ $('capZSlow').addEventListener('change',()=>{rc.slow=$('capZSlow').checked?0.25:1});
 })();
 
 /* ============ 2.4 COMBINING ============ */
