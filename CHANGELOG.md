@@ -5,6 +5,20 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.6 · 30 October 2026 (Year 13 Electrical lab, interactive Kirchhoff and capacitors)
+- 1.2 internal resistance: charges are coloured by their energy (bright leaving the cell, dimmer after
+  the resistor and inside the cell); chevron current arrow; energy bar labelled "energy per coulomb",
+  \(V = E/Q\) and \(\varepsilon = V + ir\); compare a good and a poor battery on the graph.
+- 1.3 Kirchhoff: click any current arrow or voltage loop (or use the compact Reverse buttons) to flip
+  it, and the + and − marks, the method table and the readout all update. All current arrows sit at
+  one height near junction Y, and the current rule is now applied at Y. The method table explains the
+  sign rule for loops (each term takes the sign of the end of the component you leave by). The
+  readout is a clear table of the signed currents and each equation with its numbers. Charge
+  animation removed from 1.3; controls made more compact.
+- 2.2 parallel plates: the graph now plots \(Q\) against \(V\) with the title "Q = CV (gradient = C)"
+  and an "air only" comparison line. Drag a dielectric slab (paper, glass or water) into the gap or
+  use the "Dielectric inserted" slider; capacitance follows \(C = \frac{\varepsilon_0 A}{d}[(1-x) + x\varepsilon_r]\).
+
 ## v1.5 · 29 October 2026 (hub note)
 - Hub footer: added a "Work in progress" note explaining that the pages are one teacher's classroom
   project, not a finished or official product.

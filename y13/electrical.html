@@ -129,6 +129,8 @@ a.src{color:#cbdcff}body.light-mode a.src{color:#214f88}
 select{width:100%;background:#252740;color:white;border:1px solid #6c6b89;border-radius:4px;padding:7px 8px;min-height:36px;font-size:13px}
 .btn-row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px}
 .btn-row .tool-btn{min-height:36px;padding:6px 12px;font-size:13px;flex:1 1 auto}
+.kirbar{grid-template-columns:minmax(0,1fr);gap:8px}.kirbar .nx-bar-inputs{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px 16px}.kbtns{align-items:center;gap:6px}.kbtns .klab{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:4px}.kbtns .tool-btn{flex:0 0 auto;min-height:30px;padding:4px 12px;font-size:13px}.kbtns #kFlipReset{margin-left:auto}@media(max-width:700px){.kirbar .nx-bar-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}.kbtns .tool-btn{min-height:36px}}
+
 .nx-bar-info{min-width:0;display:flex;flex-direction:column;gap:6px}
 .readout{background:#080d1b;border-left:5px solid var(--topic);padding:9px 12px;font-size:13px;line-height:1.55;font-variant-numeric:tabular-nums}
 .readout strong{color:var(--topic)}
@@ -192,15 +194,24 @@ select{width:100%;background:#252740;color:white;border:1px solid #6c6b89;border
 .methtab tr:last-child td{border-bottom:0}
 .methtab td:first-child{width:58%}
 .methtab td b{color:var(--ink)}.methtab td b.loopL{color:#8fd694}.methtab td b.loopR{color:#c5a2ff}
-.methtab .meq{background:#0a1020;border-left:3px solid var(--topic);text-align:center}
+.methtab .meq{background:#0a1020;border-left:1px solid #2b3350;text-align:center}
 .methtab .meq .katex-display{margin:0}.methtab .meq .katex{font-size:1.18em}
 .methtab .meq.muted{color:var(--muted);font-size:12px;font-style:italic}
 .methtab .mnote-row td{background:#0c1222}
 .mnum{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--topic);color:var(--topic-contrast);font-weight:800;font-size:12px;margin-right:8px;vertical-align:1px}
 body.light-mode .methtab{border-color:#c6d0db}body.light-mode .methtab th{background:#eef3f8;border-color:#c6d0db}
-body.light-mode .methtab td{background:#fff;border-color:#dde3ea}body.light-mode .methtab .meq,body.light-mode .methtab .mnote-row td{background:#f3f6fa}
+body.light-mode .methtab td{background:#fff;border-color:#dde3ea}body.light-mode .methtab .meq,body.light-mode .methtab .mnote-row td{background:#f3f6fa}body.light-mode .methtab .meq{border-left-color:#dde3ea}
 body.light-mode .methtab td b.loopL{color:#2d7a37}body.light-mode .methtab td b.loopR{color:#68409a}
-@media(max-width:700px){.methtab thead{display:none}.methtab,.methtab tbody,.methtab tr,.methtab td{display:block;width:100%!important}.methtab td.meq{border-left:3px solid var(--topic)}.methtab .meq.muted{display:none}}
+@media(max-width:700px){.methtab thead{display:none}.methtab,.methtab tbody,.methtab tr,.methtab td{display:block;width:100%!important}.methtab td.meq{border-left:0}.methtab .meq.muted{display:none}}
+/* readout table (1.3) */
+.rtab{width:100%;border-collapse:collapse;font-size:14px}
+.rtab th{text-align:left;font-weight:400;padding:7px 12px 7px 0;vertical-align:middle;white-space:nowrap;width:1%}
+.rtab th>b{display:block;font-size:14px}.rtab th>span{display:block;font-size:12px;color:var(--muted)}
+.rtab td{padding:7px 12px 7px 0;border-left:1px solid var(--line);padding-left:12px;vertical-align:middle}
+.rtab tr+tr th,.rtab tr+tr td{border-top:1px solid var(--line)}
+.rtab .rq{width:1%;white-space:nowrap;padding-right:20px}.rtab .rq .katex{font-size:1.15em}.rtab .rn{font-variant-numeric:tabular-nums;white-space:nowrap}
+.rnote{margin:8px 0 0;font-weight:700;color:var(--topic)}
+@media(max-width:700px){.rtab,.rtab tbody,.rtab tr,.rtab th,.rtab td{display:block;width:auto}.rtab td{border-left:0;padding-left:0}.rtab tr+tr th{border-top:1px solid var(--line)}.rtab tr+tr td{border-top:0}.rtab .rn{white-space:normal}}
 /* applications */
 .app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin:14px 0 6px}
 .app-card{background:#11182b;border:1px solid #39445d;border-top:4px solid var(--topic);border-radius:10px;padding:13px 14px;min-width:0;display:flex;flex-direction:column;gap:2px;transition:border-color .15s,box-shadow .15s}
@@ -536,10 +547,13 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </div>
 <h3>Look for these ideas</h3>
 <ul class="nx-list">
+<li><strong>Watch the charges.</strong> Each dot is a charge, and its brightness shows how much energy it carries per coulomb (its potential). In the cell, each charge gains \(\varepsilon\). Through the internal resistance it loses \(ir\) (the "lost volts"). Along the wires nothing changes. Through the load it loses \(V = iR\), so it leaves the load dim. The drop in brightness across \(R\) is the terminal voltage the voltmeter reads.</li>
+<li>Make \(r\) bigger: the charges still gain \(\varepsilon\) in the cell, but more of it is lost inside the battery (they dim more through \(r\)), so less is left to lose in the load. The dimming across \(R\) shrinks, and so does the terminal voltage.</li>
 <li>Lower the load resistance: the current rises, the lost volts \(ir\) rise and the terminal voltage falls. The two bars always add up to \(\varepsilon\).</li>
 <li>The best-fit line meets the \(V\) axis at \(\varepsilon\) (zero current) and the \(i\) axis at \(\varepsilon /r\) (short circuit).</li>
 <li>Power to the load, \(Vi\), is largest when \(R = r\), but then half the energy is wasted in the battery.</li>
 </ul>
+<p class="small">The dots move in the direction of conventional current (positive charge), shown by the chevron labelled \(i\). In a metal wire it is really electrons that move, the other way, but the energy story is the same: the cell gives energy to the charges and the resistances take it away.</p>
 <h3>What makes a good battery?</h3>
 <p class="note">With <strong>Compare batteries</strong> ticked, the graph shows your battery between a good one (\(r\) = 0.2 Ω) and a poor one (\(r\) = 4 Ω), all with the <em>same</em> emf (\(\varepsilon\)). They all start at \(\varepsilon\) when no current flows, so a voltmeter on its own can't tell them apart. The difference shows up only when they supply a current: the gradient of each line is \(-r\).</p>
 <div class="nx-grid2">
@@ -558,32 +572,36 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <section class="pane hidden" data-section="dc" data-view="kirchhoff">
 <div class="section-identity"><strong>1.3 · Kirchhoff's laws</strong><p>Two cells, three resistors: see the junction and loop rules hold for any values.</p></div>
 <h2>Kirchhoff explorer</h2>
-<p class="sub">Three branches join at junctions X (top) and Y (bottom). Each cell's positive terminal faces X. The arrows show the current directions with the starting values: \(i_1\) arrives at X, while \(i_2\) and \(i_3\) leave it. Every cell and resistor is marked + and −; a resistor's + end is where the current goes in. Change the values and watch the currents and the signs. The readout checks \(\Sigma i = 0\) at X and \(\Sigma V = 0\) round both loops with your numbers. If a current comes out negative, it really flows against its arrow, and the + and − on that resistor swap over.</p>
+<p class="sub">Three branches join at junctions X (top) and Y (bottom). Each cell's positive terminal faces X. <strong>You choose the directions:</strong> click any current arrow or loop (or use the buttons) to reverse it, and watch the + and − markings, the readout and the method table below change to match. The real currents don't depend on your choices. If your arrow points against the real flow, that current simply comes out negative.</p>
 <div class="nx-lab">
 <div class="sim"><canvas id="kirCanvas" height="380" aria-label="Circuit with two cells and three resistors in three parallel branches, showing current directions and sizes"></canvas></div>
-<div class="nx-ctlbar">
+<div class="nx-ctlbar kirbar">
 <div class="nx-bar-inputs">
 <h3>Controls</h3>
 <div class="control"><label for="kE1">Cell 1, \(\varepsilon _{1}\) <output id="kE1Out">12 V</output></label><input id="kE1" max="24" min="0" step="0.5" type="range" value="12"/></div>
 <div class="control"><label for="kR1">\(R_{1}\) <output id="kR1Out">4.0 Ω</output></label><input id="kR1" max="20" min="0.5" step="0.5" type="range" value="4"/></div>
 <div class="control"><label for="kE2">Cell 2, \(\varepsilon _{2}\) <output id="kE2Out">6.0 V</output></label><input id="kE2" max="24" min="0" step="0.5" type="range" value="6"/></div>
 <div class="control"><label for="kR2">\(R_{2}\) <output id="kR2Out">2.0 Ω</output></label><input id="kR2" max="20" min="0.5" step="0.5" type="range" value="2"/></div>
-<div class="control"><label for="kR3">\(R_{3}\) (middle) <output id="kR3Out">6.0 Ω</output></label><input id="kR3" max="20" min="0.5" step="0.5" type="range" value="6"/></div>
+<div class="control"><label for="kR3">\(R_{3}\) <output id="kR3Out">6.0 Ω</output></label><input id="kR3" max="20" min="0.5" step="0.5" type="range" value="6"/></div>
 </div>
-<div class="nx-bar-info"><div class="readout" id="kirReadout">…</div></div>
+<div class="btn-row kbtns"><span class="klab">Reverse:</span><button class="tool-btn secondary" id="kFlip1" type="button">\(i_1\)</button><button class="tool-btn secondary" id="kFlip2" type="button">\(i_2\)</button><button class="tool-btn secondary" id="kFlip3" type="button">\(i_3\)</button><button class="tool-btn secondary" id="kFlipL" type="button">left loop</button><button class="tool-btn secondary" id="kFlipR" type="button">right loop</button><button class="tool-btn" id="kFlipReset" type="button">Reset</button></div>
+<div class="nx-bar-info" style="grid-column:1/-1"><div class="readout" id="kirReadout">…</div></div>
 </div>
 </div>
+<h3>Follow the energy round a loop</h3>
+<p class="note">Picture one coulomb of charge going round the <span class="loopL"><b>left loop</b></span> with the real current, starting at Y (0 V). It gains \(\varepsilon_1\) in cell 1, loses \(i_1R_1\) in \(R_1\) and reaches X at \(+6.55\) V, then loses \(i_3R_3\) in \(R_3\) and arrives back at Y with nothing left over. The gains and losses balance, which is exactly \(\Sigma V = 0\). (Lab 1.2 shows this energy story with animated charges.)</p>
+<p class="note">In the right branch the real current goes <em>down</em> through cell 2, from + to −, so the charges <strong>lose</strong> energy there. That energy is stored in cell 2, which is why it is being charged.</p>
 <h3>Method for exam questions</h3>
 <div class="methtab-wrap"><table class="methtab">
 <thead><tr><th>Step</th><th>Equation</th></tr></thead>
 <tbody>
 <tr><td><span class="mnum">1</span><b>Draw a current arrow in each branch.</b> Any direction will do. If you guess wrong, that current just comes out negative.</td><td class="meq muted">no equation yet</td></tr>
-<tr><td><span class="mnum">2</span><b>Mark + and − on every component.</b> Cells: the long plate is +. Resistors: + where your arrow goes in, − where it comes out.</td><td class="meq muted">no equation yet</td></tr>
-<tr><td><span class="mnum">3</span><b>Junction X: \(\Sigma i = 0\).</b> Count currents arriving as + and leaving as −. Here \(i_1\) arrives; \(i_2\) and \(i_3\) leave.</td><td class="meq">\[i_1 - i_2 - i_3 = 0\]</td></tr>
-<tr><td><span class="mnum">4</span><b class="loopL">Left loop: \(\Sigma V = 0\), clockwise.</b> From Y, up through cell 1 (− to +, a rise), across to X, then down through \(R_1\) and \(R_3\) with the current (+ to −, falls).</td><td class="meq">\[\varepsilon_1 - i_1R_1 - i_3R_3 = 0\]</td></tr>
-<tr><td><span class="mnum">5</span><b class="loopR">Right loop: \(\Sigma V = 0\), clockwise.</b> From Y, up through \(R_3\) against \(i_3\) (a rise), across, down through \(R_2\) with \(i_2\) (a fall), then down through cell 2 from + to − (a fall).</td><td class="meq">\[i_3R_3 - i_2R_2 - \varepsilon_2 = 0\]</td></tr>
-<tr><td><span class="mnum">6</span><b>Solve the three equations.</b> A negative answer means that current really flows against your arrow, and the + and − on its resistor swap over. Here \(i_2\) flows into the + terminal of cell 2, so cell 2 is being charged.</td><td class="meq">\[\begin{aligned}i_1&amp;=1.36\ \text{A}\\ i_2&amp;=0.27\ \text{A}\\ i_3&amp;=1.09\ \text{A}\end{aligned}\]</td></tr>
-<tr class="mnote-row"><td><span class="mnum">?</span><b>Does the walking direction matter? No.</b> Walking the right loop anticlockwise flips every sign: it's step 5's equation multiplied by −1, and −0 = 0, so the answers don't change. Junctions are the same: counting currents leaving as + just flips every sign in \(\Sigma i = 0\). Pick one direction (clockwise is a good habit) and stick to it.</td><td class="meq">\[\varepsilon_2 + i_2R_2 - i_3R_3 = 0\]</td></tr>
+<tr><td><span class="mnum">2</span><b>Mark + and − on every component.</b> Cells: the long plate is +. Resistors: + where your current arrow goes in, − where it comes out.</td><td class="meq muted">no equation yet</td></tr>
+<tr><td id="kmJt"><span class="mnum">3</span><b>Junction Y: \(\Sigma i = 0\).</b> Count currents arriving at Y as + and leaving as −. With your arrows, \(i_2\) and \(i_3\) arrive; \(i_1\) leaves.</td><td class="meq" id="kmJe">\[-i_1 + i_2 + i_3 = 0\]</td></tr>
+<tr><td id="kmLt"><span class="mnum">4</span><b class="loopL">Left loop: \(\Sigma V = 0\), clockwise.</b> From Y, up through cell 1 (− to +, a rise), across to X, then down through \(R_1\) and \(R_3\) with the current (+ to −, falls).</td><td class="meq" id="kmLe">\[\varepsilon_1 - i_1R_1 - i_3R_3 = 0\]</td></tr>
+<tr><td id="kmRt"><span class="mnum">5</span><b class="loopR">Right loop: \(\Sigma V = 0\), clockwise.</b> From Y, up through \(R_3\) against \(i_3\) (a rise), across, down through \(R_2\) with \(i_2\) (a fall), then down through cell 2 from + to − (a fall).</td><td class="meq" id="kmRe">\[i_3R_3 - i_2R_2 - \varepsilon_2 = 0\]</td></tr>
+<tr><td id="kmSt"><span class="mnum">6</span><b>Solve the three equations.</b> A negative answer means that current really flows against your arrow. Your equations are still correct: the minus sign takes care of it. Here \(i_2\) flows into the + terminal of cell 2, so cell 2 is being charged.</td><td class="meq" id="kmSe">\[\begin{aligned}i_1&amp;=1.36\ \text{A}\\ i_2&amp;=0.27\ \text{A}\\ i_3&amp;=1.09\ \text{A}\end{aligned}\]</td></tr>
+<tr class="mnote-row"><td><span class="mnum">?</span><b>Does the direction you choose matter? Try it.</b> Click any current arrow or loop in the diagram (or use the buttons under it) and watch rows 3 to 6 change. Reversing a <strong>loop</strong> flips the sign of every term in that loop's equation: it's the same equation multiplied by −1, and −0 = 0. Reversing a <strong>current arrow</strong> flips the sign of that current wherever it appears, and its answer comes out negative. Either way, the physics doesn't change: the real currents are the same, only the signs in your working change.</td><td class="meq">\[-(\Sigma V) = 0 \;\Leftrightarrow\; \Sigma V = 0\]</td></tr>
 </tbody></table></div>
 </section>
 
@@ -715,16 +733,17 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </section>
 
 <section class="pane hidden" data-section="cap" data-view="plates">
-<div class="section-identity"><strong>2.2 · Parallel-plate builder</strong><p>Change the plates, the gap and the dielectric; watch \(C\), \(Q\), \(V\) and the stored energy.</p></div>
+<div class="section-identity"><strong>2.2 · Parallel-plate builder</strong><p>Change the plates and the gap, slide a dielectric in, and watch \(C\), \(Q\), \(V\) and the stored energy.</p></div>
 <h2>Parallel-plate capacitor</h2>
-<p class="sub">The diagram shows the charge on each plate and the field between them. The \(V\text{–}Q\) graph is shaded: that area is the energy stored. Switch between <strong>connected</strong> (the battery holds \(V\) fixed) and <strong>disconnected</strong> (\(Q\) is trapped on the plates) and change the gap. This is a classic Excellence question.</p>
+<p class="sub">The diagram shows the charge on each plate and the field between them. <strong>Drag the dielectric down into the gap</strong> (or use the slider) and watch the capacitance grow. The graph plots \(Q\) against \(V\), so its <strong>gradient is the capacitance</strong>: \(Q = CV\). The shaded area between the line and the \(Q\) axis is the energy stored, \(\tfrac{1}{2}QV\). Switch between <strong>connected</strong> (the battery holds \(V\) fixed) and <strong>disconnected</strong> (\(Q\) is trapped on the plates) and change the gap. This is a classic Excellence question.</p>
 <div class="nx-lab">
-<div class="sim"><canvas id="plateCanvas" height="360" aria-label="Side view of two charged parallel plates with field lines and an optional dielectric, beside a voltage against charge graph"></canvas></div>
+<div class="sim"><canvas id="plateCanvas" height="360" aria-label="Side view of two charged parallel plates with field lines and a sliding dielectric, beside a charge against voltage graph"></canvas></div>
 <div class="nx-ctlbar">
 <div class="nx-bar-inputs">
 <h3>Controls</h3>
 <div class="control"><label for="plMode">Battery</label><select id="plMode"><option value="conn">Connected: V fixed</option><option value="disc">Disconnected: Q fixed</option></select></div>
-<div class="control"><label for="plDiel">Dielectric</label><select id="plDiel"><option value="1">Air (ε<sub>r</sub> ≈ 1.0)</option><option value="3.5">Paper (ε<sub>r</sub> ≈ 3.5)</option><option value="6">Glass (ε<sub>r</sub> ≈ 6)</option><option value="80">Water (ε<sub>r</sub> ≈ 80)</option></select></div>
+<div class="control"><label for="plDiel">Dielectric material</label><select id="plDiel"><option value="3.5">Paper (ε<sub>r</sub> ≈ 3.5)</option><option value="6">Glass (ε<sub>r</sub> ≈ 6)</option><option value="80">Water (ε<sub>r</sub> ≈ 80)</option></select></div>
+<div class="control"><label for="plIns">Dielectric inserted <output id="plInsOut">0 %</output></label><input id="plIns" max="100" min="0" step="5" type="range" value="0"/></div>
 <div class="control"><label for="plA">Plate area, \(A\) <output id="plAOut">200 cm²</output></label><input id="plA" max="600" min="50" step="10" type="range" value="200"/></div>
 <div class="control"><label for="plD">Gap, \(d\) <output id="plDOut">2.0 mm</output></label><input id="plD" max="8" min="0.5" step="0.1" type="range" value="2"/></div>
 <div class="control" id="plVWrap"><label for="plV">Battery voltage <output id="plVOut">12 V</output></label><input id="plV" max="24" min="1" step="1" type="range" value="12"/></div>
@@ -736,6 +755,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <ul class="nx-list">
 <li><strong>Connected, widen the gap:</strong> \(C\) falls and \(V\) stays fixed, so \(Q = CV\) falls: charge flows back into the battery. Energy \(\tfrac{1}{2}CV^{2}\) falls.</li>
 <li><strong>Disconnected, widen the gap:</strong> \(Q\) can't change, so \(V = Q/C\) rises. Energy \(\tfrac{1}{2}Q^{2}/C\) <em>rises</em>. The extra energy comes from the work you do pulling the attracting plates apart.</li>
+<li><strong>Slide the dielectric in, connected:</strong> \(C\) rises in proportion to how much is inside, \(C = \frac{\varepsilon_0 A}{d}[(1-x) + x\varepsilon_r]\): the filled part and the empty part act like two capacitors in parallel. The graph gets steeper and more charge flows on. Notice the plate charge crowds beside the dielectric.</li>
 <li><strong>Insert a dielectric while disconnected:</strong> \(C\) rises, so \(V\) falls and the stored energy falls. The dielectric is pulled into the gap.</li>
 </ul>
 </section>
@@ -2214,6 +2234,18 @@ function dot(c,x,y,r,col){c.fillStyle=col;c.beginPath();c.arc(x,y,r,0,7);c.fill(
 function resistorH(c,x,y,w,label,col){c.strokeStyle=col||INK;c.lineWidth=2;c.strokeRect(x,y-8,w,16);if(label)text(c,label,x+w/2,y-13,col||INK,12,'center')}
 function resistorV(c,x,y,h,label,col){c.strokeStyle=col||INK;c.lineWidth=2;c.strokeRect(x-8,y,16,h);if(label)text(c,label,x+14,y+h/2,col||INK,12,'left','middle')}
 function cellV(c,x,y,label){/* + on top */line(c,x-14,y-5,x+14,y-5,INK,2.5);line(c,x-7,y+6,x+7,y+6,INK,4);if(label)text(c,label,x+18,y+4,INK,12)}
+function chevron(c,x,y,ang,col){c.save();c.translate(x,y);c.rotate(ang);c.lineCap='round';c.lineJoin='round';
+ const draw=(w,cl)=>{c.strokeStyle=cl;c.lineWidth=w;c.beginPath();c.moveTo(-9,0);c.lineTo(7,0);c.stroke();c.beginPath();c.moveTo(0,-8);c.lineTo(9,0);c.lineTo(0,8);c.stroke()};
+ draw(9,BG);draw(4,col);c.restore()}
+function hexRGB(h){h=h.replace('#','');return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]}
+function energyCol(e,base){const [r,g,b]=hexRGB(base||'#ffdc6e');const k=0.32+0.68*e;return'rgb('+Math.round(r*k)+','+Math.round(g*k)+','+Math.round(b*k)+')'}
+function energyDots(c,pts,vals,phase,gap,lo,hi,base){let segs=[],tot=0;for(let k=0;k<pts.length-1;k++){const d=Math.hypot(pts[k+1][0]-pts[k][0],pts[k+1][1]-pts[k][1]);segs.push(d);tot+=d}if(tot<=0)return;
+ const s0=((phase%gap)+gap)%gap;c.save();
+ for(let s=s0;s<tot;s+=gap){let acc=0;for(let k=0;k<segs.length;k++){if(acc+segs[k]>=s){const u=segs[k]?(s-acc)/segs[k]:0;const x=pts[k][0]+u*(pts[k+1][0]-pts[k][0]),y=pts[k][1]+u*(pts[k+1][1]-pts[k][1]);
+   const v=vals[k]+u*(vals[k+1]-vals[k]);const e=hi>lo?Math.max(0,Math.min(1,(v-lo)/(hi-lo))):1;
+   c.fillStyle=energyCol(e,base);c.shadowColor=energyCol(1,base);c.shadowBlur=10*e;
+   c.beginPath();c.arc(x,y,2.2+1.8*e,0,7);c.fill();break}acc+=segs[k]}}
+ c.restore()}
 function polyDots(c,pts,phase,gap,col){let segs=[],tot=0;for(let k=0;k<pts.length-1;k++){const d=Math.hypot(pts[k+1][0]-pts[k][0],pts[k+1][1]-pts[k][1]);segs.push(d);tot+=d}if(tot<=0)return;
  let s0=((phase%gap)+gap)%gap;c.fillStyle=col||YEL;for(let s=s0;s<tot;s+=gap){let acc=0;for(let k=0;k<segs.length;k++){if(acc+segs[k]>=s){const u=(s-acc)/segs[k];c.beginPath();c.arc(pts[k][0]+u*(pts[k+1][0]-pts[k][0]),pts[k][1]+u*(pts[k+1][1]-pts[k][1]),2.6,0,7);c.fill();break}acc+=segs[k]}}}
 function arrowHead(c,x,y,ang,col,sz){sz=sz||8;c.fillStyle=col;c.save();c.translate(x,y);c.rotate(ang);c.beginPath();c.moveTo(sz,0);c.lineTo(-sz*0.6,-sz*0.6);c.lineTo(-sz*0.6,sz*0.6);c.closePath();c.fill();c.restore()}
@@ -2297,12 +2329,22 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   c.strokeStyle=INK;c.lineWidth=2;c.beginPath();c.arc(vx,(T0+B0)/2,14,0,7);c.stroke();text(c,'\u200bV',vx,(T0+B0)/2,INK,13,'center','middle');
   // meter readings
   text(c,I.toFixed(2)+' A',ax,T0-22,YEL,12,'center');text(c,V.toFixed(2)+' V',vx+20,(T0+B0)/2+4,YEL,12,'left');
-  polyDots(c,[[tx1,T0],[R0,T0],[R0,B0],[tx1,B0],[tx1,T0]],st.ph,24,YEL);
+  // charges coloured by energy per coulomb (potential): gain ε in the cell, lose ir in r, lose V = iR in the load
+  {const rTop=(by1+by2)/2+10,rBot=rTop+(by2-by1)*0.3,yR1=(T0+B0)/2-30,yR2=(T0+B0)/2+30,lo=-lost;
+   energyDots(c,[[tx1,T0],[R0,T0],[R0,yR1],[R0,yR2],[R0,B0],[tx1,B0],[tx1,rBot],[tx1,rTop],[tx1,cy+7],[tx1,cy-6],[tx1,T0]],
+    [V,V,V,0,0,0,0,lo,lo,V,V],st.ph,24,lo,V);
+   chevron(c,(tx1+ax-14)/2,T0,0,YEL);text(c,'i',(tx1+ax-14)/2,T0-14,YEL,13,'center');
+   // legend
+   const lx=L0,ly=B0+26,lw=Math.min(120,cw*0.4);text(c,'\u200bcharge energy:  low',lx,ly+4,MUT,10,'left');const gx0=lx+102;
+   for(let k=0;k<=10;k++){const e=k/10;c.fillStyle=energyCol(e,YEL);c.beginPath();c.arc(gx0+k*7,ly,2.2+1.8*e,0,7);c.fill()}
+   text(c,'\u200bhigh',gx0+80,ly+4,MUT,10,'left')}
   // energy bars
   const barX=narrow?cw+10:cw+18,barW=narrow?W-cw-24:38,barT=narrow?40:60,barB=narrow?ch-40:H-50;const Emax=st.mystery?12:Math.max(12,p.E);
   const hE=(barB-barT)*p.E/Emax,hV=hE*V/p.E;c.fillStyle=GRN;c.fillRect(barX,barB-hV,barW,hV);c.fillStyle=CORAL;c.fillRect(barX,barB-hE,barW,hE-hV);
-  c.strokeStyle=MUT;c.lineWidth=1;c.strokeRect(barX,barB-hE,barW,hE);text(c,'\u200benergy per C',barX+barW/2,barT-24,MUT,10,'center');text(c,'V',barX+barW/2,barB-hV/2,'#0c1a0e',11,'center','middle');if(hE-hV>14)text(c,'Ir',barX+barW/2,barB-hV-(hE-hV)/2,'#240905',11,'center','middle');
+  c.strokeStyle=MUT;c.lineWidth=1;c.strokeRect(barX,barB-hE,barW,hE);text(c,'V',barX+barW/2,barB-hV/2,'#0c1a0e',11,'center','middle');if(hE-hV>14)text(c,'Ir',barX+barW/2,barB-hV-(hE-hV)/2,'#240905',11,'center','middle');
   text(c,st.mystery?'ε = ?':'ε',barX+barW/2,barB-hE-6,INK,11,'center');
+  text(c,'\u200benergy per',barX+barW/2,barB-hE-50,MUT,10,'center');text(c,'\u200bcoulomb',barX+barW/2,barB-hE-38,MUT,10,'center');text(c,'V = E/Q',barX+barW/2,barB-hE-22,INK,12,'center');
+  text(c,st.mystery?'ε = V + ir':'ε = V + ir',barX+barW/2,barB+18,INK,12,'center');
   // graph
   const gx=narrow?78:barX+barW+84,gy=narrow?ch+14:24,gw=W-gx-16,gh=narrow?H-ch-50:H-60;
   const Imx=nice(p.E/(0.2+p.r)*1.05),Vmx=st.mystery?12:nice(p.E*1.05);
@@ -2346,48 +2388,87 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
 
 /* ============ 1.3 KIRCHHOFF ============ */
 (()=>{
- const cv=$('kirCanvas');const st={ph:[0,0,0]};
+ const cv=$('kirCanvas');
+ // d: chosen arrow directions relative to the defaults (i1 up, i2 down, i3 down); L, R: +1 clockwise, -1 anticlockwise
+ const st={ph:[0,0,0],d:[1,1,1],L:1,R:1,hit:[]};
  const P=()=>({E1:+$('kE1').value,E2:+$('kE2').value,R1:+$('kR1').value,R2:+$('kR2').value,R3:+$('kR3').value});
+ // physical currents: I1 up the left branch, I2 down the right branch, I3 down the middle
  function solve(){const p=P();const V=(p.E1/p.R1+p.E2/p.R2)/(1/p.R1+1/p.R2+1/p.R3);return{V,I1:(p.E1-V)/p.R1,I2:(V-p.E2)/p.R2,I3:V/p.R3}}
- st.step=dt=>{const s=solve();const k=40;st.ph[0]+=dt*s.I1*k;st.ph[1]+=dt*s.I2*k;st.ph[2]+=dt*s.I3*k};
- st.draw=function(){const {c,W,H}=fit(cv,380,380);clear(c,W,H);const p=P(),s=solve();
+ const arrowUp=k=>k===0?st.d[0]>0:st.d[k]<0;   // does the student's arrow k point up (towards X)?
+ const vals=s=>[st.d[0]*s.I1,st.d[1]*s.I2,st.d[2]*s.I3]; // the student's signed i1, i2, i3
+ const f=x=>(Math.abs(x)<0.005?0:x).toFixed(2),g=x=>x<0?'('+f(x)+')':f(x);
+ // equations built from the student's choices
+ function junction(v){const t=[0,1,2].map(k=>({s:arrowUp(k)?-1:1,sym:'i_'+(k+1),v:v[k]}));
+  const tex=t.map((q,i)=>(q.s<0?'-':(i?'+':''))+q.sym).join(' ')+' = 0';
+  const num=t.map((q,i)=>(q.s<0?(i?' − ':'−'):(i?' + ':''))+g(q.v)).join('');const sum=t.reduce((a,q)=>a+q.s*q.v,0);
+  const ins=[0,1,2].filter(k=>!arrowUp(k)).map(k=>'\\(i_'+(k+1)+'\\)'),outs=[0,1,2].filter(k=>arrowUp(k)).map(k=>'\\(i_'+(k+1)+'\\)');
+  const lst=a=>a.length<3?a.join(' and '):a.slice(0,-1).join(', ')+' and '+a[a.length-1];
+  const words=ins.length===3?'\\(i_1\\), \\(i_2\\) and \\(i_3\\) all arrive, so at least one of them must come out negative':outs.length===3?'\\(i_1\\), \\(i_2\\) and \\(i_3\\) all leave, so at least one of them must come out negative':lst(ins)+(ins.length>1?' arrive':' arrives')+'; '+lst(outs)+(outs.length>1?' leave':' leaves');
+  return{tex,num,sum,words}}
+ function loop(which,p,v){const cw=(which==='L'?st.L:st.R)>0;
+  // steps in walking order from Y: [kind, index, walking up?]
+  const steps=which==='L'?(cw?[['c',0,true],['r',0,true],['r',2,false]]:[['r',2,true],['r',0,false],['c',0,false]])
+                         :(cw?[['r',2,true],['r',1,false],['c',1,false]]:[['c',1,true],['r',1,true],['r',2,false]]);
+  const E=[p.E1,p.E2],Rv=[p.R1,p.R2,p.R3];const t=[];const words=[];
+  steps.forEach(([kind,k,up])=>{if(kind==='c'){t.push({s:up?1:-1,sym:'\\varepsilon_'+(k+1),v:E[k]});words.push((up?'up':'down')+' through cell '+(k+1)+': you leave at <b>'+(up?'+':'−')+'</b>, so \\('+(up?'+':'-')+'\\varepsilon_'+(k+1)+'\\)')}
+   else{const withA=(up===arrowUp(k));t.push({s:withA?-1:1,sym:'i_'+(k+1)+'R_'+(k+1),v:v[k]*Rv[k]});words.push((up?'up':'down')+' through \\(R_'+(k+1)+'\\) '+(withA?'with':'against')+' \\(i_'+(k+1)+'\\): you leave at <b>'+(withA?'−':'+')+'</b>, so \\('+(withA?'-':'+')+'i_'+(k+1)+'R_'+(k+1)+'\\)')}});
+  const tex=t.map((q,i)=>(q.s<0?'-':(i?'+':''))+q.sym).join(' ')+' = 0';
+  const num=t.map((q,i)=>(q.s<0?(i?' − ':'−'):(i?' + ':''))+g(q.v)).join('');const sum=t.reduce((a,q)=>a+q.s*q.v,0);
+  return{tex,num,sum,cw,words:(which==='L'?'Follow the loop arrow. Each term takes the sign of the end of the component you <i>leave</i> by (the end the loop arrow points to). ':'Same rule: the sign of the end you leave by. ')+'From Y, '+words.join('; then ')+'.'}}
+ st.draw=function(){const {c,W,H}=fit(cv,380,380);clear(c,W,H);const p=P(),s=solve(),v=vals(s);st.hit=[];
   const nar=W<520;const cx=W/2,xl=nar?62:Math.max(50,cx-Math.min(260,W*0.36)),xr=nar?W-62:Math.min(W-50,cx+Math.min(260,W*0.36)),T=44,B=H-44;
   line(c,xl,T,xr,T,WIRE,2);line(c,xl,B,xr,B,WIRE,2);
-  // left branch: cell (lower) + R1 (upper)
-  const cyc=B-(B-T)*0.3;line(c,xl,B,xl,cyc+7,WIRE,2);cellV(c,xl,cyc,'');line(c,xl,cyc-5,xl,T+(B-T)*0.42,WIRE,2);resistorV(c,xl,T+(B-T)*0.18,(B-T)*0.24,'',INK);line(c,xl,T,xl,T+(B-T)*0.18,WIRE,2);line(c,xl,T+(B-T)*0.42,xl,cyc-5,WIRE,2);
-  text(c,nar?'ε₁':'ε₁ = '+p.E1+' V',xl-20,cyc+4,INK,12,'right');text(c,nar?'R₁':'R₁ = '+p.R1+' Ω',xl-14,T+(B-T)*0.3,INK,12,'right','middle');
-  const cyr=cyc;line(c,xr,B,xr,cyr+7,WIRE,2);cellV(c,xr,cyr,'');line(c,xr,cyr-5,xr,T+(B-T)*0.42,WIRE,2);resistorV(c,xr,T+(B-T)*0.18,(B-T)*0.24,'',INK);line(c,xr,T,xr,T+(B-T)*0.18,WIRE,2);
-  text(c,nar?'ε₂':'ε₂ = '+p.E2+' V',xr+20,cyr+4,INK,12,'left');text(c,nar?'R₂':'R₂ = '+p.R2+' Ω',xr+14,T+(B-T)*0.3,INK,12,'left','middle');
-  line(c,cx,T,cx,T+(B-T)*0.35,WIRE,2);resistorV(c,cx,T+(B-T)*0.35,(B-T)*0.3,'',INK);line(c,cx,T+(B-T)*0.65,cx,B,WIRE,2);text(c,nar?'R₃':'R₃ = '+p.R3+' Ω',cx+14,T+(B-T)*0.5,INK,12,'left','middle');
+  const rTop=T+(B-T)*0.12,rH=(B-T)*0.22,rBot=rTop+rH,yArr=T+(B-T)*0.86,yCell=T+(B-T)*0.6;
+  const cyc=yCell;line(c,xl,B,xl,cyc+7,WIRE,2);cellV(c,xl,cyc,'');line(c,xl,cyc-5,xl,rBot,WIRE,2);resistorV(c,xl,rTop,rH,'',INK);line(c,xl,T,xl,rTop,WIRE,2);
+  text(c,nar?'ε₁':'ε₁ = '+p.E1+' V',xl-20,cyc+4,INK,12,'right');text(c,nar?'R₁':'R₁ = '+p.R1+' Ω',xl-14,rTop+rH/2,INK,12,'right','middle');
+  const cyr=yCell;line(c,xr,B,xr,cyr+7,WIRE,2);cellV(c,xr,cyr,'');line(c,xr,cyr-5,xr,rBot,WIRE,2);resistorV(c,xr,rTop,rH,'',INK);line(c,xr,T,xr,rTop,WIRE,2);
+  text(c,nar?'ε₂':'ε₂ = '+p.E2+' V',xr+20,cyr+4,INK,12,'left');text(c,nar?'R₂':'R₂ = '+p.R2+' Ω',xr+14,rTop+rH/2,INK,12,'left','middle');
+  line(c,cx,T,cx,rTop,WIRE,2);resistorV(c,cx,rTop,rH,'',INK);line(c,cx,rBot,cx,B,WIRE,2);text(c,nar?'R₃':'R₃ = '+p.R3+' Ω',cx+14,rTop+rH/2,INK,12,'left','middle');
   dot(c,cx,T,5,INK);dot(c,cx,B,5,INK);text(c,'X  (+'+s.V.toFixed(2)+' V)',cx,T-12,GRN,12,'center');text(c,'Y  (0 V)',cx,B+20,MUT,12,'center');
-  // current dots (paths from Y to X for 1 and 2; X to Y for 3)
-  polyDots(c,[[cx,B],[xl,B],[xl,T],[cx,T]],st.ph[0],22,YEL);polyDots(c,[[cx,T],[xr,T],[xr,B],[cx,B]],st.ph[1],22,CYN);polyDots(c,[[cx,T],[cx,B]],st.ph[2],22,ROSE);
-  // arrows and labels
-  const chev=(x,y,dirUp,col)=>{const s2=dirUp?-1:1;c.save();c.lineCap='round';c.lineJoin='round';
-   const draw=(w,cl)=>{c.strokeStyle=cl;c.lineWidth=w;c.beginPath();c.moveTo(x,y-s2*9);c.lineTo(x,y+s2*7);c.stroke();c.beginPath();c.moveTo(x-8,y+s2*0);c.lineTo(x,y+s2*9);c.lineTo(x+8,y+s2*0);c.stroke()};
-   draw(9,BG);draw(4,col);c.restore()};
-  const lab=(x,y,I,name,up,col)=>{const pos=I>=0;const dirUp=up?pos:!pos;chev(x,y,dirUp,col);text(c,nar?name:name+' = '+Math.abs(I).toFixed(2)+' A'+(I<0?' (reversed)':''),x+(x<cx?-14:14),y,col,12,x<cx?'right':'left','middle')};
-  lab(xl,T+(B-T)*0.55+18,s.I1,'I₁',true,YEL);lab(xr,T+(B-T)*0.55+18,s.I2,'I₂',false,CYN);
-  const y3=T+(B-T)*0.82,pos3=s.I3>=0;chev(cx,y3,!pos3,ROSE);text(c,nar?'I₃':'I₃ = '+Math.abs(s.I3).toFixed(2)+' A'+(s.I3<0?' (reversed)':''),cx+14,y3,ROSE,12,'left','middle');
-  // voltage loops: walk up through each cell, across the top to X, down through R3
+  // the student's current arrows (clickable)
+  const chev=(x,y,dirUp,col)=>chevron(c,x,y,dirUp?-Math.PI/2:Math.PI/2,col);
+  const arrows=[[xl,yArr,YEL,'right'],[xr,yArr,CYN,'left'],[cx,yArr,ROSE,'left']];
+  arrows.forEach(([x,y,col,al],k)=>{chev(x,y,arrowUp(k),col);const nm='i'+'₁₂₃'[k];
+   text(c,nar?nm:nm+' = '+f(v[k])+' A',x+(al==='right'?-14:14),y,col,12,al,'middle');st.hit.push({x,y,r:18,act:()=>{st.d[k]*=-1}})});
+  // voltage loops (clickable)
   const loopArc=(x0,y0,r,cw,col,lab)=>{c.save();c.strokeStyle=col;c.lineWidth=2;c.setLineDash([5,4]);c.beginPath();const a0=cw?-Math.PI/2+0.45:-Math.PI/2-0.45,a1=cw?a0+1.75*Math.PI:a0-1.75*Math.PI;c.arc(x0,y0,r,a0,a1,!cw);c.stroke();c.setLineDash([]);c.restore();
    const ex=x0+r*Math.cos(a1),ey=y0+r*Math.sin(a1);arrowHead(c,ex,ey,a1+(cw?Math.PI/2:-Math.PI/2),col,9);if(r<30){text(c,lab,x0,y0,col,12,'center','middle')}else{text(c,lab,x0,y0-5,col,12,'center','middle');text(c,'ΣV = 0',x0,y0+12,col,12,'center','middle')}};
-  const rL=nar?24:Math.max(26,Math.min(48,(cx-xl)*0.22,(B-T)*0.2)),yL=T+(B-T)*0.47;
-  loopArc(nar?(xl+cx)/2+4:(xl+cx)/2,yL,rL,true,GRN,nar?'left':'left loop');loopArc(nar?(cx+xr)/2+10:cx+(xr-cx)*0.56,yL,rL,true,VIO,nar?'right':'right loop');
-  // + and − markings: cells by plate; resistors + where current enters, − where it leaves
+  const rL=nar?24:Math.max(26,Math.min(48,(cx-xl)*0.22,(B-T)*0.2)),yL=T+(B-T)*0.4,xLc=nar?(xl+cx)/2+4:(xl+cx)/2,xRc=nar?(cx+xr)/2+10:cx+(xr-cx)*0.56;
+  loopArc(xLc,yL,rL,st.L>0,GRN,nar?'left':'left loop');loopArc(xRc,yL,rL,st.R>0,VIO,nar?'right':'right loop');
+  st.hit.push({x:xLc,y:yL,r:rL+12,act:()=>{st.L*=-1}},{x:xRc,y:yL,r:rL+12,act:()=>{st.R*=-1}});
+  text(c,'​click an arrow or a loop to reverse it',nar?8:14,H-8,MUT,11,'left');
+  // + and − : cells by plate; resistors + where the student's arrow goes in
   const pm=(x,y,sg)=>{const col=sg>0?'#ff8a7a':'#87bbec';c.fillStyle='rgba(7,11,23,.85)';c.beginPath();c.arc(x,y,8,0,7);c.fill();c.strokeStyle=col;c.lineWidth=1.4;c.stroke();line(c,x-4,y,x+4,y,col,2);if(sg>0)line(c,x,y-4,x,y+4,col,2)};
   pm(xl+18,cyc-13,1);pm(xl+18,cyc+14,-1);pm(xr-18,cyr-13,1);pm(xr-18,cyr+14,-1);
-  const rTop=T+(B-T)*0.18,rBot=rTop+(B-T)*0.24,mTop=T+(B-T)*0.35,mBot=mTop+(B-T)*0.3;
-  const resPM=(x,top,bot,I,currentUp)=>{if(Math.abs(I)<1e-6)return;const up=currentUp?I>0:I<0;/* current enters at bottom when moving up */pm(x,bot-2,up?1:-1);pm(x,top+2,up?-1:1)};
-  resPM(xl+18,rTop,rBot,s.I1,true);resPM(xr-18,rTop,rBot,s.I2,false);resPM(cx+18,mTop,mBot,s.I3,false);
-  const f=x=>(Math.abs(x)<0.005?0:x).toFixed(2),g=x=>x<0?'('+f(x)+')':f(x);
-  window.EM.set($('kirReadout'),'\\(i_{1}\\) = <strong>'+f(s.I1)+' A</strong> · \\(i_{2}\\) = <strong>'+f(s.I2)+' A</strong> · \\(i_{3}\\) = <strong>'+f(s.I3)+' A</strong>'+
-   '<br/><b>Junction X, \\(\\Sigma i = 0\\)</b> (in +, out −): \\(i_1 - i_2 - i_3\\) = '+g(s.I1)+' − '+g(s.I2)+' − '+g(s.I3)+' = '+f(s.I1-s.I2-s.I3)+' ✓'+
-   '<br/><b class="loopL">Left loop</b>, <b>\\(\\Sigma V = 0\\)</b>: \\(\\varepsilon_1 - i_1R_1 - i_3R_3\\) = '+p.E1+' − '+g(s.I1*p.R1)+' − '+g(s.I3*p.R3)+' = '+f(p.E1-s.I1*p.R1-s.I3*p.R3)+' ✓'+
-   '<br/><b class="loopR">Right loop</b>, <b>\\(\\Sigma V = 0\\)</b>: \\(i_3R_3 - i_2R_2 - \\varepsilon_2\\) = '+g(s.I3*p.R3)+' − '+g(s.I2*p.R2)+' − '+p.E2+' = '+f(s.I3*p.R3-s.I2*p.R2-p.E2)+' ✓'+
-   (s.I2>1e-6?'<br/><strong>Cell 2 is being charged</strong>: \\(i_2\\) flows down into its + terminal, against its emf.':'')+(s.I2<-1e-6?'<br/>\\(i_2\\) is negative, so it really flows <em>up</em>, the opposite way to the direction we chose (down). Its arrow flips to show this, and the + and − on \\(R_2\\) swap over. Cell 2 is now supplying energy.':'')+(s.I3<-1e-6?'<br/>\\(i_3\\) is negative, so it really flows <em>up</em> through \\(R_3\\), the opposite way to the direction we chose. Its arrow flips and the + and − on \\(R_3\\) swap over.':'')+(s.I1<-1e-6?'<br/><strong>Cell 1 is being charged</strong>: current is forced into its + terminal, and the + and − on \\(R_1\\) have swapped.':''));
+  const resPM=(x,top,bot,up)=>{pm(x,bot-2,up?1:-1);pm(x,top+2,up?-1:1)};
+  resPM(xl+18,rTop,rBot,arrowUp(0));resPM(xr-18,rTop,rBot,arrowUp(1));resPM(cx+18,rTop,rBot,arrowUp(2));
+  // equations from the student's choices
+  const J=junction(v),Lp=loop('L',p,v),Rp=loop('R',p,v);
+  const negs=[0,1,2].filter(k=>v[k]<-0.004);
+  const negTxt=negs.length?' '+negs.map(k=>'\\(i_'+(k+1)+'\\)').join(' and ')+(negs.length>1?' are':' is')+' negative: '+(negs.length>1?'those currents really flow':'that current really flows')+' against '+(negs.length>1?'their arrows':'its arrow')+'. The sign tells you the true direction.':' All three currents are positive, so every arrow points the way the current really flows.';
+  const charge=(s.I2>1e-6?' Cell 2 is being charged: current really flows down into its + terminal.':'')+(s.I1<-1e-6?' Cell 1 is being charged: current really flows down into its + terminal.':'');
+  const row=(name,cls,rule,tex,num,sum)=>'<tr><th>'+(cls?'<b class="'+cls+'">'+name+'</b>':'<b>'+name+'</b>')+'<span>'+rule+'</span></th><td class="rq">\\('+tex.replace(' = 0','')+'\\)</td><td class="rn">= '+num+' = '+f(sum)+' ✓</td></tr>';
+  window.EM.set($('kirReadout'),'<table class="rtab"><tr><th><b>Your currents</b><span>signed values</span></th><td colspan="2">\\(i_1\\) = <strong>'+f(v[0])+' A</strong> &nbsp;·&nbsp; \\(i_2\\) = <strong>'+f(v[1])+' A</strong> &nbsp;·&nbsp; \\(i_3\\) = <strong>'+f(v[2])+' A</strong></td></tr>'+
+   row('Junction Y','','\\(\\Sigma i = 0\\), in +, out −',J.tex,J.num,J.sum)+
+   row('Left loop','loopL','\\(\\Sigma V = 0\\), '+(Lp.cw?'clockwise':'anticlockwise'),Lp.tex,Lp.num,Lp.sum)+
+   row('Right loop','loopR','\\(\\Sigma V = 0\\), '+(Rp.cw?'clockwise':'anticlockwise'),Rp.tex,Rp.num,Rp.sum)+
+   '</table>'+(charge?'<p class="rnote">'+charge.trim()+'</p>':''));
+  // the method table follows the same choices
+  window.EM.set($('kmJt'),'<span class="mnum">3</span><b>Junction Y: \\(\\Sigma i = 0\\).</b> Count currents arriving at Y as + and leaving as −. With your arrows, '+J.words+'.');
+  window.EM.set($('kmJe'),'\\['+J.tex+'\\]');
+  window.EM.set($('kmLt'),'<span class="mnum">4</span><b class="loopL">Left loop: \\(\\Sigma V = 0\\), '+(Lp.cw?'clockwise':'anticlockwise')+'.</b> '+Lp.words);
+  window.EM.set($('kmLe'),'\\['+Lp.tex+'\\]');
+  window.EM.set($('kmRt'),'<span class="mnum">5</span><b class="loopR">Right loop: \\(\\Sigma V = 0\\), '+(Rp.cw?'clockwise':'anticlockwise')+'.</b> '+Rp.words);
+  window.EM.set($('kmRe'),'\\['+Rp.tex+'\\]');
+  window.EM.set($('kmSt'),'<span class="mnum">6</span><b>Solve the three equations.</b> A negative answer means that current really flows against your arrow. Your equations are still correct: the minus sign takes care of it.'+negTxt+charge);
+  window.EM.set($('kmSe'),'\\[\\begin{aligned}i_1&='+f(v[0])+'\\ \\text{A}\\\\ i_2&='+f(v[1])+'\\ \\text{A}\\\\ i_3&='+f(v[2])+'\\ \\text{A}\\end{aligned}\\]');
  };
  st.enter=()=>st.draw();
+ const act=fn=>{fn();st.draw()};
+ cv.addEventListener('click',e=>{const r=cv.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;
+  const h=st.hit.filter(q=>Math.hypot(q.x-x,q.y-y)<=q.r).sort((a,b)=>a.r-b.r)[0];if(h)act(h.act)});
+ cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;cv.style.cursor=st.hit.some(q=>Math.hypot(q.x-x,q.y-y)<=q.r)?'pointer':'default'});
+ [['kFlip1',()=>{st.d[0]*=-1}],['kFlip2',()=>{st.d[1]*=-1}],['kFlip3',()=>{st.d[2]*=-1}],['kFlipL',()=>{st.L*=-1}],['kFlipR',()=>{st.R*=-1}],['kFlipReset',()=>{st.d=[1,1,1];st.L=1;st.R=1}]].forEach(([id,fn])=>{const b=$(id);if(b)b.onclick=()=>act(fn)});
  const upd=()=>{const p=P();$('kE1Out').textContent=p.E1.toFixed(1)+' V';$('kE2Out').textContent=p.E2.toFixed(1)+' V';$('kR1Out').textContent=p.R1.toFixed(1)+' Ω';$('kR2Out').textContent=p.R2.toFixed(1)+' Ω';$('kR3Out').textContent=p.R3.toFixed(1)+' Ω'};
  bindOut(['kE1','kE2','kR1','kR2','kR3'],upd);
  sims['dc:kirchhoff']=st;
@@ -2395,41 +2476,70 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
 
 /* ============ 2.2 PARALLEL PLATES ============ */
 (()=>{
- const cv=$('plateCanvas');const e0=8.85e-12;const st={Q:null,qAx:0,vAx:0};
- const P=()=>({mode:$('plMode').value,er:+$('plDiel').value,A:+$('plA').value*1e-4,d:+$('plD').value*1e-3,Vb:+$('plV').value});
- function calc(){const p=P();const C=e0*p.er*p.A/p.d;let Q,V;if(p.mode==='conn'||st.Q==null){V=p.Vb;Q=C*V}else{Q=st.Q;V=Q/C}return{C,Q,V,E:V/p.d,U:0.5*Q*V}}
+ const cv=$('plateCanvas');const e0=8.85e-12;const st={Q:null,qAx:0,vAx:0,geo:null,drag:false};
+ const P=()=>({mode:$('plMode').value,er:+$('plDiel').value,f:+$('plIns').value/100,A:+$('plA').value*1e-4,d:+$('plD').value*1e-3,Vb:+$('plV').value});
+ const Cof=p=>e0*p.A/p.d*((1-p.f)+p.f*p.er);
+ function calc(){const p=P();const C=Cof(p);let Q,V;if(p.mode==='conn'||st.Q==null){V=p.Vb;Q=C*V}else{Q=st.Q;V=Q/C}return{C,C0:e0*p.A/p.d,Q,V,E:V/p.d,U:0.5*Q*V}}
  function sticky(v,ax){return(v>ax||v<ax*0.12||!ax)?nice(v*1.6):ax}
+ const NAME={'3.5':'paper','6':'glass','80':'water'};
  st.draw=function(){const {c,W,H}=fit(cv,360,620);clear(c,W,H);const p=P(),k=calc();
-  const narrow=W<640;const sw=narrow?W:W*0.5,sh=narrow?300:H;
+  const narrow=W<640;const sw=narrow?W:W*0.5,sh=narrow?320:H;
   // plates
-  const ph=clamp(Math.sqrt(p.A/0.06)*(sh-70),60,sh-70),gap=clamp(p.d/0.008*(sw*0.62),30,sw*0.66);const cx=sw/2+10,cy=sh/2+4;const lx=cx-gap/2,rx=cx+gap/2;
-  if(p.er>1){c.fillStyle=p.er>20?'rgba(120,180,255,.22)':'rgba(255,158,181,.16)';c.fillRect(lx+3,cy-ph/2,gap-6,ph);
-   for(let yy=cy-ph/2+14;yy<cy+ph/2-6;yy+=22)for(let xx=lx+14;xx<rx-10;xx+=22){c.strokeStyle='rgba(255,255,255,.35)';c.lineWidth=1;c.beginPath();c.ellipse(xx,yy,7,4,0,0,7);c.stroke();text(c,'−',xx-4,yy,ROSE,9,'center','middle');text(c,'+',xx+4,yy,'#9fc6ff',9,'center','middle')}}
-  c.fillStyle='#c9ced9';c.fillRect(lx-6,cy-ph/2,6,ph);c.fillRect(rx,cy-ph/2,6,ph);
+  const ph=clamp(Math.sqrt(p.A/0.06)*(sh-124),60,sh-124),gap=clamp(p.d/0.008*(sw*0.62),30,sw*0.66);const cx=sw/2+10,cy=sh/2+6;const lx=cx-gap/2,rx=cx+gap/2;
+  const pT=cy-ph/2,pB=cy+ph/2,yIn=pT+p.f*ph;st.geo={lx,rx,pT,ph,sh,narrow};
+  // dielectric slab: slides down from above the plates
+  const slabCol=p.er>20?'120,180,255':'255,158,181';
+  const outTop=Math.max(24,pT-(1-p.f)*ph);
+  c.fillStyle='rgba('+slabCol+',.10)';c.fillRect(lx+3,outTop,gap-6,pT-outTop);
+  c.strokeStyle='rgba('+slabCol+',.55)';c.lineWidth=1;c.setLineDash([4,3]);c.strokeRect(lx+3,outTop,gap-6,yIn-outTop);c.setLineDash([]);
+  if(p.f>0){c.fillStyle='rgba('+slabCol+',.22)';c.fillRect(lx+3,pT,gap-6,yIn-pT);
+   for(let yy=pT+12;yy<yIn-6;yy+=22)for(let xx=lx+14;xx<rx-10;xx+=22){c.strokeStyle='rgba(255,255,255,.35)';c.lineWidth=1;c.beginPath();c.ellipse(xx,yy,7,4,0,0,7);c.stroke();text(c,'−',xx-4,yy,ROSE,9,'center','middle');text(c,'+',xx+4,yy,'#9fc6ff',9,'center','middle')}}
+  // grip on the slab's top edge
+  const gy0=outTop+8;for(let i=-1;i<=1;i++)line(c,cx-12,gy0+i*4,cx+12,gy0+i*4,'rgba(255,255,255,.6)',1.5);
+  text(c,NAME[String(p.er)]+' · ε_r ≈ '+p.er+' · '+Math.round(p.f*100)+'% in',cx,outTop-8,ROSE,11,'center');
+  if(p.f===0)text(c,'\u200bdrag the dielectric down ↓',cx,pT-12,MUT,10,'center');
+  c.fillStyle='#c9ced9';c.fillRect(lx-6,pT,6,ph);c.fillRect(rx,pT,6,ph);
   st.qAx=sticky(k.Q,st.qAx);st.vAx=sticky(k.V,st.vAx);
-  const n=clamp(Math.round(k.Q/st.qAx*22),1,26);for(let i=0;i<n;i++){const y=cy-ph/2+(i+0.5)*ph/n;text(c,'+',lx-14,y,'#ff8a7a',13,'center','middle');text(c,'−',rx+14,y,'#87bbec',15,'center','middle')}
-  // field lines density ~ E
-  const Eref=st.vAx/p.d;const nl=clamp(Math.round(k.E/(Eref)*12),1,14);for(let i=0;i<nl;i++){const y=cy-ph/2+(i+0.5)*ph/nl;line(c,lx+2,y,rx-8,y,'rgba(255,215,106,.55)',1.3);arrowHead(c,rx-6,y,0,'rgba(255,215,106,.8)',5)}
+  // plate charges: denser beside the dielectric (σ = ε_r ε0 E there)
+  const n=clamp(Math.round(k.Q/st.qAx*22),1,26),tot=p.f*p.er+(1-p.f);
+  for(let i=0;i<n;i++){const u=(i+0.5)/n*tot;const fr=u<p.f*p.er?u/p.er:p.f+(u-p.f*p.er);const y=pT+fr*ph;text(c,'+',lx-14,y,'#ff8a7a',13,'center','middle');text(c,'−',rx+14,y,'#87bbec',15,'center','middle')}
+  // field lines: E = V/d everywhere in the gap
+  const Eref=st.vAx/p.d;const nl=clamp(Math.round(k.E/(Eref)*12),1,14);for(let i=0;i<nl;i++){const y=pT+(i+0.5)*ph/nl;line(c,lx+2,y,rx-8,y,'rgba(255,215,106,.55)',1.3);arrowHead(c,rx-6,y,0,'rgba(255,215,106,.8)',5)}
   // battery + wires
-  const by=cy+ph/2+26;line(c,lx-3,cy+ph/2,lx-3,by,WIRE,2);line(c,rx+3,cy+ph/2,rx+3,by,WIRE,2);
+  const by=pB+24;line(c,lx-3,pB,lx-3,by,WIRE,2);line(c,rx+3,pB,rx+3,by,WIRE,2);
   const conn=p.mode==='conn';line(c,lx-3,by,cx-24,by,WIRE,2);line(c,cx+16,by,rx+3,by,WIRE,2);
-  if(conn){line(c,cx-24,by,cx-12,by,WIRE,2);line(c,cx-12,by-10,cx-12,by+10,INK,2.5);line(c,cx-4,by-5,cx-4,by+5,INK,4);line(c,cx-4,by,cx+16,by,WIRE,2)}
-  else{line(c,cx-24,by,cx-12,by,WIRE,2);line(c,cx-12,by-10,cx-12,by+10,INK,2.5);line(c,cx-4,by-5,cx-4,by+5,INK,4);line(c,cx-4,by,cx+2,by,WIRE,2);line(c,cx+2,by,cx+16,by-12,ORG,2.5);text(c,'open',cx+20,by-14,ORG,10)}
-  text(c,'d = '+(p.d*1e3).toFixed(1)+' mm',cx,cy-ph/2-10,MUT,11,'center');
-  if(p.er>1)text(c,'dielectric ε_r ≈ '+p.er,cx,cy+ph/2+12,ROSE,10,'center');
-  // V-Q graph
-  const gx=narrow?56:sw+50,gy=narrow?sh+14:26,gw=W-gx-16,gh=narrow?H-sh-50:H-62;
-  const g=frame(c,gx,gy,gw,gh,0,st.qAx,0,st.vAx,'V',null,v=>eng(v,'V',2));text(c,'0',gx,gy+gh+13,MUT,10,'center');text(c,eng(st.qAx,'C',2),gx+gw,gy+gh+13,MUT,10,'right');text(c,'charge Q',gx+gw/2,gy+gh+13,MUT,10,'center');
-  c.fillStyle='rgba(255,158,181,.28)';c.beginPath();c.moveTo(g.X(0),g.Y(0));c.lineTo(g.X(k.Q),g.Y(k.V));c.lineTo(g.X(k.Q),g.Y(0));c.closePath();c.fill();
-  const qe=st.qAx,ve=qe/k.C;line(c,g.X(0),g.Y(0),g.X(Math.min(qe,st.vAx*k.C)),g.Y(Math.min(ve,st.vAx)),ROSE,2.5);dot(c,g.X(k.Q),g.Y(k.V),5,YEL);
-  text(c,'area = ½QV = '+eng(k.U,'J',3),g.X(k.Q*0.66),g.Y(k.V*0.2),INK,12,'center');
-  window.EM.set($('plReadout'),'\\(C = \\varepsilon _{0}\\varepsilon _{r}A/d\\) = <strong>'+eng(k.C,'F',3)+'</strong><br/>\\(Q\\) = '+eng(k.Q,'C',3)+' · \\(V\\) = '+eng(k.V,'V',3)+'<br/>Field between plates \\(E = V/d\\) = '+eng(k.E,'V m⁻¹',3)+'<br/>Energy stored \\(\\tfrac{1}{2}QV\\) = <strong>'+eng(k.U,'J',3)+'</strong>');
-  window.EM.set($('plNote'),conn?'<strong>Connected:</strong> the battery holds \\(V\\) at '+p.Vb+' V. Changing \\(C\\) changes \\(Q = CV\\), so charge flows to or from the battery.':'<strong>Disconnected:</strong> \\(Q\\) is trapped at '+eng(k.Q,'C',3)+'. Changing \\(C\\) changes \\(V = Q/C\\) and the stored energy \\(Q^{2}/2C\\).');
+  line(c,cx-24,by,cx-12,by,WIRE,2);line(c,cx-12,by-10,cx-12,by+10,INK,2.5);line(c,cx-4,by-5,cx-4,by+5,INK,4);
+  if(conn)line(c,cx-4,by,cx+16,by,WIRE,2);else{line(c,cx-4,by,cx+2,by,WIRE,2);line(c,cx+2,by,cx+16,by-12,ORG,2.5);text(c,'\u200bopen',cx+20,by-14,ORG,10)}
+  text(c,'d = '+(p.d*1e3).toFixed(1)+' mm',cx,by+22,MUT,11,'center');
+  // Q–V graph: Q up, V across, gradient = C
+  const gx=narrow?62:sw+56,gy=narrow?sh+44:58,gw=W-gx-18,gh=narrow?H-sh-80:H-98;
+  text(c,'Q = CV   (gradient = C)',gx+gw/2,gy-22,INK,14,'center');
+  const g=frame(c,gx,gy,gw,gh,0,st.vAx,0,st.qAx,'Q',null,q=>eng(q,'C',2));
+  text(c,'0',gx,gy+gh+13,MUT,10,'center');text(c,eng(st.vAx,'V',2),gx+gw,gy+gh+13,MUT,10,'right');text(c,'\u200bp.d. ',gx+gw/2-4,gy+gh+13,MUT,10,'right');text(c,'V',gx+gw/2-4,gy+gh+13,MUT,10,'left');
+  const end=C=>{const v=Math.min(st.vAx,st.qAx/C);return[v,v*C]};
+  // energy: area between the line and the Q axis = ∫V dQ = ½QV
+  c.fillStyle='rgba(255,158,181,.28)';c.beginPath();c.moveTo(g.X(0),g.Y(0));c.lineTo(g.X(k.V),g.Y(k.Q));c.lineTo(g.X(0),g.Y(k.Q));c.closePath();c.fill();
+  line(c,g.X(0),g.Y(k.Q),g.X(k.V),g.Y(k.Q),'rgba(255,255,255,.25)',1,[3,3]);line(c,g.X(k.V),g.Y(k.Q),g.X(k.V),g.Y(0),'rgba(255,255,255,.25)',1,[3,3]);
+  if(p.f>0){const [va,qa]=end(k.C0);line(c,g.X(0),g.Y(0),g.X(va),g.Y(qa),MUT,1.5,[5,4]);text(c,'\u200bair only',g.X(va)-4,g.Y(qa)-8,MUT,10,'right')}
+  const [ve,qe]=end(k.C);line(c,g.X(0),g.Y(0),g.X(ve),g.Y(qe),ROSE,2.6);
+  text(c,'gradient C = '+eng(k.C,'F',3),gx+24,gy+14,ROSE,13,'left');
+  dot(c,g.X(k.V),g.Y(k.Q),5,YEL);
+  text(c,'area = ½QV',g.X(k.V*0.3),g.Y(k.Q*0.72),INK,11,'center');text(c,'= '+eng(k.U,'J',3),g.X(k.V*0.3),g.Y(k.Q*0.72)+14,INK,11,'center');
+  window.EM.set($('plReadout'),'\\(C = \\dfrac{\\varepsilon _{0}A}{d}\\big[(1-x) + x\\,\\varepsilon _{r}\\big]\\) = <strong>'+eng(k.C,'F',3)+'</strong>, with \\(x\\) = fraction filled = '+p.f.toFixed(2)+'<br/>\\(Q\\) = '+eng(k.Q,'C',3)+' · \\(V\\) = '+eng(k.V,'V',3)+'<br/>Field between plates \\(E = V/d\\) = '+eng(k.E,'V m⁻¹',3)+'<br/>Energy stored \\(\\tfrac{1}{2}QV\\) = <strong>'+eng(k.U,'J',3)+'</strong>');
+  window.EM.set($('plNote'),conn?'<strong>Connected:</strong> the battery holds \\(V\\) at '+p.Vb+' V. Changing \\(C\\) changes \\(Q = CV\\): the dot moves up or down the graph as charge flows to or from the battery.':'<strong>Disconnected:</strong> \\(Q\\) is trapped at '+eng(k.Q,'C',3)+'. Changing \\(C\\) changes \\(V = Q/C\\): the dot slides sideways along the graph, and the stored energy \\(Q^{2}/2C\\) changes.');
  };
  st.enter=()=>st.draw();
- const upd=()=>{const p=P();$('plAOut').textContent=Math.round(p.A*1e4)+' cm²';$('plDOut').textContent=(p.d*1e3).toFixed(1)+' mm';$('plVOut').textContent=p.Vb+' V';st.draw()};
- bindOut(['plA','plD','plV'],upd);$('plDiel').addEventListener('change',upd);
- $('plMode').addEventListener('change',()=>{if($('plMode').value==='disc'){const p=P();st.Q=e0*p.er*p.A/p.d*p.Vb}else st.Q=null;$('plVWrap').classList.toggle('hidden',$('plMode').value==='disc');upd()});
+ const upd=()=>{const p=P();$('plAOut').textContent=Math.round(p.A*1e4)+' cm²';$('plDOut').textContent=(p.d*1e3).toFixed(1)+' mm';$('plVOut').textContent=p.Vb+' V';$('plInsOut').textContent=Math.round(p.f*100)+' %';st.draw()};
+ bindOut(['plA','plD','plV','plIns'],upd);$('plDiel').addEventListener('change',upd);
+ $('plMode').addEventListener('change',()=>{if($('plMode').value==='disc'){st.Q=null;st.Q=calc().Q}else st.Q=null;$('plVWrap').classList.toggle('hidden',$('plMode').value==='disc');upd()});
+ // drag the slab in and out
+ const loc=e=>{const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}};
+ const onSlab=q=>{const g=st.geo;return g&&q.x>g.lx-10&&q.x<g.rx+10&&q.y<g.pT+g.ph+6&&(!g.narrow||q.y<g.sh)};
+ const setF=q=>{const g=st.geo;const f=clamp((q.y-g.pT)/g.ph,0,1);$('plIns').value=Math.round(f*20)*5;upd()};
+ cv.addEventListener('pointerdown',e=>{const q=loc(e);if(!onSlab(q))return;st.drag=true;cv.setPointerCapture(e.pointerId);cv.style.touchAction='none';setF(q)});
+ cv.addEventListener('pointermove',e=>{const q=loc(e);if(st.drag)setF(q);else cv.style.cursor=onSlab(q)?'ns-resize':''});
+ cv.addEventListener('pointerup',()=>{st.drag=false;cv.style.touchAction='pan-y'});
+ cv.style.touchAction='pan-y';
  sims['cap:plates']={draw:st.draw,enter:st.enter};
 })();
 
