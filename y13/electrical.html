@@ -2498,10 +2498,10 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   const A=L.pos==='A',Bp=L.pos==='B';const back=A?L.E-i*(L.R+L.r):Bp?i*(L.R+L.r):0; // size of the coil's induced emf
   const narrow=W<600;const cw=narrow?W:W*0.5;const cx=cw/2,cy=narrow?136:H/2,len=Math.min(cw*0.7,320),rad=46;
   // coil: back halves, field lines, front halves
-  const nT=8;const x0=cx-len/2;
-  for(let k=0;k<nT;k++){const x=x0+len*(k+0.5)/nT;c.strokeStyle='rgba(120,217,247,.35)';c.lineWidth=2;c.beginPath();c.ellipse(x,cy,10,rad,0,-Math.PI/2,Math.PI/2,true);c.stroke()}
+  const nT=14;const x0=cx-len/2;
+  window.EMS.helix(c,x0,len,cy,rad,nT,'rgba(120,217,247,.35)',2,false);
   const nl=Math.round(f*6);for(let k=0;k<nl;k++){const y=cy-rad*0.75+(k+0.5)*(rad*1.5)/nl;line(c,x0-30,y,x0+len+30,y,'rgba(143,214,148,.75)',1.6);arrowHead(c,x0+len+30,y,0,'rgba(143,214,148,.9)',6)}
-  for(let k=0;k<nT;k++){const x=x0+len*(k+0.5)/nT;c.strokeStyle=CYN;c.lineWidth=2.6;c.beginPath();c.ellipse(x,cy,10,rad,0,-Math.PI/2,Math.PI/2);c.stroke()}
+  window.EMS.helix(c,x0,len,cy,rad,nT,CYN,2.6,true);
   text(c,'​field inside the coil (flux ∝ current)',cx,cy+rad+18,'#8fd694',11,'center');
   // current and induced-emf arrows along the top of the coil
   const ya=cy-rad-26,K=len*0.42;
@@ -2676,7 +2676,13 @@ function energyDots(c,pts,vals,phase,gap,lo,hi,base){let segs=[],tot=0;for(let k
    c.fillStyle=energyCol(e,base);c.shadowColor=energyCol(1,base);c.shadowBlur=10*e;
    c.beginPath();c.arc(x,y,2.2+1.8*e,0,7);c.fill();break}acc+=segs[k]}}
  c.restore()}
-window.EMS.energyDots=(...a)=>energyDots(...a);
+window.EMS.energyDots=(...a)=>energyDots(...a);window.EMS.helix=(...a)=>helix(...a);
+// a coil drawn as a helix: back halves (behind) or front halves, plus lead wires at both ends
+function helix(c,x0,len,cy,rad,turns,col,w,front){const n=turns*48,tilt=Math.min(7,len/turns*0.45);c.strokeStyle=col;c.lineWidth=w;c.lineCap='round';
+ const P=k=>{const th=k/n*turns*2*Math.PI;return[x0+len*k/n+tilt*Math.sin(th),cy-rad*Math.cos(th),Math.sin(th)]};
+ c.beginPath();let on=false;for(let k=0;k<=n;k++){const [x,y,z]=P(k);const vis=front?z>=0:z<0;if(vis){if(!on){c.moveTo(x,y);on=true}else c.lineTo(x,y)}else on=false}c.stroke();
+ if(front){const [xa,ya]=P(0),[xb,yb]=P(n);c.beginPath();c.moveTo(xa,ya);c.lineTo(xa-18,ya);c.lineTo(xa-18,cy+rad+16);c.moveTo(xb,yb);c.lineTo(xb+18,yb);c.lineTo(xb+18,cy+rad+16);c.stroke()}}
+
 function polyDots(c,pts,phase,gap,col){let segs=[],tot=0;for(let k=0;k<pts.length-1;k++){const d=Math.hypot(pts[k+1][0]-pts[k][0],pts[k+1][1]-pts[k][1]);segs.push(d);tot+=d}if(tot<=0)return;
  let s0=((phase%gap)+gap)%gap;c.fillStyle=col||YEL;for(let s=s0;s<tot;s+=gap){let acc=0;for(let k=0;k<segs.length;k++){if(acc+segs[k]>=s){const u=(s-acc)/segs[k];c.beginPath();c.arc(pts[k][0]+u*(pts[k+1][0]-pts[k][0]),pts[k][1]+u*(pts[k+1][1]-pts[k][1]),2.6,0,7);c.fill();break}acc+=segs[k]}}}
 function arrowHead(c,x,y,ang,col,sz){sz=sz||8;c.fillStyle=col;c.save();c.translate(x,y);c.rotate(ang);c.beginPath();c.moveTo(sz,0);c.lineTo(-sz*0.6,-sz*0.6);c.lineTo(-sz*0.6,sz*0.6);c.closePath();c.fill();c.restore()}
@@ -3052,6 +3058,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   const narrow=W<640;const sw=narrow?W:W*0.5,sh=narrow?300:H;
   const cy=sh/2-6,len=70+(p.l-0.1)/0.3*(sw-(narrow?150:190)),rad=20+(Math.sqrt(p.A*1e4)-1)/(Math.sqrt(10)-1)*(narrow?44:62),cx=sw/2-10,x0=cx-len/2,x1=cx+len/2;
   st.geo={x0,x1,len,cy,rad};
+  const nd0=clamp(Math.round(p.N/12),4,34);helix(c,x0,len,cy,rad,nd0,'rgba(224,138,79,.38)',nd0>24?1.2:1.8,false);
   // core: slides in from the right
   const coreCol=p.mr>20?'#7c6aa8':'#8b8f99';const inX=x0+len*(1-p.f);
   c.fillStyle=coreCol;c.globalAlpha=0.25;c.fillRect(inX,cy-rad*0.7,x1-inX+(1-p.f)*len,rad*1.4);c.globalAlpha=1;
@@ -3064,12 +3071,12 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   const Bv=mu0*mue*p.N*p.i/p.l;const nl=p.i>0.01?clamp(Math.round(Bv/(mu0*200*2/0.2)*4),1,16):0;
   for(let k=0;k<nl;k++){const y=cy-rad*0.85+(k+0.5)*(rad*1.7)/nl;line(c,x0-26,y,x1+26,y,'rgba(143,214,148,.8)',1.5);arrowHead(c,x1+26,y,0,'rgba(143,214,148,.9)',5)}
   // turns
-  const nd=clamp(Math.round(p.N/12),4,34);for(let k=0;k<nd;k++){const x=x0+len*(k+0.5)/nd;c.strokeStyle='#e08a4f';c.lineWidth=nd>24?1.4:2.2;c.beginPath();c.ellipse(x,cy,4,rad,0,0,7);c.stroke()}
+  const nd=clamp(Math.round(p.N/12),4,34);helix(c,x0,len,cy,rad,nd,'#e08a4f',nd>24?1.6:2.4,true);
   text(c,'​N = '+p.N+' turns',cx,cy-rad-14,'#e08a4f',11,'center');
   line(c,x0,cy+rad+22,x1,cy+rad+22,MUT,1);line(c,x0,cy+rad+17,x0,cy+rad+27,MUT,1);line(c,x1,cy+rad+17,x1,cy+rad+27,MUT,1);text(c,'l = '+Math.round(p.l*100)+' cm',cx,cy+rad+38,MUT,11,'center');
   // graph: flux linkage against current, gradient L
   const gx=narrow?62:sw+56,gy=narrow?sh+44:58,gw=W-gx-18,gh=narrow?H-sh-80:H-98;st.nAx=NAX;
-  text(c,'NΦ = L i   (gradient = L)',gx+gw/2,gy-28,INK,14,'center');text(c,'L = '+eng(L,'H',3)+(p.f>0?'   (air core: '+eng(L0,'H',3)+')':''),gx+gw/2,gy-9,CYN,12,'center');
+  text(c,'NΦ = L i   (gradient = L)',gx+gw/2,gy-28,INK,14,'center');const mH=v=>(v*1e3).toPrecision(3)+' mH';text(c,'L = '+mH(L)+(p.f>0?'   (air core: '+mH(L0)+')':''),gx+gw/2,gy-9,CYN,12,'center');
   const g=frame(c,gx,gy,gw,gh,0,2,0,st.nAx,'NΦ',null,v=>eng(v,'Wb',2));
   text(c,'0',gx,gy+gh+13,MUT,10,'center');text(c,'2 A',gx+gw,gy+gh+13,MUT,10,'right');text(c,'​current ',gx+gw/2-4,gy+gh+13,MUT,10,'right');text(c,'i',gx+gw/2-4,gy+gh+13,MUT,10,'left');
   const end=Lx=>{const ii=Math.min(2,st.nAx/Lx);return[ii,ii*Lx]};
