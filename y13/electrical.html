@@ -2228,6 +2228,10 @@ window.addEventListener('resize',()=>{if(running)running.draw()});
 window.addEventListener('emag-redraw',()=>{if(running)running.draw()});
 const BG='#070b17',GRID='#1c2740',AX='#56657f',INK='#e9edf8',MUT='#9aa6bd',ORG='#f0a66a',CYN='#78d9f7',BLU='#87bbec',PNK='#d99ac6',VIO='#c5a2ff',GRN='#5fd39a';
 function clear(c,W,H){c.fillStyle=BG;c.fillRect(0,0,W,H)}
+// inductor circuit symbol, drawn vertically from y0 to y1 on the wire at x: arches on one side, small loops on the other
+function coilSymV(c,x,y0,y1,arches,col,w,h){h=h||13;const t0=-Math.PI/2,t1=2*Math.PI*(arches-1)+Math.PI/2,b=1.7;const a=(y1-y0)/((t1-t0)+2*b);
+ c.strokeStyle=col;c.lineWidth=w||2.4;c.lineJoin='round';c.lineCap='round';c.beginPath();
+ for(let k=0;k<=arches*90;k++){const t=t0+(t1-t0)*k/(arches*90);const yy=y0+a*(t-t0)+a*b*(Math.sin(t)+1),xx=x+h*Math.cos(t);k?c.lineTo(xx,yy):c.moveTo(xx,yy)}c.stroke()}
 function line(c,x1,y1,x2,y2,col,w,dash){c.strokeStyle=col;c.lineWidth=w||1;c.setLineDash(dash||[]);c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();c.setLineDash([])}
 /* plot frame: returns mapping helpers */
 function frame(c,x,y,w,h,tMin,tMax,yMin,yMax,ylab,xlab,yUnitFmt){
@@ -2427,10 +2431,10 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   const iy1=T0+18,iy2=B0-18;line(c,R0,T0,R0,iy1,wcol,2);
   c.setLineDash([4,3]);c.strokeStyle='#6f7f9a';c.lineWidth=1;c.strokeRect(R0-26,iy1-4,52,iy2-iy1+8);c.setLineDash([]);
   const coilTop=iy1,coilBot=(iy1+iy2)/2+6;c.strokeStyle=CYN;c.lineWidth=2.4;const n=5;
-  for(let k=0;k<n;k++){const y=coilTop+(coilBot-coilTop)*(k+0.5)/n;c.beginPath();c.arc(R0,y,(coilBot-coilTop)/n/2,-Math.PI/2,Math.PI/2);c.stroke()}
-  c.strokeStyle=INK;c.lineWidth=2;c.strokeRect(R0-6,coilBot+6,12,iy2-coilBot-10);
-  text(c,'L',R0-34,(coilTop+coilBot)/2,CYN,12,'right','middle');text(c,'r',R0-34,(coilBot+iy2)/2,INK,12,'right','middle');
-  line(c,R0,coilBot,R0,coilBot+6,wcol,2);line(c,R0,iy2-4,R0,B0,wcol,2);
+  coilSymV(c,R0,coilTop,coilBot,6,CYN,2.4,12);
+  const rH=Math.min(40,iy2-coilBot-16),ry0=(coilBot+iy2)/2-rH/2;
+  text(c,'L',R0-34,(coilTop+coilBot)/2,CYN,12,'right','middle');text(c,'r',R0-34,ry0+rH/2,INK,12,'right','middle');
+  line(c,R0,coilBot,R0,ry0,wcol,2);line(c,R0,ry0+rH,R0,B0,wcol,2);
   line(c,R0,B0,bx,B0,wcol,2);
   // current dots on loop (only through the active loop)
   // every wire is full of charges, coloured by potential (bottom wire = 0 V): brighter = more energy per coulomb.
@@ -2443,6 +2447,8 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
     [[[R0,B0],[ax,B0]],[0,0],on],
     [[[ax,B0],[bx,B0]],[0,0],A]];
    segs.forEach(([pts,vals,mv])=>window.EMS.energyDots(c,pts,vals,mv?ph:0,22,lo,hi))}
+  // resistor bodies drawn over the wires and charges, the same size for R and r
+  const body=(x,y,w,h)=>{c.fillStyle=BG;c.fillRect(x,y,w,h);c.strokeStyle=INK;c.lineWidth=2;c.strokeRect(x,y,w,h)};body(rx,T0-8,40,16);body(R0-8,ry0,16,rH);
   text(c,(st.pos==='A'?'A: battery on':st.pos==='B'?'B: battery removed':'C: switch open')+'  ·  click A, B or C',(L0+R0)/2,narrow?chh+2:B0+34,MUT,11,'center');
   // graphs
   const gx=narrow?54:cw+50,gw=W-gx-14,gy=narrow?chh+20:22,gh=(H-gy-46)/2;
@@ -2555,8 +2561,9 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   // three parallel branches on right: coil, neon, diode
   const xs=[R0,R0-(R0-sx)*0.42,R0-(R0-sx)*0.8];
   // coil
-  const cx1=xs[0];line(c,cx1,T0,cx1,T0+30,wcol,2);c.strokeStyle=CYN;c.lineWidth=2.4;const n=7,ct=T0+30,cb=B0-60;for(let k=0;k<n;k++){const y=ct+(cb-ct)*(k+.5)/n;c.beginPath();c.arc(cx1,y,(cb-ct)/n/2,-Math.PI/2,Math.PI/2);c.stroke()}
-  c.fillStyle='#8a93a8';c.fillRect(cx1-16,ct,6,cb-ct);text(c,'iron core',cx1-20,(ct+cb)/2,MUT,10,'right','middle');
+  const cx1=xs[0];line(c,cx1,T0,cx1,T0+30,wcol,2);const ct=T0+30,cb=B0-60;coilSymV(c,cx1,ct,cb,7,CYN,2.4,13);
+  line(c,cx1-23,ct,cx1-23,cb,'#c9ced9',2);line(c,cx1-29,ct,cx1-29,cb,'#c9ced9',2); // iron core: two lines beside the coil symbol
+  text(c,'iron core',cx1-38,(ct+cb)/2,MUT,10,'right','middle');
   c.strokeStyle=INK;c.lineWidth=2;c.strokeRect(cx1-6,cb+6,12,24);text(c,'r',cx1+12,cb+20,INK,11);line(c,cx1,cb,cx1,cb+6,wcol,2);line(c,cx1,cb+30,cx1,B0,wcol,2);
   // neon
   const nx=xs[1],ny=(T0+B0)/2;line(c,nx,T0,nx,ny-18,wcol,2);line(c,nx,ny+18,nx,B0,wcol,2);
@@ -3139,6 +3146,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
     [[[R0,cmid+8],[R0,B0],[ax,B0]],[0,0,0],on],
     [[[ax,B0],[bx,B0]],[0,0],A]];
    segs.forEach(([pts,vals,mv])=>energyDots(c,pts,vals,mv?ph:0,22,0,p.E))}
+  c.fillStyle=BG;c.fillRect(rx,T0-8,40,16);resistorH(c,rx,T0,40,'',INK); // resistor body over the wire and charges
   text(c,(st.pos==='A'?'A: charging':st.pos==='B'?'B: discharging through R':'C: switch open')+'  ·  click A, B or C on the switch',(L0+R0)/2,narrow?chh-6:B0+34,MUT,11,'center');
   const gx=narrow?54:cw+56,gw=W-gx-14,gy=narrow?chh+14:22,gh=(H-gy-46)/2;const tMax=6*T;const Vm=nice(p.E*1.02),Imx=nice(Im*1.02);
   const g1=frame(c,gx,gy,gw,gh,0,tMax,-Vm,Vm,'voltage',null,v=>eng(v,'V',2));const g2=frame(c,gx,gy+gh+26,gw,gh,0,tMax,-Imx,Imx,'current I (signed)','time',v=>eng(v,'A',2));
