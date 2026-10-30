@@ -50,6 +50,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 .rail .fill{background:var(--topic);flex:1;min-height:55px;border-radius:0 0 0 55px}
 .work{min-width:0}
 .tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}
+.tabs button .lc{text-transform:none;font-family:KaTeX_Math,'Times New Roman',serif;font-style:italic;font-weight:400;font-size:1.15em}.tabs button .lc.up{font-family:KaTeX_Main,'Times New Roman',serif;font-style:normal}
 .tabs button{border:0;border-radius:16px 16px 0 0;background:#3b3850;color:#fff;padding:13px 18px;text-transform:uppercase;font-size:13px;font-weight:bold;flex:1;min-width:120px;font-variant-numeric:tabular-nums;transition:transform .15s,filter .15s,box-shadow .15s}
 .tabs button.active{background:var(--topic);color:var(--topic-contrast)}
 .tabs button:not(.active):hover,.tabs button:not(.active):focus-visible{transform:translateY(-3px);filter:brightness(1.18);box-shadow:0 10px 22px -14px var(--topic)}
@@ -234,6 +235,43 @@ body.light-mode .nx-steps>div,body.light-mode .nx-worked{background:#f7f9fc;bord
 @media(max-width:760px){.nx-steps{grid-template-columns:minmax(0,1fr)}}
 .resource{display:block;color:#cbdcff;padding:9px 10px;border-bottom:1px solid #32384c;border-radius:8px;text-decoration:none}.resource:hover{background:#141c30}
 body.light-mode .resource{color:#214f88;border-bottom-color:#c3cdd8}body.light-mode .resource:hover{background:#eef3f8}
+.rcbar .nx-bar-inputs{grid-template-columns:repeat(3,minmax(0,1fr))}
+.kbtns .kchk{margin:0 0 0 8px;font-size:13px}.kbtns .tool-btn.secondary[aria-pressed="true"]{background:var(--topic);color:#111;box-shadow:none}body.light-mode .kbtns .tool-btn.secondary[aria-pressed="true"]{background:var(--topic);color:#111}
+.rstats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.rstats>div{background:#0a1020;border:1px solid #2b3350;border-radius:8px;padding:8px 10px;min-width:0}
+.rstats>div>span{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rstats>div>b{display:block;font-size:15px;margin-top:3px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rstats>div>small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.coilstory p{margin:2px 0 6px}.coilstory ol{margin:4px 0 6px;padding-left:22px}.coilstory li{margin:4px 0;line-height:1.5}
+.pipefig{margin:8px 0 12px;background:#0a1020;border:1px solid #2b3350;border-radius:8px;padding:10px}.pipefig svg{width:100%;max-width:640px;height:auto;display:block;margin:0 auto}
+.pf-notes{display:none;font-size:13px;margin:6px 0;padding-left:18px}.pf-notes li{margin:4px 0}
+@media(max-width:600px){.pf-side{display:none}.pf-notes{display:block}}
+.pipefig figcaption{font-size:13px;color:var(--muted);text-align:center;margin-top:6px;line-height:1.7}
+.pf-key{display:inline-flex;align-items:center;gap:6px;margin:0 10px;color:var(--ink)}.pf-key::before{content:"";width:18px;height:3px;border-radius:2px;background:var(--k)}
+.pf-kb{--k:#87bbec}.pf-ki{--k:#ffd76a}.pf-ke{--k:#8fd694}.pf-kf{--k:#5fd39a}
+body.light-mode .pf-kb{--k:#2d5f99}body.light-mode .pf-ki{--k:#b07d00}body.light-mode .pf-ke{--k:#2d7a37}body.light-mode .pf-kf{--k:#1f8a55}
+.pf-wall{fill:#b8692f;opacity:.75}.pf-lab{fill:var(--muted);font-size:11px}.pf-pole{fill:#fff;font:700 15px KaTeX_Main,serif}
+.pf-b{fill:none;stroke:#87bbec;stroke-width:1.6}.pf-bfill{fill:#87bbec}
+.pf-ring{fill:none;stroke:#ffd76a;stroke-width:3}.pf-back{stroke-dasharray:5 4;opacity:.55}.pf-ifill{fill:#ffd76a}
+.pf-e{fill:none;stroke:#8fd694;stroke-width:2.5;stroke-dasharray:6 3}.pf-efill{fill:#8fd694}
+.pf-v{stroke:#c9ced9;stroke-width:3}.pf-vfill{fill:#c9ced9}.pf-vlab{fill:#c9ced9;font:italic 16px KaTeX_Math,serif}body.light-mode .pf-v{stroke:#5d6b88}body.light-mode .pf-vfill,body.light-mode .pf-vlab{fill:#5d6b88}
+.pf-f{stroke:#5fd39a;stroke-width:3.5}.pf-ffill{fill:#5fd39a}.pf-flab{fill:#5fd39a;font:italic 16px KaTeX_Math,serif}
+.pf-w{stroke:#f0a66a;stroke-width:3.5}.pf-wfill{fill:#f0a66a}.pf-wlab{fill:#f0a66a;font:italic 16px KaTeX_Math,serif}.pf-sub{font:10px KaTeX_Main,serif;font-style:normal}.pf-it{font-style:italic;font-family:KaTeX_Math,serif}.pf-fcol{fill:#5fd39a}.pf-wcol{fill:#f0a66a}.pf-kw{--k:#f0a66a}
+body.light-mode .pf-fcol{fill:#1f8a55}body.light-mode .pf-w{stroke:#c0662a}body.light-mode .pf-wfill,body.light-mode .pf-wlab,body.light-mode .pf-wcol{fill:#c0662a}body.light-mode .pf-kw{--k:#c0662a}
+.pf-sym{fill:#0a1020;stroke:#ffd76a;stroke-width:1.6}.pf-symx{stroke:#ffd76a;stroke-width:1.8}.pf-symdot{fill:#ffd76a}.pf-b2{opacity:.7}
+body.light-mode .pf-sym{fill:#f3f6fa;stroke:#b07d00}body.light-mode .pf-symx{stroke:#b07d00}body.light-mode .pf-symdot{fill:#b07d00}
+.pf-ilab{fill:#ffd76a;font-size:13px;font-weight:700}.pf-small{fill:var(--ink);font-size:12.5px}.pf-strong{font-weight:700}
+
+body.light-mode .pipefig{background:#f3f6fa;border-color:#c6d0db}
+body.light-mode .pf-b{stroke:#2d5f99}body.light-mode .pf-bfill{fill:#2d5f99}
+body.light-mode .pf-ring{stroke:#b07d00}body.light-mode .pf-ifill{fill:#b07d00}body.light-mode .pf-ilab,body.light-mode .pf-ikey{fill:#8a6200}
+body.light-mode .pf-e{stroke:#2d7a37}body.light-mode .pf-efill,body.light-mode .pf-ekey{fill:#2d7a37}
+body.light-mode .pf-f{stroke:#1f8a55}body.light-mode .pf-ffill,body.light-mode .pf-flab,body.light-mode .pf-fkey{fill:#1f8a55}
+.rcnote{margin:2px 0 0;padding:8px 12px;border-left:3px solid var(--topic);background:#0a1020;border-radius:0 6px 6px 0;font-size:14px}
+body.light-mode .rstats>div,body.light-mode .rcnote{background:#f3f6fa;border-color:#c6d0db}body.light-mode .rcnote{border-left-color:var(--topic)}
+.coilbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.coilbar .control select{width:100%}
+@media(max-width:1000px){.rstats{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.rcbar .nx-bar-inputs,.coilbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr)}.rstats>div>b{white-space:normal;overflow-wrap:anywhere}.rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* readout table (1.3) */
 .rtab{width:100%;border-collapse:collapse;font-size:14px}
 .rtab th{text-align:left;font-weight:400;padding:7px 12px 7px 0;vertical-align:middle;white-space:nowrap;width:1%}
@@ -398,7 +436,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="nx-bigidea nx-bigidea6" role="list">
 <button class="nx-idea" data-go="dc:battery" role="listitem" style="--c:#8fd694" type="button"><b>DC circuits</b><span>emf = terminal voltage + "lost volts" \(ir\); Kirchhoff's rules</span></button>
 <button class="nx-idea" data-go="cap:rc" role="listitem" style="--c:#ff9eb5" type="button"><b>Capacitors</b><span>Store charge \(Q = CV\); charge and discharge exponentially, \(\tau = RC\)</span></button>
-<button class="nx-idea" data-go="flux:graphs" role="listitem" style="--c:#f0a66a" type="button"><b>Induction</b><span>emf = rate of change of flux linkage; Lenz gives direction</span></button>
+<button class="nx-idea" data-go="flux:loop" role="listitem" style="--c:#f0a66a" type="button"><b>Induction</b><span>emf = rate of change of flux linkage; Lenz gives direction</span></button>
 <button class="nx-idea" data-go="ind:lr" role="listitem" style="--c:#78d9f7" type="button"><b>Inductors</b><span>Back emf opposes changes in current; \(\tau = L/R\)</span></button>
 <button class="nx-idea" data-go="tx:lab" role="listitem" style="--c:#c5a2ff" type="button"><b>Transformers</b><span>Shared changing flux: \(V\) scales with turns</span></button>
 <button class="nx-idea" data-go="ac:lcr" role="listitem" style="--c:#ff8a7a" type="button"><b>AC circuits</b><span>Reactance depends on \(f\); phasors; resonance when \(X_{L} = X_{C}\)</span></button>
@@ -414,7 +452,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <ol class="nx-route">
 <li><b>DC circuits</b> · 1.1 → 1.2 → 1.3, then check yourself in 1.4</li>
 <li><b>Capacitors</b> · 2.1 → 2.2 → 2.3 → 2.4, then 2.5</li>
-<li><b>Flux &amp; Faraday</b> · 3.1 → 3.2 → 3.3 → 3.4, then 3.5</li>
+<li><b>Flux &amp; Faraday</b> · 3.1 → 3.2 → 3.3, then 3.4</li>
 <li><b>Inductors</b> · 4.1 → 4.2 → 4.3, then 4.4. Compare the LR lab (4.2) with the RC lab (2.3).</li>
 <li><b>Transformers</b> · 5.1 → 5.2 → 5.3, then 5.4</li>
 <li><b>AC circuits</b> · 6.1 → 6.2 → 6.3 → 6.4, then 6.5</li>
@@ -482,7 +520,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <li>Mark the starting value and draw the final value (asymptote) as a dashed line.</li>
 <li>Mark \(\tau\) on the time axis and show the 63% (growth) or 37% (decay) point. Charging and discharging curves are steepest at the start.</li>
 <li>For a discharge <em>current</em> graph, show the reversed direction as negative if the question uses signed current.</li>
-<li>For an emf–time graph drawn from a flux–time graph: emf is <strong>minus the gradient</strong>.</li>
+<li>For an \(\varepsilon\)–\(t\) graph drawn from a \(\Phi\)–\(t\) graph: emf is <strong>minus the gradient</strong>.</li>
 </ul>
 <h3 class="nx-h3">Significant figures and units</h3>
 <ul class="nx-list">
@@ -521,7 +559,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </div></div>
 <div class="fs-group"><h3 style="color:#f0a66a">Flux &amp; Faraday</h3><div class="fs-grid">
 <div class="fs-card"><h4>Magnetic flux</h4><span class="st given">Given</span><div class="fl">\[\Phi=BA\]</div><p>\(\Phi\) in Wb, \(B\) in T, A in m² (area perpendicular to the field).</p><div class="fs-links"><button class="fs-link" data-go="flux:intro" type="button">3.1</button></div></div>
-<div class="fs-card"><h4>Faraday's law</h4><span class="st given">Given</span><div class="fl">\[\varepsilon=-\dfrac{\Delta \Phi}{\Delta t}\]</div><p>For \(N\) turns use \(\varepsilon = -N\Delta \Phi /\Delta t\). The minus sign is Lenz's law.</p><div class="fs-links"><button class="fs-link" data-go="flux:coil" type="button">3.2</button><button class="fs-link" data-go="flux:graphs" type="button">3.4</button></div></div>
+<div class="fs-card"><h4>Faraday's law</h4><span class="st given">Given</span><div class="fl">\[\varepsilon=-\dfrac{\Delta \Phi}{\Delta t}\]</div><p>For \(N\) turns use \(\varepsilon = -N\Delta \Phi /\Delta t\). The minus sign is Lenz's law.</p><div class="fs-links"><button class="fs-link" data-go="flux:coil" type="button">3.2</button><button class="fs-link" data-go="flux:loop" type="button">3.3</button></div></div>
 <div class="fs-card"><h4>Moving conductor</h4><span class="st not-given">Not given</span><div class="fl">\[\varepsilon=BvL\]</div><p>A rod of length \(L\) moving at \(v\) across a field \(B\). It follows from Faraday: the area swept per second is \(vL\).</p><div class="fs-links"><button class="fs-link" data-go="flux:loop" type="button">3.3</button></div></div>
 </div></div>
 <div class="fs-group"><h3 style="color:#78d9f7">Inductors</h3><div class="fs-grid">
@@ -843,16 +881,16 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="nx-lab">
 <div class="sim"><canvas id="rcCanvas" height="400" aria-label="RC circuit with a two-way switch and charges on the capacitor plates, beside graphs of voltages and current against time"></canvas></div>
 <div class="legend"><span style="--key:#ff9eb5">Capacitor voltage, \(V_{C}\)</span><span style="--key:#f0a66a">Resistor voltage, \(V_{R}\)</span><span style="--key:#78d9f7">Current, \(i\)</span></div>
-<div class="nx-ctlbar">
+<div class="nx-ctlbar kirbar rcbar">
 <div class="nx-bar-inputs">
 <h3>Controls</h3>
 <div class="control"><label for="rcE">Battery emf, \(\varepsilon\) <output id="rcEOut">12 V</output></label><input id="rcE" max="24" min="1.5" step="0.5" type="range" value="12"/></div>
 <div class="control"><label for="rcR">Resistance, \(R\) <output id="rcROut">10 kΩ</output></label><input id="rcR" max="100" min="1" step="1" type="range" value="10"/></div>
 <div class="control"><label for="rcC">Capacitance, \(C\) <output id="rcCOut">470 µF</output></label><input id="rcC" max="2200" min="10" step="10" type="range" value="470"/></div>
-<div class="btn-row"><button class="tool-btn" id="rcA" type="button">Switch to A (charge)</button><button class="tool-btn" id="rcB" type="button">Switch to B (discharge)</button><button class="tool-btn secondary" id="rcOpen" type="button">Switch to C (open)</button><button class="tool-btn secondary" id="rcReset" type="button">Reset</button></div>
-<label class="check-row"><input checked id="rcMarks" type="checkbox"/> Show \(\tau\) markers (63% / 37%)</label>
 </div>
-<div class="nx-bar-info"><div class="readout" id="rcReadout">…</div><div class="readout" id="rcNote" style="border-left-color:#ff9eb5">…</div></div>
+<div class="btn-row kbtns"><span class="klab">Switch:</span><button class="tool-btn secondary" id="rcA" type="button">A · charge</button><button class="tool-btn secondary" id="rcB" type="button">B · discharge</button><button class="tool-btn secondary" id="rcOpen" type="button">C · open</button><label class="check-row kchk"><input checked id="rcMarks" type="checkbox"/> \(\tau\) markers</label><button class="tool-btn" id="rcReset" type="button">Reset</button></div>
+<div class="rstats" id="rcReadout">…</div>
+<p class="rcnote" id="rcNote">…</p>
 </div>
 <p class="sim-caption">The time axis spans \(6\tau\). The animation always takes about 3 seconds; read the real time from the readout.</p>
 </div>
@@ -1031,7 +1069,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </div></details>
 <details class="intro-step"><summary>3.1.5 · Induction in the real world</summary><div class="intro-step-body">
 <p>Generators, regenerative braking, eddy-current brakes, guitar pickups, microphones and induction cooktops all run on these two laws. A magnet dropped down a copper pipe falls slowly for the same reason: eddy currents induced in the pipe oppose its motion.</p>
-<p><button class="tool-btn secondary" data-go="flux:apps" type="button">See 3.7 Applications →</button></p>
+<p><button class="tool-btn secondary" data-go="flux:apps" type="button">See 3.6 Applications →</button></p>
 </div></details>
 <details class="intro-step"><summary>3.1.6 · Eddy currents</summary><div class="intro-step-body">
 <p>Induction doesn't need a coil. When a block of metal moves through a non-uniform field, or sits in a changing field, emfs are induced inside the metal itself. These drive loops of current called <strong>eddy currents</strong> that circulate within the metal.</p>
@@ -1043,7 +1081,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </section>
 
 <section class="pane hidden" data-section="flux" data-view="loop">
-<div class="section-identity"><strong>3.3 · A loop moving through a field</strong><p>The emf in a moving conductor, \(\varepsilon = BvL\), and why it only appears at the edges of the field.</p></div>
+<div class="section-identity"><strong>3.3 · \(\Phi\) vs \(t\) graphs</strong><p>A loop moving through a field (\(\varepsilon = BvL\)), then turning any \(\Phi\)–\(t\) graph into an \(\varepsilon\)–\(t\) graph: the most common exam sketch.</p></div>
 <h2>Loop moving through a magnetic field</h2>
 <p class="sub">A square loop of wire moves at a steady speed through a region where the field points <strong>into the page</strong> (×). Watch the flux through the loop and the induced emf as it enters, crosses and leaves the field.</p>
 <div class="nx-lab">
@@ -1071,40 +1109,10 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <li><strong>Direction:</strong> by Lenz's law, the induced current makes a field opposing the change. Entering: the flux into the page is growing, so the current is anticlockwise (its field points out of the page). Fleming's right-hand rule on the moving side gives the same answer.</li>
 <li><strong>Magnetic braking:</strong> the current in the side inside the field feels a force \(F = BiL\) opposing the motion. Something must push the loop to keep its speed steady, and that work becomes electrical energy.</li>
 </ul>
-</section>
 
-<section class="pane hidden" data-section="flux" data-view="coil">
-<div class="section-identity"><strong>3.2 · Magnet and coil</strong><p>Move a magnet near a coil and watch the flux, the emf and the induced poles.</p></div>
-<h2>Magnet and coil</h2>
-<p class="sub">The coil is connected to a centre-zero meter. The graph plots the flux through one turn \((\Phi )\) and the induced emf \((\varepsilon )\) against time. Watch for: emf only while \(\Phi\) changes; the emf sign flips when the flux starts decreasing; and the coil's induced pole always opposes the magnet's motion.</p>
-<div class="nx-lab">
-<div class="sim"><canvas id="coilCanvas" height="360" aria-label="Bar magnet moving along the axis of a coil, with live graphs of flux and induced emf against time"></canvas></div>
-<div class="legend"><span style="--key:#87bbec">Flux through one turn, \(\Phi\)</span><span style="--key:#f0a66a">Induced emf, \(\varepsilon\)</span></div>
-<div class="nx-ctlbar">
-<div class="nx-bar-inputs">
-<h3>Controls</h3>
-<div class="control"><label for="coilMode">Motion</label><select id="coilMode"><option value="drop">Drop through coil (falls under gravity)</option><option value="const">Pass through at constant speed</option><option value="push">Push in and pull out</option><option value="drag">Drag the magnet yourself</option></select></div>
-<div class="control"><label for="coilN">Turns, \(N\) <output id="coilNOut">200</output></label><input id="coilN" max="500" min="20" step="10" type="range" value="200"/></div>
-<div class="control"><label for="coilB">Magnet strength <output id="coilBOut">0.060 T</output></label><input id="coilB" max="0.12" min="0.02" step="0.01" type="range" value="0.06"/></div>
-<div class="control" id="coilSpeedWrap"><label for="coilSpeed">Speed <output id="coilSpeedOut">1.0 m s⁻¹</output></label><input id="coilSpeed" max="3" min="0.2" step="0.1" type="range" value="1"/></div>
-<div class="btn-row"><button class="tool-btn" id="coilPlay" type="button">Pause</button><button class="tool-btn secondary" id="coilFlip" type="button">Flip magnet</button><button class="tool-btn secondary" id="coilRestart" type="button">Restart</button></div>
-</div>
-<div class="nx-bar-info">
-<div class="readout" id="coilReadout">…</div>
-<div class="readout" id="coilLenz" style="border-left-color:#d99ac6">…</div>
-</div>
-</div>
-<p class="sim-caption" id="coilCaption">Drop mode releases the magnet just above the coil and plays at one-tenth speed. The graph's time axis shows real time.</p>
-</div>
-<h3>Look for these ideas</h3>
-<p class="note"><strong>Drop through:</strong> the second pulse is opposite in sign, <em>taller and narrower</em> than the first, because the magnet is moving faster as it leaves. Both pulses have the same area, because the area under an \(\varepsilon\)–\(t\) graph is \(N\Delta \Phi\), and the flux change is the same going in as coming out. <strong>Constant speed:</strong> both pulses are the same size. <strong>Flip the magnet:</strong> every sign reverses.</p>
-<p class="note"><strong>Mid-coil:</strong> as the magnet's centre passes through the coil, the flux is at its maximum and momentarily not changing, so \(\varepsilon = 0\) there.</p>
-</section>
 
-<section class="pane hidden" data-section="flux" data-view="graphs">
-<div class="section-identity"><strong>3.4 · From flux graphs to emf graphs</strong><p>The most common exam sketch: turn a \(\Phi\)–t graph into an \(\varepsilon\)–t graph.</p></div>
-<h2>Flux–time to emf–time</h2>
-<p class="sub">Choose a flux–time graph or drag the orange points to make your own. The emf graph underneath is \(\varepsilon = -N\) × gradient. Tick <strong>Predict first</strong> to hide it, sketch your answer, then reveal.</p>
+<h2 id="phiEpsGraphs" style="margin-top:28px">From a \(\Phi\)–\(t\) graph to an \(\varepsilon\)–\(t\) graph</h2>
+<p class="sub">The loop above makes one particular \(\Phi\)–\(t\) graph. Here you can choose any \(\Phi\)–\(t\) graph, or drag the orange points to make your own. The \(\varepsilon\)–\(t\) graph underneath is \(\varepsilon = -N\) × gradient. Tick <strong>Predict first</strong> to hide it, sketch your answer, then reveal.</p>
 <div class="nx-lab">
 <div class="sim"><canvas id="graphCanvas" height="420" aria-label="Flux against time graph with draggable points above the matching induced emf against time graph"></canvas></div>
 <div class="nx-ctlbar">
@@ -1112,8 +1120,8 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <h3>Controls</h3>
 <div class="control"><label for="graphPreset">Flux graph</label><select id="graphPreset"><option value="trap">Ramp up, hold, ramp down</option><option value="tri">Fast rise, slow fall</option><option value="step">Switch on, off and reversed</option><option value="sine">Rotating coil (sine)</option><option value="custom">My own (drag the points)</option></select></div>
 <div class="control"><label for="graphN">Turns, \(N\) <output id="graphNOut">50</output></label><input id="graphN" max="200" min="1" step="1" type="range" value="50"/></div>
-<label class="check-row"><input id="graphHide" type="checkbox"/> Predict first (hide emf graph)</label>
-<div class="btn-row"><button class="tool-btn secondary" id="graphReveal" type="button">Reveal emf graph</button></div>
+<label class="check-row"><input id="graphHide" type="checkbox"/> Predict first (hide the \(\varepsilon\)–\(t\) graph)</label>
+<div class="btn-row"><button class="tool-btn secondary" id="graphReveal" type="button">Reveal \(\varepsilon\)–\(t\) graph</button></div>
 </div>
 <div class="nx-bar-info"><div class="readout" id="graphReadout">Move the pointer over the graphs to read values.</div><div class="readout" id="graphSegs" style="border-left-color:#87bbec"></div></div>
 </div>
@@ -1126,6 +1134,128 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <li><strong>Rotating coil:</strong> emf is largest where the flux is zero (steepest point), and zero where the flux is at its peak. The emf graph is a sine wave a quarter of a cycle out of step with the flux.</li>
 </ul>
 </section>
+
+<section class="pane hidden" data-section="flux" data-view="coil">
+<div class="section-identity"><strong>3.2 · Magnet and coil</strong><p>Move a magnet near a coil and watch the flux, the emf and the induced poles.</p></div>
+<h2>Magnet and coil</h2>
+<p class="sub">The coil is connected to a centre-zero <strong>voltmeter</strong>: its needle swings right for a positive emf and left for a negative one. The graph plots the flux through one turn \((\Phi )\) and the induced emf \((\varepsilon )\) against time. Watch for: emf only while \(\Phi\) changes; the emf sign flips when the flux starts decreasing; and the coil's induced pole always opposes the magnet's motion. <strong>Grab the magnet and drag it through the coil</strong>, slowly and then quickly: the faster the flux changes, the bigger the emf.</p>
+<div class="nx-lab">
+<div class="sim"><canvas id="coilCanvas" height="360" aria-label="Bar magnet moving along the axis of a coil, with live graphs of flux and induced emf against time"></canvas></div>
+<div class="legend"><span style="--key:#87bbec">Flux through one turn, \(\Phi\)</span><span style="--key:#f0a66a">Induced emf, \(\varepsilon\)</span></div>
+<div class="nx-ctlbar kirbar rcbar coilbar">
+<div class="nx-bar-inputs">
+<h3>Controls</h3>
+<div class="control"><label for="coilMode">Motion</label><select id="coilMode"><option value="drag">Drag it yourself</option><option value="auto">Animate at a set speed</option><option value="drop">Drop under gravity</option><option value="const">One pass, constant speed</option><option value="push">Push in and pull out</option></select></div>
+<div class="control"><label for="coilN">Turns, \(N\) <output id="coilNOut">200</output></label><input id="coilN" max="500" min="20" step="10" type="range" value="200"/></div>
+<div class="control"><label for="coilB">Magnet strength <output id="coilBOut">0.060 T</output></label><input id="coilB" max="0.12" min="0.02" step="0.01" type="range" value="0.06"/></div>
+<div class="control" id="coilSpeedWrap"><label for="coilSpeed">Speed <output id="coilSpeedOut">1.0 m s⁻¹</output></label><input id="coilSpeed" max="3" min="0.2" step="0.1" type="range" value="1"/></div>
+</div>
+<div class="btn-row kbtns"><button class="tool-btn" id="coilAnimate" type="button">Animate ▶</button><button class="tool-btn secondary" id="coilPlay" type="button">Pause</button><button class="tool-btn secondary" id="coilFlip" type="button">Flip magnet</button><button class="tool-btn secondary" id="coilRestart" type="button">Restart</button></div>
+<div class="rstats" id="coilReadout">…</div>
+<div class="rcnote coilstory" id="coilLenz">
+<p><strong>What happens as the magnet passes through the coil</strong></p>
+<ol>
+<li><strong>Approaching:</strong> more of the magnet's field passes through the coil, so the flux \(\Phi\) <em>increases</em>. A changing flux induces an emf, so the needle swings one way. The induced current makes the coil's nearer face the <em>same</em> pole as the approaching pole, so it repels the magnet and opposes it coming in (Lenz's law).</li>
+<li><strong>In the middle:</strong> the flux is at its largest but, for an instant, it is not changing, so the emf is zero and the needle passes through 0.</li>
+<li><strong>Leaving:</strong> the flux <em>decreases</em>, so the emf reverses and the needle swings the other way. Now the coil's nearer face is the <em>opposite</em> pole to the trailing pole, so it attracts the magnet and opposes it leaving.</li>
+<li><strong>Speed matters:</strong> the same change in flux happens in less time when the magnet moves faster, so \(\varepsilon = -N\Delta \Phi /\Delta t\) is bigger and the pulse is narrower. A falling magnet speeds up, so its second pulse is taller and shorter than the first.</li>
+</ol>
+<p class="small">Watch the N and S labels beside the coil: they show the induced poles while the emf is large enough to notice.</p>
+</div>
+</div>
+<p class="sim-caption" id="coilCaption">Drop mode releases the magnet just above the coil and plays at one-tenth speed. The graph's time axis shows real time.</p>
+</div>
+<h3>Look for these ideas</h3>
+<p class="note"><strong>Drop through:</strong> the second pulse is opposite in sign, <em>taller and narrower</em> than the first, because the magnet is moving faster as it leaves. Both pulses have the same area, because the area under an \(\varepsilon\)–\(t\) graph is \(N\Delta \Phi\), and the flux change is the same going in as coming out. <strong>Constant speed:</strong> both pulses are the same size. <strong>Flip the magnet:</strong> every sign reverses.</p>
+<p class="note"><strong>Mid-coil:</strong> as the magnet's centre passes through the coil, the flux is at its maximum and momentarily not changing, so \(\varepsilon = 0\) there.</p>
+
+<h3 style="margin-top:28px">Classic demonstration: a magnet falling through a copper pipe</h3>
+<p class="sub">Drop two identical strong magnets at the same moment: one down a plastic pipe, one down a copper pipe of the same length. The plastic pipe does nothing and the magnet falls freely. The copper magnet drifts down slowly, because the falling magnet <strong>induces eddy currents</strong> in the pipe wall, and by Lenz's law those currents oppose its motion.</p>
+<div class="nx-lab">
+<div class="sim"><canvas id="pipeCanvas" height="380" aria-label="Two magnets falling, one through a plastic pipe and one through a copper pipe, with eddy current rings and a distance against time graph"></canvas></div>
+<div class="legend"><span style="--key:#c9ced9">Plastic pipe</span><span style="--key:#e08a4f">Metal pipe</span><span style="--key:#ffd76a">Eddy currents</span></div>
+<div class="nx-ctlbar kirbar rcbar coilbar pipebar">
+<div class="nx-bar-inputs">
+<h3>Controls</h3>
+<div class="control"><label for="pipeMat">Metal pipe</label><select id="pipeMat"><option value="cu">Copper</option><option value="al">Aluminium</option><option value="slit">Copper with a slit along it</option></select></div>
+<div class="control"><label for="pipeB">Magnet strength <output id="pipeBOut">×1.0</output></label><input id="pipeB" max="1.5" min="0.5" step="0.1" type="range" value="1"/></div>
+<div class="control"><label for="pipeT">Wall thickness <output id="pipeTOut">1.5 mm</output></label><input id="pipeT" max="3" min="0.5" step="0.25" type="range" value="1.5"/></div>
+<div class="control"><label class="check-row" style="margin-top:22px"><input id="pipeSlow" type="checkbox"/> Slow motion (¼ speed)</label></div>
+</div>
+<div class="btn-row kbtns"><button class="tool-btn" id="pipeDrop" type="button">Drop both magnets ▼</button><button class="tool-btn secondary" id="pipePause" type="button">Pause</button><button class="tool-btn secondary" id="pipeReset" type="button">Reset</button></div>
+<div class="rstats" id="pipeReadout">…</div>
+<div class="rcnote coilstory">
+<p><strong>Why does the magnet fall so slowly?</strong></p>
+<figure class="pipefig"><div class="pipefig-scroll">
+<svg viewBox="0 0 620 340" role="img" aria-label="Zoomed-in side view of the falling magnet inside the copper pipe, showing the magnet's field lines and the eddy current loops above and below it with their own fields">
+<defs>
+<marker id="pfE" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" class="pf-efill"/></marker>
+<marker id="pfI" markerUnits="userSpaceOnUse" markerWidth="13" markerHeight="13" refX="9" refY="6.5" orient="auto"><path d="M0,0 L13,6.5 L0,13 z" class="pf-ifill"/></marker>
+<marker id="pfF" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" class="pf-ffill"/></marker>
+<marker id="pfW" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" class="pf-wfill"/></marker>
+<marker id="pfV" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" class="pf-vfill"/></marker>
+</defs>
+<path d="M180,92 A80,14 0 0 1 340,92" class="pf-ring pf-back"/>
+<path d="M180,242 A80,14 0 0 1 340,242" class="pf-ring pf-back"/>
+<rect x="170" y="20" width="20" height="310" class="pf-wall"/><rect x="330" y="20" width="20" height="310" class="pf-wall"/>
+<text x="180" y="14" class="pf-lab" text-anchor="middle">copper wall</text><text x="340" y="14" class="pf-lab" text-anchor="middle">copper wall</text>
+<path d="M248,202 C248,268 148,268 148,170 C148,72 248,72 248,138" class="pf-b"/><path d="M272,202 C272,268 372,268 372,170 C372,72 272,72 272,138" class="pf-b"/><path d="M256,202 C256,232 214,240 214,170 C214,100 256,108 256,138" class="pf-b pf-b2"/><path d="M264,202 C264,232 306,240 306,170 C306,100 264,108 264,138" class="pf-b pf-b2"/>
+<path d="M0,-7 L6,5 L-6,5 z" transform="translate(148,168)" class="pf-bfill"/><path d="M0,-7 L6,5 L-6,5 z" transform="translate(372,168)" class="pf-bfill"/>
+<rect x="236" y="138" width="48" height="32" fill="#4a7fd4"/><rect x="236" y="170" width="48" height="32" fill="#d9534f"/>
+<text x="260" y="159" class="pf-pole" text-anchor="middle">S</text><text x="260" y="191" class="pf-pole" text-anchor="middle">N</text>
+<path d="M180,92 A80,14 0 0 0 340,92" class="pf-ring"/><path d="M276,106 L240,106" class="pf-ring" marker-end="url(#pfI)"/>
+<path d="M180,242 A80,14 0 0 0 340,242" class="pf-ring"/><path d="M244,256 L280,256" class="pf-ring" marker-end="url(#pfI)"/>
+<!-- field of each eddy current: circles around the wire of the ring (it goes into or out of the page at each wall) -->
+<circle cx="180" cy="92" r="30" class="pf-e"/>
+<path d="M0,7 L6,-5 L-6,-5 z" transform="translate(210,92)" class="pf-efill"/>
+<path d="M0,-7 L6,5 L-6,5 z" transform="translate(150,92)" class="pf-efill"/>
+<circle cx="340" cy="92" r="30" class="pf-e"/>
+<path d="M0,7 L6,-5 L-6,-5 z" transform="translate(310,92)" class="pf-efill"/>
+<path d="M0,-7 L6,5 L-6,5 z" transform="translate(370,92)" class="pf-efill"/>
+<circle cx="180" cy="242" r="30" class="pf-e"/>
+<path d="M0,-7 L6,5 L-6,5 z" transform="translate(210,242)" class="pf-efill"/>
+<path d="M0,7 L6,-5 L-6,-5 z" transform="translate(150,242)" class="pf-efill"/>
+<circle cx="340" cy="242" r="30" class="pf-e"/>
+<path d="M0,-7 L6,5 L-6,5 z" transform="translate(310,242)" class="pf-efill"/>
+<path d="M0,7 L6,-5 L-6,-5 z" transform="translate(370,242)" class="pf-efill"/>
+<circle cx="180" cy="242" r="7" class="pf-sym"/><circle cx="180" cy="242" r="2.2" class="pf-symdot"/><circle cx="340" cy="242" r="7" class="pf-sym"/><path d="M336,238 L344,246 M344,238 L336,246" class="pf-symx"/><circle cx="180" cy="92" r="7" class="pf-sym"/><path d="M176,88 L184,96 M184,88 L176,96" class="pf-symx"/><circle cx="340" cy="92" r="7" class="pf-sym"/><circle cx="340" cy="92" r="2.2" class="pf-symdot"/>
+<path d="M296,124 L296,172" class="pf-v" marker-end="url(#pfV)"/><text x="304" y="140" class="pf-vlab">v</text>
+<g class="pf-fbd">
+<text x="58" y="62" class="pf-lab" text-anchor="middle">forces on the magnet</text>
+<rect x="46" y="160" width="24" height="10" fill="#4a7fd4"/><rect x="46" y="170" width="24" height="10" fill="#d9534f"/>
+<path d="M58,158 L58,102" class="pf-f" marker-end="url(#pfF)"/>
+<path d="M58,182 L58,238" class="pf-w" marker-end="url(#pfW)"/>
+<text x="70" y="112" class="pf-flab">F<tspan class="pf-sub" dy="4">mag</tspan></text><text x="70" y="128" class="pf-small pf-fcol">magnetic force</text>
+<text x="70" y="232" class="pf-wlab">mg</text><text x="70" y="248" class="pf-small pf-wcol">weight</text>
+<text x="58" y="276" class="pf-small" text-anchor="middle">at terminal speed:</text><text x="58" y="292" class="pf-small" text-anchor="middle"><tspan class="pf-it">F</tspan><tspan class="pf-sub" dy="3">mag</tspan><tspan dy="-3"> = </tspan><tspan class="pf-it">mg</tspan></text>
+</g>
+<text x="382" y="74" class="pf-ilab pf-side">eddy current above the magnet</text>
+<text x="382" y="92" class="pf-small pf-side">flux through this ring is falling, so</text>
+<text x="382" y="108" class="pf-small pf-side">its field points down (N face underneath):</text>
+<text x="382" y="124" class="pf-small pf-side">it <tspan class="pf-strong">attracts</tspan> the magnet's S pole upwards</text>
+<text x="382" y="224" class="pf-ilab pf-side">eddy current below the magnet</text>
+<text x="382" y="242" class="pf-small pf-side">flux through this ring is rising, so</text>
+<text x="382" y="258" class="pf-small pf-side">its field points up (N face on top):</text>
+<text x="382" y="274" class="pf-small pf-side">it <tspan class="pf-strong">repels</tspan> the magnet's N pole upwards</text>
+</svg></div>
+<ul class="pf-notes"><li><strong>Eddy current above the magnet:</strong> flux through it is falling, so its field points down (N face underneath). It <strong>attracts</strong> the magnet's S pole upwards.</li><li><strong>Eddy current below the magnet:</strong> flux through it is rising, so its field points up (N face on top). It <strong>repels</strong> the magnet's N pole upwards.</li></ul>
+<figcaption><span class="pf-key pf-kb">magnet's field</span><span class="pf-key pf-ki">eddy currents (arrow: the side nearest you; ⊗ into and ⊙ out of the page at the walls)</span><span class="pf-key pf-ke">field from the eddy currents</span><span class="pf-key pf-kf">\(F_{\text{mag}}\): magnetic force from the eddy currents, upwards</span><span class="pf-key pf-kw">\(mg\): weight, downwards</span><br/>Zoomed in on the copper-pipe magnet, falling with its N pole down. Both eddy currents push the magnet <strong>up</strong>, against its motion.</figcaption>
+</figure>
+
+<ol>
+<li><strong>Changing flux:</strong> as the magnet falls, the flux through each ring of the pipe <em>below</em> it increases and the flux through each ring <em>above</em> it decreases.</li>
+<li><strong>Eddy currents:</strong> the changing flux induces an emf around each ring, and because copper is a very good conductor, large circulating currents (eddy currents) flow in the wall.</li>
+<li><strong>Lenz's law:</strong> the current below the magnet makes a pole that <em>repels</em> it; the current above makes a pole that <em>attracts</em> it. Both forces act upwards, opposing the fall.</li>
+<li><strong>Terminal speed:</strong> the faster the magnet falls, the faster the flux changes, so the bigger the currents and the upward force. The magnet speeds up until the magnetic force equals its weight, then falls at a steady, slow speed.</li>
+<li><strong>Energy:</strong> at terminal speed the magnet's kinetic energy stops increasing. Its lost gravitational potential energy becomes heat in the pipe (\(P = i^{2}R\) in the wall), not kinetic energy.</li>
+</ol>
+<p class="small">Try aluminium (a poorer conductor than copper: smaller currents, faster fall) and a pipe with a slit cut along it (the eddy currents can no longer flow round the pipe, so the magnet falls much faster).</p>
+</div>
+</div>
+</div>
+</section>
+
+
 
 <section class="pane hidden" data-section="flux" data-view="check">
 <h2>Quick check · flux, Faraday and Lenz</h2>
@@ -1444,7 +1574,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 
 <!-- ===================== APPLICATIONS ===================== -->
 <section class="pane hidden" data-section="flux" data-view="apps">
-<div class="section-identity"><strong>3.7 · Applications of induction</strong><p>Where Faraday's and Lenz's laws are working around you.</p></div>
+<div class="section-identity"><strong>3.6 · Applications of induction</strong><p>Where Faraday's and Lenz's laws are working around you.</p></div>
 <h2>Where do we use induction?</h2>
 <p class="sub">Each device below uses a changing flux to induce an emf. Read the chain, then try the "Explain it" question at the bottom. Exam questions are often set in contexts like these, with the information you need supplied.</p>
 <div class="app-grid">
@@ -1769,7 +1899,7 @@ const views={
  map:[['scope','0.1 Course Map'],['skills','0.2 Exam Skills'],['formulas','0.3 Formula Sheet']],
  dc:[['intro','1.1 Introduction'],['battery','1.2 Battery Lab'],['kirchhoff','1.3 Kirchhoff'],['check','1.4 Quick Check'],['problems','1.5 Problems'],['apps','1.6 Applications']],
  cap:[['intro','2.1 Introduction'],['plates','2.2 Plate Builder'],['rc','2.3 RC Circuit'],['combine','2.4 Combining'],['check','2.5 Quick Check'],['problems','2.6 Problems'],['apps','2.7 Applications']],
- flux:[['intro','3.1 Introduction'],['coil','3.2 Magnet & Coil'],['loop','3.3 Moving Loop'],['graphs','3.4 Φ–t to ε–t'],['check','3.5 Quick Check'],['problems','3.6 Problems'],['apps','3.7 Applications']],
+ flux:[['intro','3.1 Introduction'],['coil','3.2 Magnet & Coil'],['loop','3.3 <span class="lc up">Φ</span> vs <i class="lc">t</i> Graphs'],['check','3.4 Quick Check'],['problems','3.5 Problems'],['apps','3.6 Applications']],
  ind:[['intro','4.1 Introduction'],['lr','4.2 LR Circuit'],['off','4.3 Switching Off'],['check','4.4 Quick Check'],['problems','4.5 Problems'],['apps','4.6 Applications']],
  tx:[['intro','5.1 Introduction'],['lab','5.2 Transformer Lab'],['grid','5.3 Transmission'],['check','5.4 Quick Check'],['problems','5.5 Problems'],['apps','5.6 Applications']],
  ac:[['intro','6.1 Introduction'],['rms','6.2 rms & Power'],['phase','6.3 Phase & Reactance'],['lcr','6.4 LCR Resonance'],['check','6.5 Quick Check'],['problems','6.6 Problems'],['apps','6.7 Applications']]};
@@ -1781,7 +1911,7 @@ function go(tab,view,scroll){
  active=tab;currentView=view;document.body.dataset.topic=tab;$('topicTitle').textContent=titles[tab];
  document.querySelectorAll('.rail button[data-tab]').forEach(b=>{const on=b.dataset.tab===tab;b.classList.toggle('active',on);b.setAttribute('aria-current',on?'page':'false')});
  const tb=$('activityTabs');tb.innerHTML='';
- views[tab].forEach(([v,label])=>{const b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.textContent=label;b.className=v===view?'active':'';b.setAttribute('aria-selected',v===view);b.onclick=()=>go(tab,v,false);tb.appendChild(b)});
+ views[tab].forEach(([v,label])=>{const b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.innerHTML=label;b.className=v===view?'active':'';b.setAttribute('aria-selected',v===view);b.onclick=()=>go(tab,v,false);tb.appendChild(b)});
  document.querySelectorAll('section[data-section]').forEach(s=>s.classList.toggle('hidden',!(s.dataset.section===tab&&s.dataset.view===view)));
  try{history.replaceState(null,'','#'+tab+'-'+view)}catch(e){}
  window.dispatchEvent(new CustomEvent('emag-view',{detail:tab+':'+view}));
@@ -1808,7 +1938,7 @@ const scope=[
   ['Define magnetic flux density and magnetic flux, and use \\(\\Phi = BA\\)','flux:intro'],
   ['Explain why an emf is induced only while the flux through a coil is changing','flux:coil'],
   ['Explain the emf in a conductor moving through a field \\((\\varepsilon = BvL)\\)','flux:loop'],
-  ['Calculate an induced emf using \\(\\varepsilon = -N\\Delta \\Phi /\\Delta t\\) and sketch \\(\\varepsilon\\)–t from \\(\\Phi\\)–t','flux:graphs'],
+  ['Calculate an induced emf using \\(\\varepsilon = -N\\Delta \\Phi /\\Delta t\\) and sketch \\(\\varepsilon\\)–\\(t\\) from \\(\\Phi\\)–\\(t\\)','flux:loop'],
   ['Use Lenz\'s law to find the direction of an induced current, and link it to conservation of energy','flux:coil']]},
  {g:'Inductors',c:'#78d9f7',items:[
   ['Explain back emf in an inductor when a circuit is switched on and off','ind:intro'],
@@ -1844,7 +1974,7 @@ drawScope();
 
 /* ---------- search ---------- */
 let index=null;const plain=el=>{const k=el.cloneNode(true);k.querySelectorAll('.katex-mathml,canvas').forEach(x=>x.remove());return k.textContent.replace(/\s+/g,' ')};
-const buildIndex=()=>[...document.querySelectorAll('section[data-section]')].map(s=>{const h=s.querySelector('h2');const lab=(views[s.dataset.section].find(v=>v[0]===s.dataset.view)||[])[1];return{tab:s.dataset.section,view:s.dataset.view,title:(lab?lab+' · ':'')+(h?plain(h):''),text:plain(s)}});
+const buildIndex=()=>[...document.querySelectorAll('section[data-section]')].map(s=>{const h=s.querySelector('h2');const lab=((views[s.dataset.section].find(v=>v[0]===s.dataset.view)||[])[1]||'').replace(/<[^>]+>/g,'');return{tab:s.dataset.section,view:s.dataset.view,title:(lab?lab+' · ':'')+(h?plain(h):''),text:plain(s)}});
 function runSearch(){
  const q=$('siteSearch').value.trim().toLowerCase();const out=$('searchResults');
  if(q.length<2){out.classList.remove('open');out.innerHTML='';return}
@@ -1892,10 +2022,10 @@ flux:[
  ['What is the unit of magnetic flux?',['tesla (T)','weber (Wb)','henry (H)','T m⁻²'],1,'Flux \\(\\Phi = BA\\), so its unit is T × m² = Wb. The tesla is the unit of flux density \\(B\\).'],
  ['A strong magnet is held still inside a coil connected to a meter. What does the meter read?',['A large steady emf','A small steady emf','Zero','An alternating emf'],2,'The flux is large but not changing. Faraday: \\(\\varepsilon\\) depends on \\(\\Delta \\Phi /\\Delta t\\), which is zero.'],
  ['The number of turns is doubled and the flux change happens in half the time. The induced emf…',['stays the same','doubles','quadruples','halves'],2,'\\(\\varepsilon = N\\Delta \\Phi /\\Delta t\\): \\(N\\) ×2 and \\(\\Delta t\\) ÷2 gives ×4.'],
- ['The flux through a coil increases at a steady rate. The emf–time graph is…',['a sloping straight line','a constant (horizontal) line','zero','a curve that rises then falls'],1,'A steady rate of change means a constant gradient, so a constant emf.'],
+ ['The flux through a coil increases at a steady rate. The \\(\\varepsilon\\)–\\(t\\) graph is…',['a sloping straight line','a constant (horizontal) line','zero','a curve that rises then falls'],1,'A steady rate of change means a constant gradient, so a constant emf.'],
  ['Lenz\'s law is a consequence of the conservation of…',['charge','momentum','energy','flux'],2,'If the induced current aided the change, energy would be created from nothing. Opposing it means work must be done to produce the electrical energy.'],
  ['A N pole is pushed towards the end of a coil in a closed circuit. That end of the coil becomes…',['a N pole, repelling the magnet','a S pole, attracting the magnet','no pole, as the coil is not magnetic','a N pole, attracting the magnet'],0,'The induced current opposes the approach, so the near face becomes N and repels the magnet.'],
- ['On a smooth flux–time graph, the flux is at its maximum value. At that instant the emf is…',['at its maximum','zero','equal to \\(N \\times \\Phi _{\\text{max}}\\)','negative'],1,'At a peak the gradient is zero, so \\(\\Delta \\Phi /\\Delta t = 0\\) and \\(\\varepsilon = 0\\).'],
+ ['On a smooth \\(\\Phi\\)–\\(t\\) graph, the flux is at its maximum value. At that instant the emf is…',['at its maximum','zero','equal to \\(N \\times \\Phi _{\\text{max}}\\)','negative'],1,'At a peak the gradient is zero, so \\(\\Delta \\Phi /\\Delta t = 0\\) and \\(\\varepsilon = 0\\).'],
  ['A magnet falls through a coil. The second emf pulse is taller than the first because the magnet…',['is further from the coil','has its poles reversed','is moving faster, so the flux changes more quickly','has lost some magnetism'],2,'The magnet accelerates, so the same flux change happens in less time: larger \\(\\Delta \\Phi /\\Delta t\\).']],
 ind:[
  ['At the instant the switch is closed in an LR circuit, the current is…',['maximum','zero, and changing most rapidly','zero, and not changing','half its maximum'],1,'\\(i\\) = 0 at \\(t\\) = 0, but \\(\\Delta i/\\Delta t\\) is greatest, so the back emf equals the supply emf.'],
@@ -2009,14 +2139,15 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
 /* ============ 1.2 MAGNET AND COIL ============ */
 (()=>{
  const cv=$('coilCanvas');const a=0.04,AREA=Math.PI*0.02*0.02,g=9.8,Y0=-0.34,Y1=0.36,ML=0.11;
- const st={mode:'drop',t:0,y:Y0,v:0,o:1,hist:[],hold:0,playing:true,dragY:null,dragging:false,prevY:Y0,epsPeak:0};
+ const st={mode:'drop',t:0,y:Y0,v:0,o:1,hist:[],hold:0,playing:true,dragY:null,dragging:false,prevY:Y0,epsPeak:0,pkP:0,pkN:0,grab:0,geo:null,dir:1};
  const P=()=>({N:+$('coilN').value,B:+$('coilB').value,s:+$('coilSpeed').value});
  const f=y=>Math.pow(1+(y/a)*(y/a),-1.5),fp=y=>-3*y/(a*a)*Math.pow(1+(y/a)*(y/a),-2.5);
- const slow={drop:0.1,const:0.25,push:0.5,drag:1};
+ const slow={drop:0.1,const:0.25,push:0.5,drag:1,auto:0.5};
  const D0=-0.07,D1=0.2;
  function tEnd(){const p=P();return st.mode==='drop'?Math.sqrt(2*(D1-D0)/g):st.mode==='const'?(Y1-Y0)/p.s:0}
- function reset(){st.t=0;st.hist=[];st.hold=0;st.v=st.mode==='const'?P().s:0;st.y=st.mode==='push'?-0.30:st.mode==='drag'?(st.dragY??-0.25):st.mode==='drop'?D0:Y0;st.prevY=st.y}
- function epsScale(){const p=P();const vmax=st.mode==='drop'?Math.sqrt(2*g*(0.03-D0)):st.mode==='drag'?1.5:p.s;return nice(p.N*p.B*AREA*0.8587/a*vmax*1.05)}
+ function reset(){st.t=0;st.hist=[];st.hold=0;st.dir=1;st.pkP=0;st.pkN=0;st.v=st.mode==='const'?P().s:0;st.y=st.mode==='auto'?-0.30:st.mode==='push'?-0.30:st.mode==='drag'?(st.dragY??-0.25):st.mode==='drop'?D0:Y0;st.prevY=st.y}
+ // fixed axes in every mode, so a bigger speed (or N or B) shows up as a bigger peak, not a rescaled graph
+ const EPS_AX=2,PHI_AX=2e-4;function epsScale(){return EPS_AX}
  function sample(){const p=P();const phi=st.o*p.B*AREA*f(st.y);const dphi=st.o*p.B*AREA*fp(st.y)*st.v;const eps=-p.N*dphi;return{phi,dphi,eps}}
  st.step=function(dt){if(!st.playing)return;const sd=dt*slow[st.mode];const p=P();
   if(st.mode==='drop'||st.mode==='const'){
@@ -2024,9 +2155,10 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
    if(st.mode==='drop'){st.v+=g*sd;st.y+=st.v*sd-0.5*g*sd*sd}else{st.v=p.s;st.y+=st.v*sd}
    st.t+=sd;const end=st.mode==='drop'?D1:Y1;if(st.y>=end){st.y=end;st.hold=1.6}
   }else if(st.mode==='push'){const A=0.135,w=p.s/A;st.t+=sd;st.y=-0.165-A*Math.cos(w*st.t);st.v=A*w*Math.sin(w*st.t)}
-  else{st.t+=sd;const target=st.dragY??st.y;const nv=(target-st.y)/Math.max(sd,1e-3);st.v=st.v*0.6+nv*0.4;if(!st.dragging&&Math.abs(target-st.y)<1e-5)st.v*=0.5;st.y=target}
-  const s=sample();st.hist.push([st.t,s.phi,s.eps]);
-  const win=st.mode==='push'?2*2*Math.PI*0.135/p.s:st.mode==='drag'?3:Infinity;
+  else if(st.mode==='auto'){st.t+=sd;st.v=st.dir*p.s;st.y+=st.v*sd;if(st.y>0.30){st.y=0.30;st.dir=-1}else if(st.y<-0.30){st.y=-0.30;st.dir=1}}
+  else{st.t+=sd;const target=st.dragY??st.y;const ny=st.y+(target-st.y)*Math.min(1,sd*22);const nv=(ny-st.y)/Math.max(sd,1e-3);st.v=st.v*0.5+nv*0.5;if(Math.abs(target-ny)<1e-5&&Math.abs(nv)<1e-3)st.v*=0.5;st.y=ny}
+  const s=sample();st.hist.push([st.t,s.phi,s.eps]);if(st.mode==='drag'||st.mode==='auto'){st.pkP=Math.max(st.pkP,s.eps);st.pkN=Math.min(st.pkN,s.eps)}
+  const win=st.mode==='push'?2*2*Math.PI*0.135/p.s:st.mode==='drag'?6:st.mode==='auto'?3:Infinity;
   if(isFinite(win))while(st.hist.length&&st.hist[0][0]<st.t-win)st.hist.shift();
  };
  st.draw=function(){const {c,W,H}=fit(cv,360,380);clear(c,W,H);const p=P();
@@ -2037,13 +2169,13 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   const turns=Math.max(4,Math.min(12,Math.round(p.N/40)));const ch=30,cy=wy(0);
   for(let i=0;i<turns;i++){const yy=cy-ch/2+ch*i/(turns-1);c.strokeStyle='#8a5a2e';c.lineWidth=2;c.beginPath();c.ellipse(cx,yy,34,7,0,Math.PI,2*Math.PI);c.stroke()}
   // magnet
-  const s=sample();const my=wy(st.y),mh=(ML/0.72)*(bot-top);
+  const s=sample();const my=wy(st.y),mh=(ML/0.72)*(bot-top);st.geo={cx,my,mh};
   const nTop=st.o<0;c.fillStyle=nTop?'#d9534f':'#4a7fd4';c.fillRect(cx-13,my-mh/2,26,mh/2);c.fillStyle=nTop?'#4a7fd4':'#d9534f';c.fillRect(cx-13,my,26,mh/2);
   text(c,nTop?'N':'S',cx,my-mh/4,'#fff',12,'center','middle');text(c,nTop?'S':'N',cx,my+mh/4,'#fff',12,'center','middle');
   // coil front
   for(let i=0;i<turns;i++){const yy=cy-ch/2+ch*i/(turns-1);c.strokeStyle=ORG;c.lineWidth=2.4;c.beginPath();c.ellipse(cx,yy,34,7,0,0,Math.PI);c.stroke()}
   // induced poles
-  const sc=epsScale();const strong=Math.abs(s.eps)>sc*0.03;
+  const sc=epsScale();const strong=Math.abs(s.eps)>0.02;
   if(strong){const down=-Math.sign(s.dphi)>0;const topP=down?'S':'N',botP=down?'N':'S';
    const tag=(t,y)=>{c.fillStyle=t==='N'?'rgba(217,83,79,.9)':'rgba(74,127,212,.9)';c.beginPath();c.arc(cx-50,y,10,0,7);c.fill();text(c,t,cx-50,y,'#fff',12,'center','middle')};
    tag(topP,cy-ch/2-4);tag(botP,cy+ch/2+4)}
@@ -2054,42 +2186,56 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   c.strokeStyle='#5d6b88';c.lineWidth=1.5;c.beginPath();c.arc(mx,myy,r,Math.PI,2*Math.PI);c.stroke();
   const ang=Math.max(-1,Math.min(1,s.eps/sc))*1.25;line(c,mx,myy,mx+r*0.92*Math.sin(ang),myy-r*0.92*Math.cos(ang),'#ffd76a',2.2);
   text(c,'0',mx,myy-r-3,MUT,10,'center');
-  if(st.mode==='drag')text(c,'drag ↕',cx,top-8,MUT,11,'center');
+  if(st.mode==='drag'||st.mode==='auto'){[st.pkP,st.pkN].forEach(pk=>{if(Math.abs(pk)>sc*0.02){const a2=Math.max(-1,Math.min(1,pk/sc))*1.25;line(c,mx,myy,mx+r*0.92*Math.sin(a2),myy-r*0.92*Math.cos(a2),'rgba(255,215,106,.35)',1.5,[3,2])}})}
+  // voltmeter body: base with a V, scale ends and a label
+  c.fillStyle='#141c30';c.fillRect(mx-r-4,myy,2*r+8,18);c.strokeStyle='#5d6b88';c.lineWidth=1.5;c.strokeRect(mx-r-4,myy,2*r+8,18);
+  text(c,'\u200bV',mx,myy+9,INK,13,'center','middle');text(c,'−',mx-r+6,myy-6,MUT,11,'center');text(c,'+',mx+r-6,myy-6,MUT,11,'center');
+  text(c,'\u200bvoltmeter',mx,myy+32,INK,11,'center');text(c,'\u200b(centre-zero)',mx,myy+45,MUT,10,'center');
+  if(st.mode==='drag'){text(c,'\u200bdrag the magnet ↕',cx,top-8,MUT,11,'center');if(Math.abs(st.v)>0.02)text(c,'\u200b'+Math.abs(st.v).toFixed(2)+' m s⁻¹',cx+18,my-mh/2-6,'#ffd76a',11,'left')}
+  else text(c,'\u200bor grab the magnet to drag it',cx,top-8,MUT,10,'center');
   text(c,'N = '+p.N,cx+40,cy-ch/2-10,MUT,11,'left');text(c,'induced',cx-50,cy-ch/2-22,MUT,10,'center');
   // graphs
   const gx=aw+44,gw=W-gx-12,gh=(bot-top-22)/2;
-  const phiMax=nice(p.B*AREA*1.05);
+  const phiMax=PHI_AX;
   let tMin=0,tMax=tEnd();if(!tMax){tMax=st.t;tMin=st.hist.length?st.hist[0][0]:0;if(tMax-tMin<0.5)tMax=tMin+0.5}
   const fm=v=>eng(v,'Wb',2),fe=v=>eng(v,'V',2);
   const g1=frame(c,gx,top,gw,gh,tMin,tMax,-phiMax,phiMax,'Φ (one turn)',null,fm);
-  path(c,st.hist.map(h=>[h[0],h[1]]),g1.X,g1.Y,BLU,2.4);
+  c.save();c.beginPath();c.rect(gx,top,gw,gh);c.clip();path(c,st.hist.map(h=>[h[0],h[1]]),g1.X,g1.Y,BLU,2.4);c.restore();
   const g2=frame(c,gx,top+gh+22,gw,gh,tMin,tMax,-sc,sc,'ε induced','time',fe);
-  path(c,st.hist.map(h=>[h[0],h[2]]),g2.X,g2.Y,ORG,2.4);
+  c.save();c.beginPath();c.rect(gx,top+gh+22,gw,gh);c.clip();path(c,st.hist.map(h=>[h[0],h[2]]),g2.X,g2.Y,ORG,2.4);c.restore();
+  if(Math.abs(s.eps)>sc)text(c,'\u200boff scale',gx+gw-4,top+gh+40,ORG,11,'right');
   if(st.mode==='drop'||st.mode==='const'){text(c,'0',gx,top+2*gh+36,MUT,10,'center');text(c,eng(tMax,'s',2),gx+gw,top+2*gh+36,MUT,10,'right')}
   // readouts
   st.epsPeak=Math.max(...st.hist.map(h=>Math.abs(h[2])),0);
-  window.EM.set($('coilReadout'),'Flux through one turn: <strong>'+eng(s.phi,'Wb',3)+'</strong><br/>Rate of change: '+eng(s.dphi,'Wb s⁻¹',3)+'<br/>Induced emf \\(\\varepsilon = -N\\Delta \\Phi /\\Delta t\\): <strong class="big">'+eng(s.eps,'V',3)+'</strong><br/>Magnet speed: '+Math.abs(st.v).toFixed(2)+' m s⁻¹');
+  {const t=(lab,val,sub)=>'<div><span>'+lab+'</span><b>'+val+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div>';const pk=Math.max(st.pkP,-st.pkN);
+   window.EM.set($('coilReadout'),t('Flux, one turn','\\(\\Phi\\) = '+eng(s.phi,'Wb',3),'')+t('Rate of change','\\(\\Delta \\Phi /\\Delta t\\) = '+eng(s.dphi,'Wb s⁻¹',3),'')+
+    t('Induced emf','\\(\\varepsilon\\) = '+eng(s.eps,'V',3),'\\(\\varepsilon = -N\\Delta \\Phi /\\Delta t\\)')+t('Magnet speed',Math.abs(st.v).toFixed(2)+' m s⁻¹','')+
+    t(st.mode==='drag'?'Biggest emf, this drag':st.mode==='auto'?'Biggest emf, this speed':'Biggest emf so far',eng(st.mode==='drag'||st.mode==='auto'?pk:st.epsPeak,'V',3),st.mode==='drag'||st.mode==='auto'?'faint needles on the meter':''))}
   let lz;if(!strong)lz='<strong>No significant change in flux</strong>, so no induced emf and no induced poles.';
   else{const approaching=st.y*st.v<0;const above=st.y<0;const facing=above?(st.o>0?'N':'S'):(st.o>0?'S':'N');const face=above?'top':'bottom';
    const down=-Math.sign(s.dphi)>0;const facePole=above?(down?'S':'N'):(down?'N':'S');
    lz='Flux is <strong>'+(Math.abs(s.phi+s.dphi*1e-4)>Math.abs(s.phi)?'increasing':'decreasing')+'</strong>. The coil\'s '+face+' face becomes <strong>'+facePole+'</strong>, '+(facePole===facing?'repelling':'attracting')+' the magnet\'s '+facing+' pole: it opposes the magnet '+(approaching?'approaching':'leaving')+' (Lenz).'}
-  window.EM.set($('coilLenz'),lz);
+  // the explanation under the tiles is a fixed paragraph (it was unreadable when updated every frame)
  };
  st.enter=function(){reset()};
  const upd=()=>{$('coilNOut').textContent=$('coilN').value;$('coilBOut').textContent=(+$('coilB').value).toFixed(3)+' T';$('coilSpeedOut').textContent=(+$('coilSpeed').value).toFixed(1)+' m s⁻¹'};
- ['coilN','coilB','coilSpeed'].forEach(id=>$(id).addEventListener('input',()=>{upd();if(id==='coilSpeed'&&st.mode==='const')reset()}));upd();
+ ['coilN','coilB','coilSpeed'].forEach(id=>$(id).addEventListener('input',()=>{upd();if(id==='coilSpeed'&&st.mode==='const')reset();if(id==='coilSpeed'&&st.mode==='auto'){st.pkP=0;st.pkN=0}}));upd();
  $('coilMode').addEventListener('change',()=>{st.mode=$('coilMode').value;$('coilSpeedWrap').classList.toggle('hidden',st.mode==='drop'||st.mode==='drag');
-  $('coilCaption').textContent={drop:'Drop mode releases the magnet just above the coil and plays at one-tenth speed. The graph\'s time axis shows real time.',const:'Plays at quarter speed. Compare the two pulses with the drop mode.',push:'Plays at half speed. The magnet comes up to the mouth of the coil and back out again.',drag:'Drag the magnet up and down (or focus the canvas and use the arrow keys). Hold it still and the emf drops to zero.'}[st.mode];
+  $('coilCaption').textContent={drop:'Drop mode releases the magnet just above the coil and plays at one-tenth speed. The graph\'s time axis shows real time.',const:'Plays at quarter speed. Compare the two pulses with the drop mode.',push:'Plays at half speed. The magnet comes up to the mouth of the coil and back out again.',auto:'The magnet moves back and forth through the coil at the speed you set (shown at half speed; the time axis is real time). Change the speed while it runs and watch the emf peaks grow or shrink: double the speed, double the emf. The faint needles mark the biggest emf at the current speed.',drag:'Drag the magnet through the coil slowly, then quickly, and compare the meter and the emf graph: a faster change in flux gives a bigger emf. Hold it still and the emf drops to zero. The faint needles mark the biggest emf in each drag. Arrow keys also work.'}[st.mode];
   cv.tabIndex=st.mode==='drag'?0:-1;reset()});
  $('coilSpeedWrap').classList.add('hidden');
+ $('coilMode').value='drag';$('coilMode').dispatchEvent(new Event('change'));st.dragY=-0.25;
  $('coilPlay').onclick=()=>{st.playing=!st.playing;$('coilPlay').textContent=st.playing?'Pause':'Play'};
+ $('coilAnimate').onclick=()=>{if(st.mode!=='auto'){$('coilMode').value='auto';$('coilMode').dispatchEvent(new Event('change'))}st.playing=true;$('coilPlay').textContent='Pause'};
  $('coilFlip').onclick=()=>{st.o*=-1;reset()};$('coilRestart').onclick=reset;
  const toY=e=>{const r=cv.getBoundingClientRect();const top=24,bot=r.height-22;return Math.max(-0.33,Math.min(0.33,-0.36+(e.clientY-r.top-top)/(bot-top)*0.72))};
- cv.addEventListener('pointerdown',e=>{if(st.mode!=='drag')return;st.dragging=true;st.dragY=toY(e);cv.setPointerCapture(e.pointerId)});
- cv.addEventListener('pointermove',e=>{if(st.dragging)st.dragY=toY(e)});
- cv.addEventListener('pointerup',()=>{st.dragging=false});
+ const onMag=e=>{const g=st.geo;if(!g)return false;const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;return Math.abs(x-g.cx)<24&&Math.abs(y-g.my)<g.mh/2+10};
+ cv.addEventListener('pointerdown',e=>{const hit=onMag(e);if(st.mode!=='drag'){if(!hit)return;const y0=st.y;$('coilMode').value='drag';st.dragY=y0;$('coilMode').dispatchEvent(new Event('change'));st.y=y0;st.prevY=y0}
+  st.dragging=true;st.grab=hit?toY(e)-st.y:0;st.dragY=Math.max(-0.33,Math.min(0.33,toY(e)-st.grab));st.pkP=0;st.pkN=0;cv.setPointerCapture(e.pointerId);cv.style.touchAction='none'});
+ cv.addEventListener('pointermove',e=>{if(st.dragging)st.dragY=Math.max(-0.33,Math.min(0.33,toY(e)-st.grab));else cv.style.cursor=onMag(e)?'grab':(st.mode==='drag'?'ns-resize':'')});
+ cv.addEventListener('pointerup',()=>{st.dragging=false;cv.style.touchAction='pan-y'});
  cv.addEventListener('keydown',e=>{if(st.mode!=='drag')return;if(e.key==='ArrowUp'||e.key==='ArrowDown'){e.preventDefault();st.dragY=Math.max(-0.33,Math.min(0.33,(st.dragY??st.y)+(e.key==='ArrowUp'?-0.02:0.02)))}});
- cv.style.touchAction='pan-y';cv.addEventListener('pointerdown',()=>{if(st.mode==='drag')cv.style.touchAction='none'});
+ cv.style.touchAction='pan-y';
  sims['flux:coil']=st;
 })();
 
@@ -2416,7 +2562,8 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
  const upd=()=>{const p=P();$('loopBOut').textContent=p.B.toFixed(2)+' T';$('loopVOut').textContent=p.v.toFixed(1)+' m s⁻¹';$('loopLOut').textContent=p.L.toFixed(2)+' m';$('loopWOut').textContent=p.W.toFixed(2)+' m';$('loopROut').textContent=p.R.toFixed(2)+' Ω'};
  ['loopB','loopV','loopL','loopW','loopR'].forEach(id=>$(id).addEventListener('input',()=>{upd();reset()}));upd();
  $('loopPlay').onclick=()=>{st.playing=!st.playing;$('loopPlay').textContent=st.playing?'Pause':'Play'};$('loopRestart').onclick=reset;
- sims['flux:loop']=st;
+ // 3.3 holds both the moving loop and the Φ–t → ε–t graph tool
+ {const gr=sims['flux:graphs'];sims['flux:loop']=gr?{step:dt=>st.step(dt),draw:()=>{st.draw();gr.draw()},enter:()=>{if(st.enter)st.enter();if(gr.enter)gr.enter()}}:st;}
 })();
 
 /* ============ 1.2 BATTERY ============ */
@@ -2591,6 +2738,72 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
  sims['dc:kirchhoff']=st;
 })();
 
+/* ============ 3.2 MAGNET FALLING THROUGH A METAL PIPE ============ */
+(()=>{
+ const cv=$('pipeCanvas');if(!cv)return;const g=9.8,L=1.0,TAX=12;
+ const MAT={cu:{k:1,col0:'#7a3f1d',col1:'#e08a4f',name:'Copper'},al:{k:0.61,col0:'#6c7680',col1:'#c3ccd6',name:'Aluminium'},slit:{k:0.06,col0:'#7a3f1d',col1:'#e08a4f',name:'Slit copper'}};
+ const st={run:false,paused:false,t:0,a:{y:0,v:0,tD:null,h:[]},b:{y:0,v:0,tD:null,h:[]}};
+ const P=()=>({m:$('pipeMat').value,B:+$('pipeB').value,T:+$('pipeT').value,slow:$('pipeSlow').checked});
+ const cOf=p=>81.7*MAT[p.m].k*(p.T/1.5)*p.B*p.B; // drag per unit mass, s⁻¹ (copper 1.5 mm, ×1 magnet: terminal speed ≈ 0.12 m/s)
+ function reset(){st.run=false;st.t=0;st.a={y:0,v:0,tD:null,h:[[0,0]]};st.b={y:0,v:0,tD:null,h:[[0,0]]}}
+ reset();
+ const step=dt=>{if(!st.run||st.paused)return;const p=P(),c=cOf(p);let d=dt*(p.slow?0.25:1);const n=8;const h=d/n;
+  for(let k=0;k<n;k++){st.t+=h;
+   if(st.a.tD==null){st.a.v+=g*h;st.a.y+=st.a.v*h;if(st.a.y>=L){st.a.y=L;st.a.tD=st.t;st.a.v=0}}
+   if(st.b.tD==null){st.b.v+=(g-c*st.b.v)*h;st.b.y+=st.b.v*h;if(st.b.y>=L){st.b.y=L;st.b.tD=st.t;st.b.v=0}}}
+  if(st.t<=TAX+0.5){st.a.h.push([st.t,st.a.y]);st.b.h.push([st.t,st.b.y])}
+  if(st.a.tD!=null&&st.b.tD!=null)st.run=false};
+ function draw(){const {c,W,H}=fit(cv,380,640);clear(c,W,H);const p=P(),M=MAT[p.m],cc=cOf(p),vt=g/cc;
+  const narrow=W<600;const lw=narrow?W:Math.min(430,W*0.44),ph=narrow?300:H;
+  const top=44,bot=ph-26,Y=y=>top+y/L*(bot-top),pw=34;
+  const xa=lw*0.28,xb=lw*0.66;
+  // pipes
+  c.fillStyle='rgba(200,210,230,.10)';c.fillRect(xa-pw/2,top,pw,bot-top);c.strokeStyle='#c9ced9';c.lineWidth=1.5;c.strokeRect(xa-pw/2,top,pw,bot-top);
+  const gr=c.createLinearGradient(xb-pw/2,0,xb+pw/2,0);gr.addColorStop(0,M.col0);gr.addColorStop(0.5,M.col1);gr.addColorStop(1,M.col0);
+  c.fillStyle=gr;c.globalAlpha=0.55;c.fillRect(xb-pw/2,top,pw,bot-top);c.globalAlpha=1;c.strokeStyle=M.col1;c.strokeRect(xb-pw/2,top,pw,bot-top);
+  if(p.m==='slit')line(c,xb+4,top,xb+4,bot,'#0b1020',2.5);
+  text(c,'​plastic',xa,top-24,INK,12,'center');text(c,'​'+M.name.toLowerCase(),xb,top-24,M.col1,12,'center');
+  text(c,'​'+L.toFixed(1)+' m',xa-pw/2-6,(top+bot)/2,MUT,10,'right','middle');
+  // magnets (N at the bottom)
+  const mag=(x,y)=>{const yy=top+9+y/L*(bot-top-18);c.fillStyle='#4a7fd4';c.fillRect(x-11,yy-8,22,8);c.fillStyle='#d9534f';c.fillRect(x-11,yy,22,8);text(c,'​S',x,yy-4,'#fff',8,'center','middle');text(c,'​N',x,yy+4,'#fff',8,'center','middle');return yy};
+  const ya=mag(xa,st.a.y);const yb=mag(xb,st.b.y);
+  // plastic pipe: weight only, no magnetic force, so it accelerates freely
+  if(st.a.v>1e-4&&st.a.tD==null){const fx=xa+pw/2+(narrow?10:14),Wl=34;line(c,fx,ya+28,fx,ya+28+Wl,ORG,2.5);arrowHead(c,fx,ya+28+Wl,Math.PI/2,ORG,7);text(c,'\u200b'+(narrow?'W':'weight'),fx+6,ya+28+Wl-2,ORG,10,'left')}
+  // eddy current rings in the metal pipe, brighter when the magnet moves faster
+  const strength=Math.min(1,st.b.v/Math.max(vt,1e-6))*(p.m==='slit'?0.25:1);
+  if(st.b.v>1e-4){[[yb-16,-1],[yb+18,1]].forEach(([ry,dir])=>{c.strokeStyle='rgba(255,215,106,'+(0.25+0.75*strength).toFixed(2)+')';c.lineWidth=1+2*strength;c.beginPath();c.ellipse(xb,ry,pw/2+5,6,0,0,7);c.stroke();arrowHead(c,xb+dir*4,ry+6,dir>0?0:Math.PI,'rgba(255,215,106,'+(0.4+0.6*strength).toFixed(2)+')',6)});
+   text(c,'​'+(narrow?'eddy':'eddy currents'),xb+pw/2+10,yb-16,'#ffd76a',10,'left','middle');
+   // forces on the magnet
+   const fx=xb+pw/2+(narrow?10:14),Wl=34,Fl=Math.min(60,Wl*cc*st.b.v/g);line(c,fx,yb+28,fx,yb+28+Wl,ORG,2.5);arrowHead(c,fx,yb+28+Wl,Math.PI/2,ORG,7);text(c,'​'+(narrow?'W':'weight'),fx+6,yb+28+Wl-2,ORG,10,'left');
+   if(Fl>2){const fx2=fx+(narrow?24:40);line(c,fx2,yb+28+Wl,fx2,yb+28+Wl-Fl,GRN,2.5);arrowHead(c,fx2,yb+28+Wl-Fl,-Math.PI/2,GRN,7);text(c,'​'+(narrow?'F':'magnetic force'),fx2+6,yb+28+Wl-Fl+8,GRN,10,'left')}}
+  // distance–time graph (fixed axes)
+  const gx=narrow?52:lw+56,gy=narrow?ph+30:40,gw=W-gx-16,gh=narrow?H-ph-70:H-90;
+  text(c,'​distance fallen against time',gx+gw/2,gy-16,INK,13,'center');
+  const G=frame(c,gx,gy,gw,gh,0,TAX,0,L,'distance (m)','time (s)',v=>v.toFixed(1)+' m');
+  for(let k=2;k<=TAX;k+=2)text(c,k+' s',G.X(k),gy+gh+13,MUT,10,'center');
+  c.save();c.beginPath();c.rect(gx,gy,gw,gh);c.clip();path(c,st.a.h,G.X,G.Y,'#c9ced9',2.4);path(c,st.b.h,G.X,G.Y,M.col1,2.6);c.restore();
+  if(st.a.tD!=null)text(c,'​plastic: '+st.a.tD.toFixed(2)+' s',G.X(Math.min(st.a.tD,TAX))+8,G.Y(L)+34,'#c9ced9',11,'left');
+  if(st.b.tD!=null&&st.b.tD<=TAX)text(c,'​'+M.name.toLowerCase()+': '+st.b.tD.toFixed(1)+' s',Math.min(G.X(st.b.tD)+8,gx+gw-90),G.Y(L)+18,M.col1,11,'left');
+  else if(st.t>TAX&&st.b.tD==null)text(c,'​still falling…',gx+gw-6,gy+gh-10,M.col1,11,'right');
+  if(!st.run&&st.t===0)text(c,'​Press "Drop both magnets"',gx+gw/2,gy+gh/2,MUT,13,'center','middle');
+  const tile=(lab,val,sub)=>'<div><span>'+lab+'</span><b>'+val+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div>';
+  const tFree=Math.sqrt(2*L/g);
+  window.EM.set($('pipeReadout'),tile('Plastic pipe',st.a.tD!=null?st.a.tD.toFixed(2)+' s':'–','free fall: '+tFree.toFixed(2)+' s')+
+   tile(M.name+' pipe',st.b.tD!=null?st.b.tD.toFixed(1)+' s':(st.t>0?'falling…':'–'),'time to fall '+L.toFixed(1)+' m')+
+   tile('Magnet speed in metal pipe',st.b.v.toFixed(3)+' m s⁻¹','')+
+   tile('Terminal speed',vt.toFixed(3)+' m s⁻¹','magnetic force = weight')+
+   tile('Magnetic force ÷ weight',Math.round(100*Math.min(1,cc*st.b.v/g))+'%',st.b.tD==null&&st.b.v>0?(cc*st.b.v/g>0.97?'balanced: steady speed':'still speeding up'):''));
+ }
+ const upd=()=>{$('pipeBOut').textContent='×'+(+$('pipeB').value).toFixed(1);$('pipeTOut').textContent=(+$('pipeT').value).toFixed(2).replace(/0$/,'')+' mm'};
+ ['pipeB','pipeT'].forEach(id=>$(id).addEventListener('input',()=>{upd();reset();draw()}));$('pipeMat').addEventListener('change',()=>{reset();draw()});upd();
+ const setP=v=>{st.paused=v;$('pipePause').textContent=v?'Play':'Pause';$('pipePause').setAttribute('aria-pressed',String(v))};
+ $('pipeDrop').onclick=()=>{reset();setP(false);st.run=true};$('pipeReset').onclick=()=>{reset();setP(false);draw()};$('pipePause').onclick=()=>setP(!st.paused);
+ // the zoomed figure: crop to the pipe on narrow screens (its side notes move into a list below)
+ const fig=document.querySelector('.pipefig svg');const fitFig=()=>{if(fig)fig.setAttribute('viewBox',innerWidth<=600?'20 0 380 340':'0 0 620 340')};fitFig();addEventListener('resize',fitFig);
+ // run alongside the magnet-and-coil lab in 3.2
+ const coil=sims['flux:coil'];if(coil){const s0=coil.step,d0=coil.draw;coil.step=dt=>{s0(dt);step(dt)};coil.draw=()=>{d0();draw()}}
+})();
+
 /* ============ 2.2 PARALLEL PLATES ============ */
 (()=>{
  const cv=$('plateCanvas');const e0=8.85e-12;const st={Q:null,qAx:0,vAx:0,geo:null,drag:false};
@@ -2667,7 +2880,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
  const tau=()=>{const p=P();return p.R*p.C};
  function Vc(t){const p=P(),T=tau();if(st.pos==='A')return p.E+(st.V0-p.E)*Math.exp(-t/T);if(st.pos==='B')return st.V0*Math.exp(-t/T);return st.V0}
  function I(t){const p=P();if(st.pos==='A')return(p.E-Vc(t))/p.R;if(st.pos==='B')return -Vc(t)/p.R;return 0}
- function sw(pos){st.V0=Vc(st.t);st.pos=pos;st.t=0;st.tS=st.abs;st.started=true;st.ev.push([st.abs,pos])}
+ function sw(pos){st.V0=Vc(st.t);st.pos=pos;st.t=0;st.tS=st.abs;st.started=true;st.ev.push([st.abs,pos]);if(pos!=='none')st.seg={tS:st.abs,pos,V0:st.V0,E:P().E,T:tau()}}
  st.step=dt=>{const T=tau(),p=P();const lim=st.pos==='none'?T:6*T;
   if(st.started&&st.t<lim){const d=Math.min(lim-st.t,dt*(6*T)/3*st.slow);st.t+=d;st.abs+=d;const v=Vc(st.t),i=I(st.t);st.hist.push([st.abs,v,i*p.R,i]);while(st.hist.length&&st.hist[0][0]<st.abs-7*T)st.hist.shift();while(st.ev.length&&st.ev[0][0]<st.abs-7*T)st.ev.shift()}
   st.dots+=dt*I(st.t)/(p.E/p.R)*70*st.slow};
@@ -2704,11 +2917,18 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
    st.ev.forEach(([te,ps])=>{if(te<t0)return;const xx=X1(te);line(c,xx,gy,xx,gy+2*gh+26,'rgba(255,255,255,.22)',1,[2,4]);text(c,ps==='none'?'open':ps,xx+4,gy+gh+20,MUT,10)});
    for(let k=1;k<=6;k++){const tk=st.tS+k*T;if(tk>=t0&&tk<=t0+tMax)text(c,k+'τ',X2(tk),gy+2*gh+40,MUT,10,'center')}
    path(c,vis.map(h=>[h[0],h[1]]),X1,g1.Y,ROSE,2.6);path(c,vis.map(h=>[h[0],h[2]]),X1,g1.Y,ORG,2.2);path(c,vis.map(h=>[h[0],h[3]]),X2,g2.Y,CYN,2.6);
-   if(st.marks&&st.pos!=='none'&&st.tS>=t0){const tgt=st.pos==='A'?p.E+(st.V0-p.E)*Math.exp(-1):st.V0*Math.exp(-1);const xs=X1(st.tS),xt=X1(st.tS+T);
-    if(st.t>=T){line(c,xs,g1.Y(tgt),xt,g1.Y(tgt),YEL,1.2,[5,4]);line(c,xt,g1.Y(tgt),xt,g1.Y(0),YEL,1.2,[5,4]);text(c,st.pos==='A'?'63%':'37%',xt+4,g1.Y(tgt)-4,YEL,11)}
-    if(st.pos==='A')line(c,xs,g1.Y(p.E),gx+gw,g1.Y(p.E),'rgba(255,158,181,.6)',1,[3,4])}}
+   // τ markers for the most recent charge or discharge: they stay after the curve settles or the switch opens
+   const sg=st.seg;if(st.marks&&sg&&sg.tS+sg.T>=t0-1e-9*sg.T){const chg=sg.pos==='A';const tgt=chg?sg.E+(sg.V0-sg.E)*Math.exp(-1):sg.V0*Math.exp(-1);const xs=X1(Math.max(sg.tS,t0)),xt=X1(sg.tS+sg.T);
+    if(st.abs>=sg.tS+sg.T-1e-9*sg.T){line(c,xs,g1.Y(tgt),xt,g1.Y(tgt),YEL,1.2,[5,4]);line(c,xt,g1.Y(tgt),xt,g1.Y(0),YEL,1.2,[5,4]);text(c,chg?'63%':'37%',xt+4,g1.Y(tgt)-4,YEL,11)}
+    if(chg&&st.pos==='A')line(c,xs,g1.Y(p.E),gx+gw,g1.Y(p.E),'rgba(255,158,181,.6)',1,[3,4])}}
   else text(c,'Click A on the switch to charge the capacitor',gx+gw/2,gy+gh/2,MUT,13,'center','middle');
-  window.EM.set($('rcReadout'),'\\(\\tau = RC\\) = <strong>'+eng(T,'s',3)+'</strong> · max current \\(\\varepsilon /R\\) = '+eng(Im,'A',3)+'<br/>Time since the switch moved, \\(t\\) = '+eng(st.t,'s',3)+' ('+(st.t/T).toFixed(2)+'\\(\\tau\\))<br/>\\(V_{C}\\) = <strong>'+eng(vc,'V',3)+'</strong> · \\(V_{R}\\) = '+eng(vr,'V',3)+'<br/>Current \\(i\\) = <strong>'+eng(i,'A',3)+'</strong><br/>Charge \\(Q = CV_{C}\\) = '+eng(p.C*vc,'C',3)+' · energy \\(\\tfrac{1}{2}CV^{2}\\) = '+eng(0.5*p.C*vc*vc,'J',3));
+  [['rcA','A'],['rcB','B'],['rcOpen','none']].forEach(([id,ps])=>{const b=$(id);const on=String(st.pos===ps&&(ps!=='none'||st.started));if(b.getAttribute('aria-pressed')!==on)b.setAttribute('aria-pressed',on)});
+  {const t=(lab,val,sub)=>'<div><span>'+lab+'</span><b>'+val+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div>';
+   window.EM.set($('rcReadout'),t('Time constant','\\(\\tau = RC\\) = '+eng(T,'s',3),'max current \\(\\varepsilon /R\\) = '+eng(Im,'A',3))+
+    t('Time since switching','\\(t\\) = '+eng(st.t,'s',3),(st.t/T).toFixed(2)+'\\(\\tau\\)')+
+    t('Capacitor','\\(V_{C}\\) = '+eng(vc,'V',3),'\\(Q = CV_{C}\\) = '+eng(p.C*vc,'C',3))+
+    t('Resistor','\\(V_{R}\\) = '+eng(vr,'V',3),'\\(i\\) = '+eng(i,'A',3))+
+    t('Energy stored','\\(\\tfrac{1}{2}CV_{C}^{2}\\) = '+eng(0.5*p.C*vc*vc,'J',3),''))}
   {const tn=st.pos==='none'?-1:Math.round(st.t/T);let rows='';for(let k=0;k<=5;k++){const e=Math.exp(-k);
     const pc=v=>(Math.round(v*1000)/10)+'%';rows+='<tr'+(k===tn&&st.pos!=='none'?' class="now"':'')+'><td><b>'+(k?k+'τ':'0')+'</b> <small>'+eng(k*T,'s',2)+'</small></td><td><small>'+e.toFixed(3)+' ('+pc(e)+')</small></td><td class="g-chg">'+eng(p.E*(1-e),'V',3)+'</td><td class="g-chg">'+eng(Im*e,'A',3)+'</td><td class="g-dis">'+eng(p.E*e,'V',3)+'</td><td class="g-dis">−'+eng(Im*e,'A',3)+'</td></tr>'}
    const tb=$('rcTab');if(tb&&tb._h!==rows){tb.innerHTML=rows;tb._h=rows}}
@@ -2719,8 +2939,8 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
  };
  const upd=()=>{const p=P();$('rcEOut').textContent=p.E+' V';$('rcROut').textContent=Math.round(p.R/1e3)+' kΩ';$('rcCOut').textContent=Math.round(p.C*1e6)+' µF'};
  // changing a slider keeps the charge already on the capacitor and carries on from there
- ['rcE','rcR','rcC'].forEach(id=>$(id).addEventListener('input',()=>{upd();if(st.started){st.V0=Vc(st.t);st.t=0;st.tS=st.abs}}));upd();
- $('rcA').onclick=()=>sw('A');$('rcB').onclick=()=>{if(st.pos==='none'&&st.V0<=0)return;sw('B')};$('rcReset').onclick=()=>{st.pos='none';st.t=0;st.V0=0;st.abs=0;st.hist=[];st.ev=[];st.tS=0;st.started=false};
+ ['rcE','rcR','rcC'].forEach(id=>$(id).addEventListener('input',()=>{upd();if(st.started){st.V0=Vc(st.t);st.t=0;st.tS=st.abs;if(st.pos!=='none')st.seg={tS:st.abs,pos:st.pos,V0:st.V0,E:P().E,T:tau()}}}));upd();
+ $('rcA').onclick=()=>sw('A');$('rcB').onclick=()=>{if(st.pos==='none'&&st.V0<=0)return;sw('B')};$('rcReset').onclick=()=>{st.pos='none';st.t=0;st.V0=0;st.abs=0;st.hist=[];st.ev=[];st.tS=0;st.started=false;st.seg=null};
  $('rcOpen').onclick=()=>{if(st.pos!=='none')sw('none')};
  $('rcMarks').addEventListener('change',()=>{st.marks=$('rcMarks').checked});
  // click the switch: A, B, or the pivot/arm to open it
