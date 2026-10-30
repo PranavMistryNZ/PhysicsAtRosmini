@@ -272,6 +272,9 @@ body.light-mode .rstats>div,body.light-mode .rcnote{background:#f3f6fa;border-co
 .coilbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.coilbar .control select{width:100%}
 @media(max-width:1000px){.rstats{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:700px){.rcbar .nx-bar-inputs,.coilbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr)}.rstats>div>b{white-space:normal;overflow-wrap:anywhere}.rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cmptab{min-width:520px}.cmptab td{white-space:normal;text-align:left;vertical-align:top;line-height:1.45}.cmptab td:first-child{width:22%}
+.fl-banner{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:6px 0 10px;padding:6px 16px;border:1px solid #39445d;border-left:4px solid var(--topic);border-radius:8px;background:#0c1222}.fl-banner .katex-display{margin:4px 0}.fl-banner>span{font-size:13px;color:var(--muted)}
+body.light-mode .fl-banner{background:#f3f6fa;border-color:#c6d0db;border-left-color:var(--topic)}
 /* readout table (1.3) */
 .rtab{width:100%;border-collapse:collapse;font-size:14px}
 .rtab th{text-align:left;font-weight:400;padding:7px 12px 7px 0;vertical-align:middle;white-space:nowrap;width:1%}
@@ -453,7 +456,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <li><b>DC circuits</b> · 1.1 → 1.2 → 1.3, then check yourself in 1.4</li>
 <li><b>Capacitors</b> · 2.1 → 2.2 → 2.3 → 2.4, then 2.5</li>
 <li><b>Flux &amp; Faraday</b> · 3.1 → 3.2 → 3.3, then 3.4</li>
-<li><b>Inductors</b> · 4.1 → 4.2 → 4.3, then 4.4. Compare the LR lab (4.2) with the RC lab (2.3).</li>
+<li><b>Inductors</b> · 4.1 → 4.2 → 4.3 → 4.4, then 4.5. Compare the LR lab (4.3) with the RC lab (2.3).</li>
 <li><b>Transformers</b> · 5.1 → 5.2 → 5.3, then 5.4</li>
 <li><b>AC circuits</b> · 6.1 → 6.2 → 6.3 → 6.4, then 6.5</li>
 <li><b>Applications</b> · the last tab in each section shows where the ideas are used. Exam questions are often set in contexts like these.</li>
@@ -563,10 +566,11 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="fs-card"><h4>Moving conductor</h4><span class="st not-given">Not given</span><div class="fl">\[\varepsilon=BvL\]</div><p>A rod of length \(L\) moving at \(v\) across a field \(B\). It follows from Faraday: the area swept per second is \(vL\).</p><div class="fs-links"><button class="fs-link" data-go="flux:loop" type="button">3.3</button></div></div>
 </div></div>
 <div class="fs-group"><h3 style="color:#78d9f7">Inductors</h3><div class="fs-grid">
-<div class="fs-card"><h4>Back emf</h4><span class="st given">Given</span><div class="fl">\[\varepsilon=-L\dfrac{\Delta i}{\Delta t}\]</div><p>\(L\) in henry (H): 1 V of back emf when current changes at 1 A s⁻¹.</p><div class="fs-links"><button class="fs-link" data-go="ind:intro" type="button">4.1</button><button class="fs-link" data-go="ind:off" type="button">4.3</button></div></div>
-<div class="fs-card"><h4>Time constant</h4><span class="st given">Given</span><div class="fl">\[\tau=\dfrac{L}{R}\]</div><p>\(R\) is the <strong>total</strong> resistance, including the inductor's own.</p><div class="fs-links"><button class="fs-link" data-go="ind:lr" type="button">4.2</button></div></div>
-<div class="fs-card"><h4>Energy stored</h4><span class="st given">Given</span><div class="fl">\[E=\dfrac{1}{2}Li^2\]</div><p>Stored in the magnetic field.</p><div class="fs-links"><button class="fs-link" data-go="ind:lr" type="button">4.2</button></div></div>
-<div class="fs-card"><h4>Exponential growth &amp; decay</h4><span class="st not-given">Not given</span><div class="fl">\[x=x_{\text{max}}(1-e^{-t/\tau})\]\[x=x_0e^{-t/\tau}\]</div><p>Same maths for capacitors and inductors. Most answers can be read from 63% / 37%.</p><div class="fs-links"><button class="fs-link" data-go="cap:rc" type="button">2.3</button><button class="fs-link" data-go="ind:lr" type="button">4.2</button></div></div>
+<div class="fs-card"><h4>Inductance of a coil</h4><span class="st not-given">Not given</span><div class="fl">\[L=\dfrac{N\Phi}{i}\approx\dfrac{\mu_0\mu_rN^2A}{l}\]</div><p>Know the trends: more turns (\(L \propto N^{2}\)), bigger area, shorter coil, or an iron core (relative permeability \(\mu _{r}\)) all increase \(L\).</p><div class="fs-links"><button class="fs-link" data-go="ind:coil" type="button">4.2</button></div></div>
+<div class="fs-card"><h4>Back emf</h4><span class="st given">Given</span><div class="fl">\[\varepsilon=-L\dfrac{\Delta i}{\Delta t}\]</div><p>\(L\) in henry (H): 1 V of back emf when current changes at 1 A s⁻¹.</p><div class="fs-links"><button class="fs-link" data-go="ind:intro" type="button">4.1</button><button class="fs-link" data-go="ind:off" type="button">4.4</button></div></div>
+<div class="fs-card"><h4>Time constant</h4><span class="st given">Given</span><div class="fl">\[\tau=\dfrac{L}{R}\]</div><p>\(R\) is the <strong>total</strong> resistance, including the inductor's own.</p><div class="fs-links"><button class="fs-link" data-go="ind:lr" type="button">4.3</button></div></div>
+<div class="fs-card"><h4>Energy stored</h4><span class="st given">Given</span><div class="fl">\[E=\dfrac{1}{2}Li^2\]</div><p>Stored in the magnetic field.</p><div class="fs-links"><button class="fs-link" data-go="ind:lr" type="button">4.3</button></div></div>
+<div class="fs-card"><h4>Exponential growth &amp; decay</h4><span class="st not-given">Not given</span><div class="fl">\[x=x_{\text{max}}(1-e^{-t/\tau})\]\[x=x_0e^{-t/\tau}\]</div><p>Same maths for capacitors and inductors. Most answers can be read from 63% / 37%.</p><div class="fs-links"><button class="fs-link" data-go="cap:rc" type="button">2.3</button><button class="fs-link" data-go="ind:lr" type="button">4.3</button></div></div>
 </div></div>
 <div class="fs-group"><h3 style="color:#c5a2ff">Transformers &amp; transmission</h3><div class="fs-grid">
 <div class="fs-card"><h4>Turns ratio</h4><span class="st given">Given</span><div class="fl">\[\dfrac{V_s}{V_p}=\dfrac{N_s}{N_p}\]</div><p>The same changing flux links every turn of both coils.</p><div class="fs-links"><button class="fs-link" data-go="tx:intro" type="button">5.1</button><button class="fs-link" data-go="tx:lab" type="button">5.2</button></div></div>
@@ -848,6 +852,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <section class="pane hidden" data-section="cap" data-view="plates">
 <div class="section-identity"><strong>2.2 · Parallel-plate builder</strong><p>Change the plates and the gap, slide a dielectric in, and watch \(C\), \(Q\), \(V\) and the stored energy.</p></div>
 <h2>Parallel-plate capacitor</h2>
+<div class="fl-banner">\[C = \dfrac{\varepsilon _{0}\varepsilon _{r}A}{d}\]<span>given in the NCEA formula sheet · \(\varepsilon _{0} = 8.85 \times 10^{-12} \,\mathrm{F} \,\mathrm{m}^{-1}\) · \(\varepsilon _{r}\) = relative permittivity (1 for air)</span></div>
 <p class="sub">The diagram shows the charge on each plate and the field between them. <strong>Drag the dielectric down into the gap</strong> (or use the slider) and watch the capacitance grow. The graph plots \(V\) against \(Q\): \(V = \tfrac{1}{C}Q\), so its <strong>gradient is \(1/C\)</strong>. More capacitance means a flatter line. The shaded area under the line is the energy stored, \(\tfrac{1}{2}QV\). Switch between <strong>connected</strong> (the battery holds \(V\) fixed) and <strong>disconnected</strong> (\(Q\) is trapped on the plates) and change the gap. This is a classic Excellence question.</p>
 <div class="nx-lab">
 <div class="sim"><canvas id="plateCanvas" height="360" aria-label="Side view of two charged parallel plates with field lines and a sliding dielectric, beside a voltage against charge graph"></canvas></div>
@@ -868,13 +873,13 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <ul class="nx-list">
 <li><strong>Connected, widen the gap:</strong> \(C\) falls and \(V\) stays fixed, so \(Q = CV\) falls: charge flows back into the battery. Energy \(\tfrac{1}{2}CV^{2}\) falls.</li>
 <li><strong>Disconnected, widen the gap:</strong> \(Q\) can't change, so \(V = Q/C\) rises. Energy \(\tfrac{1}{2}Q^{2}/C\) <em>rises</em>. The extra energy comes from the work you do pulling the attracting plates apart.</li>
-<li><strong>Slide the dielectric in, connected:</strong> \(C\) rises in proportion to how much is inside, \(C = \frac{\varepsilon_0 A}{d}[(1-x) + x\varepsilon_r]\): the filled part and the empty part act like two capacitors in parallel. The graph gets flatter (smaller \(1/C\)) and more charge flows on. Notice the plate charge crowds beside the dielectric.</li>
+<li><strong>Slide the dielectric in, connected:</strong> \(C\) rises in proportion to how much of the gap is filled: the filled part and the empty part act like two capacitors in parallel. Fully in, \(C = \dfrac{\varepsilon _{0}\varepsilon _{r}A}{d}\) is \(\varepsilon _{r}\) times the air value. The graph gets flatter (smaller \(1/C\)) and more charge flows on. Notice the plate charge crowds beside the dielectric.</li>
 <li><strong>Insert a dielectric while disconnected:</strong> \(C\) rises, so \(V\) falls and the stored energy falls. The dielectric is pulled into the gap.</li>
 </ul>
 </section>
 
 <section class="pane hidden" data-section="cap" data-view="rc">
-<div class="section-identity"><strong>2.3 · RC circuit</strong><p>Charge and discharge a capacitor through a resistor; compare with the LR lab (4.2).</p></div>
+<div class="section-identity"><strong>2.3 · RC circuit</strong><p>Charge and discharge a capacitor through a resistor; compare with the LR lab (4.3).</p></div>
 <h2>RC circuit lab</h2>
 <p class="sub">A two-way switch connects the capacitor either to the battery through \(R\) (<strong>A, charge</strong>) or straight across \(R\) with the battery removed (<strong>B, discharge</strong>). The current graph is signed: discharge current flows the opposite way and shows as negative.</p>
 <p class="small"><strong>Watch the charges.</strong> Brighter, bigger dots carry more energy per coulomb (higher potential). Charging: they gain \(\varepsilon\) in the cell, lose \(V_{R}\) in the resistor and arrive at the plate with \(V_{C}\) per coulomb, so as \(V_{C}\) builds up, less is lost in \(R\). Discharging: the capacitor is the source, and the charges lose its energy in the resistor.</p>
@@ -926,6 +931,18 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </ol>
 <p class="small"><strong>Avoid:</strong> "the capacitor is full". It is not full: with a bigger emf it would store more charge. The current stops because \(V_{C}\) has risen to equal \(\varepsilon\).</p>
 </div>
+<h3>Energy in a capacitor: where and how?</h3>
+<p class="sub">Exams often ask <em>where</em> the energy is stored and <em>how</em> it got there. Try each question yourself, then open it to check.</p>
+<details class="nx-worked"><summary>Where is the energy stored in a charged capacitor?</summary>
+<p>In the <strong>electric field between the plates</strong> (in the gap or the dielectric). It is not stored "in the charge" or in the metal of the plates.</p></details>
+<details class="nx-worked"><summary>How does the energy get stored?</summary>
+<p>Charging separates charge: the supply moves electrons off one plate and onto the other. Each extra charge has to be pushed onto the plate <strong>against the repulsion</strong> of the charge already there (and away from the attraction of the opposite plate). The work done against these electric forces is stored as electric potential energy in the field between the plates.</p>
+<p>Because \(V = Q/C\) rises as the charge builds up, the average voltage during charging is \(\tfrac{1}{2}V\), so the energy stored is \(E = \tfrac{1}{2}QV = \tfrac{1}{2}CV^{2} = \dfrac{Q^{2}}{2C}\): the area under the \(V\)–\(Q\) graph (2.2).</p></details>
+<details class="nx-worked"><summary>The battery supplies energy \(QV\). Why is only \(\tfrac{1}{2}QV\) stored?</summary>
+<p>The battery gives every coulomb the full energy \(\varepsilon\), but early on the capacitor's voltage is low, so most of that energy is turned into <strong>heat in the resistor</strong>. Over a full charge exactly half of the battery's energy ends up as heat and half is stored, whatever the value of \(R\).</p></details>
+<details class="nx-worked"><summary>Where does the energy go when the capacitor discharges?</summary>
+<p>The field pushes the charge back round the circuit. The stored energy becomes <strong>heat in the resistor</strong> (or light, sound or motion in whatever is connected, such as a camera flash).</p></details>
+
 </section>
 
 <section class="pane hidden" data-section="cap" data-view="combine">
@@ -1348,27 +1365,65 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </div>
 </section>
 
+<section class="pane hidden" data-section="ind" data-view="coil">
+<div class="section-identity"><strong>4.2 · Coil builder</strong><p>Change the turns, the area and the length of a coil, and slide in an iron core: watch the inductance \(L\) change.</p></div>
+<h2>What sets the inductance of a coil?</h2>
+<p class="sub">Inductance is the flux linkage per amp: \(L = N\Phi /i\). A coil has a large inductance when a current through it makes a lot of flux through a lot of turns. <strong>Drag the core into the coil</strong> (or use the slider) and change the coil's shape. The graph plots the flux linkage \(N\Phi\) against the current \(i\), so its <strong>gradient is the inductance</strong>: \(N\Phi = Li\).</p>
+<div class="nx-lab">
+<div class="sim"><canvas id="indCoilCanvas" height="360" aria-label="Side view of a coil with field lines and a sliding iron core, beside a graph of flux linkage against current"></canvas></div>
+<div class="nx-ctlbar kirbar rcbar coilbar">
+<div class="nx-bar-inputs">
+<h3>Controls</h3>
+<div class="control"><label for="icCore">Core material</label><select id="icCore"><option value="10">Soft iron rod (effective μᵣ ≈ 10)</option><option value="30">Ferrite rod (effective μᵣ ≈ 30)</option></select></div>
+<div class="control"><label for="icIns">Core inserted <output id="icInsOut">0 %</output></label><input id="icIns" max="100" min="0" step="5" type="range" value="0"/></div>
+<div class="control"><label for="icN">Turns, \(N\) <output id="icNOut">200</output></label><input id="icN" max="400" min="50" step="10" type="range" value="200"/></div>
+<div class="control"><label for="icA">Coil area, \(A\) <output id="icAOut">5.0 cm²</output></label><input id="icA" max="10" min="1" step="0.5" type="range" value="5"/></div>
+<div class="control"><label for="icL">Coil length, \(l\) <output id="icLOut">20 cm</output></label><input id="icL" max="40" min="10" step="1" type="range" value="20"/></div>
+<div class="control"><label for="icI">Current, \(i\) <output id="icIOut">1.0 A</output></label><input id="icI" max="2" min="0" step="0.1" type="range" value="1"/></div>
+</div>
+<div class="rstats" id="icReadout">…</div>
+<div class="rcnote coilstory">
+<p><strong>What makes \(L\) bigger?</strong> For a long coil, \(L \approx \dfrac{\mu _{0}\mu _{r}N^{2}A}{l}\) (you do not need to learn this, but you should know the trends).</p>
+<ol>
+<li><strong>More turns:</strong> each turn adds to the field <em>and</em> each turn links that flux, so \(L \propto N^{2}\). Double the turns, four times the inductance.</li>
+<li><strong>Bigger area:</strong> more flux passes through each turn, so \(L \propto A\).</li>
+<li><strong>Shorter coil</strong> (same turns): the turns are packed closer, so the field is stronger, \(L \propto 1/l\).</li>
+<li><strong>An iron core:</strong> the core's tiny magnetic domains line up with the coil's field and add their own field, multiplying the flux by the <strong>relative permeability</strong> \(\mu _{r}\). Iron itself has \(\mu _{r}\) in the hundreds or thousands, but a straight rod in a coil gives a smaller <em>effective</em> value (about 10 to 30 here), because the field lines still have to return through the air outside. A closed iron loop, as in a transformer, gets much closer to the full value. This is the same idea as a dielectric in a capacitor (2.2), where the relative permittivity \(\varepsilon _{r}\) multiplies \(C\).</li>
+</ol>
+<p class="small">A bigger \(L\) means a bigger back emf for the same rate of change of current, a longer time constant \(\tau = L/R\) (4.3), and more energy stored for the same current, \(\tfrac{1}{2}Li^{2}\).</p>
+</div>
+</div>
+</div>
+<h3>Look for these ideas</h3>
+<ul class="nx-list">
+<li><strong>Double \(N\):</strong> the gradient of the graph goes up four times, because \(L \propto N^{2}\).</li>
+<li><strong>Slide the core in:</strong> the field lines get much denser and \(L\) rises roughly in proportion to how much of the coil is filled. With the core fully in, \(L\) is about \(\mu _{r}\) times the air-core value, so the line shoots off the top of the graph.</li>
+<li><strong>The graph's scale never changes</strong>, so a steeper line really is a bigger inductance. Make the coil longer or thinner, or use fewer turns, and the line gets flatter.</li>
+<li><strong>Uses:</strong> transformers and chokes use iron or ferrite cores to get a large inductance from a small coil; a metal detector or traffic-light sensor notices the change in \(L\) when metal comes near its coil.</li>
+</ul>
+</section>
+
 <section class="pane hidden" data-section="ind" data-view="lr">
-<div class="section-identity"><strong>4.2 · LR circuit</strong><p>Switch the supply on and off and watch current, resistor voltage and inductor voltage.</p></div>
+<div class="section-identity"><strong>4.3 · LR circuit</strong><p>Switch the supply on and off and watch current, resistor voltage and inductor voltage.</p></div>
 <h2>LR circuit lab</h2>
 <p class="sub">A battery, a resistor \(R\) and a real inductor (\(L\) with internal resistance \(r\)) are connected through a two-way switch. Position <strong>A</strong> connects the battery; position <strong>B</strong> removes it but keeps the loop closed so the current can decay.</p>
 <p class="small"><strong>Watch the charges.</strong> Brighter, bigger dots carry more energy per coulomb (higher potential). At switch-on the inductor's back emf takes most of the energy and little is lost in \(R\). With the battery removed (B), the inductor becomes the source: the charges gain energy as they pass through it and lose it in \(R\).</p>
 <div class="nx-lab">
 <div class="sim"><canvas id="lrCanvas" height="400" aria-label="LR circuit diagram with a two-way switch beside graphs of current and voltages against time"></canvas></div>
 <div class="legend"><span style="--key:#78d9f7">Current, \(i\)</span><span style="--key:#f0a66a">Resistor voltage, \(V_{R}\)</span><span style="--key:#d99ac6">Inductor terminal voltage, \(V_{L}\)</span></div>
-<div class="nx-ctlbar">
+<div class="nx-ctlbar kirbar rcbar coilbar">
 <div class="nx-bar-inputs">
 <h3>Controls</h3>
 <div class="control"><label for="lrE">Battery emf, \(\varepsilon\) <output id="lrEOut">12 V</output></label><input id="lrE" max="24" min="1.5" step="0.5" type="range" value="12"/></div>
 <div class="control"><label for="lrL">Inductance, \(L\) <output id="lrLOut">2.0 H</output></label><input id="lrL" max="10" min="0.1" step="0.1" type="range" value="2"/></div>
 <div class="control"><label for="lrR">Resistor, \(R\) <output id="lrROut">15 Ω</output></label><input id="lrR" max="100" min="1" step="1" type="range" value="15"/></div>
 <div class="control"><label for="lrr">Inductor resistance, \(r\) <output id="lrrOut">5 Ω</output></label><input id="lrr" max="50" min="0" step="1" type="range" value="5"/></div>
-<div class="btn-row"><button class="tool-btn" id="lrA" type="button">Switch to A (on)</button><button class="tool-btn" id="lrB" type="button">Switch to B (off)</button><button class="tool-btn secondary" id="lrOpen" type="button">Switch to C (open)</button><button class="tool-btn secondary" id="lrReset" type="button">Reset</button></div>
-<label class="check-row"><input checked id="lrMarks" type="checkbox"/> Show \(\tau\) markers (63% / 37%)</label>
 </div>
-<div class="nx-bar-info"><div class="readout" id="lrReadout">…</div><div class="readout" id="lrNote" style="border-left-color:#d99ac6">…</div></div>
+<div class="btn-row kbtns"><span class="klab">Switch:</span><button class="tool-btn secondary" id="lrA" type="button">A · on</button><button class="tool-btn secondary" id="lrB" type="button">B · off</button><button class="tool-btn secondary" id="lrOpen" type="button">C · open</button><label class="check-row kchk"><input checked id="lrMarks" type="checkbox"/> \(\tau\) markers</label><button class="tool-btn" id="lrReset" type="button">Reset</button></div>
+<div class="rstats" id="lrReadout">…</div>
+<p class="rcnote" id="lrNote">…</p>
 </div>
-<p class="sim-caption">The time axis always spans \(6\tau\), so changing \(L\) or \(R\) rescales it. Read \(\tau\) from the top of the readout.</p>
+<p class="sim-caption">The time axis spans \(6\tau\) and keeps what happened before each switch, scrolling once it fills. The animation takes about 3 seconds; read the real time from the readout. Changing a slider keeps the current that is already flowing.</p>
 </div>
 <h3>Look for these ideas</h3>
 <ul class="nx-list">
@@ -1377,10 +1432,58 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <li>Switching to B: the current keeps its direction and decays, while \(V_{L}\) jumps to a <strong>negative</strong> value. The inductor is now driving the current.</li>
 <li>Change \(L\): \(\tau\) changes but \(i_{\text{max}}\) does not. Change \(R\): both change.</li>
 </ul>
+<h3>The numbers: switching on and off</h3>
+<p class="sub">These values use the emf, \(L\), \(R\) and \(r\) set in the lab above, and the row nearest the current time lights up. \(i_{\text{max}} = \varepsilon /(R + r)\). Every value is \(e^{-t/\tau }\) (or \(1 - e^{-t/\tau }\)) times its starting value. Switching off here means moving to B after the current has reached \(i_{\text{max}}\).</p>
+<div class="exptab-wrap"><table class="exptab"><thead>
+<tr><th rowspan="2">Time \(t\)</th><th rowspan="2">\(e^{-t/\tau }\)</th><th class="g-chg" colspan="2">Switch on (A)</th><th class="g-dis" colspan="2">Switch off (B)</th></tr>
+<tr><th class="g-chg">\(i = i_{\text{max}}\left(1 - e^{-t/\tau }\right)\)</th><th class="g-chg">back emf \(= \varepsilon e^{-t/\tau }\)</th><th class="g-dis">\(i = i_{\text{max}}e^{-t/\tau }\)</th><th class="g-dis">induced emf \(= \varepsilon e^{-t/\tau }\)</th></tr>
+</thead><tbody id="lrTab"></tbody></table></div>
+<p class="small">After \(1\tau\) the current has reached 63% of \(i_{\text{max}}\) when switching on, or fallen to 37% when switching off. After about \(5\tau\) it is treated as finished (99.3%). When switching off, the induced emf keeps the current flowing the <em>same</em> way while it dies away.</p>
+
+<h3>Zoom in: why does the current rise slowly?</h3>
+<p class="sub">This is the inductor from the lab above, magnified, and it follows the same switch. The current makes a magnetic field inside the coil. While the current is <strong>changing</strong>, the flux is changing, so the coil induces a back emf that opposes the change. The bar on the right shows how the supply's emf is shared out at each moment.</p>
+<div class="nx-lab">
+<div class="sim"><canvas id="lrZoomCanvas" height="300" aria-label="Magnified coil with field lines that grow with the current, and a bar showing how the emf is shared between driving the current through the resistance and the back emf"></canvas></div>
+<div class="btn-row kbtns"><span class="klab">Switch:</span><button class="tool-btn secondary" id="lrZA" type="button">A · on</button><button class="tool-btn secondary" id="lrZB" type="button">B · off</button><button class="tool-btn secondary" id="lrZC" type="button">C · open</button><button class="tool-btn secondary" id="lrZR" type="button">Reset</button><label class="check-row kchk"><input id="lrZSlow" type="checkbox"/> Slow motion (¼ speed)</label></div>
+<p class="rcnote" id="lrZoomNote">…</p>
+</div>
+<div class="zoom-answer">
+<p><strong>Exam answer: how and why does the current grow gradually when the switch is closed?</strong></p>
+<ol>
+<li>When the switch closes, the current starts to increase, so the magnetic flux through the coil increases.</li>
+<li>By Faraday's law, the changing flux induces an emf in the coil. By Lenz's law this <strong>back emf</strong> opposes the change that causes it, so it opposes the increase in current.</li>
+<li>The supply's emf is shared: \(\varepsilon = i(R + r) + L\Delta i/\Delta t\). As \(i\) grows, more of \(\varepsilon\) is needed to push the current through the resistance, so less is left for the back emf, and the current rises more and more slowly.</li>
+<li>The current reaches its maximum, \(i_{\text{max}} = \varepsilon /(R + r)\), when it stops changing: the flux is then constant, so there is no back emf.</li>
+</ol>
+<p class="small"><strong>Switching off (to B):</strong> the current starts to fall, so the flux collapses. The induced emf now opposes the <em>decrease</em>, so it keeps the current flowing the same way while it dies away, and the energy stored in the field, \(\tfrac{1}{2}Li^{2}\), becomes heat in \(R\) and \(r\).</p>
+<p class="small"><strong>Avoid:</strong> "the inductor resists the current". A steady current only meets the coil's own resistance \(r\). An inductor opposes <em>changes</em> in current.</p>
+</div>
+<h3>Energy in an inductor: where and how?</h3>
+<p class="sub">Try each question yourself, then open it to check.</p>
+<details class="nx-worked"><summary>Where is the energy stored in an inductor?</summary>
+<p>In the <strong>magnetic field</strong> inside (and around) the coil. It is not stored in the wire or "in the current".</p></details>
+<details class="nx-worked"><summary>How does the energy get stored?</summary>
+<p>While the current is rising, the changing flux induces a back emf that opposes the rise. The supply has to do <strong>work pushing charge against the back emf</strong>, and that work builds up the magnetic field. The energy stored is \(E = \tfrac{1}{2}Li^{2}\).</p>
+<p>Once the current is steady there is no back emf, so no more energy goes into the field. The supply then only provides the heat \(i^{2}(R + r)\) in the resistance.</p></details>
+<details class="nx-worked"><summary>What happens to the energy when the current is switched off?</summary>
+<p>The field collapses. The changing flux induces an emf that keeps the current flowing the same way for a short time, so the stored energy becomes <strong>heat in the resistance</strong>. If the circuit is broken suddenly, the current tries to drop to zero almost instantly, so \(\Delta i/\Delta t\) is huge: the induced emf can be thousands of volts and the energy appears as a <strong>spark</strong> across the switch (4.4).</p></details>
+<details class="nx-worked"><summary>Why does it take energy to start a current in an inductor but not to keep it going?</summary>
+<p>Energy only goes into the field while the field is growing, that is while the current is changing. A steady current makes a steady field, so the stored energy stays at \(\tfrac{1}{2}Li^{2}\) and no extra energy is needed (apart from the heat in the resistance).</p></details>
+<h3>Comparing the two</h3>
+<div class="exptab-wrap"><table class="exptab cmptab"><thead><tr><th></th><th class="g-chg">Capacitor</th><th class="g-dis">Inductor</th></tr></thead><tbody>
+<tr><td><b>Energy stored in</b></td><td class="g-chg">the electric field between the plates</td><td class="g-dis">the magnetic field in the coil</td></tr>
+<tr><td><b>Formula</b></td><td class="g-chg">\(E = \tfrac{1}{2}QV = \tfrac{1}{2}CV^{2}\)</td><td class="g-dis">\(E = \tfrac{1}{2}Li^{2}\)</td></tr>
+<tr><td><b>Depends on</b></td><td class="g-chg">the voltage across it</td><td class="g-dis">the current through it</td></tr>
+<tr><td><b>Built up by work against</b></td><td class="g-chg">the repulsion of the charge already on the plates</td><td class="g-dis">the back emf while the current rises</td></tr>
+<tr><td><b>When steady</b></td><td class="g-chg">no current; it holds its energy even when disconnected</td><td class="g-dis">current must keep flowing; the energy is lost as soon as the current stops</td></tr>
+<tr><td><b>Opposes changes in</b></td><td class="g-chg">voltage</td><td class="g-dis">current</td></tr>
+<tr><td><b>Energy released</b></td><td class="g-chg">as heat in the resistor while it discharges</td><td class="g-dis">as heat in the resistance, or a spark if the circuit is broken suddenly</td></tr>
+</tbody></table></div>
+
 </section>
 
 <section class="pane hidden" data-section="ind" data-view="off">
-<div class="section-identity"><strong>4.3 · Switching off an inductor</strong><p>Why breaking an inductive circuit can produce hundreds of volts from a small battery.</p></div>
+<div class="section-identity"><strong>4.4 · Switching off an inductor</strong><p>Why breaking an inductive circuit can produce hundreds of volts from a small battery.</p></div>
 <h2>Switching off: neon lamp and diode</h2>
 <p class="sub">A neon lamp is connected across a large iron-cored coil, powered by a small battery. A neon lamp needs about 80 V before it glows, far more than the battery gives. Close the switch, then open it.</p>
 <div class="nx-lab">
@@ -1610,14 +1713,14 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </section>
 
 <section class="pane hidden" data-section="ind" data-view="apps">
-<div class="section-identity"><strong>4.6 · Applications of inductors</strong><p>Using back emf, delays and stored magnetic energy.</p></div>
+<div class="section-identity"><strong>4.7 · Applications of inductors</strong><p>Using back emf, delays and stored magnetic energy.</p></div>
 <h2>Where do we use inductors?</h2>
 <p class="sub">Some devices use the large back emf when the current is switched off, some use the stored energy \(\tfrac{1}{2}Li^{2}\), and some use the way an inductor slows changes in current.</p>
 <div class="app-grid">
 <div class="app-card"><div class="app-head"><b>Car ignition coils</b><span class="app-tag">Back emf</span></div>
 <p>A petrol engine needs a spark of tens of thousands of volts from a 12 V battery. The ignition coil has a primary winding on an iron core, wound together with a secondary of many more turns.</p>
 <p class="app-chain">Primary current switched off suddenly → flux collapses very fast → large back emf in the primary, stepped up further by the secondary → spark at the plug</p>
-<p class="app-exam"><b>Exam angle:</b> the faster the current is cut, the larger \(\Delta i/\Delta t\) and the larger the voltage. Compare 4.3.</p></div>
+<p class="app-exam"><b>Exam angle:</b> the faster the current is cut, the larger \(\Delta i/\Delta t\) and the larger the voltage. Compare 4.4.</p></div>
 <div class="app-card"><div class="app-head"><b>Protecting electronics</b><span class="app-tag">Back emf</span></div>
 <p>Relays, solenoid valves and motors are coils. Switching them off with a transistor could destroy it, so a diode is fitted across the coil.</p>
 <p class="app-chain">Switch opens → back emf tries to keep the current flowing → current circulates through the diode → voltage limited to about 0.7 V</p>
@@ -1900,7 +2003,7 @@ const views={
  dc:[['intro','1.1 Introduction'],['battery','1.2 Battery Lab'],['kirchhoff','1.3 Kirchhoff'],['check','1.4 Quick Check'],['problems','1.5 Problems'],['apps','1.6 Applications']],
  cap:[['intro','2.1 Introduction'],['plates','2.2 Plate Builder'],['rc','2.3 RC Circuit'],['combine','2.4 Combining'],['check','2.5 Quick Check'],['problems','2.6 Problems'],['apps','2.7 Applications']],
  flux:[['intro','3.1 Introduction'],['coil','3.2 Magnet & Coil'],['loop','3.3 <span class="lc up">Φ</span> vs <i class="lc">t</i> Graphs'],['check','3.4 Quick Check'],['problems','3.5 Problems'],['apps','3.6 Applications']],
- ind:[['intro','4.1 Introduction'],['lr','4.2 LR Circuit'],['off','4.3 Switching Off'],['check','4.4 Quick Check'],['problems','4.5 Problems'],['apps','4.6 Applications']],
+ ind:[['intro','4.1 Introduction'],['coil','4.2 Coil Builder'],['lr','4.3 LR Circuit'],['off','4.4 Switching Off'],['check','4.5 Quick Check'],['problems','4.6 Problems'],['apps','4.7 Applications']],
  tx:[['intro','5.1 Introduction'],['lab','5.2 Transformer Lab'],['grid','5.3 Transmission'],['check','5.4 Quick Check'],['problems','5.5 Problems'],['apps','5.6 Applications']],
  ac:[['intro','6.1 Introduction'],['rms','6.2 rms & Power'],['phase','6.3 Phase & Reactance'],['lcr','6.4 LCR Resonance'],['check','6.5 Quick Check'],['problems','6.6 Problems'],['apps','6.7 Applications']]};
 const titles={map:'COURSE MAP',dc:'DC CIRCUITS',cap:'CAPACITORS',flux:'FLUX & FARADAY',ind:'INDUCTORS',tx:'TRANSFORMERS',ac:'AC CIRCUITS'};
@@ -1942,6 +2045,7 @@ const scope=[
   ['Use Lenz\'s law to find the direction of an induced current, and link it to conservation of energy','flux:coil']]},
  {g:'Inductors',c:'#78d9f7',items:[
   ['Explain back emf in an inductor when a circuit is switched on and off','ind:intro'],
+  ['Explain how the turns, area, length and an iron core affect the inductance of a coil','ind:coil'],
   ['Calculate \\(\\tau = L/R\\), including the inductor\'s internal resistance','ind:lr'],
   ['Sketch and interpret current–time and voltage–time graphs for an LR circuit','ind:lr'],
   ['Calculate the energy stored in an inductor, \\(E = \\tfrac{1}{2}Li^{2}\\)','ind:lr'],
@@ -2007,6 +2111,8 @@ cap:[
  ['\\(R\\) = 10 kΩ and \\(C\\) = 100 µF. The time constant is…',['1.0 s','0.10 s','10 s','1000 s'],0,'\\(\\tau = RC = 10 \\times 10^{3} \\times 100 \\times 10^{-6} = 1.0 \\,\\mathrm{s}\\).'],
  ['At the instant charging starts, the voltage across the resistor is…',['zero','equal to the emf','half the emf','63% of the emf'],1,'\\(V_{C} = 0\\), so by the loop rule all the emf is across \\(R\\) and the current is at its maximum, \\(\\varepsilon /R\\).'],
  ['During discharge, the current through the resistor…',['flows in the same direction as when charging','is zero','flows in the opposite direction to the charging current','increases'],2,'Charge flows back off the plates, so the current reverses and decays.'],
+ ['Where is the energy stored in a charged capacitor?',['in the charge on the plates','in the electric field between the plates','in the metal of the plates','in the battery'],1,'The work done separating the charge is stored as energy in the electric field between the plates.'],
+ ['A capacitor is fully charged from a battery through a resistor. The fraction of the battery\'s energy that ends up stored is…',['all of it','half','63%','it depends on \\(R\\)'],1,'The battery supplies \\(QV\\) but only \\(\\tfrac{1}{2}QV\\) is stored; the other half becomes heat in the resistor, whatever \\(R\\) is.'],
  ['A 3.0 µF and a 6.0 µF capacitor are in series. The total capacitance is…',['9.0 µF','2.0 µF','4.5 µF','18 µF'],1,'1/\\(C\\) = 1/3 + 1/6 = 1/2, so \\(C\\) = 2.0 µF, less than either one.']],
 ac:[
  ['NZ mains is 230 V rms. The peak voltage is…',['163 V','230 V','325 V','21 V'],2,'\\(V_{\\text{max}} = \\sqrt{2} \\times 230 = 325 \\,\\mathrm{V}\\). (√(2 × 230) = 21 V is the common mistake.)'],
@@ -2028,6 +2134,8 @@ flux:[
  ['On a smooth \\(\\Phi\\)–\\(t\\) graph, the flux is at its maximum value. At that instant the emf is…',['at its maximum','zero','equal to \\(N \\times \\Phi _{\\text{max}}\\)','negative'],1,'At a peak the gradient is zero, so \\(\\Delta \\Phi /\\Delta t = 0\\) and \\(\\varepsilon = 0\\).'],
  ['A magnet falls through a coil. The second emf pulse is taller than the first because the magnet…',['is further from the coil','has its poles reversed','is moving faster, so the flux changes more quickly','has lost some magnetism'],2,'The magnet accelerates, so the same flux change happens in less time: larger \\(\\Delta \\Phi /\\Delta t\\).']],
 ind:[
+ ['Where is the energy stored in an inductor carrying a current?',['in the wire of the coil','in the magnetic field of the coil','in the moving charges','in the resistance'],1,'Work done against the back emf while the current rises builds up the magnetic field, which stores \\(\\tfrac{1}{2}Li^{2}\\).'],
+ ['A steady current flows through an inductor. The energy stored in it…',['keeps increasing','stays at \\(\\tfrac{1}{2}Li^{2}\\)','is zero, because there is no back emf','has all turned into heat'],1,'With a steady current the field is steady, so the stored energy stays at \\(\\tfrac{1}{2}Li^{2}\\). No back emf just means no <em>more</em> energy is going in.'],
  ['At the instant the switch is closed in an LR circuit, the current is…',['maximum','zero, and changing most rapidly','zero, and not changing','half its maximum'],1,'\\(i\\) = 0 at \\(t\\) = 0, but \\(\\Delta i/\\Delta t\\) is greatest, so the back emf equals the supply emf.'],
  ['\\(L\\) = 0.50 H and the total resistance is 10 Ω. The time constant is…',['5.0 s','0.050 s','20 s','2.5 s'],1,'\\(\\tau = L/R = 0.50/10 = 0.050 \\,\\mathrm{s}\\).'],
  ['After one time constant of switching on, the current is…',['37% of maximum','50% of maximum','63% of maximum','100% of maximum'],2,'Growth reaches 1 − e⁻¹ ≈ 63% of the maximum after one \\(\\tau\\).'],
@@ -2288,17 +2396,20 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
 /* ============ 2.2 LR CIRCUIT ============ */
 (()=>{
  const cv=$('lrCanvas');
- const st={pos:'none',t:0,I0:0,marks:true,dots:0};
+ const st={pos:'none',t:0,I0:0,marks:true,dots:0,abs:0,hist:[],ev:[],tS:0,started:false,seg:null,slow:1};
  const P=()=>({E:+$('lrE').value,L:+$('lrL').value,R:+$('lrR').value,r:+$('lrr').value});
  const tau=()=>{const p=P();return p.L/(p.R+p.r)};
  function I(t){const p=P(),T=tau(),Im=p.E/(p.R+p.r);if(st.pos==='A')return Im+(st.I0-Im)*Math.exp(-t/T);if(st.pos==='B')return st.I0*Math.exp(-t/T);return 0}
  function VL(t){const p=P();const i=I(t);if(st.pos==='A')return p.E-i*p.R;if(st.pos==='B')return -i*p.R;return 0}
- function sw(pos){st.I0=I(st.t);st.pos=pos;st.t=0}
- st.step=dt=>{const T=tau();if(st.pos!=='none'&&st.t<6*T)st.t=Math.min(6*T,st.t+dt*(6*T)/3);st.dots+=dt*I(st.t)/(P().E/(P().R+P().r)||1)*60};
+ function sw(pos){st.I0=I(st.t);st.pos=pos;st.t=0;st.tS=st.abs;st.started=true;st.ev.push([st.abs,pos]);if(pos!=='none')st.seg={tS:st.abs,pos,I0:st.I0,Im:P().E/(P().R+P().r),T:tau()}}
+ st.step=dt=>{const T=tau(),p=P();const lim=st.pos==='none'?T:6*T;
+  if(st.started&&st.t<lim){const d=Math.min(lim-st.t,dt*(6*T)/3*st.slow);st.t+=d;st.abs+=d;const i=I(st.t);st.hist.push([st.abs,i,i*p.R,VL(st.t)]);while(st.hist.length&&st.hist[0][0]<st.abs-7*T)st.hist.shift();while(st.ev.length&&st.ev[0][0]<st.abs-7*T)st.ev.shift()}
+  st.dots+=dt*I(st.t)/(p.E/(p.R+p.r)||1)*60*st.slow};
+ st.live=()=>{const p=P();return{i:I(st.t),E:p.E,R:p.R,r:p.r,L:p.L,pos:st.pos,started:st.started}};
  st.draw=function(){const {c,W,H}=fit(cv,400,560);clear(c,W,H);const p=P(),T=tau(),Im=p.E/(p.R+p.r),i=I(st.t),vl=VL(st.t),vr=i*p.R;
   const narrow=W<600;const cw=narrow?W:Math.min(330,W*0.38),chh=narrow?200:H;
   // circuit
-  const L0=24,R0=cw-24,T0=narrow?54:70,B0=narrow?175:H-70;
+  const L0=24,R0=cw-34,T0=narrow?54:70,B0=narrow?175:H-70;
   const wcol='#8fa3c4';c.lineCap='round';
   // battery left vertical
   const bx=L0+10,by=(T0+B0)/2;
@@ -2332,30 +2443,44 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
     [[[R0,B0],[ax,B0]],[0,0],on],
     [[[ax,B0],[bx,B0]],[0,0],A]];
    segs.forEach(([pts,vals,mv])=>window.EMS.energyDots(c,pts,vals,mv?ph:0,22,lo,hi))}
-  text(c,(st.pos==='A'?'A: battery connected':st.pos==='B'?'B: battery removed, loop closed':'C: switch open')+'  ·  click A, B or C on the switch',(L0+R0)/2,narrow?chh+2:B0+34,MUT,11,'center');
+  text(c,(st.pos==='A'?'A: battery on':st.pos==='B'?'B: battery removed':'C: switch open')+'  ·  click A, B or C',(L0+R0)/2,narrow?chh+2:B0+34,MUT,11,'center');
   // graphs
   const gx=narrow?54:cw+50,gw=W-gx-14,gy=narrow?chh+20:22,gh=(H-gy-46)/2;
   const tMax=6*T;const Imx=nice(Im*1.05),Vmx=nice(p.E*1.02);
   const fi=v=>eng(v,'A',2),fv=v=>eng(v,'V',2);
-  const g1=frame(c,gx,gy,gw,gh,0,tMax,0,Imx,'current I',null,fi);
-  const g2=frame(c,gx,gy+gh+26,gw,gh,0,tMax,-Vmx,Vmx,'voltage','time',fv);
-  for(let k=1;k<=6;k++){line(c,g1.X(k*T),gy,g1.X(k*T),gy+gh,GRID,1);line(c,g2.X(k*T),gy+gh+26,g2.X(k*T),gy+2*gh+26,GRID,1);text(c,k+'τ',g2.X(k*T),gy+2*gh+40,MUT,10,'center')}
-  if(st.pos!=='none'){const pi=[],pr=[],pl=[];for(let t=0;t<=st.t+1e-9;t+=tMax/300){pi.push([t,I(t)]);pr.push([t,I(t)*p.R]);pl.push([t,VL(t)])}
-   path(c,pi,g1.X,g1.Y,CYN,2.6);path(c,pr,g2.X,g2.Y,ORG,2.4);path(c,pl,g2.X,g2.Y,PNK,2.4);
-   if(st.marks){const target=st.pos==='A'?Im+(st.I0-Im)*Math.exp(-1):st.I0*Math.exp(-1);const lab=st.pos==='A'?'63%':'37%';
-    line(c,g1.X(0),g1.Y(target),g1.X(T),g1.Y(target),'#ffd76a',1.2,[5,4]);line(c,g1.X(T),g1.Y(target),g1.X(T),gy+gh,'#ffd76a',1.2,[5,4]);text(c,lab,g1.X(T)+4,g1.Y(target)-4,'#ffd76a',11);
-    if(st.pos==='A')line(c,g1.X(0),g1.Y(Im),gx+gw,g1.Y(Im),'rgba(120,217,247,.6)',1,[3,4])}}
-  else text(c,'Press "Switch to A" to connect the battery',gx+gw/2,gy+gh/2,MUT,13,'center','middle');
+  // voltage on top, current underneath (the same order as the RC lab)
+  const g2=frame(c,gx,gy,gw,gh,0,tMax,-Vmx,Vmx,'voltage',null,fv);
+  const g1=frame(c,gx,gy+gh+26,gw,gh,0,tMax,0,Imx,'current i','time',fi);
+  {const t0=Math.max(0,st.abs-tMax);for(let k=1;k<=6;k++){const tk=st.tS+k*T;if(st.started&&tk>=t0&&tk<=t0+tMax){const xx=g1.X(tk-t0);line(c,xx,gy,xx,gy+gh,GRID,1);line(c,xx,gy+gh+26,xx,gy+2*gh+26,GRID,1);text(c,k+'τ',xx,gy+2*gh+40,MUT,10,'center')}}}
+  if(st.started){const t0=Math.max(0,st.abs-tMax);const X1=t=>g1.X(t-t0),X2=t=>g2.X(t-t0);const vis=st.hist.filter(h=>h[0]>=t0);
+   st.ev.forEach(([te,ps])=>{if(te<t0)return;const xx=X1(te);line(c,xx,gy,xx,gy+2*gh+26,'rgba(255,255,255,.22)',1,[2,4]);text(c,ps==='none'?'open':ps,xx+4,gy+gh+20,MUT,10)});
+   c.save();c.beginPath();c.rect(gx,gy,gw,2*gh+26);c.clip();
+   path(c,vis.map(h=>[h[0],h[1]]),X1,g1.Y,CYN,2.6);path(c,vis.map(h=>[h[0],h[2]]),X2,g2.Y,ORG,2.4);path(c,vis.map(h=>[h[0],h[3]]),X2,g2.Y,PNK,2.4);c.restore();
+   // τ markers for the latest switch-on or switch-off: they stay after the curve settles or the switch opens
+   const sg=st.seg;if(st.marks&&sg&&sg.tS+sg.T>=t0-1e-9*sg.T){const on=sg.pos==='A';const tgt=on?sg.Im+(sg.I0-sg.Im)*Math.exp(-1):sg.I0*Math.exp(-1);const xs=X1(Math.max(sg.tS,t0)),xt=X1(sg.tS+sg.T);
+    if(st.abs>=sg.tS+sg.T-1e-9*sg.T){line(c,xs,g1.Y(tgt),xt,g1.Y(tgt),'#ffd76a',1.2,[5,4]);line(c,xt,g1.Y(tgt),xt,gy+2*gh+26,'#ffd76a',1.2,[5,4]);text(c,on?'63%':'37%',xt+4,g1.Y(tgt)-4,'#ffd76a',11)}
+    if(on&&st.pos==='A')line(c,xs,g1.Y(Im),gx+gw,g1.Y(Im),'rgba(120,217,247,.6)',1,[3,4])}}
+  else text(c,'Click A on the switch to connect the battery',gx+gw/2,gy+gh/2,MUT,13,'center','middle');
   const back=st.pos==='A'?p.E-i*(p.R+p.r):st.pos==='B'?-i*(p.R+p.r):0;
-  window.EM.set($('lrReadout'),'\\(\\tau = L/(R + r)\\) = <strong>'+eng(T,'s',3)+'</strong> · \\(i_{\\text{max}} = \\varepsilon /(R + r)\\) = <strong>'+eng(Im,'A',3)+'</strong><br/>\\(t\\) = '+eng(st.t,'s',3)+' ('+(st.t/T).toFixed(2)+'\\(\\tau\\))<br/>Current \\(i\\) = <strong>'+eng(i,'A',3)+'</strong><br/>\\(V_{R}\\) = '+eng(vr,'V',3)+' · \\(V_{L}\\) (terminals) = '+eng(vl,'V',3)+'<br/>Back emf = '+eng(back,'V',3)+' → \\(\\Delta i/\\Delta t\\) = '+eng(back/p.L,'A s⁻¹',3)+'<br/>Energy stored \\(\\tfrac{1}{2}Li^{2}\\) = <strong>'+eng(0.5*p.L*i*i,'J',3)+'</strong>');
-  let note;if(st.pos==='none')note='The circuit is open: no current, no flux, nothing stored.';
-  else if(st.pos==='A')note=st.t<0.05*T?'Just switched on: \\(i\\) ≈ 0 but changing fastest, so the back emf \\(\\approx \\varepsilon\\) and \\(V_{R} \\approx 0\\).':st.t>4.9*T?'Steady: no change in current, so no back emf. \\(V_{L} = ir\\) = '+eng(i*p.r,'V',3)+'.':'Current rising; back emf falling as \\(\\Delta i/\\Delta t\\) gets smaller.';
+  [['lrA','A'],['lrB','B'],['lrOpen','none']].forEach(([id,ps])=>{const b=$(id);const on=String(st.pos===ps&&(ps!=='none'||st.started));if(b.getAttribute('aria-pressed')!==on)b.setAttribute('aria-pressed',on)});
+  {const t=(lab,val,sub)=>'<div><span>'+lab+'</span><b>'+val+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div>';
+   window.EM.set($('lrReadout'),t('Time constant','\\(\\tau = L/(R + r)\\) = '+eng(T,'s',3),'\\(i_{\\text{max}} = \\varepsilon /(R + r)\\) = '+eng(Im,'A',3))+
+    t('Time since switching','\\(t\\) = '+eng(st.t,'s',3),(st.t/T).toFixed(2)+'\\(\\tau\\)')+
+    t('Current','\\(i\\) = '+eng(i,'A',3),'\\(V_{R} = iR\\) = '+eng(vr,'V',3))+
+    t('Inductor','\\(V_{L}\\) = '+eng(vl,'V',3),'back emf = '+eng(back,'V',3))+
+    t('Energy stored','\\(\\tfrac{1}{2}Li^{2}\\) = '+eng(0.5*p.L*i*i,'J',3),'\\(\\Delta i/\\Delta t\\) = '+eng(back/p.L,'A s⁻¹',3)))}
+  {const tn=st.pos==='none'?-1:Math.round(st.t/T);let rows='';for(let k=0;k<=5;k++){const e=Math.exp(-k);const pc=v=>(Math.round(v*1000)/10)+'%';
+    rows+='<tr'+(k===tn&&st.pos!=='none'?' class="now"':'')+'><td><b>'+(k?k+'τ':'0')+'</b> <small>'+eng(k*T,'s',2)+'</small></td><td><small>'+e.toFixed(3)+' ('+pc(e)+')</small></td><td class="g-chg">'+eng(Im*(1-e),'A',3)+'</td><td class="g-chg">'+eng(p.E*e,'V',3)+'</td><td class="g-dis">'+eng(Im*e,'A',3)+'</td><td class="g-dis">'+eng(p.E*e,'V',3)+'</td></tr>'}
+   const tb=$('lrTab');if(tb&&tb._h!==rows){tb.innerHTML=rows;tb._h=rows}}
+  let note;if(st.pos==='none')note=st.started?'Switch open: no complete circuit, so no current and no flux.':'The circuit is open: no current, no flux, nothing stored.';
+  else if(st.pos==='A')note=st.t<0.05*T?'Just switched on: \\(i\\) ≈ 0 but changing fastest, so the back emf \\(\\approx \\varepsilon\\) and \\(V_{R} \\approx 0\\).':st.t>4.9*T?'Steady: no change in current, so no back emf. \\(V_{L} = ir\\) = '+eng(i*p.r,'V',3)+'.':'Current rising: \\(\\varepsilon = i(R + r) + L\\Delta i/\\Delta t\\). As \\(i\\) grows, the back emf falls.';
   else note=st.t>4.9*T?'Current has decayed; the stored energy has become heat in R and r.':'Battery removed. The collapsing flux induces an emf that keeps the current flowing the <em>same way</em>, so \\(V_{L}\\) has reversed sign.';
   window.EM.set($('lrNote'),note);
  };
  const upd=()=>{const p=P();$('lrEOut').textContent=p.E+' V';$('lrLOut').textContent=p.L.toFixed(1)+' H';$('lrROut').textContent=p.R+' Ω';$('lrrOut').textContent=p.r+' Ω'};
- ['lrE','lrL','lrR','lrr'].forEach(id=>$(id).addEventListener('input',()=>{upd();if(st.pos==='A'){st.I0=0;st.t=0}else if(st.pos==='B'){st.I0=P().E/(P().R+P().r);st.t=0}}));upd();
- $('lrA').onclick=()=>sw('A');$('lrB').onclick=()=>{if(st.pos==='none')return;sw('B')};$('lrReset').onclick=()=>{st.pos='none';st.t=0;st.I0=0};
+ // changing a slider keeps the current that is already flowing and carries on from there
+ ['lrE','lrL','lrR','lrr'].forEach(id=>$(id).addEventListener('input',()=>{upd();if(st.started){st.I0=I(st.t);st.t=0;st.tS=st.abs;if(st.pos!=='none')st.seg={tS:st.abs,pos:st.pos,I0:st.I0,Im:P().E/(P().R+P().r),T:tau()}}}));upd();
+ $('lrA').onclick=()=>sw('A');$('lrB').onclick=()=>{if(st.pos==='none')return;sw('B')};$('lrReset').onclick=()=>{st.pos='none';st.t=0;st.I0=0;st.abs=0;st.hist=[];st.ev=[];st.tS=0;st.started=false;st.seg=null};
  $('lrOpen').onclick=()=>{if(st.pos!=='none')sw('none')};
  $('lrMarks').addEventListener('change',()=>{st.marks=$('lrMarks').checked});
  // click the switch: A, B, or the pivot/arm to open it
@@ -2365,6 +2490,49 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
  cv.addEventListener('pointermove',e=>{cv.style.cursor=swHit(e)?'pointer':''});
 
  sims['ind:lr']=st;
+})();
+/* ============ 4.2 ZOOM: WHY THE CURRENT RISES SLOWLY ============ */
+(()=>{
+ const cv=$('lrZoomCanvas');if(!cv)return;const arrowHead=(c,x,y,ang,col,sz)=>{c.fillStyle=col;c.save();c.translate(x,y);c.rotate(ang);c.beginPath();c.moveTo(sz,0);c.lineTo(-sz*0.6,-sz*0.6);c.lineTo(-sz*0.6,sz*0.6);c.closePath();c.fill();c.restore()};const lr=sims['ind:lr'];let lastState='';
+ function draw(){const {c,W,H}=fit(cv,300,380);clear(c,W,H);const L=lr.live();const Im=L.E/(L.R+L.r);const i=L.i;const f=Math.max(0,Math.min(1,Math.abs(i)/Im));
+  const A=L.pos==='A',Bp=L.pos==='B';const back=A?L.E-i*(L.R+L.r):Bp?i*(L.R+L.r):0; // size of the coil's induced emf
+  const narrow=W<600;const cw=narrow?W:W*0.5;const cx=cw/2,cy=narrow?136:H/2,len=Math.min(cw*0.7,320),rad=46;
+  // coil: back halves, field lines, front halves
+  const nT=8;const x0=cx-len/2;
+  for(let k=0;k<nT;k++){const x=x0+len*(k+0.5)/nT;c.strokeStyle='rgba(120,217,247,.35)';c.lineWidth=2;c.beginPath();c.ellipse(x,cy,10,rad,0,-Math.PI/2,Math.PI/2,true);c.stroke()}
+  const nl=Math.round(f*6);for(let k=0;k<nl;k++){const y=cy-rad*0.75+(k+0.5)*(rad*1.5)/nl;line(c,x0-30,y,x0+len+30,y,'rgba(143,214,148,.75)',1.6);arrowHead(c,x0+len+30,y,0,'rgba(143,214,148,.9)',6)}
+  for(let k=0;k<nT;k++){const x=x0+len*(k+0.5)/nT;c.strokeStyle=CYN;c.lineWidth=2.6;c.beginPath();c.ellipse(x,cy,10,rad,0,-Math.PI/2,Math.PI/2);c.stroke()}
+  text(c,'​field inside the coil (flux ∝ current)',cx,cy+rad+18,'#8fd694',11,'center');
+  // current and induced-emf arrows along the top of the coil
+  const ya=cy-rad-26,K=len*0.42;
+  if(f>0.01){line(c,cx-K*f/2,ya,cx+K*f/2,ya,CYN,3);arrowHead(c,cx+K*f/2,ya,0,CYN,8);text(c,'​current i',narrow?cx+K/2+8:cx-K/2-8,ya+4,CYN,11,narrow?'left':'right')}
+  const eb=back/L.E;if(Math.abs(eb)>0.02&&(A||Bp)){const yb=ya-22,dir=A?-1:1;line(c,cx-dir*K*Math.abs(eb)/2,yb,cx+dir*K*Math.abs(eb)/2,yb,PNK,3);arrowHead(c,cx+dir*K*Math.abs(eb)/2,yb,dir>0?0:Math.PI,PNK,8);
+   text(c,'​'+(A?'back emf (opposes the rise)':'induced emf (keeps it going)'),narrow?cx:cx-K/2-8,narrow?yb-10:yb+4,PNK,11,narrow?'center':'right')}
+  text(c,'​'+(A?(f<0.99?'flux growing':'flux steady'):Bp?(f>0.01?'flux collapsing':'flux gone'):'no current, no flux'),cx,narrow?14:cy-rad-62,INK,12,'center');
+  // emf budget bar
+  const bx=narrow?28:cw+40,bw=(narrow?W:W-cw)-(narrow?56:80),by=narrow?cy+rad+70:cy-30,bh=34;
+  text(c,'​'+(A?'how the supply emf ε is shared':Bp?'with the battery removed, the coil is the source':'how the supply emf ε is shared'),bx,by-14,INK,12,'left');
+  c.strokeStyle='#5d6b88';c.lineWidth=1.2;c.strokeRect(bx,by,bw,bh);
+  if(A){const wR=bw*Math.max(0,Math.min(1,i*(L.R+L.r)/L.E)),wB=bw-wR;c.fillStyle='rgba(240,166,106,.85)';c.fillRect(bx,by,wR,bh);c.fillStyle='rgba(217,154,198,.85)';c.fillRect(bx+wR,by,wB,bh);
+   text(c,'​i(R + r) = '+(i*(L.R+L.r)).toFixed(2)+' V',bx,by+bh+16,ORG,11,'left');text(c,'​back emf = '+back.toFixed(2)+' V',bx+bw,by+bh+16,PNK,11,'right');
+   text(c,'​drives the current through the resistance',bx,by+bh+32,MUT,10,'left');text(c,'​slows the change',bx+bw,by+bh+32,MUT,10,'right');
+   text(c,'​ε = '+L.E+' V',bx+bw,by-14,INK,12,'right')}
+  else if(Bp){const wB=bw*Math.max(0,Math.min(1,back/L.E));c.fillStyle='rgba(217,154,198,.85)';c.fillRect(bx,by,wB,bh);
+   text(c,'​induced emf = i(R + r) = '+back.toFixed(2)+' V',bx,by+bh+16,PNK,11,'left');text(c,'​it falls as the current dies away',bx,by+bh+32,MUT,10,'left')}
+  else text(c,'​switch open: no current',bx+bw/2,by+bh/2+4,MUT,12,'center');
+  [['lrZA','A'],['lrZB','B'],['lrZC','none']].forEach(([id,ps])=>{const b=$(id);const on=String(L.pos===ps&&(ps!=='none'||L.started));if(b.getAttribute('aria-pressed')!==on)b.setAttribute('aria-pressed',on)});
+  // explanation line: changes only when the state changes, so it can be read
+  const state=!L.started?'start':A?(f<0.99?'A-rise':'A-steady'):Bp?(f>0.01?'B-fall':'B-done'):'open';
+  if(state!==lastState){lastState=state;window.EM.set($('lrZoomNote'),{start:'Press <strong>A · on</strong> to connect the battery.',
+   'A-rise':'<strong>Switching on:</strong> the current is rising, so the flux is growing and the coil induces a back emf that opposes the rise. As \\(i\\) grows, more of \\(\\varepsilon\\) goes to \\(i(R + r)\\), so the back emf shrinks and the rise slows down.',
+   'A-steady':'<strong>Steady:</strong> the current has stopped changing, so the flux is constant and there is no back emf. All of \\(\\varepsilon\\) drives the current through \\(R + r\\): \\(i = \\varepsilon /(R + r)\\).',
+   'B-fall':'<strong>Switching off:</strong> the battery is gone, so the current starts to fall and the flux collapses. The induced emf opposes the fall, so it keeps the current flowing the same way while it dies away.',
+   'B-done':'<strong>Finished:</strong> the current and the flux have gone; the stored energy \\(\\tfrac{1}{2}Li^{2}\\) has become heat in \\(R\\) and \\(r\\).',
+   open:'<strong>Switch open:</strong> no complete circuit, so no current and no flux.'}[state])}
+ }
+ const s0=lr.step,d0=lr.draw;lr.step=dt=>s0(dt);lr.draw=()=>{d0();draw()};
+ [['lrZA','lrA'],['lrZB','lrB'],['lrZC','lrOpen'],['lrZR','lrReset']].forEach(([a,b])=>{$(a).onclick=()=>$(b).click()});
+ $('lrZSlow').addEventListener('change',()=>{lr.slow=$('lrZSlow').checked?0.25:1});
 })();
 
 /* ============ 2.3 SWITCHING OFF ============ */
@@ -2855,7 +3023,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   text(c,'C = '+eng(k.C,'F',3)+(p.f>0?'   (air only: '+eng(k.C0,'F',3)+')':''),gx+gw/2,gy-9,ROSE,12,'center');
   dot(c,g.X(k.Q),g.Y(k.V),5,YEL);
   text(c,'area = ½QV',g.X(k.Q*0.66),g.Y(k.V*0.28),INK,11,'center');text(c,'= '+eng(k.U,'J',3),g.X(k.Q*0.66),g.Y(k.V*0.28)+14,INK,11,'center');
-  window.EM.set($('plReadout'),'\\(C = \\dfrac{\\varepsilon _{0}A}{d}\\big[(1-x) + x\\,\\varepsilon _{r}\\big]\\) = <strong>'+eng(k.C,'F',3)+'</strong>, with \\(x\\) = fraction filled = '+p.f.toFixed(2)+', \\(\\varepsilon _{r}\\) = relative permittivity = '+p.er+'<br/>\\(Q\\) = '+eng(k.Q,'C',3)+' · \\(V\\) = '+eng(k.V,'V',3)+'<br/>Field between plates \\(E = V/d\\) = '+eng(k.E,'V m⁻¹',3)+'<br/>Energy stored \\(\\tfrac{1}{2}QV\\) = <strong>'+eng(k.U,'J',3)+'</strong>');
+  window.EM.set($('plReadout'),'\\(C = \\dfrac{\\varepsilon _{0}\\varepsilon _{r}A}{d}\\) = <strong>'+eng(k.C,'F',3)+'</strong><br/>'+(p.f===0?'\\(\\varepsilon _{r}\\) = 1 (air)':p.f===1?'\\(\\varepsilon _{r}\\) = '+p.er+' (gap filled with the dielectric)':'gap '+Math.round(p.f*100)+'% filled: it acts like \\(\\varepsilon _{r}\\) ≈ '+((1-p.f)+p.f*p.er).toFixed(2))+'<br/>\\(Q\\) = '+eng(k.Q,'C',3)+' · \\(V\\) = '+eng(k.V,'V',3)+'<br/>Field between plates \\(E = V/d\\) = '+eng(k.E,'V m⁻¹',3)+'<br/>Energy stored \\(\\tfrac{1}{2}QV\\) = <strong>'+eng(k.U,'J',3)+'</strong>');
   window.EM.set($('plNote'),conn?'<strong>Connected:</strong> the battery holds \\(V\\) at '+p.Vb+' V. Changing \\(C\\) changes \\(Q = CV\\): the dot slides sideways along the graph as charge flows to or from the battery.':'<strong>Disconnected:</strong> \\(Q\\) is trapped at '+eng(k.Q,'C',3)+'. Changing \\(C\\) changes \\(V = Q/C\\): the dot moves straight up or down the graph, and the stored energy \\(Q^{2}/2C\\) changes.');
  };
  st.enter=()=>st.draw();
@@ -2871,6 +3039,61 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
  cv.addEventListener('pointerup',()=>{st.drag=false;cv.style.touchAction='pan-y'});
  cv.style.touchAction='pan-y';
  sims['cap:plates']={draw:st.draw,enter:st.enter};
+})();
+
+/* ============ 4.2 COIL BUILDER ============ */
+(()=>{
+ const cv=$('indCoilCanvas');if(!cv)return;const mu0=4*Math.PI*1e-7;const st={nAx:0,geo:null,drag:false};
+ const P=()=>({mr:+$('icCore').value,f:+$('icIns').value/100,N:+$('icN').value,A:+$('icA').value*1e-4,l:+$('icL').value*1e-2,i:+$('icI').value});
+ const Lof=p=>mu0*p.N*p.N*p.A/p.l*((1-p.f)+p.f*p.mr); // long-coil approximation, core filling a fraction f
+ // fixed axis: 4 × the default air-core coil at 2 A, so every change shows as a steeper or flatter line
+ const NAX=4*mu0*200*200*5e-4/0.2*2;
+ function draw(){const {c,W,H}=fit(cv,360,640);clear(c,W,H);const p=P(),L=Lof(p),L0=mu0*p.N*p.N*p.A/p.l,mue=(1-p.f)+p.f*p.mr;
+  const narrow=W<640;const sw=narrow?W:W*0.5,sh=narrow?300:H;
+  const cy=sh/2-6,len=70+(p.l-0.1)/0.3*(sw-(narrow?150:190)),rad=20+(Math.sqrt(p.A*1e4)-1)/(Math.sqrt(10)-1)*(narrow?44:62),cx=sw/2-10,x0=cx-len/2,x1=cx+len/2;
+  st.geo={x0,x1,len,cy,rad};
+  // core: slides in from the right
+  const coreCol=p.mr>20?'#7c6aa8':'#8b8f99';const inX=x0+len*(1-p.f);
+  c.fillStyle=coreCol;c.globalAlpha=0.25;c.fillRect(inX,cy-rad*0.7,x1-inX+(1-p.f)*len,rad*1.4);c.globalAlpha=1;
+  if(p.f>0){c.fillStyle=coreCol;c.globalAlpha=0.65;c.fillRect(inX,cy-rad*0.7,x1-inX,rad*1.4);c.globalAlpha=1}
+  c.strokeStyle=coreCol;c.setLineDash([4,3]);c.strokeRect(inX,cy-rad*0.7,len,rad*1.4);c.setLineDash([]);
+  const gx0=inX+len-14;for(let k=-1;k<=1;k++)line(c,gx0+k*4,cy-8,gx0+k*4,cy+8,'rgba(255,255,255,.6)',1.5);
+  text(c,'​'+(p.mr>20?'ferrite':'iron')+' core · '+Math.round(p.f*100)+'% in',cx,cy+rad+56,MUT,10,'center');
+  if(p.f===0)text(c,'​drag the core into the coil ←',narrow?cx:Math.min(inX+len/2,W-80),narrow?cy-rad-30:cy-rad*0.7-8,MUT,10,'center');
+  // field lines (drawn on a log scale so air and iron both show)
+  const Bv=mu0*mue*p.N*p.i/p.l;const nl=p.i>0.01?clamp(Math.round(Bv/(mu0*200*2/0.2)*4),1,16):0;
+  for(let k=0;k<nl;k++){const y=cy-rad*0.85+(k+0.5)*(rad*1.7)/nl;line(c,x0-26,y,x1+26,y,'rgba(143,214,148,.8)',1.5);arrowHead(c,x1+26,y,0,'rgba(143,214,148,.9)',5)}
+  // turns
+  const nd=clamp(Math.round(p.N/12),4,34);for(let k=0;k<nd;k++){const x=x0+len*(k+0.5)/nd;c.strokeStyle='#e08a4f';c.lineWidth=nd>24?1.4:2.2;c.beginPath();c.ellipse(x,cy,4,rad,0,0,7);c.stroke()}
+  text(c,'​N = '+p.N+' turns',cx,cy-rad-14,'#e08a4f',11,'center');
+  line(c,x0,cy+rad+22,x1,cy+rad+22,MUT,1);line(c,x0,cy+rad+17,x0,cy+rad+27,MUT,1);line(c,x1,cy+rad+17,x1,cy+rad+27,MUT,1);text(c,'l = '+Math.round(p.l*100)+' cm',cx,cy+rad+38,MUT,11,'center');
+  // graph: flux linkage against current, gradient L
+  const gx=narrow?62:sw+56,gy=narrow?sh+44:58,gw=W-gx-18,gh=narrow?H-sh-80:H-98;st.nAx=NAX;
+  text(c,'NΦ = L i   (gradient = L)',gx+gw/2,gy-28,INK,14,'center');text(c,'L = '+eng(L,'H',3)+(p.f>0?'   (air core: '+eng(L0,'H',3)+')':''),gx+gw/2,gy-9,CYN,12,'center');
+  const g=frame(c,gx,gy,gw,gh,0,2,0,st.nAx,'NΦ',null,v=>eng(v,'Wb',2));
+  text(c,'0',gx,gy+gh+13,MUT,10,'center');text(c,'2 A',gx+gw,gy+gh+13,MUT,10,'right');text(c,'​current ',gx+gw/2-4,gy+gh+13,MUT,10,'right');text(c,'i',gx+gw/2-4,gy+gh+13,MUT,10,'left');
+  const end=Lx=>{const ii=Math.min(2,st.nAx/Lx);return[ii,ii*Lx]};
+  c.save();c.beginPath();c.rect(gx,gy,gw,gh);c.clip();
+  if(p.f>0){const [ia,na]=end(L0);line(c,g.X(0),g.Y(0),g.X(ia),g.Y(na),MUT,1.5,[5,4]);text(c,'​air core',g.X(ia)-6,g.Y(na)-8,MUT,10,'right')}
+  const [ie,ne]=end(L);line(c,g.X(0),g.Y(0),g.X(ie),g.Y(ne),CYN,2.6);c.restore();
+  if(L*2>NAX)text(c,'​off the top: steeper than this scale shows',gx+gw-6,gy+16,CYN,11,'right');
+  if(L*p.i<=st.nAx)dot(c,g.X(p.i),g.Y(L*p.i),5,YEL);
+  const tile=(lab,val,sub)=>'<div><span>'+lab+'</span><b>'+val+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div>';
+  window.EM.set($('icReadout'),tile('Inductance','\\(L\\) = '+eng(L,'H',3),p.f>0?'×'+(L/L0).toFixed(0)+' the air-core value':'air core')+
+   tile('Flux linkage','\\(N\\Phi = Li\\) = '+eng(L*p.i,'Wb',3),'at \\(i\\) = '+p.i.toFixed(1)+' A')+
+   tile('Field inside','\\(B\\) = '+eng(Bv,'T',3),'\\(\\mu _{r}\\) (effective) = '+mue.toFixed(mue<10?2:0))+
+   tile('Energy stored','\\(\\tfrac{1}{2}Li^{2}\\) = '+eng(0.5*L*p.i*p.i,'J',3),'')+
+   tile('Back emf','\\(L\\Delta i/\\Delta t\\) = '+eng(L*10,'V',3),'if \\(i\\) changes at 10 A s⁻¹'));
+ }
+ const upd=()=>{const p=P();$('icInsOut').textContent=Math.round(p.f*100)+' %';$('icNOut').textContent=p.N;$('icAOut').textContent=(p.A*1e4).toFixed(1)+' cm²';$('icLOut').textContent=Math.round(p.l*100)+' cm';$('icIOut').textContent=p.i.toFixed(1)+' A';draw()};
+ bindOut(['icIns','icN','icA','icL','icI'],upd);$('icCore').addEventListener('change',upd);
+ const loc=e=>{const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}};
+ const onCore=q=>{const g=st.geo;return g&&q.y>g.cy-g.rad-10&&q.y<g.cy+g.rad+10&&q.x>g.x0-10&&q.x<g.x1+g.len+10};
+ const setF=q=>{const g=st.geo;const f=clamp((g.x1-q.x+st.grab)/g.len,0,1);$('icIns').value=Math.round(f*20)*5;upd()};
+ cv.addEventListener('pointerdown',e=>{const q=loc(e);if(!onCore(q))return;const g=st.geo,p=P();st.grab=q.x-(g.x0+g.len*(1-p.f));st.drag=true;cv.setPointerCapture(e.pointerId);cv.style.touchAction='none'});
+ cv.addEventListener('pointermove',e=>{const q=loc(e);if(st.drag){const g=st.geo;const f=clamp(1-(q.x-st.grab-g.x0)/g.len,0,1);$('icIns').value=Math.round(f*20)*5;upd()}else cv.style.cursor=onCore(q)?'ew-resize':''});
+ cv.addEventListener('pointerup',()=>{st.drag=false;cv.style.touchAction='pan-y'});cv.style.touchAction='pan-y';
+ sims['ind:coil']={draw,enter:draw};
 })();
 
 /* ============ 2.3 RC CIRCUIT ============ */
