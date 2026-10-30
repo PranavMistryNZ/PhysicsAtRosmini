@@ -205,14 +205,20 @@ body.light-mode .methtab td b.loopL{color:#2d7a37}body.light-mode .methtab td b.
 @media(max-width:700px){.methtab thead{display:none}.methtab,.methtab tbody,.methtab tr,.methtab td{display:block;width:100%!important}.methtab td.meq{border-left:0}.methtab .meq.muted{display:none}}
 .zoom-answer{margin-top:14px;padding:12px 16px;background:#0c1222;border:1px solid #3a4560;border-radius:8px;font-size:14px;line-height:1.55}.zoom-answer ol{margin:6px 0 8px;padding-left:22px}.zoom-answer li{margin:4px 0}
 body.light-mode .zoom-answer{background:#f3f6fa;border-color:#c6d0db}
-.exptab{width:100%;border-collapse:separate;border-spacing:0;border:1px solid #39445d;border-radius:10px;overflow:hidden;font-size:14px}
-.exptab th{font-size:13px;font-weight:600;color:var(--muted);background:#0c1222;padding:9px 10px;border-bottom:1px solid #39445d;text-align:center}
-.exptab th:first-child,.exptab td:first-child{text-align:left}
-.exptab td{text-align:center;font-variant-numeric:tabular-nums;padding:7px 10px;border-bottom:1px solid #2b3350;background:#11182b;line-height:1.35}.exptab tr:last-child td{border-bottom:0}
-.exptab td:first-child{font-weight:700}.exptab td small{color:var(--muted);font-weight:400}
-.exptab tr.now td{background:#2a2440}.exptab tr.now td:first-child{box-shadow:inset 3px 0 0 var(--topic)}
-body.light-mode .exptab{border-color:#c6d0db}body.light-mode .exptab th{background:#eef3f8;border-color:#c6d0db}body.light-mode .exptab td{background:#fff;border-color:#dde3ea}body.light-mode .exptab tr.now td{background:#fde7ee}
-@media(max-width:700px){.exptab{font-size:12px}.exptab th{font-size:10.5px;padding:6px 3px}.exptab td{padding:6px 3px}.exptab th .katex{font-size:1em}}
+.exptab-wrap{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}
+.exptab{width:100%;min-width:560px;border-collapse:separate;border-spacing:0;border:1px solid #39445d;border-radius:10px;overflow:hidden;font-size:15px}
+.exptab th{font-weight:600;color:var(--ink);background:#0c1222;padding:8px 12px;border-bottom:1px solid #39445d;text-align:center;font-size:13px}
+.exptab thead tr:first-child th.g-chg,.exptab thead tr:first-child th.g-dis{font-size:12px;letter-spacing:.08em;text-transform:uppercase}.exptab th{white-space:nowrap}
+@media(max-width:700px){.exptab{font-size:13px;min-width:600px}.exptab td,.exptab th{padding:7px 8px}}
+.exptab thead tr:first-child th.g-chg{color:#ff9eb5}.exptab thead tr:first-child th.g-dis{color:#87bbec}
+.exptab td{text-align:center;font-variant-numeric:tabular-nums;padding:9px 12px;border-bottom:1px solid #2b3350;background:#11182b;white-space:nowrap}
+.exptab tr:last-child td{border-bottom:0}
+.exptab td:first-child{text-align:left}.exptab td small{color:var(--muted);font-size:12px}
+.exptab td.g-chg{background:#171a2e}.exptab td.g-dis{background:#121b30}
+.exptab th.g-chg+th.g-dis,.exptab td.g-chg+td.g-dis{border-left:2px solid #39445d}
+.exptab tr.now td{background:#2a2440!important}.exptab tr.now td:first-child{box-shadow:inset 3px 0 0 var(--topic)}
+body.light-mode .exptab{border-color:#c6d0db}body.light-mode .exptab th{background:#eef3f8;border-color:#c6d0db}body.light-mode .exptab td{background:#fff;border-color:#dde3ea}body.light-mode .exptab td.g-chg{background:#fdf6f8}body.light-mode .exptab td.g-dis{background:#f5f9fd}body.light-mode .exptab tr.now td{background:#fde7ee!important}
+body.light-mode .exptab thead tr:first-child th.g-chg{color:#b0325a}body.light-mode .exptab thead tr:first-child th.g-dis{color:#2d5f99}
 .nx-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
 .nx-steps>div{background:#11182b;border:1px solid #39445d;border-radius:10px;padding:12px;min-width:0}
 .nx-steps>div>span{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--topic);color:#111;font-weight:800;margin-bottom:6px}
@@ -858,8 +864,11 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <li>Double \(R\) or double \(C\): \(\tau\) doubles. Only \(R\) changes the starting current.</li>
 </ul>
 <h3>The numbers: charging and discharging equations</h3>
-<p class="sub">These values use the emf, \(R\) and \(C\) set in the lab above, and the row nearest the current time lights up. \(V_{\text{max}} = \varepsilon\) (the capacitor charges until \(V_{C} = \varepsilon\)), \(i_{\text{max}} = \varepsilon /R\), and \(V_{0}\) is the voltage when discharging starts (here \(\varepsilon\)).</p>
-<div class="methtab-wrap"><table class="exptab"><thead><tr><th>Time</th><th>Charging \(V_{C} = V_{\text{max}}\left(1 - e^{-t/\tau }\right)\)</th><th>Charging \(i = i_{\text{max}}e^{-t/\tau }\)</th><th>Discharging \(V_{C} = V_{0}e^{-t/\tau }\)</th></tr></thead><tbody id="rcTab"></tbody></table></div>
+<p class="sub">These values use the emf, \(R\) and \(C\) set in the lab above, and the row nearest the current time lights up. \(V_{\text{max}} = \varepsilon\) (the capacitor charges until \(V_{C} = \varepsilon\)), \(i_{\text{max}} = \varepsilon /R\), and \(V_{0}\) is the voltage when discharging starts (here \(\varepsilon\)). Every value is just \(e^{-t/\tau }\) (or \(1 - e^{-t/\tau }\)) times the starting value. The discharge current is negative because it flows the opposite way to the charging current.</p>
+<div class="exptab-wrap"><table class="exptab"><thead>
+<tr><th rowspan="2">Time \(t\)</th><th rowspan="2">\(e^{-t/\tau }\)</th><th class="g-chg" colspan="2">Charging</th><th class="g-dis" colspan="2">Discharging</th></tr>
+<tr><th class="g-chg">\(V_{C} = V_{\text{max}}\left(1 - e^{-t/\tau }\right)\)</th><th class="g-chg">\(i = i_{\text{max}}e^{-t/\tau }\)</th><th class="g-dis">\(V_{C} = V_{0}e^{-t/\tau }\)</th><th class="g-dis">\(i = -i_{\text{max}}e^{-t/\tau }\)</th></tr>
+</thead><tbody id="rcTab"></tbody></table></div>
 <p class="small">After \(1\tau\) a charging capacitor is at 63% of \(V_{\text{max}}\); a discharging one has fallen to 37% of \(V_{0}\). After about \(5\tau\) it is treated as fully charged or discharged (99.3%).</p>
 
 <h3>Zoom in: why does the current stop?</h3>
@@ -2701,7 +2710,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   else text(c,'Click A on the switch to charge the capacitor',gx+gw/2,gy+gh/2,MUT,13,'center','middle');
   window.EM.set($('rcReadout'),'\\(\\tau = RC\\) = <strong>'+eng(T,'s',3)+'</strong> · max current \\(\\varepsilon /R\\) = '+eng(Im,'A',3)+'<br/>Time since the switch moved, \\(t\\) = '+eng(st.t,'s',3)+' ('+(st.t/T).toFixed(2)+'\\(\\tau\\))<br/>\\(V_{C}\\) = <strong>'+eng(vc,'V',3)+'</strong> · \\(V_{R}\\) = '+eng(vr,'V',3)+'<br/>Current \\(i\\) = <strong>'+eng(i,'A',3)+'</strong><br/>Charge \\(Q = CV_{C}\\) = '+eng(p.C*vc,'C',3)+' · energy \\(\\tfrac{1}{2}CV^{2}\\) = '+eng(0.5*p.C*vc*vc,'J',3));
   {const tn=st.pos==='none'?-1:Math.round(st.t/T);let rows='';for(let k=0;k<=5;k++){const e=Math.exp(-k);
-    rows+='<tr'+(k===tn&&st.pos!=='none'?' class="now"':'')+'><td>'+(k?k+'τ':'0')+'<br/><small>'+eng(k*T,'s',3)+'</small></td><td>'+eng(p.E*(1-e),'V',3)+'<br/><small>'+Math.round(100*(1-e)*10)/10+'%</small></td><td>'+eng(Im*e,'A',3)+'<br/><small>'+Math.round(100*e*10)/10+'%</small></td><td>'+eng(p.E*e,'V',3)+'<br/><small>'+Math.round(100*e*10)/10+'%</small></td></tr>'}
+    const pc=v=>(Math.round(v*1000)/10)+'%';rows+='<tr'+(k===tn&&st.pos!=='none'?' class="now"':'')+'><td><b>'+(k?k+'τ':'0')+'</b> <small>'+eng(k*T,'s',2)+'</small></td><td><small>'+e.toFixed(3)+' ('+pc(e)+')</small></td><td class="g-chg">'+eng(p.E*(1-e),'V',3)+'</td><td class="g-chg">'+eng(Im*e,'A',3)+'</td><td class="g-dis">'+eng(p.E*e,'V',3)+'</td><td class="g-dis">−'+eng(Im*e,'A',3)+'</td></tr>'}
    const tb=$('rcTab');if(tb&&tb._h!==rows){tb.innerHTML=rows;tb._h=rows}}
   let note;if(st.pos==='none')note=vc>1e-6?'Switch open: the capacitor holds its charge.':'Uncharged capacitor, no current.';
   else if(st.pos==='A')note=st.t<0.05*T?'Just switched on: \\(V_{C} \\approx 0\\), so all of \\(\\varepsilon\\) is across \\(R\\) and the current is at its maximum.':st.t>4.9*T?'Fully charged: \\(V_{C} = \\varepsilon\\), \\(V_{R} = 0\\), no current.':'Charging: \\(V_{C} + V_{R} = \\varepsilon\\) at every instant. As \\(V_{C}\\) rises, \\(V_{R}\\) and \\(i\\) fall.';
