@@ -574,7 +574,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     <button type="button" data-va="4,1,-1,3" aria-pressed="false">Any angle</button>
     <button type="button" data-va="random" aria-pressed="false">Random</button>
   </div>
-  <div class="screen"><canvas id="vaCanvas" width="900" height="420" style="touch-action:none" aria-label="Grid with two displacement vectors drawn tip to tail and their resultant. Drag the arrow tips to change them."></canvas><div class="hud" id="vaHud">DRAG THE ROUND HANDLES</div></div>
+  <div class="screen"><canvas id="vaCanvas" width="900" height="420" style="touch-action:none" aria-label="Grid with two displacement vectors drawn tip to tail and their resultant. Drag an arrowhead to change a vector."></canvas><div class="hud" id="vaHud">DRAG AN ARROWHEAD TO CHANGE A VECTOR</div></div>
   <div class="grid2">
     <div class="card">
       <div class="label">Settings</div>
@@ -2464,7 +2464,7 @@ function powerCalc() {
 /* ====================================================== 1.1 · VECTOR ADDITION LAB ===== */
 (() => {
   const cv = $("vaCanvas"), sim = { dirty: true, anim: false }; sims["launch:vectors"] = sim;
-  const S = { op: "add", para: false, drag: null };
+  const S = { op: "add", para: false, drag: null, hover: null };
   const sl = { ax: $("vaAx"), ay: $("vaAy"), bx: $("vaBx"), by: $("vaBy") };
   const XR = 5, YR = 4;
   const val = () => ({ ax: +sl.ax.value, ay: +sl.ay.value, bx: +sl.bx.value, by: +sl.by.value });
@@ -2496,17 +2496,19 @@ function powerCalc() {
     const A = G0.P(v.ax, v.ay), B = G0.P(v.ax + (S.op === "sub" ? -v.bx : v.bx), v.ay + (S.op === "sub" ? -v.by : v.by));
     const dA = Math.hypot(p.x - A.x, p.y - A.y), dB = Math.hypot(p.x - B.x, p.y - B.y);
     if (Math.min(dA, dB) > 26) return;
-    S.drag = dB <= dA ? "B" : "A"; cv.setPointerCapture(e.pointerId); e.preventDefault(); setPressed(presets, null);
+    S.drag = dB <= dA ? "B" : "A"; cv.setPointerCapture(e.pointerId); e.preventDefault(); setPressed(presets, null); sim.dirty = true;
   });
   cv.addEventListener("pointermove", (e) => {
     if (!G0) return; const p = pos(e), v = val();
-    if (!S.drag) { const A = G0.P(v.ax, v.ay), B = G0.P(v.ax + (S.op === "sub" ? -v.bx : v.bx), v.ay + (S.op === "sub" ? -v.by : v.by)); cv.style.cursor = Math.min(Math.hypot(p.x - A.x, p.y - A.y), Math.hypot(p.x - B.x, p.y - B.y)) < 26 ? "grab" : "default"; return; }
+    if (!S.drag) { const A = G0.P(v.ax, v.ay), B = G0.P(v.ax + (S.op === "sub" ? -v.bx : v.bx), v.ay + (S.op === "sub" ? -v.by : v.by)); const dA = Math.hypot(p.x - A.x, p.y - A.y), dB = Math.hypot(p.x - B.x, p.y - B.y), hv = Math.min(dA, dB) < 26 ? (dB <= dA ? "B" : "A") : null;
+      cv.style.cursor = hv ? "grab" : "default"; if (hv !== S.hover) { S.hover = hv; sim.dirty = true; } return; }
     const g = G0.U(p.x, p.y);
     if (S.drag === "A") { sl.ax.value = clamp(Math.round(g.x), -XR, XR); sl.ay.value = clamp(Math.round(g.y), -YR, YR); }
     else { let bx = Math.round(g.x) - v.ax, by = Math.round(g.y) - v.ay; if (S.op === "sub") { bx = -bx; by = -by; } sl.bx.value = clamp(bx, -XR, XR); sl.by.value = clamp(by, -YR, YR); }
     outs();
   });
-  const end = () => { S.drag = null; cv.style.cursor = "default"; };
+  const end = () => { S.drag = null; cv.style.cursor = "default"; sim.dirty = true; };
+  cv.addEventListener("pointerleave", () => { if (!S.drag && S.hover) { S.hover = null; sim.dirty = true; } });
   cv.addEventListener("pointerup", end); cv.addEventListener("pointercancel", end);
   sim.frame = () => {
     const v = val(), sgn = S.op === "sub" ? -1 : 1, bx = sgn * v.bx, by = sgn * v.by, rx = v.ax + bx, ry = v.ay + by;
@@ -2549,8 +2551,9 @@ function powerCalc() {
       text(ctx, S.op === "sub" ? "A − B" : "A + B", mx + nx * 16, my + ny * 16 + 4, C.accent, 13, Math.abs(nx) < 0.3 ? "center" : nx > 0 ? "left" : "right");
     }
     // handles
-    [[A, C.data], [B, C.vector]].forEach(([p, c]) => { ctx.beginPath(); ctx.arc(p.x, p.y, 8, 0, 7); ctx.fillStyle = C.panel; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = c; ctx.stroke(); });
-    ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(O.x, O.y, 4, 0, 7); ctx.fill();
+    const act = S.drag || S.hover;
+    if (act) { const p = act === "A" ? A : B; ctx.save(); ctx.globalAlpha = 0.22; ctx.fillStyle = act === "A" ? C.data : C.vector; ctx.beginPath(); ctx.arc(p.x, p.y, 16, 0, 7); ctx.fill(); ctx.restore(); }
+    ctx.fillStyle = C.muted; ctx.beginPath(); ctx.arc(O.x, O.y, 3, 0, 7); ctx.fill();
     // readouts
     const R = Math.hypot(rx, ry);
     $("vaA").textContent = vecText(v.ax, v.ay); $("vaB").textContent = vecText(v.bx, v.by);
@@ -2565,7 +2568,7 @@ function powerCalc() {
     else n = `Add the parts separately: east ${fx(v.ax, 0, true)} ${bx < 0 ? "−" : "+"} ${Math.abs(bx)} = ${fx(rx, 0, true)} m, north ${fx(v.ay, 0, true)} ${by < 0 ? "−" : "+"} ${Math.abs(by)} = ${fx(ry, 0, true)} m. Then R = √(${fx(rx, 0)}² + ${fx(ry, 0)}²) = ${fmt(R)} m.`;
     if (S.op === "sub" && R > 1e-9) n = "To subtract B, flip it round (−B) and add it tip to tail. " + n;
     $("vaNote").textContent = n;
-    $("vaHud").textContent = S.drag ? "DRAGGING " + S.drag : "DRAG THE ROUND HANDLES";
+    $("vaHud").textContent = S.drag ? "DRAGGING " + S.drag : "DRAG AN ARROWHEAD TO CHANGE A VECTOR";
   };
 })();
 
