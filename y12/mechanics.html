@@ -555,7 +555,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     <g stroke-width="3" stroke-linecap="round" fill="none">
       <path d="M140 40h292" style="stroke:var(--data)"/><path d="M430 33l10 7-10 7" style="stroke:var(--data)"/>
       <path d="M440 64H268" style="stroke:var(--vector)"/><path d="M270 57l-10 7 10 7" style="stroke:var(--vector)"/>
-      <path d="M140 90h112" style="stroke:var(--accent)"/><path d="M250 83l10 7-10 7" style="stroke:var(--accent)"/>
+      <path d="M140 90h120" style="stroke:var(--accent)"/></g><g style="fill:var(--accent)"><path d="M190 83l13 7-13 7z"/><path d="M202 83l13 7-13 7z"/>
     </g>
     <g font-family="JetBrains Mono" font-size="12"><text x="290" y="30" style="fill:var(--data)">A = +5 m</text><text x="452" y="68" style="fill:var(--vector)">B = −3 m</text><text x="270" y="94" style="fill:var(--accent)">A + B = +2 m</text></g>
   </svg>
@@ -566,7 +566,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 
   <h3>4 · Adding vectors at an angle: tip to tail</h3>
-  <p>To add vectors in two dimensions, draw them <b>tip to tail</b>: start the second arrow where the first one ends. The <b>resultant</b> runs from the start of the first arrow to the tip of the last. Its size comes from Pythagoras when the vectors are at right angles, and its direction from trigonometry.</p>
+  <p>To add vectors in two dimensions, draw them <b>tip to tail</b>: start the second arrow where the first one ends. The <b>resultant</b> runs from the start of the first arrow to the tip of the last, and is drawn with a <b>double arrowhead in the middle</b> so it isn't mistaken for one of the vectors being added. Its size comes from Pythagoras when the vectors are at right angles, and its direction from trigonometry.</p>
   <div class="seg" role="group" aria-label="Examples">
     <button type="button" data-va="3,0,0,4" aria-pressed="true">3 m east, then 4 m north</button>
     <button type="button" data-va="5,0,3,0" aria-pressed="false">Same direction</button>
@@ -1625,6 +1625,19 @@ function arrow(ctx, x0, y0, x1, y1, color, width = 2.5, head = 9, dash) {
   ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x1 - ux * hd - uy * hd * 0.5, y1 - uy * hd + ux * hd * 0.5); ctx.lineTo(x1 - ux * hd + uy * hd * 0.5, y1 - uy * hd - ux * hd * 0.5); ctx.closePath(); ctx.fill();
   ctx.restore();
 }
+/* resultant vector: plain line with a double arrowhead at its midpoint */
+function resultant(ctx, x0, y0, x1, y1, color, width = 4, head = 11) {
+  const dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy);
+  if (L < 1) return;
+  const ux = dx / L, uy = dy / L, hd = Math.min(head, L / 5), mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+  ctx.save(); ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = width; ctx.lineCap = "round";
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
+  [hd * 0.9, 0].forEach((off) => {
+    const tx = mx + ux * off, ty = my + uy * off;
+    ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(tx - ux * hd - uy * hd * 0.55, ty - uy * hd + ux * hd * 0.55); ctx.lineTo(tx - ux * hd + uy * hd * 0.55, ty - uy * hd - ux * hd * 0.55); ctx.closePath(); ctx.fill();
+  });
+  ctx.restore();
+}
 function text(ctx, s, x, y, color, size = 12, align = "left", font = MONO, base = "alphabetic") {
   ctx.fillStyle = color; ctx.font = `${size}px ${font}`; ctx.textAlign = align; ctx.textBaseline = base; ctx.fillText(s, x, y);
 }
@@ -2250,7 +2263,7 @@ function powerCalc() {
         arrow(ctx, pA.x, pA.y, pR.x, pR.y, C.vector, 2, 8, [5, 5]);
         arrow(ctx, O.x, O.y, pA.x, pA.y, C.data, 3, 11);
         arrow(ctx, O.x, O.y, pB.x, pB.y, C.vector, 3, 11);
-        if (Rm > 1) arrow(ctx, O.x, O.y, pR.x, pR.y, C.accent, 4, 13);
+        if (Rm > 1) resultant(ctx, O.x, O.y, pR.x, pR.y, C.accent, 4, 13);
         if (S.equil && Rm > 1) { const pE = P([-R[0], -R[1]]); arrow(ctx, O.x, O.y, pE.x, pE.y, C.ok, 3.5, 12); text(ctx, "balancing force " + fmt(Rm) + " N", pE.x + (pE.x < O.x ? -6 : 6), pE.y + (pE.y > O.y ? 16 : -8), C.ok, 12, pE.x < O.x ? "right" : "left"); }
         ctx.fillStyle = C.tile; ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.fillRect(O.x - 10, O.y - 10, 20, 20); ctx.strokeRect(O.x - 10, O.y - 10, 20, 20);
         if (F1 > 0) text(ctx, "F₁ " + F1 + " N", (O.x + pA.x) / 2, O.y + 22, C.data, 12, "center");
@@ -2516,11 +2529,20 @@ function powerCalc() {
     if (S.op === "sub" && (v.bx || v.by)) { const Bo = P(v.ax + v.bx, v.ay + v.by); ctx.save(); ctx.globalAlpha = 0.35; arrow(ctx, A.x, A.y, Bo.x, Bo.y, C.vector, 2, 8, [2, 4]); ctx.restore(); text(ctx, "B", Bo.x + 6, Bo.y - 6, C.muted, 11); }
     if (v.ax || v.ay) arrow(ctx, O.x, O.y, A.x, A.y, C.data, 3.5, 12);
     if (bx || by) arrow(ctx, A.x, A.y, B.x, B.y, C.vector, 3.5, 12);
-    if (rx || ry) arrow(ctx, O.x, O.y, B.x, B.y, C.accent, 4, 13);
+    const inLine = Math.abs(v.ax * by - v.ay * bx) < 1e-9;
+    let sh = { x: 0, y: 0 };
+    if (inLine && (rx || ry)) { const dx = B.x - O.x, dy = B.y - O.y, L = Math.hypot(dx, dy); sh = { x: (dy / L) * 18, y: (-dx / L) * 18 }; }
+    if (rx || ry) resultant(ctx, O.x + sh.x, O.y + sh.y, B.x + sh.x, B.y + sh.y, C.accent, 4, 13);
     const lab = (s, p, q, col) => { const mx = (p.x + q.x) / 2, my = (p.y + q.y) / 2, dx = q.x - p.x, dy = q.y - p.y, L = Math.hypot(dx, dy) || 1; text(ctx, s, mx - (dy / L) * 14, my + (dx / L) * 14 + 4, col, 13, "center"); };
     if (v.ax || v.ay) lab("A", O, A, C.data);
     if (bx || by) lab(S.op === "sub" ? "−B" : "B", A, B, C.vector);
-    if (rx || ry) lab(S.op === "sub" ? "A − B" : "A + B", B, O, C.accent);
+    if (rx || ry) {
+      const mx = O.x + sh.x + (B.x - O.x) * 0.62, my = O.y + sh.y + (B.y - O.y) * 0.62, dx = B.x - O.x, dy = B.y - O.y, L = Math.hypot(dx, dy) || 1;
+      let nx = -dy / L, ny = dx / L;
+      if (inLine) { nx = dy / L; ny = -dx / L; }
+      else if (nx * (A.x - mx) + ny * (A.y - my) > 0) { nx = -nx; ny = -ny; }
+      text(ctx, S.op === "sub" ? "A − B" : "A + B", mx + nx * 16, my + ny * 16 + 4, C.accent, 13, Math.abs(nx) < 0.3 ? "center" : nx > 0 ? "left" : "right");
+    }
     // handles
     [[A, C.data], [B, C.vector]].forEach(([p, c]) => { ctx.beginPath(); ctx.arc(p.x, p.y, 8, 0, 7); ctx.fillStyle = C.panel; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = c; ctx.stroke(); });
     ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(O.x, O.y, 4, 0, 7); ctx.fill();
