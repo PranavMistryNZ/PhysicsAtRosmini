@@ -269,12 +269,13 @@ body.light-mode .pf-e{stroke:#2d7a37}body.light-mode .pf-efill,body.light-mode .
 body.light-mode .pf-f{stroke:#1f8a55}body.light-mode .pf-ffill,body.light-mode .pf-flab,body.light-mode .pf-fkey{fill:#1f8a55}
 .rcnote{margin:2px 0 0;padding:8px 12px;border-left:3px solid var(--topic);background:#0a1020;border-radius:0 6px 6px 0;font-size:14px}
 body.light-mode .rstats>div,body.light-mode .rcnote{background:#f3f6fa;border-color:#c6d0db}body.light-mode .rcnote{border-left-color:var(--topic)}
-.coilbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.coilbar .control select{width:100%}
+.coilbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .nx-bar-inputs{grid-template-columns:repeat(3,minmax(0,1fr))}.txbar .control select{width:100%}.coilbar .control select{width:100%}
 @media(max-width:1000px){.rstats{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:700px){.rcbar .nx-bar-inputs,.coilbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr)}.rstats>div>b{white-space:normal;overflow-wrap:anywhere}.rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.rcbar .nx-bar-inputs,.coilbar .nx-bar-inputs,.txbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr)}.rstats>div>b{white-space:normal;overflow-wrap:anywhere}.rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .cmptab{min-width:520px}.cmptab td{white-space:normal;text-align:left;vertical-align:top;line-height:1.45}.cmptab td:first-child{width:22%}
 .fl-banner{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:6px 0 10px;padding:6px 16px;border:1px solid #39445d;border-left:4px solid var(--topic);border-radius:8px;background:#0c1222}.fl-banner .katex-display{margin:4px 0}.fl-banner>span{font-size:13px;color:var(--muted)}
 body.light-mode .fl-banner{background:#f3f6fa;border-color:#c6d0db;border-left-color:var(--topic)}
+.app-card>.txPreset{margin-top:auto;align-self:flex-start;min-height:34px;padding:6px 12px;font-size:13px}.app-card>h4{margin:0 0 4px;color:var(--topic);font-size:16px}
 /* readout table (1.3) */
 .rtab{width:100%;border-collapse:collapse;font-size:14px}
 .rtab th{text-align:left;font-weight:400;padding:7px 12px 7px 0;vertical-align:middle;white-space:nowrap;width:1%}
@@ -1501,6 +1502,21 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="nx-bar-info"><div class="readout" id="offReadout">…</div><div class="readout" id="offNote" style="border-left-color:#d99ac6">…</div></div>
 </div>
 </div>
+<h3>Questions students ask</h3>
+<details class="nx-worked" open><summary>Why does the field collapse so quickly when the switch opens?</summary>
+<p>The magnetic field is made by the current, so the field can only collapse as fast as the current falls. With the switch closed, the current flows round the battery loop. Opening the switch <strong>breaks that loop</strong>: the contacts separate in a fraction of a millisecond, and there is no longer a complete path through the battery, so the current is forced from \(\varepsilon /r\) towards zero almost instantly.</p>
+<p>That makes \(\Delta i/\Delta t\), and so \(\Delta \Phi /\Delta t\), enormous. By Faraday's law the coil induces a huge emf, \(\varepsilon \approx L\Delta i/\Delta t\), which by Lenz's law tries to keep the current going. It pushes the voltage up until something conducts: the neon lamp (at about 80 V), or the air across the switch gap (a spark). The stored energy \(\tfrac{1}{2}Li^{2}\) is dumped in that flash.</p>
+<p>With a <strong>diode</strong> across the coil the current has an easy path, so it does not have to stop suddenly. It decays gradually with \(\tau = L/r\), the field collapses slowly, and the emf stays small (about 0.7 V).</p></details>
+<details class="nx-worked" open><summary>When the switch opens, does the current go back through the 3 V cell?</summary>
+<p><strong>No.</strong> The cell is in series with the switch, so once the switch is open there is no complete circuit through the cell, and no current can flow through it. The cell just sits at its 3 V (watch its charges stop moving).</p>
+<p>The coil's current carries on, for an instant, round the only loop that is still closed: <strong>down through the coil, along the bottom wire and back up through the neon lamp</strong> (or through the diode, if one is fitted). The coil is now acting as the source, so the charges gain energy in the coil and lose it in the lamp.</p></details>
+<details class="nx-worked" open><summary>Is the speed of the collapse set by the coil's internal resistance \(r\)?</summary>
+<p><strong>Partly: it depends on which loop the current is flowing round after the switch opens.</strong> The rule is still \(\tau = L/R\), where \(R\) is the <em>total</em> resistance of that loop.</p>
+<ul class="nx-list">
+<li><strong>With the diode:</strong> the loop is the coil and the diode, and the diode's resistance is tiny, so \(R \approx r\) and \(\tau = L/r\). Here \(r\) does set the speed: a bigger \(r\) gives a quicker decay. With 5 H and 20 Ω, \(\tau\) = 0.25 s, a slow, gentle collapse.</li>
+<li><strong>Without the diode:</strong> the only path is across the open switch gap (air, an enormous resistance) or through the neon lamp (very high resistance until it lights). The total \(R\) is huge compared with \(r\), so \(\tau = L/R\) is tiny and the current is forced to zero almost instantly. Here \(r\) makes almost no difference; the speed is set by how quickly the switch breaks the circuit.</li>
+</ul>
+<p>\(r\) still matters either way, because it sets the steady current before switching off, \(i = \varepsilon /r\): that decides how much energy, \(\tfrac{1}{2}Li^{2}\), must be dumped and how big the back emf is. In the lab, the "time for current to collapse" slider stands for how fast the switch breaks the circuit when there is no diode.</p></details>
 <h3>Why this matters</h3>
 <p class="note"><strong>Average back emf</strong> while the current collapses \(\approx L \times i / \Delta t\). A 5 H coil carrying 0.15 A that switches off in 1 ms gives about 750 V. This is how a car's ignition coil makes sparks, and why switch contacts in inductive circuits wear out.</p>
 <p class="note"><strong>The diode fix:</strong> relays and motors usually have a diode across the coil. When the switch opens, the current carries on circulating through the diode and decays steadily. The voltage across the coil is limited to about 0.7 V, and the stored energy is dissipated gently as heat in the coil.</p>
@@ -1595,8 +1611,8 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p class="sub">Voltages and currents are rms values. The traces show the primary voltage (orange) and the secondary voltage (cyan) on the same scale, plus the flux in the core (violet, not to scale).</p>
 <div class="nx-lab">
 <div class="sim"><canvas id="txCanvas" height="380" aria-label="Transformer with animated core flux and oscilloscope traces of primary and secondary voltage"></canvas></div>
-<div class="legend"><span style="--key:#f0a66a">Primary voltage</span><span style="--key:#78d9f7">Secondary voltage</span><span style="--key:#c5a2ff">Core flux</span></div>
-<div class="nx-ctlbar">
+<div class="legend"><span style="--key:#f0a66a">Primary voltage</span><span style="--key:#78d9f7">Secondary voltage</span><span style="--key:#c5a2ff">Core flux, \(\Phi\) (lower graph)</span></div>
+<div class="nx-ctlbar kirbar rcbar txbar">
 <div class="nx-bar-inputs">
 <h3>Controls</h3>
 <div class="control"><label for="txSupply">Supply</label><select id="txSupply"><option value="ac">AC, 50 Hz</option><option value="dc">DC (battery)</option></select></div>
@@ -1605,9 +1621,10 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="control"><label for="txNs">Secondary turns, \(N_{s}\) <output id="txNsOut">50</output></label><input id="txNs" max="4000" min="10" step="10" type="range" value="50"/></div>
 <div class="control"><label for="txRL">Load resistance <output id="txRLOut">10 Ω</output></label><input id="txRL" max="1000" min="1" step="1" type="range" value="10"/></div>
 <div class="control"><label for="txEff">Efficiency <output id="txEffOut">100%</output></label><input id="txEff" max="100" min="70" step="1" type="range" value="100"/></div>
-<div class="btn-row" id="txDCRow"><button class="tool-btn" id="txSwitch" type="button">Switch DC on</button></div>
 </div>
-<div class="nx-bar-info"><div class="readout" id="txReadout">…</div><div class="readout" id="txNote" style="border-left-color:#c5a2ff">…</div></div>
+<div class="btn-row kbtns" id="txDCRow"><button class="tool-btn" id="txSwitch" type="button">Switch DC on</button></div>
+<div class="rstats" id="txReadout">…</div>
+<p class="rcnote" id="txNote">…</p>
 </div>
 </div>
 <h3>Try this</h3>
@@ -1617,6 +1634,21 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <li>Switch to DC and press <strong>Switch DC on</strong>. The secondary shows a brief pulse only while the flux is growing.</li>
 <li>Lower the efficiency: the output power drops, but the primary still draws current to supply the losses.</li>
 </ul>
+<h3>Types of transformer</h3>
+<p class="sub">Every transformer works the same way; what changes is the <strong>turns ratio</strong> \(N_{s}/N_{p}\), which sets what it does to the voltage and current. Press a button to set the lab above up as that type.</p>
+<div class="app-grid">
+<div class="app-card"><h4>Step-up</h4><p><strong>\(N_{s} &gt; N_{p}\)</strong>, so \(V_{s} &gt; V_{p}\) and \(i_{s} &lt; i_{p}\) (power in = power out).</p><p><b>Used in:</b> power stations, raising the generator's 11–22 kV to 220 kV for the national grid so less energy is lost in the lines; microwave ovens (about 2 kV for the magnetron); neon signs; X-ray machines.</p><button class="tool-btn secondary txPreset" data-np="100" data-ns="4000" data-rl="1000" type="button">Set up a step-up</button></div>
+<div class="app-card"><h4>Step-down</h4><p><strong>\(N_{s} &lt; N_{p}\)</strong>, so \(V_{s} &lt; V_{p}\) and \(i_{s} &gt; i_{p}\).</p><p><b>Used in:</b> substations and the transformer on the power pole in your street (11 kV down to 230 V); phone and laptop chargers (230 V down to 5–20 V); doorbells and model trains; welders, which need a very large current at a low voltage.</p><button class="tool-btn secondary txPreset" data-np="2000" data-ns="40" data-rl="10" type="button">Set up a phone charger</button></div>
+<div class="app-card"><h4>Isolating (1 : 1)</h4><p><strong>\(N_{s} = N_{p}\)</strong>, so \(V_{s} = V_{p}\) and \(i_{s} = i_{p}\). It does not change the voltage at all.</p><p><b>Why use it?</b> There is <strong>no wire joining the two circuits</strong>: energy crosses only through the changing magnetic flux in the core. The output is not connected to the mains or to earth, so touching one output wire (while standing on the ground) does not complete a circuit through you.</p><p><b>Used in:</b> bathroom shaver sockets, hospital and medical equipment, electricians' test benches, and audio equipment (to stop hum from earth loops).</p><button class="tool-btn secondary txPreset" data-np="1000" data-ns="1000" data-rl="100" type="button">Set up an isolating transformer</button></div>
+</div>
+<div class="exptab-wrap"><table class="exptab cmptab"><thead><tr><th></th><th>Step-up</th><th>Step-down</th><th>Isolating</th></tr></thead><tbody>
+<tr><td><b>Turns</b></td><td>\(N_{s} &gt; N_{p}\)</td><td>\(N_{s} &lt; N_{p}\)</td><td>\(N_{s} = N_{p}\)</td></tr>
+<tr><td><b>Voltage</b></td><td>increased</td><td>decreased</td><td>unchanged</td></tr>
+<tr><td><b>Current</b></td><td>decreased</td><td>increased</td><td>unchanged</td></tr>
+<tr><td><b>Main job</b></td><td>high voltage, small current: less \(i^{2}R\) loss in transmission lines</td><td>safe, useful voltages for homes and devices</td><td>safety: separates the device from the mains</td></tr>
+<tr><td><b>Example</b></td><td>power station → 220 kV grid</td><td>street transformer 11 kV → 230 V</td><td>bathroom shaver socket</td></tr>
+</tbody></table></div>
+<p class="small"><strong>Exam tip:</strong> "step-up" and "step-down" describe the <em>voltage</em>. The current changes the opposite way, because an ideal transformer cannot create energy: \(V_{p}i_{p} = V_{s}i_{s}\). For an isolating transformer, explain that energy is transferred only by the changing magnetic flux, so there is no conducting path between the primary and secondary circuits.</p>
 </section>
 
 <section class="pane hidden" data-section="tx" data-view="grid">
@@ -2544,16 +2576,21 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
 /* ============ 2.3 SWITCHING OFF ============ */
 (()=>{
  const cv=$('offCanvas');
- const st={state:'open',t:0,I:0,flash:0,Iopen:0};
+ const st={state:'open',t:0,I:0,flash:0,Iopen:0,dots:0};
  const P=()=>({E:+$('offE').value,L:+$('offL').value,r:+$('offr').value,dt:Math.pow(10,+$('offT').value)*1e-3,diode:$('offDiode').checked});
- st.step=dt=>{const p=P();const T=p.L/p.r;if(st.state==='closed'){st.I=p.E/p.r+(st.I-p.E/p.r)*Math.exp(-dt*0.5/T)}else if(st.state==='opened'){st.t+=dt;if(p.diode)st.I=st.Iopen*Math.exp(-st.t*0.5/T);else st.I=0}if(st.flash>0)st.flash-=dt};
+ st.step=dt=>{const p=P();const T=p.L/p.r;if(st.state==='closed'){st.I=p.E/p.r+(st.I-p.E/p.r)*Math.exp(-dt*0.5/T)}else if(st.state==='opened'){st.t+=dt;if(p.diode)st.I=st.Iopen*Math.exp(-st.t*0.5/T);else st.I=0}if(st.flash>0)st.flash-=dt;
+  const lit=st.state==='opened'&&!p.diode&&st.emf>=80,iNow=st.state==='closed'?st.I:st.state==='opened'?(p.diode?st.I:(lit&&st.flash>0?st.Iopen*Math.max(0,st.flash/0.6):0)):0;st.dots+=dt*iNow/(p.E/p.r)*55};
  st.draw=function(){const {c,W,H}=fit(cv,340,340);clear(c,W,H);const p=P();
   const cx=W/2,L0=Math.max(30,cx-230),R0=Math.min(W-30,cx+230),T0=50,B0=H-50;const wcol='#8fa3c4';
   // battery left
   const by=(T0+B0)/2;line(c,L0,T0,L0,by-12,wcol,2);line(c,L0,by+12,L0,B0,wcol,2);line(c,L0-14,by-6,L0+14,by-6,INK,2.5);line(c,L0-7,by+6,L0+7,by+6,INK,4);text(c,p.E.toFixed(1)+' V',L0+18,by+4,INK,12);
   // switch on top
   const sx=L0+(R0-L0)*0.3;line(c,L0,T0,sx-20,T0,wcol,2);c.fillStyle=INK;c.beginPath();c.arc(sx-20,T0,3.5,0,7);c.fill();c.beginPath();c.arc(sx+20,T0,3.5,0,7);c.fill();
-  line(c,sx-20,T0,sx+18,st.state==='closed'?T0:T0-20,ORG,3);line(c,sx+20,T0,R0,T0,wcol,2);text(c,'switch',sx,T0+22,MUT,11,'center');
+  const closed=st.state==='closed';line(c,sx-20,T0,sx+18,closed?T0:T0-20,ORG,3);line(c,sx+20,T0,R0,T0,wcol,2);st.sw={sx,T0};
+  // the two switch positions, labelled; the active one is highlighted
+  c.setLineDash([3,3]);line(c,sx-20,T0,sx+18,closed?T0-20:T0,'rgba(240,166,106,.35)',2);c.setLineDash([]);
+  text(c,'\u200bopen',sx+24,T0-24,closed?MUT:ORG,11,'left');text(c,'\u200bclosed',sx+26,T0+14,closed?ORG:MUT,11,'left');
+  text(c,'\u200bswitch (click to '+(closed?'open':'close')+')',sx,T0+32,MUT,11,'center');
   // spark
   if(st.flash>0&&!p.diode&&st.emf>300){c.strokeStyle='rgba(180,220,255,'+Math.min(1,st.flash*3)+')';c.lineWidth=2;c.beginPath();c.moveTo(sx+18,T0-18);for(let k=1;k<=4;k++)c.lineTo(sx+18+(k%2?6:-6),T0-18+k*4.5);c.stroke()}
   // bottom
@@ -2563,17 +2600,42 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   // coil
   const cx1=xs[0];line(c,cx1,T0,cx1,T0+30,wcol,2);const ct=T0+30,cb=B0-60;coilSymV(c,cx1,ct,cb,7,CYN,2.4,13);
   line(c,cx1-23,ct,cx1-23,cb,'#c9ced9',2);line(c,cx1-29,ct,cx1-29,cb,'#c9ced9',2); // iron core: two lines beside the coil symbol
-  text(c,'iron core',cx1-38,(ct+cb)/2,MUT,10,'right','middle');
+  if(W>=600)text(c,'iron core',cx1-38,(ct+cb)/2,MUT,10,'right','middle');
   c.strokeStyle=INK;c.lineWidth=2;c.strokeRect(cx1-6,cb+6,12,24);text(c,'r',cx1+12,cb+20,INK,11);line(c,cx1,cb,cx1,cb+6,wcol,2);line(c,cx1,cb+30,cx1,B0,wcol,2);
   // neon
-  const nx=xs[1],ny=(T0+B0)/2;line(c,nx,T0,nx,ny-18,wcol,2);line(c,nx,ny+18,nx,B0,wcol,2);
+  const nx=xs[1],ny=(T0+B0)/2;line(c,nx,T0,nx,ny-14,wcol,2);line(c,nx,ny+14,nx,B0,wcol,2);
   const glow=st.flash>0&&!p.diode&&st.emf>=80;
   if(glow){const gr=c.createRadialGradient(nx,ny,2,nx,ny,46);gr.addColorStop(0,'rgba(255,140,60,.95)');gr.addColorStop(1,'rgba(255,90,30,0)');c.fillStyle=gr;c.beginPath();c.arc(nx,ny,46,0,7);c.fill()}
-  c.strokeStyle=glow?'#ffb070':'#7d879c';c.lineWidth=2;c.beginPath();c.ellipse(nx,ny,14,18,0,0,7);c.stroke();line(c,nx,ny-18,nx,ny-4,glow?'#ffb070':'#7d879c',2);line(c,nx,ny+18,nx,ny+4,glow?'#ffb070':'#7d879c',2);
-  text(c,'neon (~80 V)',nx,ny+34,MUT,10,'center');
+  // lamp symbol: a circle with a cross through it
+  {const lc=glow?'#ffb070':'#c9ced9',r=14,d=r*0.7071;c.strokeStyle=lc;c.lineWidth=2;c.beginPath();c.arc(nx,ny,r,0,7);c.stroke();line(c,nx-d,ny-d,nx+d,ny+d,lc,2);line(c,nx+d,ny-d,nx-d,ny+d,lc,2)}
+  const nrw=W<600;if(nrw)text(c,'\u200bneon',nx-18,ny,MUT,10,'right','middle');else{text(c,'\u200bneon lamp',nx-20,ny-4,MUT,10,'right','middle');text(c,'\u200blights at ≈ 80 V',nx-20,ny+10,MUT,10,'right','middle')}
   // diode
   if(p.diode){const dx=xs[2];line(c,dx,T0,dx,ny-10,wcol,2);line(c,dx,ny+10,dx,B0,wcol,2);c.fillStyle=GRN;c.beginPath();c.moveTo(dx-10,ny+8);c.lineTo(dx+10,ny+8);c.lineTo(dx,ny-8);c.closePath();c.fill();line(c,dx-10,ny-9,dx+10,ny-9,GRN,2.5);text(c,'diode',dx,ny+28,MUT,10,'center')}
-  text(c,'I = '+eng(st.I,'A',3),cx1-24,T0+18,'#ffd76a',12,'right');
+  // charges in every wire, coloured by potential (bottom wire = 0 V); they move only where current flows
+  {const ED=window.EMS.energyDots;const ph=st.dots,E=p.E,opened=st.state==='opened',closed=st.state==='closed';
+   const litN=opened&&!p.diode&&st.emf>=80,flowing=opened&&(p.diode?st.I>1e-6:litN&&st.flash>0);
+   const V=flowing?(p.diode?0.7:Math.min(st.emf,100)):0,top=opened?-V:closed?E:0,mid=closed?st.I*p.r:0;
+   const lo=opened&&V>0?-V:0,hi=Math.max(E,1e-3);const dx=xs[2],nyl=ny;
+   const seg=(pts,vals,mv)=>ED(c,pts,vals,mv?ph:0,22,lo,hi);
+   seg([[L0,B0],[L0,by+6],[L0,by-6],[L0,T0],[sx-20,T0]],[0,0,E,E,E],closed);
+   seg([[sx+20,T0],[p.diode?dx:nx,T0]],[top,top],closed);
+   if(p.diode)seg([[dx,T0],[nx,T0]],[top,top],closed);
+   seg([[nx,T0],[R0,T0]],[top,top],closed||flowing);
+   seg([[R0,T0],[R0,ct],[R0,cb],[R0,cb+6]],[top,top,mid,mid],closed||flowing);
+   seg([[R0,cb+30],[R0,B0]],[0,0],closed||flowing);
+   seg([[R0,B0],[nx,B0]],[0,0],closed||flowing);
+   if(p.diode)seg([[nx,B0],[dx,B0]],[0,0],closed||(opened&&flowing));seg([[p.diode?dx:nx,B0],[L0,B0]],[0,0],closed);
+   const lampOn=opened&&!p.diode&&flowing;seg([[nx,B0],[nx,ny+14]],[0,0],lampOn);seg([[nx,ny-14],[nx,T0]],[top,top],lampOn);
+   if(p.diode){seg([[dx,B0],[dx,ny+10]],[0,0],opened&&flowing);seg([[dx,ny-10],[dx,T0]],[top,top],opened&&flowing)}
+   c.fillStyle=BG;c.fillRect(R0-6,cb+6,12,24);c.strokeStyle=INK;c.lineWidth=2;c.strokeRect(R0-6,cb+6,12,24)}
+  // current through the lamp: only while the back emf is big enough to light it (no diode)
+  const lit=st.state==='opened'&&!p.diode&&st.emf>=80;const iLamp=lit&&st.flash>0?st.Iopen*Math.max(0,st.flash/0.6):0;
+  // with no diode, the coil's current can only flow on through the lamp, so the two are the same current
+  const iCoil=st.state==='opened'&&!p.diode?iLamp:st.I;text(c,'i_coil = '+eng(iCoil,'A',3),cx1-24,T0+18,'#ffd76a',12,'right');
+  const lcol=iLamp>1e-6?'#ffd76a':MUT;if(!(nrw&&p.diode))text(c,'i_lamp = '+eng(iLamp,'A',3),nrw?nx-8:nx-20,ny+30,lcol,nrw?11:12,'right');
+  if(iLamp>1e-6){c.fillStyle='#ffd76a';c.beginPath();c.moveTo(nx,ny-34);c.lineTo(nx-6,ny-24);c.lineTo(nx+6,ny-24);c.closePath();c.fill()}
+  if(st.state==='opened'&&!p.diode&&!nrw)text(c,'\u200b'+(lit?'starts at '+eng(st.Iopen,'A',2)+', gone in a flash':'too little voltage to light it'),nx-20,ny+48,MUT,10,'right');
+  if(p.diode){const dx=xs[2];const iD=st.state==='opened'?st.I:0;text(c,'i_diode = '+eng(iD,'A',3),dx-16,nrw?ny+50:ny,iD>1e-6?'#ffd76a':MUT,nrw?11:12,'right','middle')}
   const Ion=p.E/p.r,emf=p.L*Ion/p.dt;
   window.EM.set($('offReadout'),'Steady current \\(i = \\varepsilon /r\\) = <strong>'+eng(Ion,'A',3)+'</strong><br/>Energy stored \\(\\tfrac{1}{2}Li^{2}\\) = '+eng(0.5*p.L*Ion*Ion,'J',3)+'<br/>Collapse time \\(\\Delta t\\) = '+eng(p.dt,'s',2)+'<br/>Back emf \\(\\approx Li/\\Delta t\\) = <strong class="big">'+(p.diode?'≈ 0.7 V (diode clamps it)':eng(st.state==='opened'?st.emf:emf,'V',3))+'</strong>');
   let note;
@@ -2588,6 +2650,10 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
  $('offDiode').addEventListener('change',()=>{});
  $('offClose').onclick=()=>{st.state='closed'};
  $('offOpen').onclick=()=>{if(st.state!=='closed')return;const p=P();st.Iopen=st.I=p.E/p.r;st.emf=p.L*st.I/p.dt;st.state='opened';st.t=0;st.flash=0.6};
+ // click the switch in the drawing to close or open it
+ const swHit=e=>{const g=st.sw;if(!g)return false;const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;return x>g.sx-30&&x<g.sx+70&&y>g.T0-38&&y<g.T0+22};
+ cv.addEventListener('click',e=>{if(!swHit(e))return;if(st.state==='closed')$('offOpen').click();else $('offClose').click()});
+ cv.addEventListener('pointermove',e=>{cv.style.cursor=swHit(e)?'pointer':''});
  sims['ind:off']=st;
 })();
 
@@ -2598,46 +2664,111 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
  const P=()=>({ac:$('txSupply').value==='ac',Vp:+$('txVp').value,Np:+$('txNp').value,Ns:+$('txNs').value,RL:+$('txRL').value,eff:+$('txEff').value/100});
  st.step=dt=>{st.ph+=dt*2*Math.PI*0.8;if(st.dcOn)st.dcT+=dt};
  function calc(){const p=P();if(!p.ac)return{Vs:0,Is:0,Ip:null,Pout:0,Pin:0};const Vs=p.Vp*p.Ns/p.Np,Is=Vs/p.RL,Pout=Vs*Is,Pin=Pout/p.eff,Ip=Pin/p.Vp;return{Vs,Is,Ip,Pout,Pin}}
- st.draw=function(){const {c,W,H}=fit(cv,380,520);clear(c,W,H);const p=P(),k=calc();
+ st.draw=function(){const {c,W,H}=fit(cv,380,520);clear(c,W,H);const p=P(),k2=calc();
   const narrow=W<640;const aw=narrow?W:W*0.5;const ah=narrow?250:H;
-  // core
-  const cx=aw/2,cy=ah/2+6,cw=Math.min(240,aw*0.6),chh=Math.min(170,ah*0.62),th=24;
-  c.strokeStyle='#8a93a8';c.lineWidth=th;c.strokeRect(cx-cw/2,cy-chh/2,cw,chh);
-  // flux arrows
+  // isometric 3-D sketch (like a textbook picture): iron core, two coils, AC input on the left, a bulb on the right
+  const Wc=1,Hc=1,tC=0.27,Dc=0.36;               // core size in 3-D units: width, height, limb thickness, depth
+  const k=Math.min(narrow?aw*0.42:aw*0.4,ah*0.55),ox=aw*0.5-k*0.3,oy=ah*0.5+k*0.4;
+  const Pj=(x,y,z)=>[ox+x*0.92*k-z*0.5*k,oy-y*k+x*0.2*k+z*0.3*k-0.1*k];   // x across, y up, z towards the viewer (oblique view from above right)
+  const poly=(pts,fill,edge)=>{c.beginPath();pts.forEach((q,n)=>{const [X,Y]=Pj(...q);n?c.lineTo(X,Y):c.moveTo(X,Y)});c.closePath();if(fill){c.fillStyle=fill;c.fill()}if(edge){c.strokeStyle=edge;c.lineWidth=1;c.stroke()}};
+  const light=document.body.classList.contains('light-mode');
+  const cTop=light?'#e4e8ef':'#c9cfdb',cSide=light?'#aab3c2':'#7f889c',cFront=light?'#d3d9e3':'#a9b1c2',cIn=light?'#8e97a8':'#5a6276',edge=light?'#7d879c':'#59617a';
+  // helix coil round a vertical limb centred on (xc, zc): returns the two lead ends
+  const turns=n=>Math.max(3,Math.min(14,Math.round(3+Math.log2(n/25)*2.1)));
+  const helix3=(xc,y0,y1,n,col,front)=>{const m=turns(n),R=tC*0.5+0.06,N=m*64;const zc=Dc/2;
+   c.strokeStyle=col;c.lineWidth=3.2;c.lineCap='round';c.beginPath();let on=false;
+   for(let q=0;q<=N;q++){const a=q/N*m*2*Math.PI+Math.PI*0.75;const x=xc+R*Math.cos(a),z=zc+R*Math.sin(a),y=y0+(y1-y0)*q/N;const vis=(0.25*Math.cos(a)+Math.sin(a))>=0;
+    const [X,Y]=Pj(x,y,z);if(front===vis){on?c.lineTo(X,Y):c.moveTo(X,Y);on=true}else on=false}c.stroke();
+   const e=a=>[xc+R*Math.cos(a),zc+R*Math.sin(a)];const a0=Math.PI*0.75,a1=a0+m*2*Math.PI;return{s:[...e(a0),y0],f:[...e(a1),y1]}};
+  const pY0=tC+0.03,pY1=Hc-tC-0.03,sY0=tC+0.06,sY1=Hc-tC-0.06;   // coils sit on the limbs, between the top and bottom bars
+  // back halves of the coils
+  c.globalAlpha=0.5;helix3(tC/2,pY0,pY1,p.Np,ORG,false);helix3(Wc-tC/2,sY0,sY1,p.Ns,CYN,false);c.globalAlpha=1;
+  // core: top face, right side face, the visible inner faces of the window, then the front face with its window cut out
+  poly([[0,Hc,0],[Wc,Hc,0],[Wc,Hc,Dc],[0,Hc,Dc]],cTop,edge);
+  poly([[Wc,0,0],[Wc,Hc,0],[Wc,Hc,Dc],[Wc,0,Dc]],cSide,edge);
+  poly([[tC,tC,0],[tC,Hc-tC,0],[tC,Hc-tC,Dc],[tC,tC,Dc]],cIn,edge);                  // inside face of the left limb
+  poly([[tC,tC,0],[Wc-tC,tC,0],[Wc-tC,tC,Dc],[tC,tC,Dc]],cIn,edge);                  // top of the bottom bar
+  c.beginPath();[[0,0],[Wc,0],[Wc,Hc],[0,Hc]].forEach((q,n)=>{const [X,Y]=Pj(q[0],q[1],Dc);n?c.lineTo(X,Y):c.moveTo(X,Y)});c.closePath();
+  [[tC,tC],[tC,Hc-tC],[Wc-tC,Hc-tC],[Wc-tC,tC]].forEach((q,n)=>{const [X,Y]=Pj(q[0],q[1],Dc);n?c.lineTo(X,Y):c.moveTo(X,Y)});c.closePath();
+  c.fillStyle=cFront;c.fill('evenodd');c.strokeStyle=edge;c.lineWidth=1;c.stroke();
+  // flux: dashed loop round the middle of the front face; the dashes march the way the flux points
   let fl;if(p.ac)fl=-Math.cos(st.ph);else fl=st.dcOn?1-Math.exp(-st.dcT/0.35):0;
-  const per=2*(cw+chh);const nA=10;c.fillStyle=VIO;
-  for(let a=0;a<nA;a++){let s=((a/nA)*per+(p.ac?0:0))%per;const pos=pt(s);const dir=pt((s+4)%per);const sgn=fl>=0?1:-1;const sz=5+7*Math.abs(fl);
-   c.save();c.translate(pos[0],pos[1]);c.rotate(Math.atan2(dir[1]-pos[1],dir[0]-pos[0])+(sgn<0?Math.PI:0));c.globalAlpha=0.25+0.75*Math.abs(fl);c.beginPath();c.moveTo(sz,0);c.lineTo(-sz,-sz*0.7);c.lineTo(-sz,sz*0.7);c.closePath();c.fill();c.restore()}
-  c.globalAlpha=1;
-  function pt(s){const x0=cx-cw/2,y0=cy-chh/2;if(s<cw)return[x0+s,y0];s-=cw;if(s<chh)return[x0+cw,y0+s];s-=chh;if(s<cw)return[x0+cw-s,y0+chh];s-=cw;return[x0,y0+chh-s]}
-  // coils
-  const turns=n=>Math.max(2,Math.min(16,Math.round(2+Math.log2(n/25)*2.2)));
-  const coil=(x,n,col)=>{const m=turns(n);for(let i=0;i<m;i++){const y=cy-chh*0.32+chh*0.64*i/(m-1);c.strokeStyle=col;c.lineWidth=3;c.beginPath();c.moveTo(x-th/2-8,y);c.lineTo(x+th/2+8,y);c.stroke()}};
-  coil(cx-cw/2,p.Np,ORG);coil(cx+cw/2,p.Ns,CYN);
-  text(c,'Np = '+p.Np,cx-cw/2,cy-chh/2-20,ORG,12,'center');text(c,'Ns = '+p.Ns,cx+cw/2,cy-chh/2-20,CYN,12,'center');
-  text(c,p.ac?'AC '+p.Vp+' V':'DC '+p.Vp+' V',cx-cw/2-th/2-10,cy+chh/2+28,ORG,12,'left');
-  text(c,'load '+p.RL+' Ω',cx+cw/2+th/2+10,cy+chh/2+28,CYN,12,'right');
-  text(c,p.ac?'flux alternates (slowed down)':st.dcOn?(st.dcT<1.5?'flux growing…':'flux steady: no change'):'no flux',cx,cy,VIO,11,'center','middle');
+  {const z=Dc+0.002,m=tC/2,pts=[[m,m],[m,Hc-m],[Wc-m,Hc-m],[Wc-m,m]].map(q=>Pj(q[0],q[1],z));
+   // magnetic domains: tiny magnets in the iron. Random when there is no flux; lined up round the core as the flux grows
+   if(!st.dom){st.dom=[];const step=0.085;const add=(x,y,tx,ty)=>st.dom.push({x,y,tx,ty,a:Math.random()*2*Math.PI});
+    for(let x=tC*0.5;x<=Wc-tC*0.5+1e-6;x+=step){add(x,Hc-tC*0.3,1,0);add(x,Hc-tC*0.72,1,0);add(Wc-x,tC*0.3,-1,0);add(Wc-x,tC*0.72,-1,0)}
+    for(let y=tC*1.2;y<=Hc-tC*1.2+1e-6;y+=step){add(Wc-tC*0.3,Hc-y,0,-1);add(Wc-tC*0.72,Hc-y,0,-1);add(tC*0.3,y,0,1);add(tC*0.72,y,0,1)}}
+   const al=Math.min(1,Math.abs(fl)),sgd=fl>=0?1:-1;
+   st.dom.forEach(d=>{let ux=(1-al)*Math.cos(d.a)+al*d.tx*sgd,uy=(1-al)*Math.sin(d.a)+al*d.ty*sgd;const n=Math.hypot(ux,uy)||1;ux/=n;uy/=n;const L=0.03;
+    const A=Pj(d.x-ux*L,d.y-uy*L,Dc+0.003),B=Pj(d.x+ux*L,d.y+uy*L,Dc+0.003);const col=al>0.6?'#3a2a78':'#4b4f63';
+    c.strokeStyle=col;c.lineWidth=1.6;c.beginPath();c.moveTo(A[0],A[1]);c.lineTo(B[0],B[1]);c.stroke();const an=Math.atan2(B[1]-A[1],B[0]-A[0]);
+    c.fillStyle=d.tx*sgd*ux+d.ty*sgd*uy>0.3&&al>0.15?'#d9534f':col;c.beginPath();c.moveTo(B[0]+Math.cos(an)*3,B[1]+Math.sin(an)*3);c.lineTo(B[0]-Math.cos(an-0.6)*5,B[1]-Math.sin(an-0.6)*5);c.lineTo(B[0]-Math.cos(an+0.6)*5,B[1]-Math.sin(an+0.6)*5);c.closePath();c.fill()});
+   c.save();c.globalAlpha=0.15+0.5*Math.abs(fl);c.strokeStyle='#6b3fb0';c.lineWidth=2;c.setLineDash([9,7]);c.lineDashOffset=p.ac?-st.ph*14:-st.dcT*30;
+   c.beginPath();pts.forEach((q,n)=>n?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1]));c.closePath();c.stroke();c.setLineDash([]);
+   const sg=fl>=0?1:-1,mid=(a,b)=>[(a[0]+b[0])/2,(a[1]+b[1])/2],ang=(a,b)=>Math.atan2(b[1]-a[1],b[0]-a[0]);c.fillStyle='#6b3fb0';
+   const ah=(pa,pb)=>{const [x,y]=mid(pa,pb);c.save();c.translate(x,y);c.rotate(ang(pa,pb)+(sg>0?0:Math.PI));c.beginPath();c.moveTo(8,0);c.lineTo(-5,-5);c.lineTo(-5,5);c.closePath();c.fill();c.restore()};
+   if(Math.abs(fl)>0.05){ah(pts[1],pts[2]);ah(pts[3],pts[0])}c.restore();
+   const tl=mid(pts[1],pts[2]);text(c,'Φ',tl[0]-14,tl[1]-8,'#6b3fb0',17,'center')}
+  // front halves of the coils, and their lead wires
+  const Pc=helix3(tC/2,pY0,pY1,p.Np,ORG,true),Sc=helix3(Wc-tC/2,sY0,sY1,p.Ns,CYN,true);
+  const lead=(a,b,col)=>{const A=Pj(...a),B=Pj(...b);line(c,A[0],A[1],B[0],B[1],col,3)};
+  // primary leads run out to the left (along −x), secondary leads to the right (along +x)
+  const pA=[Pc.s[0],Pc.s[2],Pc.s[1]],pB=[Pc.f[0],Pc.f[2],Pc.f[1]];
+  const L1=[-0.45,pA[1],pA[2]+0.25],L2=[-0.45,pB[1],pB[2]+0.25];lead(pA,L1,ORG);lead(pB,L2,ORG);
+  const sA=[Sc.s[0],Sc.s[2],Sc.s[1]],sB=[Sc.f[0],Sc.f[2],Sc.f[1]];
+  const R1=[Wc+0.42,sA[1]+0.2,sA[2]+0.1],R2=[Wc+0.42,sB[1],sB[2]+0.1];lead(sA,R1,CYN);lead(sB,R2,CYN);
+  // the AC supply joining the two primary leads
+  {const a=Pj(...L1),b=Pj(...L2);const sx=Math.max(24,Math.min(a[0],b[0])-22),sy=(a[1]+b[1])/2;line(c,a[0],a[1],sx,a[1],ORG,3);line(c,sx,a[1],sx,sy-15,ORG,3);line(c,b[0],b[1],sx,b[1],ORG,3);line(c,sx,b[1],sx,sy+15,ORG,3);
+   if(p.ac){c.fillStyle=BG;c.beginPath();c.arc(sx,sy,15,0,7);c.fill();c.strokeStyle=INK;c.lineWidth=2;c.stroke();c.beginPath();for(let q=0;q<=20;q++){const u=q/20;const xx=sx-9+18*u,yy=sy-6*Math.sin(u*2*Math.PI);q?c.lineTo(xx,yy):c.moveTo(xx,yy)}c.stroke()}
+   else{c.fillStyle=BG;c.fillRect(sx-15,sy-15,30,30);line(c,sx-13,sy-5,sx+13,sy-5,INK,2.5);line(c,sx-7,sy+5,sx+7,sy+5,INK,4);line(c,sx,sy-15,sx,sy-5,ORG,3);line(c,sx,sy+5,sx,sy+15,ORG,3)}
+   text(c,'V_p = '+p.Vp+' V'+(p.ac?' AC':' DC'),Math.max(sx,58),Math.min(a[1],b[1])-12,ORG,12,'center');st.inA=[(a[0]+sx)/2,a[1]]}
+  // the bulb joined to the two secondary leads
+  {const a=Pj(...R1),b=Pj(...R2);const bx=Math.max(a[0],b[0])+18,byb=b[1];const lampOn=p.ac&&k2.Vs>0.5,glowA=lampOn?Math.min(1,0.25+k2.Pout/Math.max(k2.Pout,60)):0;
+   line(c,a[0],a[1],bx+6,a[1],CYN,3);line(c,bx+6,a[1],bx+6,byb-4,CYN,3);line(c,b[0],b[1],bx-6,b[1],CYN,3);
+   const by=byb-32,r=18;if(lampOn){const gr=c.createRadialGradient(bx,by,2,bx,by,52);gr.addColorStop(0,'rgba(255,215,106,'+(0.9*glowA).toFixed(2)+')');gr.addColorStop(1,'rgba(255,215,106,0)');c.fillStyle=gr;c.beginPath();c.arc(bx,by,52,0,7);c.fill()}
+   c.fillStyle=lampOn?'rgba(255,230,140,'+(0.4+0.5*glowA).toFixed(2)+')':'rgba(200,210,230,.15)';c.strokeStyle=lampOn?'#ffd76a':'#c9ced9';c.lineWidth=2;c.beginPath();c.arc(bx,by,r,0.22*Math.PI,0.78*Math.PI,true);c.lineTo(bx-7,by+r+3);c.lineTo(bx+7,by+r+3);c.closePath();c.fill();c.stroke();
+   c.strokeStyle=lampOn?'#fff3c4':'#9aa6bd';c.lineWidth=1.4;c.beginPath();c.moveTo(bx-5,by+r+1);c.lineTo(bx-4,by);c.lineTo(bx-2,by-5);c.lineTo(bx,by);c.lineTo(bx+2,by-5);c.lineTo(bx+4,by);c.lineTo(bx+5,by+r+1);c.stroke();
+   c.fillStyle='#9aa6bd';c.fillRect(bx-8,by+r+3,16,10);for(let q=0;q<3;q++)line(c,bx-8,by+r+5+q*3,bx+8,by+r+5+q*3,'#5d6680',1);
+   if(narrow){text(c,'V_s = '+(p.ac?eng(k2.Vs,'V',3):'0 V'),aw-6,ah-22,CYN,12,'right')}else{text(c,'V_s = '+(p.ac?eng(k2.Vs,'V',3):'0 V'),bx+22,by-6,CYN,12,'left');text(c,'​load '+p.RL+' Ω',bx+22,by+10,MUT,10,'left')}st.outA=[(a[0]+bx)/2,a[1]]}
+  // current arrows on the leads (they reverse every half cycle on AC)
+  if(p.ac){const sgn=Math.sin(st.ph)>=0?1:-1,a1=Math.abs(Math.sin(st.ph));const ch=(x,y,dir,col,lab)=>{c.save();c.globalAlpha=0.3+0.7*a1;c.fillStyle=col;c.beginPath();c.moveTo(x+dir*9,y);c.lineTo(x-dir*7,y-7);c.lineTo(x-dir*7,y+7);c.closePath();c.fill();c.restore();text(c,lab,x,y-12,col,12,'center')};
+   ch(st.inA[0],st.inA[1],sgn,'#ff7a7a','i_p');ch(st.outA[0],st.outA[1],-sgn,'#ff7a7a','i_s')}
+  // labels
+  {const pc=Pj(-0.05,Hc+0.12,Dc*0.5),sc=Pj(Wc-0.1,Hc+0.12,0),np=Pj(tC/2,-0.08,Dc+0.25),ns=Pj(Wc+0.12,sY0-0.22,Dc*0.5);
+   text(c,'​primary circuit',pc[0],pc[1],ORG,12,'center');text(c,'​secondary circuit',sc[0]+10,sc[1],CYN,12,'center');
+   text(c,'N_p = '+p.Np+' turns',np[0],np[1]+8,ORG,12,'center');text(c,'N_s = '+p.Ns+' turns',ns[0],ns[1]+8,CYN,12,'left')}
   // scope
   const gx=narrow?50:aw+40,gw=W-gx-14,gy=narrow?ah+16:30,gh=narrow?H-ah-40:H-70;
-  const Vpk=Math.SQRT2*Math.max(p.Vp,p.ac?k.Vs:p.Vp*p.Ns/p.Np);const Vm=nice(Vpk*1.05);
+  const Vpk=Math.SQRT2*Math.max(p.Vp,p.ac?k2.Vs:p.Vp*p.Ns/p.Np);const Vm=nice(Vpk*1.05);
   const fv=v=>eng(v,'V',2);
-  const g=frame(c,gx,gy,gw,gh,0,2,-Vm,Vm,'voltage (instantaneous)','2 cycles',fv);
+  // two graphs, each with its own axis: voltages (V) on top, core flux (Wb) underneath
+  const gh2=(gh-26)/2;
+  const g=frame(c,gx,gy,gw,gh2,0,2,-Vm,Vm,'voltage',null,fv);
+  const Fpk=Math.SQRT2*p.Vp/(2*Math.PI*50*p.Np),Fm=nice(Fpk*1.05);   // peak flux from V_p = N_p ΔΦ/Δt at 50 Hz
+  const g2=frame(c,gx,gy+gh2+26,gw,gh2,0,2,p.ac?-Fm:-1,p.ac?Fm:1,p.ac?'core flux Φ':'core flux Φ (no scale)','2 cycles',p.ac?(v=>eng(v,'Wb',2)):null);
   const pv=[],sv=[],fx=[];
   for(let u=0;u<=2.0001;u+=0.01){const ang=2*Math.PI*u-st.ph;
-   if(p.ac){pv.push([u,Math.SQRT2*p.Vp*Math.sin(ang)]);sv.push([u,Math.SQRT2*k.Vs*Math.sin(ang)]);fx.push([u,-0.45*Vm*Math.cos(ang)])}
-   else{const tt=st.dcOn?st.dcT-(2-u)*0.75:-1;pv.push([u,tt>=0?p.Vp:0]);const vs=tt>=0?p.Vp*p.Ns/p.Np*Math.exp(-tt/0.12):0;sv.push([u,vs]);fx.push([u,tt>=0?0.45*Vm*(1-Math.exp(-tt/0.12)):0])}}
-  c.setLineDash([6,5]);path(c,fx,g.X,g.Y,'rgba(197,162,255,.75)',1.8);c.setLineDash([]);path(c,pv,g.X,g.Y,ORG,2.4);path(c,sv,g.X,g.Y,CYN,2.4);
+   if(p.ac){pv.push([u,Math.SQRT2*p.Vp*Math.sin(ang)]);sv.push([u,Math.SQRT2*k2.Vs*Math.sin(ang)]);fx.push([u,-Fpk*Math.cos(ang)])}
+   else{const tt=st.dcOn?st.dcT-(2-u)*0.75:-1;pv.push([u,tt>=0?p.Vp:0]);const vs=tt>=0?p.Vp*p.Ns/p.Np*Math.exp(-tt/0.12):0;sv.push([u,vs]);fx.push([u,tt>=0?0.9*(1-Math.exp(-tt/0.12)):0])}}
+  path(c,pv,g.X,g.Y,ORG,2.4);path(c,sv,g.X,g.Y,CYN,2.4);path(c,fx,g2.X,g2.Y,VIO,2.4);
+  if(p.ac)text(c,'\u200bpeak flux '+eng(Fpk,'Wb',3)+' · a quarter cycle behind \u200bthe voltage',gx+gw-4,gy+gh2+40,VIO,10,'right');
   // readouts
   const step=p.Ns>p.Np?'Step-up':p.Ns<p.Np?'Step-down':'1 : 1 (isolating)';
-  if(p.ac){window.EM.set($('txReadout'),'<strong>'+step+'</strong> · turns ratio Ns/Np = '+(p.Ns/p.Np).toPrecision(3)+'<br/>\\(V_{s} = V_{p} \\times N_{s}/N_{p}\\) = <strong class="big">'+eng(k.Vs,'V',3)+'</strong> rms (peak '+eng(Math.SQRT2*k.Vs,'V',3)+')<br/>\\(i_{s} = V_{s}/R\\) = <strong>'+eng(k.Is,'A',3)+'</strong> · \\(i_{p} = P_{\\text{in}}/V_{p}\\) = <strong>'+eng(k.Ip,'A',3)+'</strong><br/>\\(P_{\\text{out}}\\) = '+eng(k.Pout,'W',3)+' · \\(P_{\\text{in}}\\) = '+eng(k.Pin,'W',3)+' · lost '+eng(k.Pin-k.Pout,'W',3));
-   window.EM.set($('txNote'),p.eff<1?'Real transformer: the primary supplies the output power <em>plus</em> '+eng(k.Pin-k.Pout,'W',3)+' lost as heat in the windings and core.':'Ideal: \\(V_{p}i_{p} = V_{s}i_{s}\\). '+(p.Ns>p.Np?'Voltage stepped up ×'+(p.Ns/p.Np).toPrecision(3)+', so current stepped down by the same factor.':p.Ns<p.Np?'Voltage stepped down ÷'+(p.Np/p.Ns).toPrecision(3)+', so current stepped up by the same factor.':'Same voltage and current on both sides.'))}
-  else{window.EM.set($('txReadout'),'<strong>DC supply</strong><br/>Steady \\(V_{s}\\) = <strong class="big">0 V</strong><br/>'+(st.dcOn?'Pulse at switch-on peaked at about '+eng(p.Vp*p.Ns/p.Np,'V',3)+', then died away.':'Press <em>Switch DC on</em> and watch the secondary.'));
+  const tile=(lab,val,sub)=>'<div><span>'+lab+'</span><b>'+val+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div>';
+  if(p.ac){window.EM.set($('txReadout'),tile('Type',step,'turns ratio \\(N_{s}/N_{p}\\) = '+(p.Ns/p.Np).toPrecision(3))+
+    tile('Secondary voltage','\\(V_{s}\\) = '+eng(k2.Vs,'V',3),'rms · peak '+eng(Math.SQRT2*k2.Vs,'V',3)+' · \\(V_{p}N_{s}/N_{p}\\)')+
+    tile('Secondary current','\\(i_{s}\\) = '+eng(k2.Is,'A',3),'\\(i_{s} = V_{s}/R\\)')+
+    tile('Primary current','\\(i_{p}\\) = '+eng(k2.Ip,'A',3),'\\(i_{p} = P_{\\text{in}}/V_{p}\\)')+
+    tile('Power','\\(P_{\\text{out}}\\) = '+eng(k2.Pout,'W',3),'\\(P_{\\text{in}}\\) = '+eng(k2.Pin,'W',3)+' · lost '+eng(k2.Pin-k2.Pout,'W',3)));
+   window.EM.set($('txNote'),p.eff<1?'Real transformer: the primary supplies the output power <em>plus</em> '+eng(k2.Pin-k2.Pout,'W',3)+' lost as heat in the windings and core.':'Ideal: \\(V_{p}i_{p} = V_{s}i_{s}\\). '+(p.Ns>p.Np?'Voltage stepped up ×'+(p.Ns/p.Np).toPrecision(3)+', so current stepped down by the same factor.':p.Ns<p.Np?'Voltage stepped down ÷'+(p.Np/p.Ns).toPrecision(3)+', so current stepped up by the same factor.':'Same voltage and current on both sides; the two circuits are joined only by the magnetic flux.'))}
+  else{window.EM.set($('txReadout'),tile('Supply','DC','steady current, steady flux')+tile('Secondary voltage','\\(V_{s}\\) = 0 V','once the flux is steady')+tile('Switch-on pulse',st.dcOn?eng(p.Vp*p.Ns/p.Np,'V',3):'–','only while the flux grows')+tile('Secondary current','\\(i_{s}\\) = 0 A','')+tile('Primary current','large','limited only by the coil\'s resistance'));
    window.EM.set($('txNote'),'Constant current → constant flux → \\(\\Delta \\Phi /\\Delta t = 0\\) → no induced emf. The primary current is limited only by the coil\'s resistance, so a transformer left on DC can overheat.')}
  };
  const upd=()=>{const p=P();$('txVpOut').textContent=p.Vp+' V';$('txNpOut').textContent=p.Np;$('txNsOut').textContent=p.Ns;$('txRLOut').textContent=p.RL+' Ω';$('txEffOut').textContent=Math.round(p.eff*100)+'%';$('txDCRow').classList.toggle('hidden',p.ac)};
  ['txVp','txNp','txNs','txRL','txEff','txSupply'].forEach(id=>$(id).addEventListener('input',upd));$('txSupply').addEventListener('change',()=>{st.dcOn=false;st.dcT=0;$('txSwitch').textContent='Switch DC on';upd()});upd();
  $('txSwitch').onclick=()=>{st.dcOn=!st.dcOn;st.dcT=0;$('txSwitch').textContent=st.dcOn?'Switch DC off':'Switch DC on'};
+ // type buttons below the lab set it up as a step-up, step-down or isolating transformer
+ document.querySelectorAll('.txPreset').forEach(b=>b.onclick=()=>{$('txSupply').value='ac';$('txSupply').dispatchEvent(new Event('change'));$('txVp').value=230;$('txNp').value=b.dataset.np;$('txNs').value=b.dataset.ns;$('txRL').value=b.dataset.rl;upd();$('txCanvas').scrollIntoView({behavior:'smooth',block:'center'})});
  sims['tx:lab']=st;
 })();
 
