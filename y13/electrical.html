@@ -269,7 +269,7 @@ body.light-mode .pf-e{stroke:#2d7a37}body.light-mode .pf-efill,body.light-mode .
 body.light-mode .pf-f{stroke:#1f8a55}body.light-mode .pf-ffill,body.light-mode .pf-flab,body.light-mode .pf-fkey{fill:#1f8a55}
 .rcnote{margin:2px 0 0;padding:8px 12px;border-left:3px solid var(--topic);background:#0a1020;border-radius:0 6px 6px 0;font-size:14px}
 body.light-mode .rstats>div,body.light-mode .rcnote{background:#f3f6fa;border-color:#c6d0db}body.light-mode .rcnote{border-left-color:var(--topic)}
-.coilbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .nx-bar-inputs{grid-template-columns:repeat(3,minmax(0,1fr))}.phbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}.phbar .control select{width:100%}.lcrbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.lcrbar .rstats>div>small{font-size:13.5px;color:#d3dbec;line-height:1.5}.lcrbar .rstats>div>small .katex{font-size:1.12em}body.light-mode .lcrbar .rstats>div>small{color:#2c3848}@media(max-width:700px){.lcrbar .rstats>div>small{font-size:12.5px}.lcrbar .rstats>div>small .katex{font-size:1em}}.phbar .rstats{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .control select{width:100%}.coilbar .control select{width:100%}
+.coilbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .nx-bar-inputs{grid-template-columns:repeat(3,minmax(0,1fr))}.phbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}.phbar .control select{width:100%}.lcrbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.lcraddsel{grid-template-columns:repeat(2,minmax(0,1fr))!important}.lcraddsel select{width:100%}@media(max-width:700px){.lcraddsel{grid-template-columns:minmax(0,1fr)!important}}.lcrbar .rstats>div>small{font-size:13.5px;color:#d3dbec;line-height:1.5}.lcrbar .rstats>div>small .katex{font-size:1.12em}body.light-mode .lcrbar .rstats>div>small{color:#2c3848}@media(max-width:700px){.lcrbar .rstats>div>small{font-size:12.5px}.lcrbar .rstats>div>small .katex{font-size:1em}}.phbar .rstats{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .control select{width:100%}.coilbar .control select{width:100%}
 @media(max-width:1000px){.rstats,.phbar .rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.lcrbar .nx-bar-inputs{grid-template-columns:repeat(2,minmax(0,1fr))!important}.rcbar .nx-bar-inputs,.coilbar .nx-bar-inputs,.txbar .nx-bar-inputs,.phbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr)}.rstats>div>b{white-space:normal;overflow-wrap:anywhere}.rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .cmptab{min-width:520px}.cmptab td{white-space:normal;text-align:left;vertical-align:top;line-height:1.45}.cmptab td:first-child{width:22%}
@@ -1955,6 +1955,20 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p class="rcnote" id="lcrNote">…</p>
 </div>
 </div>
+<h3>Adding phasors nose to tail</h3>
+<div class="fl-banner"><strong>Remember:</strong> the voltage across the resistor, \(V_{R}\), is <strong>always in phase with the current</strong> \(i\). The current is the same everywhere in a series circuit, so it's the reference direction (horizontal) and \(V_{R}\) always lies along it.</div>
+<p class="sub">Step through how the three voltages add to give the supply voltage. Choose <strong>Impedance diagram</strong> from the drop-down menu to see the impedance diagram, which has exactly the same shape, because every voltage is \(i\) times its resistance or reactance. The values come from the sliders above.</p>
+<div class="nx-lab">
+<div class="sim"><canvas id="lcrAddCanvas" height="380" aria-label="Step-by-step phasor addition of the resistor, inductor and capacitor voltages, drawn nose to tail"></canvas></div>
+<div class="nx-ctlbar kirbar rcbar">
+<div class="btn-row kbtns"><span class="klab">Step</span><button class="tool-btn secondary lcrStep" data-step="1" type="button">1 · Reference</button><button class="tool-btn secondary lcrStep" data-step="2" type="button">2 · Directions</button><button class="tool-btn secondary lcrStep" data-step="3" type="button">3 · Nose to tail</button><button class="tool-btn secondary lcrStep" data-step="4" type="button">4 · Resultant</button></div>
+<div class="nx-bar-inputs lcraddsel">
+<div class="control"><label for="lcrAddMode">Diagram</label><select id="lcrAddMode"><option value="V">Voltage phasor diagram</option><option value="Z">Impedance diagram (resistance and reactances)</option></select></div>
+<div class="control"><label for="lcrAddOrder">Order (nose to tail)</label><select id="lcrAddOrder"><option value="L">Inductor → resistor → capacitor</option><option value="C">Capacitor → resistor → inductor</option></select></div>
+</div>
+<p class="rcnote" id="lcrAddText">…</p>
+</div>
+</div>
 <h3>Look for these ideas</h3>
 <ul class="nx-list">
 <li>Below \(f_{0}\), \(X_{C}\) &gt; \(X_{L}\): the circuit is capacitive and the current leads the supply voltage. Above \(f_{0}\), it's inductive and the current lags.</li>
@@ -2070,8 +2084,12 @@ const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},se
 
 /* ---------- theme ---------- */
 const themeToggle=$('themeToggle');
-const light=store.get('emag-theme')==='light';
+const osLight=window.matchMedia?matchMedia('(prefers-color-scheme: light)'):null;
+const savedTheme=store.get('emag-theme');
+const light=savedTheme?savedTheme==='light':!!(osLight&&osLight.matches);
 document.body.classList.toggle('light-mode',light);themeToggle.checked=light;
+// no saved choice yet: keep following the device setting if it changes
+if(osLight&&osLight.addEventListener)osLight.addEventListener('change',e=>{if(store.get('emag-theme'))return;document.body.classList.toggle('light-mode',e.matches);themeToggle.checked=e.matches;window.dispatchEvent(new Event('emag-redraw'))});
 themeToggle.addEventListener('change',()=>{document.body.classList.toggle('light-mode',themeToggle.checked);store.set('emag-theme',themeToggle.checked?'light':'dark');window.dispatchEvent(new Event('emag-redraw'))});
 
 /* ---------- navigation ---------- */
@@ -3534,7 +3552,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
 
 /* ============ 6.4 LCR ============ */
 (()=>{
- const cv=$('lcrCanvas');const Vs=10;let geo=null,dragF=false;
+ const cv=$('lcrCanvas');const Vs=10;let geo=null,dragF=false;const cv2=$('lcrAddCanvas');const ad={step:1,mode:'V',order:'L'};
  const P=()=>({R:+$('lcrR').value,L:+$('lcrL').value*1e-3,C:+$('lcrC').value*1e-6,f:Math.pow(10,+$('lcrF').value)});
  function calc(p,f){const w=2*Math.PI*f,XL=w*p.L,XC=1/(w*p.C),Z=Math.sqrt(p.R*p.R+(XL-XC)*(XL-XC)),I=Vs/Z;return{XL,XC,Z,I,VR:I*p.R,VL:I*XL,VC:I*XC,phi:Math.atan2(XL-XC,p.R)}}
  function draw(){const {c,W,H}=fit(cv,430,720);clear(c,W,H);const p=P(),k=calc(p,p.f),f0=1/(2*Math.PI*Math.sqrt(p.L*p.C));
@@ -3567,7 +3585,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   const r=k.XL/k.XC;window.EM.set($('lcrNote'),Math.abs(Math.log(r))<0.03?'<strong>At resonance:</strong> \\(X_{L} = X_{C}\\), so \\(Z = R\\) and the current is a maximum. \\(V\\) and \\(i\\) are in phase.':r<1?'<strong>Below resonance:</strong> \\(X_{C}\\) &gt; \\(X_{L}\\), so the circuit is capacitive and the current <strong>leads</strong> the supply voltage by '+Math.abs(k.phi*180/Math.PI).toFixed(0)+'°.':'<strong>Above resonance:</strong> \\(X_{L}\\) &gt; \\(X_{C}\\), so the circuit is inductive and the current <strong>lags</strong> the supply voltage by '+Math.abs(k.phi*180/Math.PI).toFixed(0)+'°.');
   geo={gx,gw,y0:gy,y1:gy+2*gh+28};
  }
- const upd=()=>{const p=P();$('lcrROut').textContent=p.R+' Ω';$('lcrLOut').textContent=Math.round(p.L*1e3)+' mH';$('lcrCOut').textContent=Math.round(p.C*1e6)+' µF';$('lcrFOut').textContent=eng(p.f,'Hz',3);draw()};
+ const upd=()=>{const p=P();$('lcrROut').textContent=p.R+' Ω';$('lcrLOut').textContent=Math.round(p.L*1e3)+' mH';$('lcrCOut').textContent=Math.round(p.C*1e6)+' µF';$('lcrFOut').textContent=eng(p.f,'Hz',3);draw();drawAdd();dTxt()};
  bindOut(['lcrR','lcrL','lcrC','lcrF'],upd);
  $('lcrTune').onclick=()=>{const p=P();const f0=1/(2*Math.PI*Math.sqrt(p.L*p.C));$('lcrF').value=clamp(Math.log10(f0),1,3.5);upd()};
  const loc=e=>{const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}};
@@ -3577,7 +3595,65 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
  cv.addEventListener('pointermove',e=>{const q=loc(e);if(dragF)setF(q);else cv.style.cursor=onG(q)?'ew-resize':''});
  const endF=()=>{dragF=false;cv.style.touchAction='pan-y'};cv.addEventListener('pointerup',endF);cv.addEventListener('pointercancel',endF);
  cv.style.touchAction='pan-y';
- sims['ac:lcr']={draw,enter:draw};
+ // ---- nose-to-tail phasor addition ----
+
+ function drawAdd(){const {c,W,H}=fit(cv2,380,400);clear(c,W,H);const p=P(),k=calc(p,p.f),Zm=ad.mode==='Z',Lf=ad.order!=='C';
+  const a=Zm?p.R:k.VR,bL=Zm?k.XL:k.VL,bC=Zm?k.XC:k.VC,net=bL-bC,res=Math.hypot(a,net);
+  const nR=Zm?'R':'V_R',nL=Zm?'X_L':'V_L',nC=Zm?'X_C':'V_C',nT=Zm?'Z':'V';
+  const fmt=v=>Zm?eng(v,'Ω',3):v.toFixed(2)+' V';
+  const narrow=W<600,early=ad.step<=2;
+  const up=early?bL:(Lf?bL:Math.max(0,net)),dn=early?bC:(Lf?Math.max(0,-net):bC);
+  const ox=narrow?112:130;
+  const s=Math.min((W-ox-(narrow?150:260))/Math.max(a,1e-9),(H-70)/Math.max(up+dn,1e-9));
+  const oy=34+up*s,tx=ox+a*s,ey=oy-net*s;
+  line(c,ox-20,oy,W-20,oy,AX,1);line(c,ox,14,ox,H-14,AX,1);
+  arrow(c,ox,oy,W-26,oy,'rgba(255,215,106,.55)',1.5);text(c,narrow?'i (reference)':'i  (reference: the same everywhere in series)',W-26,oy+16,YEL,11,'right');
+  const lab=(t,x,y,col,al)=>text(c,t,x,y,col,12,al||'left');
+  const fadeL='rgba(120,217,247,.3)',fadeC='rgba(255,158,181,.3)',fadeR='rgba(143,214,148,.35)';
+  if(early){
+   arrow(c,ox,oy,tx,oy,GRN,4);if(a*s>110)lab(nR+' = '+fmt(a),ox+a*s/2,oy+18,GRN,'center');else lab(nR+' = '+fmt(a),tx+6,oy+18,GRN);
+   if(ad.step===1)lab(Zm?'R is drawn along i':'in phase with i',a*s>110?ox+a*s/2:tx+6,oy+34,GRN,a*s>110?'center':'left');
+   if(ad.step===2){arrow(c,ox,oy,ox,oy-bL*s,CYN,3);arrow(c,ox,oy,ox,oy+bC*s,ROSE,3);
+    lab(nL+' = '+fmt(bL),ox-8,oy-bL*s+4,CYN,'right');lab('leads i by 90°',ox-8,oy-bL*s+20,CYN,'right');lab(nC+' = '+fmt(bC),ox-8,oy+bC*s-12,ROSE,'right');lab('lags i by 90°',ox-8,oy+bC*s+4,ROSE,'right')}
+   return}
+  // nose-to-tail: vertical (L or C), then R, then the other vertical
+  const v1=Lf?bL:-bC,v2=Lf?-bC:bL,y1=oy-v1*s;
+  const c1=Lf?CYN:ROSE,c2=Lf?ROSE:CYN,n1=Lf?nL:nC,n2=Lf?nC:nL,m1=Lf?bL:bC,m2=Lf?bC:bL;
+  const f4=ad.step>=4;
+  arrow(c,ox,oy,ox,y1,f4?(Lf?fadeL:fadeC):c1,3.5);arrow(c,ox,y1,tx,y1,f4?fadeR:GRN,3.5);arrow(c,tx,y1,tx,ey,f4?(Lf?fadeC:fadeL):c2,3.5);
+  // start ring
+  c.strokeStyle=INK;c.lineWidth=1.5;c.beginPath();c.arc(ox,oy,4,0,2*Math.PI);c.stroke();
+  if(!f4){
+   lab('1 · '+n1+' = '+fmt(m1),ox-10,(oy+y1)/2+4,c1,'right');
+   if(a*s>130)lab('2 · '+nR+' = '+fmt(a),(ox+tx)/2,Lf?y1-10:y1+20,GRN,'center');else lab('2 · '+nR+' = '+fmt(a),tx+10,Lf?y1-6:y1+18,GRN);
+   lab('3 · '+n2+' = '+fmt(m2),tx+10,Math.abs(y1-ey)<60?(y1+ey)/2+4:(Lf?Math.max((y1+ey)/2,y1+40):Math.min((y1+ey)/2,y1-30)),c2);
+   lab('start',ox-10,oy+18,MUT,'right');lab('end',tx+10,ey+(Lf?(bC>0?16:-8):-8),MUT)}
+  else{
+   // right-angled triangle: R along i, net vertical, resultant
+   line(c,ox,oy,tx,oy,GRN,3,[6,4]);lab(nR+' = '+fmt(a),a*s>110?(ox+tx)/2:tx+6,oy+(net>=0?18:-8),GRN,a*s>110?'center':'left');
+   if(Math.abs(net*s)>14&&a*s>14){c.strokeStyle='rgba(255,255,255,.6)';c.lineWidth=1;c.strokeRect(tx-10,net>0?oy-10:oy,10,10)}
+   if(Math.abs(net*s)>20){c.strokeStyle=VIO;c.lineWidth=1.5;c.setLineDash([4,3]);c.beginPath();c.moveTo(tx+12,oy);c.lineTo(tx+20,oy);c.lineTo(tx+20,ey);c.lineTo(tx+12,ey);c.stroke();c.setLineDash([]);lab((Zm?'X_L − X_C':'V_L − V_C')+' = '+fmt(net),tx+28,(oy+ey)/2+4,VIO)}
+   arrow(c,ox,oy,tx,ey,INK,4);const phi=Math.atan2(net,a);
+   if(Math.abs(phi)>0.03){c.strokeStyle=YEL;c.lineWidth=1.5;c.beginPath();c.arc(ox,oy,34,0,-phi,phi>0);c.stroke();text(c,'φ',ox+44*Math.cos(phi/2),oy-44*Math.sin(phi/2)+4,YEL,13,'center')}
+   const mx=ox+a*s*0.45,my=oy-net*s*0.45;lab(nT+' = '+fmt(res),mx-16,my+(net>=0?-12:22),INK,'right')}
+ }
+ function dTxt(){const p=P(),k=calc(p,p.f),Zm=ad.mode==='Z';
+  const a=Zm?p.R:k.VR,bL=Zm?k.XL:k.VL,bC=Zm?k.XC:k.VC,net=bL-bC,res=Math.hypot(a,net);const f=v=>Zm?eng(v,'Ω',3):v.toFixed(2)+' V';
+  const R=Zm?'R':'V_{R}',L=Zm?'X_{L}':'V_{L}',C=Zm?'X_{C}':'V_{C}',T=Zm?'Z':'V';const phi=Math.atan2(net,a)*180/Math.PI;
+  const t=[,
+   Zm?'<strong>Step 1.</strong> Draw the current \\(i\\) horizontally as the reference. The resistance \\(R\\) = '+f(a)+' goes along \\(i\\), because the voltage across a resistor is <strong>always in phase with the current</strong>.'
+     :'<strong>Step 1.</strong> Draw the current \\(i\\) horizontally as the reference: in a series circuit it is the same in every component. \\(V_{R} = iR\\) = '+f(a)+' goes along \\(i\\), because the voltage across a resistor is <strong>always in phase with the current</strong>.',
+   '<strong>Step 2.</strong> \\('+L+'\\) = '+f(bL)+' points straight <strong>up</strong> (the inductor voltage leads \\(i\\) by 90°). \\('+C+'\\) = '+f(bC)+' points straight <strong>down</strong> (the capacitor voltage lags \\(i\\) by 90°). They are 180° apart.',
+   '<strong>Step 3.</strong> Add the vectors <strong>nose to tail</strong>. Start with \\('+(ad.order!=='C'?L:C)+'\\) = '+f(ad.order!=='C'?bL:bC)+', put the tail of \\('+R+'\\) on its nose, then end with \\('+(ad.order!=='C'?C:L)+'\\) = '+f(ad.order!=='C'?bC:bL)+'. Going up '+f(bL)+' and down '+f(bC)+' leaves a net vertical part of \\('+L+' - '+C+'\\) = '+f(net)+'. The order does not matter: you always reach the same end point.',
+   '<strong>Step 4.</strong> The resultant goes from the <strong>first tail to the last nose</strong>. It is the hypotenuse of a right-angled triangle: \\('+T+' = \\sqrt{'+R+'^{2} + ('+L+' - '+C+')^{2}}\\) = <strong>'+f(res)+'</strong>, and \\(\\tan\\varphi = \\dfrac{'+L+' - '+C+'}{'+R+'}\\), so \\(\\varphi\\) = '+Math.abs(phi).toFixed(0)+'° ('+(Math.abs(phi)<1?'in phase with \\(i\\)':phi>0?'\\(i\\) lags':'\\(i\\) leads')+').'+(Zm?' The impedance triangle is the voltage triangle divided by \\(i\\), so it has the same shape and the same \\(\\varphi\\).':' Simply adding the sizes gives '+(a+bL+bC).toFixed(2)+' V, not 10 V, because the voltages peak at different times.')];
+  window.EM.set($('lcrAddText'),t[ad.step]);
+  document.querySelectorAll('.lcrStep').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.step===ad.step)));
+  $('lcrAddMode').value=ad.mode}
+ document.querySelectorAll('.lcrStep').forEach(b=>b.addEventListener('click',()=>{ad.step=+b.dataset.step;drawAll()}));
+ $('lcrAddMode').addEventListener('change',()=>{ad.mode=$('lcrAddMode').value;drawAll()});
+ $('lcrAddOrder').addEventListener('change',()=>{ad.order=$('lcrAddOrder').value;drawAll()});
+ const drawAll=()=>{draw();drawAdd();dTxt()};
+ sims['ac:lcr']={draw:drawAll,enter:drawAll};
 })();
 })();
 </script>

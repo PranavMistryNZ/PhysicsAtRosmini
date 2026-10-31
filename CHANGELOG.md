@@ -5,6 +5,29 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.8 · 31 October 2026 (Year 13 Electrical lab, magnetism, inductors, transformers and AC)
+- Pages now open in the same light or dark mode as the student's device, until they choose with
+  the toggle (Year 13 Electrical and Waves; the home page and Year 12 Mechanics already did this).
+- 0.2 Exam skills (Electrical and Waves): exam walkthrough videos and the exam preparation webinar.
+- 2.2 parallel plates: the NCEA formula \(C = \varepsilon_{0}\varepsilon_{r}A/d\); 2.3 RC: a discharge current
+  column and a tidier table and panel; the 33% and 67% marks stay on the graph.
+- 3.2 Magnet and coil: drag the magnet or animate it at a set speed, with fixed axes and a voltmeter;
+  a copper pipe eddy-current demo with F_mag and mg, eddy-current field loops and a zoomed view.
+  3.3 combines the Φ against t and ε against t graphs.
+- 4 Inductors: new 4.2 Coil Builder (turns, area, length and core, on fixed axes); the LR lab
+  matches the RC lab; looped inductor symbols; questions on where and how energy is stored.
+  4.4 switching off: clickable switch, proper lamp symbol, labelled currents, coloured charges and
+  FAQs on why the field collapses quickly.
+- 5.2 Transformer: a 3-D transformer with input source, output lamp and magnetic domains in the
+  core, a separate flux graph, a tidier panel and a "Types of transformer" section with presets.
+- 6.3 Phase: why current leads or lags, "V leads"/"i leads" labels on the moving peaks, separate
+  voltage and current graphs each with its own phasor diagram, and a tidier panel.
+- 6.4 LCR resonance: click or drag along the graphs to set f; tiles show each formula with its value;
+  the phase angle reads "i leads V" or "i lags V"; an explanation of the resonance curve, cards for
+  explanations exams often ask for, and a step-by-step "Adding phasors nose to tail" diagram
+  (voltages or impedances, inductor-first or capacitor-first), with a reminder that V_R is always in
+  phase with the current.
+
 ## v1.7 · 30 October 2026 (Year 13 Electrical lab, capacitor explanations and exam skills)
 - 0.2 Exam skills: a four-step structure for "explain" questions, the CEO framework
   (Conceptualise, Execute, Outcomes) written for electrical systems, two CEO worked examples
