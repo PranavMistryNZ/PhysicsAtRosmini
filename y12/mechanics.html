@@ -17,9 +17,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <script>
-/* Pick the theme before first paint: saved choice, otherwise the device setting. */
-(function(){var t=null;try{t=localStorage.getItem('y12mech-theme')}catch(e){}
-if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'}
+/* Light or dark: follow the browser's setting. A choice made with the slider lasts for this visit only
+   (shared with the other Physics@Rosmini pages), so the next visit matches the browser again. */
+(function(){var t=null;try{t=sessionStorage.getItem('physics-theme')}catch(e){}
+if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}
 document.documentElement.setAttribute('data-theme',t)})();
 </script>
 <style>
@@ -2076,9 +2077,21 @@ function applyThemeUI() { themeToggle.checked = document.documentElement.getAttr
 themeToggle.addEventListener("change", () => {
   const next = themeToggle.checked ? "light" : "dark";
   document.documentElement.setAttribute("data-theme", next);
-  try { localStorage.setItem("y12mech-theme", next); } catch (e) {}
+  try { sessionStorage.setItem("physics-theme", next); } catch (e) {}
   applyThemeUI();
 });
+/* if the browser or device switches between light and dark, follow it straight away */
+const osLight = window.matchMedia ? matchMedia("(prefers-color-scheme: light)") : null;
+if (osLight) {
+  const follow = () => {
+    try { sessionStorage.removeItem("physics-theme"); } catch (e) {}
+    document.documentElement.setAttribute("data-theme", osLight.matches ? "light" : "dark");
+    applyThemeUI(); Object.values(sims).forEach((sm) => (sm.dirty = true));
+    document.dispatchEvent(new Event("themechange"));
+  };
+  osLight.addEventListener ? osLight.addEventListener("change", follow) : osLight.addListener(follow);
+}
+try { localStorage.removeItem("y12mech-theme"); } catch (e) {}
 applyThemeUI();
 
 /* ====================================================== SEARCH ===== */
