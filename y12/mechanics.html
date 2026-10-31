@@ -159,7 +159,7 @@ ul.clean{margin:0;padding-left:1.2em;display:grid;gap:6px}
 
 /* equations */
 .eq{font-family:var(--mono);background:var(--tile);border-radius:6px;padding:4px 9px;font-size:.92em;white-space:nowrap;display:inline-block;max-width:100%;overflow-x:auto;vertical-align:middle;color:var(--ink)}
-.eq-block{display:block;font-family:var(--mono);background:var(--tile);border-left:3px solid var(--data);border-radius:6px;padding:8px 12px;font-size:.95em;overflow-x:auto;white-space:nowrap}
+.eq-block{display:block;font-family:var(--mono);background:var(--tile);border-left:3px solid var(--data);border-radius:6px;padding:8px 12px;font-size:.95em;overflow-x:auto;white-space:normal;margin:0}
 var{font-style:italic}
 
 /* sims */
@@ -284,6 +284,24 @@ details.ans[open] summary{margin-bottom:8px}
 .picker label{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-family:var(--mono);font-size:13px;background:var(--field);cursor:pointer}
 .picker input{accent-color:var(--accent)}
 
+/* toolkit */
+.sorter{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.sv-item{border:1px solid var(--line);border-radius:10px;background:var(--panel-solid);padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.sv-item>b{font-size:16px;text-transform:capitalize}
+.sv-btns{display:flex;gap:6px}
+.sv-btns button{flex:1;min-height:36px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink);cursor:pointer;font-size:13px}
+.sv-btns button:hover:not(:disabled){border-color:var(--accent)}
+.sv-btns button.right{border-color:var(--ok);background:var(--ok-soft);color:var(--ok);font-weight:600}
+.sv-btns button.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.sv-fb{margin:0;font-size:13px;color:var(--ink-2)}
+.pt-ruler{display:grid;grid-template-columns:repeat(19,1fr);gap:3px;margin:4px 0 2px}
+.pt-ruler span{height:30px;border-radius:4px;background:var(--tile);font-family:var(--mono);font-size:10px;color:var(--muted);display:flex;align-items:flex-end;justify-content:center;padding-bottom:3px;white-space:nowrap;overflow:visible}
+.pt-ruler span.on{background:var(--accent-fill);color:var(--on-accent);font-weight:600}
+.field{min-height:40px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink);padding:0 10px;font-size:15px;width:100%}
+.px-q{font-family:var(--mono);font-size:clamp(17px,2.4vw,22px);margin:4px 0;color:var(--ink)}
+.px-ans{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.px-ans .field{width:130px}
+.px-ans .px-exp{width:80px;align-self:flex-start;margin-top:-10px}
 footer.foot{border-top:9px solid var(--accent);margin-top:17px;padding:12px;text-align:right;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted)}
 footer.foot span{display:inline-block;margin-top:6px}
 footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid currentColor}
@@ -309,6 +327,9 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   .ritem{grid-template-columns:1fr;gap:8px}
   .tab{padding:0 12px;font-size:12px}
   .telemetry{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sorter{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .sv-item{padding:8px}
+  .sv-btns{flex-direction:column}
   .tm b{font-size:16px}
 }
 @media print{
@@ -329,7 +350,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     </div>
   </div>
   <div class="status">
-    <div class="status-line"><span class="status-dot" aria-hidden="true"></span><span id="statusText">0 of 21 checklist items ticked</span></div>
+    <div class="status-line"><span class="status-dot" aria-hidden="true"></span><span id="statusText">0 of 22 checklist items ticked</span></div>
     <div class="status-btns">
       <a class="pill home" href="../index.html" title="Back to the Physics@Rosmini home page"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg>HOME BASE</a>
       <div class="theme-switch-wrap" aria-label="Page colour theme"><span class="theme-label-dark">Dark</span><label class="theme-switch" title="Switch between dark and light mode"><input type="checkbox" id="themeToggle" aria-label="Use light mode"><span class="theme-slider"></span></label><span class="theme-label-light">Light</span></div>
@@ -374,7 +395,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <div class="card">
     <h3 style="margin:0">Your progress</h3>
     <div class="bar" style="height:10px" aria-hidden="true"><span id="mapBarC" style="height:10px;width:0"></span><span id="mapBarG" class="g" style="height:10px;width:0"></span></div>
-    <p class="small" id="mapSummary">0 of 21 confident</p>
+    <p class="small" id="mapSummary">0 of 22 confident</p>
     <div class="btns"><button class="btn sm" type="button" id="resetRatings">Reset my ratings</button></div>
   </div>
   <div class="ratings" id="ratings"></div>
@@ -498,21 +519,207 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <div class="quiz" data-quiz="mixed" data-count="10"></div>
 </section>
 
+<!-- ======================================================= 01 TOOLKIT: VECTORS -->
+<section class="pane hidden" data-mod="launch" data-view="vectors" data-ref="1.1" data-title="Scalars and vectors">
+  <div class="pane-head"><h2>Phase 1.1 · Scalars &amp; vectors</h2><span class="badge teal">START HERE</span></div>
+  <p class="lede">Every quantity in physics is either a scalar or a vector. Before you can describe motion or forces, you need to know which is which and how to add vectors together.</p>
+
+  <h3>1 · What is the difference?</h3>
+  <div class="grid2">
+    <div class="card tint"><span class="label">Scalar</span><p>Has <b>size only</b> (a number and a unit).</p><p class="eq-block">mass = 65 kg</p><p class="small">Scalars add like ordinary numbers: 2 kg + 3 kg = 5 kg, always.</p></div>
+    <div class="card tint"><span class="label">Vector</span><p>Has <b>size and direction</b>. Drawn as an arrow: its length shows the size, and it points in the direction.</p><p class="eq-block">velocity = 12 m s⁻¹ north</p><p class="small">Vectors add by direction too: 3 N east + 4 N north is 5 N, not 7 N.</p></div>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Scalar</th><th>Matching vector</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>distance (m)</td><td>displacement (m)</td><td>A runner does one 400 m lap: distance 400 m, displacement 0 m, because they finish where they started.</td></tr>
+      <tr><td>speed (m s⁻¹)</td><td>velocity (m s⁻¹)</td><td>A car rounding a bend at a steady 50 km h⁻¹ has constant speed but a changing velocity.</td></tr>
+      <tr><td>mass (kg)</td><td>weight (N)</td><td>A 2.0 kg bag has a weight of 19.6 N, directed downwards.</td></tr>
+      <tr><td>time, energy, power, work, temperature</td><td>acceleration, force, momentum, impulse</td><td>Energy has no direction. A force always pushes or pulls a particular way.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>2 · Sort these quantities</h3>
+  <p>Decide whether each quantity is a scalar or a vector. You get feedback straight away.</p>
+  <div class="sorter" id="svSort"></div>
+  <div class="q-top"><span id="svScore" aria-live="polite">0 of 14 sorted</span><button type="button" class="btn sm" id="svReset">Start again</button></div>
+
+  <h3>3 · Vectors in a straight line</h3>
+  <p>In one dimension there are only two directions, so we use a sign. Choose one direction as positive, and the other is negative. Then vectors add like signed numbers.</p>
+  <svg viewBox="0 0 640 150" role="img" aria-label="Number line: an arrow of +5 metres followed by an arrow of minus 3 metres gives a resultant of +2 metres" style="width:100%;max-width:640px;height:auto">
+    <path d="M40 110h560" style="stroke:var(--axis)" stroke-width="2"/>
+    <g style="fill:var(--muted)" font-family="JetBrains Mono" font-size="11" text-anchor="middle">
+      <text x="80" y="128">−1</text><text x="140" y="128">0</text><text x="200" y="128">1</text><text x="260" y="128">2</text><text x="320" y="128">3</text><text x="380" y="128">4</text><text x="440" y="128">5</text><text x="500" y="128">6 m</text>
+    </g>
+    <g style="stroke:var(--axis)"><path d="M80 105v10M140 105v10M200 105v10M260 105v10M320 105v10M380 105v10M440 105v10M500 105v10"/></g>
+    <g stroke-width="3" stroke-linecap="round" fill="none">
+      <path d="M140 40h292" style="stroke:var(--data)"/><path d="M430 33l10 7-10 7" style="stroke:var(--data)"/>
+      <path d="M440 64H268" style="stroke:var(--vector)"/><path d="M270 57l-10 7 10 7" style="stroke:var(--vector)"/>
+      <path d="M140 90h112" style="stroke:var(--accent)"/><path d="M250 83l10 7-10 7" style="stroke:var(--accent)"/>
+    </g>
+    <g font-family="JetBrains Mono" font-size="12"><text x="290" y="30" style="fill:var(--data)">A = +5 m</text><text x="452" y="68" style="fill:var(--vector)">B = −3 m</text><text x="270" y="94" style="fill:var(--accent)">A + B = +2 m</text></g>
+  </svg>
+  <div class="grid3">
+    <div class="card tint"><span class="label">Same direction</span><p>Add the sizes: 5 m right + 3 m right = <b>8 m right</b>.</p></div>
+    <div class="card tint"><span class="label">Opposite directions</span><p>Subtract: 5 m right + 3 m left = <b>2 m right</b>, the way the bigger one points.</p></div>
+    <div class="card tint"><span class="label">Using signs</span><p>Right is +: (+5) + (−3) = <b>+2 m</b>. The sign tells you the direction.</p></div>
+  </div>
+
+  <h3>4 · Adding vectors at an angle: tip to tail</h3>
+  <p>To add vectors in two dimensions, draw them <b>tip to tail</b>: start the second arrow where the first one ends. The <b>resultant</b> runs from the start of the first arrow to the tip of the last. Its size comes from Pythagoras when the vectors are at right angles, and its direction from trigonometry.</p>
+  <div class="seg" role="group" aria-label="Examples">
+    <button type="button" data-va="3,0,0,4" aria-pressed="true">3 m east, then 4 m north</button>
+    <button type="button" data-va="5,0,3,0" aria-pressed="false">Same direction</button>
+    <button type="button" data-va="5,0,-3,0" aria-pressed="false">Opposite directions</button>
+    <button type="button" data-va="4,1,-1,3" aria-pressed="false">Any angle</button>
+    <button type="button" data-va="random" aria-pressed="false">Random</button>
+  </div>
+  <div class="screen"><canvas id="vaCanvas" width="900" height="420" style="touch-action:none" aria-label="Grid with two displacement vectors drawn tip to tail and their resultant. Drag the arrow tips to change them."></canvas><div class="hud" id="vaHud">DRAG THE ROUND HANDLES</div></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <div class="seg" role="group" aria-label="Operation"><button type="button" data-va-op="add" aria-pressed="true">A + B</button><button type="button" data-va-op="sub" aria-pressed="false">A − B</button><button type="button" id="vaPara" aria-pressed="false">Show parallelogram</button></div>
+      <label class="ctrl"><span class="row"><span>A, east part</span><output id="vaAxOut"></output></span><input type="range" id="vaAx" min="-5" max="5" step="1" value="3"></label>
+      <label class="ctrl"><span class="row"><span>A, north part</span><output id="vaAyOut"></output></span><input type="range" id="vaAy" min="-4" max="4" step="1" value="0"></label>
+      <label class="ctrl"><span class="row"><span>B, east part</span><output id="vaBxOut"></output></span><input type="range" id="vaBx" min="-5" max="5" step="1" value="0"></label>
+      <label class="ctrl"><span class="row"><span>B, north part</span><output id="vaByOut"></output></span><input type="range" id="vaBy" min="-4" max="4" step="1" value="4"></label>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry">
+        <div class="tm"><span>A</span><b id="vaA">–</b></div>
+        <div class="tm"><span>B</span><b id="vaB">–</b></div>
+        <div class="tm hl"><span id="vaRlab">Resultant, A + B</span><b id="vaR">–</b></div>
+        <div class="tm hl"><span>Direction</span><b id="vaDir">–</b></div>
+      </div>
+      <p class="note" id="vaNote"></p>
+    </div>
+  </div>
+
+  <h3>5 · Working it out on paper</h3>
+  <div class="grid2">
+    <div class="card"><span class="label">Right angles: Pythagoras and tan</span>
+      <p>A drone flies 3.0 m east then 4.0 m north.</p>
+      <p class="eq-block">R = √(3.0² + 4.0²) = 5.0 m</p>
+      <p class="eq-block">tan θ = 4.0 ÷ 3.0, so θ = 53°</p>
+      <p>Resultant: <b>5.0 m at 53° north of east</b>. Always give a direction with a vector answer.</p></div>
+    <div class="card"><span class="label">Subtracting: add the opposite</span>
+      <p><span class="eq">A − B = A + (−B)</span>. Flip B round to point the other way, then add it tip to tail.</p>
+      <p>You need this for a <b>change</b> in a vector, such as <span class="eq">Δv = v<sub>f</sub> − v<sub>i</sub></span>. A ball moving at 4 m s⁻¹ east that ends up moving 3 m s⁻¹ north has Δv = 5 m s⁻¹ towards the north-west, even though its speed only dropped by 1 m s⁻¹.</p></div>
+  </div>
+  <div class="card tint"><span class="label">Splitting a vector into components</span><p>Any vector can be split into two perpendicular parts that add back to it: <span class="eq">horizontal = V cos θ</span> and <span class="eq">vertical = V sin θ</span>, with θ measured from the horizontal. You'll use this for projectiles (phase 1.5) and for forces (phase 2.2).</p></div>
+</section>
+
+<!-- ======================================================= 01 TOOLKIT: NUMBERS -->
+<section class="pane hidden" data-mod="launch" data-view="numbers" data-ref="1.2" data-title="Numbers, prefixes and units">
+  <div class="pane-head"><h2>Phase 1.2 · Big numbers, small numbers &amp; units</h2><span class="badge teal">TOOLKIT</span></div>
+  <p class="lede">Physics deals with sizes from atoms to planets. Powers of ten and unit prefixes let you write any of them without a long string of zeros, and calculate with them confidently.</p>
+
+  <h3>1 · Powers of ten explorer</h3>
+  <p>Slide through the powers of ten. Each step is ten times bigger or smaller than the one before.</p>
+  <div class="card">
+    <label class="ctrl"><span class="row"><span>Size</span><output id="ptOut"></output></span><input type="range" id="ptE" min="-9" max="9" step="1" value="0"></label>
+    <div class="pt-ruler" id="ptRuler" aria-hidden="true"></div>
+    <div class="telemetry">
+      <div class="tm hl"><span>Standard form</span><b id="ptStd">–</b></div>
+      <div class="tm"><span>Written out</span><b id="ptDec">–</b></div>
+      <div class="tm"><span>In words</span><b id="ptWord">–</b></div>
+      <div class="tm"><span>With a prefix</span><b id="ptPre">–</b></div>
+    </div>
+    <p class="note" id="ptEx"></p>
+  </div>
+
+  <h3>2 · Prefixes you need</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Prefix</th><th>Symbol</th><th>Multiply by</th><th>In words</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>giga</td><td>G</td><td><span class="eq">10⁹</span></td><td>billion</td><td>The Sun is 1.39 Gm across.</td></tr>
+      <tr><td>mega</td><td>M</td><td><span class="eq">10⁶</span></td><td>million</td><td>A large wind turbine produces about 3 MW.</td></tr>
+      <tr><td>kilo</td><td>k</td><td><span class="eq">10³</span></td><td>thousand</td><td>A 1.2 km walk to school.</td></tr>
+      <tr><td>(none)</td><td></td><td><span class="eq">10⁰ = 1</span></td><td>one</td><td>1 m, 1 kg, 1 s</td></tr>
+      <tr><td>centi</td><td>c</td><td><span class="eq">10⁻²</span></td><td>hundredth</td><td>A 30 cm ruler.</td></tr>
+      <tr><td>milli</td><td>m</td><td><span class="eq">10⁻³</span></td><td>thousandth</td><td>A 50 ms stopping time in a collision.</td></tr>
+      <tr><td>micro</td><td>µ</td><td><span class="eq">10⁻⁶</span></td><td>millionth</td><td>A human hair is about 80 µm wide.</td></tr>
+      <tr><td>nano</td><td>n</td><td><span class="eq">10⁻⁹</span></td><td>billionth</td><td>Green light has a wavelength of 530 nm.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Careful: the kilogram (kg) is the SI unit of mass, not the gram. Convert grams to kilograms before using F = ma, p = mv or E<sub>k</sub> = ½mv².</p>
+
+  <h3>3 · Converting units</h3>
+  <p>Swap the prefix for its power of ten, then tidy up. For example, <span class="eq">450 nm = 450 × 10⁻⁹ m = 4.5 × 10⁻⁷ m</span>.</p>
+  <div class="grid2">
+    <div class="card">
+      <label class="ctrl"><span class="row"><span>Quantity</span></span><select id="cvQ" class="field"><option value="len">Length</option><option value="mass">Mass</option><option value="time">Time</option><option value="energy">Energy</option><option value="speed">Speed</option></select></label>
+      <label class="ctrl"><span class="row"><span>Value</span></span><input id="cvV" class="field mono" type="number" step="any" value="450" inputmode="decimal"></label>
+      <div class="grid2" style="gap:10px">
+        <label class="ctrl"><span class="row"><span>From</span></span><select id="cvFrom" class="field"></select></label>
+        <label class="ctrl"><span class="row"><span>To</span></span><select id="cvTo" class="field"></select></label>
+      </div>
+    </div>
+    <div class="card">
+      <div class="label">Result</div>
+      <div class="tm hl"><span>Converted</span><b id="cvOut">–</b></div>
+      <p class="note" id="cvHow"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">Watch out for squared and cubed units</span><p>1 m = 100 cm, but 1 m² = 100 × 100 = <b>10 000 cm²</b>, and 1 m³ = <b>1 000 000 cm³</b>. Convert each length first, then square or cube.</p></div>
+
+  <h3>4 · Multiplying and dividing</h3>
+  <div class="grid2">
+    <div class="card"><span class="label">Multiply: multiply the numbers, add the powers</span>
+      <p class="eq-block">(3.0 × 10⁴) × (2.0 × 10³) = 6.0 × 10⁷</p>
+      <p class="eq-block">(5.0 × 10⁻³) × (4.0 × 10⁶) = 20 × 10³ = 2.0 × 10⁴</p>
+      <p class="small">Tidy the answer so the first number is between 1 and 10: 20 × 10³ becomes 2.0 × 10⁴.</p></div>
+    <div class="card"><span class="label">Divide: divide the numbers, subtract the powers</span>
+      <p class="eq-block">(8.0 × 10⁶) ÷ (2.0 × 10²) = 4.0 × 10⁴</p>
+      <p class="eq-block">(1.5 × 10⁻²) ÷ (5.0 × 10⁻⁶) = 0.30 × 10⁴ = 3.0 × 10³</p>
+      <p class="small">Subtracting a negative power adds: −2 − (−6) = +4.</p></div>
+  </div>
+
+  <h3>5 · Adding and subtracting</h3>
+  <div class="card">
+    <p><b>You can only add or subtract numbers with the same power of ten (or the same unit).</b> Rewrite one of them first, then add the front numbers and keep the power.</p>
+    <p class="eq-block">3.0 × 10⁴ + 2.0 × 10³ = 3.0 × 10⁴ + 0.20 × 10⁴ = 3.2 × 10⁴</p>
+    <p class="eq-block">2.5 km + 350 m = 2500 m + 350 m = 2850 m</p>
+    <p class="eq-block">6.0 × 10⁻³ s − 4.0 × 10⁻⁴ s = 6.0 × 10⁻³ − 0.40 × 10⁻³ = 5.6 × 10⁻³ s</p>
+    <p class="small">A common mistake: 3 × 10⁴ + 2 × 10³ is <b>not</b> 5 × 10⁷. You never add the powers when adding numbers.</p>
+  </div>
+  <div class="card tint"><span class="label">On your calculator</span><p>Use the <b>EXP</b> or <b>×10ˣ</b> key, not "× 10 ^". To enter 4.5 × 10⁻⁷, type <span class="eq">4.5 EXP −7</span>. Typing "4.5 × 10 ^ −7" can go wrong inside longer calculations, especially when dividing.</p></div>
+
+  <h3>6 · Practise</h3>
+  <p>Give your answer as <span class="eq">number × 10<sup>power</sup></span>. Any correct form is accepted; you'll get a reminder if it isn't in standard form.</p>
+  <div class="card" id="pxCard">
+    <div class="seg" role="group" aria-label="Question type">
+      <button type="button" data-px="mix" aria-pressed="true">Mixed</button>
+      <button type="button" data-px="mul" aria-pressed="false">Multiply</button>
+      <button type="button" data-px="div" aria-pressed="false">Divide</button>
+      <button type="button" data-px="add" aria-pressed="false">Add &amp; subtract</button>
+      <button type="button" data-px="conv" aria-pressed="false">Convert units</button>
+    </div>
+    <p class="px-q" id="pxQ" aria-live="polite"></p>
+    <div class="px-ans">
+      <input id="pxM" class="field mono" type="number" step="any" inputmode="decimal" aria-label="Number part">
+      <span class="mono">× 10</span>
+      <input id="pxE" class="field mono px-exp" type="number" step="1" inputmode="numeric" aria-label="Power of ten">
+      <span class="mono" id="pxUnit"></span>
+    </div>
+    <div class="btns"><button type="button" class="btn go" id="pxCheck">CHECK</button><button type="button" class="btn" id="pxShow">Show working</button><button type="button" class="btn" id="pxNext">New question</button></div>
+    <div class="verdict hidden" id="pxVerdict" aria-live="polite"></div>
+    <div class="explain hidden" id="pxWork"></div>
+    <p class="small" id="pxScore">Score 0 / 0</p>
+  </div>
+</section>
+
 <!-- ======================================================= 01 LAUNCH -->
-<section class="pane hidden" data-mod="launch" data-view="intro" data-ref="1.1" data-title="Motion foundations">
-  <div class="pane-head"><h2>Phase 1.1 · Motion foundations</h2><span class="badge teal">FOUNDATIONS</span></div>
-  <p class="lede">Five ideas underpin everything in this module. Open each panel for the detail you need.</p>
+<section class="pane hidden" data-mod="launch" data-view="intro" data-ref="1.3" data-title="Motion foundations">
+  <div class="pane-head"><h2>Phase 1.3 · Motion foundations</h2><span class="badge teal">FOUNDATIONS</span></div>
+  <p class="lede">Four ideas underpin the rest of this topic. Scalars and vectors are in phase 1.1. Open each panel for the detail you need.</p>
   <div class="steps">
-    <details class="step" open><summary><span class="ref">1.1.1</span>Scalars and vectors</summary><div class="step-body">
-      <p>A <b>scalar</b> has size only: distance, speed, time, mass, energy. A <b>vector</b> has size and direction: displacement, velocity, acceleration, force, momentum.</p>
-      <p>A rover drives 30 m east then 10 m west. Its distance is 40 m, but its displacement is 20 m east.</p>
-      <p>In one dimension, direction is shown with a sign. Choose which way is positive at the start of every question and stick to it.</p>
-    </div></details>
-    <details class="step"><summary><span class="ref">1.1.2</span>Velocity and acceleration</summary><div class="step-body">
+        <details class="step" open><summary><span class="ref">1.3.1</span>Velocity and acceleration</summary><div class="step-body">
       <p>Velocity is the rate of change of displacement: <span class="eq">v = Δd ÷ Δt</span>. Acceleration is the rate of change of velocity: <span class="eq">a = Δv ÷ Δt</span>, in m s⁻².</p>
       <p>An acceleration of 3 m s⁻² means the velocity changes by 3 m s⁻¹ every second. If the acceleration points opposite to the velocity, the object slows down. Exams often call this deceleration, but in the equations it is a negative a.</p>
     </div></details>
-    <details class="step"><summary><span class="ref">1.1.3</span>Reading motion graphs</summary><div class="step-body">
+    <details class="step"><summary><span class="ref">1.3.2</span>Reading motion graphs</summary><div class="step-body">
       <div class="grid2">
         <div class="card tint">
           <svg viewBox="0 0 220 120" role="img" aria-label="Distance-time graph curving upwards for speeding up" style="width:100%;height:auto"><path d="M30 10v95h180" fill="none" style="stroke:var(--axis)" stroke-width="2"/><path d="M30 105 Q120 100 200 20" fill="none" style="stroke:var(--data)" stroke-width="3"/><path d="M120 92 L190 46" style="stroke:var(--vector)" stroke-width="2" stroke-dasharray="5 4"/><text x="8" y="16" style="fill:var(--muted)" font-family="JetBrains Mono" font-size="11">d</text><text x="200" y="118" style="fill:var(--muted)" font-family="JetBrains Mono" font-size="11">t</text><text x="132" y="64" style="fill:var(--vector)" font-family="JetBrains Mono" font-size="11">gradient = v</text></svg>
@@ -524,11 +731,11 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
         </div>
       </div>
     </div></details>
-    <details class="step"><summary><span class="ref">1.1.4</span>Free fall</summary><div class="step-body">
+    <details class="step"><summary><span class="ref">1.3.3</span>Free fall</summary><div class="step-body">
       <p>When air resistance is negligible, every object near Earth's surface accelerates downwards at <span class="eq">g = 9.8 m s⁻²</span>, whatever its mass.</p>
       <p>An object thrown straight up slows by 9.8 m s⁻¹ every second, stops for an instant at the top, then speeds up on the way down. At the top <b>v = 0 but a is still 9.8 m s⁻² down</b>. Without air resistance the up and down journeys take equal times.</p>
     </div></details>
-    <details class="step"><summary><span class="ref">1.1.5</span>Projectiles: two motions at once</summary><div class="step-body">
+    <details class="step"><summary><span class="ref">1.3.4</span>Projectiles: two motions at once</summary><div class="step-body">
       <p>After launch, the only force on a projectile (ignoring air resistance) is its weight, which acts straight down. So the two directions behave completely differently:</p>
       <div class="grid2">
         <div class="card tint"><span class="label">Horizontal</span><p>No force, so no acceleration. <span class="eq">v<sub>x</sub></span> is constant and <span class="eq">d<sub>x</sub> = v<sub>x</sub>t</span>.</p></div>
@@ -539,8 +746,8 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
-<section class="pane hidden" data-mod="launch" data-view="graphs" data-ref="1.2" data-title="Motion graphs lab">
-  <div class="pane-head"><h2>Phase 1.2 · Motion graphs lab</h2><span class="badge">SIMULATION</span></div>
+<section class="pane hidden" data-mod="launch" data-view="graphs" data-ref="1.4" data-title="Motion graphs lab">
+  <div class="pane-head"><h2>Phase 1.4 · Motion graphs lab</h2><span class="badge">SIMULATION</span></div>
   <p class="lede">Set a starting velocity and a constant acceleration, then run the rover. Watch the distance–time and velocity–time graphs draw themselves. Positive means to the right.</p>
   <div class="seg" role="group" aria-label="Scenarios">
     <button type="button" data-mg-preset="0,0,6" aria-pressed="false">Parked</button>
@@ -571,8 +778,8 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
-<section class="pane hidden" data-mod="launch" data-view="projectiles" data-ref="1.3" data-title="Projectile motion">
-  <div class="pane-head"><h2>Phase 1.3 · Projectile motion</h2><span class="badge">SIMULATION</span></div>
+<section class="pane hidden" data-mod="launch" data-view="projectiles" data-ref="1.5" data-title="Projectile motion">
+  <div class="pane-head"><h2>Phase 1.5 · Projectile motion</h2><span class="badge">SIMULATION</span></div>
   <p class="lede">Launch a probe and track it. Horizontal velocity stays constant; vertical velocity changes by 9.8 m s⁻¹ every second. Change the launch angle and speed, then predict the range before you fire.</p>
   <div class="screen"><canvas id="pjCanvas" width="900" height="380" aria-label="Trajectory of a launched probe with velocity arrows"></canvas><div class="hud" id="pjHud">READY</div></div>
   <div class="grid2">
@@ -601,8 +808,8 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
-<section class="pane hidden" data-mod="launch" data-view="clinic" data-ref="1.4" data-title="Motion calculation clinic">
-  <div class="pane-head"><h2>Phase 1.4 · Calculation clinic: constant acceleration</h2><span class="badge teal">CLINIC</span></div>
+<section class="pane hidden" data-mod="launch" data-view="clinic" data-ref="1.6" data-title="Motion calculation clinic">
+  <div class="pane-head"><h2>Phase 1.6 · Calculation clinic: constant acceleration</h2><span class="badge teal">CLINIC</span></div>
   <p class="lede">Four equations, five quantities. Each equation leaves one quantity out. Pick the one that leaves out the quantity you don't know and don't need.</p>
   <h3>1 · Method for any motion question</h3>
   <div class="method">
@@ -645,14 +852,14 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <p>Give the answer to the same number of significant figures as the least precise data, usually 2 or 3. Keep full values in your calculator between steps and round only at the end.</p>
 </section>
 
-<section class="pane hidden" data-mod="launch" data-view="check" data-ref="1.5" data-title="Motion quick check">
-  <div class="pane-head"><h2>Phase 1.5 · Quick check: motion &amp; projectiles</h2><span class="badge red">QUICK CHECK</span></div>
+<section class="pane hidden" data-mod="launch" data-view="check" data-ref="1.7" data-title="Motion quick check">
+  <div class="pane-head"><h2>Phase 1.7 · Quick check: motion &amp; projectiles</h2><span class="badge red">QUICK CHECK</span></div>
   <p class="lede">Eight questions, instant feedback. Aim for 7 out of 8 before you attempt the exam-style problems.</p>
   <div class="quiz" data-quiz="launch" data-count="8"></div>
 </section>
 
-<section class="pane hidden" data-mod="launch" data-view="problems" data-ref="1.6" data-title="Motion problems">
-  <div class="pane-head"><h2>Phase 1.6 · Exam-style problems: motion &amp; projectiles</h2><span class="badge red">EXAM PRACTICE</span></div>
+<section class="pane hidden" data-mod="launch" data-view="problems" data-ref="1.8" data-title="Motion problems">
+  <div class="pane-head"><h2>Phase 1.8 · Exam-style problems: motion &amp; projectiles</h2><span class="badge red">EXAM PRACTICE</span></div>
   <p class="lede">Four original practice questions in the style of NCEA Level 2 AS91171 papers. They are not NZQA questions. Attempt every part before opening the worked answer. Take g = 9.8 m s⁻².</p>
 
   <article class="q"><div class="q-head"><b>QUESTION ONE</b><span>Rover test run · straight-line motion</span></div><div class="q-body">
@@ -1436,7 +1643,7 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
   map: { title: "COURSE MAP", name: "Course map & exam skills", views: [["scope", "0.1 Course map"], ["skills", "0.2 Exam skills"], ["formulas", "0.3 Formula sheet"], ["challenge", "0.4 Mixed challenge"]] },
-  launch: { title: "MOTION & PROJECTILES", name: "Motion & projectiles", views: [["intro", "1.1 Foundations"], ["graphs", "1.2 Graphs"], ["projectiles", "1.3 Projectiles"], ["clinic", "1.4 Clinic"], ["check", "1.5 Quick check"], ["problems", "1.6 Problems"]] },
+  launch: { title: "MOTION & PROJECTILES", name: "Motion & projectiles", views: [["vectors", "1.1 Vectors"], ["numbers", "1.2 Numbers & units"], ["intro", "1.3 Foundations"], ["graphs", "1.4 Graphs"], ["projectiles", "1.5 Projectiles"], ["clinic", "1.6 Clinic"], ["check", "1.7 Quick check"], ["problems", "1.8 Problems"]] },
   thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "2.1 Foundations"], ["vectors", "2.2 Vectors"], ["torque", "2.3 Torque"], ["springs", "2.4 Springs"], ["check", "2.5 Quick check"], ["problems", "2.6 Problems"]] },
   orbit: { title: "CIRCULAR MOTION", name: "Circular motion", views: [["intro", "3.1 Foundations"], ["lab", "3.2 Orbit lab"], ["clinic", "3.3 Clinic"], ["check", "3.4 Quick check"], ["problems", "3.5 Problems"]] },
   dock: { title: "MOMENTUM & IMPULSE", name: "Momentum & impulse", views: [["intro", "4.1 Foundations"], ["collide", "4.2 Collisions"], ["impulse", "4.3 Impulse"], ["check", "4.4 Quick check"], ["problems", "4.5 Problems"]] },
@@ -1444,11 +1651,12 @@ const MODS = {
 };
 const SCOPE = {
   launch: [
-    ["Describe motion with vectors and choose a positive direction", "Scalars & vectors", "launch:intro"],
+    ["Tell scalars from vectors and add vectors tip to tail, choosing a positive direction", "Scalars & vectors", "launch:vectors"],
     ["Read gradients and areas on d–t and v–t graphs", "Motion graphs", "launch:graphs"],
     ["Use the four constant-acceleration equations, including free fall", "vf = vi + at …", "launch:clinic"],
     ["Split a launch velocity into horizontal and vertical parts and explain why vx stays constant", "Projectiles", "launch:projectiles"],
     ["Calculate time of flight, range and maximum height", "Projectile recipe", "launch:clinic"],
+    ["Use prefixes and powers of ten, and multiply, divide, add and subtract numbers in standard form", "Numbers & units", "launch:numbers"],
   ],
   thrust: [
     ["Draw free-body diagrams and use F = ma with the net force", "Newton's laws", "thrust:intro"],
@@ -1479,6 +1687,8 @@ const TOTAL = Object.values(SCOPE).reduce((a, g) => a + g.length, 0);
 const ratings = store.get("ratings", {});
 const TIP_CHECK = "Got one wrong? Read the explanation, then reopen the matching lab before trying a new set.";
 const TIPS = {
+  "launch:vectors": "Every vector answer needs a direction as well as a size and a unit: \"5.0 m at 53° north of east\", not just \"5.0 m\".",
+  "launch:numbers": "Convert to SI units (m, kg, s) before substituting. Most lost marks in calculations come from g instead of kg or cm instead of m.",
   "launch:intro": "Before any calculation, write which direction is positive. Most sign errors come from switching direction halfway through a question.",
   "launch:graphs": "On a v–t graph, gradient means acceleration and area means displacement. Say which one you are using in your answer.",
   "launch:projectiles": "Treat the two directions separately and only link them through time. Write the equation first, then substitute, then the answer with a unit, so the marker can follow your working.",
@@ -1661,6 +1871,12 @@ document.addEventListener("click", (e) => { if (!e.target.closest(".search")) { 
 /* ====================================================== QUIZZES ===== */
 const Q = {
   launch: [
+    ["Which of these is a vector?", ["Speed", "Distance", "Displacement", "Energy"], 2, "Displacement has a size and a direction. Speed, distance and energy have size only."],
+    ["A hiker walks 6.0 km east then 8.0 km north. How far is she from her starting point?", ["14 km", "10 km", "2.0 km", "48 km"], 1, "The walks are at right angles: √(6.0² + 8.0²) = 10 km. 14 km is the distance walked, not the displacement."],
+    ["Forces of 7 N left and 3 N right act on a box. The resultant force is…", ["10 N left", "4 N left", "4 N right", "10 N right"], 1, "They are in opposite directions, so subtract: 7 − 3 = 4 N, in the direction of the bigger force."],
+    ["What is 450 nm in metres?", ["4.5 × 10⁻⁷ m", "4.5 × 10⁻⁹ m", "4.5 × 10⁻⁶ m", "4.5 × 10⁷ m"], 0, "450 nm = 450 × 10⁻⁹ m = 4.5 × 10⁻⁷ m."],
+    ["(3.0 × 10⁴) × (2.0 × 10⁻²) = ?", ["6.0 × 10⁻⁸", "6.0 × 10²", "5.0 × 10²", "6.0 × 10⁶"], 1, "Multiply the numbers (3.0 × 2.0 = 6.0) and add the powers (4 + (−2) = 2)."],
+    ["3.0 × 10⁵ + 4.0 × 10⁴ = ?", ["7.0 × 10⁹", "7.0 × 10⁵", "3.4 × 10⁵", "3.04 × 10⁵"], 2, "Make the powers match first: 4.0 × 10⁴ = 0.40 × 10⁵, so the total is 3.4 × 10⁵."],
     ["A rover drives 30 m east then 10 m west in 20 s. What is its average velocity?", ["1.0 m s⁻¹ east", "2.0 m s⁻¹ east", "1.0 m s⁻¹ west", "2.0 m s⁻¹ west"], 0, "Displacement is 20 m east, so v = 20 ÷ 20 = 1.0 m s⁻¹ east. 2.0 m s⁻¹ is the average speed (40 m of distance ÷ 20 s)."],
     ["On a velocity–time graph, what does the area under the line give?", ["Acceleration", "Displacement", "Average speed", "Force"], 1, "Area = velocity × time = displacement. The gradient gives the acceleration."],
     ["A car goes from 12 m s⁻¹ to 30 m s⁻¹ in 6.0 s. Its acceleration is…", ["3.0 m s⁻²", "5.0 m s⁻²", "2.0 m s⁻²", "7.0 m s⁻²"], 0, "a = Δv ÷ Δt = (30 − 12) ÷ 6.0 = 3.0 m s⁻²."],
@@ -2179,6 +2395,259 @@ function powerCalc() {
     $("spF").textContent = fmt(F) + " N"; $("spX").textContent = x > 0 ? fmt(x * 100) + " cm (" + fmt(x) + " m)" : "0";
     $("spE").textContent = x > 0 ? fmt(E) + " J" : "0 J";
   };
+})();
+
+/* ====================================================== 1.1 · SCALAR / VECTOR SORTER ===== */
+(() => {
+  const ITEMS = [
+    ["mass", "S", "Mass has size only: 5 kg has no direction."],
+    ["distance", "S", "Distance is how far you travelled along the path, with no direction."],
+    ["displacement", "V", "Displacement is how far and in which direction from the start."],
+    ["speed", "S", "Speed is how fast, not which way."],
+    ["velocity", "V", "Velocity is speed in a stated direction."],
+    ["time", "S", "Time has no direction."],
+    ["acceleration", "V", "Acceleration has a direction, the same as the change in velocity."],
+    ["force", "V", "A force always pushes or pulls in a direction."],
+    ["weight", "V", "Weight is a force, so it has a direction: downwards."],
+    ["energy", "S", "Energy has size only. Kinetic energy is never negative."],
+    ["momentum", "V", "Momentum has the same direction as the velocity."],
+    ["temperature", "S", "Temperature has size only."],
+    ["power", "S", "Power is energy per second, so it has no direction."],
+    ["impulse", "V", "Impulse is a change in momentum, so it has a direction."],
+  ];
+  const box = $("svSort"), score = $("svScore");
+  function build() {
+    box.replaceChildren(); let done = 0, right = 0;
+    const upd = () => (score.textContent = `${done} of ${ITEMS.length} sorted · ${right} correct`);
+    ITEMS.forEach(([name, ans, why]) => {
+      const row = document.createElement("div"); row.className = "sv-item";
+      const nm = document.createElement("b"); nm.textContent = name;
+      const bs = document.createElement("div"); bs.className = "sv-btns";
+      const fb = document.createElement("p"); fb.className = "sv-fb hidden";
+      [["S", "Scalar"], ["V", "Vector"]].forEach(([k, lab]) => {
+        const b = document.createElement("button"); b.type = "button"; b.textContent = lab;
+        b.addEventListener("click", () => {
+          const ok = k === ans; done++; if (ok) right++;
+          [...bs.children].forEach((c) => { c.disabled = true; });
+          b.classList.add(ok ? "right" : "wrong");
+          if (!ok) [...bs.children].find((c) => c !== b).classList.add("right");
+          fb.innerHTML = `<b style="color:${ok ? "var(--ok)" : "var(--bad)"}">${ok ? "Yes." : "No, it's a " + (ans === "S" ? "scalar" : "vector") + "."}</b> ${why}`;
+          fb.classList.remove("hidden"); upd();
+        });
+        bs.appendChild(b);
+      });
+      row.append(nm, bs, fb); box.appendChild(row);
+    });
+    upd();
+  }
+  $("svReset").addEventListener("click", build); build();
+})();
+
+/* ====================================================== 1.1 · VECTOR ADDITION LAB ===== */
+(() => {
+  const cv = $("vaCanvas"), sim = { dirty: true, anim: false }; sims["launch:vectors"] = sim;
+  const S = { op: "add", para: false, drag: null };
+  const sl = { ax: $("vaAx"), ay: $("vaAy"), bx: $("vaBx"), by: $("vaBy") };
+  const XR = 5, YR = 4;
+  const val = () => ({ ax: +sl.ax.value, ay: +sl.ay.value, bx: +sl.bx.value, by: +sl.by.value });
+  function outs() { const v = val(); $("vaAxOut").textContent = fx(v.ax, 0, true) + " m"; $("vaAyOut").textContent = fx(v.ay, 0, true) + " m"; $("vaBxOut").textContent = fx(v.bx, 0, true) + " m"; $("vaByOut").textContent = fx(v.by, 0, true) + " m"; sim.dirty = true; }
+  const presets = [...document.querySelectorAll("[data-va]")];
+  function setV(ax, ay, bx, by) { sl.ax.value = ax; sl.ay.value = ay; sl.bx.value = bx; sl.by.value = by; outs(); }
+  Object.values(sl).forEach((el) => el.addEventListener("input", () => { setPressed(presets, null); outs(); }));
+  presets.forEach((b) => b.addEventListener("click", () => {
+    setPressed(presets, b);
+    if (b.dataset.va === "random") { const r = (n) => Math.round((Math.random() * 2 - 1) * n); let a, c; do { a = [r(4), r(3)]; c = [r(4), r(3)]; } while ((!a[0] && !a[1]) || (!c[0] && !c[1])); setV(a[0], a[1], c[0], c[1]); }
+    else setV(...b.dataset.va.split(",").map(Number));
+  }));
+  const opBtns = [...document.querySelectorAll("[data-va-op]")];
+  opBtns.forEach((b) => b.addEventListener("click", () => { S.op = b.dataset.vaOp; setPressed(opBtns, b); sim.dirty = true; }));
+  const pb = $("vaPara"); pb.addEventListener("click", () => { S.para = !S.para; pb.setAttribute("aria-pressed", String(S.para)); sim.dirty = true; });
+  outs();
+  let G0 = null; // geometry from last draw
+  const dirText = (x, y) => {
+    if (Math.abs(x) < 1e-9 && Math.abs(y) < 1e-9) return "none";
+    if (Math.abs(y) < 1e-9) return x > 0 ? "east" : "west";
+    if (Math.abs(x) < 1e-9) return y > 0 ? "north" : "south";
+    const ang = (Math.atan(Math.abs(y) / Math.abs(x)) * 180) / Math.PI;
+    return `${fmt(ang, 2)}° ${y > 0 ? "north" : "south"} of ${x > 0 ? "east" : "west"}`;
+  };
+  const vecText = (x, y) => { const m = Math.hypot(x, y); return m < 1e-9 ? "0 m" : `${fmt(m)} m, ${dirText(x, y)}`; };
+  function pos(e) { const r = cv.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+  cv.addEventListener("pointerdown", (e) => {
+    if (!G0) return; const p = pos(e), v = val();
+    const A = G0.P(v.ax, v.ay), B = G0.P(v.ax + (S.op === "sub" ? -v.bx : v.bx), v.ay + (S.op === "sub" ? -v.by : v.by));
+    const dA = Math.hypot(p.x - A.x, p.y - A.y), dB = Math.hypot(p.x - B.x, p.y - B.y);
+    if (Math.min(dA, dB) > 26) return;
+    S.drag = dB <= dA ? "B" : "A"; cv.setPointerCapture(e.pointerId); e.preventDefault(); setPressed(presets, null);
+  });
+  cv.addEventListener("pointermove", (e) => {
+    if (!G0) return; const p = pos(e), v = val();
+    if (!S.drag) { const A = G0.P(v.ax, v.ay), B = G0.P(v.ax + (S.op === "sub" ? -v.bx : v.bx), v.ay + (S.op === "sub" ? -v.by : v.by)); cv.style.cursor = Math.min(Math.hypot(p.x - A.x, p.y - A.y), Math.hypot(p.x - B.x, p.y - B.y)) < 26 ? "grab" : "default"; return; }
+    const g = G0.U(p.x, p.y);
+    if (S.drag === "A") { sl.ax.value = clamp(Math.round(g.x), -XR, XR); sl.ay.value = clamp(Math.round(g.y), -YR, YR); }
+    else { let bx = Math.round(g.x) - v.ax, by = Math.round(g.y) - v.ay; if (S.op === "sub") { bx = -bx; by = -by; } sl.bx.value = clamp(bx, -XR, XR); sl.by.value = clamp(by, -YR, YR); }
+    outs();
+  });
+  const end = () => { S.drag = null; cv.style.cursor = "default"; };
+  cv.addEventListener("pointerup", end); cv.addEventListener("pointercancel", end);
+  sim.frame = () => {
+    const v = val(), sgn = S.op === "sub" ? -1 : 1, bx = sgn * v.bx, by = sgn * v.by, rx = v.ax + bx, ry = v.ay + by;
+    const { ctx, w, h } = fit(cv, (w) => Math.max(320, Math.round(w * 0.56)));
+    clear(ctx, w, h);
+    const span = { x: 2 * XR * 2 + 1, y: 2 * YR * 2 + 1 };
+    const u = Math.min((w - 40) / span.x, (h - 40) / span.y), ox = w / 2, oy = h / 2;
+    const P = (x, y) => ({ x: ox + x * u, y: oy - y * u }), U = (px, py) => ({ x: (px - ox) / u, y: (oy - py) / u });
+    G0 = { P, U };
+    // grid with 1 m squares
+    ctx.strokeStyle = C.grid; ctx.lineWidth = 1; ctx.beginPath();
+    for (let i = -Math.floor(ox / u); i <= Math.floor((w - ox) / u); i++) { const x = Math.round(ox + i * u) + 0.5; ctx.moveTo(x, 0); ctx.lineTo(x, h); }
+    for (let j = -Math.floor(oy / u); j <= Math.floor((h - oy) / u); j++) { const y = Math.round(oy + j * u) + 0.5; ctx.moveTo(0, y); ctx.lineTo(w, y); }
+    ctx.stroke();
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(w, oy); ctx.moveTo(ox, 0); ctx.lineTo(ox, h); ctx.stroke();
+    text(ctx, "N", ox + 6, 14, C.muted, 11); text(ctx, "E", w - 12, oy - 6, C.muted, 11);
+    text(ctx, "1 square = 1 m", 12, h - 10, C.muted, 10);
+    const O = P(0, 0), A = P(v.ax, v.ay), B = P(rx, ry);
+    if (S.para && (v.ax || v.ay) && (bx || by)) {
+      const B0 = P(bx, by);
+      ctx.save(); ctx.globalAlpha = 0.45; arrow(ctx, O.x, O.y, B0.x, B0.y, C.vector, 2, 8, [5, 5]); arrow(ctx, B0.x, B0.y, B.x, B.y, C.data, 2, 8, [5, 5]); ctx.restore();
+    }
+    // components of resultant
+    if (rx && ry) { ctx.save(); ctx.strokeStyle = C.accent; ctx.globalAlpha = 0.5; ctx.setLineDash([3, 4]); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(P(rx, 0).x, O.y); ctx.lineTo(B.x, B.y); ctx.stroke(); ctx.restore(); }
+    if (S.op === "sub" && (v.bx || v.by)) { const Bo = P(v.ax + v.bx, v.ay + v.by); ctx.save(); ctx.globalAlpha = 0.35; arrow(ctx, A.x, A.y, Bo.x, Bo.y, C.vector, 2, 8, [2, 4]); ctx.restore(); text(ctx, "B", Bo.x + 6, Bo.y - 6, C.muted, 11); }
+    if (v.ax || v.ay) arrow(ctx, O.x, O.y, A.x, A.y, C.data, 3.5, 12);
+    if (bx || by) arrow(ctx, A.x, A.y, B.x, B.y, C.vector, 3.5, 12);
+    if (rx || ry) arrow(ctx, O.x, O.y, B.x, B.y, C.accent, 4, 13);
+    const lab = (s, p, q, col) => { const mx = (p.x + q.x) / 2, my = (p.y + q.y) / 2, dx = q.x - p.x, dy = q.y - p.y, L = Math.hypot(dx, dy) || 1; text(ctx, s, mx - (dy / L) * 14, my + (dx / L) * 14 + 4, col, 13, "center"); };
+    if (v.ax || v.ay) lab("A", O, A, C.data);
+    if (bx || by) lab(S.op === "sub" ? "−B" : "B", A, B, C.vector);
+    if (rx || ry) lab(S.op === "sub" ? "A − B" : "A + B", B, O, C.accent);
+    // handles
+    [[A, C.data], [B, C.vector]].forEach(([p, c]) => { ctx.beginPath(); ctx.arc(p.x, p.y, 8, 0, 7); ctx.fillStyle = C.panel; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = c; ctx.stroke(); });
+    ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(O.x, O.y, 4, 0, 7); ctx.fill();
+    // readouts
+    const R = Math.hypot(rx, ry);
+    $("vaA").textContent = vecText(v.ax, v.ay); $("vaB").textContent = vecText(v.bx, v.by);
+    $("vaRlab").textContent = S.op === "sub" ? "Resultant, A − B" : "Resultant, A + B";
+    $("vaR").textContent = fmt(R) + " m"; $("vaDir").textContent = R < 1e-9 ? "none" : dirText(rx, ry);
+    const parallel = Math.abs(v.ax * by - v.ay * bx) < 1e-9 && (v.ax || v.ay) && (bx || by);
+    const perp = Math.abs(v.ax * bx + v.ay * by) < 1e-9 && (v.ax || v.ay) && (bx || by);
+    let n;
+    if (R < 1e-9) n = "The arrows end where they started, so the resultant is zero: the vectors cancel exactly.";
+    else if (parallel) { const same = v.ax * bx + v.ay * by > 0; n = same ? `The vectors point the same way, so their sizes simply add: ${fmt(Math.hypot(v.ax, v.ay))} + ${fmt(Math.hypot(bx, by))} = ${fmt(R)} m.` : `The vectors point in opposite directions, so subtract the sizes: |${fmt(Math.hypot(v.ax, v.ay))} − ${fmt(Math.hypot(bx, by))}| = ${fmt(R)} m, in the direction of the bigger one.`; }
+    else if (perp) n = `At right angles: R = √(${fmt(Math.hypot(v.ax, v.ay))}² + ${fmt(Math.hypot(bx, by))}²) = ${fmt(R)} m. Note this is less than ${fmt(Math.hypot(v.ax, v.ay) + Math.hypot(bx, by))} m, the sum of the sizes.`;
+    else n = `Add the parts separately: east ${fx(v.ax, 0, true)} ${bx < 0 ? "−" : "+"} ${Math.abs(bx)} = ${fx(rx, 0, true)} m, north ${fx(v.ay, 0, true)} ${by < 0 ? "−" : "+"} ${Math.abs(by)} = ${fx(ry, 0, true)} m. Then R = √(${fx(rx, 0)}² + ${fx(ry, 0)}²) = ${fmt(R)} m.`;
+    if (S.op === "sub" && R > 1e-9) n = "To subtract B, flip it round (−B) and add it tip to tail. " + n;
+    $("vaNote").textContent = n;
+    $("vaHud").textContent = S.drag ? "DRAGGING " + S.drag : "DRAG THE ROUND HANDLES";
+  };
+})();
+
+/* ====================================================== 1.2 · POWERS OF TEN ===== */
+(() => {
+  const EX = {
+    "-9": "1 nm: about the width of a sugar molecule.", "-8": "10 nm: the size of features on a modern computer chip.", "-7": "100 nm: a small virus.",
+    "-6": "1 µm: a bacterium.", "-5": "10 µm: about the size of a red blood cell (8 µm).", "-4": "0.1 mm: the width of a human hair (about 80 µm).",
+    "-3": "1 mm: a grain of sand.", "-2": "1 cm: the width of a fingernail.", "-1": "10 cm: the width of your hand.",
+    "0": "1 m: a long stride.", "1": "10 m: the length of a classroom.", "2": "100 m: the length of a rugby field.",
+    "3": "1 km: about a 12-minute walk.", "4": "10 km: the cruising height of a passenger jet.", "5": "100 km: where space begins.",
+    "6": "1000 km: roughly the length of the North Island.", "7": "10 000 km: Earth is about 12 700 km across.", "8": "100 000 km: the Moon is 384 000 km away (3.84 × 10⁸ m).",
+    "9": "1 Gm, a million km: the Sun is 1.39 × 10⁹ m across.",
+  };
+  const WORDS = { 9: "one billion", 8: "one hundred million", 7: "ten million", 6: "one million", 5: "one hundred thousand", 4: "ten thousand", 3: "one thousand", 2: "one hundred", 1: "ten", 0: "one",
+    "-1": "one tenth", "-2": "one hundredth", "-3": "one thousandth", "-4": "one ten-thousandth", "-5": "one hundred-thousandth", "-6": "one millionth", "-7": "one ten-millionth", "-8": "one hundred-millionth", "-9": "one billionth" };
+  const PRE = [[9, "Gm"], [6, "Mm"], [3, "km"], [0, "m"], [-2, "cm"], [-3, "mm"], [-6, "µm"], [-9, "nm"]];
+  const sup = (n) => String(n).split("").map((c) => SUP[c]).join("");
+  const el = $("ptE"), ruler = $("ptRuler");
+  for (let e = -9; e <= 9; e++) { const t = document.createElement("span"); t.dataset.e = e; t.textContent = e % 3 === 0 ? "10" + sup(e) : ""; ruler.appendChild(t); }
+  function upd() {
+    const e = +el.value;
+    $("ptOut").textContent = "10" + sup(e) + " m";
+    $("ptStd").textContent = "1 × 10" + sup(e) + " m";
+    $("ptDec").textContent = (e >= 0 ? (10 ** e).toLocaleString("en-NZ") : "0." + "0".repeat(-e - 1) + "1") + " m";
+    $("ptWord").textContent = e > 0 ? WORDS[e] + " metres" : e === 0 ? "one metre" : WORDS[e] + " of a metre";
+    const forms = PRE.filter(([p]) => e - p >= -1 && e - p <= 3 && (p !== -2 || e === -2 || e === -1)).map(([p, u]) => (10 ** (e - p)).toLocaleString("en-NZ", { maximumFractionDigits: 1 }) + " " + u);
+    $("ptPre").textContent = forms.slice(0, 2).join(" = ");
+    $("ptEx").textContent = EX[e];
+    [...ruler.children].forEach((t) => t.classList.toggle("on", +t.dataset.e === e));
+  }
+  el.addEventListener("input", upd); upd();
+})();
+
+/* ====================================================== 1.2 · UNIT CONVERTER ===== */
+(() => {
+  const U = {
+    len: [["nm", 1e-9], ["µm", 1e-6], ["mm", 1e-3], ["cm", 1e-2], ["m", 1], ["km", 1e3], ["Mm", 1e6], ["Gm", 1e9]],
+    mass: [["µg", 1e-9], ["mg", 1e-6], ["g", 1e-3], ["kg", 1], ["tonne", 1e3]],
+    time: [["ns", 1e-9], ["µs", 1e-6], ["ms", 1e-3], ["s", 1], ["min", 60], ["h", 3600]],
+    energy: [["mJ", 1e-3], ["J", 1], ["kJ", 1e3], ["MJ", 1e6], ["GJ", 1e9]],
+    speed: [["m s⁻¹", 1], ["km h⁻¹", 1 / 3.6]],
+  };
+  const DEF = { len: ["nm", "m"], mass: ["g", "kg"], time: ["ms", "s"], energy: ["kJ", "J"], speed: ["km h⁻¹", "m s⁻¹"] };
+  const q = $("cvQ"), f = $("cvFrom"), t = $("cvTo"), v = $("cvV");
+  function fill() {
+    const list = U[q.value]; [f, t].forEach((s, i) => { s.replaceChildren(); list.forEach(([u]) => { const o = document.createElement("option"); o.value = u; o.textContent = u; s.appendChild(o); }); s.value = DEF[q.value][i]; });
+    if (q.value === "len") v.value = 450; else if (q.value === "mass") v.value = 250; else if (q.value === "time") v.value = 50; else if (q.value === "energy") v.value = 3.5; else v.value = 72;
+    calc();
+  }
+  const std = (x) => { if (x === 0) return "0"; const ax = Math.abs(x); if (ax >= 0.001 && ax < 1e5) return fmt(x, 4).replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, ""); return fmt(x, 3); };
+  function calc() {
+    const x = parseFloat(v.value), list = U[q.value], a = list.find((u) => u[0] === f.value)[1], b = list.find((u) => u[0] === t.value)[1];
+    if (!isFinite(x)) { $("cvOut").textContent = "–"; $("cvHow").textContent = ""; return; }
+    const y = (x * a) / b; $("cvOut").textContent = std(y) + " " + t.value;
+    const r = a / b; let how;
+    if (q.value === "speed") how = f.value === t.value ? "Same unit." : f.value === "km h⁻¹" ? "Divide by 3.6: 1 km h⁻¹ = 1000 m ÷ 3600 s." : "Multiply by 3.6.";
+    else if (f.value === t.value) how = "Same unit.";
+    else if (["min", "h"].includes(f.value) || ["min", "h"].includes(t.value)) how = `1 ${f.value} = ${std(r)} ${t.value}, so multiply by ${std(r)}.`;
+    else { const k = Math.round(Math.log10(r)); how = `1 ${f.value} = 10${String(k).split("").map((c) => SUP[c]).join("")} ${t.value}, so ${k > 0 ? "multiply" : "divide"} by ${(10 ** Math.abs(k)).toLocaleString("en-NZ")}${Math.abs(k) >= 3 ? " (move the decimal point " + Math.abs(k) + " places " + (k > 0 ? "right" : "left") + ")" : ""}.`; }
+    $("cvHow").textContent = how;
+  }
+  q.addEventListener("change", fill); [f, t].forEach((s) => s.addEventListener("change", calc)); v.addEventListener("input", calc); fill();
+})();
+
+/* ====================================================== 1.2 · PRACTICE ===== */
+(() => {
+  const sup = (n) => String(n).split("").map((c) => SUP[c]).join("");
+  const sf = (m, e) => `${m.toFixed(1)} × 10${sup(e)}`;
+  const sg = (n) => (n < 0 ? "(−" + -n + ")" : String(n));
+  const ri = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+  const rm = () => ri(11, 99) / 10;
+  let type = "mix", cur = null, n = 0, right = 0, answered = false;
+  const toStd = (x) => { const e = Math.floor(Math.log10(Math.abs(x)) + 1e-9); let m = x / 10 ** e; if (Math.abs(m) >= 9.995) { m /= 10; return [m, e + 1]; } return [m, e]; };
+  const show = (x) => { const [m, e] = toStd(x); return `${(Math.round(m * 100) / 100).toString()} × 10${sup(e)}`; };
+  function gen(t) {
+    if (t === "mix") t = ["mul", "div", "add", "conv"][ri(0, 3)];
+    if (t === "mul") { const a = rm(), b = rm(), p = ri(-6, 6), q = ri(-6, 6), x = a * 10 ** p * b * 10 ** q;
+      return { q: `(${sf(a, p)}) × (${sf(b, q)})`, x, unit: "", work: [`Multiply the numbers: ${a.toFixed(1)} × ${b.toFixed(1)} = ${fmt(a * b, 3)}`, `Add the powers: ${sg(p)} + ${sg(q)} = ${sg(p + q).replace(/[()]/g, "")}`, (a * b < 10 ? `Answer: ${show(x)}` : `${fmt(a * b, 3)} × 10${sup(p + q)} = ${show(x)} (tidied into standard form)`)] }; }
+    if (t === "div") { const a = rm(), b = rm(), p = ri(-6, 8), q = ri(-6, 6), x = (a * 10 ** p) / (b * 10 ** q);
+      return { q: `(${sf(a, p)}) ÷ (${sf(b, q)})`, x, unit: "", work: [`Divide the numbers: ${a.toFixed(1)} ÷ ${b.toFixed(1)} = ${fmt(a / b, 3)}`, `Subtract the powers: ${sg(p)} − ${sg(q)} = ${sg(p - q).replace(/[()]/g, "")}`, (a / b >= 1 ? `Answer: ${show(x)}` : `${fmt(a / b, 3)} × 10${sup(p - q)} = ${show(x)} (tidied into standard form)`)] }; }
+    if (t === "add") { const a = rm(), b = rm(), p = ri(-5, 6), d = ri(1, 2), q = p - d, plus = Math.random() < 0.6, bs = b / 10 ** d, x = plus ? a * 10 ** p + b * 10 ** q : a * 10 ** p - b * 10 ** q;
+      return { q: `${sf(a, p)} ${plus ? "+" : "−"} ${sf(b, q)}`, x, unit: "", work: [`Make the powers the same: ${sf(b, q)} = ${fmt(bs, 3)} × 10${sup(p)}`, `${plus ? "Add" : "Subtract"} the numbers: ${a.toFixed(1)} ${plus ? "+" : "−"} ${fmt(bs, 3)} = ${fmt(plus ? a + bs : a - bs, 4)}`, `Answer: ${show(x)} (keep the power: don't add or subtract powers)`] }; }
+    const C2 = [["nm", -9, "m", "wavelength of light"], ["µm", -6, "m", "width of a hair"], ["mm", -3, "m", "extension of a spring"], ["km", 3, "m", "distance"], ["MJ", 6, "J", "energy"], ["ms", -3, "s", "contact time"], ["GW", 9, "W", "power station output"], ["g", -3, "kg", "mass"]];
+    const [u, k, base, what] = C2[ri(0, C2.length - 1)], val = ri(12, 950), x = val * 10 ** k;
+    return { q: `Convert ${val} ${u} (a ${what}) into ${base}.`, x, unit: base, work: [`1 ${u} = 10${sup(k)} ${base}`, `${val} × 10${sup(k)} ${base}`, `In standard form: ${show(x)} ${base}`] };
+  }
+  const pxBtns = [...document.querySelectorAll("[data-px]")];
+  pxBtns.forEach((b) => b.addEventListener("click", () => { type = b.dataset.px; setPressed(pxBtns, b); next(); }));
+  const verdict = $("pxVerdict"), work = $("pxWork");
+  function next() {
+    cur = gen(type); answered = false; $("pxQ").textContent = cur.q.startsWith("Convert") ? cur.q : cur.q + " = ?"; $("pxUnit").textContent = cur.unit;
+    $("pxM").value = ""; $("pxE").value = ""; verdict.classList.add("hidden"); work.classList.add("hidden");
+  }
+  function check() {
+    const m = parseFloat($("pxM").value), e = parseInt($("pxE").value, 10);
+    if (!isFinite(m) || !isFinite(e)) { verdict.className = "verdict info"; verdict.textContent = "Fill in both boxes: the number part and the power of ten."; return; }
+    const y = m * 10 ** e, ok = Math.abs(y - cur.x) <= Math.abs(cur.x) * 0.011;
+    if (!answered) { n++; if (ok) right++; answered = true; }
+    const stdOk = Math.abs(m) >= 1 && Math.abs(m) < 10;
+    verdict.className = "verdict " + (ok ? "ok" : "bad");
+    verdict.textContent = ok ? (stdOk ? "Correct." : `Correct, but not in standard form. The number part should be between 1 and 10: ${show(cur.x)}.`) : `Not quite. The answer is ${show(cur.x)}${cur.unit ? " " + cur.unit : ""}. Open the working to see how.`;
+    $("pxScore").textContent = `Score ${right} / ${n}`;
+  }
+  $("pxCheck").addEventListener("click", check);
+  [$("pxM"), $("pxE")].forEach((i) => i.addEventListener("keydown", (e) => { if (e.key === "Enter") check(); }));
+  $("pxShow").addEventListener("click", () => { work.innerHTML = cur.work.map((s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]))).join("<br>"); work.classList.remove("hidden"); });
+  $("pxNext").addEventListener("click", next);
+  next();
 })();
 
 /* ====================================================== SIM 3.2 · CIRCULAR MOTION ===== */
