@@ -269,9 +269,9 @@ body.light-mode .pf-e{stroke:#2d7a37}body.light-mode .pf-efill,body.light-mode .
 body.light-mode .pf-f{stroke:#1f8a55}body.light-mode .pf-ffill,body.light-mode .pf-flab,body.light-mode .pf-fkey{fill:#1f8a55}
 .rcnote{margin:2px 0 0;padding:8px 12px;border-left:3px solid var(--topic);background:#0a1020;border-radius:0 6px 6px 0;font-size:14px}
 body.light-mode .rstats>div,body.light-mode .rcnote{background:#f3f6fa;border-color:#c6d0db}body.light-mode .rcnote{border-left-color:var(--topic)}
-.coilbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .nx-bar-inputs{grid-template-columns:repeat(3,minmax(0,1fr))}.txbar .control select{width:100%}.coilbar .control select{width:100%}
-@media(max-width:1000px){.rstats{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:700px){.rcbar .nx-bar-inputs,.coilbar .nx-bar-inputs,.txbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr)}.rstats>div>b{white-space:normal;overflow-wrap:anywhere}.rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.coilbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .nx-bar-inputs{grid-template-columns:repeat(3,minmax(0,1fr))}.phbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}.phbar .control select{width:100%}.phbar .rstats{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .control select{width:100%}.coilbar .control select{width:100%}
+@media(max-width:1000px){.rstats,.phbar .rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.rcbar .nx-bar-inputs,.coilbar .nx-bar-inputs,.txbar .nx-bar-inputs,.phbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr)}.rstats>div>b{white-space:normal;overflow-wrap:anywhere}.rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .cmptab{min-width:520px}.cmptab td{white-space:normal;text-align:left;vertical-align:top;line-height:1.45}.cmptab td:first-child{width:22%}
 .fl-banner{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:6px 0 10px;padding:6px 16px;border:1px solid #39445d;border-left:4px solid var(--topic);border-radius:8px;background:#0c1222}.fl-banner .katex-display{margin:4px 0}.fl-banner>span{font-size:13px;color:var(--muted)}
 body.light-mode .fl-banner{background:#f3f6fa;border-color:#c6d0db;border-left-color:var(--topic)}
@@ -1901,17 +1901,38 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p class="sub">Choose a single component connected to an AC supply of 10 V rms. The phasors (left) rotate at the supply frequency (slowed down); their vertical projections draw the waveforms (centre). The graph at the bottom shows how the opposition to current changes with frequency.</p>
 <div class="nx-lab">
 <div class="sim"><canvas id="phCanvas" height="420" aria-label="Rotating voltage and current phasors, matching waveforms, and a graph of reactance against frequency"></canvas></div>
-<div class="legend"><span style="--key:#ff8a7a">Voltage</span><span style="--key:#78d9f7">Current (scaled)</span></div>
-<div class="nx-ctlbar">
+<div class="legend"><span style="--key:#ff8a7a">Voltage</span><span style="--key:#78d9f7">Current, \(i\) (own axis)</span></div>
+<div class="nx-ctlbar kirbar rcbar phbar">
 <div class="nx-bar-inputs">
 <h3>Controls</h3>
 <div class="control"><label for="phComp">Component</label><select id="phComp"><option value="R">Resistor, 100 Ω</option><option value="C" selected>Capacitor, 10 µF</option><option value="L">Inductor, 0.20 H</option></select></div>
 <div class="control"><label for="phF">Frequency <output id="phFOut">50 Hz</output></label><input id="phF" max="4" min="1" step="0.001" type="range" value="1.699"/></div>
-<div class="btn-row"><button class="tool-btn" id="phPlay" type="button">Pause</button></div>
 </div>
-<div class="nx-bar-info"><div class="readout" id="phReadout">…</div></div>
+<div class="btn-row kbtns"><button class="tool-btn" id="phPlay" type="button">Pause</button></div>
+<div class="rstats" id="phReadout">…</div>
+<p class="rcnote" id="phNote">…</p>
 </div>
 </div>
+<h3>Why does the current lead or lag the voltage?</h3>
+<p class="sub">Try to answer each question yourself before reading the answer. The key idea: for a capacitor the <em>voltage</em> depends on how much charge has flowed; for an inductor the <em>voltage</em> depends on how fast the current is changing.</p>
+<details class="nx-worked" open><summary>Capacitor: why does the current lead the voltage by 90° (a quarter cycle)?</summary>
+<p>A capacitor's voltage is set by the charge on its plates, \(V_{C} = Q/C\). The charge only builds up <em>because</em> current flows onto the plates, so the current has to come first and the voltage follows.</p>
+<ul class="nx-list">
+<li>When the plates are empty (\(V_{C} = 0\)) and the supply starts to push, charge flows on most easily: the current is at its <strong>maximum</strong> while the voltage is zero.</li>
+<li>As charge piles up, \(V_{C}\) rises and opposes the supply, so the current falls. When the voltage reaches its <strong>peak</strong>, the plates have stopped filling: the current is <strong>zero</strong>.</li>
+<li>Then charge flows back off (the current reverses) while \(V_{C}\) falls, and so on.</li>
+</ul>
+<p>So each current peak comes a quarter of a cycle <strong>before</strong> the voltage peak: the current leads the voltage by 90°. (In maths: \(i = \Delta Q/\Delta t = C\,\Delta V/\Delta t\), so the current is largest where the voltage graph is steepest, which is where \(V\) crosses zero.)</p></details>
+<details class="nx-worked" open><summary>Inductor: why does the current lag the voltage by 90°?</summary>
+<p>An inductor's voltage is set by how fast its current is <em>changing</em>, \(V_{L} = L\,\Delta i/\Delta t\) (the back emf opposes the change). The current cannot change suddenly, so it trails behind the voltage that is driving it.</p>
+<ul class="nx-list">
+<li>The voltage is largest when the current is changing fastest, which is when the current is passing through <strong>zero</strong>.</li>
+<li>When the current reaches its <strong>peak</strong>, it is momentarily not changing, so the voltage is <strong>zero</strong>.</li>
+</ul>
+<p>So each current peak comes a quarter of a cycle <strong>after</strong> the voltage peak: the current lags the voltage by 90° (the voltage leads).</p></details>
+<details class="nx-worked"><summary>And a resistor?</summary>
+<p>A resistor has no store of charge and no magnetic field to build up, so \(i = V/R\) at every instant: the current and voltage peak together. They are <strong>in phase</strong>.</p></details>
+<p class="small"><strong>Memory aid:</strong> "CIVIL". In a <strong>C</strong>apacitor, <strong>I</strong> leads <strong>V</strong>; <strong>V</strong> leads <strong>I</strong> in an inductor (<strong>L</strong>). Watch the phasors above: for C the current phasor is 90° ahead of the voltage phasor, for L it is 90° behind.</p>
 </section>
 
 <section class="pane hidden" data-section="ac" data-view="lcr">
@@ -3440,26 +3461,47 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
  const X=(comp,f)=>comp==='R'?R:comp==='C'?1/(2*Math.PI*f*Cc):2*Math.PI*f*Lc;
  st.step=dt=>{if(st.playing)st.th+=dt*2*Math.PI*0.3};
  st.draw=function(){const {c,W,H}=fit(cv,420,660);clear(c,W,H);const p=P();const x=X(p.comp,p.f),I=Vr/x;const phi=p.comp==='C'?Math.PI/2:p.comp==='L'?-Math.PI/2:0;
-  const narrow=W<640;const top=narrow?H*0.55:H*0.56;
-  // phasor circle
-  const pr=Math.min(narrow?W*0.2:W*0.13,top*0.36),pcx=pr+24,pcy=top/2+6;c.strokeStyle=GRID;c.lineWidth=1;c.beginPath();c.arc(pcx,pcy,pr,0,7);c.stroke();line(c,pcx-pr-8,pcy,pcx+pr+8,pcy,AX,1);line(c,pcx,pcy-pr-8,pcx,pcy+pr+8,AX,1);
-  const th=st.th;arrow(c,pcx,pcy,pcx+pr*Math.cos(th),pcy-pr*Math.sin(th),CORAL,3);const il=pr*clamp(0.75*I/(Vr/R),0.1,1.15);
-  arrow(c,pcx,pcy,pcx+il*Math.cos(th+phi),pcy-il*Math.sin(th+phi),CYN,3);text(c,'V',pcx+(pr+12)*Math.cos(th),pcy-(pr+12)*Math.sin(th),CORAL,12,'center','middle');text(c,'I',pcx+(il+12)*Math.cos(th+phi),pcy-(il+12)*Math.sin(th+phi),CYN,12,'center','middle');
-  text(c,'phasors',pcx,pcy+pr+22,MUT,11,'center');
-  // waveforms
-  const wx=pcx+pr+30,ww=W-wx-14,wy=pcy-pr,wh=2*pr;line(c,wx,pcy,wx+ww,pcy,AX,1);line(c,wx,wy,wx,wy+wh,AX,1);
-  const vw=[],iw=[];for(let k=0;k<=200;k++){const u=k/200;const a=th-u*3*Math.PI;vw.push([wx+u*ww,pcy-pr*Math.sin(a)]);iw.push([wx+u*ww,pcy-pr*0.7*Math.sin(a+phi)])}
-  const pl=(arr,col)=>{c.strokeStyle=col;c.lineWidth=2.4;c.beginPath();arr.forEach((q,i)=>i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1]));c.stroke()};pl(vw,CORAL);pl(iw,CYN);
-  line(c,pcx+pr*Math.cos(th),pcy-pr*Math.sin(th),wx,pcy-pr*Math.sin(th),'rgba(255,138,122,.35)',1,[3,3]);
-  text(c,'← now',wx+4,wy-6,MUT,10);text(c,'earlier →',wx+ww,wy-6,MUT,10,'right');
-  text(c,p.comp==='R'?'V and I in phase':p.comp==='C'?'I leads V by 90°':'V leads I by 90°',wx+ww/2,wy+wh+18,INK,12,'center');
+  const narrow=W<640;const top=narrow?H*0.6:H*0.62;
+  // two rows, each with its own phasor diagram and its own axis: voltage on top, current underneath
+  const th=st.th,Vpk=Math.SQRT2*Vr,Ipk=Math.SQRT2*I,Imx=nice(Ipk*1.12),Vmx=nice(Vpk*1.12);
+  text(c,'​'+{R:'Resistor (100 Ω) connected',C:'Capacitor (10 µF) connected',L:'Inductor (0.20 H) connected'}[p.comp],W/2,16,{R:GRN,C:ROSE,L:BLU}[p.comp],13,'center');
+  const r0=34,gap=26,rowH=(top-r0-gap-28)/2,pr=Math.min(rowH*0.42,narrow?W*0.13:W*0.075),pcx=pr+(narrow?12:26),wx=pcx+pr+(narrow?44:60),ww=W-wx-14;
+  const rows=[{y:r0,col:CORAL,lab:'V',ph:0,mx:Vmx,pk:Vpk,unit:'V',other:CYN,oph:phi,name:'voltage V'},{y:r0+rowH+gap,col:CYN,lab:'i',ph:phi,mx:Imx,pk:Ipk,unit:'A',other:CORAL,oph:0,name:'current i'}];
+  const thm=((th%(2*Math.PI))+2*Math.PI)%(2*Math.PI);
+  const peaks=(off)=>{const out=[];for(let n=-3;n<=3;n++){const u=(thm+off-Math.PI/2-2*Math.PI*n)/(1.5*2*Math.PI);if(u>0.03&&u<0.92)out.push(u)}return out};
+  const G=rows.map(R1=>{const cy=R1.y+rowH/2;
+   // phasor diagram for this quantity (the other one shown faint for comparison)
+   c.strokeStyle=GRID;c.lineWidth=1;c.beginPath();c.arc(pcx,cy,pr,0,7);c.stroke();line(c,pcx-pr-6,cy,pcx+pr+6,cy,AX,1);line(c,pcx,cy-pr-6,pcx,cy+pr+6,AX,1);
+   c.globalAlpha=0.3;arrow(c,pcx,cy,pcx+pr*0.8*Math.cos(th+R1.oph),cy-pr*0.8*Math.sin(th+R1.oph),R1.other,2);c.globalAlpha=1;
+   arrow(c,pcx,cy,pcx+pr*Math.cos(th+R1.ph),cy-pr*Math.sin(th+R1.ph),R1.col,3);
+   const ao=th+R1.ph;text(c,R1.lab,pcx+(pr+11)*Math.cos(ao),cy-(pr+11)*Math.sin(ao),R1.col,13,'center','middle');
+   // waveform on its own axis
+   const g=frame(c,wx,R1.y,ww,rowH,0,1,-R1.mx,R1.mx,R1.name,null,v=>eng(v,R1.unit,2));
+   const pts=[];for(let k=0;k<=200;k++){const u=k/200;pts.push([u,R1.pk*Math.sin(th+R1.ph-u*3*Math.PI)])}path(c,pts,g.X,g.Y,R1.col,2.4);
+   line(c,pcx+pr*Math.cos(ao),cy-pr*Math.sin(ao),wx,g.Y(R1.pk*Math.sin(ao)),R1.col==CORAL?'rgba(255,138,122,.35)':'rgba(120,217,247,.35)',1,[3,3]);
+   return{g,R1}});
+  text(c,'​phasors',pcx,top-12,MUT,10,'center');
+  if(!narrow){text(c,'← now',wx+4,r0-6,MUT,10);text(c,'earlier →',wx+ww,r0-6,MUT,10,'right')}
+  text(c,p.comp==='R'?'V and i in phase':p.comp==='C'?'i leads V by 90°':'V leads i by 90°',wx+ww/2,top-12,INK,12,'center');
+  // peaks: a guide line through the leading peak and both graphs, with labels that move with the waves
+  {const [gv,gi]=G;const vP=peaks(0),iP=peaks(phi);
+   const mark=(gg,u,amp,col,lab,bold)=>{const x=gg.g.X(u),y=gg.g.Y(amp);dot(c,x,y,4,col);text(c,'​'+lab,x,y-9,col,bold?12:10,'center')};
+   const guide=u=>{const x=gv.g.X(u);line(c,x,r0,x,r0+2*rowH+gap,'rgba(255,255,255,.18)',1,[3,4])};
+   if(p.comp==='R'){vP.forEach(u=>{guide(u);mark(gv,u,Vpk,CORAL,'in phase',true);mark(gi,u,Ipk,CYN,'in phase',true)})}
+   else if(p.comp==='C'){iP.forEach(u=>{guide(u);mark(gi,u,Ipk,CYN,'i leads',true)});vP.forEach(u=>mark(gv,u,Vpk,CORAL,'V peak',false))}
+   else{vP.forEach(u=>{guide(u);mark(gv,u,Vpk,CORAL,'V leads',true)});iP.forEach(u=>mark(gi,u,Ipk,CYN,'i peak',false))}}
   // reactance vs f
   const gx=60,gy=top+12,gw=W-gx-16,gh=H-top-44;const g=logFrame(c,gx,gy,gw,gh,10,1e4,1,1e5,'opposition to current (Ω)','frequency',true);
   [['R',GRN],['C',ROSE],['L',BLU]].forEach(([cm,col])=>{const pts=[];for(let e=1;e<=4.0001;e+=0.02){const f=Math.pow(10,e);pts.push([g.X(f),g.Y(X(cm,f))])}c.strokeStyle=col;c.globalAlpha=cm===p.comp?1:0.3;c.lineWidth=cm===p.comp?3:1.8;c.beginPath();pts.forEach((q,i)=>i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1]));c.stroke();c.globalAlpha=1});
   text(c,'R',g.X(9000),g.Y(R)-6,GRN,11,'right');text(c,'X_C',g.X(15),g.Y(X('C',15))+14,ROSE,11);text(c,'X_L',g.X(9000),g.Y(X('L',9000))+14,BLU,11,'right');
   dot(c,g.X(p.f),g.Y(x),6,YEL);line(c,g.X(p.f),gy,g.X(p.f),gy+gh,'rgba(255,215,106,.4)',1,[4,4]);
   const nm={R:'Resistance R',C:'Capacitive reactance \\(X_{C} = 1/(2\\pi fC)\\)',L:'Inductive reactance \\(X_{L} = 2\\pi fL\\)'}[p.comp];
-  window.EM.set($('phReadout'),'\\(f\\) = <strong>'+eng(p.f,'Hz',3)+'</strong> · \\(\\omega = 2\\pi f\\) = '+eng(2*Math.PI*p.f,'rad s⁻¹',3)+'<br/>'+nm+' = <strong>'+eng(x,'Ω',3)+'</strong><br/>\\(i_{\\text{rms}} = V/X = 10 \\,\\mathrm{V}\\) / '+eng(x,'Ω',3)+' = <strong>'+eng(I,'A',3)+'</strong><br/>'+(p.comp==='R'?'Resistance does not depend on frequency.':p.comp==='C'?'Higher \\(f\\) → capacitor charges and discharges more often → more current → smaller \\(X_{C}\\).':'Higher \\(f\\) → current changes faster → larger back emf → larger \\(X_{L}\\).'));
+  {const tile=(lab,val,sub)=>'<div><span>'+lab+'</span><b>'+val+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div>';
+   window.EM.set($('phReadout'),tile('Frequency','\\(f\\) = '+eng(p.f,'Hz',3),'\\(\\omega = 2\\pi f\\) = '+eng(2*Math.PI*p.f,'rad s⁻¹',3))+
+    tile(p.comp==='R'?'Resistance':p.comp==='C'?'Capacitive reactance':'Inductive reactance',(p.comp==='R'?'\\(R\\)':p.comp==='C'?'\\(X_{C}\\)':'\\(X_{L}\\)')+' = '+eng(x,'Ω',3),p.comp==='R'?'the same at every frequency':p.comp==='C'?'\\(X_{C} = 1/(2\\pi fC)\\)':'\\(X_{L} = 2\\pi fL\\)')+
+    tile('Current','\\(i_{\\text{rms}}\\) = '+eng(I,'A',3),'\\(i_{\\text{rms}} = V_{\\text{rms}}/X\\) = 10 V / '+eng(x,'Ω',3))+
+    tile('Phase',p.comp==='R'?'in phase':p.comp==='C'?'\\(i\\) leads \\(V\\) by 90°':'\\(V\\) leads \\(i\\) by 90°',p.comp==='R'?'peaks together':'a quarter of a cycle'));
+   window.EM.set($('phNote'),p.comp==='R'?'Resistance does not depend on frequency, so the current stays the same.':p.comp==='C'?'Higher \\(f\\) → the capacitor charges and discharges more often → more current flows → smaller \\(X_{C}\\).':'Higher \\(f\\) → the current has to change faster → bigger back emf → less current → larger \\(X_{L}\\).')}
  };
  const upd=()=>{$('phFOut').textContent=eng(Math.pow(10,+$('phF').value),'Hz',3)};bindOut(['phF'],upd);$('phComp').addEventListener('change',()=>st.draw());
  $('phPlay').onclick=()=>{st.playing=!st.playing;$('phPlay').textContent=st.playing?'Pause':'Play'};
