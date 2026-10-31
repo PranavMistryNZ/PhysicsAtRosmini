@@ -269,9 +269,9 @@ body.light-mode .pf-e{stroke:#2d7a37}body.light-mode .pf-efill,body.light-mode .
 body.light-mode .pf-f{stroke:#1f8a55}body.light-mode .pf-ffill,body.light-mode .pf-flab,body.light-mode .pf-fkey{fill:#1f8a55}
 .rcnote{margin:2px 0 0;padding:8px 12px;border-left:3px solid var(--topic);background:#0a1020;border-radius:0 6px 6px 0;font-size:14px}
 body.light-mode .rstats>div,body.light-mode .rcnote{background:#f3f6fa;border-color:#c6d0db}body.light-mode .rcnote{border-left-color:var(--topic)}
-.coilbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .nx-bar-inputs{grid-template-columns:repeat(3,minmax(0,1fr))}.phbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}.phbar .control select{width:100%}.phbar .rstats{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .control select{width:100%}.coilbar .control select{width:100%}
+.coilbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .nx-bar-inputs{grid-template-columns:repeat(3,minmax(0,1fr))}.phbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}.phbar .control select{width:100%}.lcrbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.lcrbar .rstats>div>small{font-size:13.5px;color:#d3dbec;line-height:1.5}.lcrbar .rstats>div>small .katex{font-size:1.12em}body.light-mode .lcrbar .rstats>div>small{color:#2c3848}@media(max-width:700px){.lcrbar .rstats>div>small{font-size:12.5px}.lcrbar .rstats>div>small .katex{font-size:1em}}.phbar .rstats{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .control select{width:100%}.coilbar .control select{width:100%}
 @media(max-width:1000px){.rstats,.phbar .rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:700px){.rcbar .nx-bar-inputs,.coilbar .nx-bar-inputs,.txbar .nx-bar-inputs,.phbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr)}.rstats>div>b{white-space:normal;overflow-wrap:anywhere}.rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.lcrbar .nx-bar-inputs{grid-template-columns:repeat(2,minmax(0,1fr))!important}.rcbar .nx-bar-inputs,.coilbar .nx-bar-inputs,.txbar .nx-bar-inputs,.phbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr)}.rstats>div>b{white-space:normal;overflow-wrap:anywhere}.rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .cmptab{min-width:520px}.cmptab td{white-space:normal;text-align:left;vertical-align:top;line-height:1.45}.cmptab td:first-child{width:22%}
 .fl-banner{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:6px 0 10px;padding:6px 16px;border:1px solid #39445d;border-left:4px solid var(--topic);border-radius:8px;background:#0c1222}.fl-banner .katex-display{margin:4px 0}.fl-banner>span{font-size:13px;color:var(--muted)}
 body.light-mode .fl-banner{background:#f3f6fa;border-color:#c6d0db;border-left-color:var(--topic)}
@@ -1942,16 +1942,17 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="nx-lab">
 <div class="sim"><canvas id="lcrCanvas" height="430" aria-label="Phasor diagram of resistor, inductor and capacitor voltages, beside graphs of current and reactance against frequency"></canvas></div>
 <div class="legend"><span style="--key:#8fd694">\(V_{R} / R\)</span><span style="--key:#78d9f7">\(V_{L} / X_{L}\)</span><span style="--key:#ff9eb5">\(V_{C} / X_{C}\)</span><span style="--key:#e9edf8">Supply \(V\) / \(Z\)</span><span style="--key:#ffd76a">Current</span></div>
-<div class="nx-ctlbar">
+<div class="nx-ctlbar kirbar rcbar lcrbar">
 <div class="nx-bar-inputs">
 <h3>Controls</h3>
 <div class="control"><label for="lcrR">Resistance, \(R\) <output id="lcrROut">20 Ω</output></label><input id="lcrR" max="200" min="2" step="1" type="range" value="20"/></div>
 <div class="control"><label for="lcrL">Inductance, \(L\) <output id="lcrLOut">100 mH</output></label><input id="lcrL" max="500" min="10" step="5" type="range" value="100"/></div>
 <div class="control"><label for="lcrC">Capacitance, \(C\) <output id="lcrCOut">10 µF</output></label><input id="lcrC" max="100" min="1" step="1" type="range" value="10"/></div>
-<div class="control"><label for="lcrF">Frequency <output id="lcrFOut">100 Hz</output></label><input id="lcrF" max="3.5" min="1" step="0.001" type="range" value="2"/></div>
-<div class="btn-row"><button class="tool-btn" id="lcrTune" type="button">Tune to resonance</button></div>
+<div class="control"><label for="lcrF">Frequency, \(f\) <output id="lcrFOut">100 Hz</output></label><input id="lcrF" max="3.5" min="1" step="0.001" type="range" value="2"/></div>
 </div>
-<div class="nx-bar-info"><div class="readout" id="lcrReadout">…</div><div class="readout" id="lcrNote" style="border-left-color:#ffd76a">…</div></div>
+<div class="btn-row kbtns"><button class="tool-btn" id="lcrTune" type="button">Tune to resonance</button><span class="klab" style="margin-left:8px;text-transform:none;letter-spacing:0">or click / drag along either graph to set \(f\)</span></div>
+<div class="rstats" id="lcrReadout">…</div>
+<p class="rcnote" id="lcrNote">…</p>
 </div>
 </div>
 <h3>Look for these ideas</h3>
@@ -1961,6 +1962,29 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <li>A smaller \(R\) gives a taller, sharper peak. That's how a radio picks one station out of many.</li>
 <li>Near resonance with small \(R\), \(V_{L}\) and \(V_{C}\) can each be several times the supply voltage.</li>
 </ul>
+<h3>What does the resonance curve show?</h3>
+<p class="sub">The top graph plots the current \(i = V/Z\) against frequency. The supply voltage is fixed, so the current is large only where the impedance \(Z\) is small. The white curve on the lower graph is that impedance: it <strong>dips</strong> at exactly the frequency where the current <strong>peaks</strong>. The two graphs are mirror images of each other, because \(i = V/Z\).</p>
+<ul class="nx-list">
+<li><strong>Low frequency:</strong> \(X_{C}\) is huge, so \(Z\) is large and the current is small.</li>
+<li><strong>High frequency:</strong> \(X_{L}\) is huge, so again \(Z\) is large and the current is small.</li>
+<li><strong>At the resonant frequency \(f_{0}\):</strong> \(X_{L} = X_{C}\), so they cancel. \(Z\) falls to its minimum, \(Z = R\), and the current is a maximum, \(i = V/R\). Setting \(2\pi fL = 1/(2\pi fC)\) gives \(f_{0} = \dfrac{1}{2\pi \sqrt{LC}}\).</li>
+</ul>
+<h3>Explanations exams often ask for</h3>
+<p class="sub">Try to answer each one yourself before opening it.</p>
+<details class="nx-worked"><summary>Why is the current a maximum at resonance?</summary>
+<p>At \(f_{0}\) the inductive reactance equals the capacitive reactance, \(X_{L} = X_{C}\). Their voltages \(V_{L}\) and \(V_{C}\) are 180° out of phase, so they cancel. The impedance \(Z = \sqrt{R^{2} + (X_{L} - X_{C})^{2}}\) is then at its minimum, \(Z = R\), so the current \(i = V/Z\) is at its maximum, \(V/R\).</p></details>
+<details class="nx-worked"><summary>Why are the current and the supply voltage in phase at resonance?</summary>
+<p>\(V_{L}\) (leading the current by 90°) and \(V_{C}\) (lagging it by 90°) are equal and opposite, so they cancel. The only voltage left is across the resistor, \(V_{R}\), which is in phase with the current. So the supply voltage is in phase with the current: the phase angle is zero and the circuit behaves like a pure resistor.</p></details>
+<details class="nx-worked"><summary>How can \(V_{L}\) and \(V_{C}\) each be bigger than the supply voltage?</summary>
+<p>At resonance the current is large, so \(V_{L} = iX_{L}\) and \(V_{C} = iX_{C}\) can each be large, even several times the supply voltage. They do not add to more than the supply because they are 180° out of phase: at every instant one is positive when the other is negative, so they cancel. You must add the voltages as phasors, not as ordinary numbers.</p></details>
+<details class="nx-worked"><summary>What happens to the curve if \(R\) is increased?</summary>
+<p>The peak current \(V/R\) is smaller, so the peak is <strong>lower</strong>, and it is <strong>broader</strong> (less sharp). The resonant frequency does not change, because \(f_{0} = 1/(2\pi \sqrt{LC})\) does not depend on \(R\).</p></details>
+<details class="nx-worked"><summary>What happens to \(f_{0}\) if \(L\) or \(C\) is increased?</summary>
+<p>\(f_{0} = 1/(2\pi \sqrt{LC})\), so a larger \(L\) or a larger \(C\) gives a <strong>lower</strong> resonant frequency: the peak moves to the left. (Quadrupling \(C\) halves \(f_{0}\).)</p></details>
+<details class="nx-worked"><summary>Below or above resonance, is the circuit capacitive or inductive?</summary>
+<p><strong>Below \(f_{0}\):</strong> \(X_{C} &gt; X_{L}\), so the circuit is capacitive and the current leads the supply voltage. <strong>Above \(f_{0}\):</strong> \(X_{L} &gt; X_{C}\), so it is inductive and the current lags. Watch the phasor diagram swing as you move the frequency slider through \(f_{0}\).</p></details>
+<details class="nx-worked"><summary>How does a radio use resonance to pick one station?</summary>
+<p>The aerial picks up signals from many stations at different frequencies. The tuning circuit is an LCR circuit: turning the dial changes \(C\), which moves \(f_{0}\). Only the station whose frequency matches \(f_{0}\) produces a large current (and voltage) in the circuit; other stations, away from the peak, produce very little. A small \(R\) gives a sharp peak, so neighbouring stations are rejected.</p></details>
 </section>
 
 <section class="pane hidden" data-section="ac" data-view="check">
@@ -3510,7 +3534,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
 
 /* ============ 6.4 LCR ============ */
 (()=>{
- const cv=$('lcrCanvas');const Vs=10;
+ const cv=$('lcrCanvas');const Vs=10;let geo=null,dragF=false;
  const P=()=>({R:+$('lcrR').value,L:+$('lcrL').value*1e-3,C:+$('lcrC').value*1e-6,f:Math.pow(10,+$('lcrF').value)});
  function calc(p,f){const w=2*Math.PI*f,XL=w*p.L,XC=1/(w*p.C),Z=Math.sqrt(p.R*p.R+(XL-XC)*(XL-XC)),I=Vs/Z;return{XL,XC,Z,I,VR:I*p.R,VL:I*XL,VC:I*XC,phi:Math.atan2(XL-XC,p.R)}}
  function draw(){const {c,W,H}=fit(cv,430,720);clear(c,W,H);const p=P(),k=calc(p,p.f),f0=1/(2*Math.PI*Math.sqrt(p.L*p.C));
@@ -3520,25 +3544,39 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   line(c,ox-10,oy,pw-10,oy,AX,1);line(c,ox,24,ox,ph-24,AX,1);
   arrow(c,ox,oy,ox+k.VR*s,oy,GRN,3.5);arrow(c,ox,oy,ox,oy-k.VL*s,CYN,3);arrow(c,ox,oy,ox,oy+k.VC*s,ROSE,3);
   line(c,ox+k.VR*s,oy,ox+k.VR*s,oy-(k.VL-k.VC)*s,'rgba(255,255,255,.35)',1.5,[4,4]);arrow(c,ox,oy,ox+k.VR*s,oy-(k.VL-k.VC)*s,INK,3.5);
-  text(c,'V_R '+k.VR.toFixed(1)+' V',ox+k.VR*s/2,oy+(k.VL>=k.VC?18:-10),GRN,11,'center');text(c,'V_L '+k.VL.toFixed(1)+' V',ox+6,oy-k.VL*s-6,CYN,11);text(c,'V_C '+k.VC.toFixed(1)+' V',ox+6,oy+k.VC*s+14,ROSE,11);
-  text(c,'V = 10 V',ox+k.VR*s+8,oy-(k.VL-k.VC)*s-12,INK,11);text(c,'I →',pw-30,oy-6,YEL,11,'right');
-  if(Math.abs(k.phi)>0.02){c.strokeStyle=YEL;c.lineWidth=1.5;c.beginPath();c.arc(ox,oy,26,0,-k.phi,k.phi>0);c.stroke();text(c,'φ = '+(k.phi*180/Math.PI).toFixed(0)+'°',ox+30,oy+(k.phi>0?-22:30),YEL,11)}
+  if(k.VR*s>90)text(c,'V_R '+k.VR.toFixed(1)+' V',ox+k.VR*s/2,oy+(k.VL>=k.VC?18:-10),GRN,11,'center');else text(c,'V_R '+k.VR.toFixed(1)+' V',ox+Math.max(k.VR*s+14,72),oy+(k.VL>=k.VC?16:-8),GRN,11);text(c,'V_L '+k.VL.toFixed(1)+' V',ox+6,oy-k.VL*s-6,CYN,11);text(c,'V_C '+k.VC.toFixed(1)+' V',ox+6,oy+k.VC*s+14,ROSE,11);
+  {const tx=ox+k.VR*s,ty=oy-(k.VL-k.VC)*s,tc=k.VL>=k.VC?oy-k.VL*s:oy+k.VC*s,near=Math.abs(ty-tc)<24;text(c,'V = 10 V',near?Math.max(tx+10,ox+86):tx+8,ty+(near?4:(k.VL>=k.VC?-12:18)),INK,11)}text(c,'i →',pw-30,oy-6,YEL,11,'right');
+  if(Math.abs(k.phi)>0.02){c.strokeStyle=YEL;c.lineWidth=1.5;c.beginPath();c.arc(ox,oy,26,0,-k.phi,k.phi>0);c.stroke();const bs=-k.phi/2;text(c,'φ',ox+38*Math.cos(bs),oy+38*Math.sin(bs)+4,YEL,12,'center')}
+  {const dg=Math.abs(k.phi*180/Math.PI).toFixed(0);text(c,Math.abs(k.phi)<=0.02?'φ = 0°: i in phase with V':'φ = '+dg+'°: i '+(k.phi>0?'lags':'leads')+' V',pw-10,ph-12,YEL,12,'right')}
   // graphs
   const gx=narrow?60:pw+58,gw=W-gx-16,gy=narrow?ph+10:22,gh=(H-gy-50)/2;
-  const Imax=nice(Vs/p.R*1.05);const g1=logFrame(c,gx,gy,gw,gh,10,3162,0,Imax,'current I (A)',null,false);for(let i=0;i<=4;i++)text(c,(Imax*i/4).toPrecision(2),gx-4,gy+gh-gh*i/4,MUT,10,'right','middle');
+  const Imax=nice(Vs/p.R*1.05);const g1=logFrame(c,gx,gy,gw,gh,10,3162,0,Imax,'current i = V/Z (A)',null,false);for(let i=0;i<=4;i++)text(c,(Imax*i/4).toPrecision(2),gx-4,gy+gh-gh*i/4,MUT,10,'right','middle');
   const pts=[];for(let e=1;e<=3.5001;e+=0.005){const f=Math.pow(10,e);pts.push([g1.X(f),g1.Y(calc(p,f).I)])}c.strokeStyle=YEL;c.lineWidth=2.5;c.beginPath();pts.forEach((q,i)=>i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1]));c.stroke();
   if(f0>=10&&f0<=3162){line(c,g1.X(f0),gy,g1.X(f0),gy+gh,'rgba(255,255,255,.35)',1,[4,4]);text(c,'f₀',g1.X(f0)+4,gy+12,INK,11)}
-  dot(c,g1.X(p.f),g1.Y(k.I),6,CORAL);
-  const g2=logFrame(c,gx,gy+gh+28,gw,gh,10,3162,1,1e5,'reactance (Ω)','frequency',true);
+  dot(c,g1.X(p.f),g1.Y(k.I),7,CORAL);c.strokeStyle='#fff';c.lineWidth=1.5;c.beginPath();c.arc(g1.X(p.f),g1.Y(k.I),7,0,2*Math.PI);c.stroke();line(c,g1.X(p.f),g1.Y(k.I),g1.X(p.f),gy+gh,'rgba(255,138,122,.5)',1,[3,3]);text(c,'drag to change f',gx+gw-4,gy+12,MUT,10,'right');
+  const g2=logFrame(c,gx,gy+gh+28,gw,gh,10,3162,1,1e5,'reactance and impedance (Ω)','frequency',true);
   [['XL',CYN],['XC',ROSE],['Z',INK]].forEach(([nm,col])=>{c.strokeStyle=col;c.lineWidth=nm==='Z'?2.6:2;c.beginPath();let first=true;for(let e=1;e<=3.5001;e+=0.01){const f=Math.pow(10,e);const v=calc(p,f)[nm];const X=g2.X(f),Y=g2.Y(clamp(v,1,1e5));first?c.moveTo(X,Y):c.lineTo(X,Y);first=false}c.stroke()});
-  text(c,'X_L',gx+gw-4,g2.Y(clamp(calc(p,3000).XL,1,1e5))-6,CYN,11,'right');text(c,'X_C',gx+6,g2.Y(clamp(calc(p,12).XC,1,1e5))-6,ROSE,11);text(c,'Z',gx+gw*0.5,g2.Y(clamp(calc(p,Math.sqrt(10*3162)).Z,1,1e5))-8,INK,11);
+  text(c,'X_L',gx+gw-4,g2.Y(clamp(calc(p,3000).XL,1,1e5))-6,CYN,11,'right');text(c,'X_C',gx+6,g2.Y(clamp(calc(p,12).XC,1,1e5))-6,ROSE,11);{const zf=clamp(f0,10,3162);text(c,W<600?'Z: smallest at f₀':'Z (impedance): smallest at f₀, where the current is largest',g2.X(zf),g2.Y(clamp(calc(p,zf).Z,1,1e5))+18,INK,11,zf>600||W<600?'right':'left')}
   line(c,g2.X(p.f),gy+gh+28,g2.X(p.f),gy+2*gh+28,'rgba(255,255,255,.4)',1,[4,4]);
-  window.EM.set($('lcrReadout'),'\\(f\\) = <strong>'+eng(p.f,'Hz',3)+'</strong> · resonance \\(f_{0} = 1/(2\\pi \\sqrt{LC})\\) = <strong>'+eng(f0,'Hz',3)+'</strong><br/>\\(X_{L}\\) = '+eng(k.XL,'Ω',3)+' · \\(X_{C}\\) = '+eng(k.XC,'Ω',3)+'<br/>\\(Z = \\sqrt{R^{2} + (X_{L} - X_{C})^{2}}\\) = <strong>'+eng(k.Z,'Ω',3)+'</strong><br/>\\(i = V/Z\\) = <strong>'+eng(k.I,'A',3)+'</strong> rms<br/>\\(V_{R}\\) = '+k.VR.toFixed(2)+' V · \\(V_{L}\\) = '+k.VL.toFixed(2)+' V · \\(V_{C}\\) = '+k.VC.toFixed(2)+' V');
+  {const tile=(lab,val,sub)=>'<div><span>'+lab+'</span><b>'+val+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div>';
+   window.EM.set($('lcrReadout'),tile('Frequency','\\(f\\) = '+'<span style="white-space:nowrap">'+eng(p.f,'Hz',3)+'</span>','\\(f_{0} = \\dfrac{1}{2\\pi \\sqrt{LC}}\\) = '+'<span style="white-space:nowrap">'+eng(f0,'Hz',3)+'</span>')+
+    tile('Reactances','\\(X_{L} = 2\\pi fL\\) = '+'<span style="white-space:nowrap">'+eng(k.XL,'Ω',3)+'</span>','\\(X_{C} = \\dfrac{1}{2\\pi fC}\\) = '+'<span style="white-space:nowrap">'+eng(k.XC,'Ω',3)+'</span>')+
+    tile('Impedance','\\(Z\\) = '+'<span style="white-space:nowrap">'+eng(k.Z,'Ω',3)+'</span>','\\(Z = \\sqrt{R^{2} + (X_{L} - X_{C})^{2}}\\)')+
+    tile('Current','\\(i\\) = '+'<span style="white-space:nowrap">'+eng(k.I,'A',3)+'</span>'+' rms','\\(i = V/Z\\) = 10 V / '+'<span style="white-space:nowrap">'+eng(k.Z,'Ω',3)+'</span>')+
+    tile('Voltages','\\(V_{R} = iR\\) = '+'<span style="white-space:nowrap">'+k.VR.toFixed(2)+' V'+'</span>','\\(V_{L} = iX_{L}\\) = '+k.VL.toFixed(2)+' V<br/>\\(V_{C} = iX_{C}\\) = '+'<span style="white-space:nowrap">'+k.VC.toFixed(2)+' V'+'</span>'))}
   const r=k.XL/k.XC;window.EM.set($('lcrNote'),Math.abs(Math.log(r))<0.03?'<strong>At resonance:</strong> \\(X_{L} = X_{C}\\), so \\(Z = R\\) and the current is a maximum. \\(V\\) and \\(i\\) are in phase.':r<1?'<strong>Below resonance:</strong> \\(X_{C}\\) &gt; \\(X_{L}\\), so the circuit is capacitive and the current <strong>leads</strong> the supply voltage by '+Math.abs(k.phi*180/Math.PI).toFixed(0)+'°.':'<strong>Above resonance:</strong> \\(X_{L}\\) &gt; \\(X_{C}\\), so the circuit is inductive and the current <strong>lags</strong> the supply voltage by '+Math.abs(k.phi*180/Math.PI).toFixed(0)+'°.');
+  geo={gx,gw,y0:gy,y1:gy+2*gh+28};
  }
  const upd=()=>{const p=P();$('lcrROut').textContent=p.R+' Ω';$('lcrLOut').textContent=Math.round(p.L*1e3)+' mH';$('lcrCOut').textContent=Math.round(p.C*1e6)+' µF';$('lcrFOut').textContent=eng(p.f,'Hz',3);draw()};
  bindOut(['lcrR','lcrL','lcrC','lcrF'],upd);
  $('lcrTune').onclick=()=>{const p=P();const f0=1/(2*Math.PI*Math.sqrt(p.L*p.C));$('lcrF').value=clamp(Math.log10(f0),1,3.5);upd()};
+ const loc=e=>{const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}};
+ const onG=q=>geo&&q.x>=geo.gx-6&&q.x<=geo.gx+geo.gw+6&&q.y>=geo.y0-6&&q.y<=geo.y1+6;
+ const setF=q=>{const e=clamp(1+(q.x-geo.gx)/geo.gw*(Math.log10(3162)-1),1,3.5);const p=P(),e0=Math.log10(1/(2*Math.PI*Math.sqrt(p.L*p.C)));$('lcrF').value=(Math.abs(e-e0)<0.012?e0:e).toFixed(3);upd()};
+ cv.addEventListener('pointerdown',e=>{const q=loc(e);if(!onG(q))return;dragF=true;cv.setPointerCapture(e.pointerId);cv.style.touchAction='none';setF(q)});
+ cv.addEventListener('pointermove',e=>{const q=loc(e);if(dragF)setF(q);else cv.style.cursor=onG(q)?'ew-resize':''});
+ const endF=()=>{dragF=false;cv.style.touchAction='pan-y'};cv.addEventListener('pointerup',endF);cv.addEventListener('pointercancel',endF);
+ cv.style.touchAction='pan-y';
  sims['ac:lcr']={draw,enter:draw};
 })();
 })();
