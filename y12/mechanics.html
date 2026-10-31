@@ -284,6 +284,23 @@ details.ans[open] summary{margin-bottom:8px}
 .picker label{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-family:var(--mono);font-size:13px;background:var(--field);cursor:pointer}
 .picker input{accent-color:var(--accent)}
 
+/* data tables in practicals */
+table.data{min-width:0;font-family:var(--mono);font-size:13px}
+table.data td,table.data th{padding:6px 10px;text-align:right}
+table.data th{font-size:11px;text-transform:none;letter-spacing:.02em}
+table.data input{width:18px;height:18px;accent-color:var(--accent)}
+.stopwatch{display:flex;align-items:baseline;gap:12px;font-family:var(--mono)}
+.stopwatch span{font-size:34px;color:var(--ink)}
+.stopwatch small{color:var(--muted);font-size:14px}
+/* graph match */
+.gm-given{border:1px solid var(--line);border-radius:10px;background:var(--canvas);overflow:hidden;max-width:620px}
+.gm-given canvas,.gm-opts canvas{display:block;width:100%;height:auto}
+.gm-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.gm-opts button{border:2px solid var(--line);border-radius:10px;background:var(--canvas);padding:0;cursor:pointer;overflow:hidden;position:relative;text-align:left}
+.gm-opts button:hover:not(:disabled){border-color:var(--accent)}
+.gm-opts button.right{border-color:var(--ok)}
+.gm-opts button.wrong{border-color:var(--bad)}
+.gm-opts .gm-l{position:absolute;top:6px;right:10px;font-family:var(--mono);font-size:12px;color:var(--muted)}
 /* toolkit */
 .sorter{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
 .sv-item{border:1px solid var(--line);border-radius:10px;background:var(--panel-solid);padding:10px 12px;display:flex;flex-direction:column;gap:8px}
@@ -607,7 +624,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <p><span class="eq">A − B = A + (−B)</span>. Flip B round to point the other way, then add it tip to tail.</p>
       <p>You need this for a <b>change</b> in a vector, such as <span class="eq">Δv = v<sub>f</sub> − v<sub>i</sub></span>. A ball moving at 4 m s⁻¹ east that ends up moving 3 m s⁻¹ north has Δv = 5 m s⁻¹ towards the north-west, even though its speed only dropped by 1 m s⁻¹.</p></div>
   </div>
-  <div class="card tint"><span class="label">Splitting a vector into components</span><p>Any vector can be split into two perpendicular parts that add back to it: <span class="eq">horizontal = V cos θ</span> and <span class="eq">vertical = V sin θ</span>, with θ measured from the horizontal. You'll use this for projectiles (phase 1.5) and for forces (phase 2.2).</p></div>
+  <div class="card tint"><span class="label">Splitting a vector into components</span><p>Any vector can be split into two perpendicular parts that add back to it: <span class="eq">horizontal = V cos θ</span> and <span class="eq">vertical = V sin θ</span>, with θ measured from the horizontal. You'll use this for projectiles (phase <span data-phase="launch:projectiles">1.5</span>) and for forces (phase <span data-phase="thrust:vectors">2.2</span>).</p></div>
 </section>
 
 <!-- ======================================================= 01 TOOLKIT: NUMBERS -->
@@ -713,14 +730,14 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 <!-- ======================================================= 01 LAUNCH -->
 <section class="pane hidden" data-mod="launch" data-view="intro" data-ref="1.3" data-title="Motion foundations">
   <div class="pane-head"><h2>Phase 1.3 · Motion foundations</h2><span class="badge teal">FOUNDATIONS</span></div>
-  <p class="lede">Four ideas underpin the rest of this topic. Scalars and vectors are in phase 1.1. Open each panel for the detail you need.</p>
+  <p class="lede">Four ideas underpin the rest of this topic. Scalars and vectors are in phase <span data-phase="launch:vectors">1.1</span>. Open each panel for the detail you need.</p>
   <div class="steps">
         <details class="step" open><summary><span class="ref">1.3.1</span>Velocity and acceleration</summary><div class="step-body">
       <p>Velocity is the rate of change of displacement: <span class="eq">v = Δd ÷ Δt</span>. Acceleration is the rate of change of velocity: <span class="eq">a = Δv ÷ Δt</span>, in m s⁻².</p>
       <p>An acceleration of 3 m s⁻² means the velocity changes by 3 m s⁻¹ every second. If the acceleration points opposite to the velocity, the object slows down. Exams often call this deceleration, but in the equations it is a negative a.</p>
     </div></details>
     <details class="step"><summary><span class="ref">1.3.2</span>Reading motion graphs</summary><div class="step-body">
-      <div class="grid2">
+      <div class="grid3">
         <div class="card tint">
           <svg viewBox="0 0 220 120" role="img" aria-label="Distance-time graph curving upwards for speeding up" style="width:100%;height:auto"><path d="M30 10v95h180" fill="none" style="stroke:var(--axis)" stroke-width="2"/><path d="M30 105 Q120 100 200 20" fill="none" style="stroke:var(--data)" stroke-width="3"/><path d="M120 92 L190 46" style="stroke:var(--vector)" stroke-width="2" stroke-dasharray="5 4"/><text x="8" y="16" style="fill:var(--muted)" font-family="JetBrains Mono" font-size="11">d</text><text x="200" y="118" style="fill:var(--muted)" font-family="JetBrains Mono" font-size="11">t</text><text x="132" y="64" style="fill:var(--vector)" font-family="JetBrains Mono" font-size="11">gradient = v</text></svg>
           <p><b>d–t graph:</b> the gradient is the velocity. A straight line means constant velocity. A curve getting steeper means speeding up.</p>
@@ -729,7 +746,12 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
           <svg viewBox="0 0 220 120" role="img" aria-label="Velocity-time graph straight line with shaded area beneath" style="width:100%;height:auto"><path d="M30 105 L190 30 L190 105Z" style="fill:var(--accent-soft)"/><path d="M30 10v95h180" fill="none" style="stroke:var(--axis)" stroke-width="2"/><path d="M30 105 L190 30" style="stroke:var(--data)" stroke-width="3"/><text x="8" y="16" style="fill:var(--muted)" font-family="JetBrains Mono" font-size="11">v</text><text x="200" y="118" style="fill:var(--muted)" font-family="JetBrains Mono" font-size="11">t</text><text x="120" y="95" style="fill:var(--accent)" font-family="JetBrains Mono" font-size="11">area = d</text><text x="60" y="60" style="fill:var(--vector)" font-family="JetBrains Mono" font-size="11">gradient = a</text></svg>
           <p><b>v–t graph:</b> the gradient is the acceleration and the area under the line is the displacement.</p>
         </div>
+        <div class="card tint">
+          <svg viewBox="0 0 220 120" role="img" aria-label="Acceleration-time graph: a horizontal line with the area under it shaded" style="width:100%;height:auto"><path d="M30 50h160v55H30z" style="fill:var(--accent-soft)"/><path d="M30 10v95h180" fill="none" style="stroke:var(--axis)" stroke-width="2"/><path d="M30 50h160" style="stroke:var(--third)" stroke-width="3"/><text x="8" y="16" style="fill:var(--muted)" font-family="JetBrains Mono" font-size="11">a</text><text x="200" y="118" style="fill:var(--muted)" font-family="JetBrains Mono" font-size="11">t</text><text x="70" y="85" style="fill:var(--accent)" font-family="JetBrains Mono" font-size="11">area = Δv</text></svg>
+          <p><b>a–t graph:</b> the height is the acceleration and the area under the line is the change in velocity. A horizontal line means constant acceleration.</p>
+        </div>
       </div>
+      <p class="small">Moving between graphs: the gradient of each graph gives the next one down (d–t → v–t → a–t), and the area under each gives the change in the one above (a–t → v–t → d–t).</p>
     </div></details>
     <details class="step"><summary><span class="ref">1.3.3</span>Free fall</summary><div class="step-body">
       <p>When air resistance is negligible, every object near Earth's surface accelerates downwards at <span class="eq">g = 9.8 m s⁻²</span>, whatever its mass.</p>
@@ -748,7 +770,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 
 <section class="pane hidden" data-mod="launch" data-view="graphs" data-ref="1.4" data-title="Motion graphs lab">
   <div class="pane-head"><h2>Phase 1.4 · Motion graphs lab</h2><span class="badge">SIMULATION</span></div>
-  <p class="lede">Set a starting velocity and a constant acceleration, then run the rover. Watch the distance–time and velocity–time graphs draw themselves. Positive means to the right.</p>
+  <p class="lede">Set a starting velocity and a constant acceleration, then run the rover. Watch the distance–time, velocity–time and acceleration–time graphs draw themselves. Positive means to the right.</p>
   <div class="seg" role="group" aria-label="Scenarios">
     <button type="button" data-mg-preset="0,0,6" aria-pressed="false">Parked</button>
     <button type="button" data-mg-preset="4,0,6" aria-pressed="false">Constant velocity</button>
@@ -756,7 +778,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     <button type="button" data-mg-preset="12,-2,6" aria-pressed="false">Braking</button>
     <button type="button" data-mg-preset="8,-2,8" aria-pressed="false">Overshoot and back</button>
   </div>
-  <div class="screen"><canvas id="mgCanvas" width="900" height="460" aria-label="A rover on a track above live distance-time and velocity-time graphs"></canvas><div class="hud" id="mgHud">t = 0.00 s</div></div>
+  <div class="screen"><canvas id="mgCanvas" width="900" height="460" aria-label="A rover on a track above live distance-time, velocity-time and acceleration-time graphs"></canvas><div class="hud" id="mgHud">t = 0.00 s</div></div>
   <div class="grid2">
     <div class="card">
       <div class="label">Settings</div>
@@ -775,6 +797,22 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       </div>
       <p class="note" id="mgNote">The v–t line is straight because the acceleration is constant. Its gradient is the acceleration.</p>
     </div>
+  </div>
+  <h3>Match the graph</h3>
+  <p>A trolley's motion is shown on one kind of graph. Pick the matching graph of a different kind. Each journey has three stages of 2 seconds.</p>
+  <div class="card" id="gmCard">
+    <div class="seg" role="group" aria-label="Question type">
+      <button type="button" data-gm="mix" aria-pressed="true">Mixed</button>
+      <button type="button" data-gm="dv" aria-pressed="false">d–t → v–t</button>
+      <button type="button" data-gm="vd" aria-pressed="false">v–t → d–t</button>
+      <button type="button" data-gm="va" aria-pressed="false">v–t → a–t</button>
+      <button type="button" data-gm="av" aria-pressed="false">a–t → v–t</button>
+    </div>
+    <p class="px-q" id="gmQ" style="font-size:16px;font-family:var(--sans)"></p>
+    <div class="gm-given"><canvas id="gmGiven" width="600" height="200" aria-label="The given graph"></canvas></div>
+    <div class="gm-opts" id="gmOpts"></div>
+    <div class="verdict hidden" id="gmVerdict" aria-live="polite"></div>
+    <div class="q-top"><span id="gmScore">Score 0 / 0 · streak 0</span><button type="button" class="btn sm" id="gmNext">Next graph</button></div>
   </div>
 </section>
 
@@ -919,6 +957,44 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <p class="small">Marking focus: components; the link between time, range and height; a reasoned comparison rather than a statement.</p>
     </div></details>
   </div></article>
+</section>
+
+<!-- ======================================================= 01 RELATIVE VELOCITY -->
+<section class="pane hidden" data-mod="launch" data-view="relvel" data-title="Relative velocity: river crossings and crosswinds">
+  <div class="pane-head"><h2>Phase 1.5 · Relative velocity: river crossings &amp; crosswinds</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">A boat on a river is carried along by the current while it moves through the water. Its actual velocity is the vector sum of the two: <span class="eq">v<sub>boat</sub> + v<sub>current</sub> = v<sub>resultant</sub></span>. A plane in a crosswind works the same way.</p>
+  <div class="seg" role="group" aria-label="Context"><button type="button" data-rv-ctx="river" aria-pressed="true">Boat crossing a river</button><button type="button" data-rv-ctx="plane" aria-pressed="false">Plane in a crosswind</button></div>
+  <div class="screen"><canvas id="rvCanvas" width="900" height="440" aria-label="Top-down view of a boat crossing a river, with its vector triangle"></canvas><div class="hud" id="rvHud">READY</div></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span id="rvSLab">Boat speed through the water</span><output id="rvSOut"></output></span><input type="range" id="rvS"></label>
+      <label class="ctrl"><span class="row"><span id="rvULab">River current</span><output id="rvUOut"></output></span><input type="range" id="rvU"></label>
+      <label class="ctrl"><span class="row"><span id="rvHLab">Heading (0° = straight across, − = upstream)</span><output id="rvHOut"></output></span><input type="range" id="rvH" min="-80" max="80" step="1" value="0"></label>
+      <div class="btns"><button class="btn go" type="button" id="rvGo">GO</button><button class="btn" type="button" id="rvChal">New challenge</button></div>
+      <div class="verdict hidden" id="rvVerdict" aria-live="polite"></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry">
+        <div class="tm hl"><span>Resultant speed</span><b id="rvR">–</b></div>
+        <div class="tm"><span>Direction of travel</span><b id="rvDir">–</b></div>
+        <div class="tm hl"><span>Crossing time</span><b id="rvT">–</b></div>
+        <div class="tm"><span>Lands</span><b id="rvLand">–</b></div>
+      </div>
+      <p class="note" id="rvNote"></p>
+    </div>
+  </div>
+  <h3>Two classic questions</h3>
+  <div class="grid2">
+    <div class="card"><span class="label">Quickest crossing: point straight across</span>
+      <p>Only the part of the velocity across the river gets you to the other side. Pointing straight across puts all of the boat's speed into crossing, so <span class="eq">t = width ÷ boat speed</span>. The current doesn't change the time, but it carries the boat downstream by <span class="eq">current × t</span>.</p>
+      <p class="small">Example: 60 m wide, boat 4.0 m s⁻¹, current 3.0 m s⁻¹. t = 60 ÷ 4.0 = 15 s; drift = 3.0 × 15 = 45 m; resultant = √(4.0² + 3.0²) = 5.0 m s⁻¹.</p></div>
+    <div class="card"><span class="label">Land directly opposite: aim upstream</span>
+      <p>Aim upstream so the upstream part of the boat's velocity cancels the current: <span class="eq">sin θ = current ÷ boat speed</span>. The crossing takes longer because only <span class="eq">boat speed × cos θ</span> is left for crossing.</p>
+      <p class="small">Same river: sin θ = 3.0 ÷ 4.0, so θ = 49° upstream. Speed across = √(4.0² − 3.0²) = 2.6 m s⁻¹, so t = 60 ÷ 2.6 = 23 s. If the current is faster than the boat, it can't be done.</p></div>
+  </div>
+  <div class="card tint"><span class="label">Relative velocity in general</span><p>The velocity of A relative to B is <span class="eq">v<sub>A</sub> − v<sub>B</sub></span>. Two cars on a motorway at 100 km h⁻¹ and 90 km h⁻¹ in the same direction have a relative velocity of 10 km h⁻¹. If they drive towards each other, it is 190 km h⁻¹. This is vector subtraction (phase <span data-phase="launch:vectors">1.1</span>).</p></div>
 </section>
 
 <!-- ======================================================= 02 THRUST -->
@@ -1091,6 +1167,132 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div></article>
 </section>
 
+<!-- ======================================================= 02 LIFT -->
+<section class="pane hidden" data-mod="thrust" data-view="lift" data-title="Lift lab: apparent weight">
+  <div class="pane-head"><h2>Phase 2.3 · Lift lab: why you feel heavier and lighter</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Stand on bathroom scales in a lift. The scales measure the <b>support force</b> pushing up on you, not your weight. When the lift accelerates, the support force changes, so the reading changes, even though your mass and weight stay exactly the same.</p>
+  <div class="seg" role="group" aria-label="Trip"><button type="button" data-lift="up" aria-pressed="true">Ride up</button><button type="button" data-lift="down" aria-pressed="false">Ride down</button><button type="button" data-lift="snap" aria-pressed="false">Cable snaps!</button></div>
+  <div class="screen"><canvas id="lfCanvas" width="900" height="460" aria-label="A lift moving in its shaft with a person on scales, a free-body diagram and graphs"></canvas><div class="hud" id="lfHud">READY</div></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Your mass</span><output id="lfMOut">60 kg</output></span><input type="range" id="lfM" min="30" max="110" step="5" value="60"></label>
+      <div class="btns"><button class="btn go" type="button" id="lfGo">START TRIP</button><button class="btn" type="button" id="lfSlow" aria-pressed="false">Slow motion</button></div>
+      <div class="predict" id="lfPred"><span>Predict: while the lift speeds up going <b id="lfPredDir">up</b>, the scales will read…</span>
+        <div class="seg" role="group" aria-label="Prediction"><button type="button" data-lfp="more" aria-pressed="false">more than 60 kg</button><button type="button" data-lfp="same" aria-pressed="false">60 kg</button><button type="button" data-lfp="less" aria-pressed="false">less than 60 kg</button></div></div>
+      <div class="verdict hidden" id="lfVerdict" aria-live="polite"></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry">
+        <div class="tm hl"><span>Scales read</span><b id="lfScale">–</b></div>
+        <div class="tm"><span>Support force, F<sub>N</sub></span><b id="lfN">–</b></div>
+        <div class="tm"><span>Weight, mg</span><b id="lfW">–</b></div>
+        <div class="tm"><span>Acceleration (up +)</span><b id="lfA">–</b></div>
+      </div>
+      <p class="note" id="lfNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span>
+    <p>Two forces act on you: your weight <span class="eq">mg</span> down and the support force <span class="eq">F<sub>N</sub></span> up. Taking up as positive, Newton's second law gives</p>
+    <p class="eq-block">F<sub>N</sub> − mg = ma, so F<sub>N</sub> = m(g + a)</p>
+    <p>Accelerating upwards (speeding up going up, or slowing down going down): F<sub>N</sub> &gt; mg, so you feel heavier. Accelerating downwards: F<sub>N</sub> &lt; mg, so you feel lighter. At constant velocity, in either direction, a = 0 and the scales read your true weight. In free fall a = −g, so F<sub>N</sub> = 0: you feel weightless.</p>
+    <p class="small">Bathroom scales are calibrated in kilograms by dividing the force by 9.8, so "reading in kg" = F<sub>N</sub> ÷ 9.8.</p>
+  </div>
+</section>
+
+<!-- ======================================================= 02 BRIDGES & SEESAWS -->
+<section class="pane hidden" data-mod="thrust" data-view="bridges" data-title="Bridges and seesaws: torque in equilibrium">
+  <div class="pane-head"><h2>Phase 2.5 · Bridges &amp; seesaws</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Two classic torque situations. A truck drives across a bridge resting on two supports: watch the load move from one support to the other. Then balance a seesaw.</p>
+
+  <h3>1 · Truck on a bridge</h3>
+  <div class="screen"><canvas id="brCanvas" width="900" height="440" aria-label="A truck on a bridge with two supports and a graph of the support forces against truck position"></canvas><div class="hud" id="brHud">DRAG THE TRUCK OR PRESS DRIVE</div></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Bridge mass (uniform, 20 m long)</span><output id="brMOut"></output></span><input type="range" id="brM" min="2000" max="20000" step="1000" value="8000"></label>
+      <label class="ctrl"><span class="row"><span>Truck mass</span><output id="brTOut"></output></span><input type="range" id="brT" min="2000" max="30000" step="1000" value="12000"></label>
+      <label class="ctrl"><span class="row"><span>Truck position (from A)</span><output id="brXOut"></output></span><input type="range" id="brX" min="0" max="20" step="0.5" value="5"></label>
+      <div class="btns"><button class="btn go" type="button" id="brGo">DRIVE ACROSS</button></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry">
+        <div class="tm hl"><span>Support force A</span><b id="brFA">–</b></div>
+        <div class="tm hl"><span>Support force B</span><b id="brFB">–</b></div>
+      </div>
+      <p class="note" id="brNote"></p>
+    </div>
+  </div>
+
+  <h3>2 · Balance the seesaw</h3>
+  <p>Slide the right-hand child along the plank until the seesaw balances. Then try a new pair, or turn on the harder version where the pivot isn't in the middle and the plank's own weight matters.</p>
+  <div class="screen"><canvas id="ssCanvas" width="900" height="300" style="touch-action:none" aria-label="A seesaw with two children. Drag the right-hand child to balance it."></canvas><div class="hud" id="ssHud">DRAG THE RIGHT-HAND CHILD</div></div>
+  <div class="grid2">
+    <div class="card">
+      <label class="ctrl"><span class="row"><span>Right-hand child's distance from pivot</span><output id="ssDOut"></output></span><input type="range" id="ssD" min="0.1" max="2.4" step="0.05" value="1"></label>
+      <div class="btns"><button class="btn go" type="button" id="ssNew">NEW PAIR</button><button class="btn" type="button" id="ssHard" aria-pressed="false">Harder: off-centre pivot</button></div>
+      <p class="small" id="ssScore">Balanced 0 · attempts 0</p>
+    </div>
+    <div class="card">
+      <div class="telemetry">
+        <div class="tm"><span>Anticlockwise torque</span><b id="ssAC">–</b></div>
+        <div class="tm"><span>Clockwise torque</span><b id="ssCW">–</b></div>
+      </div>
+      <p class="note" id="ssNote"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= 02 PRACTICALS -->
+<section class="pane hidden" data-mod="thrust" data-view="practicals" data-title="Virtual practicals: Hooke's law and investigating torques">
+  <div class="pane-head"><h2>Phase 2.7 · Virtual practicals</h2><span class="badge teal">PRACTICAL</span></div>
+  <p class="lede">Take your own readings, build a results table, and use a graph to find a quantity from its gradient. These are the same skills the exam tests when it asks you to interpret experimental data.</p>
+  <div class="seg" role="group" aria-label="Practical"><button type="button" data-prac="hooke" aria-pressed="true">A · Hooke's law</button><button type="button" data-prac="torque" aria-pressed="false">B · Investigating torques</button></div>
+
+  <div id="pracHooke">
+    <h3>A · Finding the spring constant</h3>
+    <p><b>Aim:</b> find the spring constant k of a mystery spring. <b>Method:</b> add masses one at a time, read the pointer against the ruler, and record each reading. The hanger has a mass of 50 g.</p>
+    <div class="grid2">
+      <div class="screen"><canvas id="hkCanvas" width="460" height="420" aria-label="A spring hanging from a stand next to a ruler, with a zoomed view of the pointer"></canvas><div class="hud" id="hkHud">MYSTERY SPRING</div></div>
+      <div class="card">
+        <div class="btns"><button class="btn" type="button" id="hkMinus">− 50 g</button><button class="btn" type="button" id="hkPlus">+ 50 g</button></div>
+        <div class="btns"><button class="btn go" type="button" id="hkRec">RECORD READING</button><button class="btn" type="button" id="hkNew">New spring</button></div>
+        <div class="tbl-wrap"><table class="data"><thead><tr><th>Mass (g)</th><th>Force (N)</th><th>Ruler (cm)</th><th>Extension (cm)</th><th>Use</th></tr></thead><tbody id="hkRows"></tbody></table></div>
+        <p class="small">Reading with no load (hanger off): <b id="hkZero">–</b>. Extension = ruler reading − this.</p>
+      </div>
+    </div>
+    <div class="screen"><canvas id="hkGraph" width="900" height="300" aria-label="Graph of force against extension with a best-fit line"></canvas></div>
+    <div class="grid2">
+      <div class="card"><div class="telemetry"><div class="tm hl"><span>Gradient of best-fit line = k</span><b id="hkK">–</b></div></div>
+        <p class="note" id="hkNote">Record at least three readings to draw a best-fit line.</p></div>
+      <div class="card"><label class="ctrl"><span class="row"><span>Your answer for k (N m⁻¹)</span></span><input id="hkGuess" class="field mono" type="number" step="any" inputmode="decimal"></label>
+        <div class="btns"><button class="btn" type="button" id="hkCheck">Check my k</button></div><div class="verdict hidden" id="hkVerdict"></div></div>
+    </div>
+  </div>
+
+  <div id="pracTorque" class="hidden">
+    <h3>B · How does the force needed depend on distance?</h3>
+    <p><b>Aim:</b> find how the force F needed to hold a metre ruler level depends on the distance d from the pivot. The ruler is pivoted at its 0 cm end, a load hangs at 20 cm, and a force meter pulls straight up at d. <b>Method:</b> move the force meter, record F, then plot F against d and 1/F against d.</p>
+    <div class="screen"><canvas id="tqpCanvas" width="900" height="300" aria-label="A metre ruler pivoted at one end, with a load and a force meter"></canvas><div class="hud" id="tqpHud">KEEP THE RULER LEVEL</div></div>
+    <div class="grid2">
+      <div class="card">
+        <label class="ctrl"><span class="row"><span>Load at 20 cm</span><output id="tqpLOut"></output></span><input type="range" id="tqpL" min="100" max="500" step="50" value="200"></label>
+        <label class="ctrl"><span class="row"><span>Force meter position, d</span><output id="tqpDOut"></output></span><input type="range" id="tqpD" min="0.3" max="1" step="0.05" value="0.5"></label>
+        <div class="btns"><button class="btn go" type="button" id="tqpRec">RECORD READING</button><button class="btn" type="button" id="tqpClear">Clear table</button></div>
+        <div class="tbl-wrap"><table class="data"><thead><tr><th>d (m)</th><th>F (N)</th><th>1/F (N⁻¹)</th></tr></thead><tbody id="tqpRows"></tbody></table></div>
+      </div>
+      <div class="card">
+        <div class="seg" role="group" aria-label="Graph"><button type="button" data-tqg="F" aria-pressed="true">F against d</button><button type="button" data-tqg="inv" aria-pressed="false">1/F against d</button></div>
+        <div class="screen" style="border:0"><canvas id="tqpGraph" width="460" height="300" aria-label="Graph of the readings"></canvas></div>
+        <p class="note" id="tqpNote">Record readings at several positions.</p>
+      </div>
+    </div>
+    <div class="card tint"><span class="label">Why transform the data?</span><p>F against d is a curve (F gets smaller as d gets bigger), and it is hard to tell by eye exactly what kind of curve it is. If <span class="eq">F × d = constant</span>, then <span class="eq">1/F = d ÷ constant</span>, so a graph of 1/F against d is a <b>straight line through the origin</b>. A straight line is easy to test, and its gradient gives 1 ÷ (total clockwise torque).</p></div>
+  </div>
+</section>
+
 <!-- ======================================================= 03 ORBIT -->
 <section class="pane hidden" data-mod="orbit" data-view="intro" data-ref="3.1" data-title="Circular motion foundations">
   <div class="pane-head"><h2>Phase 3.1 · Circular motion foundations</h2><span class="badge teal">FOUNDATIONS</span></div>
@@ -1246,6 +1448,36 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <p><b>(c)</b> Gravity is still strong at this height: the acceleration is 8.65 m s⁻², not much less than 9.8 m s⁻². The station and the astronauts are both in free fall, accelerating towards Earth at the same rate, so the floor does not need to push on the astronauts. With no support force, they feel weightless. Their sideways speed is so large that they keep "falling around" Earth instead of into it.</p>
     </div></details>
   </div></article>
+</section>
+
+<!-- ======================================================= 03 PRACTICAL: WHIRLING BUNG -->
+<section class="pane hidden" data-mod="orbit" data-view="practical" data-title="Practical: the whirling bung">
+  <div class="pane-head"><h2>Phase 3.3 · Practical: testing F<sub>c</sub> = mv²/r with a whirling bung</h2><span class="badge teal">PRACTICAL</span></div>
+  <p class="lede">A rubber bung on a string is whirled in a horizontal circle. The string passes down through a glass tube to a hanging mass. When the radius stays steady, the tension in the string, which is the hanging weight Mg, provides the centripetal force on the bung.</p>
+  <div class="grid3">
+    <div class="card tint"><span class="label">Aim</span><p>Show that the centripetal force <span class="eq">mv²/r</span> on the bung equals the hanging weight <span class="eq">Mg</span>.</p></div>
+    <div class="card tint"><span class="label">Method</span><p>Choose a hanging mass and radius. Start the stopwatch as the bung passes the marker, and stop it after <b>10 revolutions</b>. Record, then repeat with other masses.</p></div>
+    <div class="card tint"><span class="label">Watch out</span><p>m is the mass of the <b>bung</b> (25 g), not the hanging mass. Timing 10 revolutions and dividing by 10 reduces the effect of your reaction time.</p></div>
+  </div>
+  <div class="screen"><canvas id="wbCanvas" width="900" height="400" aria-label="Top view of a bung whirling in a circle, and a side view of the apparatus"></canvas><div class="hud" id="wbHud">BUNG SPINNING</div></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Hanging mass, M</span><output id="wbMOut"></output></span><input type="range" id="wbM" min="0.05" max="0.25" step="0.05" value="0.1"></label>
+      <label class="ctrl"><span class="row"><span>Radius, r</span><output id="wbROut"></output></span><input type="range" id="wbR" min="0.4" max="0.9" step="0.1" value="0.6"></label>
+      <div class="stopwatch" aria-live="off"><span id="wbTime">0.00 s</span><small id="wbCount"></small></div>
+      <div class="btns"><button class="btn go" type="button" id="wbSS">START STOPWATCH</button><button class="btn" type="button" id="wbReset">Reset</button><button class="btn" type="button" id="wbRec">Record time</button></div>
+      <div class="seg"><button type="button" id="wbHelp" aria-pressed="true">Count revolutions for me</button></div>
+      <div class="verdict hidden" id="wbVerdict" aria-live="polite"></div>
+    </div>
+    <div class="card">
+      <div class="tbl-wrap"><table class="data"><thead><tr><th>M (kg)</th><th>Mg (N)</th><th>r (m)</th><th>10T (s)</th><th>T (s)</th><th>v (m s⁻¹)</th><th>F<sub>c</sub> (N)</th></tr></thead><tbody id="wbRows"></tbody></table></div>
+      <p class="small">v = 2πr ÷ T and F<sub>c</sub> = mv² ÷ r, with m = 0.025 kg.</p>
+    </div>
+  </div>
+  <div class="screen"><canvas id="wbGraph" width="900" height="300" aria-label="Graph of centripetal force against hanging weight"></canvas></div>
+  <p class="note" id="wbNote">Record at least three different hanging masses to compare F<sub>c</sub> with Mg.</p>
+  <div class="card tint"><span class="label">Evaluating the experiment</span><p>In a real experiment F<sub>c</sub> often comes out a little different from Mg. Reasons include: reaction time when starting and stopping the stopwatch; the radius drifting while you whirl; friction between the string and the tube; and the string not being exactly horizontal, so only part of the tension acts towards the centre. Repeating each timing and averaging, and timing more revolutions, makes the results more reliable.</p></div>
 </section>
 
 <!-- ======================================================= 04 DOCKING -->
@@ -1660,12 +1892,12 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
-  map: { title: "COURSE MAP", name: "Course map & exam skills", views: [["scope", "0.1 Course map"], ["skills", "0.2 Exam skills"], ["formulas", "0.3 Formula sheet"], ["challenge", "0.4 Mixed challenge"]] },
-  launch: { title: "MOTION & PROJECTILES", name: "Motion & projectiles", views: [["vectors", "1.1 Vectors"], ["numbers", "1.2 Numbers & units"], ["intro", "1.3 Foundations"], ["graphs", "1.4 Graphs"], ["projectiles", "1.5 Projectiles"], ["clinic", "1.6 Clinic"], ["check", "1.7 Quick check"], ["problems", "1.8 Problems"]] },
-  thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "2.1 Foundations"], ["vectors", "2.2 Vectors"], ["torque", "2.3 Torque"], ["springs", "2.4 Springs"], ["check", "2.5 Quick check"], ["problems", "2.6 Problems"]] },
-  orbit: { title: "CIRCULAR MOTION", name: "Circular motion", views: [["intro", "3.1 Foundations"], ["lab", "3.2 Centripetal force"], ["clinic", "3.3 Clinic"], ["check", "3.4 Quick check"], ["problems", "3.5 Problems"]] },
-  dock: { title: "MOMENTUM & IMPULSE", name: "Momentum & impulse", views: [["intro", "4.1 Foundations"], ["collide", "4.2 Collisions"], ["impulse", "4.3 Impulse"], ["check", "4.4 Quick check"], ["problems", "4.5 Problems"]] },
-  fuel: { title: "WORK, ENERGY & POWER", name: "Work, energy & power", views: [["intro", "5.1 Foundations"], ["lab", "5.2 Energy track"], ["clinic", "5.3 Clinic"], ["check", "5.4 Quick check"], ["problems", "5.5 Problems"]] },
+  map: { title: "COURSE MAP", name: "Course map & exam skills", views: [["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["challenge", "Mixed challenge"]] },
+  launch: { title: "MOTION & PROJECTILES", name: "Motion & projectiles", views: [["vectors", "Vectors"], ["numbers", "Numbers & units"], ["intro", "Foundations"], ["graphs", "Graphs"], ["relvel", "Relative velocity"], ["projectiles", "Projectiles"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
+  thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "Foundations"], ["vectors", "Vectors"], ["lift", "Lift"], ["torque", "Torque"], ["bridges", "Bridges & seesaws"], ["springs", "Springs"], ["practicals", "Practicals"], ["check", "Quick check"], ["problems", "Problems"]] },
+  orbit: { title: "CIRCULAR MOTION", name: "Circular motion", views: [["intro", "Foundations"], ["lab", "Centripetal force"], ["practical", "Practical"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
+  dock: { title: "MOMENTUM & IMPULSE", name: "Momentum & impulse", views: [["intro", "Foundations"], ["collide", "Collisions"], ["impulse", "Impulse"], ["check", "Quick check"], ["problems", "Problems"]] },
+  fuel: { title: "WORK, ENERGY & POWER", name: "Work, energy & power", views: [["intro", "Foundations"], ["lab", "Energy track"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
 };
 const SCOPE = {
   launch: [
@@ -1675,18 +1907,24 @@ const SCOPE = {
     ["Split a launch velocity into horizontal and vertical parts and explain why vx stays constant", "Projectiles", "launch:projectiles"],
     ["Calculate time of flight, range and maximum height", "Projectile recipe", "launch:clinic"],
     ["Use prefixes and powers of ten, and multiply, divide, add and subtract numbers in standard form", "Numbers & units", "launch:numbers"],
+    ["Read acceleration–time graphs and move between d–t, v–t and a–t graphs", "Graph matching", "launch:graphs"],
+    ["Use vector addition for relative velocity: river crossings and crosswinds", "Relative velocity", "launch:relvel"],
   ],
   thrust: [
     ["Draw free-body diagrams and use F = ma with the net force", "Newton's laws", "thrust:intro"],
     ["Add force vectors and resolve a force into components", "Force vectors", "thrust:vectors"],
     ["Use both equilibrium conditions and torques to find support forces", "Torque & balance", "thrust:torque"],
     ["Use F = kx and the area under a force–extension graph", "Springs", "thrust:springs"],
+    ["Explain apparent weight in a lift using F = m(g + a)", "Lift lab", "thrust:lift"],
+    ["Find the support forces on a bridge or plank with two supports, and balance a seesaw", "Bridges & seesaws", "thrust:bridges"],
+    ["Take readings, draw a graph, transform data and find a quantity from a gradient", "Practicals", "thrust:practicals"],
   ],
   orbit: [
     ["Explain why constant speed in a circle means acceleration towards the centre", "Δv and ac", "orbit:intro"],
     ["Name the real force that provides the centripetal force", "Tension, friction, gravity", "orbit:lab"],
     ["Calculate v from the period, then ac and Fc", "v = 2πr ÷ T", "orbit:clinic"],
     ["Explain the path when the centripetal force is removed", "Newton's first law", "orbit:lab"],
+    ["Test Fc = mv²/r with the whirling-bung experiment and evaluate the errors", "Whirling bung", "orbit:practical"],
   ],
   dock: [
     ["Calculate momentum and change in momentum, with direction", "p = mv", "dock:intro"],
@@ -1707,6 +1945,11 @@ const TIP_CHECK = "Got one wrong? Read the explanation, then reopen the matching
 const TIPS = {
   "launch:vectors": "Every vector answer needs a direction as well as a size and a unit: \"5.0 m at 53° north of east\", not just \"5.0 m\".",
   "launch:numbers": "Convert to SI units (m, kg, s) before substituting. Most lost marks in calculations come from g instead of kg or cm instead of m.",
+  "launch:relvel": "Draw the vector triangle first. The crossing time uses only the velocity component straight across; the drift uses only the sideways component.",
+  "thrust:lift": "Draw the free-body diagram, choose up as positive, then write F_net = ma: F_N − mg = ma. Never write the weight as changing.",
+  "thrust:bridges": "Take torques about one support to find the other support force, then use 'forces up = forces down' to find the first.",
+  "thrust:practicals": "When a graph is a curve, say what you would plot to get a straight line, and what the gradient represents.",
+  "orbit:practical": "In practical questions, say which mass goes in Fc = mv²/r (the bung), how you measured T (time 10 revolutions and divide), and name a real source of error.",
   "launch:intro": "Before any calculation, write which direction is positive. Most sign errors come from switching direction halfway through a question.",
   "launch:graphs": "On a v–t graph, gradient means acceleration and area means displacement. Say which one you are using in your answer.",
   "launch:projectiles": "Treat the two directions separately and only link them through time. Write the equation first, then substitute, then the answer with a unit, so the marker can follow your working.",
@@ -1746,7 +1989,7 @@ function go(mod, view, scroll) {
   const tabs = $("tabs"); tabs.replaceChildren();
   MODS[mod].views.forEach(([id, label]) => {
     const b = document.createElement("button");
-    b.type = "button"; b.className = "tab" + (id === "check" || id === "challenge" ? " check" : ""); b.textContent = label;
+    b.type = "button"; b.className = "tab" + (id === "check" || id === "challenge" ? " check" : ""); b.textContent = phaseRef(mod, id) + " " + label;
     b.setAttribute("role", "tab"); b.setAttribute("aria-selected", String(id === view));
     b.addEventListener("click", () => go(mod, id));
     tabs.appendChild(b);
@@ -1846,6 +2089,14 @@ function textOf(el) {
   while (tw.nextNode()) parts.push(tw.currentNode.nodeValue);
   return parts.join(" ").replace(/\s+/g, " ").replace(/ ([,.;:)])/g, "$1").trim();
 }
+/* phase numbers come from the tab order in MODS, so adding a tab renumbers everything */
+function phaseRef(mod, view) { return Object.keys(MODS).indexOf(mod) + "." + (MODS[mod].views.findIndex((v) => v[0] === view) + 1); }
+sections.forEach((sec) => {
+  const ref = phaseRef(sec.dataset.mod, sec.dataset.view); sec.dataset.ref = ref;
+  const h2 = sec.querySelector("h2"); if (h2) h2.innerHTML = h2.innerHTML.replace(/Phase [\d.]+/, "Phase " + ref);
+  sec.querySelectorAll("details.step .ref").forEach((r, k) => { r.textContent = ref + "." + (k + 1); });
+});
+document.querySelectorAll("[data-phase]").forEach((el) => { const [m, v] = el.dataset.phase.split(":"); el.textContent = phaseRef(m, v); });
 const index = sections.map((s) => ({ mod: s.dataset.mod, view: s.dataset.view, ref: s.dataset.ref, title: s.dataset.title, text: textOf(s) }));
 const sInput = $("search"), sRes = $("results");
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -2094,7 +2345,7 @@ function powerCalc() {
   }
   sim.frame = (dt) => {
     if (S.run) { S.t += dt; if (S.t >= S.T) { S.t = S.T; S.run = false; sim.anim = false; } }
-    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.3) : Math.round(w * 0.5)));
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.8) : Math.round(w * 0.46)));
     clear(ctx, w, h);
     // range of positions
     let xs = [0, xAt(S.T)]; const t0 = tTurn(); if (t0 > 0 && t0 < S.T) xs.push(xAt(t0));
@@ -2118,14 +2369,17 @@ function powerCalc() {
     let dLo = Math.min(0, xmin + pad, ...xs), dHi = Math.max(1, ...xs);
     const vs = [S.vi, vAt(S.T), 0]; let vLo = Math.min(...vs), vHi = Math.max(...vs); if (vHi - vLo < 2) { vHi += 1; vLo -= 1; }
     const vp = (vHi - vLo) * 0.1, dp = (dHi - dLo) * 0.1;
+    const aLo = Math.min(0, S.a) - 1, aHi = Math.max(0, S.a) + 1, aF = () => S.a;
     if (stacked) {
-      const gh = (h - gTop - 80) / 2, gw = w - 70;
+      const gh = (h - gTop - 120) / 3, gw = w - 70;
       plot(ctx, 50, gTop, gw, gh, xAt, dLo - dp, dHi + dp, "d (m) · gradient = velocity", C.data, tc, false);
       plot(ctx, 50, gTop + gh + 46, gw, gh, vAt, vLo - vp, vHi + vp, "v (m s⁻¹) · gradient = acceleration", C.vector, tc, S.shade);
+      plot(ctx, 50, gTop + 2 * (gh + 46), gw, gh, aF, aLo, aHi, "a (m s⁻²) · area = change in v", C.third, tc, false);
     } else {
-      const gw = (w - 130) / 2, gh = h - gTop - 40;
-      plot(ctx, 50, gTop, gw, gh, xAt, dLo - dp, dHi + dp, "d (m) · gradient = velocity", C.data, tc, false);
-      plot(ctx, 50 + gw + 50, gTop, gw, gh, vAt, vLo - vp, vHi + vp, "v (m s⁻¹) · gradient = a", C.vector, tc, S.shade);
+      const gw = (w - 240) / 3, gh = h - gTop - 40;
+      plot(ctx, 50, gTop, gw, gh, xAt, dLo - dp, dHi + dp, "d (m) · gradient = v", C.data, tc, false);
+      plot(ctx, 50 + gw + 70, gTop, gw, gh, vAt, vLo - vp, vHi + vp, "v (m s⁻¹) · gradient = a", C.vector, tc, S.shade);
+      plot(ctx, 50 + 2 * (gw + 70), gTop, gw, gh, aF, aLo, aHi, "a (m s⁻²)", C.third, tc, false);
     }
     $("mgHud").textContent = `t = ${tc.toFixed(2)} s`;
     $("mgTt").textContent = tc.toFixed(2) + " s"; $("mgTv").textContent = fx(v, 1, true) + " m s⁻¹";
@@ -2678,6 +2932,591 @@ function powerCalc() {
   $("pxShow").addEventListener("click", () => { work.innerHTML = cur.work.map((s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]))).join("<br>"); work.classList.remove("hidden"); });
   $("pxNext").addEventListener("click", next);
   next();
+})();
+
+/* ====================================================== 1.4 · MATCH THE GRAPH ===== */
+(() => {
+  const DUR = 2, N = 3, T = DUR * N;
+  const ri = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+  function motion(segA, v0) {
+    const v = (t) => { let vv = v0, tt = 0; for (const a of segA) { const d = Math.min(DUR, Math.max(0, t - tt)); vv += a * d; tt += DUR; } return vv; };
+    const d = (t) => { let x = 0, vv = v0, tt = 0; for (const a of segA) { const dd = Math.min(DUR, Math.max(0, t - tt)); x += vv * dd + 0.5 * a * dd * dd; vv += a * dd; tt += DUR; } return x; };
+    const a = (t) => segA[Math.min(N - 1, Math.floor((t - 1e-9) / DUR))] ?? segA[0];
+    return { v, d, a: (t) => (t <= 0 ? segA[0] : a(t)) };
+  }
+  const NAME = { d: "displacement–time", v: "velocity–time", a: "acceleration–time" };
+  const AX = { d: "d (m)", v: "v (m s⁻¹)", a: "a (m s⁻²)" };
+  function sample(f) { const out = []; for (let i = 0; i <= 60; i++) out.push(f((T * i) / 60)); return out; }
+  const same = (p, q) => p.every((x, i) => Math.abs(x - q[i]) < 0.05 * (Math.max(...p.map(Math.abs)) + 1));
+  function draw(cv, f, type, col, hFrac) {
+    const { ctx, w, h } = fit(cv, (w) => Math.round(w * hFrac));
+    clear(ctx, w, h);
+    const vals = sample(f); let lo = Math.min(0, ...vals), hi = Math.max(0, ...vals); if (hi - lo < 1) { hi += 0.5; lo -= 0.5; }
+    const pad = (hi - lo) * 0.12; lo -= pad; hi += pad;
+    const x0 = 34, x1 = w - 12, y0 = 24, y1 = h - 22, X = (t) => x0 + (t / T) * (x1 - x0), Y = (v) => y1 - ((v - lo) / (hi - lo)) * (y1 - y0);
+    ctx.strokeStyle = C.grid; ctx.lineWidth = 1; ctx.beginPath(); for (let t = 0; t <= T; t += DUR) { ctx.moveTo(X(t), y0); ctx.lineTo(X(t), y1); } ctx.stroke();
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y1); ctx.moveTo(x0, Y(0)); ctx.lineTo(x1, Y(0)); ctx.stroke();
+    text(ctx, AX[type], x0 + 4, 15, C.ink2, 11); text(ctx, "0", x0 - 6, Y(0) + 4, C.muted, 10, "right");
+    for (let t = DUR; t < T; t += DUR) text(ctx, String(t), X(t), y1 + 14, C.muted, 10, "center");
+    text(ctx, T + " s", x1, y1 + 14, C.muted, 10, "right");
+    ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.lineJoin = "round"; ctx.beginPath();
+    if (type === "a") { for (let k = 0; k < N; k++) { const av = f(k * DUR + 0.01); ctx.moveTo(X(k * DUR), Y(av)); ctx.lineTo(X((k + 1) * DUR), Y(av)); } }
+    else vals.forEach((v, i) => { const t = (T * i) / 60; i ? ctx.lineTo(X(t), Y(v)) : ctx.moveTo(X(t), Y(v)); });
+    ctx.stroke();
+  }
+  let mode = "mix", cur = null, score = 0, tries = 0, streak = 0, done = false;
+  function make() {
+    let kind = mode === "mix" ? ["dv", "vd", "va", "av"][ri(0, 3)] : mode;
+    const from = kind[0], to = kind[1];
+    let segA, v0, m;
+    do { segA = Array.from({ length: N }, () => [-2, -1, 0, 1, 2][ri(0, 4)]); v0 = from === "a" || to === "a" ? [0, 2, 4][ri(0, 2)] : [0, 2][ri(0, 1)]; if (from === "a") v0 = 0; } while (new Set(segA).size < 2);
+    m = motion(segA, v0);
+    const correct = m[to];
+    const cands = [];
+    cands.push({ f: m[from], why: `This is the ${NAME[from]} graph redrawn with new labels: the shape has been copied instead of using the gradient or area.` });
+    if (to !== "d") cands.push({ f: (t) => -correct(t), why: "The signs are reversed: check whether each slope goes up or down." });
+    let swapped = segA.slice(); for (let k = 0; k < 6 && swapped.join() === segA.join(); k++) { const i = ri(0, N - 1), j = (i + 1) % N; [swapped[i], swapped[j]] = [swapped[j], swapped[i]]; }
+    if (swapped.join() === segA.join()) swapped = segA.map((a) => (a === 0 ? 1 : 0));
+    cands.push({ f: motion(swapped, v0)[to], why: "The stages are in the wrong order. Check each 2-second section in turn." });
+    const alt = segA.map((a) => (a === 0 ? (Math.random() < 0.5 ? 1 : -1) : 0)); cands.push({ f: motion(alt, v0)[to], why: "Look at which sections have a constant value and which are changing." });
+    const cs = sample(correct), opts = [{ f: correct, ok: true }];
+    for (const c of cands) { const sc = sample(c.f); if (opts.length < 3 && !opts.some((o) => same(sample(o.f), sc))) opts.push({ f: c.f, why: c.why }); }
+    if (opts.length < 3 || !cs) return make();
+    cur = { from, to, m, segA, v0, opts: shuffle(opts) };
+    const hint = from === "a" ? " The trolley starts from rest." : "";
+    $("gmQ").textContent = `Here is the ${NAME[from]} graph.${hint} Which is the matching ${NAME[to]} graph?`;
+    done = false; $("gmVerdict").classList.add("hidden");
+    const box = $("gmOpts"); box.replaceChildren();
+    cur.opts.forEach((o, i) => {
+      const b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-label", "Option " + "ABC"[i]);
+      const c = document.createElement("canvas"); c.width = 300; c.height = 170; const l = document.createElement("span"); l.className = "gm-l"; l.textContent = "ABC"[i];
+      b.append(c, l); box.appendChild(b); o.btn = b; o.cv = c;
+      b.addEventListener("click", () => pick(o));
+    });
+    render();
+  }
+  function explain() {
+    const { from, to, segA, v0 } = cur, s = segA.map((a) => (a > 0 ? "+" : a < 0 ? "−" : "") + Math.abs(a));
+    if (to === "a" || from === "a") return `The accelerations in the three stages are ${s.join(", ")} m s⁻². ${to === "a" ? "Each one is the gradient of a straight section of the v–t graph." : "Starting from rest, each stage changes v by a × 2 s (the area under the a–t graph)."}`;
+    if (to === "v") return "The v–t graph is the gradient of the d–t graph: a straight d–t section means constant v, a curve that gets steeper means v increasing, and a curve that flattens means v decreasing.";
+    return `The d–t graph is the area under the v–t graph${v0 ? "" : " starting from rest"}. Where v is positive the d–t graph rises, it is steepest where v is biggest, and it is flat where v = 0.`;
+  }
+  function pick(o) {
+    if (done) return; done = true; tries++;
+    if (o.ok) { score++; streak++; } else streak = 0;
+    cur.opts.forEach((p) => { p.btn.disabled = true; if (p.ok) p.btn.classList.add("right"); });
+    if (!o.ok) o.btn.classList.add("wrong");
+    const v = $("gmVerdict"); v.className = "verdict " + (o.ok ? "ok" : "bad");
+    v.textContent = (o.ok ? "Correct. " : "Not this one. " + o.why + " ") + explain();
+    $("gmScore").textContent = `Score ${score} / ${tries} · streak ${streak}`;
+  }
+  function render() { if (!cur) return; draw($("gmGiven"), cur.m[cur.from], cur.from, C.vector, 0.3); cur.opts.forEach((o) => draw(o.cv, o.f, cur.to, C.data, 0.55)); }
+  const btns = [...document.querySelectorAll("[data-gm]")];
+  btns.forEach((b) => b.addEventListener("click", () => { mode = b.dataset.gm; setPressed(btns, b); make(); }));
+  $("gmNext").addEventListener("click", make);
+  make();
+  const base = sims["launch:graphs"], f0 = base.frame;
+  base.frame = (dt) => { f0(dt); if (base._gmW !== $("gmGiven").clientWidth || base._theme !== C.canvas) { base._gmW = $("gmGiven").clientWidth; base._theme = C.canvas; render(); } };
+  window.addEventListener("resize", render);
+})();
+
+/* ====================================================== 1.5 · RELATIVE VELOCITY ===== */
+(() => {
+  const cv = $("rvCanvas"), sim = { dirty: true, anim: false }; sims["launch:relvel"] = sim;
+  const CFG = {
+    river: { W: 60, du: "m", vu: "m s⁻¹", s: [1, 5, 0.1, 4], u: [0, 3, 0.1, 3], sLab: "Boat speed through the water", uLab: "River current", tUnit: (t) => fmt(t) + " s", jet: "jetty" },
+    plane: { W: 120, du: "km", vu: "km h⁻¹", s: [80, 250, 10, 200], u: [0, 100, 5, 60], sLab: "Airspeed", uLab: "Crosswind (blowing east)", tUnit: (t) => fmt(t * 60) + " min", jet: "airport" },
+  };
+  let ctxName = "river", S = { phase: "ready", t: 0, trail: [], target: null }, flow = 0;
+  const sEl = $("rvS"), uEl = $("rvU"), hEl = $("rvH");
+  const cfg = () => CFG[ctxName];
+  function setCtx(name) {
+    ctxName = name; const c = cfg();
+    [[sEl, c.s], [uEl, c.u]].forEach(([el, [lo, hi, st, def]]) => { el.min = lo; el.max = hi; el.step = st; el.value = def; });
+    hEl.value = 0; $("rvSLab").textContent = c.sLab; $("rvULab").textContent = c.uLab;
+    S.target = null; $("rvVerdict").classList.add("hidden"); reset();
+  }
+  function vals() { const c = cfg(), s = +sEl.value, u = +uEl.value, th = (+hEl.value * Math.PI) / 180; const vx = u + s * Math.sin(th), vy = s * Math.cos(th); return { c, s, u, th, vx, vy, T: c.W / vy, drift: (vx * c.W) / vy }; }
+  function outs() { const c = cfg(); $("rvSOut").textContent = fmt(+sEl.value) + " " + c.vu; $("rvUOut").textContent = fmt(+uEl.value) + " " + c.vu; const hd = +hEl.value; $("rvHOut").textContent = hd === 0 ? (ctxName === "river" ? "0° (straight across)" : "0° (due north)") : Math.abs(hd) + "° " + (hd < 0 ? (ctxName === "river" ? "upstream" : "into the wind") : (ctxName === "river" ? "downstream" : "downwind")); $("rvHLab").textContent = ctxName === "river" ? "Heading (0° = straight across, − = upstream)" : "Heading (0° = due north, − = into the wind)"; }
+  function reset() { S.phase = "ready"; S.t = 0; S.trail = []; sim.anim = true; outs(); sim.dirty = true; }
+  [sEl, uEl, hEl].forEach((el) => el.addEventListener("input", () => { $("rvVerdict").classList.add("hidden"); reset(); }));
+  const ctxBtns = [...document.querySelectorAll("[data-rv-ctx]")];
+  ctxBtns.forEach((b) => b.addEventListener("click", () => { setPressed(ctxBtns, b); setCtx(b.dataset.rvCtx); }));
+  $("rvGo").addEventListener("click", () => { reset(); S.phase = "go"; $("rvVerdict").classList.add("hidden"); });
+  $("rvChal").addEventListener("click", () => {
+    const c = cfg(); const opts = [0, 0, -0.25, 0.3, 0.5, -0.4].map((k) => Math.round(k * c.W)); S.target = opts[Math.floor(Math.random() * opts.length)];
+    uEl.value = (c.u[0] + (0.4 + Math.random() * 0.6) * (c.u[1] - c.u[0])).toFixed(1); sEl.value = c.s[3]; hEl.value = 0;
+    const v = $("rvVerdict"); v.className = "verdict info";
+    v.textContent = `Challenge: reach the ${c.jet} ${S.target === 0 ? "directly opposite" : Math.abs(S.target) + " " + c.du + (S.target > 0 ? " downstream" : " upstream")}. Set the heading, then press GO.`;
+    reset();
+  });
+  setCtx("river");
+  const dirText = (vx, vy) => { const a = (Math.atan2(Math.abs(vx), vy) * 180) / Math.PI, r = ctxName === "river"; return Math.abs(vx) < 1e-6 ? (r ? "straight across" : "due north") : fmt(a, 2) + "° " + (r ? (vx > 0 ? "downstream" : "upstream") + " of straight across" : (vx > 0 ? "east" : "west") + " of north"); };
+  sim.frame = (dt) => {
+    const V = vals(), c = V.c, river = ctxName === "river";
+    flow += dt * (V.u / (c.u[1] || 1)) * 60;
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.35) : Math.max(320, Math.round(w * 0.5))));
+    clear(ctx, w, h);
+    const narrow = w < 640, panelW = narrow ? 0 : Math.min(230, w * 0.28), sceneH = narrow ? h - 160 : h;
+    const sx0 = 12, sx1 = w - panelW - 12, bankH = 40, top = bankH, bot = sceneH - bankH;
+    const scale = (bot - top) / c.W, cx = (sx0 + sx1) / 2, X = (x) => cx + x * scale, Y = (y) => bot - y * scale;
+    // scene
+    if (river) {
+      ctx.fillStyle = C.tile; ctx.fillRect(sx0, 0, sx1 - sx0, top); ctx.fillRect(sx0, bot, sx1 - sx0, sceneH - bot);
+      ctx.save(); ctx.beginPath(); ctx.rect(sx0, top, sx1 - sx0, bot - top); ctx.clip();
+      ctx.fillStyle = C.data; ctx.globalAlpha = 0.1; ctx.fillRect(sx0, top, sx1 - sx0, bot - top); ctx.globalAlpha = 1;
+      ctx.strokeStyle = C.data; ctx.globalAlpha = 0.25; ctx.lineWidth = 1.5;
+      for (let r = 0; r < 7; r++) { const yy = top + ((r + 0.5) * (bot - top)) / 7; for (let k = -1; k < 8; k++) { const xx = sx0 + (((k * 120 + flow + r * 37) % 960) + 960) % 960 - 60; ctx.beginPath(); ctx.moveTo(xx, yy); ctx.quadraticCurveTo(xx + 10, yy - 4, xx + 20, yy); ctx.stroke(); } }
+      ctx.restore(); ctx.globalAlpha = 1;
+      text(ctx, "current →", sx0 + 8, top + 18, C.data, 11);
+    } else {
+      ctx.strokeStyle = C.grid; ctx.lineWidth = 1; ctx.beginPath(); for (let x = sx0; x < sx1; x += 40) { ctx.moveTo(x, 0); ctx.lineTo(x, sceneH); } for (let y = 0; y < sceneH; y += 40) { ctx.moveTo(sx0, y); ctx.lineTo(sx1, y); } ctx.stroke();
+      ctx.save(); ctx.strokeStyle = C.data; ctx.globalAlpha = 0.3; for (let r = 0; r < 6; r++) { const yy = 30 + r * ((sceneH - 60) / 5); for (let k = -1; k < 6; k++) { const xx = sx0 + (((k * 160 + flow * 1.5 + r * 50) % 960) + 960) % 960 - 60; arrow(ctx, xx, yy, xx + 26, yy, C.data, 1.5, 6); } } ctx.restore();
+      text(ctx, "wind →", sx0 + 8, 36, C.data, 11);
+    }
+    // start and target markers
+    ctx.fillStyle = C.ink2; ctx.fillRect(X(0) - 8, bot - 2, 16, 4); text(ctx, river ? "start" : "departure", X(0), bot + 18, C.muted, 11, "center");
+    if (S.target !== null) { ctx.fillStyle = C.hot; ctx.fillRect(X(S.target) - 14, top - 6, 28, 8); text(ctx, c.jet, X(S.target), top + 18, C.hot, 11, "center"); }
+    else if (!river) { ctx.fillStyle = C.hot; ctx.fillRect(X(0) - 14, top - 6, 28, 8); text(ctx, "airport", X(0), top + 18, C.hot, 11, "center"); }
+    // motion
+    const Tsim = V.T, rate = Tsim / 4;
+    if (S.phase === "go") { S.t += dt * rate; if (S.t >= Tsim) { S.t = Tsim; S.phase = "done"; finish(V); } }
+    const px = V.vx * S.t, py = V.vy * S.t;
+    if (S.phase !== "ready") { ctx.save(); ctx.strokeStyle = C.accent; ctx.setLineDash([5, 5]); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(px), Y(py)); ctx.stroke(); ctx.restore(); }
+    else { ctx.save(); ctx.globalAlpha = 0.35; ctx.strokeStyle = C.accent; ctx.setLineDash([3, 6]); ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(V.drift), Y(c.W)); ctx.stroke(); ctx.restore(); }
+    // craft, drawn pointing along its heading
+    ctx.save(); ctx.translate(X(px), Y(py)); ctx.rotate(V.th);
+    ctx.fillStyle = C.hot;
+    if (river) { ctx.beginPath(); ctx.moveTo(0, -16); ctx.quadraticCurveTo(8, -6, 7, 12); ctx.lineTo(-7, 12); ctx.quadraticCurveTo(-8, -6, 0, -16); ctx.fill(); }
+    else { ctx.beginPath(); ctx.moveTo(0, -16); ctx.lineTo(3, -4); ctx.lineTo(16, 3); ctx.lineTo(3, 2); ctx.lineTo(2, 10); ctx.lineTo(6, 14); ctx.lineTo(-6, 14); ctx.lineTo(-2, 10); ctx.lineTo(-3, 2); ctx.lineTo(-16, 3); ctx.lineTo(-3, -4); ctx.closePath(); ctx.fill(); }
+    ctx.restore();
+    // vector triangle
+    const tri = (ox, oy, k) => {
+      const bx = V.s * Math.sin(V.th) * k, by = -V.s * Math.cos(V.th) * k, ux = V.u * k;
+      arrow(ctx, ox, oy, ox + bx, oy + by, C.vector, 3, 10);
+      if (V.u > 0) arrow(ctx, ox + bx, oy + by, ox + bx + ux, oy + by, C.data, 3, 10);
+      resultant(ctx, ox, oy, ox + bx + ux, oy + by, C.accent, 3.5, 11);
+      return { bx, by, ux };
+    };
+    {
+      const bw = narrow ? w - 24 : panelW - 10, bh = narrow ? 140 : h - 20, bx0 = narrow ? 12 : w - panelW, by0 = narrow ? h - 150 : 10;
+      ctx.fillStyle = C.panel; ctx.strokeStyle = C.line; ctx.lineWidth = 1; rrect(ctx, bx0, by0, bw, bh, 10); ctx.fill(); ctx.stroke();
+      text(ctx, "VECTOR TRIANGLE", bx0 + 14, by0 + 20, C.muted, 10);
+      const keyH = narrow ? 10 : 60, availW = bw - 30, availH = bh - 40 - keyH;
+      const spanX = Math.max(c.s[1], c.u[1] + c.s[1] * 0.5), k = Math.min(availW / (spanX * 1.4), availH / c.s[1]);
+      const bxv = V.s * Math.sin(V.th) * k, byv = V.s * Math.cos(V.th) * k, minX = Math.min(0, bxv), maxX = Math.max(0, bxv, bxv + V.u * k);
+      const ox = bx0 + bw / 2 - (minX + maxX) / 2, oy = by0 + 28 + (availH + byv) / 2;
+      tri(ox, oy, k);
+      { const L = 16, ky = narrow ? by0 + 44 : by0 + bh - 50; text(ctx, river ? "boat" : "plane", bx0 + 14, ky, C.vector, 11); text(ctx, river ? "current" : "wind", bx0 + 14, ky + L, C.data, 11); text(ctx, "resultant", bx0 + 14, ky + 2 * L, C.accent, 11); }
+    }
+    // readouts
+    const Rv = Math.hypot(V.vx, V.vy);
+    $("rvR").textContent = fmt(Rv) + " " + c.vu; $("rvDir").textContent = dirText(V.vx, V.vy);
+    $("rvT").textContent = c.tUnit(V.T);
+    $("rvLand").textContent = Math.abs(V.drift) < 0.05 * (c.W / 60) ? "directly opposite" : fmt(Math.abs(V.drift)) + " " + c.du + (V.drift > 0 ? (river ? " downstream" : " east") : (river ? " upstream" : " west"));
+    let n;
+    const sinNeed = V.u / V.s;
+    if (V.u === 0) n = river ? "No current: the boat goes where it points." : "No wind: the plane goes where it points.";
+    else if (Math.abs(V.th) < 1e-6) n = `Pointing straight across gives the quickest crossing: t = ${c.W} ÷ ${fmt(V.s)} = ${c.tUnit(V.T)}. The ${river ? "current" : "wind"} carries it ${fmt(V.drift)} ${c.du} sideways.`;
+    else if (sinNeed <= 1 && Math.abs(V.vx) < 0.02 * V.s) n = `The upstream part of the velocity cancels the ${river ? "current" : "wind"} exactly (sin θ = ${fmt(V.u)} ÷ ${fmt(V.s)}), so it travels straight across. It takes longer because only ${fmt(V.vy)} ${c.vu} is left for crossing.`;
+    else n = `Only the across part, ${fmt(V.vy)} ${c.vu}, gets it to the other side, so the crossing takes ${c.tUnit(V.T)}. ${sinNeed > 1 ? `The ${river ? "current" : "wind"} is faster than the ${river ? "boat" : "plane"}, so it can't reach the point directly opposite.` : `To land directly opposite, aim ${fmt((Math.asin(sinNeed) * 180) / Math.PI, 2)}° ${river ? "upstream" : "into the wind"}.`}`;
+    $("rvNote").textContent = n;
+    $("rvHud").textContent = S.phase === "go" ? (river ? "CROSSING" : "FLYING") + " · t = " + c.tUnit(S.t) : S.phase === "done" ? "ARRIVED" : "READY";
+    sim.anim = true;
+  };
+  function finish(V) {
+    if (S.target === null) return;
+    const c = V.c, miss = V.drift - S.target, tol = c.W * 0.05, v = $("rvVerdict");
+    v.className = "verdict " + (Math.abs(miss) <= tol ? "ok" : "bad");
+    v.textContent = Math.abs(miss) <= tol ? `On target. You landed ${fmt(Math.abs(miss), 2)} ${c.du} from the ${c.jet}.` : `Missed by ${fmt(Math.abs(miss), 2)} ${c.du} (${miss > 0 ? (ctxName === "river" ? "too far downstream" : "too far east") : (ctxName === "river" ? "too far upstream" : "too far west")}). Use the vector triangle: the sideways drift is (sideways velocity) × (crossing time).`;
+  }
+})();
+
+/* ====================================================== shared: scatter graph with best-fit line ===== */
+function scatter(cv, pts, opt) {
+  const { ctx, w, h } = fit(cv, (w) => Math.max(220, Math.round(w * (opt.hFrac || 0.36))));
+  clear(ctx, w, h);
+  const x0 = 58, x1 = w - 20, y0 = 22, y1 = h - 40;
+  const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
+  const xMax = Math.max(opt.xMin || 0, ...xs, 1e-9) * 1.12, yMax = Math.max(opt.yMin || 0, ...ys, 1e-9) * 1.15;
+  const X = (x) => x0 + (x / xMax) * (x1 - x0), Y = (y) => y1 - (y / yMax) * (y1 - y0);
+  const xs_ = niceStep(xMax, 6), ys_ = niceStep(yMax, 5);
+  ctx.strokeStyle = C.grid; ctx.lineWidth = 1; ctx.beginPath();
+  for (let x = 0; x <= xMax + 1e-12; x += xs_) { ctx.moveTo(X(x), y0); ctx.lineTo(X(x), y1); text(ctx, fmt(x, 2), X(x), y1 + 14, C.muted, 10, "center"); }
+  for (let y = 0; y <= yMax + 1e-12; y += ys_) { ctx.moveTo(x0, Y(y)); ctx.lineTo(x1, Y(y)); text(ctx, fmt(y, 2), x0 - 6, Y(y) + 4, C.muted, 10, "right"); }
+  ctx.stroke();
+  ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y1); ctx.lineTo(x1, y1); ctx.stroke();
+  text(ctx, opt.yl, x0 + 6, y0 + 4, C.ink2, 11); text(ctx, opt.xl, x1, y1 + 30, C.ink2, 11, "right");
+  if (opt.ref) { ctx.save(); ctx.strokeStyle = C.muted; ctx.setLineDash([5, 5]); ctx.beginPath(); ctx.moveTo(X(0), Y(0)); const e = Math.min(xMax, yMax); ctx.lineTo(X(e), Y(e)); ctx.stroke(); ctx.restore(); text(ctx, opt.ref, X(Math.min(xMax, yMax) * 0.9), Y(Math.min(xMax, yMax) * 0.9) - 8, C.muted, 10, "right"); }
+  let grad = null;
+  const used = pts.filter((p) => p[2] !== false);
+  if (opt.fit && used.length >= 2) {
+    grad = used.reduce((a, p) => a + p[0] * p[1], 0) / used.reduce((a, p) => a + p[0] * p[0], 0); // least squares through the origin
+    ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(0), Y(0));
+    const xe = Math.min(xMax, yMax / grad); ctx.lineTo(X(xe), Y(grad * xe)); ctx.stroke();
+  }
+  if (opt.curve) { ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.beginPath(); let st = false; for (let i = 1; i <= 100; i++) { const x = (xMax * i) / 100, y = opt.curve(x); if (y > yMax * 1.05) { st = false; continue; } st ? ctx.lineTo(X(x), Y(y)) : ctx.moveTo(X(x), Y(y)); st = true; } ctx.stroke(); }
+  pts.forEach((p) => { ctx.strokeStyle = p[2] === false ? C.muted : C.data; ctx.lineWidth = 2; const px = X(p[0]), py = Y(p[1]); ctx.beginPath(); ctx.moveTo(px - 5, py - 5); ctx.lineTo(px + 5, py + 5); ctx.moveTo(px + 5, py - 5); ctx.lineTo(px - 5, py + 5); ctx.stroke(); });
+  if (!pts.length) text(ctx, "no readings yet", (x0 + x1) / 2, (y0 + y1) / 2, C.muted, 12, "center");
+  return grad;
+}
+
+/* ====================================================== 2.3 · LIFT ===== */
+(() => {
+  const cv = $("lfCanvas"), sim = { dirty: true, anim: false }; sims["thrust:lift"] = sim;
+  const TRIPS = {
+    up: { y0: 0, segs: [[2, 1.5], [6, 0], [2, -1.5]], v0: 0 },
+    down: { y0: 24, segs: [[2, -1.5], [6, 0], [2, 1.5]], v0: 0 },
+    snap: { y0: 27, segs: [[0.8, 0], [1.3, -G], [0.95, 13.4], [0.8, 0]], v0: 0 },
+  };
+  let trip = "up", S = { t: 0, run: false, hist: [], pred: null, slow: false };
+  const mEl = bindRange("lfM", "lfMOut", (v) => v + " kg");
+  function state(t) { const tr = TRIPS[trip]; let y = tr.y0, v = tr.v0, a = 0, tt = 0; for (const [d, aa] of tr.segs) { const dd = Math.min(d, Math.max(0, t - tt)); y += v * dd + 0.5 * aa * dd * dd; v += aa * dd; if (t >= tt && t < tt + d) a = aa; tt += d; } if (t >= tt) a = 0; return { y, v: Math.abs(v) < 1e-9 ? 0 : v, a }; }
+  const total = () => TRIPS[trip].segs.reduce((s, [d]) => s + d, 0);
+  const tripBtns = [...document.querySelectorAll("[data-lift]")], pBtns = [...document.querySelectorAll("[data-lfp]")];
+  function reset() { S.t = 0; S.run = false; S.hist = []; sim.anim = false; sim.dirty = true; $("lfVerdict").classList.add("hidden"); setPressed(pBtns, null); S.pred = null; labels(); }
+  function labels() { const m = +mEl.value; $("lfPredDir").textContent = trip === "down" ? "down" : trip === "snap" ? "after the cable snaps" : "up"; pBtns.forEach((b) => { b.textContent = { more: `more than ${m} kg`, same: `${m} kg`, less: `less than ${m} kg` }[b.dataset.lfp]; }); $("lfPred").querySelector("span").firstChild.textContent = trip === "snap" ? "Predict: in free fall, " : "Predict: while the lift speeds up going "; if (trip === "snap") $("lfPredDir").textContent = "the scales will read…"; }
+  tripBtns.forEach((b) => b.addEventListener("click", () => { trip = b.dataset.lift; setPressed(tripBtns, b); reset(); }));
+  pBtns.forEach((b) => b.addEventListener("click", () => { S.pred = b.dataset.lfp; setPressed(pBtns, b); }));
+  mEl.addEventListener("input", () => { labels(); sim.dirty = true; });
+  const slowB = $("lfSlow"); slowB.addEventListener("click", () => { S.slow = !S.slow; slowB.setAttribute("aria-pressed", String(S.slow)); });
+  $("lfGo").addEventListener("click", () => { S.t = 0; S.hist = []; S.run = true; sim.anim = true; S.checked = false; $("lfVerdict").classList.add("hidden"); });
+  labels();
+  function checkPred(m, scale) {
+    if (S.checked || !S.pred) return; S.checked = true;
+    const truth = trip === "snap" ? "less" : trip === "up" ? "more" : "less", v = $("lfVerdict");
+    v.className = "verdict " + (S.pred === truth ? "ok" : "bad");
+    v.textContent = (S.pred === truth ? "Correct: " : "Not quite: ") + `it read ${fmt(scale, 3)} kg. ` + (trip === "up" ? "Accelerating upwards needs a net upward force, so the support force must be bigger than your weight." : trip === "down" ? "Accelerating downwards needs a net downward force, so the support force must be smaller than your weight." : "In free fall you and the scales fall together with acceleration g, so the scales don't need to push on you at all.");
+  }
+  sim.frame = (dt) => {
+    const m = +mEl.value, T = total();
+    if (S.run) { S.t += dt * (S.slow ? 0.35 : 1); if (S.t >= T) { S.t = T; S.run = false; sim.anim = false; } }
+    const st = state(S.t), N = Math.max(0, m * (G + st.a)), scale = N / G;
+    if (S.run) { S.hist.push([S.t, st.v, scale]); if (st.a !== 0 && S.t > 0.3) checkPred(m, scale); }
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.55) : Math.max(380, Math.round(w * 0.5))));
+    clear(ctx, w, h);
+    const narrow = w < 640;
+    // shaft
+    const shW = narrow ? w * 0.42 : Math.min(240, w * 0.27), shX = 16, shTop = 16, shBot = narrow ? h * 0.55 : h - 16, Hm = 30;
+    const Y = (y) => shBot - (y / Hm) * (shBot - shTop - 90) - 90;
+    ctx.fillStyle = C.tile; ctx.fillRect(shX, shTop, shW, shBot - shTop);
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1; for (let f = 0; f <= 9; f++) { const yy = Y(f * 3) + 90; ctx.beginPath(); ctx.moveTo(shX, yy); ctx.lineTo(shX + 10, yy); ctx.stroke(); text(ctx, String(f), shX + 14, yy - 3, C.muted, 9); }
+    const carY = Y(st.y), carH = 90, carX = shX + 26, carW = shW - 40;
+    ctx.strokeStyle = C.ink2; ctx.lineWidth = 1.5; if (trip !== "snap" || S.t < 0.8) { ctx.beginPath(); ctx.moveTo(carX + carW / 2, shTop); ctx.lineTo(carX + carW / 2, carY); ctx.stroke(); }
+    ctx.fillStyle = C.panel; ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; rrect(ctx, carX, carY, carW, carH, 4); ctx.fill(); ctx.stroke();
+    // person + scales
+    const px = carX + carW / 2, feet = carY + carH - 12;
+    ctx.fillStyle = C.ink2; ctx.fillRect(px - 20, feet, 40, 8);
+    ctx.fillStyle = C.panel; ctx.fillRect(px - 12, feet + 1, 24, 6); text(ctx, fmt(scale, 3), px, feet + 7, C.hot, 7, "center");
+    ctx.strokeStyle = C.ink; ctx.lineWidth = 3; ctx.lineCap = "round"; ctx.beginPath();
+    ctx.arc(px, feet - 58, 7, 0, 7); ctx.moveTo(px, feet - 51); ctx.lineTo(px, feet - 24); ctx.moveTo(px, feet - 24); ctx.lineTo(px - 7, feet); ctx.moveTo(px, feet - 24); ctx.lineTo(px + 7, feet); ctx.moveTo(px - 10, feet - 44); ctx.lineTo(px + 10, feet - 44); ctx.stroke();
+    if (Math.abs(st.v) > 0.05) arrow(ctx, carX - 8, carY + carH / 2, carX - 8, carY + carH / 2 - Math.sign(st.v) * Math.min(40, Math.abs(st.v) * 6), C.data, 2.5, 8);
+    // free-body diagram
+    const fbX = narrow ? w * 0.74 : shX + shW + (w - shX - shW) * 0.18, fbY = narrow ? h * 0.3 : h * 0.42, ks = (narrow ? 70 : 110) / (110 * G);
+    ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(fbX, fbY, 6, 0, 7); ctx.fill();
+    arrow(ctx, fbX, fbY + 4, fbX, fbY + 4 + m * G * ks * 1.0 + 6, C.vector, 3.5, 11);
+    if (N > 1) arrow(ctx, fbX, fbY - 4, fbX, fbY - 4 - N * ks - 6, C.data, 3.5, 11);
+    text(ctx, "mg = " + fmt(m * G) + " N", fbX + 12, fbY + 4 + m * G * ks, C.vector, 11);
+    text(ctx, "F = " + fmt(N) + " N", fbX + 12, fbY - N * ks, C.data, 11);
+    text(ctx, "FREE-BODY DIAGRAM", fbX - 40, narrow ? 24 : 26, C.muted, 10);
+    if (Math.abs(st.a) > 0.01) { const fn = m * st.a; text(ctx, (narrow ? "net " : "net force ") + fmt(Math.abs(fn)) + " N " + (fn > 0 ? "up" : "down"), narrow ? w - 10 : fbX - 40, narrow ? h * 0.52 : fbY + 140, C.accent, 11, narrow ? "right" : "left"); }
+    // graphs
+    const gx0 = narrow ? 50 : fbX + (narrow ? 0 : 150), gx1 = w - 16, T2 = total();
+    const graphs = narrow ? [[h * 0.6, h * 0.77], [h * 0.81, h * 0.97]] : [[30, h * 0.47], [h * 0.55, h - 26]];
+    [["v (m s⁻¹)", 1, trip === "snap" ? -14 : -4, trip === "snap" ? 14 : 4, C.data], ["scales (kg)", 2, 0, trip === "snap" ? m * 2.6 : m * 1.6, C.hot]].forEach(([lab, idx, lo, hi, col], gi) => {
+      const [ya, yb] = graphs[gi], X = (t) => gx0 + (t / T2) * (gx1 - gx0), Yg = (v) => yb - ((v - lo) / (hi - lo)) * (yb - ya);
+      ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(gx0, ya, gx1 - gx0, yb - ya);
+      ctx.strokeStyle = C.axis; ctx.beginPath(); ctx.moveTo(gx0, Yg(idx === 1 ? 0 : m)); ctx.lineTo(gx1, Yg(idx === 1 ? 0 : m)); ctx.stroke();
+      text(ctx, lab, gx0 + 6, ya + 14, C.ink2, 10); text(ctx, idx === 1 ? "0" : String(m), gx0 - 4, Yg(idx === 1 ? 0 : m) + 4, C.muted, 9, "right");
+      ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath(); S.hist.forEach((p, i) => { const yy = Yg(Math.max(lo, Math.min(hi, p[idx]))); i ? ctx.lineTo(X(p[0]), yy) : ctx.moveTo(X(p[0]), yy); }); ctx.stroke();
+    });
+    text(ctx, "t →", gx1, graphs[1][1] + 14, C.muted, 10, "right");
+    // readouts and notes
+    $("lfScale").textContent = fmt(scale, 3) + " kg"; $("lfN").textContent = fmt(N) + " N"; $("lfW").textContent = fmt(m * G) + " N"; $("lfA").textContent = fx(st.a, 1, true) + " m s⁻²";
+    let n, phase;
+    if (st.a > 0.01) { phase = st.v > 0.05 || (trip === "up" && S.t < 2) ? "SPEEDING UP GOING UP" : "SLOWING DOWN GOING DOWN"; n = `Accelerating upwards at ${fmt(st.a)} m s⁻²: F = m(g + a) = ${m} × (9.8 + ${fmt(st.a)}) = ${fmt(N)} N. You feel heavier.`; if (trip === "snap") { phase = "EMERGENCY BRAKES"; n = "The brakes give a large upward acceleration, so the scales read far more than your weight. " + n; } }
+    else if (st.a < -0.01) { if (Math.abs(st.a + G) < 0.01) { phase = "FREE FALL"; n = "Free fall: a = −9.8 m s⁻², so F = m(g + a) = 0. The scales read zero and you feel weightless, but your weight is still " + fmt(m * G) + " N."; } else { phase = st.v > 0.05 ? "SLOWING DOWN GOING UP" : "SPEEDING UP GOING DOWN"; n = `Accelerating downwards at ${fmt(-st.a)} m s⁻²: F = m(g + a) = ${m} × (9.8 − ${fmt(-st.a)}) = ${fmt(N)} N. You feel lighter.`; } }
+    else { phase = Math.abs(st.v) > 0.05 ? "CONSTANT VELOCITY" : S.t > 0 ? "STOPPED" : "READY"; n = Math.abs(st.v) > 0.05 ? `Moving at a constant ${fmt(Math.abs(st.v))} m s⁻¹ ${st.v > 0 ? "up" : "down"}: a = 0, so the forces balance and the scales read your true mass, ${m} kg. The direction of motion doesn't matter, only the acceleration.` : `At rest: the support force equals your weight, ${fmt(m * G)} N, so the scales read ${m} kg.`; }
+    $("lfNote").textContent = n; $("lfHud").textContent = phase + (S.t > 0 ? ` · t = ${S.t.toFixed(1)} s` : "");
+  };
+})();
+
+/* ====================================================== 2.5 · BRIDGE + SEESAW ===== */
+(() => {
+  const cv = $("brCanvas"), sim = { dirty: true, anim: false }; sims["thrust:bridges"] = sim;
+  const L = 20, M = $("brM"), T = $("brT"), X = $("brX");
+  const kN = (v) => fmt(v / 1000, 3) + " kN";
+  bindRange("brM", "brMOut", (v) => (v / 1000).toFixed(0) + " t (" + kN(v * G) + ")"); bindRange("brT", "brTOut", (v) => (v / 1000).toFixed(0) + " t (" + kN(v * G) + ")"); bindRange("brX", "brXOut", (v) => v.toFixed(1) + " m");
+  let drive = false;
+  [M, T, X].forEach((el) => el.addEventListener("input", () => { drive = false; sim.dirty = true; }));
+  $("brGo").addEventListener("click", () => { X.value = 0; drive = true; });
+  let geo = null, drag = false;
+  cv.style.touchAction = "pan-y";
+  cv.addEventListener("pointerdown", (e) => { if (!geo) return; const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top; if (Math.abs(x - geo.tx) < 40 && Math.abs(y - geo.ty) < 40) { drag = true; drive = false; cv.setPointerCapture(e.pointerId); } });
+  cv.addEventListener("pointermove", (e) => { if (!drag) return; const r = cv.getBoundingClientRect(); X.value = clamp(Math.round(((e.clientX - r.left - geo.x0) / geo.s) * 2) / 2, 0, L); $("brXOut").textContent = (+X.value).toFixed(1) + " m"; sim.dirty = true; });
+  ["pointerup", "pointercancel"].forEach((ev) => cv.addEventListener(ev, () => (drag = false)));
+  sim.frame = (dt) => {
+    if (drive) { X.value = Math.min(L, +X.value + dt * 3); $("brXOut").textContent = (+X.value).toFixed(1) + " m"; if (+X.value >= L) drive = false; }
+    const mB = +M.value, mT = +T.value, x = +X.value, WB = mB * G, WT = mT * G, FB = (WB * L / 2 + WT * x) / L, FA = WB + WT - FB;
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.1) : Math.max(340, Math.round(w * 0.46))));
+    clear(ctx, w, h);
+    const x0 = 70, x1 = w - 70, s = (x1 - x0) / L, deckY = h * 0.3, P = (m) => x0 + m * s;
+    // river & piers
+    ctx.fillStyle = C.data; ctx.globalAlpha = 0.1; ctx.fillRect(x0, deckY + 40, x1 - x0, 30); ctx.globalAlpha = 1;
+    [0, L].forEach((m) => { ctx.fillStyle = C.tile; ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(P(m), deckY + 8); ctx.lineTo(P(m) - 18, deckY + 70); ctx.lineTo(P(m) + 18, deckY + 70); ctx.closePath(); ctx.fill(); ctx.stroke(); });
+    text(ctx, "A", P(0), deckY + 88, C.ink2, 13, "center", SANS); text(ctx, "B", P(L), deckY + 88, C.ink2, 13, "center", SANS);
+    ctx.fillStyle = C.panel; ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.fillRect(P(0), deckY, L * s, 8); ctx.strokeRect(P(0), deckY, L * s, 8);
+    // truck
+    const tx = P(x), tw = 46 + mT / 1500, th = 26;
+    ctx.fillStyle = C.hot; rrect(ctx, tx - tw / 2, deckY - th - 8, tw * 0.7, th, 3); ctx.fill(); rrect(ctx, tx + tw * 0.22, deckY - th + 2 - 8, tw * 0.28, th - 2, 3); ctx.fill();
+    ctx.fillStyle = C.ink; [tx - tw * 0.35, tx - tw * 0.1, tx + tw * 0.35].forEach((cx) => { ctx.beginPath(); ctx.arc(cx, deckY - 5, 5, 0, 7); ctx.fill(); });
+    geo = { tx, ty: deckY - th / 2, x0, s };
+    // forces
+    const fk = (h * 0.16) / ((30000 + 20000) * G);
+    arrow(ctx, P(L / 2), deckY + 8, P(L / 2), deckY + 12 + WB * fk, C.vector, 2.5, 9); text(ctx, kN(WB), P(L / 2) + 8, deckY + 22 + WB * fk, C.vector, 11);
+    arrow(ctx, tx, deckY + 8, tx, deckY + 12 + WT * fk, C.vector, 2.5, 9); text(ctx, kN(WT), tx + 8, deckY + 22 + WT * fk, C.vector, 11);
+    [[P(0) - 34, FA], [P(L) + 34, FB]].forEach(([px, F]) => { const tip = deckY + 70 - Math.max(14, F * fk * 1.2); arrow(ctx, px, deckY + 70, px, tip, C.data, 3, 10); text(ctx, kN(F), px, Math.max(14, tip - 8), C.data, 11, "center"); });
+    // graph of support forces vs truck position
+    const g0 = deckY + 110, g1 = h - 30, Ftot = WB + WT, Yg = (F) => g1 - (F / Ftot) * (g1 - g0);
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(P(0), g0, L * s, g1 - g0);
+    text(ctx, "support force against truck position", P(0) + 6, g0 + 14, C.ink2, 10);
+    [[(xx) => WB + WT - (WB * L / 2 + WT * xx) / L, "A"], [(xx) => (WB * L / 2 + WT * xx) / L, "B"]].forEach(([f, lab], i) => {
+      ctx.strokeStyle = i ? C.third : C.data; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(P(0), Yg(f(0))); ctx.lineTo(P(L), Yg(f(L))); ctx.stroke();
+      ctx.fillStyle = i ? C.third : C.data; ctx.beginPath(); ctx.arc(P(x), Yg(f(x)), 5, 0, 7); ctx.fill();
+      text(ctx, "F" + lab, i ? P(L) - 6 : P(0) + 6, Yg(f(i ? L : 0)) + (i ? -8 : -8), i ? C.third : C.data, 12, i ? "right" : "left");
+    });
+    text(ctx, "0 m", P(0), g1 + 14, C.muted, 10, "center"); text(ctx, L + " m", P(L), g1 + 14, C.muted, 10, "center");
+    $("brFA").textContent = kN(FA); $("brFB").textContent = kN(FB);
+    $("brNote").textContent = `Torques about A: F_B × 20 = ${kN(WB)} × 10 + ${kN(WT)} × ${x.toFixed(1)}, so F_B = ${kN(FB)}. Forces balance: F_A = ${kN(WB + WT)} − ${kN(FB)} = ${kN(FA)}. As the truck moves from A to B, its share of the load moves steadily from A to B, so both lines on the graph are straight.`;
+    $("brHud").textContent = drive ? "DRIVING ACROSS" : "DRAG THE TRUCK OR PRESS DRIVE ACROSS";
+  };
+})();
+
+(() => {
+  const cv = $("ssCanvas"), sim = { dirty: true, anim: true }; sims["thrust:bridges:ss"] = sim;
+  const dEl = $("ssD"); let hard = false, S = { m1: 40, d1: 1.2, m2: 30, ang: 0, ok: 0, tries: 0, solved: false }, drag = false, geo = null;
+  const PL = 5, MP = 20; // plank length (m), plank mass in the harder version
+  const pivotX = () => (hard ? 2.0 : PL / 2); // from the left end
+  function newPair() {
+    const masses = [20, 25, 30, 35, 40, 45, 50, 55, 60];
+    for (let k = 0; k < 200; k++) {
+      const m1 = masses[Math.floor(Math.random() * masses.length)], m2 = masses[Math.floor(Math.random() * masses.length)], d1 = Math.round((0.6 + Math.random() * (pivotX() - 0.8)) * 10) / 10;
+      const plankT = hard ? MP * (PL / 2 - pivotX()) : 0, d2 = (m1 * d1 - plankT) / m2, rightLen = PL - pivotX();
+      if (m1 !== m2 && d2 > 0.3 && d2 < rightLen - 0.15 && Math.abs(d2 * 20 - Math.round(d2 * 20)) < 0.2) { S.m1 = m1; S.m2 = m2; S.d1 = d1; break; }
+    }
+    S.solved = false; dEl.max = (PL - pivotX() - 0.1).toFixed(2); dEl.value = 0.5; out(); sim.dirty = true;
+  }
+  const out = () => ($("ssDOut").textContent = (+dEl.value).toFixed(2) + " m");
+  dEl.addEventListener("input", () => { out(); sim.dirty = true; });
+  $("ssNew").addEventListener("click", newPair);
+  const hb = $("ssHard"); hb.addEventListener("click", () => { hard = !hard; hb.setAttribute("aria-pressed", String(hard)); newPair(); });
+  cv.addEventListener("pointerdown", (e) => { if (!geo) return; const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top; if (Math.hypot(x - geo.kx, y - geo.ky) < 45) { drag = true; cv.setPointerCapture(e.pointerId); } });
+  cv.addEventListener("pointermove", (e) => { if (!drag) return; const r = cv.getBoundingClientRect(); dEl.value = clamp(Math.round(((e.clientX - r.left - geo.px) / geo.s) / 0.05) * 0.05, 0.1, +dEl.max); out(); sim.dirty = true; });
+  const up = () => { if (drag) { drag = false; check(); } };
+  cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+  dEl.addEventListener("change", check);
+  function torques() { const d2 = +dEl.value, pt = hard ? MP * G * (PL / 2 - pivotX()) : 0; return { ac: S.m1 * G * S.d1, cw: S.m2 * G * d2 + pt, pt, d2 }; }
+  function check() { const t = torques(); S.tries++; if (Math.abs(t.ac - t.cw) <= S.m2 * G * 0.026 && !S.solved) { S.ok++; S.solved = true; } $("ssScore").textContent = `Balanced ${S.ok} · attempts ${S.tries}`; sim.dirty = true; }
+  newPair();
+  sim.frame = (dt) => {
+    const t = torques(), net = t.cw - t.ac, bal = Math.abs(net) <= S.m2 * G * 0.026;
+    const sMax = Math.asin(Math.min(1, 40 / (Math.max(pivotX(), PL - pivotX()) * ((Math.max(300, cv.clientWidth) - 80) / PL)))), target = bal ? 0 : clamp(net / (40 * G), -1, 1) * sMax;
+    S.ang += (target - S.ang) * Math.min(1, dt * 6);
+    const { ctx, w, h } = fit(cv, (w) => Math.max(220, Math.round(w * 0.32)));
+    clear(ctx, w, h);
+    const s = (w - 80) / PL, px = 40 + pivotX() * s, py = h - 70;
+    ctx.fillStyle = C.tile; ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px - 22, py + 44); ctx.lineTo(px + 22, py + 44); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.strokeStyle = C.axis; ctx.beginPath(); ctx.moveTo(10, py + 44); ctx.lineTo(w - 10, py + 44); ctx.stroke();
+    ctx.save(); ctx.translate(px, py); ctx.rotate(S.ang);
+    ctx.fillStyle = C.panel; ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.fillRect(-pivotX() * s, -8, PL * s, 8); ctx.strokeRect(-pivotX() * s, -8, PL * s, 8);
+    for (let m = -Math.floor(pivotX() * 2) / 2; m <= PL - pivotX(); m += 0.5) { ctx.strokeStyle = C.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(m * s, 0); ctx.lineTo(m * s, 5); ctx.stroke(); }
+    const kid = (d, m, col, lab) => { const kx = d * s, r = 14 + m / 4; ctx.fillStyle = col; ctx.beginPath(); ctx.arc(kx, -14 - r * 1.6, r * 0.55, 0, 7); ctx.fill(); rrect(ctx, kx - r * 0.6, -12 - r * 1.05, r * 1.2, r * 1.05, 4); ctx.fill(); text(ctx, m + " kg", kx, -22 - r * 2.3, C.ink2, 12, "center"); if (lab) text(ctx, lab, kx, 22, C.muted, 10, "center"); };
+    kid(-S.d1, S.m1, C.data, S.d1.toFixed(1) + " m");
+    kid(t.d2, S.m2, C.hot, t.d2.toFixed(2) + " m");
+    if (hard) { const cx = (PL / 2 - pivotX()) * s; arrow(ctx, cx, 0, cx, 30, C.vector, 2, 7); text(ctx, "plank " + MP + " kg", cx + 6, 40, C.vector, 10); }
+    ctx.restore();
+    const cs = Math.cos(S.ang), sn = Math.sin(S.ang); geo = { px, s, kx: px + t.d2 * s * cs, ky: py + t.d2 * s * sn - 30 };
+    $("ssAC").textContent = fmt(t.ac) + " N m"; $("ssCW").textContent = fmt(t.cw) + " N m";
+    $("ssNote").textContent = bal ? `Balanced: anticlockwise torque ${fmt(t.ac)} N m = clockwise torque ${fmt(t.cw)} N m.${hard ? " The plank's own weight, acting at its centre 0.5 m right of the pivot, adds a clockwise torque of " + fmt(t.pt) + " N m." : ""}` : `Not balanced: the ${net > 0 ? "clockwise" : "anticlockwise"} torque is ${fmt(Math.abs(net))} N m bigger, so the seesaw tips ${net > 0 ? "to the right" : "to the left"}. ${hard ? "Remember the plank's weight acts at its centre, not at the pivot." : "Move the child " + (net > 0 ? "closer to" : "further from") + " the pivot."}`;
+    $("ssHud").textContent = bal ? "BALANCED ✓" : "DRAG THE RIGHT-HAND CHILD";
+  };
+  // run alongside the bridge lab on the same tab
+  const host = sims["thrust:bridges"], f0 = host.frame;
+  host.frame = (dt) => { f0(dt); sim.frame(dt); };
+  host.anim = true;
+})();
+
+/* ====================================================== 2.7 · PRACTICALS ===== */
+(() => {
+  const sim = { dirty: true, anim: false }; sims["thrust:practicals"] = sim;
+  const pBtns = [...document.querySelectorAll("[data-prac]")]; let prac = "hooke";
+  pBtns.forEach((b) => b.addEventListener("click", () => { prac = b.dataset.prac; setPressed(pBtns, b); $("pracHooke").classList.toggle("hidden", prac !== "hooke"); $("pracTorque").classList.toggle("hidden", prac !== "torque"); sim.dirty = true; }));
+  const noise = (a) => (Math.random() * 2 - 1) * a;
+
+  /* ---------- A · Hooke's law ---------- */
+  const KS = [16, 20, 25, 32, 40], ZERO = 8.0, LIM = 0.22;
+  let H = { k: 25, m: 0, rows: [] };
+  const ext = (F) => { const x = F / H.k; return x <= LIM ? x : x + 3 * (x - LIM) ** 2; };
+  function newSpring() { let k; do { k = KS[Math.floor(Math.random() * KS.length)]; } while (k === H.k); H = { k, m: 0, rows: [] }; $("hkVerdict").classList.add("hidden"); $("hkGuess").value = ""; rows(); sim.dirty = true; }
+  $("hkPlus").addEventListener("click", () => { H.m = Math.min(0.5, Math.round((H.m + 0.05) * 100) / 100); sim.dirty = true; });
+  $("hkMinus").addEventListener("click", () => { H.m = Math.max(0, Math.round((H.m - 0.05) * 100) / 100); sim.dirty = true; });
+  $("hkNew").addEventListener("click", newSpring);
+  $("hkRec").addEventListener("click", () => {
+    if (H.m === 0) return;
+    const F = H.m * G, rd = Math.round((ZERO + ext(F) * 100 + noise(0.1)) * 10) / 10;
+    H.rows = H.rows.filter((r) => r.m !== H.m); H.rows.push({ m: H.m, F, rd, use: true }); H.rows.sort((a, b) => a.m - b.m); rows(); sim.dirty = true;
+  });
+  function rows() {
+    const tb = $("hkRows"); tb.replaceChildren();
+    H.rows.forEach((r) => { const tr = document.createElement("tr"); tr.innerHTML = `<td>${Math.round(r.m * 1000)}</td><td>${r.F.toFixed(2)}</td><td>${r.rd.toFixed(1)}</td><td>${(r.rd - ZERO).toFixed(1)}</td><td></td>`; const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = r.use; cb.setAttribute("aria-label", "Use this reading in the best-fit line"); cb.addEventListener("change", () => { r.use = cb.checked; sim.dirty = true; }); tr.lastChild.appendChild(cb); tb.appendChild(tr); });
+    $("hkZero").textContent = ZERO.toFixed(1) + " cm";
+  }
+  $("hkCheck").addEventListener("click", () => {
+    const g = parseFloat($("hkGuess").value), v = $("hkVerdict"); if (!isFinite(g)) return;
+    const err = Math.abs(g - H.k) / H.k; v.className = "verdict " + (err <= 0.06 ? "ok" : "bad");
+    v.textContent = err <= 0.06 ? `Excellent: the true value is ${H.k} N m⁻¹, so you're within ${fmt(err * 100, 2)}%.` : `The true value is ${H.k} N m⁻¹ (you're ${fmt(err * 100, 2)}% out). Check that extensions are in metres and that you only used the straight part of the graph.`;
+  });
+  rows();
+  function drawHooke() {
+    const cv = $("hkCanvas"), { ctx, w, h } = fit(cv, (w) => Math.max(360, Math.round(w * 0.95)));
+    clear(ctx, w, h);
+    const top = 50, cmPx = (h - top - 30) / 45, Y = (cm) => top + cm * cmPx, sx = w * 0.5;
+    ctx.fillStyle = C.ink2; ctx.fillRect(14, top - 10, sx - 14 + 40, 8); ctx.fillRect(14, top - 10, 8, h - top);
+    // ruler
+    const rx = sx + 46; ctx.fillStyle = C.tile; ctx.fillRect(rx, Y(0), 34, Y(45) - Y(0)); ctx.strokeStyle = C.axis; ctx.lineWidth = 1; ctx.strokeRect(rx, Y(0), 34, Y(45) - Y(0));
+    for (let c = 0; c <= 45; c++) { ctx.beginPath(); ctx.moveTo(rx, Y(c)); ctx.lineTo(rx + (c % 5 ? 7 : 14), Y(c)); ctx.stroke(); if (c % 5 === 0) text(ctx, String(c), rx + 30, Y(c) + 4, C.muted, 9, "right"); }
+    text(ctx, "cm", rx + 17, Y(45) + 16, C.muted, 10, "center");
+    // spring
+    const F = H.m * G, rd = ZERO + ext(F) * 100, coilTop = top, coilBot = Y(rd) - 6;
+    ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(sx, coilTop); const n = 22;
+    for (let i = 0; i <= n; i++) ctx.lineTo(sx + (i === 0 || i === n ? 0 : i % 2 ? 10 : -10), coilTop + ((coilBot - coilTop) * i) / n);
+    ctx.stroke();
+    // pointer and hanger
+    ctx.strokeStyle = C.hot; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(sx, Y(rd)); ctx.lineTo(rx + 2, Y(rd)); ctx.stroke();
+    if (H.m > 0) { ctx.strokeStyle = C.ink2; ctx.beginPath(); ctx.moveTo(sx, Y(rd)); ctx.lineTo(sx, Y(rd) + 10); ctx.stroke(); const nm = Math.round(H.m / 0.05); for (let i = 0; i < nm; i++) { ctx.fillStyle = i === 0 ? C.muted : C.vector; ctx.fillRect(sx - 18, Y(rd) + 10 + i * 6, 36, 5); } text(ctx, Math.round(H.m * 1000) + " g", sx - 26, Y(rd) + 20, C.ink2, 11, "right"); }
+    // zoom inset
+    const zx = 34, zy = h - 130, zw = sx - 80, zh = 110;
+    if (zw > 80) {
+      ctx.fillStyle = C.panel; ctx.strokeStyle = C.line; rrect(ctx, zx, zy, zw, zh, 8); ctx.fill(); ctx.stroke();
+      text(ctx, "ZOOM", zx + 8, zy + 14, C.muted, 9);
+      const zc = zy + zh / 2, mmPx = 7; ctx.save(); ctx.beginPath(); ctx.rect(zx, zy + 18, zw, zh - 22); ctx.clip();
+      for (let mm = Math.floor((rd - 1) * 10); mm <= Math.ceil((rd + 1) * 10); mm++) { const yy = zc + (mm / 10 - rd) * 10 * mmPx; ctx.strokeStyle = C.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(zx + zw - 50, yy); ctx.lineTo(zx + zw - 50 + (mm % 10 === 0 ? 30 : mm % 5 === 0 ? 20 : 10), yy); ctx.stroke(); if (mm % 10 === 0) text(ctx, String(mm / 10), zx + zw - 56, yy + 4, C.ink2, 11, "right"); }
+      ctx.strokeStyle = C.hot; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(zx + 8, zc); ctx.lineTo(zx + zw - 22, zc); ctx.stroke(); ctx.restore();
+    }
+    $("hkHud").textContent = "MYSTERY SPRING · LOAD " + Math.round(H.m * 1000) + " g";
+    const pts = H.rows.map((r) => [(r.rd - ZERO) / 100, r.F, r.use]);
+    const grad = scatter($("hkGraph"), pts, { xl: "extension (m)", yl: "force (N)", fit: pts.filter((p) => p[2]).length >= 3, xMin: 0.05, yMin: 1, hFrac: 0.3 });
+    $("hkK").textContent = grad ? fmt(grad) + " N m⁻¹" : "–";
+    const bent = H.rows.some((r) => r.F / H.k > LIM && r.use);
+    $("hkNote").textContent = !grad ? "Record at least three readings to draw a best-fit line." : bent ? "Some points curve away from the line: the spring has gone past its limit of proportionality. Untick those rows so the best-fit line only uses the straight part." : `The best-fit line goes through the origin. Its gradient is force ÷ extension = k = ${fmt(grad)} N m⁻¹.`;
+  }
+
+  /* ---------- B · Investigating torques ---------- */
+  let Q = { rows: [], g: "F" };
+  const lEl = bindRange("tqpL", "tqpLOut", (v) => v + " g"), dEl = bindRange("tqpD", "tqpDOut", (v) => (v * 100).toFixed(0) + " cm");
+  const RM = 0.1, LP = 0.2;
+  const Fneed = (d) => ((+lEl.value / 1000) * G * LP + RM * G * 0.5) / d;
+  [lEl, dEl].forEach((el) => el.addEventListener("input", () => (sim.dirty = true)));
+  lEl.addEventListener("change", () => { if (Q.rows.length) { Q.rows = []; qRows(); } });
+  $("tqpRec").addEventListener("click", () => { const d = +dEl.value, F = Math.round((Fneed(d) + noise(0.05)) * 10) / 10; Q.rows = Q.rows.filter((r) => Math.abs(r.d - d) > 1e-6); Q.rows.push({ d, F }); Q.rows.sort((a, b) => a.d - b.d); qRows(); sim.dirty = true; });
+  $("tqpClear").addEventListener("click", () => { Q.rows = []; qRows(); sim.dirty = true; });
+  const gBtns = [...document.querySelectorAll("[data-tqg]")]; gBtns.forEach((b) => b.addEventListener("click", () => { Q.g = b.dataset.tqg; setPressed(gBtns, b); sim.dirty = true; }));
+  function qRows() { const tb = $("tqpRows"); tb.replaceChildren(); Q.rows.forEach((r) => { const tr = document.createElement("tr"); tr.innerHTML = `<td>${r.d.toFixed(2)}</td><td>${r.F.toFixed(1)}</td><td>${(1 / r.F).toFixed(3)}</td>`; tb.appendChild(tr); }); }
+  function drawTorque() {
+    const cv = $("tqpCanvas"), { ctx, w, h } = fit(cv, (w) => Math.max(220, Math.round(w * 0.3)));
+    clear(ctx, w, h);
+    const x0 = 60, s = (w - 120) / 1, ry = h * 0.5, R = (m) => x0 + m * s;
+    ctx.fillStyle = C.ink2; ctx.fillRect(x0 - 26, 20, 8, h - 30); ctx.fillRect(x0 - 26, ry - 3, 26, 6);
+    ctx.fillStyle = C.panel; ctx.strokeStyle = C.ink2; ctx.lineWidth = 1.5; ctx.fillRect(R(0), ry - 7, s, 14); ctx.strokeRect(R(0), ry - 7, s, 14);
+    for (let c = 0; c <= 100; c += 10) { ctx.strokeStyle = C.axis; ctx.beginPath(); ctx.moveTo(R(c / 100), ry - 7); ctx.lineTo(R(c / 100), ry - 1); ctx.stroke(); if (w > 500 || c % 20 === 0) text(ctx, String(c), R(c / 100), ry + 20, C.muted, 9, "center"); }
+    ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(R(0) + 4, ry, 3.5, 0, 7); ctx.fill(); text(ctx, "pivot", R(0), ry + 34, C.muted, 10, "center");
+    const lm = +lEl.value; ctx.strokeStyle = C.ink2; ctx.beginPath(); ctx.moveTo(R(LP), ry + 7); ctx.lineTo(R(LP), ry + 26); ctx.stroke();
+    for (let i = 0; i < lm / 50; i++) { ctx.fillStyle = i === 0 ? C.muted : C.vector; ctx.fillRect(R(LP) - 14, ry + 26 + i * 5, 28, 4); } text(ctx, lm + " g", R(LP) + 20, ry + 40, C.ink2, 11);
+    const d = +dEl.value, F = Fneed(d), mx = R(d);
+    ctx.strokeStyle = C.ink2; ctx.beginPath(); ctx.moveTo(mx, ry - 7); ctx.lineTo(mx, ry - 26); ctx.stroke();
+    ctx.fillStyle = C.tile; ctx.strokeStyle = C.axis; rrect(ctx, mx - 13, ry - 92, 26, 66, 5); ctx.fill(); ctx.stroke();
+    const fy = ry - 88 + Math.min(1, F / 10) * 56; ctx.strokeStyle = C.hot; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(mx - 9, fy); ctx.lineTo(mx + 9, fy); ctx.stroke();
+    const side = mx > w - 130 ? -18 : 18, al = side < 0 ? "right" : "left"; text(ctx, "force meter", mx + side, ry - 76, C.muted, 10, al); text(ctx, F > 10 ? "over 10 N!" : fmt(Math.round(F * 10) / 10, 2) + " N", mx + side, ry - 60, F > 10 ? C.bad : C.hot, 13, al);
+    arrow(ctx, mx, ry - 96, mx, ry - 112, C.data, 2, 7);
+    $("tqpHud").textContent = "RULER LEVEL · d = " + (d * 100).toFixed(0) + " cm";
+    const inv = Q.g === "inv", pts = Q.rows.map((r) => (inv ? [r.d, 1 / r.F] : [r.d, r.F]));
+    let note;
+    if (inv) {
+      const grad = scatter($("tqpGraph"), pts, { xl: "d (m)", yl: "1/F (N⁻¹)", fit: pts.length >= 3, xMin: 1, yMin: 0.5, hFrac: 0.62 });
+      const tq = (lm / 1000) * G * LP + RM * G * 0.5;
+      note = grad ? `A straight line through the origin, so 1/F ∝ d, which means F × d is constant. Gradient = ${fmt(grad)} N⁻¹ m⁻¹, so the total clockwise torque = 1 ÷ gradient = ${fmt(1 / grad)} N m. Check: load ${fmt((lm / 1000) * G)} N × 0.20 m + ruler ${fmt(RM * G)} N × 0.50 m = ${fmt(tq)} N m.` : "Record at least three readings.";
+    } else {
+      const c = pts.length ? pts.reduce((a, p) => a + p[0] * p[1], 0) / pts.length : null;
+      scatter($("tqpGraph"), pts, { xl: "d (m)", yl: "F (N)", xMin: 1, yMin: 3, hFrac: 0.62, curve: pts.length >= 3 ? (x) => c / x : null });
+      note = pts.length >= 3 ? `F falls as d increases, but not in a straight line: doubling d halves F. Multiply each pair: F × d ≈ ${fmt(c)} N m every time. Switch to 1/F against d to turn this curve into a straight line.` : "Record readings at several positions, from 30 cm to 100 cm.";
+    }
+    $("tqpNote").textContent = note;
+  }
+  sim.frame = () => { if (prac === "hooke") drawHooke(); else drawTorque(); };
+})();
+
+/* ====================================================== 3.3 · WHIRLING BUNG PRACTICAL ===== */
+(() => {
+  const cv = $("wbCanvas"), sim = { dirty: true, anim: true }; sims["orbit:practical"] = sim;
+  const mb = 0.025;
+  const mEl = bindRange("wbM", "wbMOut", (v) => Math.round(v * 1000) + " g"), rEl = bindRange("wbR", "wbROut", (v) => v.toFixed(1) + " m");
+  let ang = 0, W = { run: false, t: 0, passes: 0, help: true, last: null }, rows = [];
+  const period = () => { const M = +mEl.value, r = +rEl.value, v = Math.sqrt((M * G * r) / mb); return (2 * Math.PI * r) / v; };
+  [mEl, rEl].forEach((el) => el.addEventListener("input", () => { W.run = false; W.t = 0; W.passes = 0; W.last = null; ssLabel(); }));
+  const ss = $("wbSS");
+  function ssLabel() { ss.textContent = W.run ? "STOP STOPWATCH" : "START STOPWATCH"; }
+  ss.addEventListener("click", () => { if (!W.run) { W.t = 0; W.passes = 0; W.run = true; W.last = null; } else { W.run = false; W.last = W.t; } ssLabel(); $("wbVerdict").classList.add("hidden"); });
+  $("wbReset").addEventListener("click", () => { W.run = false; W.t = 0; W.passes = 0; W.last = null; ssLabel(); });
+  const hb = $("wbHelp"); hb.addEventListener("click", () => { W.help = !W.help; hb.setAttribute("aria-pressed", String(W.help)); });
+  $("wbRec").addEventListener("click", () => {
+    const v = $("wbVerdict");
+    if (W.run || W.last === null) { v.className = "verdict info"; v.textContent = "Start the stopwatch as the bung passes the marker, then stop it after 10 revolutions."; v.classList.remove("hidden"); return; }
+    const t10 = W.last, P = period(), revs = t10 / P;
+    if (Math.abs(revs - 10) > 0.6) { v.className = "verdict bad"; v.textContent = `That time is about ${fmt(revs, 2)} revolutions, not 10. Reset and try again.`; v.classList.remove("hidden"); return; }
+    const M = +mEl.value, r = +rEl.value, T = t10 / 10, vel = (2 * Math.PI * r) / T, Fc = (mb * vel * vel) / r;
+    rows.push({ M, r, t10, T, vel, Fc }); draw(); v.className = "verdict ok"; v.textContent = `Recorded: 10T = ${t10.toFixed(2)} s. That's ${fmt(Math.abs(revs - 10) * P, 2)} s from a perfect timing.`; v.classList.remove("hidden");
+    W.last = null; W.t = 0; W.passes = 0;
+  });
+  function draw() {
+    const tb = $("wbRows"); tb.replaceChildren();
+    rows.forEach((r) => { const tr = document.createElement("tr"); tr.innerHTML = `<td>${r.M.toFixed(2)}</td><td>${(r.M * G).toFixed(2)}</td><td>${r.r.toFixed(1)}</td><td>${r.t10.toFixed(2)}</td><td>${r.T.toFixed(3)}</td><td>${r.vel.toFixed(2)}</td><td>${r.Fc.toFixed(2)}</td>`; tb.appendChild(tr); });
+    const pts = rows.map((r) => [r.M * G, r.Fc]);
+    const grad = scatter($("wbGraph"), pts, { xl: "hanging weight Mg (N)", yl: "Fc = mv²/r (N)", fit: pts.length >= 2, xMin: 2.6, yMin: 2.6, ref: "Fc = Mg", hFrac: 0.32 });
+    $("wbNote").textContent = pts.length < 2 ? "Record at least three different hanging masses to compare Fc with Mg." : `Best-fit gradient = ${fmt(grad)}. A gradient of 1 means Fc = Mg exactly: the hanging weight provides the centripetal force. ${Math.abs(grad - 1) < 0.05 ? "Your results agree within 5%." : "Your results are " + fmt(Math.abs(grad - 1) * 100, 2) + "% out, most likely from timing errors."}`;
+  }
+  draw();
+  sim.frame = (dt) => {
+    const P = period(), r = +rEl.value, prev = ang;
+    ang += (2 * Math.PI * dt) / P;
+    if (Math.floor(ang / (2 * Math.PI)) > Math.floor(prev / (2 * Math.PI)) && W.run) W.passes++;
+    if (W.run) W.t += dt;
+    $("wbTime").textContent = (W.run ? W.t : W.last ?? 0).toFixed(2) + " s";
+    $("wbCount").textContent = W.help ? (W.run || W.last !== null ? `${W.passes} revolution${W.passes === 1 ? "" : "s"}` : "") : "";
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.5) : Math.max(300, Math.round(w * 0.44))));
+    clear(ctx, w, h);
+    const narrow = w < 640, R0 = narrow ? Math.min(w * 0.36, h * 0.22) : Math.min(h * 0.42, w * 0.25), cx = narrow ? w / 2 : w * 0.3, cy = narrow ? R0 + 30 : h / 2, Rp = R0 * (r / 0.9);
+    text(ctx, "TOP VIEW", cx - R0, 44, C.muted, 10);
+    ctx.strokeStyle = C.axis; ctx.setLineDash([4, 6]); ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(cx, cy, Rp, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+    ctx.strokeStyle = C.hot; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(cx + Rp + 6, cy); ctx.lineTo(cx + Rp + 22, cy); ctx.stroke(); text(ctx, "marker", cx + Rp + 26, cy + 4, C.hot, 11);
+    const bx = cx + Rp * Math.cos(ang), by = cy - Rp * Math.sin(ang);
+    ctx.strokeStyle = C.ink2; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(bx, by); ctx.stroke();
+    ctx.fillStyle = C.tile; ctx.strokeStyle = C.axis; ctx.beginPath(); ctx.arc(cx, cy, 7, 0, 7); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = C.data; ctx.beginPath(); ctx.arc(bx, by, 9, 0, 7); ctx.fill();
+    // side view
+    const sx = narrow ? w / 2 : w * 0.75, sTop = narrow ? cy + R0 + 50 : 60, k = (narrow ? 0.7 : 1) * (h * 0.35);
+    text(ctx, "SIDE VIEW", sx - 70, sTop - 18, C.muted, 10);
+    ctx.fillStyle = C.tile; ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.fillRect(sx - 5, sTop, 10, k * 0.55); ctx.strokeRect(sx - 5, sTop, 10, k * 0.55);
+    const swing = Math.cos(ang) * Rp * 0.55, sb = { x: sx + swing, y: sTop - 4 };
+    ctx.strokeStyle = C.ink2; ctx.beginPath(); ctx.moveTo(sx, sTop); ctx.lineTo(sb.x, sb.y); ctx.moveTo(sx, sTop + k * 0.55); ctx.lineTo(sx, sTop + k * 0.55 + 26); ctx.stroke();
+    ctx.fillStyle = C.data; ctx.beginPath(); ctx.arc(sb.x, sb.y, 7, 0, 7); ctx.fill();
+    ctx.fillStyle = C.hot; ctx.fillRect(sx - 4, sTop + k * 0.55 + 6, 8, 4); text(ctx, "clip", sx + 10, sTop + k * 0.55 + 12, C.muted, 10);
+    const M = +mEl.value, nm = Math.round(M / 0.05);
+    for (let i = 0; i < nm; i++) { ctx.fillStyle = C.vector; ctx.fillRect(sx - 14, sTop + k * 0.55 + 26 + i * 6, 28, 5); }
+    text(ctx, "M = " + Math.round(M * 1000) + " g", sx + 20, sTop + k * 0.55 + 36, C.ink2, 11);
+    arrow(ctx, sx - 24, sTop + k * 0.55 + 30, sx - 24, sTop + k * 0.55 + 60, C.vector, 2, 7); text(ctx, "Mg", sx - 30, sTop + k * 0.55 + 56, C.vector, 11, "right");
+    $("wbHud").textContent = W.run ? "TIMING…" : "BUNG SPINNING";
+  };
+  window.addEventListener("resize", draw);
 })();
 
 /* ====================================================== SIM 3.2 · CIRCULAR MOTION ===== */
