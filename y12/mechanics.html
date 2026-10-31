@@ -165,7 +165,7 @@ var{font-style:italic}
 /* sims */
 .screen{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--canvas);overflow:hidden}
 .screen canvas{display:block;width:100%;height:auto;touch-action:pan-y}
-.screen .hud{position:absolute;top:12px;left:14px;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.14em;pointer-events:none;text-transform:uppercase}
+.screen .hud{position:absolute;top:12px;left:14px;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.14em;pointer-events:none}
 .screen .hud-r{left:auto;right:14px}
 .ctrl{display:flex;flex-direction:column;gap:6px;font-size:14px}
 .ctrl .row{display:flex;justify-content:space-between;gap:8px}
@@ -329,7 +329,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     </div>
   </div>
   <div class="status">
-    <div class="status-line"><span class="status-dot" aria-hidden="true"></span><span id="statusText">SYSTEMS NOMINAL · 0 of 21 checks complete</span></div>
+    <div class="status-line"><span class="status-dot" aria-hidden="true"></span><span id="statusText">0 of 21 checklist items ticked</span></div>
     <div class="status-btns">
       <a class="pill home" href="../index.html" title="Back to the Physics@Rosmini home page"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg>HOME BASE</a>
       <div class="theme-switch-wrap" aria-label="Page colour theme"><span class="theme-label-dark">Dark</span><label class="theme-switch" title="Switch between dark and light mode"><input type="checkbox" id="themeToggle" aria-label="Use light mode"><span class="theme-slider"></span></label><span class="theme-label-light">Light</span></div>
@@ -338,7 +338,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 </header>
 
 <div class="frame">
-<nav class="rail" aria-label="Mission modules">
+<nav class="rail" aria-label="Topics">
   <div class="rail-label">TOPICS</div>
   <button class="mod" type="button" data-mod="map"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span><span class="num">00</span><span class="name">Course map &amp; exam skills</span></span></button>
   <button class="mod" type="button" data-mod="launch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18c3-9 9-13 16-14-1 7-5 13-14 16z"/><circle cx="14.5" cy="9.5" r="2"/><path d="M6 14l-3 1 2 4 1-3"/></svg><span><span class="num">01</span><span class="name">Motion &amp; projectiles</span></span></button>
@@ -346,21 +346,21 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <button class="mod" type="button" data-mod="orbit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/><circle cx="21" cy="12" r="1.6" fill="currentColor"/></svg><span><span class="num">03</span><span class="name">Circular motion</span></span></button>
   <button class="mod" type="button" data-mod="dock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2" y="9" width="8" height="6" rx="1"/><rect x="14" y="9" width="8" height="6" rx="1"/><path d="M10 12h4"/><path d="M6 6v3M18 6v3"/></svg><span><span class="num">04</span><span class="name">Momentum &amp; impulse</span></span></button>
   <button class="mod" type="button" data-mod="fuel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg><span><span class="num">05</span><span class="name">Work, energy &amp; power</span></span></button>
-  <div class="fuel" aria-live="polite"><span id="fuelText">FUEL · 0%</span><div class="bar"><span id="fuelBar" style="width:0%"></span></div><div style="margin-top:6px" id="fuelSub">Your checklist progress for the whole standard</div></div>
+  <div class="fuel" aria-live="polite"><span id="fuelText">PROGRESS · 0%</span><div class="bar"><span id="fuelBar" style="width:0%"></span></div><div style="margin-top:6px" id="fuelSub">Your checklist progress for the whole standard</div></div>
 </nav>
 
 <main class="work" id="work">
   <div class="tabs" role="tablist" aria-label="Phases in this module" id="tabs"></div>
   <div class="search" role="search">
-    <label><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr">Search mission files</span>
-    <input type="search" id="search" placeholder="Search mission files…" autocomplete="off" aria-controls="results" aria-expanded="false"></label>
+    <label><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr">Search this lab</span>
+    <input type="search" id="search" placeholder="Search this lab…" autocomplete="off" aria-controls="results" aria-expanded="false"></label>
     <div class="results hidden" id="results" role="listbox" aria-label="Search results"></div>
   </div>
 
 <!-- ======================================================= 00 MISSION BRIEF -->
 <section class="pane" data-mod="map" data-view="scope" data-ref="0.1" data-title="Course map">
   <div class="pane-head"><h2>Phase 0.1 · Course map: what AS91171 covers</h2><span class="badge teal">START HERE</span></div>
-  <p class="lede">This is the whole standard on one page. Rate yourself on each "I can…" statement, then press <b>Go</b> to jump to the place in this lab that teaches it. Ticking a pre-flight checklist inside a module marks that statement as Confident. Your ratings are saved on this device.</p>
+  <p class="lede">This is the whole standard on one page. Rate yourself on each "I can…" statement, then press <b>Go</b> to jump to the place in this lab that teaches it. Ticking an item in the checklist at the bottom of a topic marks that statement as Confident. Your ratings are saved on this device.</p>
   <div class="telemetry">
     <div class="tm"><span>Standard</span><b>AS91171 · 2.4</b></div>
     <div class="tm"><span>Credits</span><b>6 · external</b></div>
@@ -390,7 +390,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 </section>
 
 <section class="pane hidden" data-mod="map" data-view="skills" data-ref="0.2" data-title="Exam skills">
-  <div class="pane-head"><h2>Phase 0.2 · Exam skills: answers that earn marks</h2><span class="badge">BRIEFING</span></div>
+  <div class="pane-head"><h2>Phase 0.2 · Exam skills: answers that earn marks</h2><span class="badge">EXAM SKILLS</span></div>
   <p class="lede">Knowing the physics is half the job. The other half is showing it the way the marking schedule rewards. The grade depends on how deep your answer goes.</p>
   <div class="grid3">
     <div class="card"><span class="badge teal" style="align-self:flex-start">ACHIEVEMENT</span><p><b>Describe, identify, calculate (one step).</b> Show you know which simple idea applies. Name the force, state the law, or get a one-step answer with the right unit.</p><p class="small">"The horizontal velocity stays constant because no horizontal force acts."</p></div>
@@ -493,7 +493,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 </section>
 
 <section class="pane hidden" data-mod="map" data-view="challenge" data-ref="0.4" data-title="Mixed challenge">
-  <div class="pane-head"><h2>Phase 0.4 · Mixed challenge: the whole standard</h2><span class="badge red">SYSTEMS CHECK</span></div>
+  <div class="pane-head"><h2>Phase 0.4 · Mixed challenge: the whole standard</h2><span class="badge red">QUICK CHECK</span></div>
   <p class="lede">Ten questions drawn at random from all five modules. Every answer comes with an explanation. Press <b>New set</b> for a different mix. Your best score is saved on this device.</p>
   <div class="quiz" data-quiz="mixed" data-count="10"></div>
 </section>
@@ -549,17 +549,17 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     <button type="button" data-mg-preset="12,-2,6" aria-pressed="false">Braking</button>
     <button type="button" data-mg-preset="8,-2,8" aria-pressed="false">Overshoot and back</button>
   </div>
-  <div class="screen"><canvas id="mgCanvas" width="900" height="460" aria-label="A rover on a track above live distance-time and velocity-time graphs"></canvas><div class="hud" id="mgHud">TRACKING · T+0.00 s</div></div>
+  <div class="screen"><canvas id="mgCanvas" width="900" height="460" aria-label="A rover on a track above live distance-time and velocity-time graphs"></canvas><div class="hud" id="mgHud">t = 0.00 s</div></div>
   <div class="grid2">
     <div class="card">
-      <div class="label">Rover settings</div>
+      <div class="label">Settings</div>
       <label class="ctrl"><span class="row"><span>Starting velocity, v<sub>i</sub></span><output id="mgViOut">0 m s⁻¹</output></span><input type="range" id="mgVi" min="-10" max="15" step="1" value="0"></label>
       <label class="ctrl"><span class="row"><span>Acceleration, a</span><output id="mgAOut">2.0 m s⁻²</output></span><input type="range" id="mgA" min="-4" max="4" step="0.5" value="2"></label>
       <label class="ctrl"><span class="row"><span>Run time</span><output id="mgTOut">6 s</output></span><input type="range" id="mgT" min="2" max="10" step="1" value="6"></label>
       <div class="btns"><button class="btn go" type="button" id="mgRun">RUN</button><button class="btn" type="button" id="mgArea" aria-pressed="false">Shade area under v–t</button></div>
     </div>
     <div class="card">
-      <div class="label">Telemetry</div>
+      <div class="label">Readings</div>
       <div class="telemetry">
         <div class="tm"><span>Time</span><b id="mgTt">0.00 s</b></div>
         <div class="tm"><span>Velocity</span><b id="mgTv">0.0 m s⁻¹</b></div>
@@ -574,20 +574,20 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 <section class="pane hidden" data-mod="launch" data-view="projectiles" data-ref="1.3" data-title="Projectile motion">
   <div class="pane-head"><h2>Phase 1.3 · Projectile motion</h2><span class="badge">SIMULATION</span></div>
   <p class="lede">Launch a probe and track it. Horizontal velocity stays constant; vertical velocity changes by 9.8 m s⁻¹ every second. Change the launch angle and speed, then predict the range before you fire.</p>
-  <div class="screen"><canvas id="pjCanvas" width="900" height="380" aria-label="Trajectory of a launched probe with velocity arrows"></canvas><div class="hud" id="pjHud">TRACKING · READY</div></div>
+  <div class="screen"><canvas id="pjCanvas" width="900" height="380" aria-label="Trajectory of a launched probe with velocity arrows"></canvas><div class="hud" id="pjHud">READY</div></div>
   <div class="grid2">
     <div class="card">
-      <div class="label">Launch settings</div>
+      <div class="label">Settings</div>
       <label class="ctrl"><span class="row"><span>Launch angle, θ</span><output id="pjAngOut">40°</output></span><input type="range" id="pjAng" min="0" max="80" step="1" value="40"></label>
       <label class="ctrl"><span class="row"><span>Launch speed, v</span><output id="pjSpdOut">20 m s⁻¹</output></span><input type="range" id="pjSpd" min="5" max="35" step="1" value="20"></label>
       <label class="ctrl"><span class="row"><span>Launch height above ground</span><output id="pjHOut">0 m</output></span><input type="range" id="pjH" min="0" max="30" step="1" value="0"></label>
       <div class="btns"><button class="btn go" type="button" id="pjLaunch">LAUNCH</button><button class="btn" type="button" id="pjPredictBtn">Predict first</button></div>
-      <div class="predict hidden" id="pjPredict"><label for="pjGuess">Your predicted range (m):</label><input id="pjGuess" type="number" inputmode="decimal" step="0.1"><button class="btn sm go" type="button" id="pjGuessGo">LOCK IN &amp; LAUNCH</button></div>
+      <div class="predict hidden" id="pjPredict"><label for="pjGuess">Your predicted range (m):</label><input id="pjGuess" type="number" inputmode="decimal" step="0.1"><button class="btn sm go" type="button" id="pjGuessGo">PREDICT &amp; LAUNCH</button></div>
       <div class="verdict hidden" id="pjVerdict" aria-live="polite"></div>
       <div class="seg" role="group" aria-label="Display options"><button type="button" id="pjComp" aria-pressed="true">Show v<sub>x</sub> and v<sub>y</sub> arrows</button><button type="button" id="pjSlow" aria-pressed="false">Slow motion</button></div>
     </div>
     <div class="card">
-      <div class="label">Telemetry</div>
+      <div class="label">Readings</div>
       <div class="telemetry">
         <div class="tm"><span>v<sub>x</sub> (constant)</span><b id="pjVx">–</b></div>
         <div class="tm"><span>v<sub>y</sub> at launch</span><b id="pjVy">–</b></div>
@@ -645,14 +645,14 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <p>Give the answer to the same number of significant figures as the least precise data, usually 2 or 3. Keep full values in your calculator between steps and round only at the end.</p>
 </section>
 
-<section class="pane hidden" data-mod="launch" data-view="check" data-ref="1.5" data-title="Motion systems check">
-  <div class="pane-head"><h2>Phase 1.5 · Systems check: motion &amp; projectiles</h2><span class="badge red">SYSTEMS CHECK</span></div>
-  <p class="lede">Eight questions, instant feedback. Aim for 7 out of 8 before you attempt the mission problems.</p>
+<section class="pane hidden" data-mod="launch" data-view="check" data-ref="1.5" data-title="Motion quick check">
+  <div class="pane-head"><h2>Phase 1.5 · Quick check: motion &amp; projectiles</h2><span class="badge red">QUICK CHECK</span></div>
+  <p class="lede">Eight questions, instant feedback. Aim for 7 out of 8 before you attempt the exam-style problems.</p>
   <div class="quiz" data-quiz="launch" data-count="8"></div>
 </section>
 
 <section class="pane hidden" data-mod="launch" data-view="problems" data-ref="1.6" data-title="Motion problems">
-  <div class="pane-head"><h2>Phase 1.6 · Mission problems: motion &amp; projectiles</h2><span class="badge red">EXAM PRACTICE</span></div>
+  <div class="pane-head"><h2>Phase 1.6 · Exam-style problems: motion &amp; projectiles</h2><span class="badge red">EXAM PRACTICE</span></div>
   <p class="lede">Four original practice questions in the style of NCEA Level 2 AS91171 papers. They are not NZQA questions. Attempt every part before opening the worked answer. Take g = 9.8 m s⁻².</p>
 
   <article class="q"><div class="q-head"><b>QUESTION ONE</b><span>Rover test run · straight-line motion</span></div><div class="q-body">
@@ -759,7 +759,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <div class="screen"><canvas id="fvCanvas" width="900" height="400" aria-label="Force vectors added tip to tail with the resultant"></canvas><div class="hud" id="fvHud">VECTOR ADDITION</div></div>
   <div class="grid2">
     <div class="card" id="fvAddCtrls">
-      <div class="label">Tug settings</div>
+      <div class="label">Settings</div>
       <label class="ctrl"><span class="row"><span>Force F<sub>1</sub> (along the x-axis)</span><output id="fvF1Out">300 N</output></span><input type="range" id="fvF1" min="0" max="600" step="10" value="300"></label>
       <label class="ctrl"><span class="row"><span>Force F<sub>2</sub></span><output id="fvF2Out">400 N</output></span><input type="range" id="fvF2" min="0" max="600" step="10" value="400"></label>
       <label class="ctrl"><span class="row"><span>Angle between them</span><output id="fvAngOut">90°</output></span><input type="range" id="fvAng" min="0" max="180" step="5" value="90"></label>
@@ -771,7 +771,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <label class="ctrl"><span class="row"><span>Angle above horizontal, θ</span><output id="fvThOut">30°</output></span><input type="range" id="fvTh" min="0" max="90" step="1" value="30"></label>
     </div>
     <div class="card">
-      <div class="label">Telemetry</div>
+      <div class="label">Readings</div>
       <div class="telemetry" id="fvTele"></div>
       <p class="note" id="fvNote"></p>
     </div>
@@ -784,14 +784,14 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <div class="screen"><canvas id="tqCanvas" width="900" height="360" aria-label="A plank on two supports with a load, showing support forces"></canvas><div class="hud" id="tqHud">EQUILIBRIUM</div></div>
   <div class="grid2">
     <div class="card">
-      <div class="label">Gantry settings</div>
+      <div class="label">Settings</div>
       <label class="ctrl"><span class="row"><span>Plank mass</span><output id="tqMpOut">20 kg</output></span><input type="range" id="tqMp" min="5" max="60" step="5" value="20"></label>
       <label class="ctrl"><span class="row"><span>Support B position (from A)</span><output id="tqBOut">4.0 m</output></span><input type="range" id="tqB" min="2" max="4" step="0.1" value="4"></label>
       <label class="ctrl"><span class="row"><span>Cargo mass</span><output id="tqMlOut">60 kg</output></span><input type="range" id="tqMl" min="0" max="100" step="5" value="60"></label>
       <label class="ctrl"><span class="row"><span>Cargo position (from A)</span><output id="tqXOut">1.0 m</output></span><input type="range" id="tqX" min="0" max="4" step="0.1" value="1"></label>
     </div>
     <div class="card">
-      <div class="label">Telemetry</div>
+      <div class="label">Readings</div>
       <div class="telemetry">
         <div class="tm hl"><span>Support force A</span><b id="tqFA">–</b></div>
         <div class="tm hl"><span>Support force B</span><b id="tqFB">–</b></div>
@@ -809,12 +809,12 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <div class="screen"><canvas id="spCanvas" width="900" height="400" aria-label="A spring stretched by a hanging mass beside its force-extension graph"></canvas><div class="hud" id="spHud">SPRING TEST RIG</div></div>
   <div class="grid2">
     <div class="card">
-      <div class="label">Rig settings</div>
+      <div class="label">Settings</div>
       <label class="ctrl"><span class="row"><span>Spring constant, k</span><output id="spKOut">200 N m⁻¹</output></span><input type="range" id="spK" min="50" max="500" step="10" value="200"></label>
       <label class="ctrl"><span class="row"><span>Hanging mass, m</span><output id="spMOut">1.0 kg</output></span><input type="range" id="spM" min="0" max="2" step="0.1" value="1"></label>
     </div>
     <div class="card">
-      <div class="label">Telemetry</div>
+      <div class="label">Readings</div>
       <div class="telemetry">
         <div class="tm"><span>Spring force (= mg)</span><b id="spF">–</b></div>
         <div class="tm hl"><span>Extension, x</span><b id="spX">–</b></div>
@@ -825,14 +825,14 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
-<section class="pane hidden" data-mod="thrust" data-view="check" data-ref="2.5" data-title="Forces systems check">
-  <div class="pane-head"><h2>Phase 2.5 · Systems check: forces, torque &amp; springs</h2><span class="badge red">SYSTEMS CHECK</span></div>
+<section class="pane hidden" data-mod="thrust" data-view="check" data-ref="2.5" data-title="Forces quick check">
+  <div class="pane-head"><h2>Phase 2.5 · Quick check: forces, torque &amp; springs</h2><span class="badge red">QUICK CHECK</span></div>
   <p class="lede">Eight questions, instant feedback. Have a calculator ready.</p>
   <div class="quiz" data-quiz="thrust" data-count="8"></div>
 </section>
 
 <section class="pane hidden" data-mod="thrust" data-view="problems" data-ref="2.6" data-title="Forces problems">
-  <div class="pane-head"><h2>Phase 2.6 · Mission problems: forces, torque &amp; springs</h2><span class="badge red">EXAM PRACTICE</span></div>
+  <div class="pane-head"><h2>Phase 2.6 · Exam-style problems: forces, torque &amp; springs</h2><span class="badge red">EXAM PRACTICE</span></div>
   <p class="lede">Four original practice questions in the style of NCEA Level 2 AS91171 papers. Attempt every part before opening the worked answer. Take g = 9.8 m s⁻².</p>
 
   <article class="q"><div class="q-head"><b>QUESTION ONE</b><span>Transport vehicle · net force</span></div><div class="q-body">
@@ -923,17 +923,17 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <div class="pane-head"><h2>Phase 3.2 · Circular motion lab</h2><span class="badge">SIMULATION</span></div>
   <p class="lede">Viewed from above. The cyan arrow is the velocity; the orange arrow is the centripetal force. Change the mass, radius and speed, then release the object to see where it goes.</p>
   <div class="seg" role="group" aria-label="Context"><button type="button" data-cm-ctx="string" aria-pressed="true">Ball on a string</button><button type="button" data-cm-ctx="car" aria-pressed="false">Rover on a bend</button><button type="button" data-cm-ctx="sat" aria-pressed="false">Satellite</button></div>
-  <div class="screen"><canvas id="cmCanvas" width="900" height="420" aria-label="Top-down view of an object moving in a circle with velocity and force arrows"></canvas><div class="hud" id="cmHud">ORBIT · NOMINAL</div></div>
+  <div class="screen"><canvas id="cmCanvas" width="900" height="420" aria-label="Top-down view of an object moving in a circle with velocity and force arrows"></canvas><div class="hud" id="cmHud">UNIFORM CIRCULAR MOTION</div></div>
   <div class="grid2">
     <div class="card">
-      <div class="label">Orbit settings</div>
+      <div class="label">Settings</div>
       <label class="ctrl"><span class="row"><span>Mass, m</span><output id="cmMOut">0.50 kg</output></span><input type="range" id="cmM" min="0" max="1" step="0.01" value="0.5"></label>
       <label class="ctrl"><span class="row"><span>Radius, r</span><output id="cmROut">0.80 m</output></span><input type="range" id="cmR" min="0" max="1" step="0.01" value="0.5"></label>
       <label class="ctrl"><span class="row"><span>Speed, v</span><output id="cmVOut">4.0 m s⁻¹</output></span><input type="range" id="cmV" min="0" max="1" step="0.01" value="0.5"></label>
       <div class="btns"><button class="btn go" type="button" id="cmRelease">RELEASE</button><button class="btn" type="button" id="cmDv" aria-pressed="false">Show Δv</button></div>
     </div>
     <div class="card">
-      <div class="label">Telemetry</div>
+      <div class="label">Readings</div>
       <div class="telemetry">
         <div class="tm hl"><span>Centripetal acceleration</span><b id="cmA">–</b></div>
         <div class="tm hl"><span>Centripetal force</span><b id="cmF">–</b></div>
@@ -980,14 +980,14 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </table></div>
 </section>
 
-<section class="pane hidden" data-mod="orbit" data-view="check" data-ref="3.4" data-title="Circular motion systems check">
-  <div class="pane-head"><h2>Phase 3.4 · Systems check: circular motion</h2><span class="badge red">SYSTEMS CHECK</span></div>
+<section class="pane hidden" data-mod="orbit" data-view="check" data-ref="3.4" data-title="Circular motion quick check">
+  <div class="pane-head"><h2>Phase 3.4 · Quick check: circular motion</h2><span class="badge red">QUICK CHECK</span></div>
   <p class="lede">Eight questions, instant feedback.</p>
   <div class="quiz" data-quiz="orbit" data-count="8"></div>
 </section>
 
 <section class="pane hidden" data-mod="orbit" data-view="problems" data-ref="3.5" data-title="Circular motion problems">
-  <div class="pane-head"><h2>Phase 3.5 · Mission problems: circular motion</h2><span class="badge red">EXAM PRACTICE</span></div>
+  <div class="pane-head"><h2>Phase 3.5 · Exam-style problems: circular motion</h2><span class="badge red">EXAM PRACTICE</span></div>
   <p class="lede">Four original practice questions in the style of NCEA Level 2 AS91171 papers. Attempt every part before opening the worked answer.</p>
 
   <article class="q"><div class="q-head"><b>QUESTION ONE</b><span>Tethered sample · string tension</span></div><div class="q-body">
@@ -1075,20 +1075,20 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <div class="pane-head"><h2>Phase 4.2 · Collision lab</h2><span class="badge">SIMULATION</span></div>
   <p class="lede">Two craft on a frictionless docking rail. Set their masses and velocities (right is positive), choose how they interact, and run. Compare momentum and kinetic energy before and after.</p>
   <div class="seg" role="group" aria-label="Collision type"><button type="button" data-cl-type="stick" aria-pressed="true">Dock (stick together)</button><button type="button" data-cl-type="elastic" aria-pressed="false">Elastic bounce</button></div>
-  <div class="screen"><canvas id="clCanvas" width="900" height="360" aria-label="Two craft colliding on a rail with momentum bars"></canvas><div class="hud" id="clHud">DOCKING RAIL · READY</div></div>
+  <div class="screen"><canvas id="clCanvas" width="900" height="360" aria-label="Two craft colliding on a rail with momentum bars"></canvas><div class="hud" id="clHud">READY</div></div>
   <div class="grid2">
     <div class="card">
-      <div class="label">Craft settings</div>
+      <div class="label">Settings</div>
       <label class="ctrl"><span class="row"><span>Mass of A</span><output id="clMaOut">2.0 kg</output></span><input type="range" id="clMa" min="0.5" max="5" step="0.5" value="2"></label>
       <label class="ctrl"><span class="row"><span>Velocity of A</span><output id="clVaOut">+3.0 m s⁻¹</output></span><input type="range" id="clVa" min="-4" max="6" step="0.5" value="3"></label>
       <label class="ctrl"><span class="row"><span>Mass of B</span><output id="clMbOut">3.0 kg</output></span><input type="range" id="clMb" min="0.5" max="5" step="0.5" value="3"></label>
       <label class="ctrl"><span class="row"><span>Velocity of B</span><output id="clVbOut">0.0 m s⁻¹</output></span><input type="range" id="clVb" min="-6" max="4" step="0.5" value="0"></label>
-      <div class="btns"><button class="btn go" type="button" id="clRun">ENGAGE</button><button class="btn" type="button" id="clPredictBtn">Predict first</button></div>
-      <div class="predict hidden" id="clPredict"><label for="clGuess">Velocity of A after (m s⁻¹, with sign):</label><input id="clGuess" type="number" step="0.1" inputmode="decimal"><button class="btn sm go" type="button" id="clGuessGo">LOCK IN &amp; RUN</button></div>
+      <div class="btns"><button class="btn go" type="button" id="clRun">RUN</button><button class="btn" type="button" id="clPredictBtn">Predict first</button></div>
+      <div class="predict hidden" id="clPredict"><label for="clGuess">Velocity of A after (m s⁻¹, with sign):</label><input id="clGuess" type="number" step="0.1" inputmode="decimal"><button class="btn sm go" type="button" id="clGuessGo">PREDICT &amp; RUN</button></div>
       <div class="verdict hidden" id="clVerdict" aria-live="polite"></div>
     </div>
     <div class="card">
-      <div class="label">Telemetry</div>
+      <div class="label">Readings</div>
       <div class="telemetry">
         <div class="tm"><span>Total p before</span><b id="clPb">–</b></div>
         <div class="tm"><span>Total p after</span><b id="clPa">–</b></div>
@@ -1108,14 +1108,14 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <div class="screen"><canvas id="imCanvas" width="900" height="380" aria-label="Force-time graph of an impact with constant area"></canvas><div class="hud" id="imHud">IMPACT ANALYSIS</div></div>
   <div class="grid2">
     <div class="card">
-      <div class="label">Landing settings</div>
+      <div class="label">Settings</div>
       <label class="ctrl"><span class="row"><span>Pod mass</span><output id="imMOut">70 kg</output></span><input type="range" id="imM" min="10" max="150" step="5" value="70"></label>
       <label class="ctrl"><span class="row"><span>Impact speed</span><output id="imVOut">15 m s⁻¹</output></span><input type="range" id="imV" min="1" max="25" step="1" value="15"></label>
       <label class="ctrl"><span class="row"><span>Stopping time, Δt</span><output id="imTOut">0.150 s</output></span><input type="range" id="imT" min="0.01" max="0.4" step="0.01" value="0.15"></label>
       <div class="seg" role="group" aria-label="Landing outcome"><button type="button" data-im-mode="stop" aria-pressed="true">Stops dead</button><button type="button" data-im-mode="bounce" aria-pressed="false">Bounces back at half speed</button></div>
     </div>
     <div class="card">
-      <div class="label">Telemetry</div>
+      <div class="label">Readings</div>
       <div class="telemetry">
         <div class="tm"><span>Change in momentum</span><b id="imDp">–</b></div>
         <div class="tm hl"><span>Average force</span><b id="imF">–</b></div>
@@ -1126,14 +1126,14 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
-<section class="pane hidden" data-mod="dock" data-view="check" data-ref="4.4" data-title="Momentum systems check">
-  <div class="pane-head"><h2>Phase 4.4 · Systems check: momentum &amp; impulse</h2><span class="badge red">SYSTEMS CHECK</span></div>
+<section class="pane hidden" data-mod="dock" data-view="check" data-ref="4.4" data-title="Momentum quick check">
+  <div class="pane-head"><h2>Phase 4.4 · Quick check: momentum &amp; impulse</h2><span class="badge red">QUICK CHECK</span></div>
   <p class="lede">Eight questions, instant feedback. Choose a positive direction before you start each one.</p>
   <div class="quiz" data-quiz="dock" data-count="8"></div>
 </section>
 
 <section class="pane hidden" data-mod="dock" data-view="problems" data-ref="4.5" data-title="Momentum problems">
-  <div class="pane-head"><h2>Phase 4.5 · Mission problems: momentum &amp; impulse</h2><span class="badge red">EXAM PRACTICE</span></div>
+  <div class="pane-head"><h2>Phase 4.5 · Exam-style problems: momentum &amp; impulse</h2><span class="badge red">EXAM PRACTICE</span></div>
   <p class="lede">Four original practice questions in the style of NCEA Level 2 AS91171 papers. Attempt every part before opening the worked answer.</p>
 
   <article class="q"><div class="q-head"><b>QUESTION ONE</b><span>Capsule docking · conservation</span></div><div class="q-body">
@@ -1216,17 +1216,17 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 <section class="pane hidden" data-mod="fuel" data-view="lab" data-ref="5.2" data-title="Energy track lab">
   <div class="pane-head"><h2>Phase 5.2 · Energy track lab</h2><span class="badge">SIMULATION</span></div>
   <p class="lede">Release a cart from a height on a curved track. The bars show gravitational potential energy, kinetic energy and heat. Their total stays the same: energy only changes form.</p>
-  <div class="screen"><canvas id="enCanvas" width="900" height="420" aria-label="A cart on a curved track with live energy bars"></canvas><div class="hud" id="enHud">FUEL SYSTEMS · READY</div></div>
+  <div class="screen"><canvas id="enCanvas" width="900" height="420" aria-label="A cart on a curved track with live energy bars"></canvas><div class="hud" id="enHud">READY</div></div>
   <div class="grid2">
     <div class="card">
-      <div class="label">Track settings</div>
+      <div class="label">Settings</div>
       <label class="ctrl"><span class="row"><span>Cart mass</span><output id="enMOut">50 kg</output></span><input type="range" id="enM" min="10" max="200" step="10" value="50"></label>
       <label class="ctrl"><span class="row"><span>Release height</span><output id="enHOut">8.0 m</output></span><input type="range" id="enH" min="2" max="11" step="0.5" value="8"></label>
       <label class="ctrl"><span class="row"><span>Friction</span><output id="enFOut">none</output></span><input type="range" id="enF" min="0" max="10" step="1" value="0"></label>
       <div class="btns"><button class="btn go" type="button" id="enRun">RELEASE</button><button class="btn" type="button" id="enReset">Reset</button></div>
     </div>
     <div class="card">
-      <div class="label">Telemetry</div>
+      <div class="label">Readings</div>
       <div class="telemetry">
         <div class="tm"><span>Height</span><b id="enTh">–</b></div>
         <div class="tm hl"><span>Speed</span><b id="enTv">–</b></div>
@@ -1275,14 +1275,14 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
-<section class="pane hidden" data-mod="fuel" data-view="check" data-ref="5.4" data-title="Energy systems check">
-  <div class="pane-head"><h2>Phase 5.4 · Systems check: work, energy &amp; power</h2><span class="badge red">SYSTEMS CHECK</span></div>
+<section class="pane hidden" data-mod="fuel" data-view="check" data-ref="5.4" data-title="Energy quick check">
+  <div class="pane-head"><h2>Phase 5.4 · Quick check: work, energy &amp; power</h2><span class="badge red">QUICK CHECK</span></div>
   <p class="lede">Eight questions, instant feedback.</p>
   <div class="quiz" data-quiz="fuel" data-count="8"></div>
 </section>
 
 <section class="pane hidden" data-mod="fuel" data-view="problems" data-ref="5.5" data-title="Energy problems">
-  <div class="pane-head"><h2>Phase 5.5 · Mission problems: work, energy &amp; power</h2><span class="badge red">EXAM PRACTICE</span></div>
+  <div class="pane-head"><h2>Phase 5.5 · Exam-style problems: work, energy &amp; power</h2><span class="badge red">EXAM PRACTICE</span></div>
   <p class="lede">Four original practice questions in the style of NCEA Level 2 AS91171 papers. Attempt every part before opening the worked answer. Take g = 9.8 m s⁻².</p>
 
   <article class="q"><div class="q-head"><b>QUESTION ONE</b><span>Cargo crane · work and power</span></div><div class="q-body">
@@ -1336,13 +1336,13 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 
   <div class="under hidden" id="under">
     <div class="checklist">
-      <h3><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg>Pre-flight checklist</h3>
+      <h3><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6"/></svg>Topic checklist</h3>
       <div id="checklist"></div>
     </div>
     <div class="tip">
-      <div class="tip-h">MISSION BRIEF · EXAM TIP</div>
+      <div class="tip-h">EXAM TIP</div>
       <p id="tipText"></p>
-      <button type="button" id="tipLink">Open the mission problems →</button>
+      <button type="button" id="tipLink">Open the exam-style problems →</button>
     </div>
   </div>
 </main>
@@ -1436,11 +1436,11 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
   map: { title: "COURSE MAP", name: "Course map & exam skills", views: [["scope", "0.1 Course map"], ["skills", "0.2 Exam skills"], ["formulas", "0.3 Formula sheet"], ["challenge", "0.4 Mixed challenge"]] },
-  launch: { title: "MOTION & PROJECTILES", name: "Motion & projectiles", views: [["intro", "1.1 Foundations"], ["graphs", "1.2 Graphs"], ["projectiles", "1.3 Projectiles"], ["clinic", "1.4 Clinic"], ["check", "1.5 Systems check"], ["problems", "1.6 Problems"]] },
-  thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "2.1 Foundations"], ["vectors", "2.2 Vectors"], ["torque", "2.3 Torque"], ["springs", "2.4 Springs"], ["check", "2.5 Systems check"], ["problems", "2.6 Problems"]] },
-  orbit: { title: "CIRCULAR MOTION", name: "Circular motion", views: [["intro", "3.1 Foundations"], ["lab", "3.2 Orbit lab"], ["clinic", "3.3 Clinic"], ["check", "3.4 Systems check"], ["problems", "3.5 Problems"]] },
-  dock: { title: "MOMENTUM & IMPULSE", name: "Momentum & impulse", views: [["intro", "4.1 Foundations"], ["collide", "4.2 Collisions"], ["impulse", "4.3 Impulse"], ["check", "4.4 Systems check"], ["problems", "4.5 Problems"]] },
-  fuel: { title: "WORK, ENERGY & POWER", name: "Work, energy & power", views: [["intro", "5.1 Foundations"], ["lab", "5.2 Energy track"], ["clinic", "5.3 Clinic"], ["check", "5.4 Systems check"], ["problems", "5.5 Problems"]] },
+  launch: { title: "MOTION & PROJECTILES", name: "Motion & projectiles", views: [["intro", "1.1 Foundations"], ["graphs", "1.2 Graphs"], ["projectiles", "1.3 Projectiles"], ["clinic", "1.4 Clinic"], ["check", "1.5 Quick check"], ["problems", "1.6 Problems"]] },
+  thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "2.1 Foundations"], ["vectors", "2.2 Vectors"], ["torque", "2.3 Torque"], ["springs", "2.4 Springs"], ["check", "2.5 Quick check"], ["problems", "2.6 Problems"]] },
+  orbit: { title: "CIRCULAR MOTION", name: "Circular motion", views: [["intro", "3.1 Foundations"], ["lab", "3.2 Orbit lab"], ["clinic", "3.3 Clinic"], ["check", "3.4 Quick check"], ["problems", "3.5 Problems"]] },
+  dock: { title: "MOMENTUM & IMPULSE", name: "Momentum & impulse", views: [["intro", "4.1 Foundations"], ["collide", "4.2 Collisions"], ["impulse", "4.3 Impulse"], ["check", "4.4 Quick check"], ["problems", "4.5 Problems"]] },
+  fuel: { title: "WORK, ENERGY & POWER", name: "Work, energy & power", views: [["intro", "5.1 Foundations"], ["lab", "5.2 Energy track"], ["clinic", "5.3 Clinic"], ["check", "5.4 Quick check"], ["problems", "5.5 Problems"]] },
 };
 const SCOPE = {
   launch: [
@@ -1531,8 +1531,8 @@ function go(mod, view, scroll) {
     renderChecklist();
     $("tipText").textContent = TIPS[mod + ":" + view] || TIP_CHECK;
     const tl = $("tipLink");
-    if (view === "problems") { tl.textContent = "Run the systems check →"; tl.onclick = () => go(mod, "check", true); }
-    else { tl.textContent = "Open the mission problems →"; tl.onclick = () => go(mod, "problems", true); }
+    if (view === "problems") { tl.textContent = "Try the quick check →"; tl.onclick = () => go(mod, "check", true); }
+    else { tl.textContent = "Open the exam-style problems →"; tl.onclick = () => go(mod, "problems", true); }
   }
   updateStatus();
   try { history.replaceState(null, "", "#" + mod + "/" + view); } catch (e) {}
@@ -1549,11 +1549,11 @@ document.addEventListener("click", (e) => {
 function updateStatus() {
   const vals = Object.values(ratings);
   const conf = vals.filter((v) => v === 2).length;
-  $("statusText").textContent = `SYSTEMS NOMINAL · ${conf} of ${TOTAL} checks complete`;
+  $("statusText").textContent = `${conf} of ${TOTAL} checklist items ticked`;
   let pct, sub;
   if (curMod === "map") { pct = Math.round((conf / TOTAL) * 100); sub = "Your checklist progress for the whole standard"; }
-  else { const n = SCOPE[curMod].length; const c = SCOPE[curMod].filter((_, i) => ratings[curMod + "." + i] === 2).length; pct = Math.round((c / n) * 100); sub = "Your checklist progress for this module"; }
-  $("fuelText").textContent = `FUEL · ${pct}%`; $("fuelBar").style.width = pct + "%"; $("fuelSub").textContent = sub;
+  else { const n = SCOPE[curMod].length; const c = SCOPE[curMod].filter((_, i) => ratings[curMod + "." + i] === 2).length; pct = Math.round((c / n) * 100); sub = "Your checklist progress for this topic"; }
+  $("fuelText").textContent = `PROGRESS · ${pct}%`; $("fuelBar").style.width = pct + "%"; $("fuelSub").textContent = sub;
 }
 function setRating(key, r) { if (r === undefined) delete ratings[key]; else ratings[key] = r; store.set("ratings", ratings); renderRatings(); renderChecklist(); updateStatus(); }
 function renderChecklist() {
@@ -1633,7 +1633,7 @@ function runSearch() {
     return { it, score, at };
   }).filter(Boolean).sort((a, b) => b.score - a.score).slice(0, 8);
   sRes.replaceChildren();
-  if (!hits.length) { const d = document.createElement("div"); d.className = "none"; d.textContent = "No mission files match \"" + sInput.value.trim() + "\"."; sRes.appendChild(d); }
+  if (!hits.length) { const d = document.createElement("div"); d.className = "none"; d.textContent = "Nothing in this lab matches \"" + sInput.value.trim() + "\"."; sRes.appendChild(d); }
   hits.forEach(({ it, at }) => {
     const b = document.createElement("button"); b.type = "button"; b.setAttribute("role", "option");
     const start = Math.max(0, at - 50), snip = (start > 0 ? "…" : "") + it.text.slice(start, start + 150) + "…";
@@ -1765,7 +1765,7 @@ function buildQuiz(box) {
         upd();
         if (answered === count) {
           const fin = document.createElement("div"); fin.className = "verdict " + (score >= count - 1 ? "ok" : "info");
-          fin.textContent = score >= count - 1 ? `${score}/${count}: systems nominal. Ready for the mission problems.` : `${score}/${count}. Review the explanations above, then press New set to try again.`;
+          fin.textContent = score >= count - 1 ? `${score}/${count}: well done. Ready for the exam-style problems.` : `${score}/${count}. Review the explanations above, then press New set to try again.`;
           box.appendChild(fin);
         }
       });
@@ -1893,7 +1893,7 @@ function powerCalc() {
       plot(ctx, 50, gTop, gw, gh, xAt, dLo - dp, dHi + dp, "d (m) · gradient = velocity", C.data, tc, false);
       plot(ctx, 50 + gw + 50, gTop, gw, gh, vAt, vLo - vp, vHi + vp, "v (m s⁻¹) · gradient = a", C.vector, tc, S.shade);
     }
-    $("mgHud").textContent = `TRACKING · T+${tc.toFixed(2)} s`;
+    $("mgHud").textContent = `t = ${tc.toFixed(2)} s`;
     $("mgTt").textContent = tc.toFixed(2) + " s"; $("mgTv").textContent = fx(v, 1, true) + " m s⁻¹";
     $("mgTd").textContent = fx(xAt(tc), 1, true) + " m"; $("mgTs").textContent = fx(dist(tc), 1) + " m";
   };
@@ -1988,9 +1988,9 @@ function powerCalc() {
       }
       let lab = "LANDED";
       if (S.phase === "fly") lab = D.vy > 0 && Math.abs(tc - D.ta) < 0.08 ? "APEX" : tc < D.ta ? "ASCENT" : "DESCENT";
-      $("pjHud").textContent = `TRACKING · T+${tc.toFixed(2)} s · ${lab}`;
+      $("pjHud").textContent = `t = ${tc.toFixed(2)} s · ${lab}`;
     }
-    if (S.phase === "ready") $("pjHud").textContent = "TRACKING · READY";
+    if (S.phase === "ready") $("pjHud").textContent = "READY";
     // telemetry
     const done = S.phase === "landed", pastApex = S.phase !== "ready" && (S.t >= D.ta || done);
     $("pjVx").textContent = fmt(D.vx) + " m s⁻¹"; $("pjVy").textContent = fmt(D.vy) + " m s⁻¹";
@@ -2272,7 +2272,7 @@ function powerCalc() {
     }
     // telemetry and notes
     $("cmA").textContent = fmt(a) + " m s⁻²"; $("cmF").textContent = fmt(F) + " N"; $("cmT").textContent = fT(T); $("cmBy").textContent = cfg.by;
-    let hud = rel ? "RELEASED · NO NET FORCE · STRAIGHT LINE" : "ORBIT · NOMINAL", n;
+    let hud = rel ? "RELEASED · NO NET FORCE · STRAIGHT LINE" : "UNIFORM CIRCULAR MOTION", n;
     if (ctxName === "string") n = `The string's tension is the centripetal force: ${fmt(F)} N towards the centre. Press RELEASE to cut the string.`;
     else if (ctxName === "car") {
       const Fr = 0.6 * m * G;
@@ -2364,13 +2364,13 @@ function powerCalc() {
     const rh = Math.min(44, (h - y0 - 20) / 2);
     row(y0 + 6, pA0, pB0, "BEFORE", true);
     row(y0 + 6 + rh, pA1, pB1, "AFTER", done);
-    $("clHud").textContent = S.phase === "ready" ? "DOCKING RAIL · READY" : S.phase === "run" ? (S.hit ? "CONTACT · " + (S.type === "stick" ? "LATCHED" : "BOUNCE") : "CLOSING") : "COMPLETE";
+    $("clHud").textContent = S.phase === "ready" ? "READY" : S.phase === "run" ? (S.hit ? "CONTACT · " + (S.type === "stick" ? "LATCHED" : "BOUNCE") : "CLOSING") : "COMPLETE";
     $("clPb").textContent = fx(R.pb, 1, true) + " kg m s⁻¹"; $("clPa").textContent = done ? fx(R.pa, 1, true) + " kg m s⁻¹" : "?";
     $("clVaf").textContent = done ? fx(R.fa, 2, true) + " m s⁻¹" : "?"; $("clVbf").textContent = done ? fx(R.fb, 2, true) + " m s⁻¹" : "?";
     $("clEb").textContent = fmt(R.Eb) + " J"; $("clEa").textContent = done ? fmt(R.Ea) + " J" : "?";
     let n;
     if (!R.meet) n = "These craft never meet: A has to be moving to the right faster than B. Increase A's velocity or make B's velocity smaller or negative.";
-    else if (!done) n = "Total momentum before the collision is shown. Predict the velocities after, then engage.";
+    else if (!done) n = "Total momentum before the collision is shown. Predict the velocities after, then press RUN.";
     else if (S.type === "stick") { const lost = R.Eb - R.Ea, pc = R.Eb > 0 ? (100 * lost) / R.Eb : 0; n = `Total momentum is ${fx(R.pb, 1, true)} kg m s⁻¹ before and after: conserved. Kinetic energy fell from ${fmt(R.Eb)} J to ${fmt(R.Ea)} J, so ${fmt(pc, 2)}% was transformed into heat, sound and deformation. This is an inelastic collision.`; }
     else n = `Momentum (${fx(R.pb, 1, true)} kg m s⁻¹) and kinetic energy (${fmt(R.Eb)} J) are both the same before and after: an elastic collision.${Math.abs(R.mA - R.mB) < 1e-9 ? " With equal masses, the craft simply swap velocities." : ""}`;
     $("clNote").textContent = n;
@@ -2491,7 +2491,7 @@ function powerCalc() {
       text(ctx, lab, x + bw / 2, by1 + 15, C.ink2, 11, "center");
       text(ctx, fmt(Math.max(0, E), 2), x + bw / 2, by1 + 29, C.muted, 10, "center");
     });
-    $("enHud").textContent = S.phase === "ready" ? "FUEL SYSTEMS · READY" : S.phase === "run" ? "ROLLING · ENERGY CONSERVED" : "STOPPED";
+    $("enHud").textContent = S.phase === "ready" ? "READY" : S.phase === "run" ? "ROLLING · ENERGY CONSERVED" : "STOPPED";
     $("enTh").textContent = fx(y, 2) + " m"; $("enTv").textContent = fx(Math.abs(S.u), 1) + " m s⁻¹";
     $("enTp").textContent = fmt(Math.sqrt(2 * G * S.h)) + " m s⁻¹"; $("enTe").textContent = fmt(Ep + Ek + S.heat) + " J";
     let n;
