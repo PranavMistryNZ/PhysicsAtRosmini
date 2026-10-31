@@ -2085,12 +2085,13 @@ const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},se
 /* ---------- theme ---------- */
 const themeToggle=$('themeToggle');
 const osLight=window.matchMedia?matchMedia('(prefers-color-scheme: light)'):null;
-const savedTheme=store.get('emag-theme');
-const light=savedTheme?savedTheme==='light':!!(osLight&&osLight.matches);
+// follow the browser's light/dark setting; the slider overrides it for this visit only (shared with the other pages)
+let sessTheme=null;try{sessTheme=sessionStorage.getItem('physics-theme')}catch(e){}
+const light=sessTheme?sessTheme==='light':!!(osLight&&osLight.matches);
 document.body.classList.toggle('light-mode',light);themeToggle.checked=light;
-// no saved choice yet: keep following the device setting if it changes
-if(osLight&&osLight.addEventListener)osLight.addEventListener('change',e=>{if(store.get('emag-theme'))return;document.body.classList.toggle('light-mode',e.matches);themeToggle.checked=e.matches;window.dispatchEvent(new Event('emag-redraw'))});
-themeToggle.addEventListener('change',()=>{document.body.classList.toggle('light-mode',themeToggle.checked);store.set('emag-theme',themeToggle.checked?'light':'dark');window.dispatchEvent(new Event('emag-redraw'))});
+try{localStorage.removeItem('emag-theme')}catch(e){}
+if(osLight){const follow=e=>{try{sessionStorage.removeItem('physics-theme')}catch(_){}document.body.classList.toggle('light-mode',e.matches);themeToggle.checked=e.matches;window.dispatchEvent(new Event('emag-redraw'))};osLight.addEventListener?osLight.addEventListener('change',follow):osLight.addListener(follow)}
+themeToggle.addEventListener('change',()=>{document.body.classList.toggle('light-mode',themeToggle.checked);try{sessionStorage.setItem('physics-theme',themeToggle.checked?'light':'dark')}catch(e){}window.dispatchEvent(new Event('emag-redraw'))});
 
 /* ---------- navigation ---------- */
 const views={
