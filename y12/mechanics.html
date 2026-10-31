@@ -555,7 +555,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     <g stroke-width="3" stroke-linecap="round" fill="none">
       <path d="M140 40h292" style="stroke:var(--data)"/><path d="M430 33l10 7-10 7" style="stroke:var(--data)"/>
       <path d="M440 64H268" style="stroke:var(--vector)"/><path d="M270 57l-10 7 10 7" style="stroke:var(--vector)"/>
-      <path d="M140 90h120" style="stroke:var(--accent)"/></g><g style="fill:var(--accent)"><path d="M190 83l13 7-13 7z"/><path d="M202 83l13 7-13 7z"/>
+      <path d="M140 90h120" style="stroke:var(--accent)"/><path d="M194 83l10 7-10 7M203 83l10 7-10 7" style="stroke:var(--accent)" stroke-linejoin="round"/>
     </g>
     <g font-family="JetBrains Mono" font-size="12"><text x="290" y="30" style="fill:var(--data)">A = +5 m</text><text x="452" y="68" style="fill:var(--vector)">B = −3 m</text><text x="270" y="94" style="fill:var(--accent)">A + B = +2 m</text></g>
   </svg>
@@ -1614,28 +1614,33 @@ function grid(ctx, x0, y0, x1, y1, step) {
   for (let y = y1; y >= y0 - 0.5; y -= step) { ctx.moveTo(x0, Math.round(y) + 0.5); ctx.lineTo(x1, Math.round(y) + 0.5); }
   ctx.stroke();
 }
+/* open "V" arrowhead (chevron) with its point at (tx, ty), facing direction (ux, uy) */
+function chevron(ctx, tx, ty, ux, uy, hd) {
+  ctx.beginPath();
+  ctx.moveTo(tx - ux * hd - uy * hd * 0.7, ty - uy * hd + ux * hd * 0.7);
+  ctx.lineTo(tx, ty);
+  ctx.lineTo(tx - ux * hd + uy * hd * 0.7, ty - uy * hd - ux * hd * 0.7);
+  ctx.stroke();
+}
 function arrow(ctx, x0, y0, x1, y1, color, width = 2.5, head = 9, dash) {
   const dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy);
   if (L < 1) return;
-  const hd = Math.min(head, L * 0.6), ux = dx / L, uy = dy / L;
-  ctx.save(); ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = width; ctx.lineCap = "round";
+  const hd = Math.min(head, L * 0.5), ux = dx / L, uy = dy / L;
+  ctx.save(); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.lineCap = "round"; ctx.lineJoin = "round";
   if (dash) ctx.setLineDash(dash);
-  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1 - ux * hd * 0.8, y1 - uy * hd * 0.8); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
   ctx.setLineDash([]);
-  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x1 - ux * hd - uy * hd * 0.5, y1 - uy * hd + ux * hd * 0.5); ctx.lineTo(x1 - ux * hd + uy * hd * 0.5, y1 - uy * hd - ux * hd * 0.5); ctx.closePath(); ctx.fill();
+  chevron(ctx, x1, y1, ux, uy, hd);
   ctx.restore();
 }
-/* resultant vector: plain line with a double arrowhead at its midpoint */
+/* resultant vector: plain line with a double open arrowhead at its midpoint */
 function resultant(ctx, x0, y0, x1, y1, color, width = 4, head = 11) {
   const dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy);
   if (L < 1) return;
-  const ux = dx / L, uy = dy / L, hd = Math.min(head, L / 5), mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
-  ctx.save(); ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = width; ctx.lineCap = "round";
+  const ux = dx / L, uy = dy / L, hd = Math.min(head, L / 4), mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+  ctx.save(); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.lineCap = "round"; ctx.lineJoin = "round";
   ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
-  [hd * 0.9, 0].forEach((off) => {
-    const tx = mx + ux * off, ty = my + uy * off;
-    ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(tx - ux * hd - uy * hd * 0.55, ty - uy * hd + ux * hd * 0.55); ctx.lineTo(tx - ux * hd + uy * hd * 0.55, ty - uy * hd - ux * hd * 0.55); ctx.closePath(); ctx.fill();
-  });
+  [hd * 0.4, -hd * 0.4].forEach((off) => chevron(ctx, mx + ux * (off + hd / 2), my + uy * (off + hd / 2), ux, uy, hd));
   ctx.restore();
 }
 function text(ctx, s, x, y, color, size = 12, align = "left", font = MONO, base = "alphabetic") {
