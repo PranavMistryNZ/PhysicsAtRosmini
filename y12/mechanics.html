@@ -154,6 +154,8 @@ sub,sup{font-size:.72em;line-height:0}
 .small{font-size:13px;color:var(--muted)}
 ul.clean{margin:0;padding-left:1.2em;display:grid;gap:6px}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.grid2x{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:640px){.grid2x{grid-template-columns:minmax(0,1fr)}}
 .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 .card{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--panel-solid);min-width:0}
 .card.tint{background:var(--tile);border-color:transparent}
@@ -539,7 +541,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 
 <!-- ======================================================= 01 TOOLKIT: VECTORS -->
 <section class="pane hidden" data-mod="launch" data-view="vectors" data-ref="1.1" data-title="Scalars and vectors">
-  <div class="pane-head"><h2>Phase 1.1 · Scalars &amp; vectors</h2><span class="badge teal">START HERE</span></div>
+  <div class="pane-head"><h2>Phase 1.2 · Scalars &amp; vectors lab</h2><span class="badge">INTERACTIVE</span></div>
   <p class="lede">Every quantity in physics is either a scalar or a vector. Before you can describe motion or forces, you need to know which is which and how to add vectors together.</p>
 
   <h3>1 · What is the difference?</h3>
@@ -729,11 +731,70 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 </section>
 
 <!-- ======================================================= 01 LAUNCH -->
-<section class="pane hidden" data-mod="launch" data-view="intro" data-ref="1.3" data-title="Motion foundations">
+<section class="pane hidden" data-mod="launch" data-view="intro" data-ref="1.3" data-title="Motion foundations: vectors, velocity, graphs, free fall, projectiles">
   <div class="pane-head"><h2>Phase 1.3 · Motion foundations</h2><span class="badge teal">FOUNDATIONS</span></div>
-  <p class="lede">Four ideas underpin the rest of this topic. Scalars and vectors are in phase <span data-phase="launch:vectors">1.1</span>. Open each panel for the detail you need.</p>
+  <p class="lede">Five ideas underpin the rest of this topic. Open each panel for the detail you need.</p>
   <div class="steps">
-        <details class="step" open><summary><span class="ref">1.3.1</span>Velocity and acceleration</summary><div class="step-body">
+    <details class="step" open><summary><span class="ref">1.1.1</span>Vectors</summary><div class="step-body">
+      <h3 style="margin:0">Scalars and vectors</h3>
+      <div class="grid2">
+        <div class="card tint"><span class="label">Scalar: size only</span><p>A number with a unit. Scalars add like ordinary numbers.</p><p class="small">Examples: distance, speed, mass, time, energy, power, work, temperature.</p><p class="eq-block">40 m, 12 m s⁻¹, 65 kg, 3.0 s</p></div>
+        <div class="card tint"><span class="label">Vector: size and direction</span><p>A number, a unit and a direction. Drawn as an arrow: its length shows the size and it points in the direction.</p><p class="small">Examples: displacement, velocity, acceleration, force, weight, momentum, impulse.</p><p class="eq-block">40 m north, 12 m s⁻¹ left, 590 N down</p></div>
+      </div>
+      <p>Many quantities come in pairs: <b>distance</b> (scalar) and <b>displacement</b> (vector), <b>speed</b> and <b>velocity</b>, <b>mass</b> and <b>weight</b>. A runner who completes one 400 m lap has run a distance of 400 m but has a displacement of zero, because they finish where they started.</p>
+
+      <h3 style="margin:6px 0 0">Two different jobs: combining vectors and splitting into components</h3>
+      <p>Students often mix these up. They go in opposite directions.</p>
+      <div class="grid2">
+        <div class="card">
+          <span class="label">Adding or subtracting: many → one</span>
+          <svg viewBox="0 0 240 130" role="img" aria-label="Two vectors A and B drawn tip to tail with the resultant from the start of A to the tip of B, marked with a double arrowhead" style="width:100%;max-width:280px;height:auto">
+            <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M30 110h120" style="stroke:var(--data)"/><path d="M140 103l10 7-10 7" style="stroke:var(--data)"/>
+              <path d="M150 110V30" style="stroke:var(--vector)"/><path d="M143 40l7-10 7 10" style="stroke:var(--vector)"/>
+              <path d="M30 110L150 30" style="stroke:var(--accent)"/><path d="M80 82l11-6-3 12M89 76l11-6-3 12" style="stroke:var(--accent)"/>
+            </g>
+            <g font-family="JetBrains Mono" font-size="12"><text x="80" y="126" style="fill:var(--data)">A</text><text x="158" y="74" style="fill:var(--vector)">B</text><text x="50" y="66" style="fill:var(--accent)">A + B</text></g>
+          </svg>
+          <p>Two or more <b>separate</b> vectors act together, and you combine them into <b>one resultant</b>. Draw them tip to tail. The resultant goes from the start of the first to the tip of the last, and is marked with a double arrowhead.</p>
+          <p class="small">Use it for: two forces pulling on the same object; a walk made of several legs; a boat's velocity plus the river current. Subtracting (A − B = A + (−B)) gives a <b>change</b>, such as Δv = v<sub>f</sub> − v<sub>i</sub>.</p>
+        </div>
+        <div class="card">
+          <span class="label">Components: one → two</span>
+          <svg viewBox="0 0 240 130" role="img" aria-label="One vector F at an angle, with a dashed horizontal component and a dashed vertical component forming a right-angled triangle" style="width:100%;max-width:280px;height:auto">
+            <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M30 110h120" style="stroke:var(--data)" stroke-dasharray="7 5"/><path d="M140 103l10 7-10 7" style="stroke:var(--data)"/>
+              <path d="M150 110V30" style="stroke:var(--vector)" stroke-dasharray="7 5"/><path d="M143 40l7-10 7 10" style="stroke:var(--vector)"/>
+              <path d="M30 110L150 30" style="stroke:var(--accent)"/><path d="M137 34l13-4-6 12" style="stroke:var(--accent)"/>
+              <path d="M70 110a40 40 0 0 0-6-22" style="stroke:var(--muted)" stroke-width="1.5"/>
+            </g>
+            <g font-family="JetBrains Mono" font-size="12"><text x="56" y="126" style="fill:var(--data)">F cos θ</text><text x="158" y="74" style="fill:var(--vector)">F sin θ</text><text x="62" y="62" style="fill:var(--accent)">F</text><text x="76" y="104" style="fill:var(--muted)">θ</text></g>
+          </svg>
+          <p><b>One</b> vector is split into <b>two perpendicular parts</b>, usually horizontal and vertical. Together the components have exactly the same effect as the original vector.</p>
+          <p class="small">Use it for: a projectile's launch velocity (horizontal and vertical motion are worked out separately); a rope pulling a crate at an angle; a force meter held at an angle.</p>
+        </div>
+      </div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th></th><th>Adding / subtracting</th><th>Components</th></tr></thead>
+        <tbody>
+          <tr><td>Starts with</td><td>two or more vectors</td><td>one vector</td></tr>
+          <tr><td>Ends with</td><td>one resultant</td><td>two perpendicular parts</td></tr>
+          <tr><td>Diagram</td><td>arrows tip to tail; the resultant closes the triangle</td><td>the original vector is the diagonal; the components are the sides of the right-angled triangle</td></tr>
+          <tr><td>Maths</td><td>R = √(A² + B²), tan θ = B ÷ A (at right angles)</td><td>horizontal = V cos θ, vertical = V sin θ</td></tr>
+        </tbody>
+      </table></div>
+      <div class="card tint"><span class="label">Watch out</span><p>Components <b>replace</b> the vector, they don't add to it. Once you have split a 150 N pull into 130 N horizontal and 75 N vertical, use those two parts <b>or</b> the 150 N, never all three, or you will count the same force twice.</p></div>
+
+      <h3 style="margin:6px 0 0">Examples</h3>
+      <div class="grid2x">
+        <div class="card"><span class="label">Adding at right angles</span><p>Forces of 3.0 N east and 4.0 N north act on a box.</p><p class="eq-block">R = √(3.0² + 4.0²) = 5.0 N, tan θ = 4.0 ÷ 3.0, θ = 53°</p><p>Resultant: <b>5.0 N at 53° north of east</b>.</p></div>
+        <div class="card"><span class="label">Adding in a line</span><p>A 600 N push forwards and 250 N of friction backwards. Take forwards as +.</p><p class="eq-block">(+600) + (−250) = +350 N</p><p>Net force: <b>350 N forwards</b>.</p></div>
+        <div class="card"><span class="label">Subtracting: change in velocity</span><p>A ball hits a wall at 6.0 m s⁻¹ right and bounces back at 4.0 m s⁻¹ left. Take right as +.</p><p class="eq-block">Δv = v<sub>f</sub> − v<sub>i</sub> = (−4.0) − (+6.0) = −10 m s⁻¹</p><p>Change in velocity: <b>10 m s⁻¹ to the left</b>, much bigger than the 2 m s⁻¹ drop in speed.</p></div>
+        <div class="card"><span class="label">Components</span><p>A ball is kicked at 20 m s⁻¹ at 40° above the horizontal.</p><p class="eq-block">v<sub>x</sub> = 20 cos 40° = 15.3 m s⁻¹, v<sub>y</sub> = 20 sin 40° = 12.9 m s⁻¹</p><p>The ball moves sideways at 15.3 m s⁻¹ while it rises and falls as if thrown straight up at 12.9 m s⁻¹.</p></div>
+      </div>
+      <p class="small">Try both in the interactive vector lab, phase <span data-phase="launch:vectors">1.2</span>.</p>
+    </div></details>
+    <details class="step"><summary><span class="ref">1.3.1</span>Velocity and acceleration</summary><div class="step-body">
       <p>Velocity is the rate of change of displacement: <span class="eq">v = Δd ÷ Δt</span>. Acceleration is the rate of change of velocity: <span class="eq">a = Δv ÷ Δt</span>, in m s⁻².</p>
       <p>An acceleration of 3 m s⁻² means the velocity changes by 3 m s⁻¹ every second. If the acceleration points opposite to the velocity, the object slows down. Exams often call this deceleration, but in the equations it is a negative a.</p>
     </div></details>
@@ -1894,7 +1955,7 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
   map: { title: "COURSE MAP", name: "Course map & exam skills", views: [["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["challenge", "Mixed challenge"]] },
-  launch: { title: "MOTION & PROJECTILES", name: "Motion & projectiles", views: [["vectors", "Vectors"], ["numbers", "Numbers & units"], ["intro", "Foundations"], ["graphs", "Graphs"], ["relvel", "Relative velocity"], ["projectiles", "Projectiles"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
+  launch: { title: "MOTION & PROJECTILES", name: "Motion & projectiles", views: [["intro", "Foundations"], ["vectors", "Vectors"], ["numbers", "Numbers & units"], ["graphs", "Graphs"], ["relvel", "Relative velocity"], ["projectiles", "Projectiles"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
   thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "Foundations"], ["vectors", "Vectors"], ["lift", "Lift"], ["torque", "Torque"], ["bridges", "Bridges & seesaws"], ["springs", "Springs"], ["practicals", "Practicals"], ["check", "Quick check"], ["problems", "Problems"]] },
   orbit: { title: "CIRCULAR MOTION", name: "Circular motion", views: [["intro", "Foundations"], ["lab", "Centripetal force"], ["practical", "Practical"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
   dock: { title: "MOMENTUM & IMPULSE", name: "Momentum & impulse", views: [["intro", "Foundations"], ["collide", "Collisions"], ["impulse", "Impulse"], ["check", "Quick check"], ["problems", "Problems"]] },
