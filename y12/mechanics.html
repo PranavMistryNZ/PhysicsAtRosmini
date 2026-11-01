@@ -752,7 +752,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
             <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
               <path d="M30 110h120" style="stroke:var(--data)"/><path d="M140 103l10 7-10 7" style="stroke:var(--data)"/>
               <path d="M150 110V30" style="stroke:var(--vector)"/><path d="M143 40l7-10 7 10" style="stroke:var(--vector)"/>
-              <path d="M30 110L150 30" style="stroke:var(--accent)"/><path d="M80 82l11-6-3 12M89 76l11-6-3 12" style="stroke:var(--accent)"/>
+              <path d="M30 110L150 30" style="stroke:var(--accent)"/><path d="M93.1 76.4L97.5 65.0L85.3 64.7M85.6 81.4L90.0 70.0L77.8 69.7" style="stroke:var(--accent)"/>
             </g>
             <g font-family="JetBrains Mono" font-size="12"><text x="80" y="126" style="fill:var(--data)">A</text><text x="158" y="74" style="fill:var(--vector)">B</text><text x="50" y="66" style="fill:var(--accent)">A + B</text></g>
           </svg>
@@ -761,14 +761,15 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
         </div>
         <div class="card">
           <span class="label">Components: one → two</span>
-          <svg viewBox="0 0 240 130" role="img" aria-label="One vector F at an angle, with a dashed horizontal component and a dashed vertical component forming a right-angled triangle" style="width:100%;max-width:280px;height:auto">
+          <svg viewBox="0 0 240 130" role="img" aria-label="One vector F at an angle, with its horizontal and vertical components both drawn from the same starting point, completing a rectangle" style="width:100%;max-width:280px;height:auto">
+            <g fill="none" stroke-width="1.2" style="stroke:var(--muted)" stroke-dasharray="2 4"><path d="M200 110V30M80 30H200"/></g>
             <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M30 110h120" style="stroke:var(--data)" stroke-dasharray="7 5"/><path d="M140 103l10 7-10 7" style="stroke:var(--data)"/>
-              <path d="M150 110V30" style="stroke:var(--vector)" stroke-dasharray="7 5"/><path d="M143 40l7-10 7 10" style="stroke:var(--vector)"/>
-              <path d="M30 110L150 30" style="stroke:var(--accent)"/><path d="M137 34l13-4-6 12" style="stroke:var(--accent)"/>
-              <path d="M70 110a40 40 0 0 0-6-22" style="stroke:var(--muted)" stroke-width="1.5"/>
+              <path d="M80 110H200" style="stroke:var(--data)" stroke-dasharray="7 5"/><path d="M190.0 117.0L200.0 110.0L190.0 103.0" style="stroke:var(--data)"/>
+              <path d="M80 110V30" style="stroke:var(--vector)" stroke-dasharray="7 5"/><path d="M87.0 40.0L80.0 30.0L73.0 40.0" style="stroke:var(--vector)"/>
+              <path d="M80 110L200 30" style="stroke:var(--accent)"/><path d="M195.6 41.4L200.0 30.0L187.8 29.7" style="stroke:var(--accent)"/>
+              <path d="M120 110a40 40 0 0 0-6-22" style="stroke:var(--muted)" stroke-width="1.5"/>
             </g>
-            <g font-family="JetBrains Mono" font-size="12"><text x="56" y="126" style="fill:var(--data)">F cos θ</text><text x="158" y="74" style="fill:var(--vector)">F sin θ</text><text x="62" y="62" style="fill:var(--accent)">F</text><text x="76" y="104" style="fill:var(--muted)">θ</text></g>
+            <g font-family="JetBrains Mono" font-size="12"><text x="118" y="126" style="fill:var(--data)">F cos θ</text><text x="72" y="74" text-anchor="end" style="fill:var(--vector)">F sin θ</text><text x="124" y="62" style="fill:var(--accent)">F</text><text x="126" y="104" style="fill:var(--muted)">θ</text></g>
           </svg>
           <p><b>One</b> vector is split into <b>two perpendicular parts</b>, usually horizontal and vertical. Together the components have exactly the same effect as the original vector.</p>
           <p class="small">Use it for: a projectile's launch velocity (horizontal and vertical motion are worked out separately); a rope pulling a crate at an angle; a force meter held at an angle.</p>
