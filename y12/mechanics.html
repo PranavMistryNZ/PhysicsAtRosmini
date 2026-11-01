@@ -617,7 +617,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 </section>
 
 <!-- ======================================================= 01 TOOLKIT: VECTORS -->
-<section class="pane hidden" data-mod="launch" data-view="vectors" data-ref="1.1" data-title="Scalars and vectors">
+<section class="pane hidden" data-mod="map" data-view="vectors" data-ref="1.1" data-title="Scalars and vectors">
   <div class="pane-head"><h2>Phase 1.2 · Scalars &amp; vectors lab</h2><span class="badge">INTERACTIVE</span></div>
   <p class="lede">Every quantity in physics is either a scalar or a vector. Before you can describe motion or forces, you need to know which is which and how to add vectors together.</p>
 
@@ -708,7 +708,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 </section>
 
 <!-- ======================================================= 01 TOOLKIT: NUMBERS -->
-<section class="pane hidden" data-mod="launch" data-view="numbers" data-ref="1.2" data-title="Numbers, prefixes and units">
+<section class="pane hidden" data-mod="map" data-view="numbers" data-ref="1.2" data-title="Numbers, prefixes and units">
   <div class="pane-head"><h2>Phase 1.2 · Big numbers, small numbers &amp; units</h2><span class="badge teal">TOOLKIT</span></div>
   <p class="lede">Physics deals with sizes from atoms to planets. Powers of ten and unit prefixes let you write any of them without a long string of zeros, and calculate with them confidently.</p>
 
@@ -870,7 +870,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
         <div class="card"><span class="label">Subtracting: change in velocity</span><p>A ball hits a wall at 6.0 m s⁻¹ right and bounces back at 4.0 m s⁻¹ left. Take right as +.</p><p class="eq-block">Δv = v<sub>f</sub> − v<sub>i</sub> = (−4.0) − (+6.0) = −10 m s⁻¹</p><p>Change in velocity: <b>10 m s⁻¹ to the left</b>, much bigger than the 2 m s⁻¹ drop in speed.</p></div>
         <div class="card"><span class="label">Components</span><p>A ball is kicked at 20 m s⁻¹ at 40° above the horizontal.</p><p class="eq-block">v<sub>x</sub> = 20 cos 40° = 15.3 m s⁻¹, v<sub>y</sub> = 20 sin 40° = 12.9 m s⁻¹</p><p>The ball moves sideways at 15.3 m s⁻¹ while it rises and falls as if thrown straight up at 12.9 m s⁻¹.</p></div>
       </div>
-      <p class="small">Try both in the interactive vector lab, phase <span data-phase="launch:vectors">1.2</span>.</p>
+      <p class="small">Try both in the interactive vector lab: <button type="button" class="btn sm" data-go="map:vectors">Course map &amp; exam skills → phase <span data-phase="map:vectors">0.6</span> Vectors</button></p>
     </div></details>
     <details class="step"><summary><span class="ref">1.3.1</span>Velocity and acceleration</summary><div class="step-body">
       <p>Velocity is the rate of change of displacement: <span class="eq">v = Δd ÷ Δt</span>. Acceleration is the rate of change of velocity: <span class="eq">a = Δv ÷ Δt</span>, in m s⁻².</p>
@@ -1134,7 +1134,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <p>Aim upstream so the upstream part of the boat's velocity cancels the current: <span class="eq">sin θ = current ÷ boat speed</span>. The crossing takes longer because only <span class="eq">boat speed × cos θ</span> is left for crossing.</p>
       <p class="small">Same river: sin θ = 3.0 ÷ 4.0, so θ = 49° upstream. Speed across = √(4.0² − 3.0²) = 2.6 m s⁻¹, so t = 60 ÷ 2.6 = 23 s. If the current is faster than the boat, it can't be done.</p></div>
   </div>
-  <div class="card tint"><span class="label">Relative velocity in general</span><p>The velocity of A relative to B is <span class="eq">v<sub>A</sub> − v<sub>B</sub></span>. Two cars on a motorway at 100 km h⁻¹ and 90 km h⁻¹ in the same direction have a relative velocity of 10 km h⁻¹. If they drive towards each other, it is 190 km h⁻¹. This is vector subtraction (phase <span data-phase="launch:vectors">1.1</span>).</p></div>
+  <div class="card tint"><span class="label">Relative velocity in general</span><p>The velocity of A relative to B is <span class="eq">v<sub>A</sub> − v<sub>B</sub></span>. Two cars on a motorway at 100 km h⁻¹ and 90 km h⁻¹ in the same direction have a relative velocity of 10 km h⁻¹. If they drive towards each other, it is 190 km h⁻¹. This is vector subtraction (phase <span data-phase="map:vectors">1.1</span>).</p></div>
 </section>
 
 <!-- ======================================================= 02 THRUST -->
@@ -2032,8 +2032,8 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
-  map: { title: "COURSE MAP", name: "Course map & exam skills", views: [["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["rearrange", "Rearranging formulae"], ["challenge", "Mixed challenge"]] },
-  launch: { title: "MOTION & PROJECTILES", name: "Motion & projectiles", views: [["intro", "Foundations"], ["vectors", "Vectors"], ["numbers", "Numbers & units"], ["graphs", "Graphs"], ["relvel", "Relative velocity"], ["projectiles", "Projectiles"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
+  map: { title: "COURSE MAP", name: "Course map & exam skills", views: [["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["rearrange", "Rearranging formulae"], ["numbers", "Numbers & units"], ["vectors", "Vectors"], ["challenge", "Mixed challenge"]] },
+  launch: { title: "MOTION & PROJECTILES", name: "Motion & projectiles", views: [["intro", "Foundations"], ["graphs", "Graphs"], ["relvel", "Relative velocity"], ["projectiles", "Projectiles"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
   thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "Foundations"], ["vectors", "Vectors"], ["lift", "Lift"], ["torque", "Torque"], ["bridges", "Bridges & seesaws"], ["springs", "Springs"], ["practicals", "Practicals"], ["check", "Quick check"], ["problems", "Problems"]] },
   orbit: { title: "CIRCULAR MOTION", name: "Circular motion", views: [["intro", "Foundations"], ["lab", "Centripetal force"], ["practical", "Practical"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
   dock: { title: "MOMENTUM & IMPULSE", name: "Momentum & impulse", views: [["intro", "Foundations"], ["collide", "Collisions"], ["impulse", "Impulse"], ["check", "Quick check"], ["problems", "Problems"]] },
@@ -2041,12 +2041,12 @@ const MODS = {
 };
 const SCOPE = {
   launch: [
-    ["Tell scalars from vectors and add vectors tip to tail, choosing a positive direction", "Scalars & vectors", "launch:vectors"],
+    ["Tell scalars from vectors and add vectors tip to tail, choosing a positive direction", "Scalars & vectors", "map:vectors"],
     ["Read gradients and areas on d–t and v–t graphs", "Motion graphs", "launch:graphs"],
     ["Use the four constant-acceleration equations, including free fall", "vf = vi + at …", "launch:clinic"],
     ["Split a launch velocity into horizontal and vertical parts and explain why vx stays constant", "Projectiles", "launch:projectiles"],
     ["Calculate time of flight, range and maximum height", "Projectile recipe", "launch:clinic"],
-    ["Use prefixes and powers of ten, and multiply, divide, add and subtract numbers in standard form", "Numbers & units", "launch:numbers"],
+    ["Use prefixes and powers of ten, and multiply, divide, add and subtract numbers in standard form", "Numbers & units", "map:numbers"],
     ["Read acceleration–time graphs and move between d–t, v–t and a–t graphs", "Graph matching", "launch:graphs"],
     ["Use vector addition for relative velocity: river crossings and crosswinds", "Relative velocity", "launch:relvel"],
   ],
@@ -2083,8 +2083,8 @@ const TOTAL = Object.values(SCOPE).reduce((a, g) => a + g.length, 0);
 const ratings = store.get("ratings", {});
 const TIP_CHECK = "Got one wrong? Read the explanation, then reopen the matching lab before trying a new set.";
 const TIPS = {
-  "launch:vectors": "Every vector answer needs a direction as well as a size and a unit: \"5.0 m at 53° north of east\", not just \"5.0 m\".",
-  "launch:numbers": "Convert to SI units (m, kg, s) before substituting. Most lost marks in calculations come from g instead of kg or cm instead of m.",
+  "map:vectors": "Every vector answer needs a direction as well as a size and a unit: \"5.0 m at 53° north of east\", not just \"5.0 m\".",
+  "map:numbers": "Convert to SI units (m, kg, s) before substituting. Most lost marks in calculations come from g instead of kg or cm instead of m.",
   "launch:relvel": "Draw the vector triangle first. The crossing time uses only the velocity component straight across; the drift uses only the sideways component.",
   "thrust:lift": "Draw the free-body diagram, choose up as positive, then write F_net = ma: F_N − mg = ma. Never write the weight as changing.",
   "thrust:bridges": "Take torques about one support to find the other support force, then use 'forces up = forces down' to find the first.",
@@ -2121,6 +2121,7 @@ const modBtns = [...document.querySelectorAll(".rail .mod")];
 const sims = {}; // key "mod:view" -> { draw(dt), reset?() }
 
 function go(mod, view, scroll) {
+  if (mod === "launch" && (view === "vectors" || view === "numbers")) mod = "map";
   if (!MODS[mod]) mod = "map";
   if (!view || !MODS[mod].views.some((v) => v[0] === view)) view = MODS[mod].views[0][0];
   curMod = mod; curView = view;
@@ -2869,7 +2870,7 @@ function powerCalc() {
 
 /* ====================================================== 1.1 · VECTOR ADDITION LAB ===== */
 (() => {
-  const cv = $("vaCanvas"), sim = { dirty: true, anim: false }; sims["launch:vectors"] = sim;
+  const cv = $("vaCanvas"), sim = { dirty: true, anim: false }; sims["map:vectors"] = sim;
   const S = { op: "add", para: false, drag: null, hover: null };
   const sl = { ax: $("vaAx"), ay: $("vaAy"), bx: $("vaBx"), by: $("vaBy") };
   const XR = 5, YR = 4;
@@ -3060,7 +3061,7 @@ function powerCalc() {
       return { q: `${sf(a, p)} ${plus ? "+" : "−"} ${sf(b, q)}`, x, unit: "", work: [`Make the powers the same: ${sf(b, q)} = ${fmt(bs, 3)} × 10${sup(p)}`, `${plus ? "Add" : "Subtract"} the numbers: ${a.toFixed(1)} ${plus ? "+" : "−"} ${fmt(bs, 3)} = ${fmt(plus ? a + bs : a - bs, 4)}`, `Answer: ${show(x)} (keep the power: don't add or subtract powers)`] }; }
     const C2 = [["nm", -9, "m", "wavelength of light"], ["µm", -6, "m", "width of a hair"], ["mm", -3, "m", "extension of a spring"], ["km", 3, "m", "distance"], ["MJ", 6, "J", "energy"], ["ms", -3, "s", "contact time"], ["GW", 9, "W", "power station output"], ["g", -3, "kg", "mass"]];
     const [u, k, base, what] = C2[ri(0, C2.length - 1)], val = ri(12, 950), x = val * 10 ** k;
-    return { q: `Convert ${val} ${u} (a ${what}) into ${base}.`, x, unit: base, work: [`1 ${u} = 10${sup(k)} ${base}`, `${val} × 10${sup(k)} ${base}`, `In standard form: ${show(x)} ${base}`] };
+    return { q: `Convert ${val} ${u} (${/^[aeiou]/.test(what) ? "an" : "a"} ${what}) into ${base}.`, x, unit: base, work: [`1 ${u} = 10${sup(k)} ${base}`, `${val} × 10${sup(k)} ${base}`, `In standard form: ${show(x)} ${base}`] };
   }
   const pxBtns = [...document.querySelectorAll("[data-px]")];
   pxBtns.forEach((b) => b.addEventListener("click", () => { type = b.dataset.px; setPressed(pxBtns, b); next(); }));
