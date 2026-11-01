@@ -295,6 +295,38 @@ table.data input{width:18px;height:18px;accent-color:var(--accent)}
 .stopwatch{display:flex;align-items:baseline;gap:12px;font-family:var(--mono)}
 .stopwatch span{font-size:34px;color:var(--ink)}
 .stopwatch small{color:var(--muted);font-size:14px}
+/* rearranging formulae */
+.mx{font-family:"Cambria Math","STIX Two Math","Latin Modern Math","Times New Roman",serif;font-size:1.12em;line-height:1.9}
+.mx var{font-style:italic}
+.mx sub{font-size:.7em;font-style:normal}
+.mx .eqs{margin:0 .25em}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em;line-height:1.25}
+.frac>span:first-child{border-bottom:1.5px solid currentColor;padding:0 .25em .05em}
+.frac>span:last-child{padding:.05em .25em 0}
+.sqrt{white-space:nowrap;display:inline-flex;align-items:stretch;vertical-align:middle;margin:0 .1em}.sqrt .rad{width:.62em;flex:none;display:block;height:auto;overflow:visible}.sqrt .rbody{display:inline-block;border-top:1.5px solid currentColor;padding:.15em .2em .05em;line-height:1.5}
+.rr-wrap{display:grid;grid-template-columns:240px minmax(0,1fr);gap:16px;align-items:start}
+.rr-side{display:flex;flex-direction:column;gap:8px;position:sticky;top:12px}
+.rr-list{display:flex;flex-direction:column;gap:4px;max-height:60vh;overflow:auto;padding-right:4px}
+.rr-item{display:flex;gap:8px;align-items:center;text-align:left;border:1px solid var(--line);border-radius:8px;background:var(--panel-solid);color:var(--ink);padding:7px 10px;cursor:pointer;font-size:14px}
+.rr-item:hover{border-color:var(--accent)}
+.rr-item.on{border-color:var(--accent);background:var(--accent-soft);font-weight:600}
+.rr-tick{width:1.1em;color:var(--ok);font-weight:700;flex:none}
+.rr-main{display:flex;flex-direction:column;gap:14px;min-width:0}
+.rr-head{display:flex;justify-content:space-between;gap:8px}
+.rr-formula{font-size:clamp(22px,3.2vw,30px);text-align:center;padding:14px 8px;background:var(--tile);border-radius:10px;overflow-x:auto}
+.rr-answer{display:flex;align-items:center;gap:10px;font-size:20px}
+.rr-answer .field{flex:1;font-size:17px;min-height:46px}
+.rr-lhs{white-space:nowrap}
+.rr-preview{min-height:48px;padding:6px 12px;border:1px dashed var(--line-dash);border-radius:8px;font-size:20px;overflow-x:auto}
+.rr-err{color:var(--bad);font-family:var(--sans);font-size:14px}
+.rr-keys{display:grid;grid-template-columns:repeat(auto-fill,minmax(54px,1fr));gap:6px}
+.rr-key{min-height:42px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink);cursor:pointer;font-size:16px}
+.rr-key:hover{border-color:var(--accent)}
+.rr-key.var{background:var(--accent-soft);border-color:var(--accent)}
+.rr-key.fn{color:var(--muted);font-size:13px}
+.rr-other{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.explain .mx{font-size:1.05em}
+@media (max-width:820px){.rr-wrap{grid-template-columns:minmax(0,1fr)}.rr-side{position:static}.rr-list{flex-direction:row;flex-wrap:wrap;max-height:none}.rr-item{font-size:12px;padding:6px 8px}}
 /* graph match */
 .gm-given{border:1px solid var(--line);border-radius:10px;background:var(--canvas);overflow:hidden;max-width:620px}
 .gm-given canvas,.gm-opts canvas{display:block;width:100%;height:auto}
@@ -497,6 +529,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 <section class="pane hidden" data-mod="map" data-view="formulas" data-ref="0.3" data-title="Formula sheet">
   <div class="pane-head"><h2>Phase 0.3 · Formula sheet: every AS91171 equation</h2><span class="badge teal">REFERENCE</span></div>
   <p class="lede">These relationships are provided in the exam resource booklet. Marks come from choosing the right one and knowing what each symbol means.</p>
+  <p><button type="button" class="btn sm" data-go="map:rearrange">Practise rearranging every formula →</button></p>
   <div class="tbl-wrap"><table>
     <thead><tr><th>Topic</th><th>Equation</th><th>Symbols and notes</th></tr></thead>
     <tbody>
@@ -537,6 +570,50 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <div class="pane-head"><h2>Phase 0.4 · Mixed challenge: the whole standard</h2><span class="badge red">QUICK CHECK</span></div>
   <p class="lede">Ten questions drawn at random from all five modules. Every answer comes with an explanation. Press <b>New set</b> for a different mix. Your best score is saved on this device.</p>
   <div class="quiz" data-quiz="mixed" data-count="10"></div>
+</section>
+
+<!-- ======================================================= 00 REARRANGING FORMULAE -->
+<section class="pane hidden" data-mod="map" data-view="rearrange" data-title="Rearranging formulae: task sheet with instant checking">
+  <div class="pane-head"><h2>Phase 0.4 · Rearranging formulae</h2><span class="badge teal">TASK SHEET</span></div>
+  <p class="lede">Every Level 2 Physics formula, from the class formula sheet. Rearrange each one to make the given variable the subject, type your answer, and check it. Any correct form is accepted. Your progress is saved on this device.</p>
+  <div class="rr-wrap">
+    <aside class="rr-side" aria-label="Formula list">
+      <div class="seg" role="group" aria-label="Standard">
+        <button type="button" data-rr-std="91171" aria-pressed="true">Mechanics</button>
+        <button type="button" data-rr-std="91170" aria-pressed="false">Waves</button>
+        <button type="button" data-rr-std="91173" aria-pressed="false">Electricity</button>
+        <button type="button" data-rr-std="all" aria-pressed="false">All</button>
+      </div>
+      <div class="bar" style="height:8px" aria-hidden="true"><span id="rrBar" style="height:8px;width:0"></span></div>
+      <p class="small" id="rrProg">0 of 36 done</p>
+      <div class="rr-list" id="rrList"></div>
+      <button type="button" class="btn sm" id="rrResetAll">Reset my progress</button>
+    </aside>
+    <div class="rr-main">
+      <div class="card">
+        <div class="rr-head"><span class="label" id="rrStdLab"></span><span class="small" id="rrCount"></span></div>
+        <h3 id="rrName" style="margin:0"></h3>
+        <div class="rr-formula mx" id="rrFormula"></div>
+        <p id="rrTask"></p>
+        <div class="rr-answer">
+          <span class="mx rr-lhs" id="rrLhs"></span><span class="mx">=</span>
+          <input id="rrIn" class="field mono" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your rearranged expression" placeholder="your answer">
+        </div>
+        <div class="rr-preview"><span class="small">Preview:</span> <span class="mx" id="rrPrev">–</span></div>
+        <div class="rr-keys" id="rrKeys" aria-label="Keypad"></div>
+        <div class="btns"><button type="button" class="btn go" id="rrCheck">CHECK</button><button type="button" class="btn" id="rrHint">Hint</button><button type="button" class="btn" id="rrSteps">Show the steps</button><button type="button" class="btn" id="rrNext">Next formula →</button></div>
+        <div class="verdict hidden" id="rrVerdict" aria-live="polite"></div>
+        <div class="explain hidden" id="rrWork"></div>
+        <label class="rr-other small"><span>Extra challenge: rearrange for</span> <select id="rrTarget" class="field" style="width:auto;min-height:34px"></select></label>
+      </div>
+      <div class="card tint"><span class="label">How to type your answer</span>
+        <p class="small">Use the keypad, or type: <span class="eq">/</span> for divide, <span class="eq">*</span> or nothing for multiply (<span class="eq">2ad</span> means 2 × a × d), <span class="eq">^2</span> for squared, <span class="eq">sqrt( )</span> for a square root and <span class="eq">asin( )</span> for sin⁻¹. Use brackets around a whole top or bottom line: <span class="eq">(v_f - v_i)/a</span>. Subscripts can be typed with or without the underscore: <span class="eq">vf</span> and <span class="eq">v_f</span> both work, and <span class="eq">Δ</span> can be typed as <span class="eq">D</span>.</p>
+      </div>
+      <div class="card tint"><span class="label">The golden rule</span>
+        <p>Whatever you do to one side, do to the other. Undo things in reverse order: undo + and − first, then × and ÷, then squares and square roots. To undo <span class="eq">+</span>, subtract; to undo <span class="eq">×</span>, divide; to undo <span class="eq">x²</span>, square root; to undo <span class="eq">1/x</span>, take the reciprocal of both sides.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ======================================================= 01 TOOLKIT: VECTORS -->
@@ -1955,7 +2032,7 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
-  map: { title: "COURSE MAP", name: "Course map & exam skills", views: [["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["challenge", "Mixed challenge"]] },
+  map: { title: "COURSE MAP", name: "Course map & exam skills", views: [["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["rearrange", "Rearranging formulae"], ["challenge", "Mixed challenge"]] },
   launch: { title: "MOTION & PROJECTILES", name: "Motion & projectiles", views: [["intro", "Foundations"], ["vectors", "Vectors"], ["numbers", "Numbers & units"], ["graphs", "Graphs"], ["relvel", "Relative velocity"], ["projectiles", "Projectiles"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
   thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "Foundations"], ["vectors", "Vectors"], ["lift", "Lift"], ["torque", "Torque"], ["bridges", "Bridges & seesaws"], ["springs", "Springs"], ["practicals", "Practicals"], ["check", "Quick check"], ["problems", "Problems"]] },
   orbit: { title: "CIRCULAR MOTION", name: "Circular motion", views: [["intro", "Foundations"], ["lab", "Centripetal force"], ["practical", "Practical"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
@@ -3592,6 +3669,305 @@ function scatter(cv, pts, opt) {
     $("wbHud").textContent = W.run ? "TIMING…" : "BUNG SPINNING";
   };
   window.addEventListener("resize", draw);
+})();
+
+/* ====================================================== 0.4 · REARRANGING FORMULAE ===== */
+const RR = (() => {
+  /* ---------- formula data (from the Level 2 formula sheet) ----------
+     f: "lhs = rhs" as written on the sheet; t: variable to rearrange for; a: a correct answer for t;
+     g(): a consistent set of values for every variable; s: worked steps ({...} = maths). */
+  const U = (a, b) => a + Math.random() * (b - a);
+  const D = Math.PI / 180;
+  const F = [
+    // ---------- 91170 Waves ----------
+    { id: "lens", std: "91170", name: "Lens / mirror formula", f: "1/f = 1/d_i + 1/d_o", t: "d_o", a: "1/(1/f - 1/d_i)",
+      g: () => { const d_i = U(0.2, 2), d_o = U(0.2, 2); return { d_i, d_o, f: 1 / (1 / d_i + 1 / d_o) }; },
+      tr: [["f - d_i", "You can't flip each term separately. Subtract first, then take the reciprocal of the whole side."]], s: ["Subtract {1/d_i} from both sides: {1/d_o = 1/f - 1/d_i}", "Take the reciprocal (flip) of both sides: {d_o = 1/(1/f - 1/d_i)}", "This can also be written {d_o = f d_i/(d_i - f)}. Flip the whole side, never each term separately."] },
+    { id: "mag", std: "91170", name: "Magnification", f: "h_i/h_o = -d_i/d_o", t: "d_o", a: "-d_i h_o/h_i",
+      g: () => { const h_o = U(0.02, 0.3), d_i = U(0.2, 2), d_o = U(0.2, 2); return { h_o, d_i, d_o, h_i: (-h_o * d_i) / d_o }; },
+      s: ["Multiply both sides by {d_o}: {h_i d_o/h_o = -d_i}", "Multiply both sides by {h_o}: {h_i d_o = -d_i h_o}", "Divide both sides by {h_i}: {d_o = -d_i h_o/h_i}"] },
+    { id: "wave", std: "91170", name: "Wave speed", f: "v = f λ", t: "f", a: "v/λ",
+      g: () => { const f = U(1, 500), λ = U(0.05, 5); return { f, λ, v: f * λ }; },
+      s: ["{f} is multiplied by {λ}, so divide both sides by {λ}: {v/λ = f}", "Swap sides: {f = v/λ}"] },
+    { id: "freq", std: "91170", name: "Frequency", f: "f = 1/T", t: "T", a: "1/f",
+      g: () => { const T = U(0.001, 2); return { T, f: 1 / T }; },
+      s: ["Multiply both sides by {T}: {f T = 1}", "Divide both sides by {f}: {T = 1/f}"] },
+    { id: "vel1", std: "91170", name: "Velocity", f: "v = d/t", t: "d", a: "v t",
+      g: () => { const d = U(1, 500), t = U(0.5, 60); return { d, t, v: d / t }; },
+      s: ["{d} is divided by {t}, so multiply both sides by {t}: {v t = d}", "Swap sides: {d = v t}"] },
+    { id: "snell", std: "91170", name: "Snell's law", f: "n_1 sin(θ_1) = n_2 sin(θ_2)", t: "θ_2", a: "asin(n_1 sin(θ_1)/n_2)",
+      g: () => { for (;;) { const n_1 = U(1, 1.6), n_2 = U(1, 2.4), θ_1 = U(5, 70), x = (n_1 * Math.sin(θ_1 * D)) / n_2; if (x < 0.98) return { n_1, n_2, θ_1, θ_2: Math.asin(x) / D }; } },
+      tr: [["n_1 sin(θ_1)/n_2", "That's sin θ₂, not the angle. Take sin⁻¹ (asin) of the whole expression."]], s: ["Divide both sides by {n_2}: {sin(θ_2) = n_1 sin(θ_1)/n_2}", "Take the inverse sine (sin⁻¹) of both sides: {θ_2 = asin(n_1 sin(θ_1)/n_2)}", "sin⁻¹ undoes sin. Don't divide by 'sin': it isn't a number on its own."] },
+    // ---------- 91173 Electricity & electromagnetism ----------
+    { id: "efield", std: "91173", name: "Electric field", f: "E = V/d", t: "V", a: "E d",
+      g: () => { const V = U(1, 5000), d = U(0.001, 0.2); return { V, d, E: V / d }; },
+      s: ["Multiply both sides by {d}: {E d = V}", "Swap sides: {V = E d}"] },
+    { id: "eforce", std: "91173", name: "Force on a charge", f: "F = E q", t: "E", a: "F/q",
+      g: () => { const E = U(10, 1e4), q = U(1e-6, 1e-3); return { E, q, F: E * q }; },
+      s: ["Divide both sides by {q}: {F/q = E}", "Swap sides: {E = F/q}"] },
+    { id: "epe", std: "91173", name: "Electric potential energy", f: "ΔE = E q d", t: "q", a: "ΔE/(E d)",
+      g: () => { const E = U(10, 1e4), q = U(1e-6, 1e-3), d = U(0.01, 0.5); return { E, q, d, ΔE: E * q * d }; },
+      s: ["{q} is multiplied by {E} and {d}, so divide both sides by {E d}: {ΔE/(E d) = q}", "Swap sides: {q = ΔE/(E d)}", "Put {E d} in brackets: dividing by {E d} means dividing by both."] },
+    { id: "current", std: "91173", name: "Current", f: "I = q/t", t: "q", a: "I t",
+      g: () => { const q = U(0.1, 50), t = U(0.5, 60); return { q, t, I: q / t }; },
+      s: ["Multiply both sides by {t}: {I t = q}", "Swap sides: {q = I t}"] },
+    { id: "voltage", std: "91173", name: "Voltage", f: "V = ΔE/q", t: "q", a: "ΔE/V",
+      g: () => { const ΔE = U(1, 500), q = U(0.1, 20); return { ΔE, q, V: ΔE / q }; },
+      s: ["Multiply both sides by {q}: {V q = ΔE}", "Divide both sides by {V}: {q = ΔE/V}"] },
+    { id: "ohm", std: "91173", name: "Ohm's law", f: "V = I R", t: "R", a: "V/I",
+      g: () => { const I = U(0.01, 5), R = U(1, 1000); return { I, R, V: I * R }; },
+      s: ["Divide both sides by {I}: {V/I = R}", "Swap sides: {R = V/I}"] },
+    { id: "pow1", std: "91173", name: "Power", f: "P = I V", t: "I", a: "P/V",
+      g: () => { const I = U(0.01, 10), V = U(1, 240); return { I, V, P: I * V }; },
+      s: ["Divide both sides by {V}: {P/V = I}", "Swap sides: {I = P/V}"] },
+    { id: "pow2", std: "91173", name: "Power (alternative)", f: "P = ΔE/t", t: "ΔE", a: "P t",
+      g: () => { const ΔE = U(10, 1e5), t = U(1, 600); return { ΔE, t, P: ΔE / t }; },
+      s: ["Multiply both sides by {t}: {P t = ΔE}", "Swap sides: {ΔE = P t}"] },
+    { id: "bil", std: "91173", name: "Magnetic force on a wire", f: "F = B I L", t: "I", a: "F/(B L)",
+      g: () => { const B = U(0.01, 2), I = U(0.1, 10), L = U(0.05, 1); return { B, I, L, F: B * I * L }; },
+      s: ["Divide both sides by {B L}: {F/(B L) = I}", "Swap sides: {I = F/(B L)}"] },
+    { id: "bqv", std: "91173", name: "Magnetic force on a moving charge", f: "F = B q v", t: "B", a: "F/(q v)",
+      g: () => { const B = U(0.01, 2), q = U(1e-6, 1e-3), v = U(10, 1e4); return { B, q, v, F: B * q * v }; },
+      s: ["Divide both sides by {q v}: {F/(q v) = B}", "Swap sides: {B = F/(q v)}"] },
+    { id: "bvl", std: "91173", name: "Induced voltage", f: "V = B v L", t: "v", a: "V/(B L)",
+      g: () => { const B = U(0.01, 2), v = U(0.1, 20), L = U(0.05, 1); return { B, v, L, V: B * v * L }; },
+      s: ["Divide both sides by {B L}: {V/(B L) = v}", "Swap sides: {v = V/(B L)}"] },
+    { id: "rser", std: "91173", name: "Series resistance (two resistors)", f: "R_T = R_1 + R_2", t: "R_1", a: "R_T - R_2",
+      g: () => { const R_1 = U(1, 500), R_2 = U(1, 500); return { R_1, R_2, R_T: R_1 + R_2 }; },
+      s: ["Subtract {R_2} from both sides: {R_T - R_2 = R_1}", "Swap sides: {R_1 = R_T - R_2}"] },
+    { id: "rpar", std: "91173", name: "Parallel resistance (two resistors)", f: "1/R_T = 1/R_1 + 1/R_2", t: "R_1", a: "1/(1/R_T - 1/R_2)",
+      g: () => { const R_1 = U(1, 500), R_2 = U(1, 500); return { R_1, R_2, R_T: 1 / (1 / R_1 + 1 / R_2) }; },
+      tr: [["R_T - R_2", "You can't flip each term separately. Subtract first, then take the reciprocal of the whole side."]], s: ["Subtract {1/R_2} from both sides: {1/R_1 = 1/R_T - 1/R_2}", "Take the reciprocal of both sides: {R_1 = 1/(1/R_T - 1/R_2)}", "Common mistake: {R_1 = R_T - R_2} is wrong. Flip the whole side, not each term."] },
+    // ---------- 91171 Mechanics ----------
+    { id: "vel", std: "91171", name: "Velocity", f: "v = Δd/Δt", t: "Δd", a: "v Δt",
+      g: () => { const Δd = U(1, 500), Δt = U(0.5, 60); return { Δd, Δt, v: Δd / Δt }; },
+      s: ["Multiply both sides by {Δt}: {v Δt = Δd}", "Swap sides: {Δd = v Δt}"] },
+    { id: "acc", std: "91171", name: "Acceleration", f: "a = Δv/Δt", t: "Δt", a: "Δv/a",
+      g: () => { const Δv = U(1, 40), Δt = U(0.5, 20); return { Δv, Δt, a: Δv / Δt }; },
+      s: ["Multiply both sides by {Δt}: {a Δt = Δv}", "Divide both sides by {a}: {Δt = Δv/a}"] },
+    { id: "vfin", std: "91171", name: "Final velocity", f: "v_f = v_i + a t", t: "t", a: "(v_f - v_i)/a",
+      g: () => { const v_i = U(0, 20), a = U(0.5, 10), t = U(0.5, 10); return { v_i, a, t, v_f: v_i + a * t }; },
+      tr: [["v_f - v_i/a", "Brackets: the whole of (v_f − v_i) is divided by a. Type it as (v_f - v_i)/a."]], s: ["Subtract {v_i} from both sides: {v_f - v_i = a t}", "Divide both sides by {a}: {(v_f - v_i)/a = t}", "Swap sides: {t = (v_f - v_i)/a}. The brackets matter: the whole of {v_f - v_i} is divided by {a}."] },
+    { id: "dist", std: "91171", name: "Distance", f: "d = v t + (1/2) a t^2", t: "a", a: "2(d - v t)/t^2",
+      g: () => { const v = U(0, 20), a = U(0.5, 10), t = U(0.5, 10); return { v, a, t, d: v * t + 0.5 * a * t * t }; },
+      tr: [["2d/t^2 - v t", "Check the v t term: when you divide d − v t by t², every term is divided."]], s: ["Subtract {v t} from both sides: {d - v t = (1/2) a t^2}", "Multiply both sides by 2: {2(d - v t) = a t^2}", "Divide both sides by {t^2}: {a = 2(d - v t)/t^2}"] },
+    { id: "davg", std: "91171", name: "Distance (average velocity)", f: "d = (v_i + v_f) t/2", t: "v_f", a: "2d/t - v_i",
+      g: () => { const v_i = U(0, 20), v_f = U(0, 30), t = U(0.5, 10); return { v_i, v_f, t, d: ((v_i + v_f) * t) / 2 }; },
+      tr: [["2d/t + v_i", "To move v_i to the other side, subtract it."]], s: ["Multiply both sides by 2: {2d = (v_i + v_f) t}", "Divide both sides by {t}: {2d/t = v_i + v_f}", "Subtract {v_i} from both sides: {v_f = 2d/t - v_i}"] },
+    { id: "vsq", std: "91171", name: "Velocity squared", f: "v_f^2 = v_i^2 + 2a d", t: "v_i", a: "sqrt(v_f^2 - 2a d)",
+      g: () => { const v_i = U(1, 20), a = U(0.5, 10), d = U(1, 50); return { v_i, a, d, v_f: Math.sqrt(v_i * v_i + 2 * a * d) }; },
+      tr: [["v_f - sqrt(2a d)", "You can't square root each term separately. Square root the whole side: sqrt(v_f^2 - 2a d)."]], s: ["Subtract {2a d} from both sides: {v_f^2 - 2a d = v_i^2}", "Square root both sides: {v_i = sqrt(v_f^2 - 2a d)}", "Take the square root of the whole side. {sqrt(v_f^2) - sqrt(2a d)} is not the same thing."] },
+    { id: "acirc", std: "91171", name: "Centripetal acceleration", f: "a_c = v^2/r", t: "v", a: "sqrt(a_c r)",
+      g: () => { const v = U(1, 30), r = U(0.2, 50); return { v, r, a_c: (v * v) / r }; },
+      s: ["Multiply both sides by {r}: {a_c r = v^2}", "Square root both sides: {v = sqrt(a_c r)}"] },
+    { id: "fma", std: "91171", name: "Force", f: "F = m a", t: "a", a: "F/m",
+      g: () => { const m = U(0.1, 2000), a = U(0.1, 20); return { m, a, F: m * a }; },
+      s: ["Divide both sides by {m}: {F/m = a}", "Swap sides: {a = F/m}"] },
+    { id: "fcirc", std: "91171", name: "Force (circular motion)", f: "F = m v^2/r", t: "v", a: "sqrt(F r/m)",
+      g: () => { const m = U(0.1, 2000), v = U(1, 30), r = U(0.2, 50); return { m, v, r, F: (m * v * v) / r }; },
+      s: ["Multiply both sides by {r}: {F r = m v^2}", "Divide both sides by {m}: {F r/m = v^2}", "Square root both sides: {v = sqrt(F r/m)}"] },
+    { id: "spring", std: "91171", name: "Force (spring)", f: "F = -k x", t: "k", a: "-F/x",
+      g: () => { const k = U(5, 500), x = (Math.random() < 0.5 ? -1 : 1) * U(0.02, 0.3); return { k, x, F: -k * x }; },
+      s: ["Divide both sides by {x}: {F/x = -k}", "Multiply both sides by −1: {k = -F/x}", "Keep the minus sign. It shows the spring force acts opposite to the extension."] },
+    { id: "mom", std: "91171", name: "Momentum", f: "p = m v", t: "m", a: "p/v",
+      g: () => { const m = U(0.1, 2000), v = U(0.5, 40); return { m, v, p: m * v }; },
+      s: ["Divide both sides by {v}: {p/v = m}", "Swap sides: {m = p/v}"] },
+    { id: "imp", std: "91171", name: "Impulse", f: "Δp = F Δt", t: "F", a: "Δp/Δt",
+      g: () => { const F = U(1, 5000), Δt = U(0.001, 2); return { F, Δt, Δp: F * Δt }; },
+      s: ["Divide both sides by {Δt}: {Δp/Δt = F}", "Swap sides: {F = Δp/Δt}"] },
+    { id: "espring", std: "91171", name: "Spring energy", f: "E = (1/2) k x^2", t: "x", a: "sqrt(2E/k)",
+      g: () => { const k = U(5, 500), x = U(0.01, 0.4); return { k, x, E: 0.5 * k * x * x }; },
+      s: ["Multiply both sides by 2: {2E = k x^2}", "Divide both sides by {k}: {2E/k = x^2}", "Square root both sides: {x = sqrt(2E/k)}"] },
+    { id: "ek", std: "91171", name: "Kinetic energy", f: "E = (1/2) m v^2", t: "v", a: "sqrt(2E/m)",
+      g: () => { const m = U(0.1, 2000), v = U(0.5, 40); return { m, v, E: 0.5 * m * v * v }; },
+      s: ["Multiply both sides by 2: {2E = m v^2}", "Divide both sides by {m}: {2E/m = v^2}", "Square root both sides: {v = sqrt(2E/m)}"] },
+    { id: "ep", std: "91171", name: "Gravitational potential energy", f: "ΔE_p = m g Δh", t: "Δh", a: "ΔE_p/(m g)",
+      g: () => { const m = U(0.1, 2000), Δh = U(0.1, 100); return { m, Δh, g: 9.8, ΔE_p: m * 9.8 * Δh }; },
+      s: ["Divide both sides by {m g}: {ΔE_p/(m g) = Δh}", "Swap sides: {Δh = ΔE_p/(m g)}"] },
+    { id: "work", std: "91171", name: "Work done", f: "W = F d", t: "d", a: "W/F",
+      g: () => { const F = U(1, 5000), d = U(0.1, 100); return { F, d, W: F * d }; },
+      s: ["Divide both sides by {F}: {W/F = d}", "Swap sides: {d = W/F}"] },
+    { id: "power", std: "91171", name: "Power", f: "P = W/t", t: "W", a: "P t",
+      g: () => { const W = U(10, 1e5), t = U(1, 600); return { W, t, P: W / t }; },
+      s: ["Multiply both sides by {t}: {P t = W}", "Swap sides: {W = P t}"] },
+  ];
+  const STD = { 91171: "91171 · Mechanics", 91170: "91170 · Waves", 91173: "91173 · Electricity & electromagnetism" };
+
+  /* ---------- tokenising and parsing ---------- */
+  const varsOf = (fm) => Object.keys(fm.g());
+  function aliases(v) {
+    const a = new Set([v, v.replace("_", "")]);
+    if (v.startsWith("Δ")) [v, v.replace("_", "")].forEach((x) => { a.add("D" + x.slice(1)); });
+    return [...a];
+  }
+  function normalise(s) {
+    return s.replace(/sin⁻¹|arcsin|sin\^-1/g, "asin").replace(/×|·/g, "*").replace(/÷/g, "/").replace(/[−–]/g, "-").replace(/²/g, "^2")
+      .replace(/√/g, "sqrt").replace(/theta/g, "θ").replace(/lambda/g, "λ").replace(/delta/gi, "Δ").replace(/\s+/g, "");
+  }
+  function tokenize(src, vars) {
+    const s = normalise(src), toks = [];
+    const al = vars.flatMap((v) => aliases(v).map((a) => [a, v])).sort((x, y) => y[0].length - x[0].length);
+    let i = 0;
+    while (i < s.length) {
+      const c = s[i];
+      if (/[0-9.]/.test(c)) { let j = i; while (j < s.length && /[0-9.]/.test(s[j])) j++; toks.push({ t: "num", v: parseFloat(s.slice(i, j)) }); i = j; continue; }
+      const fn = ["sqrt", "asin", "sin", "cos", "tan"].find((f) => s.startsWith(f, i));
+      if (fn) { toks.push({ t: "fn", v: fn }); i += fn.length; continue; }
+      if (s.startsWith("π", i) || s.startsWith("pi", i)) { toks.push({ t: "num", v: Math.PI, pi: true }); i += s.startsWith("π", i) ? 1 : 2; continue; }
+      const m = al.find(([a]) => s.startsWith(a, i));
+      if (m) { toks.push({ t: "var", v: m[1] }); i += m[0].length; continue; }
+      if ("+-*/^()".includes(c)) { toks.push({ t: c }); i++; continue; }
+      throw new Error(`I don't recognise "${c === "_" ? s.slice(i, i + 3) : c}". Use the keypad for symbols.`);
+    }
+    return toks;
+  }
+  function parse(src, vars) {
+    const T = tokenize(src, vars); let p = 0;
+    const peek = () => T[p], eat = (t) => { if (T[p] && T[p].t === t) return T[p++]; throw new Error(t === ")" ? "A bracket isn't closed." : "Something is missing near the end."); };
+    const startsPrimary = (k) => k && (k.t === "num" || k.t === "var" || k.t === "fn" || k.t === "(");
+    function expr() { let n = term(); while (peek() && (peek().t === "+" || peek().t === "-")) { const o = T[p++].t; n = { k: o, a: n, b: term() }; } return n; }
+    function term() { let n = unary(); for (;;) { const k = peek(); if (k && (k.t === "*" || k.t === "/")) { p++; n = { k: k.t, a: n, b: unary() }; } else if (startsPrimary(k)) n = { k: "*", a: n, b: power(), imp: true }; else return n; } }
+    function unary() { const k = peek(); if (k && k.t === "-") { p++; return { k: "neg", a: unary() }; } if (k && k.t === "+") { p++; return unary(); } return power(); }
+    function power() { const b = primary(); if (peek() && peek().t === "^") { p++; return { k: "^", a: b, b: unary() }; } return b; }
+    function primary() {
+      const k = T[p++];
+      if (!k) throw new Error("Your expression stops too early.");
+      if (k.t === "num") return { k: "num", v: k.v, pi: k.pi };
+      if (k.t === "var") return { k: "var", v: k.v };
+      if (k.t === "fn") { if (peek() && peek().t === "(") { p++; const a = expr(); eat(")"); return { k: "fn", f: k.v, a }; } return { k: "fn", f: k.v, a: power() }; }
+      if (k.t === "(") { const a = expr(); eat(")"); return { k: "par", a }; }
+      throw new Error(`"${k.t}" is in the wrong place.`);
+    }
+    if (!T.length) throw new Error("Type an expression first.");
+    const n = expr(); if (p < T.length) throw new Error(T[p].t === ")" ? "There's an extra closing bracket." : "Check the end of your expression.");
+    return n;
+  }
+  function ev(n, e) {
+    switch (n.k) {
+      case "num": return n.v; case "var": return e[n.v]; case "par": return ev(n.a, e); case "neg": return -ev(n.a, e);
+      case "+": return ev(n.a, e) + ev(n.b, e); case "-": return ev(n.a, e) - ev(n.b, e); case "*": return ev(n.a, e) * ev(n.b, e); case "/": return ev(n.a, e) / ev(n.b, e);
+      case "^": return Math.pow(ev(n.a, e), ev(n.b, e));
+      case "fn": { const x = ev(n.a, e); return n.f === "sqrt" ? Math.sqrt(x) : n.f === "asin" ? Math.asin(x) / D : n.f === "sin" ? Math.sin(x * D) : n.f === "cos" ? Math.cos(x * D) : Math.tan(x * D); }
+    }
+  }
+  const uses = (n, v) => !!n && (n.k === "var" ? n.v === v : [n.a, n.b].some((c) => c && uses(c, v)));
+
+  /* ---------- rendering as typeset maths ---------- */
+  const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+  function vHTML(v) { const [b, s] = v.split("_"); return `<var>${esc(b)}</var>${s ? `<sub>${esc(s)}</sub>` : ""}`; }
+  const strip = (n) => (n.k === "par" ? strip(n.a) : n);
+  function html(n, ctx = "") {
+    switch (n.k) {
+      case "num": return n.pi ? "π" : esc(+n.v.toPrecision(6));
+      case "var": return vHTML(n.v);
+      case "par": { const i = strip(n.a); if (ctx === "frac" || ctx === "root" || ctx === "fn" || i.k === "/" || i.k === "var" || i.k === "num" || i.k === "fn") return html(i, ctx === "mul" ? "" : ctx); return `(${html(i)})`; }
+      case "neg": return `−${html(n.a, "neg")}`;
+      case "+": case "-": { const s = `${html(n.a)} ${n.k === "+" ? "+" : "−"} ${html(n.b, "rhs")}`; return ctx === "mul" || ctx === "pow" || ctx === "neg" ? `(${s})` : s; }
+      case "*": { const a = html(n.a, "mul"), b = html(n.b, "mul"), num = (x) => x.k === "num" || (x.k === "par" && strip(x).k === "num"); const sep = num(n.b) ? " × " : strip(n.b).k === "fn" && strip(n.b).f !== "sqrt" ? " " : n.imp ? "" : " "; return `${a}${sep}${b}`; }
+      case "/": { const a = strip(n.a), b = strip(n.b); return `<span class="frac"><span>${html(a, "frac")}</span><span>${html(b, "frac")}</span></span>`; }
+      case "^": { const a = n.a; const base = a.k === "var" || a.k === "num" ? html(a) : `(${html(strip(a))})`; return `${base}<sup>${html(strip(n.b), "sup")}</sup>`; }
+      case "fn": { const a = strip(n.a); if (n.f === "sqrt") return `<span class="sqrt"><svg class="rad" viewBox="0 0 10 20" preserveAspectRatio="none" aria-hidden="true"><path d="M0.5 12 L2.6 10.6 L5.2 19.4 L9.6 0.6 L10 0.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg><span class="sr">square root of </span><span class="rbody">${html(a, "root")}</span></span>`; const nm = n.f === "asin" ? "sin<sup>−1</sup>" : n.f; return a.k === "var" ? `${nm} ${html(a)}` : `${nm}(${html(a, "fn")})`; }
+    }
+    return "";
+  }
+  function eqHTML(src, vars) { return src.split("=").map((side) => html(parse(side.trim(), vars))).join(" <span class='eqs'>=</span> "); }
+  function richText(s, vars) { return esc(s).replace(/\{([^}]+)\}/g, (_, m) => { try { const raw = m.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">"); return `<span class="mx">${raw.includes("=") ? eqHTML(raw, vars) : html(parse(raw, vars))}</span>`; } catch (e) { return m; } }); }
+
+  /* ---------- checking ---------- */
+  function check(fm, target, src) {
+    const vars = varsOf(fm);
+    let n; try { n = parse(src.includes("=") ? src.split("=").pop() : src, vars); } catch (e) { return { ok: false, msg: e.message }; }
+    if (src.includes("=")) { const l = src.split("=")[0].trim(); try { const ln = parse(l, vars); if (!(ln.k === "var" && ln.v === target)) return { ok: false, msg: "Only type the right-hand side. The left side is already written for you." }; } catch (e) { /* ignore */ } }
+    if (uses(n, target)) return { ok: false, msg: `Your answer still contains ${target.replace("_", "")}. The variable you are solving for must end up on its own on the left.` };
+    let ratios = [], bad = 0; const envs = [];
+    for (let i = 0; i < 6; i++) { const e = fm.g(), want = e[target], got = ev(n, e); envs.push([e, got]); if (!isFinite(got)) { bad++; continue; } ratios.push([got, want]); }
+    const sameAs = (tn) => envs.every(([e, got]) => { const tv = ev(tn, e); return isFinite(got) && isFinite(tv) && Math.abs(tv - got) <= 1e-6 * Math.max(1, Math.abs(tv)); });
+    if (!ratios.length) return { ok: false, msg: "Your expression can't be worked out (it divides by zero or square-roots a negative number). Check the order of the terms." };
+    const close = (a, b) => Math.abs(a - b) <= 1e-6 * Math.max(1, Math.abs(b));
+    if (ratios.every(([g, w]) => close(g, w)) && !bad) return { ok: true };
+    const all = (f) => ratios.every(([g, w]) => close(g, f(w)));
+    let msg = "Not quite. Try again, or open a hint.";
+    if (all((w) => -w)) msg = "So close: the sign is wrong. Check each step where you moved a term or a minus sign.";
+    else if (all((w) => 1 / w)) msg = "Your answer is upside down: the top and bottom have been swapped.";
+    else if (all((w) => w * w)) msg = "You've found the square of the answer. Square root the whole side as the last step.";
+    else if (all((w) => Math.sqrt(Math.abs(w)))) msg = "You've square-rooted something that wasn't squared.";
+    else {
+      const traps = (fm.tr || []).slice(), m = fm.a.match(/^(.*)\/\(([^()+-]+ [^()+-]+)\)$/);
+      if (target === fm.t && m) traps.push([`${m[1]}/${m[2]}`, `Check your brackets: when you divide by two things multiplied together, put them in brackets: …/(${m[2]}).`]);
+      let hit = false;
+      for (const [tsrc, tmsg] of target === fm.t ? traps : []) { try { if (sameAs(parse(tsrc, vars))) { msg = tmsg; hit = true; break; } } catch (e) { /* skip */ } }
+      if (!hit && ratios.every(([g, w]) => close(g / w, ratios[0][0] / ratios[0][1]))) msg = `Nearly: your answer is out by a constant factor (× ${fmt(ratios[0][0] / ratios[0][1], 3)}). Check any 2s or ½s.`;
+    }
+    return { ok: false, msg };
+  }
+
+  /* ---------- the task sheet UI ---------- */
+  const done = store.get("rr-done", {});
+  let std = "91171", cur = null, target = null, hintN = 0, tries = 0;
+  const list = () => F.filter((f) => std === "all" || f.std === std);
+  function renderList() {
+    const box = $("rrList"); box.replaceChildren();
+    let lastStd = null;
+    list().forEach((fm) => {
+      if (std === "all" && fm.std !== lastStd) { const h = document.createElement("div"); h.className = "label"; h.style.marginTop = "6px"; h.textContent = STD[fm.std]; box.appendChild(h); lastStd = fm.std; }
+      const b = document.createElement("button"); b.type = "button"; b.className = "rr-item" + (cur && cur.id === fm.id ? " on" : "");
+      b.innerHTML = `<span class="rr-tick">${done[fm.id] ? "✓" : ""}</span><span>${esc(fm.name)}</span>`;
+      b.addEventListener("click", () => open(fm)); box.appendChild(b);
+    });
+    const n = F.filter((f) => done[f.id]).length; $("rrProg").textContent = `${n} of ${F.length} done`; $("rrBar").style.width = (100 * n) / F.length + "%";
+  }
+  function keypad(fm) {
+    const k = $("rrKeys"); k.replaceChildren();
+    const add = (lab, ins, cls) => { const b = document.createElement("button"); b.type = "button"; b.className = "rr-key" + (cls ? " " + cls : ""); b.innerHTML = lab; b.addEventListener("click", () => insert(ins)); k.appendChild(b); };
+    varsOf(fm).filter((v) => v !== target).forEach((v) => add(`<span class="mx">${vHTML(v)}</span>`, v, "var"));
+    [["+", " + "], ["−", " - "], ["×", "*"], ["÷", "/"], ["(", "("], [")", ")"], ["x²", "^2"], ["√", "sqrt("], ["sin⁻¹", "asin("], ["sin", "sin("], ["2", "2"], ["1", "1"]].forEach(([l, i]) => add(esc(l), i));
+    add("⌫", "BACK", "fn"); add("Clear", "CLEAR", "fn");
+  }
+  function insert(s) {
+    const el = $("rrIn"); const a = el.selectionStart ?? el.value.length, b = el.selectionEnd ?? a;
+    if (s === "CLEAR") { el.value = ""; } else if (s === "BACK") { if (a === b && a > 0) { el.value = el.value.slice(0, a - 1) + el.value.slice(b); el.setSelectionRange(a - 1, a - 1); } else { el.value = el.value.slice(0, a) + el.value.slice(b); el.setSelectionRange(a, a); } }
+    else { el.value = el.value.slice(0, a) + s + el.value.slice(b); el.setSelectionRange(a + s.length, a + s.length); }
+    el.focus({ preventScroll: true }); preview();
+  }
+  function preview() {
+    const src = $("rrIn").value, pv = $("rrPrev");
+    if (!src.trim()) { pv.textContent = "–"; return; }
+    try { pv.innerHTML = html(parse(src.includes("=") ? src.split("=").pop() : src, varsOf(cur))); pv.classList.remove("rr-err"); } catch (e) { pv.textContent = e.message; pv.classList.add("rr-err"); }
+  }
+  function open(fm, tgt) {
+    cur = fm; target = tgt || fm.t; hintN = 0; tries = 0;
+    const vars = varsOf(fm);
+    $("rrStdLab").textContent = STD[fm.std]; const L = list(); $("rrCount").textContent = `${L.indexOf(fm) + 1} of ${L.length}`;
+    $("rrName").textContent = fm.name; $("rrFormula").innerHTML = eqHTML(fm.f, vars);
+    $("rrTask").innerHTML = `Rearrange to make <span class="mx">${vHTML(target)}</span> the subject.` + (target !== fm.t ? ' <span class="small">(extra challenge)</span>' : "");
+    $("rrLhs").innerHTML = vHTML(target); $("rrIn").value = ""; preview();
+    ["rrVerdict", "rrWork"].forEach((id) => $(id).classList.add("hidden"));
+    $("rrSteps").disabled = target !== fm.t; $("rrHint").disabled = false;
+    const sel = $("rrTarget"); sel.replaceChildren(); vars.forEach((v) => { const o = document.createElement("option"); o.value = v; o.textContent = v.replace("_", "") + (v === fm.t ? " (on the sheet)" : ""); if (v === target) o.selected = true; sel.appendChild(o); });
+    keypad(fm); renderList();
+  }
+  $("rrTarget").addEventListener("change", (e) => open(cur, e.target.value));
+  $("rrIn").addEventListener("input", preview);
+  $("rrIn").addEventListener("keydown", (e) => { if (e.key === "Enter") $("rrCheck").click(); });
+  $("rrCheck").addEventListener("click", () => {
+    const v = $("rrVerdict"), r = check(cur, target, $("rrIn").value); tries++;
+    v.classList.remove("hidden"); v.className = "verdict " + (r.ok ? "ok" : "bad");
+    if (r.ok) { v.innerHTML = `Correct! <span class="mx">${vHTML(target)} = ${html(parse($("rrIn").value.split("=").pop(), varsOf(cur)))}</span>`; if (target === cur.t) { done[cur.id] = true; store.set("rr-done", done); renderList(); } }
+    else v.textContent = r.msg;
+  });
+  $("rrHint").addEventListener("click", () => {
+    const w = $("rrWork"); w.classList.remove("hidden");
+    if (target !== cur.t) { w.innerHTML = "Work backwards: undo + and − first, then × and ÷, then squares (with √) or reciprocals (flip both sides)."; return; }
+    hintN = Math.min(cur.s.length, hintN + 1);
+    w.innerHTML = `<b>Hint ${hintN} of ${cur.s.length}:</b> ` + richText(cur.s[hintN - 1], varsOf(cur));
+  });
+  $("rrSteps").addEventListener("click", () => { const w = $("rrWork"); w.classList.remove("hidden"); w.innerHTML = cur.s.map((s, i) => `<b>${i + 1}.</b> ${richText(s, varsOf(cur))}`).join("<br>"); });
+  $("rrNext").addEventListener("click", () => { const L = list(), i = L.indexOf(cur); open(L[(i + 1) % L.length]); });
+  const sBtns = [...document.querySelectorAll("[data-rr-std]")];
+  sBtns.forEach((b) => b.addEventListener("click", () => { std = b.dataset.rrStd; setPressed(sBtns, b); const L = list(); open(L.find((f) => !done[f.id]) || L[0]); }));
+  $("rrResetAll").addEventListener("click", () => { Object.keys(done).forEach((k) => delete done[k]); store.set("rr-done", done); renderList(); });
+  open(list().find((f) => !done[f.id]) || list()[0]);
+  return { F, check, parse, varsOf, html };
 })();
 
 /* ====================================================== SIM 3.2 · CIRCULAR MOTION ===== */
