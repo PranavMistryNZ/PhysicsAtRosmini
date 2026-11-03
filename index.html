@@ -28,7 +28,7 @@ document.documentElement.setAttribute('data-theme',t)})();
 :root{
   --bg:#05060b;--panel:#121526;--panel2:#181c31;--ink:#f3edf5;--muted:#c2bed4;--line:#41445b;
   --orange:#f0a66a;--yellow:#f0cc6a;--pink:#d99ac6;--lav:#a99be4;--blue:#87bbec;
-  --y11:var(--blue);--y12:var(--pink);--y13:var(--lav);--accent:var(--yellow);
+  --y12:var(--pink);--y13:var(--lav);--accent:var(--yellow);
 }
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
   --bg:#f4f1ea;--panel:#ffffff;--panel2:#f7f4ee;--ink:#1d1b2b;--muted:#565366;--line:#d6d1c6;
@@ -58,7 +58,7 @@ button{font:inherit;color:inherit}
 .yr[data-y="all"]{background:var(--accent)}
 :root[data-theme="light"] .yr{color:#fff}
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .yr{color:#fff}}
-.yr[data-y="11"]{background:var(--y11)}.yr[data-y="12"]{background:var(--y12)}.yr[data-y="13"]{background:var(--y13)}
+.yr[data-y="12"]{background:var(--y12)}.yr[data-y="13"]{background:var(--y13)}
 .rail-fill{flex:1;min-height:40px;background:var(--orange);border-radius:0 0 0 46px;opacity:.85}
 
 /* ---------- main ---------- */
@@ -179,7 +179,7 @@ a.card:hover,a.card:focus-visible{transform:translateY(-3px);border-color:var(--
    Labs sit in year folders, e.g. y13/waves.html, and are linked with
    short paths in TOPICS below. Short paths open in the same tab.
    linkTarget: only used for full web addresses (https://...), e.g. NZQA links.
-   startYear:  "all", 11, 12 or 13. You can also open the hub on a year
+   startYear:  "all", 12 or 13. You can also open the hub on a year
                by adding #13 to its address, e.g. .../physics/#13
    ================================================================= */
 const SITE = {
@@ -191,7 +191,6 @@ const SITE = {
    2. YEAR LEVELS (rail buttons)
    ================================================================= */
 const YEARS = [
-  { y: 11, label: "Year 11", sub: "Physics, Earth & Space Science · L1" },
   { y: 12, label: "Year 12", sub: "Physics · NCEA Level 2" },
   { y: 13, label: "Year 13", sub: "Physics · NCEA Level 3" },
 ];
@@ -215,11 +214,6 @@ const TOPICS = [
   { y:12, as:"91171", title:"Mechanics", blurb:"Motion, projectiles, forces, torque, circular motion, momentum and energy.", cr:6, type:"ext", path:"y12/mechanics.html" },
   { y:12, as:"91173", title:"Electricity & Electromagnetism", blurb:"Circuits, fields and induction.", cr:6, type:"ext", path:"" },
   { y:12, as:"91172", title:"Atomic & Nuclear Physics", blurb:"Atomic structure, radioactivity.", cr:3, type:"int", path:"" },
-
-  // ---- Year 11 · edit to match your course ----
-  { y:11, as:"", title:"Motion & Forces", blurb:"Speed, acceleration and Newton's laws.", cr:"", type:"ext", path:"" },
-  { y:11, as:"", title:"Energy", blurb:"Work, power and energy transfer.", cr:"", type:"ext", path:"" },
-  { y:11, as:"", title:"Earth & Space", blurb:"The Earth system and our place in space.", cr:"", type:"int", path:"" },
 ];
 
 /* ======================= no need to edit below ======================= */
@@ -312,9 +306,9 @@ document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () =
 })();
 
 // start
-if (SITE.startYear === "all") { const s = store.get("hub-year"); if (s) state.year = s; }
+if (SITE.startYear === "all") { const s = store.get("hub-year"); if (s && ["12","13","all"].includes(s)) state.year = s; }
 const h = location.hash.replace("#","").replace(/^y/i,"");
-if (["11","12","13","all"].includes(h)) state.year = h;
+if (["12","13","all"].includes(h)) state.year = h;
 rail(); render();
 </script>
 </body>
