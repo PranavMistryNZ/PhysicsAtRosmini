@@ -1,0 +1,10 @@
+/* Physics at Rosmini · shared equation styles (used by every lab page). Page-specific sizes stay in each page. */
+.katex{font-size:1.08em;color:inherit}
+.katex-display{margin:.35em 0;overflow-x:auto;overflow-y:hidden;padding:.15em 0;scrollbar-width:thin}
+.katex-display>.katex{white-space:nowrap}
+.katex .mrel,.katex .mbin{font-family:KaTeX_Main,'Times New Roman',serif}
+/* = and − drawn as pixel-snapped borders so both bars are equally crisp on standard screens (classes added by equations.js) */
+.katex .bar-eq,.katex .bar-minus{position:relative;-webkit-text-fill-color:transparent}
+.katex .bar-eq::before,.katex .bar-minus::before{content:"";position:absolute;left:.08em;right:.08em;box-sizing:border-box;pointer-events:none}
+.katex .bar-eq::before{top:var(--bar-top,.53em);height:calc(.2em + 1px);border-top:1px solid currentColor;border-bottom:1px solid currentColor}
+.katex .bar-minus::before{top:calc(var(--bar-top,.53em) + .1em);border-top:1px solid currentColor}
