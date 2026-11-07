@@ -598,19 +598,25 @@ body.light-mode .nx-pause-btn[data-tip]:hover::before,body.light-mode .nx-pause-
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" crossorigin="anonymous"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 <script>
-/* Shared equation renderer: KaTeX; TeX in \( \) (inline) and \[ \] (display).
-   A MutationObserver typesets any TeX that scripts write into the page later. */
+/* Shared equation renderer, identical on every Physics at Rosmini page.
+   KaTeX typesets TeX written as \( \) (inline) or \[ \] (display). TeX that a script writes with
+   innerHTML, textContent or insertAdjacentHTML is typeset straight away, so live readouts never
+   show raw TeX; anything else is caught by a MutationObserver. */
 (function(){
 var OPTS={delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false,strict:false};
-function has(n){var t=n.textContent||'';return t.indexOf('\\(')>-1||t.indexOf('\\[')>-1}
-window.renderTeX=function(el){if(!window.renderMathInElement)return;try{renderMathInElement(el||document.body,OPTS)}catch(e){}};
-var q=new Set(),raf=0,obs;
-function flush(){raf=0;var els=Array.from(q);q.clear();obs.disconnect();els.forEach(function(n){if(n.isConnected&&has(n))window.renderTeX(n)});obs.takeRecords();obs.observe(document.body,{childList:true,subtree:true,characterData:true})}
-obs=new MutationObserver(function(ms){ms.forEach(function(m){var n=m.target.nodeType===3?m.target.parentNode:m.target;if(n&&n.nodeType===1&&!n.closest('.katex')&&has(n))q.add(n)});if(q.size&&!raf)raf=requestAnimationFrame(flush)});
-/* Typeset synchronously when scripts write TeX, so animated readouts never paint raw TeX. */
-(function(){var d=Object.getOwnPropertyDescriptor(Element.prototype,'innerHTML');if(d&&d.set){Object.defineProperty(Element.prototype,'innerHTML',{get:d.get,set:function(v){d.set.call(this,v);if(typeof v==='string'&&v.indexOf('\\(')>-1)window.renderTeX(this)},configurable:true})}
-var ia=Element.prototype.insertAdjacentHTML;Element.prototype.insertAdjacentHTML=function(p,h){ia.call(this,p,h);if(typeof h==='string'&&h.indexOf('\\(')>-1)window.renderTeX(this.parentNode&&(p==='beforebegin'||p==='afterend')?this.parentNode:this)}})();
-document.addEventListener('DOMContentLoaded',function(){var t=setInterval(function(){if(window.renderMathInElement){clearInterval(t);renderTeX();obs.observe(document.body,{childList:true,subtree:true,characterData:true})}},40);setTimeout(function(){clearInterval(t)},10000)});
+function hasTeX(t){return typeof t==='string'&&(t.indexOf('\\(')>-1||t.indexOf('\\[')>-1)}
+window.renderTeX=function(el){if(!window.renderMathInElement||!el||el.nodeType!==1&&el!==document.body)return;try{renderMathInElement(el||document.body,OPTS)}catch(e){}};
+var q=new Set(),raf=0,obs=null;
+function watch(){obs.observe(document.body,{childList:true,subtree:true,characterData:true})}
+function flush(){raf=0;var els=Array.from(q);q.clear();obs.disconnect();els.forEach(function(n){if(n.isConnected&&hasTeX(n.textContent))window.renderTeX(n)});obs.takeRecords();watch()}
+obs=new MutationObserver(function(ms){ms.forEach(function(m){var n=m.target.nodeType===3?m.target.parentNode:m.target;if(n&&n.nodeType===1&&!n.closest('.katex')&&hasTeX(n.textContent))q.add(n)});if(q.size&&!raf)raf=requestAnimationFrame(flush)});
+function wrap(proto,prop){var d=Object.getOwnPropertyDescriptor(proto,prop);if(!d||!d.set)return;Object.defineProperty(proto,prop,{get:d.get,configurable:true,set:function(v){
+  if(!hasTeX(v)){if(this.__tex)this.__tex=null;d.set.call(this,v);return}
+  if(this.nodeType===1&&this.__tex===v&&this.querySelector('.katex'))return; /* unchanged: keep the typeset copy */
+  d.set.call(this,v);if(this.nodeType===1){this.__tex=v;window.renderTeX(this)}}})}
+wrap(Element.prototype,'innerHTML');wrap(Node.prototype,'textContent');
+var ia=Element.prototype.insertAdjacentHTML;Element.prototype.insertAdjacentHTML=function(p,h){ia.call(this,p,h);if(hasTeX(h))window.renderTeX(this.parentNode&&(p==='beforebegin'||p==='afterend')?this.parentNode:this)};
+document.addEventListener('DOMContentLoaded',function(){var t=setInterval(function(){if(window.renderMathInElement){clearInterval(t);window.renderTeX(document.body);watch()}},40);setTimeout(function(){clearInterval(t)},10000)});
 })();
 </script>
 </head><body><div class="shell"><header class="topbar"><div class="topcurve" aria-hidden="true"></div><div class="titlebar"><div><div class="eyebrow">Science learning systems · Physics level 3</div><h1 id="topicTitle">COURSE MAP</h1></div><div><div class="index">AS91523 · 4 CREDITS<br/>EXTERNAL EXAM<br/>INTERACTIVE LAB</div><div class="hdr-tools"><a class="home-btn home-link" href="../index.html"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg><span>Home</span></a><div aria-label="Page colour theme" class="theme-switch-wrap"><span class="theme-label-dark">Dark</span><label class="theme-switch" title="Switch between dark and light mode"><input aria-label="Use light mode" id="themeToggle" type="checkbox"/><span class="theme-slider"></span></label><span class="theme-label-light">Light</span></div></div></div></div></header><div class="frame"><nav aria-label="Wave sections" class="rail"><button data-tab="map">00<br/>COURSE<br/>MAP</button><button data-tab="standing">01<br/>STANDING<br/>WAVES</button><button data-tab="em">02<br/>WAVE<br/>INTERFERENCE</button><button data-tab="doppler">03<br/>DOPPLER</button><div class="fill"></div></nav><main class="work"><div aria-label="Activities within selected topic" class="tabs" id="activityTabs" role="tablist"></div>
@@ -3173,7 +3179,8 @@ window.addEventListener('resize',draw);tabs('map','scope');requestAnimationFrame
 .foundation-formula-card .formula-line,.sound-interference-card .formula-line,.beats-formula-card .formula-line{white-space:nowrap}
 .foundation-formula-card .formula-line .katex{font-size:clamp(14px,1.9vw,21px)}
 #nxFormulaSheet .formula-line .katex{font-size:1em}
-.katex-display{margin:.35em 0;overflow-x:auto;overflow-y:hidden}
+.katex-display{margin:.35em 0;overflow-x:auto;overflow-y:hidden;padding:.15em 0}
+.katex-display>.katex{white-space:nowrap}
 .formula-line .katex-display,.formula .katex-display{margin:0}
 .readout .katex,.nx-readout .katex{font-size:1.02em}
 </style>
