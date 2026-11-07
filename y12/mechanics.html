@@ -359,6 +359,9 @@ table.data input{width:18px;height:18px;accent-color:var(--accent)}
 .vm-formula{gap:6px}
 .vm-eqs{display:flex;flex-direction:column;gap:2px;font-size:clamp(15px,1.8vw,19px);overflow-x:auto}
 .vm-eqs:empty{display:none}
+.vm-ebar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--track);margin-top:4px}
+.vm-ebar span{display:block;height:12px;transition:width .1s}
+#vmBarP{background:var(--data)}#vmBarK{background:var(--vector)}#vmBarL{background:var(--muted)}
 .vm-tick{display:flex;gap:8px;align-items:center;font-size:14px;cursor:pointer}
 .vm-tick input{width:18px;height:18px;accent-color:var(--accent)}
 /* graph match */
@@ -1835,6 +1838,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <div class="mx" id="vmEqA"></div>
       <div class="mx" id="vmEqV"></div>
       <div class="mx" id="vmEqD"></div>
+      <div class="mx" id="vmEqE"></div>
     </div>
     <p class="small" id="vmEqNote"></p>
   </div>
@@ -1891,7 +1895,11 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
         <div class="tm"><span>Acceleration (+ up)</span><b id="vmA">–</b></div>
         <div class="tm"><span>Highest point</span><b id="vmTop">–</b></div>
         <div class="tm"><span>Lands at</span><b id="vmLand">–</b></div>
+        <div class="tm"><span>Gravitational E<sub>p</sub> = mgh</span><b id="vmEp">–</b></div>
+        <div class="tm"><span>Kinetic E<sub>k</sub> = ½mv²</span><b id="vmEk">–</b></div>
       </div>
+      <div class="vm-ebar" aria-hidden="true"><span id="vmBarP"></span><span id="vmBarK"></span><span id="vmBarL"></span></div>
+      <p class="small" id="vmEnote"></p>
       <p class="note" id="vmNote"></p>
     </div>
   </div>
@@ -5121,6 +5129,9 @@ const RR = (() => {
     return { pts: out, T: t, top, land: v, vt: air ? Math.sqrt((m * g) / K) : null };
   }
   const masses = () => (S.cmp ? [5, 0.1] : [S.air ? +mEl.value : 1]);
+  const eMass = () => (S.cmp ? 5 : S.air ? +mEl.value : 0.060); // mass used for the energy readouts
+  const half = '<span class="frac"><span>1</span><span>2</span></span>';
+  const chalHide = () => $("vmPredOn").checked && S.runs && S.t < S.runs[0].T;
   // Canvas interaction coordinates are saved from the latest responsive drawing.
   let scene = null, drag = null;
   const pointerPoint = (e) => { const r = cv.getBoundingClientRect(); return {x:(e.clientX-r.left)*cv.width/r.width, y:(e.clientY-r.top)*cv.height/r.height}; };
@@ -5186,12 +5197,14 @@ const RR = (() => {
       $("vmEqA").innerHTML = `<var>a</var> = −<var>g</var> = −${g.toFixed(1)} m s<sup>−2</sup>`;
       $("vmEqV").innerHTML = `<var>v</var><sub>f</sub> = <var>v</var><sub>i</sub> + <var>at</var> = ${n2(u, 1)} + ${n2(-g, 1)} × ${t.toFixed(2)} = <b>${fx(u - g * t, 2)} m s<sup>−1</sup></b>`;
       $("vmEqD").innerHTML = `<var>d</var> = <var>v</var><sub>i</sub><var>t</var> + <span class="frac"><span>1</span><span>2</span></span><var>at</var><sup>2</sup> = ${n2(u, 1)} × ${t.toFixed(2)} + <span class="frac"><span>1</span><span>2</span></span> × ${n2(-g, 1)} × ${t.toFixed(2)}<sup>2</sup> = <b>${fx(u * t - 0.5 * g * t * t, 2)} m</b>`;
+      { const m = eMass(), dh = +hEl.value - Math.max(0, st.y);
+        $("vmEqE").innerHTML = chalHide() ? `<var>mg</var>Δ<var>h</var> = ${half}<var>mv</var><sub>f</sub><sup>2</sup> − ${half}<var>mv</var><sub>i</sub><sup>2</sup>` : `<var>mg</var>Δ<var>h</var> = ${half}<var>mv</var><sub>f</sub><sup>2</sup> − ${half}<var>mv</var><sub>i</sub><sup>2</sup>: &nbsp;${m.toFixed(3)} × ${g.toFixed(1)} × ${fx(dh, 2)} = <b>${fx(m * g * dh, 2)} J</b>`; }
       $("vmEqNote").textContent = "Taking up as positive. The acceleration is the same at every moment, on the way up, at the top and on the way down, so the constant-acceleration equations work. d is the displacement from the starting point.";
     } else {
       const m = S.cmp ? 5 : +mEl.value;
       $("vmEqA").innerHTML = `<var>a</var> = <span class="frac"><span>−<var>mg</var> − <var>F</var><sub>air</sub></span><span><var>m</var></span></span> = −${g.toFixed(1)} − <span class="frac"><span>${K} × ${fx(Math.abs(st.v), 1)}<sup>2</sup></span><span>${m.toFixed(2)}</span></span> = <b>${fx(st.a, 2)} m s<sup>−2</sup></b>`;
       $("vmEqV").innerHTML = `Terminal velocity when <var>F</var><sub>air</sub> = <var>mg</var>: <var>v</var><sub>T</sub> = <span class="sqrt"><span class="rad" aria-hidden="true"><svg viewBox="0 0 28 50" preserveAspectRatio="none" focusable="false"><path d="M1 28 L7 24 L14 47 L26 1 L28 1" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"/></svg></span><span class="rbody"><span class="frac"><span><var>mg</var></span><span><var>k</var></span></span></span></span> = <b>${fmt(run.vt)} m s<sup>−1</sup></b>`;
-      $("vmEqD").innerHTML = "";
+      $("vmEqD").innerHTML = ""; $("vmEqE").innerHTML = "";
       $("vmEqNote").textContent = `With air resistance (F_air = kv², k = ${K} kg m⁻¹) the acceleration changes as the speed changes, so v_f = v_i + at and d = v_i t + ½at² no longer apply. Air resistance always acts against the motion: it adds to gravity on the way up and works against it on the way down.`;
     }
   }
@@ -5209,8 +5222,18 @@ const RR = (() => {
     const st = niceStep(yMax, 6); ctx.lineWidth = 1;
     for (let y = 0; y <= yMax; y += st) { ctx.beginPath(); ctx.moveTo(40, Y(y)); ctx.lineTo(48, Y(y)); ctx.stroke(); text(ctx, fmt(y, 2) + " m", 36, Y(y) + 4, C.muted, 10, "right"); }
     ctx.beginPath(); ctx.moveTo(48, top); ctx.lineTo(48, bot); ctx.stroke();
-    const h0 = +hEl.value; if (h0 > 0) { ctx.fillStyle = C.tile; ctx.strokeStyle = C.axis; ctx.fillRect(56, Y(h0), 26, bot - Y(h0)); ctx.strokeRect(56, Y(h0), 26, bot - Y(h0)); }
+    const h0 = +hEl.value;
     const xs = R.length > 1 ? [sceneW * 0.52, sceneW * 0.78] : [sceneW * 0.62];
+    // Cliff: flat top at the release height, rough face just behind the egg.
+    const edge = xs[0] - 26;
+    if (h0 > 0) { const yt = Y(h0), hh = bot - yt; ctx.fillStyle = C.tile; ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(56, bot); ctx.lineTo(56, yt); ctx.lineTo(edge, yt); ctx.lineTo(edge - 5, yt + hh * 0.3); ctx.lineTo(edge + 1, yt + hh * 0.6); ctx.lineTo(edge - 4, bot); ctx.closePath(); ctx.fill(); ctx.stroke(); }
+    { // Stick figure standing on the cliff top; holds the egg out until it is released.
+      const released = S.run || S.t > 0, fxp = edge - 12, yf = h0 > 0 ? Y(h0) : bot, eggR = R.length > 1 ? 11 : 10;
+      ctx.save(); ctx.strokeStyle = C.ink; ctx.lineWidth = 2.5; ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.beginPath();
+      ctx.arc(fxp, yf - 44, 6, 0, Math.PI * 2); ctx.moveTo(fxp, yf - 38); ctx.lineTo(fxp, yf - 18); ctx.lineTo(fxp - 6, yf); ctx.moveTo(fxp, yf - 18); ctx.lineTo(fxp + 6, yf);
+      ctx.moveTo(fxp, yf - 32); ctx.lineTo(fxp - 9, yf - 22);
+      const hx = released ? fxp + 12 : xs[0] - eggR * 0.8, hy = released ? (+uEl.value > 0 && S.t < 0.4 ? yf - 48 : yf - 22) : yf - eggR;
+      ctx.moveTo(fxp, yf - 32); ctx.lineTo(hx, hy); ctx.stroke(); ctx.restore(); }
     const eggP = at(R[0], S.t);
     scene = { top, bot, yMax, eggX: xs[0], eggY: Y(eggP.y) - (R.length > 1 ? 11 : 10), releaseX: xs[0], releaseY: Y(h0) - (R.length > 1 ? 11 : 10) };
     if (!S.run && S.t === 0) text(ctx, allowHeightDrag() ? 'DRAG EGG / RULER · CLICK EGG TO DROP' : 'CLICK EGG TO RELEASE', 55, top - 16, C.muted, 10);
@@ -5219,7 +5242,7 @@ const RR = (() => {
       ctx.save();ctx.strokeStyle=C.data;ctx.globalAlpha=.8;ctx.setLineDash([4,4]);ctx.lineWidth=1.5;
       ctx.beginPath();ctx.arc(scene.releaseX,scene.releaseY,23,0,Math.PI*2);ctx.stroke();
       ctx.restore();
-      text(ctx,'CLICK TO RESET',scene.releaseX,Math.max(top+10,scene.releaseY-30),C.data,10,'center');
+      text(ctx,'CLICK TO RESET',scene.releaseX+28,Math.max(top+10,scene.releaseY+4),C.data,10,'left');
     }
     const col = [C.data, C.third];
     R.forEach((run, i) => {
@@ -5297,6 +5320,11 @@ const RR = (() => {
     else n = `Falling: velocity and acceleration both point down, so it speeds up by ${g.toFixed(1)} m s⁻¹ every second. Look at the strobe positions: the gaps grow as it speeds up.`;
     if (R.length > 1) n = S.air ? "Same size and shape, so the same air resistance at a given speed, but the light ball's weight is much smaller, so air resistance balances it sooner: it reaches a lower terminal velocity and lands later." : "No air resistance: both accelerate at g and land together, whatever their masses. Astronaut David Scott showed this on the Moon in 1971 with a hammer and a feather.";
     $("vmNote").textContent = n;
+    { const m = eMass(), Ep = m * g * Math.max(0, p0.y), Ek = 0.5 * m * p0.v * p0.v, E0 = m * g * h0 + 0.5 * m * (+uEl.value) ** 2, loss = Math.max(0, E0 - Ep - Ek), hide = chalHide(), tot = Math.max(E0, 1e-9);
+      $("vmEp").textContent = hide ? "?" : fmt(Ep, 3) + " J"; $("vmEk").textContent = hide ? "?" : fmt(Ek, 3) + " J";
+      $("vmBarP").style.width = (100 * Ep) / tot + "%"; $("vmBarK").style.width = (100 * Ek) / tot + "%"; $("vmBarL").style.width = (100 * loss) / tot + "%";
+      const who = S.cmp ? "the 5 kg ball" : S.air ? `the ${fmt(m, 2)} kg ball` : "a 0.060 kg egg";
+      $("vmEnote").textContent = hide ? "Energy readings are hidden until it lands." : S.air ? `Energy for ${who}: Eₚ (teal), Eₖ (orange) and energy transformed to heat by air resistance (grey). Total at release ${fmt(E0, 3)} J.` : `Energy for ${who}: Eₚ (teal) + Eₖ (orange) = ${fmt(E0, 3)} J all the way down. Energy is transformed, not lost.`; }
     const impact = Math.abs(R[0].land);
     $("vmHud").textContent = S.run ? `t = ${S.t.toFixed(2)} s${rate > 1.05 ? " · ×" + fmt(rate, 2) + " speed" : ""}` : S.t > 0 ? `${impact >= +breakEl.value ? "SPLAT" : "CRACK"} · impact ${fmt(impact, 2)} m s⁻¹` : "READY";
     formulas();
