@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SY24GC7K0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SY24GC7K0S');
+</script>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Physics LCARS | Level 3 Modern Physics</title>
+<!-- Equations: one shared copy of KaTeX plus the shared renderer and styles (assets/) -->
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/equations.css">
+<script src="../assets/katex/katex.min.js"></script>
+<script src="../assets/katex/auto-render.min.js"></script>
+<script src="../assets/equations.js"></script>
+<style>
+:root{--bg:#05060b;--panel:#121526;--ink:#f3edf5;--muted:#c2bed4;--orange:#f0a66a;--pink:#d99ac6;--lav:#a99be4;--blue:#87bbec;--line:#41445b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.48;overflow-x:hidden}
+button,input,select{font:inherit}button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid white;outline-offset:3px}
+.shell{max-width:1400px;margin:auto;padding:18px}
+/* ---- header ---- */
+.topbar{display:flex;gap:10px;align-items:stretch;min-height:98px}
+.topcurve{background:var(--topic);border-radius:70px 0 0 0;width:145px;flex-shrink:0}
+.titlebar{border-top:17px solid var(--topic);flex:1;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0 0 14px}
+.eyebrow{text-transform:uppercase;letter-spacing:.18em;color:var(--blue);font-size:12px}
+.titlebar h1{margin:0;font-size:clamp(22px,3vw,38px);letter-spacing:.06em}
+.index{color:var(--orange);text-align:right;font-size:13px}
+.hdr-tools{display:grid;gap:6px;width:max-content;margin:6px 0 0 auto}
+.home-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:30px;padding:0 12px;border-radius:999px;background:var(--topic);color:var(--topic-contrast);font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:transform .15s,filter .15s,box-shadow .15s}
+.home-btn:hover,.home-btn:focus-visible{transform:translateY(-2px);filter:brightness(1.12);box-shadow:0 10px 22px -12px var(--topic)}
+.theme-switch-wrap{display:flex;align-items:center;gap:8px;justify-content:space-between;font-size:12px;color:var(--muted);white-space:nowrap;margin-bottom:8px}
+.theme-switch{position:relative;display:inline-block;width:52px;height:28px;flex:0 0 auto}
+.theme-switch input{opacity:0;width:0;height:0;position:absolute}
+.theme-slider{position:absolute;inset:0;cursor:pointer;background:#343c58;border:1px solid #6b738d;border-radius:999px;transition:.2s}
+.theme-slider:before{content:"";position:absolute;width:20px;height:20px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.theme-switch input:checked+.theme-slider{background:#d6e2f2;border-color:#8a9bb1}
+.theme-switch input:checked+.theme-slider:before{transform:translateX(24px);background:#1d2633}
+.theme-switch input:focus-visible+.theme-slider{outline:3px solid var(--ink);outline-offset:2px}
+.theme-label-dark,.theme-label-light{font-weight:700}
+/* ---- frame / rail / tabs ---- */
+.frame{display:grid;grid-template-columns:145px minmax(0,1fr);gap:16px;margin-top:9px}
+.rail{display:flex;flex-direction:column;gap:9px}
+.rail button{border:0;border-radius:0 18px 18px 0;color:#0b0b19;font-weight:800;text-align:right;padding:18px 10px;font-size:12px;letter-spacing:.04em;min-height:64px;filter:saturate(.75) brightness(.9);transition:transform .15s,filter .15s}
+.rail button{min-height:58px;padding:12px 10px}
+.rail button:hover,.rail button:focus-visible{filter:none;transform:translateX(3px)}
+.rail button.active{filter:none;outline:3px solid #f3edf5;outline-offset:-6px}
+.rail .fill{background:var(--topic);flex:1;min-height:55px;border-radius:0 0 0 55px}
+.work{min-width:0}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}
+.tabs button .lc{text-transform:none;font-family:KaTeX_Math,'Times New Roman',serif;font-style:italic;font-weight:400;font-size:1.15em}.tabs button .lc.up{font-family:KaTeX_Main,'Times New Roman',serif;font-style:normal}
+.tabs button{border:0;border-radius:16px 16px 0 0;background:#3b3850;color:#fff;padding:13px 18px;text-transform:uppercase;font-size:13px;font-weight:bold;flex:1;min-width:120px;font-variant-numeric:tabular-nums;transition:transform .15s,filter .15s,box-shadow .15s}
+.tabs button.active{background:var(--topic);color:var(--topic-contrast)}
+.tabs button:not(.active):hover,.tabs button:not(.active):focus-visible{transform:translateY(-3px);filter:brightness(1.18);box-shadow:0 10px 22px -14px var(--topic)}
+/* topic identities */
+body{--topic:#f2d16b;--topic-contrast:#1a1505}
+/* search */
+.site-tools{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin:0 0 14px}
+.site-search{display:flex;gap:8px;min-width:0}
+.site-search input{width:100%;min-width:0;background:#171c30;color:#fff;border:1px solid #626b88;border-radius:5px;padding:12px 13px;font-size:16px}
+.tool-btn{border:0;border-radius:5px;background:var(--lav);color:#0d0c17;padding:11px 14px;font-weight:700;min-height:44px;transition:transform .15s}
+.tool-btn:hover,.action:hover{transform:translateY(-2px)}
+.tool-btn.secondary{background:#343c58;color:#fff}
+.tool-btn[aria-pressed="true"]{box-shadow:0 0 0 2px var(--ink) inset}
+.search-results{background:#0d1324;border:1px solid #3b4661;border-radius:7px;padding:8px;display:none}
+.search-results.open{display:block}
+.search-hit{width:100%;display:block;text-align:left;border:0;border-bottom:1px solid #2f3850;background:transparent;color:#fff;padding:10px}
+.search-hit:last-child{border-bottom:0}.search-hit strong{color:#ffd1a6}
+.search-meta{display:block;color:#aeb7ca;font-size:.78em;margin-top:3px}
+/* panes */
+.pane{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:18px;min-width:0}
+.pane h2{margin:0 0 8px;font-size:clamp(22px,3vw,30px)}
+.pane h3{margin:0 0 12px;color:var(--topic);font-size:17px}
+.sub{color:var(--muted);font-size:14px;margin:0 0 17px}
+.note{color:#e0dce8;font-size:14px}
+.small{font-size:12px;color:var(--muted)}
+.hidden{display:none!important}
+.section-identity{background:linear-gradient(90deg,color-mix(in srgb,var(--topic) 18%,#101526),#101526);border-left:6px solid var(--topic);padding:13px 16px;border-radius:4px;margin-bottom:16px}
+.section-identity strong{color:var(--topic);font-size:17px}
+.section-identity p{margin:4px 0 0;font-size:13px;color:#d7d8e5}
+/* intro steps */
+.intro-steps{display:flex;flex-direction:column;gap:12px;margin:20px 0}
+.intro-step{background:#1c2238;border-left:5px solid var(--topic)}
+.intro-step summary{cursor:pointer;list-style:none;padding:16px 44px 16px 16px;font-weight:700;color:#f0bc8b;display:block;position:relative;font-variant-numeric:tabular-nums}
+.intro-step summary::-webkit-details-marker{display:none}
+.intro-step summary::after{content:"+";font-size:1.35rem;position:absolute;right:16px;top:50%;transform:translateY(-50%)}
+.intro-step[open] summary::after{content:"−"}
+.intro-step-body{padding:0 16px 16px}
+.intro-step-body p{margin:8px 0 0}
+.intro-step-body ul{margin:8px 0 0;padding-left:20px}.intro-step-body li{margin:5px 0}
+.concept-visual{margin:12px 0 4px;background:#0c1323;border:1px solid #32405c;border-radius:10px;padding:10px}
+.concept-visual svg{width:100%;height:auto;display:block;max-height:260px}
+.visual-caption{font-size:.86em;color:#bcc6dc;margin-top:6px}
+.chain{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:12px 0}
+.chain>span{background:#11182b;border:1px solid #3b4a68;border-radius:8px;padding:7px 10px;font-size:13px}
+.chain i{font-style:normal;color:var(--topic);font-weight:800}
+/* maths */
+.math-var{font-family:"Cambria Math","STIX Two Math","Times New Roman",Georgia,serif;font-style:italic}
+.math-expr{font-family:"Cambria Math","STIX Two Math","Times New Roman",Georgia,serif;white-space:nowrap}
+.math-expr sub,.math-var sub{font-size:.7em;font-style:normal}
+math{font-family:"Cambria Math","STIX Two Math",serif;font-size:1.1em;color:#cbdcff;vertical-align:middle}
+.fl math,.formula math{math-style:normal}
+a.src{color:#cbdcff}body.light-mode a.src{color:#214f88}
+.formula{font-size:20px;color:#bfcfff;text-align:center;padding:12px 8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:12px 0;overflow-x:auto}
+/* labs */
+.sim{background:#070b17;border:1px solid #3d4864;border-radius:3px;position:relative;overflow:hidden}
+.sim canvas{display:block;width:100%}
+.sim-caption{color:var(--muted);font-size:12px;margin-top:7px}
+.nx-lab{margin:10px 0 16px}
+.nx-ctlbar{margin-top:6px;padding:10px 14px 12px;background:#0c1222;border:1px solid #3a4560;border-top:3px solid var(--topic);border-radius:8px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(250px,1fr);gap:10px 22px;align-items:start}
+.nx-bar-inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px 18px;align-content:start;min-width:0}
+.nx-bar-inputs>h3{grid-column:1/-1;margin:0;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--topic)}
+.control{margin:0;min-width:0}
+.control label{display:block;font-size:13px;margin-bottom:2px}.control label output{float:right;margin-left:8px}
+.control output{color:var(--topic);font-variant-numeric:tabular-nums;white-space:nowrap}
+.control input[type=range]{width:100%;accent-color:var(--topic);margin:4px 0 0}
+select{width:100%;background:#252740;color:white;border:1px solid #6c6b89;border-radius:4px;padding:7px 8px;min-height:36px;font-size:13px}
+.btn-row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px}
+.btn-row .tool-btn{min-height:36px;padding:6px 12px;font-size:13px;flex:1 1 auto}
+.kirbar{grid-template-columns:minmax(0,1fr);gap:8px}.kirbar .nx-bar-inputs{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px 16px}.kbtns{align-items:center;gap:6px}.kbtns .klab{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:4px}.kbtns .tool-btn{flex:0 0 auto;min-height:30px;padding:4px 12px;font-size:13px}.kbtns #kFlipReset{margin-left:auto}@media(max-width:700px){.kirbar .nx-bar-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}.kbtns .tool-btn{min-height:36px}}
+
+.nx-bar-info{min-width:0;display:flex;flex-direction:column;gap:6px}
+.readout{background:#080d1b;border-left:5px solid var(--topic);padding:9px 12px;font-size:13px;line-height:1.55;font-variant-numeric:tabular-nums}
+.readout strong{color:var(--topic)}
+.readout .big{font-size:16px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 0;font-size:12px;color:var(--muted)}
+.legend>span:before{content:"";display:inline-block;width:18px;height:3px;background:var(--key);vertical-align:middle;margin-right:6px}
+.check-row{display:block;font-size:13px;padding:8px 0;line-height:1.5}.check-row input{vertical-align:middle;margin-right:6px}
+.check-row input{width:18px;height:18px;accent-color:var(--topic)}
+/* course map */
+.nx-h3{margin:26px 0 10px!important;font-size:18px!important}
+.nx-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0}
+.nx-facts div{background:#0c1222;border:1px solid #3a4560;border-radius:8px;padding:10px 12px}
+.nx-facts>div>span{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.nx-facts strong{font-size:15px}
+.nx-bigidea{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0 4px}
+.nx-idea{all:unset;box-sizing:border-box;cursor:pointer;background:#0c1222;border:1px solid #3a4560;border-top:5px solid var(--c);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:6px;min-width:0;transition:transform .15s,box-shadow .15s}
+.nx-idea:hover,.nx-idea:focus-visible{transform:translateY(-3px);box-shadow:0 10px 26px -14px var(--c);border-color:var(--c)}
+.nx-idea b{color:var(--c);font-size:15px}.nx-idea>span{font-size:13px;line-height:1.4}
+.nx-progress-wrap{margin-top:22px;background:#0c1222;border:1px solid #3a4560;border-radius:8px;padding:14px}
+.nx-progress-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.nx-bar{display:flex;height:14px;background:#262c44;border-radius:7px;overflow:hidden;margin:10px 0}
+.nx-bar>span{display:block;height:100%;transition:width .3s}.nx-bar-c{background:#5fd39a}.nx-bar-g{background:#f2c35b}
+.nx-key{display:inline-block;padding:2px 8px;border-radius:10px;font-size:12px;margin-right:4px;color:#10131f;font-weight:700}
+.nx-k0{background:#c2bed4}.nx-k1{background:#f2c35b}.nx-k2{background:#5fd39a}
+.nx-scope{display:grid;gap:16px;margin-top:16px}
+.nx-group{border:1px solid #3a4560;border-left:6px solid var(--gc);border-radius:8px;padding:12px 14px;background:#0f1528}
+.nx-group h3{margin:0 0 8px!important;color:var(--gc)!important}
+.nx-item{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:9px 0;border-top:1px solid #2b3350}
+.nx-item:first-of-type{border-top:0}.nx-item p{margin:0;font-size:14px}
+.nx-rate{display:flex;gap:3px}
+.nx-rate button{border:1px solid #4a5574;background:#1a2036;color:var(--ink);border-radius:14px;padding:4px 9px;font-size:12px;min-height:30px}
+.nx-rate button[aria-pressed="true"].r0{background:#c2bed4;color:#111;border-color:#c2bed4}
+.nx-rate button[aria-pressed="true"].r1{background:#f2c35b;color:#111;border-color:#f2c35b}
+.nx-rate button[aria-pressed="true"].r2{background:#5fd39a;color:#111;border-color:#5fd39a}
+.nx-go{border:0;background:var(--gc);color:#10131f;font-weight:800;border-radius:14px;padding:5px 12px;min-height:30px}
+.nx-route{padding-left:22px}.nx-route li{margin:5px 0}
+.nx-grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0}
+.nx-grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
+.nx-card{background:#11182b;border:1px solid #39445d;border-radius:10px;padding:13px 14px;min-width:0}
+.nx-card h3{margin:0 0 8px!important;font-size:16px!important}
+.nx-card p{margin:6px 0;font-size:14px}
+.nx-a{border-top:4px solid #87bbec}.nx-m{border-top:4px solid #f2c35b}.nx-e{border-top:4px solid #5fd39a}.nx-bad{border-top:4px solid #f07a7a}
+.nx-list{padding-left:20px;margin:6px 0;font-size:14px}.nx-list li{margin:4px 0}
+.nx-traps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.nx-trap{background:#1a1424;border:1px solid #5a3f55;border-left:5px solid #f07a7a;border-radius:8px;padding:10px 12px;font-size:14px}
+.nx-trap b{color:#ffb0a0;display:block;margin-bottom:3px}
+/* KaTeX sizing */
+
+.formula .katex-display{margin:0}.formula .katex{font-size:1.3em}
+.fs-card .fl .katex-display{margin:2px 0}.fs-card .fl .katex{font-size:1.12em}
+.readout .katex{font-size:1.06em}
+.exam-question .katex,.app-card .katex{font-size:1.05em}
+.chain .katex,.nx-trap .katex{font-size:1em}
+
+.loopL{color:#8fd694}.loopR{color:#c5a2ff}body.light-mode .loopL{color:#2d7a37}body.light-mode .loopR{color:#68409a}
+/* method table: words left, equations right */
+.methtab-wrap{overflow-x:auto;margin:10px 0}
+.methtab{width:100%;border-collapse:separate;border-spacing:0;border:1px solid #39445d;border-radius:10px;overflow:hidden}
+.methtab th{text-align:left;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:#0c1222;padding:9px 14px;border-bottom:1px solid #39445d}
+.methtab td{padding:12px 14px;border-bottom:1px solid #2b3350;vertical-align:middle;font-size:14px;line-height:1.55;background:#11182b}
+.methtab tr:last-child td{border-bottom:0}
+.methtab td:first-child{width:58%}
+.methtab td b{color:var(--ink)}.methtab td b.loopL{color:#8fd694}.methtab td b.loopR{color:#c5a2ff}
+.methtab .meq{background:#0a1020;border-left:1px solid #2b3350;text-align:center}
+.methtab .meq .katex-display{margin:0}.methtab .meq .katex{font-size:1.18em}
+.methtab .meq.muted{color:var(--muted);font-size:12px;font-style:italic}
+.methtab .mnote-row td{background:#0c1222}
+.mnum{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--topic);color:var(--topic-contrast);font-weight:800;font-size:12px;margin-right:8px;vertical-align:1px}
+body.light-mode .methtab{border-color:#c6d0db}body.light-mode .methtab th{background:#eef3f8;border-color:#c6d0db}
+body.light-mode .methtab td{background:#fff;border-color:#dde3ea}body.light-mode .methtab .meq,body.light-mode .methtab .mnote-row td{background:#f3f6fa}body.light-mode .methtab .meq{border-left-color:#dde3ea}
+body.light-mode .methtab td b.loopL{color:#2d7a37}body.light-mode .methtab td b.loopR{color:#68409a}
+@media(max-width:700px){.methtab thead{display:none}.methtab,.methtab tbody,.methtab tr,.methtab td{display:block;width:100%!important}.methtab td.meq{border-left:0}.methtab .meq.muted{display:none}}
+.zoom-answer{margin-top:14px;padding:12px 16px;background:#0c1222;border:1px solid #3a4560;border-radius:8px;font-size:14px;line-height:1.55}.zoom-answer ol{margin:6px 0 8px;padding-left:22px}.zoom-answer li{margin:4px 0}
+body.light-mode .zoom-answer{background:#f3f6fa;border-color:#c6d0db}
+.exptab-wrap{overflow-x:auto;margin:10px 0;-webkit-overflow-scrolling:touch}
+.exptab{width:100%;min-width:560px;border-collapse:separate;border-spacing:0;border:1px solid #39445d;border-radius:10px;overflow:hidden;font-size:15px}
+.exptab th{font-weight:600;color:var(--ink);background:#0c1222;padding:8px 12px;border-bottom:1px solid #39445d;text-align:center;font-size:13px}
+.exptab thead tr:first-child th.g-chg,.exptab thead tr:first-child th.g-dis{font-size:12px;letter-spacing:.08em;text-transform:uppercase}.exptab th{white-space:nowrap}
+@media(max-width:700px){.exptab{font-size:13px;min-width:600px}.exptab td,.exptab th{padding:7px 8px}}
+.exptab thead tr:first-child th.g-chg{color:#ff9eb5}.exptab thead tr:first-child th.g-dis{color:#87bbec}
+.exptab td{text-align:center;font-variant-numeric:tabular-nums;padding:9px 12px;border-bottom:1px solid #2b3350;background:#11182b;white-space:nowrap}
+.exptab tr:last-child td{border-bottom:0}
+.exptab td:first-child{text-align:left}.exptab td small{color:var(--muted);font-size:12px}
+.exptab td.g-chg{background:#171a2e}.exptab td.g-dis{background:#121b30}
+.exptab th.g-chg+th.g-dis,.exptab td.g-chg+td.g-dis{border-left:2px solid #39445d}
+.exptab tr.now td{background:#2a2440!important}.exptab tr.now td:first-child{box-shadow:inset 3px 0 0 var(--topic)}
+body.light-mode .exptab{border-color:#c6d0db}body.light-mode .exptab th{background:#eef3f8;border-color:#c6d0db}body.light-mode .exptab td{background:#fff;border-color:#dde3ea}body.light-mode .exptab td.g-chg{background:#fdf6f8}body.light-mode .exptab td.g-dis{background:#f5f9fd}body.light-mode .exptab tr.now td{background:#fde7ee!important}
+body.light-mode .exptab thead tr:first-child th.g-chg{color:#b0325a}body.light-mode .exptab thead tr:first-child th.g-dis{color:#2d5f99}
+.nx-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.nx-steps>div{background:#11182b;border:1px solid #39445d;border-radius:10px;padding:12px;min-width:0}
+.nx-steps>div>span{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--topic);color:#111;font-weight:800;margin-bottom:6px}
+.nx-steps>div>b{display:block}.nx-steps>div>p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+.nx-steps.nx-steps3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.nx-ceo>div>p{color:var(--ink)!important;font-size:14px!important}.nx-ceo .nx-list{font-size:13.5px;padding-left:18px}.nx-ceo .nx-list li{margin:5px 0}
+.nx-worked{background:#0c1222;border:1px solid #3d4864;border-left:5px solid var(--topic);border-radius:6px;margin:10px 0;padding:0 14px}
+.nx-worked summary{cursor:pointer;padding:12px 0;font-weight:700;color:var(--topic)}.nx-worked[open]{padding-bottom:10px}.nx-worked p{font-size:14px;line-height:1.6}
+.nx-trap[data-go]{cursor:pointer}.nx-trap[data-go]:hover{border-left-color:var(--topic)}
+body.light-mode .nx-steps>div,body.light-mode .nx-worked{background:#f7f9fc;border-color:#c6d0db}body.light-mode .nx-worked{border-left-color:var(--topic)}
+@media(max-width:1000px){.nx-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.nx-steps.nx-steps3{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){.nx-steps{grid-template-columns:minmax(0,1fr)}}
+.resource{display:block;color:#cbdcff;padding:9px 10px;border-bottom:1px solid #32384c;border-radius:8px;text-decoration:none}.resource:hover{background:#141c30}
+body.light-mode .resource{color:#214f88;border-bottom-color:#c3cdd8}body.light-mode .resource:hover{background:#eef3f8}
+.rcbar .nx-bar-inputs{grid-template-columns:repeat(3,minmax(0,1fr))}
+.kbtns .kchk{margin:0 0 0 8px;font-size:13px}.kbtns .tool-btn.secondary[aria-pressed="true"]{background:var(--topic);color:#111;box-shadow:none}body.light-mode .kbtns .tool-btn.secondary[aria-pressed="true"]{background:var(--topic);color:#111}
+.rstats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.rstats>div{background:#0a1020;border:1px solid #2b3350;border-radius:8px;padding:8px 10px;min-width:0}
+.rstats>div>span{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rstats>div>b{display:block;font-size:15px;margin-top:3px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rstats>div>small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.coilstory p{margin:2px 0 6px}.coilstory ol{margin:4px 0 6px;padding-left:22px}.coilstory li{margin:4px 0;line-height:1.5}
+.pipefig{margin:8px 0 12px;background:#0a1020;border:1px solid #2b3350;border-radius:8px;padding:10px}.pipefig svg{width:100%;max-width:640px;height:auto;display:block;margin:0 auto}
+.pf-notes{display:none;font-size:13px;margin:6px 0;padding-left:18px}.pf-notes li{margin:4px 0}
+@media(max-width:600px){.pf-side{display:none}.pf-notes{display:block}}
+.pipefig figcaption{font-size:13px;color:var(--muted);text-align:center;margin-top:6px;line-height:1.7}
+.pf-key{display:inline-flex;align-items:center;gap:6px;margin:0 10px;color:var(--ink)}.pf-key::before{content:"";width:18px;height:3px;border-radius:2px;background:var(--k)}
+.pf-kb{--k:#87bbec}.pf-ki{--k:#ffd76a}.pf-ke{--k:#8fd694}.pf-kf{--k:#5fd39a}
+body.light-mode .pf-kb{--k:#2d5f99}body.light-mode .pf-ki{--k:#b07d00}body.light-mode .pf-ke{--k:#2d7a37}body.light-mode .pf-kf{--k:#1f8a55}
+.pf-wall{fill:#b8692f;opacity:.75}.pf-lab{fill:var(--muted);font-size:11px}.pf-pole{fill:#fff;font:700 15px KaTeX_Main,serif}
+.pf-b{fill:none;stroke:#87bbec;stroke-width:1.6}.pf-bfill{fill:#87bbec}
+.pf-ring{fill:none;stroke:#ffd76a;stroke-width:3}.pf-back{stroke-dasharray:5 4;opacity:.55}.pf-ifill{fill:#ffd76a}
+.pf-e{fill:none;stroke:#8fd694;stroke-width:2.5;stroke-dasharray:6 3}.pf-efill{fill:#8fd694}
+.pf-v{stroke:#c9ced9;stroke-width:3}.pf-vfill{fill:#c9ced9}.pf-vlab{fill:#c9ced9;font:italic 16px KaTeX_Math,serif}body.light-mode .pf-v{stroke:#5d6b88}body.light-mode .pf-vfill,body.light-mode .pf-vlab{fill:#5d6b88}
+.pf-f{stroke:#5fd39a;stroke-width:3.5}.pf-ffill{fill:#5fd39a}.pf-flab{fill:#5fd39a;font:italic 16px KaTeX_Math,serif}
+.pf-w{stroke:#f0a66a;stroke-width:3.5}.pf-wfill{fill:#f0a66a}.pf-wlab{fill:#f0a66a;font:italic 16px KaTeX_Math,serif}.pf-sub{font:10px KaTeX_Main,serif;font-style:normal}.pf-it{font-style:italic;font-family:KaTeX_Math,serif}.pf-fcol{fill:#5fd39a}.pf-wcol{fill:#f0a66a}.pf-kw{--k:#f0a66a}
+body.light-mode .pf-fcol{fill:#1f8a55}body.light-mode .pf-w{stroke:#c0662a}body.light-mode .pf-wfill,body.light-mode .pf-wlab,body.light-mode .pf-wcol{fill:#c0662a}body.light-mode .pf-kw{--k:#c0662a}
+.pf-sym{fill:#0a1020;stroke:#ffd76a;stroke-width:1.6}.pf-symx{stroke:#ffd76a;stroke-width:1.8}.pf-symdot{fill:#ffd76a}.pf-b2{opacity:.7}
+body.light-mode .pf-sym{fill:#f3f6fa;stroke:#b07d00}body.light-mode .pf-symx{stroke:#b07d00}body.light-mode .pf-symdot{fill:#b07d00}
+.pf-ilab{fill:#ffd76a;font-size:13px;font-weight:700}.pf-small{fill:var(--ink);font-size:12.5px}.pf-strong{font-weight:700}
+
+body.light-mode .pipefig{background:#f3f6fa;border-color:#c6d0db}
+body.light-mode .pf-b{stroke:#2d5f99}body.light-mode .pf-bfill{fill:#2d5f99}
+body.light-mode .pf-ring{stroke:#b07d00}body.light-mode .pf-ifill{fill:#b07d00}body.light-mode .pf-ilab,body.light-mode .pf-ikey{fill:#8a6200}
+body.light-mode .pf-e{stroke:#2d7a37}body.light-mode .pf-efill,body.light-mode .pf-ekey{fill:#2d7a37}
+body.light-mode .pf-f{stroke:#1f8a55}body.light-mode .pf-ffill,body.light-mode .pf-flab,body.light-mode .pf-fkey{fill:#1f8a55}
+.rcnote{margin:2px 0 0;padding:8px 12px;border-left:3px solid var(--topic);background:#0a1020;border-radius:0 6px 6px 0;font-size:14px}
+body.light-mode .rstats>div,body.light-mode .rcnote{background:#f3f6fa;border-color:#c6d0db}body.light-mode .rcnote{border-left-color:var(--topic)}
+.coilbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .nx-bar-inputs{grid-template-columns:repeat(3,minmax(0,1fr))}.phbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}.phbar .control select{width:100%}.lcrbar .nx-bar-inputs{grid-template-columns:repeat(4,minmax(0,1fr))}.lcraddsel{grid-template-columns:repeat(2,minmax(0,1fr))!important}.lcraddsel select{width:100%}@media(max-width:700px){.lcraddsel{grid-template-columns:minmax(0,1fr)!important}}.lcrbar .rstats>div>small{font-size:13.5px;color:#d3dbec;line-height:1.5}.lcrbar .rstats>div>small .katex{font-size:1.12em}body.light-mode .lcrbar .rstats>div>small{color:#2c3848}@media(max-width:700px){.lcrbar .rstats>div>small{font-size:12.5px}.lcrbar .rstats>div>small .katex{font-size:1em}}.phbar .rstats{grid-template-columns:repeat(4,minmax(0,1fr))}.txbar .control select{width:100%}.coilbar .control select{width:100%}
+@media(max-width:1000px){.rstats,.phbar .rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.lcrbar .nx-bar-inputs{grid-template-columns:repeat(2,minmax(0,1fr))!important}.rcbar .nx-bar-inputs,.coilbar .nx-bar-inputs,.txbar .nx-bar-inputs,.phbar .nx-bar-inputs{grid-template-columns:minmax(0,1fr)}.rstats>div>b{white-space:normal;overflow-wrap:anywhere}.rstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cmptab{min-width:520px}.cmptab td{white-space:normal;text-align:left;vertical-align:top;line-height:1.45}.cmptab td:first-child{width:22%}
+.fl-banner{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:6px 0 10px;padding:6px 16px;border:1px solid #39445d;border-left:4px solid var(--topic);border-radius:8px;background:#0c1222}.fl-banner .katex-display{margin:4px 0}.fl-banner>span{font-size:13px;color:var(--muted)}
+body.light-mode .fl-banner{background:#f3f6fa;border-color:#c6d0db;border-left-color:var(--topic)}
+.app-card>.txPreset{margin-top:auto;align-self:flex-start;min-height:34px;padding:6px 12px;font-size:13px}.app-card>h4{margin:0 0 4px;color:var(--topic);font-size:16px}
+/* readout table (1.3) */
+.rtab{width:100%;border-collapse:collapse;font-size:14px}
+.rtab th{text-align:left;font-weight:400;padding:7px 12px 7px 0;vertical-align:middle;white-space:nowrap;width:1%}
+.rtab th>b{display:block;font-size:14px}.rtab th>span{display:block;font-size:12px;color:var(--muted)}
+.rtab td{padding:7px 12px 7px 0;border-left:1px solid var(--line);padding-left:12px;vertical-align:middle}
+.rtab tr+tr th,.rtab tr+tr td{border-top:1px solid var(--line)}
+.rtab .rq{width:1%;white-space:nowrap;padding-right:20px}.rtab .rq .katex{font-size:1.15em}.rtab .rn{font-variant-numeric:tabular-nums;white-space:nowrap}
+.rnote{margin:8px 0 0;font-weight:700;color:var(--topic)}
+@media(max-width:700px){.rtab,.rtab tbody,.rtab tr,.rtab th,.rtab td{display:block;width:auto}.rtab td{border-left:0;padding-left:0}.rtab tr+tr th{border-top:1px solid var(--line)}.rtab tr+tr td{border-top:0}.rtab .rn{white-space:normal}}
+/* applications */
+.app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin:14px 0 6px}
+.app-card{background:#11182b;border:1px solid #39445d;border-top:4px solid var(--topic);border-radius:10px;padding:13px 14px;min-width:0;display:flex;flex-direction:column;gap:2px;transition:border-color .15s,box-shadow .15s}
+.app-card:hover{border-color:var(--topic);box-shadow:0 10px 26px -16px var(--topic)}
+.app-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:4px}
+.app-head b{font-size:16px;color:var(--topic)}
+.app-tag{flex:0 0 auto;font-size:10.5px;font-weight:700;letter-spacing:.03em;padding:2px 8px;border-radius:999px;border:1px solid var(--topic);color:var(--topic);white-space:nowrap}
+.app-card p{margin:5px 0;font-size:14px}
+.app-chain{background:#0a1020;border-left:3px solid var(--topic);padding:7px 9px;border-radius:3px;font-size:13px!important;color:#dfe6f3}
+.app-exam{font-size:13px!important;color:var(--muted)}.app-exam b{color:var(--ink)}
+body.light-mode .app-card{background:#f7f9fc;border-color:#c6d0db;border-top-color:var(--topic);color:#25313f}
+body.light-mode .app-chain{background:#eef3f8;color:#263341}
+@media(max-width:600px){.app-tag{white-space:normal;text-align:right}}
+/* formula sheet */
+.fs-group{margin:16px 0}
+.fs-group>h3{margin:0 0 8px!important}
+.fs-grid{column-width:250px;column-gap:8px}
+.fs-card{break-inside:avoid;margin:0 0 8px;background:#0a1020;border:1px solid #56536d;border-left:4px solid var(--lav);border-radius:5px;padding:9px 12px 10px;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:8px;row-gap:3px}
+.fs-card>*{grid-column:1/-1;margin:0}
+.fs-card h4{grid-column:1;font-size:14px;color:#ffbd8a;align-self:center}
+.fs-card .st{grid-column:2;grid-row:1;align-self:center;font-size:10px;padding:2px 7px;border-radius:3px;border:1px solid;font-weight:700;white-space:nowrap}
+.st.given{color:#b6f1d0;border-color:#477c67;background:rgba(71,124,103,.14)}
+.st.check{color:#f2d16b;border-color:#7d6a2c;background:rgba(242,209,107,.1)}body.light-mode .st.check{color:#6b5200;border-color:#b39a4a;background:#fbf5e0}
+.nx-bigidea.nx-bigidea6{grid-template-columns:repeat(3,minmax(0,1fr))}
+.st.not-given{color:#d8c8ef;border-color:#6c5e83;background:rgba(108,94,131,.15)}
+.fs-card .fl{font-size:18px;text-align:center;padding:4px 0;overflow-x:auto}
+.fs-card p{font-size:12.5px;line-height:1.4;color:var(--muted)}
+.fs-links{display:flex;flex-wrap:wrap;gap:5px;padding-top:6px;border-top:1px dashed var(--line)}
+.fs-link{border:1px solid var(--topic);background:transparent;color:var(--topic);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:700}
+.fs-link:hover,.fs-link:focus-visible{background:var(--topic);color:var(--topic-contrast)}
+/* quizzes */
+.nx-qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.nx-qscore{font-weight:800;color:var(--topic);font-size:18px}
+.nx-q{background:#0c1222;border:1px solid #3d4864;border-radius:8px;padding:14px;margin:12px 0}
+.nx-qtext{font-weight:700;margin:0 0 10px}
+.nx-qnum{display:inline-block;background:var(--topic);color:var(--topic-contrast);border-radius:12px;padding:1px 9px;margin-right:8px;font-size:12px}
+.nx-opts{display:grid;gap:7px}
+.nx-opt{text-align:left;border:1px solid #4a5574;background:#161d33;color:var(--ink);border-radius:6px;padding:10px 12px;min-height:44px}
+.nx-opt:hover:not(:disabled){border-color:var(--topic)}
+.nx-opt.right{background:#173d2c;border-color:#5fd39a}.nx-opt.wrong{background:#43201f;border-color:#ff8a7a}
+.nx-opt:disabled{cursor:default}
+.nx-expl{margin:10px 0 0;padding:10px 12px;border-left:4px solid #5fd39a;background:#0f1a1a;border-radius:4px;font-size:14px}
+.nx-expl.no{border-left-color:#ff8a7a;background:#1d1214}
+.nx-final{padding:14px;border-radius:8px;background:color-mix(in srgb,var(--topic) 15%,#101526);border:1px solid var(--topic);margin-top:12px}
+/* exam problems */
+.exam-question{background:#0c1222;border:1px solid #50526d;border-radius:5px;padding:17px 18px;margin:18px 0}
+.exam-question-header{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:800;letter-spacing:.04em;border-bottom:1px solid var(--topic);padding-bottom:10px;margin-bottom:13px;font-size:13px}
+.exam-question-header>span:first-child{color:var(--topic)}
+.exam-question-header>span:last-child{color:#c2bed4;font-weight:500;letter-spacing:0}
+.exam-question p{font-size:14px;margin:11px 0;line-height:1.58}
+.exam-level{color:#c3b4fa;font-size:11px;font-weight:700;white-space:nowrap}
+.exam-answer{border:1px solid #5f6883;background:#141c30;border-radius:5px;margin-top:16px;padding:0 13px}
+.exam-answer summary{cursor:pointer;min-height:46px;display:flex;align-items:center;font-weight:700;color:#f6c296;padding:10px 0}
+.exam-answer[open] summary{border-bottom:1px solid #454b63;margin-bottom:12px}
+.mini-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+.mini-table th,.mini-table td{border:1px solid #46516b;padding:8px;text-align:left;vertical-align:top}
+.mini-table th{background:#1d2740}
+.table-wrap{overflow-x:auto}
+.footer{border-top:9px solid var(--topic);margin-top:17px;padding:12px;text-align:right;color:var(--muted);font-size:11px;letter-spacing:.12em}
+.footer a{color:#ffd1a6;text-decoration:none;border-bottom:1px solid currentColor}
+a:hover{text-decoration:none}
+/* ---- light mode ---- */
+body.light-mode{color-scheme:light;--bg:#eef2f7;--panel:#fff;--ink:#1b2430;--muted:#536274;--line:#c6d0db;background:#eef2f7;color:#17212c}
+body.light-mode[data-topic="map"]{--topic:#7a5c00;--topic-contrast:#fff}
+body.light-mode .topcurve,body.light-mode .rail .fill{filter:none}
+body.light-mode .eyebrow{color:#315c99}body.light-mode .index{color:#7d430f}
+body.light-mode .theme-label-light{color:#17212c}
+body.light-mode .rail button.active{outline-color:#1d1b2b}
+body.light-mode .tabs button{background:#d7dee8;color:#24303d;border:1px solid #b7c1cd}
+body.light-mode .tabs button.active{background:var(--topic);color:#fff;border-color:var(--topic)}
+body.light-mode .pane{background:#fff;border-color:#c6d0db}
+body.light-mode .intro-step{background:#f5f8fc}
+body.light-mode .intro-step summary,body.light-mode[data-topic] .intro-step summary{color:var(--topic)}
+body.light-mode .note,body.light-mode .intro-step-body{color:#273442}
+body.light-mode .section-identity{background:linear-gradient(90deg,color-mix(in srgb,var(--topic) 14%,#fff),#fff)}
+body.light-mode .section-identity p{color:#354354}
+body.light-mode .readout{background:#eef3f8;color:#263341}
+body.light-mode .nx-ctlbar,body.light-mode .nx-facts div,body.light-mode .nx-idea,body.light-mode .nx-progress-wrap,body.light-mode .nx-group,body.light-mode .nx-card,body.light-mode .nx-q,body.light-mode .exam-question,body.light-mode .exam-answer,body.light-mode .fs-card,body.light-mode .chain>span{background:#f7f9fc;border-color:#c6d0db;color:#25313f}
+body.light-mode .nx-ctlbar{border-top-color:var(--topic)}
+body.light-mode .nx-item{border-top-color:#dde3ea}
+body.light-mode .nx-rate button,body.light-mode .nx-opt{background:#fff;color:#1b2430;border-color:#aab6c4}
+body.light-mode .nx-opt.right{background:#dcf5e8;border-color:#2c9a63}body.light-mode .nx-opt.wrong{background:#fde2df;border-color:#c0392b}
+body.light-mode .nx-expl{background:#eefaf3}body.light-mode .nx-expl.no{background:#fdf0ee}
+body.light-mode .nx-trap{background:#fff3f1;border-color:#e5b4ad}body.light-mode .nx-trap b{color:#a3281a}
+body.light-mode .nx-idea b,body.light-mode .nx-group h3{filter:brightness(.55) saturate(1.4)}
+body.light-mode .nx-bar{background:#dde3ea}
+body.light-mode .fs-card{border-left-color:#765c9f}body.light-mode .fs-card h4{color:#7d430f}
+body.light-mode .st.given{color:#17633e;border-color:#579273;background:#e7f4ec}
+body.light-mode .st.not-given{color:#62457f;border-color:#9a84b1;background:#f0ebf5}
+body.light-mode math,body.light-mode .math-expr,body.light-mode .math-var,body.light-mode .formula,body.light-mode .fl{color:#214f88}
+body.light-mode select,body.light-mode .site-search input{background:#fff;color:#17212c;border-color:#7f8fa1}
+body.light-mode .search-results{background:#fff;border-color:#aeb9c6}
+body.light-mode .search-hit{color:#17212c;border-color:#dde3ea}body.light-mode .search-hit strong{color:#8a4e18}body.light-mode .search-meta{color:#536274}
+body.light-mode .tool-btn{background:#765c9f;color:#fff}
+body.light-mode .tool-btn.secondary{background:#dce3ec;color:#17212c;border:1px solid #8e9bac}
+body.light-mode .exam-answer summary{color:#7d430f}
+body.light-mode .exam-level{color:#68409a}
+body.light-mode .mini-table th{background:#dfe6ee;color:#17212c}body.light-mode .mini-table th,body.light-mode .mini-table td{border-color:#b9c5d2}
+body.light-mode .footer a{color:#7d430f}
+body.light-mode .concept-visual{background:#0c1323}
+body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-mode input:focus-visible,body.light-mode select:focus-visible{outline-color:#17212c}
+/* ---- responsive ---- */
+@media(max-width:1000px){.nx-bigidea{grid-template-columns:repeat(2,minmax(0,1fr))}.nx-traps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.nx-ctlbar{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){.nx-grid2,.nx-grid3,.nx-facts,.nx-traps,.nx-bigidea{grid-template-columns:minmax(0,1fr)}.nx-item{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){
+  .shell{padding:10px}.topcurve{width:26px;border-radius:20px 0 0 0}.titlebar{border-top-width:10px;align-items:flex-start}.index{display:none}
+  .frame{grid-template-columns:1fr}.rail{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+  .rail button{min-height:48px;border-radius:5px;text-align:center;padding:6px 3px;font-size:10px}.rail .fill{display:none}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}.tabs button{flex:0 0 auto;min-width:0;font-size:11px;padding:12px 10px;white-space:nowrap}
+  .pane{padding:13px}.hdr-tools{margin:4px 0 0 0}
+  .control input[type=range]{min-height:28px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ---- topic colours for this page ---- */
+.rail button[data-tab="map"]{background:#f2d16b}
+.rail button[data-tab="photo"]{background:#78d9f7}
+body[data-topic="photo"]{--topic:#78d9f7;--topic-contrast:#071724}
+body[data-topic="photo"] .intro-step summary{color:#9fe6ff}
+body.light-mode[data-topic="photo"]{--topic:#006987;--topic-contrast:#fff}
+.rail button[data-tab="nuc"]{background:#ff8a7a}
+body[data-topic="nuc"]{--topic:#ff8a7a;--topic-contrast:#240905}
+body[data-topic="nuc"] .intro-step summary{color:#ffb8ad}
+body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
+
+</style></head>
+<body data-topic="map"><div class="shell">
+<header class="topbar"><div class="topcurve" aria-hidden="true"></div><div class="titlebar"><div><div class="eyebrow">Science learning systems · Physics level 3</div><h1 id="topicTitle">COURSE MAP</h1></div><div><div class="index">AS91525 · 3 CREDITS<br/>INTERNAL<br/>INTERACTIVE LAB</div><div class="hdr-tools"><a class="home-btn" href="../index.html"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg><span>Home</span></a><div aria-label="Page colour theme" class="theme-switch-wrap"><span class="theme-label-dark">Dark</span><label class="theme-switch" title="Switch between dark and light mode"><input aria-label="Use light mode" id="themeToggle" type="checkbox"/><span class="theme-slider"></span></label><span class="theme-label-light">Light</span></div></div></div></div></header>
+<div class="frame"><nav aria-label="Modern Physics sections" class="rail">
+<button data-tab="map" type="button">00<br/>COURSE<br/>MAP</button>
+<button data-tab="photo" type="button">01<br/>PHOTONS &amp;<br/>ATOMS</button>
+<button data-tab="nuc" type="button">02<br/>NUCLEAR<br/>REACTIONS</button>
+<div class="fill"></div></nav>
+<main class="work">
+<div aria-label="Activities within selected topic" class="tabs" id="activityTabs" role="tablist"></div>
+<div aria-label="Site tools" class="site-tools">
+<div class="site-search"><input aria-label="Search this lab" autocomplete="off" id="siteSearch" placeholder="Search modern physics content…" type="search"/><button class="tool-btn" id="siteSearchBtn" type="button">Search</button></div>
+<div aria-live="polite" class="search-results" id="searchResults"></div>
+</div>
+
+<!-- ===================== 00 · COURSE MAP ===================== -->
+<section class="pane hidden" data-section="map" data-view="scope">
+<h2>Course map · AS91525 Modern physics</h2>
+<p class="sub">This lab covers <strong>AS91525 Demonstrate understanding of modern physics</strong>. The two sections follow chapters 11 and 12 of the ESA Level 3 Physics study guide: the photoelectric effect and atomic energy levels, then nuclear reactions. Rate yourself on each "I can…" statement, then use <strong>Go</strong> to jump to the part of the lab that teaches it. Your ratings are saved on this device.</p>
+<div class="nx-facts">
+<div><span>Standard</span><strong>AS91525 · Physics 3.5</strong></div>
+<div><span>Credits</span><strong>3 · internal</strong></div>
+<div><span>Sections</span><strong>Photons &amp; atoms · nuclear reactions</strong></div>
+<div><span>Big equation</span><strong>\(E = hf\) and \(\Delta E = \Delta mc^{2}\)</strong></div>
+</div>
+<h3 class="nx-h3">The big ideas</h3>
+<p class="note">Modern physics starts where classical physics breaks down. <strong>Energy comes in packets</strong>: light arrives as photons of energy \(hf\), and electrons in atoms can only have certain energies. <strong>Mass is a form of energy</strong>: when a nucleus becomes more tightly bound, a little mass disappears and an enormous amount of energy appears, \(\Delta E = \Delta mc^{2}\). Both ideas are tested with careful unit conversions: eV ↔ J, u ↔ kg ↔ MeV, nm ↔ m.</p>
+<div class="nx-bigidea" role="list">
+<button class="nx-idea" data-go="photo:pe" role="listitem" style="--c:#78d9f7" type="button"><b>Photoelectric effect</b><span>One photon, one electron: \(E_{k} = hf - \phi\)</span></button>
+<button class="nx-idea" data-go="photo:levels" role="listitem" style="--c:#9fe6ff" type="button"><b>Energy levels</b><span>Line spectra: each photon matches a jump, \(\Delta E = hf\)</span></button>
+<button class="nx-idea" data-go="nuc:binding" role="listitem" style="--c:#ff8a7a" type="button"><b>Binding energy</b><span>Mass defect: \(\Delta E = \Delta mc^{2}\); iron is the most stable</span></button>
+<button class="nx-idea" data-go="nuc:react" role="listitem" style="--c:#ffb8ad" type="button"><b>Fission &amp; fusion</b><span>Both move towards the peak of the binding energy curve</span></button>
+</div>
+<div class="nx-progress-wrap">
+<div class="nx-progress-head"><h3 class="nx-h3" style="margin:0!important">Your progress</h3><span aria-live="polite" id="nxScopeSummary"></span></div>
+<div aria-hidden="true" class="nx-bar"><span class="nx-bar-c" id="nxBarC"></span><span class="nx-bar-g" id="nxBarG"></span></div>
+<p class="small">Key: <span class="nx-key nx-k0">Not yet</span> <span class="nx-key nx-k1">Getting there</span> <span class="nx-key nx-k2">Confident</span>
+<button class="tool-btn secondary" id="nxScopeReset" style="min-height:32px;padding:5px 10px;font-size:12px;margin-left:8px" type="button">Clear my ratings</button></p>
+</div>
+<div class="nx-scope" id="nxScopeList"></div>
+<h3 class="nx-h3">Suggested route through the lab</h3>
+<ol class="nx-route">
+<li><b>01 The photoelectric effect and atomic energy levels</b> (ESA chapter 11) · 1.1 → 1.2 → 1.3, then check yourself in 1.4</li>
+<li><b>02 Nuclear reactions</b> (ESA chapter 12) · 2.1 → 2.2 → 2.3, then 2.4</li>
+<li><b>Applications</b> · the last tab in each section shows where the ideas are used. Assessment tasks are often set in contexts like these.</li>
+<li><b>Assessment practice</b> · 0.2 Assessment Skills, then the Problems tab in each section. Keep 0.3 Formula Sheet open beside you.</li>
+</ol>
+</section>
+
+<section class="pane hidden" data-section="map" data-view="skills">
+<h2>Assessment skills · writing modern physics answers</h2>
+<p class="sub">AS91525 is internally assessed, so your teacher sets the task and the conditions. The criteria are the same as for the other Level 3 physics standards: <em>demonstrate understanding</em> (Achievement), <em>in-depth understanding</em> (Merit) and <em>comprehensive understanding</em> (Excellence).</p>
+<div class="nx-grid3">
+<div class="nx-card nx-a"><h3>Achievement</h3><p>Describe the observations and models; one-step calculations such as the energy of a photon, a threshold frequency, the energy of a level or the energy from a mass defect.</p></div>
+<div class="nx-card nx-m"><h3>Merit</h3><p>Explain <em>why</em>: why the photoelectric effect needs photons, why spectra are lines, why energy is released. Multi-step calculations with unit conversions (eV ↔ J, u ↔ MeV).</p></div>
+<div class="nx-card nx-e"><h3>Excellence</h3><p>Comprehensive, linked explanations that bring several ideas together, for example the binding energy curve, mass defect and \(\Delta E = \Delta mc^{2}\) to explain why both fission and fusion release energy, supported by correct calculations.</p></div>
+</div>
+<h3 class="nx-h3">A structure for "explain" questions</h3>
+<div class="nx-steps">
+<div><span>1</span><b>Name the model</b><p>Photon model of light, Bohr model, mass–energy equivalence, binding energy…</p></div>
+<div><span>2</span><b>Apply it to this situation</b><p>"Each photon of UV light has energy \(hf\) = 4.1 eV…"</p></div>
+<div><span>3</span><b>Link with physics words or an equation</b><p>"…which is more than the work function of zinc (3.6 eV), so one photon gives one electron enough energy to escape."</p></div>
+<div><span>4</span><b>Answer the question asked</b><p>"So UV light ejects electrons from zinc, but red light does not, however bright it is."</p></div>
+</div>
+<p class="note">Three chains cover most explanations:</p>
+<div class="chain" aria-label="Photoelectric chain"><span>Light is photons, \(E = hf\)</span><i>→</i><span>one photon gives all its energy to one electron</span><i>→</i><span>escapes only if \(hf \ge \phi\)</span><i>→</i><span>leftover energy is \(E_{k(\text{max})} = hf - \phi\)</span></div>
+<div class="chain" aria-label="Spectra chain"><span>Electrons have fixed energy levels</span><i>→</i><span>a jump changes the energy by a fixed \(\Delta E\)</span><i>→</i><span>photon with \(hf = \Delta E\)</span><i>→</i><span>only certain wavelengths: a line spectrum</span></div>
+<div class="chain" aria-label="Nuclear chain"><span>Products have more binding energy per nucleon</span><i>→</i><span>more tightly bound</span><i>→</i><span>total mass is less (mass defect)</span><i>→</i><span>energy released, \(\Delta E = \Delta mc^{2}\)</span></div>
+<h3 class="nx-h3">The CEO framework for calculations</h3>
+<div class="nx-steps nx-steps3 nx-ceo">
+<div><span>C</span><b>Conceptualise</b><p>Which model? Photon energy, Einstein's photoelectric equation, Bohr levels, Rydberg, mass defect? List knowns with units.</p></div>
+<div><span>E</span><b>Execute</b><p>Convert first: nm → m, eV → J (× 1.60 × 10⁻¹⁹), u → kg (× 1.661 × 10⁻²⁷) or u → MeV (× 931.5). Rearrange, then substitute.</p></div>
+<div><span>O</span><b>Outcomes</b><p>Visible photons are about 2–3 eV; work functions 2–5 eV; hydrogen levels −13.6 eV and above; one fission releases about 200 MeV, one fusion about 20 MeV.</p></div>
+</div>
+<details class="nx-worked"><summary>CEO worked example · photoelectric effect</summary>
+<p><b>Question:</b> Ultraviolet light of wavelength 250 nm falls on zinc, which has a work function of 4.3 eV. Calculate the maximum kinetic energy of the ejected electrons, in joules, and the stopping voltage.</p>
+<p><b>C · Conceptualise:</b> one photon gives its energy to one electron; \(\phi\) of it is needed to escape and the rest is kinetic energy: \(E_{k(\text{max})} = hf - \phi\). Knowns: \(\lambda = 250 \times 10^{-9}\) m, \(\phi = 4.3 \times 1.60 \times 10^{-19} = 6.88 \times 10^{-19}\) J.</p>
+<p><b>E · Execute:</b> \(E = hc/\lambda = 6.63 \times 10^{-34} \times 3.00 \times 10^{8}/250 \times 10^{-9} = 7.96 \times 10^{-19}\) J. \(E_{k(\text{max})} = 7.96 \times 10^{-19} - 6.88 \times 10^{-19}\) = <b>1.1 × 10⁻¹⁹ J</b>. \(V_{s} = E_{k}/e = 1.08 \times 10^{-19}/1.60 \times 10^{-19}\) = <b>0.68 V</b>.</p>
+<p><b>O · Outcomes:</b> J and V ✓. The photon energy (4.97 eV) is just above the work function, so a small \(E_{k}\) is sensible ✓. Check in eV: 4.97 − 4.3 = 0.67 eV ✓.</p>
+</details>
+<details class="nx-worked"><summary>CEO worked example · mass defect</summary>
+<p><b>Question:</b> Calculate the energy released, in MeV and in joules, when a deuterium nucleus (2.014102 u) fuses with a tritium nucleus (3.016049 u) to form helium-4 (4.002603 u) and a neutron (1.008665 u). (Atomic masses.)</p>
+<p><b>C · Conceptualise:</b> the products are more tightly bound, so their total mass is less. The missing mass is released as energy, \(\Delta E = \Delta mc^{2}\).</p>
+<p><b>E · Execute:</b> mass before = 5.030151 u; after = 5.011268 u; \(\Delta m\) = 0.018883 u. \(\Delta E = 0.018883 \times 931.5\) = <b>17.6 MeV</b>. In joules: \(0.018883 \times 1.661 \times 10^{-27} \times (3.00 \times 10^{8})^{2}\) = <b>2.82 × 10⁻¹² J</b>.</p>
+<p><b>O · Outcomes:</b> about 20 MeV, typical for fusion ✓. Keep all six decimal places in the masses: the difference is in the third decimal place, so rounding the masses early destroys the answer.</p>
+</details>
+<h3 class="nx-h3">Common traps</h3>
+<div class="nx-traps">
+<div class="nx-trap" data-go="photo:pe"><b>Intensity vs frequency</b>Brighter light means more photons per second: more electrons, more current. It does <em>not</em> change the energy of each photon or the maximum kinetic energy.</div>
+<div class="nx-trap" data-go="photo:intro"><b>eV and J</b>1 eV = 1.60 × 10⁻¹⁹ J. Work functions and levels are often given in eV; \(h\) is in J s. Convert before you substitute.</div>
+<div class="nx-trap" data-go="photo:pe"><b>"Maximum" kinetic energy</b>Electrons from deeper in the metal lose energy on the way out. \(hf - \phi\) is the <em>maximum</em> kinetic energy.</div>
+<div class="nx-trap" data-go="photo:levels"><b>S and L in Rydberg</b>\(S\) is the lower (final for emission) level and \(L\) the higher. Swapping them gives a negative wavelength.</div>
+<div class="nx-trap" data-go="photo:levels"><b>Negative energies</b>Level energies are negative; the photon energy is the <em>difference</em>, always positive. Ionisation from the ground state needs 13.6 eV.</div>
+<div class="nx-trap" data-go="nuc:binding"><b>Binding energy is not "stored"</b>Binding energy is the energy you must <em>supply</em> to pull a nucleus apart. More binding energy per nucleon = more stable, not more energy to release.</div>
+<div class="nx-trap" data-go="nuc:react"><b>Rounding masses early</b>Mass defects are tiny differences between big numbers. Keep every decimal place until the end.</div>
+<div class="nx-trap" data-go="nuc:react"><b>Balancing equations</b>Check both the top numbers (nucleons) and the bottom numbers (charge), and count the neutrons released in fission.</div>
+<div class="nx-trap" data-go="nuc:intro"><b>Fission vs fusion</b>Fission splits heavy nuclei (right of iron); fusion joins light nuclei (left of iron). Both move towards iron.</div>
+</div>
+<h3 class="nx-h3">Significant figures and units</h3>
+<ul class="nx-list">
+<li>nm → × 10⁻⁹ m; MeV → × 1.60 × 10⁻¹³ J; 1 u = 1.661 × 10⁻²⁷ kg = 931.5 MeV.</li>
+<li>Give the final answer to the same number of significant figures as the data, with a unit. In mass-defect questions, keep all the decimal places of the masses.</li>
+<li>Always show the equation, then the substitution, then the answer with a unit.</li>
+</ul>
+<p class="small">Standard: <a class="src" href="https://www.nzqa.govt.nz/ncea/assessment/view-detailed.do?standardNumber=91525" rel="noopener" target="_blank">NZQA AS91525</a>. Check the formulae and constants your school's assessment provides.</p>
+</section>
+
+<section class="pane hidden" data-section="map" data-view="formulas">
+<h2>Formula sheet · modern physics</h2>
+<p class="sub"><strong>Check sheet</strong>: usually provided for AS91525, but confirm with your teacher's assessment resource. <strong>Not given</strong>: you need to know or derive it. Use the buttons to jump to where each is taught.</p>
+<div class="fs-group"><h3 style="color:#78d9f7">Photons and the photoelectric effect</h3><div class="fs-grid">
+<div class="fs-card"><h4>Photon energy</h4><span class="st check">Check sheet</span><div class="fl">\[E=hf\]\[c=f\lambda\]</div><p>\(h = 6.63 \times 10^{-34}\) J s; \(c = 3.00 \times 10^{8}\) m s⁻¹. So \(E = hc/\lambda\).</p><div class="fs-links"><button class="fs-link" data-go="photo:intro" type="button">1.1</button></div></div>
+<div class="fs-card"><h4>Einstein's photoelectric equation</h4><span class="st check">Check sheet</span><div class="fl">\[E_k=hf-\phi\]</div><p>\(E_{k}\) is the <em>maximum</em> kinetic energy. Threshold: \(f_{0} = \phi /h\).</p><div class="fs-links"><button class="fs-link" data-go="photo:intro" type="button">1.1</button><button class="fs-link" data-go="photo:pe" type="button">1.2</button></div></div>
+<div class="fs-card"><h4>Stopping voltage</h4><span class="st not-given">Not given</span><div class="fl">\[E_{k(\text{max})}=eV_s\]</div><p>\(e = 1.60 \times 10^{-19}\) C. Work done by the field stops the fastest electrons.</p><div class="fs-links"><button class="fs-link" data-go="photo:pe" type="button">1.2</button></div></div>
+<div class="fs-card"><h4>Electronvolt</h4><span class="st not-given">Not given</span><div class="fl">\[1\ \text{eV}=1.60\times10^{-19}\ \text{J}\]</div><p>The energy an electron gains moving through 1 V.</p><div class="fs-links"><button class="fs-link" data-go="photo:intro" type="button">1.1</button></div></div>
+</div></div>
+<div class="fs-group"><h3 style="color:#9fe6ff">Atomic energy levels</h3><div class="fs-grid">
+<div class="fs-card"><h4>Hydrogen energy levels</h4><span class="st check">Check sheet</span><div class="fl">\[E_n=-\dfrac{hcR}{n^2}\]</div><p>\(hcR = 2.18 \times 10^{-18}\) J = 13.6 eV. \(n\) = 1 is the ground state.</p><div class="fs-links"><button class="fs-link" data-go="photo:levels" type="button">1.3</button></div></div>
+<div class="fs-card"><h4>Rydberg formula</h4><span class="st check">Check sheet</span><div class="fl">\[\dfrac{1}{\lambda}=R\left(\dfrac{1}{S^2}-\dfrac{1}{L^2}\right)\]</div><p>\(R = 1.097 \times 10^{7}\) m⁻¹. \(S\) = lower level, \(L\) = higher level.</p><div class="fs-links"><button class="fs-link" data-go="photo:levels" type="button">1.3</button></div></div>
+<div class="fs-card"><h4>Transitions</h4><span class="st not-given">Not given</span><div class="fl">\[\Delta E=hf=E_L-E_S\]</div><p>Emission: down a level, photon out. Absorption: up a level, photon in (exact energy only).</p><div class="fs-links"><button class="fs-link" data-go="photo:levels" type="button">1.3</button></div></div>
+</div></div>
+<div class="fs-group"><h3 style="color:#ff8a7a">Nuclear reactions</h3><div class="fs-grid">
+<div class="fs-card"><h4>Mass–energy equivalence</h4><span class="st check">Check sheet</span><div class="fl">\[\Delta E=\Delta m\,c^2\]</div><p>\(\Delta m\) in kg gives \(\Delta E\) in J.</p><div class="fs-links"><button class="fs-link" data-go="nuc:binding" type="button">2.2</button><button class="fs-link" data-go="nuc:react" type="button">2.3</button></div></div>
+<div class="fs-card"><h4>Atomic mass unit</h4><span class="st check">Check sheet</span><div class="fl">\[1\ \text{u}=1.661\times10^{-27}\ \text{kg}\]\[1\ \text{u}\equiv931.5\ \text{MeV}\]</div><p>1 MeV = 1.60 × 10⁻¹³ J.</p><div class="fs-links"><button class="fs-link" data-go="nuc:react" type="button">2.3</button></div></div>
+<div class="fs-card"><h4>Mass defect</h4><span class="st not-given">Not given</span><div class="fl">\[\Delta m=Zm_p+Nm_n-m_{\text{nucleus}}\]</div><p>Binding energy = \(\Delta mc^{2}\). Binding energy per nucleon = binding energy ÷ \(A\).</p><div class="fs-links"><button class="fs-link" data-go="nuc:binding" type="button">2.2</button></div></div>
+<div class="fs-card"><h4>Conservation in reactions</h4><span class="st not-given">Not given</span><div class="fl">\[\Sigma A,\ \Sigma Z\ \text{conserved}\]</div><p>Also mass–energy and momentum. \(m_{p}\) = 1.00728 u, \(m_{n}\) = 1.00867 u.</p><div class="fs-links"><button class="fs-link" data-go="nuc:react" type="button">2.3</button></div></div>
+</div></div>
+<p class="small">Constants used on this page: \(h = 6.63 \times 10^{-34}\) J s, \(c = 3.00 \times 10^{8}\) m s⁻¹, \(e = 1.60 \times 10^{-19}\) C, \(R = 1.097 \times 10^{7}\) m⁻¹, 1 u = 1.661 × 10⁻²⁷ kg. Always use the values your assessment supplies.</p>
+</section>
+
+<!-- ===================== 01 · PHOTOELECTRIC EFFECT & ATOMIC ENERGY LEVELS (ESA ch. 11) ===================== -->
+<section class="pane hidden" data-section="photo" data-view="intro">
+<div class="section-identity"><strong>01 · The photoelectric effect and atomic energy levels</strong><p>Light behaves as particles called photons, and electrons in atoms have only certain energies.</p></div>
+<h2>Photons, electrons and energy levels</h2>
+<p class="sub">Six ideas. 1.1.2 and 1.1.3 explain the photoelectric effect; 1.1.4 to 1.1.6 explain line spectra.</p>
+<div class="intro-steps">
+<details class="intro-step" open><summary>1.1.1 · Photons</summary><div class="intro-step-body">
+<p>Light spreads out like a wave (it diffracts and interferes), but it delivers its energy in packets called <strong>photons</strong>. Each photon carries energy:</p>
+<div class="formula">\[E=hf=\dfrac{hc}{\lambda}\]</div>
+<ul><li>\(h = 6.63 \times 10^{-34}\) J s is Planck's constant.</li>
+<li>Higher frequency (shorter wavelength) means more energy per photon: a UV photon carries more energy than a red one.</li>
+<li>Photon energies are tiny, so we often use the <strong>electronvolt</strong>: 1 eV = 1.60 × 10⁻¹⁹ J. Visible photons are about 1.8 eV (red) to 3.1 eV (violet).</li>
+<li>Brighter light of the same colour means <em>more</em> photons per second, not more energetic ones.</li></ul>
+</div></details>
+<details class="intro-step"><summary>1.1.2 · The photoelectric effect</summary><div class="intro-step-body">
+<p>Light shining on a clean metal surface can knock electrons out of it. Experiments show:</p>
+<ul><li>No electrons are emitted below a <strong>threshold frequency</strong> \(f_{0}\), however bright the light.</li>
+<li>Above \(f_{0}\), electrons are emitted <strong>instantly</strong>, even with very dim light.</li>
+<li>The <strong>maximum kinetic energy</strong> of the electrons depends on the frequency, not the intensity.</li>
+<li>The <strong>number</strong> of electrons per second (the current) is proportional to the intensity.</li></ul>
+<p>The wave model predicts the opposite: any frequency should work if the light is bright enough, dim light should need time to build up energy, and brighter light should give faster electrons. The photon model explains every observation.</p>
+</div></details>
+<details class="intro-step"><summary>1.1.3 · Einstein's photoelectric equation</summary><div class="intro-step-body">
+<p>One photon gives all its energy to one electron. The electron needs a minimum energy, the <strong>work function \(\phi\)</strong>, to escape the metal. Whatever is left over becomes kinetic energy:</p>
+<div class="formula">\[hf=\phi+E_{k(\text{max})}\qquad E_{k(\text{max})}=hf-\phi\]</div>
+<ul><li>Threshold frequency: \(hf_{0} = \phi\), so \(f_{0} = \phi /h\) and threshold wavelength \(\lambda_{0} = hc/\phi\).</li>
+<li>A reverse voltage can stop even the fastest electrons. The <strong>stopping voltage</strong> \(V_{s}\) satisfies \(eV_{s} = E_{k(\text{max})}\).</li>
+<li>A graph of \(E_{k(\text{max})}\) against \(f\) is a straight line: gradient \(h\), \(x\)-intercept \(f_{0}\), \(y\)-intercept −\(\phi\). Its gradient is the same for every metal.</li></ul>
+</div></details>
+<details class="intro-step"><summary>1.1.4 · Line spectra</summary><div class="intro-step-body">
+<p>A hot, low-pressure gas gives out light at only certain wavelengths: an <strong>emission line spectrum</strong>. White light passed through a cool gas has dark lines at exactly the same wavelengths: an <strong>absorption spectrum</strong>.</p>
+<p>Every element has its own pattern of lines, like a fingerprint. That is how we know what distant stars are made of. Lines mean the atoms can only give out or take in certain fixed amounts of energy.</p>
+</div></details>
+<details class="intro-step"><summary>1.1.5 · The Bohr model and energy levels</summary><div class="intro-step-body">
+<p>Bohr proposed that the electron in a hydrogen atom can only occupy certain orbits, each with a fixed energy:</p>
+<div class="formula">\[E_n=-\dfrac{hcR}{n^2}=-\dfrac{13.6\ \text{eV}}{n^2}\]</div>
+<ul><li>\(n\) = 1 is the <strong>ground state</strong> (−13.6 eV); higher \(n\) are <strong>excited states</strong>.</li>
+<li>Energies are negative because zero is the energy of a free electron. Removing the electron from the ground state (<strong>ionisation</strong>) needs 13.6 eV.</li>
+<li>When the electron drops from a higher level to a lower one, it emits a single photon with \(hf = E_{L} - E_{S}\). To move up, it must absorb a photon of exactly that energy (or get it in a collision).</li>
+<li><strong>Limitations:</strong> the Bohr model only works for hydrogen (one electron), cannot explain the different brightness of lines, and does not explain <em>why</em> the orbits are allowed. It was replaced by quantum mechanics.</li></ul>
+</div></details>
+<details class="intro-step"><summary>1.1.6 · The Rydberg formula and spectral series</summary><div class="intro-step-body">
+<div class="formula">\[\dfrac{1}{\lambda}=R\left(\dfrac{1}{S^2}-\dfrac{1}{L^2}\right)\qquad R=1.097\times10^{7}\ \text{m}^{-1}\]</div>
+<p>\(S\) is the lower level and \(L\) the higher one. All the lines that end on the same lower level form a series:</p>
+<ul><li><strong>Lyman</strong> (\(S\) = 1): ultraviolet, 91–122 nm.</li>
+<li><strong>Balmer</strong> (\(S\) = 2): visible and near-UV, 365–656 nm. The red line is 3 → 2.</li>
+<li><strong>Paschen</strong> (\(S\) = 3): infrared, 820–1875 nm.</li></ul>
+<p>Lines in a series crowd together towards a <strong>series limit</strong>, the line for an electron falling from \(L = \infty\). Try it in 1.3.</p>
+</div></details>
+</div>
+</section>
+
+<section class="pane hidden" data-section="photo" data-view="pe">
+<div class="section-identity"><strong>1.2 · Photoelectric lab</strong><p>Shine light on a metal and measure the electrons that come out.</p></div>
+<h2>Photoelectric lab</h2>
+<p class="sub">Light falls on the metal plate (left) in a vacuum tube. Choose the metal, the wavelength and the brightness. The voltage slider sets the potential of the collector (right): a negative voltage repels the electrons. Find the <strong>stopping voltage</strong> where the current just falls to zero, then press <strong>Record point</strong> and build a graph of \(E_{k(\text{max})}\) against frequency.</p>
+<div class="nx-lab">
+<div class="sim"><canvas id="peCanvas" aria-label="Vacuum photocell with light falling on a metal plate, electrons travelling to the collector, a voltmeter and ammeter, and a graph of maximum kinetic energy against frequency"></canvas></div>
+<div class="legend"><span style="--key:#78d9f7">Photoelectrons</span><span style="--key:#ffd76a">Recorded points</span><span style="--key:#ff8a7a">Best-fit line</span></div>
+<div class="nx-ctlbar">
+<div class="nx-bar-inputs">
+<h3>Controls</h3>
+<div class="control"><label for="peMetal">Metal (work function)</label><select id="peMetal"><option value="2.1">Caesium (2.1 eV)</option><option value="2.3">Potassium (2.3 eV)</option><option value="2.28" selected>Sodium (2.28 eV)</option><option value="2.9">Calcium (2.9 eV)</option><option value="4.3">Zinc (4.3 eV)</option><option value="4.7">Copper (4.7 eV)</option></select></div>
+<div class="control"><label for="peLam">Wavelength, \(\lambda\) <output id="peLamOut">400 nm</output></label><input id="peLam" max="700" min="150" step="5" type="range" value="400"/></div>
+<div class="control"><label for="peInt">Brightness (intensity) <output id="peIntOut">60%</output></label><input id="peInt" max="100" min="0" step="5" type="range" value="60"/></div>
+<div class="control"><label for="peV">Collector voltage, \(V\) <output id="peVOut">0.00 V</output></label><input id="peV" max="3" min="-5" step="0.02" type="range" value="0"/></div>
+<div class="btn-row"><button class="tool-btn" id="peRec" type="button">Record point</button><button class="tool-btn secondary" id="peAuto" type="button">Find stopping voltage</button><button class="tool-btn secondary" id="peClear" type="button">Clear graph</button></div>
+</div>
+<div class="nx-bar-info"><div class="readout" id="peReadout">…</div><div class="readout" id="peFit" style="border-left-color:#ffd76a">…</div></div>
+</div>
+</div>
+<h3>Look for these ideas</h3>
+<ul class="nx-list">
+<li><strong>Threshold:</strong> make the wavelength longer until the electrons stop. Now turn the brightness to 100%: still nothing. Each photon has too little energy.</li>
+<li><strong>Intensity:</strong> above the threshold, brightness changes the current (how many electrons) but not the stopping voltage (how fast the fastest ones are).</li>
+<li><strong>Frequency:</strong> shorter wavelength (higher frequency) means a larger stopping voltage, because \(eV_{s} = hf - \phi\).</li>
+<li><strong>The graph:</strong> record points at several wavelengths. The gradient is Planck's constant, whatever the metal. Change the metal and the line shifts sideways: a different threshold frequency, the same gradient.</li>
+<li>The electrons leave with a range of speeds, because some lose energy getting out of the metal. Only the fastest have \(E_{k} = hf - \phi\).</li>
+</ul>
+</section>
+
+<section class="pane hidden" data-section="photo" data-view="levels">
+<div class="section-identity"><strong>1.3 · Energy levels</strong><p>Make the hydrogen electron jump between levels and build its spectrum.</p></div>
+<h2>Hydrogen energy level lab</h2>
+<p class="sub">The electron starts in the ground state. <strong>Click a level</strong> on the diagram (or use the menus) to make it jump there. Jumping down emits a photon; jumping up needs a photon of exactly the right energy to be absorbed. Each line is added to the spectrum below. Use <strong>Absorption</strong> mode to see dark lines on a rainbow instead.</p>
+<div class="nx-lab">
+<div class="sim"><canvas id="lvCanvas" aria-label="Hydrogen energy level diagram with the electron's current level and photon arrows, above a spectrum strip from ultraviolet to infrared" tabindex="0"></canvas></div>
+<div class="legend"><span style="--key:#ff8a7a">Lyman (to n = 1)</span><span style="--key:#ffd76a">Balmer (to n = 2)</span><span style="--key:#c5a2ff">Paschen (to n = 3)</span></div>
+<div class="nx-ctlbar">
+<div class="nx-bar-inputs">
+<h3>Controls</h3>
+<div class="control"><label for="lvMode">Spectrum</label><select id="lvMode"><option value="em">Emission (bright lines)</option><option value="ab">Absorption (dark lines)</option></select></div>
+<div class="control"><label for="lvTo">Jump to level</label><select id="lvTo"><option value="1">n = 1</option><option value="2">n = 2</option><option value="3">n = 3</option><option value="4">n = 4</option><option value="5">n = 5</option><option value="6">n = 6</option><option value="99">n = ∞ (ionise)</option></select></div>
+<div class="btn-row"><button class="tool-btn" id="lvGo" type="button">Jump</button><button class="tool-btn secondary" id="lvAll" type="button">Show all lines</button><button class="tool-btn secondary" id="lvClear" type="button">Clear spectrum</button></div>
+</div>
+<div class="nx-bar-info"><div class="readout" id="lvReadout">…</div></div>
+</div>
+</div>
+<h3>Look for these ideas</h3>
+<ul class="nx-list">
+<li>Every photon's energy equals the gap between two levels, so only certain wavelengths appear: a <strong>line</strong> spectrum.</li>
+<li>The levels get closer together as \(n\) increases, so the lines in each series crowd together towards the series limit.</li>
+<li>Only the Balmer series (ending on \(n\) = 2) lands in the visible range. Lyman is ultraviolet; Paschen is infrared.</li>
+<li>Bigger drops mean more energetic photons and shorter wavelengths: every Lyman line is more energetic than every Balmer line.</li>
+<li>The absorption lines are at exactly the same wavelengths as the emission lines.</li>
+</ul>
+</section>
+
+<section class="pane hidden" data-section="photo" data-view="check">
+<h2>Quick check · photons and energy levels</h2>
+<p class="sub">Ten questions with instant feedback.</p>
+<div class="nx-quiz" data-quiz="photo"></div>
+</section>
+
+<section class="pane hidden" data-section="photo" data-view="problems">
+<h2>Photoelectric effect &amp; energy levels · practice problems</h2>
+<p class="sub">Original practice questions in the style of AS91525. These are not NZQA questions. \(h = 6.63 \times 10^{-34}\) J s, \(c = 3.00 \times 10^{8}\) m s⁻¹, \(e = 1.60 \times 10^{-19}\) C, \(R = 1.097 \times 10^{7}\) m⁻¹.</p>
+<div class="exam-question"><div class="exam-question-header"><span>QUESTION ONE</span><span>Sodium photocell</span></div>
+<p>Violet light of wavelength <strong>400 nm</strong> falls on sodium, which has a work function of <strong>2.28 eV</strong>.</p>
+<p><strong>(a)</strong> Calculate the energy of one photon in joules and in eV. <span class="exam-level">Achievement</span></p>
+<p><strong>(b)</strong> Calculate the maximum kinetic energy of the photoelectrons and the stopping voltage. <span class="exam-level">Merit</span></p>
+<p><strong>(c)</strong> Calculate the threshold wavelength for sodium. Explain why red light of 650 nm cannot eject electrons from sodium, however bright it is. <span class="exam-level">Excellence</span></p>
+<details class="exam-answer"><summary>Show worked answer · Question One</summary>
+<p><strong>(a)</strong> \(E = hc/\lambda = 6.63 \times 10^{-34} \times 3.00 \times 10^{8}/400 \times 10^{-9} = 4.97 \times 10^{-19}\) J. In eV: \(4.97 \times 10^{-19}/1.60 \times 10^{-19} = 3.11\) eV.</p>
+<p><strong>(b)</strong> \(E_{k(\text{max})} = hf - \phi = 3.11 - 2.28 = 0.83\) eV = \(1.3 \times 10^{-19}\) J. Stopping voltage \(V_{s} = E_{k}/e\) = 0.83 V.</p>
+<p><strong>(c)</strong> \(\phi = 2.28 \times 1.60 \times 10^{-19} = 3.65 \times 10^{-19}\) J. \(\lambda_{0} = hc/\phi = 1.989 \times 10^{-25}/3.65 \times 10^{-19} = 5.45 \times 10^{-7}\) m = 545 nm. A 650 nm photon has energy \(hc/\lambda\) = 1.91 eV, less than the work function. One electron absorbs one photon, so no single electron ever gets enough energy to escape. Brighter light only means more of these too-weak photons each second, so still no electrons are emitted.</p></details></div>
+<div class="exam-question"><div class="exam-question-header"><span>QUESTION TWO</span><span>Measuring Planck's constant</span></div>
+<p>A student measures the stopping voltage for a metal at two frequencies: <strong>1.65 V</strong> at \(1.50 \times 10^{15}\) Hz and <strong>3.72 V</strong> at \(2.00 \times 10^{15}\) Hz.</p>
+<p><strong>(a)</strong> Convert both stopping voltages into maximum kinetic energies in joules. <span class="exam-level">Achievement</span></p>
+<p><strong>(b)</strong> Use the results to find a value for Planck's constant. <span class="exam-level">Merit</span></p>
+<p><strong>(c)</strong> Find the work function in eV and the threshold frequency. Explain why using brighter light would not change these results. <span class="exam-level">Excellence</span></p>
+<details class="exam-answer"><summary>Show worked answer · Question Two</summary>
+<p><strong>(a)</strong> \(E_{k} = eV_{s}\): \(1.60 \times 10^{-19} \times 1.65 = 2.64 \times 10^{-19}\) J and \(1.60 \times 10^{-19} \times 3.72 = 5.95 \times 10^{-19}\) J.</p>
+<p><strong>(b)</strong> The gradient of \(E_{k}\) against \(f\) is \(h\): \(h = (5.95 - 2.64) \times 10^{-19}/(0.50 \times 10^{15}) = 6.62 \times 10^{-34}\) J s.</p>
+<p><strong>(c)</strong> \(\phi = hf - E_{k} = 6.62 \times 10^{-34} \times 1.50 \times 10^{15} - 2.64 \times 10^{-19} = 7.29 \times 10^{-19}\) J = 4.6 eV. \(f_{0} = \phi /h = 1.10 \times 10^{15}\) Hz. Brighter light delivers more photons per second, so more electrons are emitted and the current rises, but each photon still has energy \(hf\), so the maximum kinetic energy, and hence the stopping voltage, is unchanged.</p></details></div>
+<div class="exam-question"><div class="exam-question-header"><span>QUESTION THREE</span><span>The red hydrogen line</span></div>
+<p>Hydrogen gas in a discharge tube glows with a red line.</p>
+<p><strong>(a)</strong> Calculate the energy of the \(n\) = 3 level of hydrogen in eV. <span class="exam-level">Achievement</span></p>
+<p><strong>(b)</strong> Calculate the wavelength of the photon emitted when an electron drops from \(n\) = 3 to \(n\) = 2, and name the series it belongs to. <span class="exam-level">Merit</span></p>
+<p><strong>(c)</strong> Explain why hydrogen gives a line spectrum rather than a continuous one, and why a cool hydrogen cloud in front of a star produces dark lines at the same wavelengths. <span class="exam-level">Excellence</span></p>
+<details class="exam-answer"><summary>Show worked answer · Question Three</summary>
+<p><strong>(a)</strong> \(E_{3} = -13.6/3^{2} = -1.51\) eV (\(-2.42 \times 10^{-19}\) J).</p>
+<p><strong>(b)</strong> \(1/\lambda = 1.097 \times 10^{7} \times (1/2^{2} - 1/3^{2}) = 1.524 \times 10^{6}\) m⁻¹, so \(\lambda = 6.56 \times 10^{-7}\) m = 656 nm. It ends on \(n\) = 2, so it is in the Balmer series.</p>
+<p><strong>(c)</strong> The electron can only have certain energies. When it drops between two levels it emits one photon whose energy equals the gap, \(hf = \Delta E\). There are only a limited number of possible gaps, so only certain frequencies and wavelengths appear, giving bright lines. In the cool cloud, most electrons are in low levels. A photon from the star is absorbed only if its energy exactly matches a gap, lifting an electron up. The electron soon drops back, but re-emits the photon in a random direction, so very little of that wavelength continues towards us: those wavelengths appear as dark lines at exactly the emission wavelengths.</p></details></div>
+</section>
+
+<section class="pane hidden" data-section="photo" data-view="apps">
+<div class="section-identity"><strong>1.6 · Applications</strong><p>Photons and energy levels in technology and astronomy.</p></div>
+<h2>Where do we use these ideas?</h2>
+<p class="sub">Assessment tasks are often set in contexts like these, with the information you need supplied.</p>
+<div class="app-grid">
+<div class="app-card"><div class="app-head"><b>Light sensors and photomultipliers</b><span class="app-tag">Photoelectric</span></div>
+<p>Photomultiplier tubes in medical scanners and telescopes turn single photons into measurable pulses of current.</p>
+<p class="app-chain">Photon hits photocathode → one electron emitted → accelerated and multiplied → measurable current</p>
+<p class="app-exam"><b>Exam angle:</b> the photocathode must have a work function lower than the photon energy.</p></div>
+<div class="app-card"><div class="app-head"><b>Solar cells</b><span class="app-tag">Photon energy</span></div>
+<p>A photon absorbed in a silicon solar cell frees an electron to carry current. Photons below about 1.1 eV (infrared) can't do it.</p>
+<p class="app-chain">Photon energy ≥ threshold → electron freed → current; extra energy above threshold → heat</p>
+<p class="app-exam"><b>Exam angle:</b> brighter sunlight gives more current, not higher-energy electrons.</p></div>
+<div class="app-card"><div class="app-head"><b>What stars are made of</b><span class="app-tag">Absorption spectra</span></div>
+<p>Dark lines in sunlight (Fraunhofer lines) match the emission lines of hydrogen, helium, sodium, iron and more. Helium was discovered in the Sun this way.</p>
+<p class="app-chain">Cooler gas in the star's atmosphere absorbs exact photon energies → dark lines → identify the element</p>
+<p class="app-exam"><b>Exam angle:</b> absorption and emission lines have the same wavelengths.</p></div>
+<div class="app-card"><div class="app-head"><b>Street lights and neon signs</b><span class="app-tag">Emission spectra</span></div>
+<p>Sodium street lamps glow yellow-orange; neon signs glow red. Each colour comes from the energy levels of the gas.</p>
+<p class="app-chain">Electric current excites atoms → electrons drop back → photons of fixed energies → characteristic colour</p>
+<p class="app-exam"><b>Exam angle:</b> the colour depends on the gas, not the voltage.</p></div>
+<div class="app-card"><div class="app-head"><b>Fluorescent lights</b><span class="app-tag">Energy levels</span></div>
+<p>Mercury vapour emits ultraviolet photons; a phosphor coating absorbs them and re-emits several lower-energy visible photons.</p>
+<p class="app-chain">One high-energy UV photon absorbed → electron climbs high → falls in smaller steps → visible photons</p>
+<p class="app-exam"><b>Exam angle:</b> a big drop can be made in several smaller steps, each giving a longer wavelength.</p></div>
+<div class="app-card"><div class="app-head"><b>Lasers</b><span class="app-tag">Energy levels</span></div>
+<p>All the photons in a laser beam come from the same transition, so they share one wavelength.</p>
+<p class="app-chain">Electrons pumped to a higher level → stimulated to drop together → identical photons → single colour, coherent beam</p>
+<p class="app-exam"><b>Exam angle:</b> the laser's wavelength is set by the energy gap, \(\lambda = hc/\Delta E\).</p></div>
+</div>
+<div class="exam-question"><div class="exam-question-header"><span>EXPLAIN IT</span><span>Why a photon model? · Merit / Excellence-style</span></div>
+<p>Dim ultraviolet light ejects electrons from a zinc plate immediately, but very bright red light never does. Explain why this supports the photon model of light rather than the wave model.</p>
+<details class="exam-answer"><summary>Show model answer</summary>
+<p>In the wave model, the energy of light depends on its intensity, and it is spread across the surface. Bright red light would deliver plenty of energy, so it should eventually eject electrons, and dim UV light should take time to build up enough energy in one electron. The observations are the opposite. In the photon model, light arrives as photons of energy \(hf\), and each electron absorbs one whole photon. A UV photon has a high frequency, so \(hf\) is greater than zinc's work function and the electron escapes straight away, even if there are only a few photons (dim light). A red photon has \(hf\) less than the work function, so no electron ever gets enough energy to escape; making the light brighter only adds more photons that are each too weak. So the threshold frequency and the instant emission can only be explained by light being made of photons.</p></details></div>
+</section>
+
+<!-- ===================== 02 · NUCLEAR REACTIONS (ESA ch. 12) ===================== -->
+<section class="pane hidden" data-section="nuc" data-view="intro">
+<div class="section-identity"><strong>02 · Nuclear reactions</strong><p>Mass defect, binding energy, and why splitting heavy nuclei and joining light ones both release energy.</p></div>
+<h2>Nuclear reactions</h2>
+<p class="sub">Six ideas. The binding energy per nucleon curve (2.1.3) ties everything together.</p>
+<div class="intro-steps">
+<details class="intro-step" open><summary>2.1.1 · The nucleus</summary><div class="intro-step-body">
+<p>A nucleus is written \(^{A}_{Z}\text{X}\): \(A\) is the <strong>nucleon (mass) number</strong>, protons + neutrons; \(Z\) is the <strong>atomic (proton) number</strong>. The number of neutrons is \(N = A - Z\). Isotopes have the same \(Z\) but different \(N\).</p>
+<p>The protons repel each other electrically. The nucleus is held together by the <strong>strong nuclear force</strong>, which attracts all nucleons but only acts over about 10⁻¹⁵ m.</p>
+</div></details>
+<details class="intro-step"><summary>2.1.2 · Mass defect and binding energy</summary><div class="intro-step-body">
+<p>The mass of a nucleus is <strong>less</strong> than the total mass of its separate protons and neutrons. The difference is the <strong>mass defect</strong>:</p>
+<div class="formula">\[\Delta m=Zm_p+(A-Z)m_n-m_{\text{nucleus}}\]</div>
+<p>Energy and mass are equivalent. The mass defect corresponds to the <strong>binding energy</strong>, the energy needed to pull the nucleus completely apart (and the energy released when it formed):</p>
+<div class="formula">\[\Delta E=\Delta m\,c^2\qquad 1\ \text{u}=1.661\times10^{-27}\ \text{kg}\equiv931.5\ \text{MeV}\]</div>
+</div></details>
+<details class="intro-step"><summary>2.1.3 · Binding energy per nucleon</summary><div class="intro-step-body">
+<p>Dividing the binding energy by \(A\) shows how tightly bound each nucleon is. The curve rises steeply for light nuclei, peaks at about 8.8 MeV per nucleon near <strong>iron-56 and nickel-62</strong>, then falls slowly for heavy nuclei.</p>
+<ul><li>Nuclei near the peak are the most stable.</li>
+<li>Any reaction that moves nuclei <strong>towards the peak</strong> increases the total binding energy, lowers the total mass, and releases energy.</li>
+<li>Light nuclei release energy by <strong>fusing</strong>; heavy nuclei release energy by <strong>splitting</strong>. Explore the curve in 2.2.</li></ul>
+</div></details>
+<details class="intro-step"><summary>2.1.4 · Nuclear equations</summary><div class="intro-step-body">
+<p>In every nuclear reaction:</p>
+<ul><li><strong>Nucleon number is conserved</strong>: the top numbers add up to the same total on each side.</li>
+<li><strong>Charge is conserved</strong>: the bottom numbers add up too.</li>
+<li><strong>Mass–energy is conserved</strong>: any decrease in mass appears as kinetic energy of the products (and gamma rays).</li>
+<li>Momentum is conserved too.</li></ul>
+<p>Alpha particle \(^{4}_{2}\)He; beta-minus electron \(^{0}_{-1}\)e; neutron \(^{1}_{0}\)n; gamma ray (no change in \(A\) or \(Z\)).</p>
+</div></details>
+<details class="intro-step"><summary>2.1.5 · Fission</summary><div class="intro-step-body">
+<p>A slow neutron is absorbed by a uranium-235 nucleus, which becomes unstable and splits into two medium-sized nuclei, two or three neutrons and about 200 MeV of energy, for example:</p>
+<div class="formula">\[{}^{1}_{0}\text{n}+{}^{235}_{92}\text{U}\rightarrow{}^{141}_{56}\text{Ba}+{}^{92}_{36}\text{Kr}+3\,{}^{1}_{0}\text{n}\]</div>
+<ul><li>The neutrons released can cause more fissions: a <strong>chain reaction</strong>.</li>
+<li>In a reactor, a <strong>moderator</strong> (water, graphite) slows the neutrons so they are more easily absorbed, and <strong>control rods</strong> (boron, cadmium) absorb neutrons so that, on average, exactly one neutron from each fission causes another.</li>
+<li>The products are closer to the peak of the curve, so they are more tightly bound and have less total mass.</li></ul>
+</div></details>
+<details class="intro-step"><summary>2.1.6 · Fusion</summary><div class="intro-step-body">
+<p>Two light nuclei join to make a heavier one. The fusion reaction planned for power stations is deuterium–tritium:</p>
+<div class="formula">\[{}^{2}_{1}\text{H}+{}^{3}_{1}\text{H}\rightarrow{}^{4}_{2}\text{He}+{}^{1}_{0}\text{n}+17.6\ \text{MeV}\]</div>
+<ul><li>Nuclei are positive and repel. They must be moving very fast (temperatures of millions of degrees) to get close enough for the strong force to take over.</li>
+<li>Per kilogram of fuel, fusion releases several times more energy than fission, because the binding energy curve is so steep for light nuclei.</li>
+<li>The Sun fuses hydrogen into helium; its gravity provides the pressure and temperature needed.</li></ul>
+</div></details>
+</div>
+</section>
+
+<section class="pane hidden" data-section="nuc" data-view="binding">
+<div class="section-identity"><strong>2.2 · Binding energy</strong><p>The curve that explains why fission and fusion both release energy.</p></div>
+<h2>Binding energy per nucleon</h2>
+<p class="sub">Each point is a real nucleus. <strong>Click a point</strong> (or choose from the menu) to see its mass defect and binding energy. Tick the boxes to see a fission and a fusion reaction on the curve: both move towards the peak.</p>
+<div class="nx-lab">
+<div class="sim"><canvas id="beCanvas" aria-label="Graph of binding energy per nucleon against nucleon number, with labelled nuclides, a peak near iron, and arrows for fission and fusion" tabindex="0"></canvas></div>
+<div class="legend"><span style="--key:#ff8a7a">Binding energy per nucleon</span><span style="--key:#78d9f7">Fusion (light nuclei join)</span><span style="--key:#ffd76a">Fission (heavy nucleus splits)</span></div>
+<div class="nx-ctlbar">
+<div class="nx-bar-inputs">
+<h3>Controls</h3>
+<div class="control"><label for="beNuc">Nucleus</label><select id="beNuc"></select></div>
+<label class="check-row"><input checked id="beFis" type="checkbox"/> Show uranium-235 fission</label>
+<label class="check-row"><input checked id="beFus" type="checkbox"/> Show deuterium–tritium fusion</label>
+</div>
+<div class="nx-bar-info"><div class="readout" id="beReadout">…</div></div>
+</div>
+</div>
+<h3>Look for these ideas</h3>
+<ul class="nx-list">
+<li>Iron-56 and nickel-62 are at the top: they are the most tightly bound, so no reaction can get energy out of them.</li>
+<li><strong>Fission:</strong> U-235 (7.6 MeV per nucleon) splits into barium and krypton (about 8.3 and 8.5 MeV per nucleon). With 236 nucleons each gaining about 0.8 MeV, about 170–200 MeV is released.</li>
+<li><strong>Fusion:</strong> deuterium (1.1) and tritium (2.8) make helium-4 (7.1). The jump is much bigger per nucleon, which is why fusion releases more energy per kilogram.</li>
+<li>Helium-4 sits well above its neighbours: an alpha particle is an especially stable package, which is why heavy nuclei emit alpha particles.</li>
+</ul>
+</section>
+
+<section class="pane hidden" data-section="nuc" data-view="react">
+<div class="section-identity"><strong>2.3 · Reaction energy</strong><p>Balance the equation, find the mass defect and convert it to energy.</p></div>
+<h2>Reaction energy calculator</h2>
+<p class="sub">Choose a reaction. The lab checks that nucleon number and charge balance, adds up the masses before and after (atomic masses, in u), and converts the mass defect into energy two ways: with 931.5 MeV per u, and with \(\Delta E = \Delta mc^{2}\) in joules.</p>
+<div class="nx-lab">
+<div class="sim"><canvas id="rxCanvas" aria-label="Animated nuclear reaction with the balanced nuclear equation and a mass balance before and after"></canvas></div>
+<div class="nx-ctlbar">
+<div class="nx-bar-inputs">
+<h3>Controls</h3>
+<div class="control"><label for="rxSel">Reaction</label><select id="rxSel"></select></div>
+<div class="btn-row"><button class="tool-btn" id="rxPlay" type="button">Replay</button></div>
+</div>
+<div class="nx-bar-info"><div class="readout" id="rxReadout">…</div></div>
+</div>
+</div>
+<h3>Look for these ideas</h3>
+<ul class="nx-list">
+<li>Mass defects are tiny, often in the third or fourth decimal place of the mass in u, so keep every decimal place until the end.</li>
+<li>Fission releases about 170–200 MeV per reaction; fusion about 3–18 MeV; alpha decay about 4–5 MeV; beta decay less than 1 MeV.</li>
+<li>Per nucleon, D–T fusion (17.6 MeV ÷ 5) beats U-235 fission (≈ 173 MeV ÷ 236) by about five times.</li>
+<li>These are <em>atomic</em> masses. They include the electrons, which cancel on each side for these reactions (for beta-minus decay, the new atom's extra electron accounts for the emitted one).</li>
+</ul>
+</section>
+
+<section class="pane hidden" data-section="nuc" data-view="check">
+<h2>Quick check · nuclear reactions</h2>
+<p class="sub">Eight questions with instant feedback.</p>
+<div class="nx-quiz" data-quiz="nuc"></div>
+</section>
+
+<section class="pane hidden" data-section="nuc" data-view="problems">
+<h2>Nuclear reactions · practice problems</h2>
+<p class="sub">Original practice questions in the style of AS91525. These are not NZQA questions. \(m_{p}\) = 1.00728 u, \(m_{n}\) = 1.00867 u, 1 u = 1.661 × 10⁻²⁷ kg = 931.5 MeV, \(c = 3.00 \times 10^{8}\) m s⁻¹.</p>
+<div class="exam-question"><div class="exam-question-header"><span>QUESTION ONE</span><span>Binding energy of helium-4</span></div>
+<p>The mass of a helium-4 nucleus is <strong>4.00151 u</strong>.</p>
+<p><strong>(a)</strong> State the number of protons and neutrons in a helium-4 nucleus. <span class="exam-level">Achievement</span></p>
+<p><strong>(b)</strong> Calculate the mass defect, and the binding energy in MeV and in joules. <span class="exam-level">Merit</span></p>
+<p><strong>(c)</strong> Calculate the binding energy per nucleon, and explain what it tells you about the stability of helium-4 compared with lithium-6 (5.3 MeV per nucleon). <span class="exam-level">Excellence</span></p>
+<details class="exam-answer"><summary>Show worked answer · Question One</summary>
+<p><strong>(a)</strong> 2 protons and 2 neutrons.</p>
+<p><strong>(b)</strong> Mass of separate nucleons = \(2 \times 1.00728 + 2 \times 1.00867 = 4.03190\) u. \(\Delta m = 4.03190 - 4.00151 = 0.03039\) u. Binding energy = \(0.03039 \times 931.5 = 28.3\) MeV. In joules: \(\Delta m = 0.03039 \times 1.661 \times 10^{-27} = 5.048 \times 10^{-29}\) kg; \(\Delta E = \Delta mc^{2} = 4.54 \times 10^{-12}\) J.</p>
+<p><strong>(c)</strong> 28.3/4 = 7.08 MeV per nucleon. That is much higher than lithium-6, so on average each nucleon in helium-4 needs more energy to remove: helium-4 is more tightly bound and more stable. It is unusually stable for a light nucleus, which is why alpha particles are emitted as a unit.</p></details></div>
+<div class="exam-question"><div class="exam-question-header"><span>QUESTION TWO</span><span>Uranium fission</span></div>
+<p>\(^{1}_{0}\)n + \(^{235}_{92}\)U → \(^{141}_{56}\)Ba + \(^{92}_{36}\)Kr + x \(^{1}_{0}\)n. Atomic masses: U-235 = 235.043930 u, Ba-141 = 140.914411 u, Kr-92 = 91.926156 u, neutron = 1.008665 u.</p>
+<p><strong>(a)</strong> Find x and show that charge is conserved. <span class="exam-level">Achievement</span></p>
+<p><strong>(b)</strong> Calculate the energy released per fission in MeV and in joules. <span class="exam-level">Merit</span></p>
+<p><strong>(c)</strong> Explain, using binding energy per nucleon, why this reaction releases energy, and explain how a reactor keeps the chain reaction steady. <span class="exam-level">Excellence</span></p>
+<details class="exam-answer"><summary>Show worked answer · Question Two</summary>
+<p><strong>(a)</strong> Nucleons: 1 + 235 = 141 + 92 + x, so x = 3. Charge: 0 + 92 = 56 + 36 + 0 ✓.</p>
+<p><strong>(b)</strong> Before: 1.008665 + 235.043930 = 236.052595 u. After: 140.914411 + 91.926156 + 3 × 1.008665 = 235.866562 u. \(\Delta m\) = 0.186033 u. \(\Delta E = 0.186033 \times 931.5 = 173\) MeV = \(173 \times 1.60 \times 10^{-13} = 2.77 \times 10^{-11}\) J.</p>
+<p><strong>(c)</strong> Uranium-235 has a binding energy per nucleon of about 7.6 MeV; barium and krypton are about 8.3 and 8.5 MeV, closer to the peak of the curve. The products are more tightly bound, so their total binding energy is greater and their total mass is less. The missing mass is released as energy, mostly kinetic energy of the fragments, \(\Delta E = \Delta mc^{2}\). Each fission releases about three neutrons. A moderator slows them so they can be absorbed by more U-235, and control rods absorb the excess so that, on average, exactly one neutron from each fission causes another fission, keeping the power steady.</p></details></div>
+<div class="exam-question"><div class="exam-question-header"><span>QUESTION THREE</span><span>Fusion fuel</span></div>
+<p>\(^{2}_{1}\)H + \(^{3}_{1}\)H → \(^{4}_{2}\)He + \(^{1}_{0}\)n. Atomic masses: H-2 = 2.014102 u, H-3 = 3.016049 u, He-4 = 4.002603 u, neutron = 1.008665 u.</p>
+<p><strong>(a)</strong> Calculate the mass defect for one reaction. <span class="exam-level">Achievement</span></p>
+<p><strong>(b)</strong> Calculate the energy released in one reaction, in joules. <span class="exam-level">Merit</span></p>
+<p><strong>(c)</strong> Compare the energy released per nucleon with the fission in Question Two, and explain why fusion is so hard to achieve on Earth. <span class="exam-level">Excellence</span></p>
+<details class="exam-answer"><summary>Show worked answer · Question Three</summary>
+<p><strong>(a)</strong> Before: 5.030151 u. After: 5.011268 u. \(\Delta m\) = 0.018883 u.</p>
+<p><strong>(b)</strong> \(\Delta m = 0.018883 \times 1.661 \times 10^{-27} = 3.136 \times 10^{-29}\) kg. \(\Delta E = \Delta mc^{2} = 3.136 \times 10^{-29} \times 9.00 \times 10^{16} = 2.82 \times 10^{-12}\) J (17.6 MeV).</p>
+<p><strong>(c)</strong> Fusion: 17.6 MeV ÷ 5 nucleons = 3.5 MeV per nucleon. Fission: 173 MeV ÷ 236 nucleons = 0.73 MeV per nucleon. So fusion releases about five times more energy per nucleon (per kilogram of fuel). But both nuclei are positively charged and repel strongly. To get close enough for the short-range strong force to act, they must collide at enormous speeds, which needs temperatures of over 100 million °C. No material container can hold such a hot plasma, so it has to be confined with magnetic fields, which is very difficult to keep stable.</p></details></div>
+</section>
+
+<section class="pane hidden" data-section="nuc" data-view="apps">
+<div class="section-identity"><strong>2.6 · Applications</strong><p>Nuclear energy in stars, power stations, medicine and history.</p></div>
+<h2>Where do we use nuclear reactions?</h2>
+<p class="sub">Each application turns a small mass defect into a large amount of energy, or uses the radiation that comes with it.</p>
+<div class="app-grid">
+<div class="app-card"><div class="app-head"><b>The Sun</b><span class="app-tag">Fusion</span></div>
+<p>The Sun turns about 4 million tonnes of mass into energy every second by fusing hydrogen into helium in its core.</p>
+<p class="app-chain">Huge gravity → high pressure and temperature (15 million K) → nuclei collide fast enough to fuse → mass defect → sunlight</p>
+<p class="app-exam"><b>Exam angle:</b> four protons have more mass than one helium-4 nucleus; the difference is radiated.</p></div>
+<div class="app-card"><div class="app-head"><b>Nuclear power stations</b><span class="app-tag">Fission</span></div>
+<p>About 10% of the world's electricity comes from fission reactors. Aotearoa New Zealand has none, by law.</p>
+<p class="app-chain">Fission → fast fragments → heat in the fuel → steam → turbine → generator</p>
+<p class="app-exam"><b>Exam angle:</b> explain the roles of the moderator, control rods and coolant.</p></div>
+<div class="app-card"><div class="app-head"><b>Fusion research (ITER, tokamaks)</b><span class="app-tag">Fusion</span></div>
+<p>Tokamaks hold a plasma of deuterium and tritium hotter than the Sun's core in a magnetic "bottle".</p>
+<p class="app-chain">Magnetic fields confine plasma → 150 million °C → D–T fusion → fast neutrons carry the energy out</p>
+<p class="app-exam"><b>Exam angle:</b> why the temperature must be so high (electrostatic repulsion).</p></div>
+<div class="app-card"><div class="app-head"><b>Smoke detectors</b><span class="app-tag">Alpha decay</span></div>
+<p>A tiny americium-241 source ionises the air between two plates, letting a small current flow. Smoke absorbs the alpha particles and the current drops.</p>
+<p class="app-chain">Alpha decay → ionised air → current; smoke → fewer ions → current falls → alarm</p>
+<p class="app-exam"><b>Exam angle:</b> balance the decay equation: \(^{241}_{95}\)Am → \(^{237}_{93}\)Np + \(^{4}_{2}\)He.</p></div>
+<div class="app-card"><div class="app-head"><b>PET scans</b><span class="app-tag">E = mc²</span></div>
+<p>A tracer emits positrons, which annihilate with electrons. All their mass becomes two gamma rays of 0.511 MeV each, travelling in opposite directions.</p>
+<p class="app-chain">Positron + electron → mass completely converted → two gamma photons → detectors locate the source</p>
+<p class="app-exam"><b>Exam angle:</b> the electron's rest mass, 9.11 × 10⁻³¹ kg, is equivalent to 0.511 MeV.</p></div>
+<div class="app-card"><div class="app-head"><b>Rutherford and the nucleus</b><span class="app-tag">History</span></div>
+<p>New Zealander Ernest Rutherford discovered the nucleus (1911) and carried out the first artificial nuclear reaction (1917), turning nitrogen into oxygen.</p>
+<p class="app-chain">\(^{14}_{7}\)N + \(^{4}_{2}\)He → \(^{17}_{8}\)O + \(^{1}_{1}\)H: nucleon number and charge both balance</p>
+<p class="app-exam"><b>Exam angle:</b> a balancing exercise with a famous context.</p></div>
+</div>
+<div class="exam-question"><div class="exam-question-header"><span>EXPLAIN IT</span><span>Both release energy · Excellence-style</span></div>
+<p>Explain how both the fission of heavy nuclei and the fusion of light nuclei can release energy. Refer to binding energy per nucleon and mass defect.</p>
+<details class="exam-answer"><summary>Show model answer</summary>
+<p>Binding energy is the energy needed to separate a nucleus into its nucleons; it equals the mass defect times \(c^{2}\). The binding energy per nucleon rises from light nuclei to a peak near iron-56 and then falls for heavier nuclei. In fusion, light nuclei such as deuterium and tritium (low on the curve) join to form helium-4, which has a much higher binding energy per nucleon. In fission, a heavy nucleus such as uranium-235 splits into two medium nuclei that are nearer the peak. In both cases the products have more binding energy in total than the reactants, so they are more tightly bound. A greater binding energy means a greater mass defect, so the products have less total mass than the reactants. The mass that disappears is released as energy, \(\Delta E = \Delta mc^{2}\), mostly as kinetic energy of the products. Neither process can release energy from iron, because it is already at the peak.</p></details></div>
+</section>
+
+</main></div></div>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+/* ---------- theme ---------- */
+const themeToggle=$('themeToggle');
+const osLight=window.matchMedia?matchMedia('(prefers-color-scheme: light)'):null;
+// follow the browser's light/dark setting; the slider overrides it for this visit only (shared with the other pages)
+let sessTheme=null;try{sessTheme=sessionStorage.getItem('physics-theme')}catch(e){}
+const light=sessTheme?sessTheme==='light':!!(osLight&&osLight.matches);
+document.body.classList.toggle('light-mode',light);themeToggle.checked=light;
+try{localStorage.removeItem('emag-theme')}catch(e){}
+if(osLight){const follow=e=>{try{sessionStorage.removeItem('physics-theme')}catch(_){}document.body.classList.toggle('light-mode',e.matches);themeToggle.checked=e.matches;window.dispatchEvent(new Event('emag-redraw'))};osLight.addEventListener?osLight.addEventListener('change',follow):osLight.addListener(follow)}
+themeToggle.addEventListener('change',()=>{document.body.classList.toggle('light-mode',themeToggle.checked);try{sessionStorage.setItem('physics-theme',themeToggle.checked?'light':'dark')}catch(e){}window.dispatchEvent(new Event('emag-redraw'))});
+
+/* ---------- navigation ---------- */
+const views={
+ map:[['scope','0.1 Course Map'],['skills','0.2 Assessment Skills'],['formulas','0.3 Formula Sheet']],
+ photo:[['intro','1.1 Introduction'],['pe','1.2 Photoelectric Lab'],['levels','1.3 Energy Levels'],['check','1.4 Quick Check'],['problems','1.5 Problems'],['apps','1.6 Applications']],
+ nuc:[['intro','2.1 Introduction'],['binding','2.2 Binding Energy'],['react','2.3 Reaction Energy'],['check','2.4 Quick Check'],['problems','2.5 Problems'],['apps','2.6 Applications']]};
+const titles={map:'COURSE MAP',photo:'PHOTOELECTRIC EFFECT & ENERGY LEVELS',nuc:'NUCLEAR REACTIONS'};
+let active='map',currentView='scope';
+function go(tab,view,scroll){
+ if(!views[tab])tab='map';
+ if(!view||!views[tab].some(v=>v[0]===view))view=views[tab][0][0];
+ active=tab;currentView=view;document.body.dataset.topic=tab;$('topicTitle').textContent=titles[tab];
+ document.querySelectorAll('.rail button[data-tab]').forEach(b=>{const on=b.dataset.tab===tab;b.classList.toggle('active',on);b.setAttribute('aria-current',on?'page':'false')});
+ const tb=$('activityTabs');tb.innerHTML='';
+ views[tab].forEach(([v,label])=>{const b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.innerHTML=label;b.className=v===view?'active':'';b.setAttribute('aria-selected',v===view);b.onclick=()=>go(tab,v,false);tb.appendChild(b)});
+ document.querySelectorAll('section[data-section]').forEach(s=>s.classList.toggle('hidden',!(s.dataset.section===tab&&s.dataset.view===view)));
+ try{history.replaceState(null,'','#'+tab+'-'+view)}catch(e){}
+ window.dispatchEvent(new CustomEvent('emag-view',{detail:tab+':'+view}));
+ if(scroll!==false)window.scrollTo({top:0,behavior:'smooth'});
+}
+window.emagGo=go;
+document.querySelectorAll('.rail button[data-tab]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab)));
+document.addEventListener('click',e=>{const t=e.target.closest('[data-go]');if(!t)return;const [a,b]=t.dataset.go.split(':');go(a,b)});
+
+/* ---------- course map ---------- */
+
+const scope=[
+ {g:'01 · The photoelectric effect',c:'#78d9f7',items:[
+  ['Use \\(E = hf\\) and \\(c = f\\lambda\\) to find the energy of a photon, in joules and electronvolts','photo:intro'],
+  ['Describe the observations of the photoelectric effect and explain why the wave model cannot explain them','photo:intro'],
+  ['Use \\(E_{k} = hf - \\phi\\) and find the threshold frequency and stopping voltage','photo:pe'],
+  ['Find Planck\'s constant and the work function from a graph of \\(E_{k}\\) against \\(f\\)','photo:pe'],
+  ['Explain why brighter light gives more current but not more energetic electrons','photo:pe']]},
+ {g:'01 · Atomic energy levels',c:'#9fe6ff',items:[
+  ['Describe emission and absorption line spectra and explain why they are discrete','photo:levels'],
+  ['Use \\(E_{n} = -hcR/n^{2}\\) to find the energy levels of hydrogen and the ionisation energy','photo:levels'],
+  ['Use \\(1/\\lambda = R(1/S^{2} - 1/L^{2})\\) to find the wavelength of a spectral line and name its series','photo:levels'],
+  ['Describe the Bohr model and its limitations','photo:intro']]},
+ {g:'02 · Nuclear reactions',c:'#ff8a7a',items:[
+  ['Write and balance nuclear equations, conserving nucleon number and charge','nuc:react'],
+  ['Explain mass defect and binding energy, and use \\(\\Delta E = \\Delta mc^{2}\\)','nuc:binding'],
+  ['Convert between atomic mass units, kilograms, joules and MeV','nuc:react'],
+  ['Use the binding energy per nucleon curve to explain why fission and fusion both release energy','nuc:binding'],
+  ['Calculate the energy released in fission, fusion and radioactive decay','nuc:react'],
+  ['Explain chain reactions and the conditions needed for fusion','nuc:intro']]}];
+let ratings={};try{ratings=JSON.parse(store.get('modern-scope')||'{}')||{}}catch(e){ratings={}}
+function drawScope(){
+ const host=$('nxScopeList');host.innerHTML='';let total=0,c=0,g=0;
+ scope.forEach((grp,gi)=>{const d=document.createElement('div');d.className='nx-group';d.style.setProperty('--gc',grp.c);d.innerHTML='<h3>'+grp.g+'</h3>';
+  grp.items.forEach(([txt,target],ii)=>{const key=gi+'.'+ii;const r=ratings[key];total++;if(r===2)c++;if(r===1)g++;
+   const row=document.createElement('div');row.className='nx-item';
+   row.innerHTML='<p>I can… '+txt+'</p><div class="nx-rate" role="group" aria-label="Rate yourself">'+['Not yet','Getting there','Confident'].map((l,k)=>'<button type="button" class="r'+k+'" aria-pressed="'+(r===k)+'" data-k="'+k+'">'+l+'</button>').join('')+'</div><button type="button" class="nx-go" data-go="'+target+'">Go</button>';
+   row.querySelectorAll('.nx-rate button').forEach(b=>b.onclick=()=>{ratings[key]=+b.dataset.k;store.set('modern-scope',JSON.stringify(ratings));drawScope()});
+   d.appendChild(row)});host.appendChild(d)});
+ window.EM&&window.EM.tex&&window.EM.tex(host);
+ $('nxBarC').style.width=(100*c/total)+'%';$('nxBarG').style.width=(100*g/total)+'%';
+ $('nxScopeSummary').textContent=c+' confident · '+g+' getting there · '+(total-c-g)+' to go';
+}
+$('nxScopeReset').onclick=()=>{ratings={};store.set('modern-scope','{}');drawScope()};
+drawScope();
+
+/* ---------- search ---------- */
+let index=null;const plain=el=>{const k=el.cloneNode(true);k.querySelectorAll('.katex-mathml,canvas').forEach(x=>x.remove());return k.textContent.replace(/\s+/g,' ')};
+const buildIndex=()=>[...document.querySelectorAll('section[data-section]')].map(s=>{const h=s.querySelector('h2');const lab=((views[s.dataset.section].find(v=>v[0]===s.dataset.view)||[])[1]||'').replace(/<[^>]+>/g,'');return{tab:s.dataset.section,view:s.dataset.view,title:(lab?lab+' · ':'')+(h?plain(h):''),text:plain(s)}});
+function runSearch(){
+ const q=$('siteSearch').value.trim().toLowerCase();const out=$('searchResults');
+ if(q.length<2){out.classList.remove('open');out.innerHTML='';return}
+ if(!index)index=buildIndex();const hits=index.filter(x=>x.text.toLowerCase().includes(q)).slice(0,8);
+ out.innerHTML=hits.length?'':'<p class="small" style="margin:6px">No matches for "'+q.replace(/</g,'&lt;')+'".</p>';
+ hits.forEach(h=>{const i=h.text.toLowerCase().indexOf(q);const snip=h.text.slice(Math.max(0,i-60),i+90).replace(/</g,'&lt;');
+  const b=document.createElement('button');b.type='button';b.className='search-hit';b.innerHTML='<strong>'+h.title+'</strong><span class="search-meta">…'+snip+'…</span>';
+  b.onclick=()=>{out.classList.remove('open');go(h.tab,h.view)};out.appendChild(b)});
+ out.classList.add('open');
+}
+$('siteSearchBtn').onclick=runSearch;$('siteSearch').addEventListener('keydown',e=>{if(e.key==='Enter')runSearch()});
+$('siteSearch').addEventListener('input',()=>{if(!$('siteSearch').value)runSearch()});
+
+/* ---------- quizzes ---------- */
+
+const QUIZ={
+photo:[
+ ['A photon of light has a wavelength of 500 nm. Its energy is about…',['4.0 × 10⁻¹⁹ J','3.3 × 10⁻²⁷ J','1.0 × 10⁻¹⁵ J','2.0 × 10⁻²⁵ J'],0,'\\(E = hc/\\lambda = 6.63 \\times 10^{-34} \\times 3.00 \\times 10^{8}/500 \\times 10^{-9} = 4.0 \\times 10^{-19}\\) J (2.5 eV).'],
+ ['Light below the threshold frequency shines on a metal. Making it much brighter…',['ejects electrons after a delay','ejects more energetic electrons','still ejects no electrons','ejects electrons slowly'],2,'Each photon still has too little energy (\\(hf &lt; \\phi\\)). Brighter means more photons, not more energetic ones, and one electron absorbs one photon.'],
+ ['Above the threshold, the intensity of the light is doubled. The maximum kinetic energy of the electrons…',['doubles','is unchanged','halves','quadruples'],1,'\\(E_{k} = hf - \\phi\\) depends on frequency only. Twice the intensity means twice as many photons, so twice the current.'],
+ ['On a graph of \\(E_{k(\\text{max})}\\) against \\(f\\), the gradient is…',['the work function','Planck\'s constant','the threshold frequency','the charge on an electron'],1,'\\(E_{k} = hf - \\phi\\) is \\(y = mx + c\\): gradient \\(h\\), \\(y\\)-intercept −\\(\\phi\\), \\(x\\)-intercept \\(f_{0}\\).'],
+ ['A metal has a work function of 3.0 eV. Its threshold frequency is about…',['7.2 × 10¹⁴ Hz','4.5 × 10¹⁴ Hz','3.0 × 10¹⁵ Hz','1.4 × 10¹⁴ Hz'],0,'\\(f_{0} = \\phi /h = 3.0 \\times 1.6 \\times 10^{-19}/6.63 \\times 10^{-34} = 7.2 \\times 10^{14}\\) Hz. Convert eV to J first.'],
+ ['The stopping voltage for some photoelectrons is 1.5 V. Their maximum kinetic energy is…',['1.5 J','1.5 eV','2.4 × 10⁻¹⁸ J','0.94 eV'],1,'\\(E_{k(\\text{max})} = eV_{s}\\) = 1.5 eV = 2.4 × 10⁻¹⁹ J.'],
+ ['The energy levels of hydrogen are negative because…',['electrons have negative charge','zero is defined as the energy of a free (ionised) electron, and bound electrons have less','energy is lost when the atom forms','the nucleus is negative'],1,'A bound electron needs energy to escape to \\(E\\) = 0, so its energy is below zero.'],
+ ['An electron drops from n = 3 to n = 2 in hydrogen. The emitted light is…',['ultraviolet (Lyman)','visible red (Balmer, 656 nm)','infrared (Paschen)','X-rays'],1,'\\(1/\\lambda = R(1/2^{2} - 1/3^{2})\\) gives 656 nm. All transitions ending on n = 2 form the Balmer series.'],
+ ['A line spectrum shows that…',['atoms can only have certain fixed energies','light is a wave','electrons orbit at any radius','all elements emit the same colours'],0,'Only certain energy differences are possible, so only certain photon energies, frequencies and wavelengths are emitted.'],
+ ['White light passes through cool hydrogen gas. The spectrum shows…',['bright lines on a dark background','dark lines at the same wavelengths as hydrogen\'s emission lines','a continuous spectrum only','only red light'],1,'The atoms absorb photons whose energy exactly matches a transition, then re-emit them in all directions, so those wavelengths are missing in the beam.']],
+nuc:[
+ ['The mass of a helium-4 nucleus is less than the total mass of its separate protons and neutrons because…',['some nucleons decayed','energy was released when the nucleus formed, and energy has mass','electrons were lost','the strong force has negative mass'],1,'The mass defect \\(\\Delta m\\) corresponds to the binding energy \\(\\Delta E = \\Delta mc^{2}\\) released when the nucleons came together.'],
+ ['Binding energy is…',['the energy stored inside a nucleus that is released when it splits','the energy needed to separate a nucleus completely into its nucleons','the kinetic energy of the nucleons','the energy of the electrons'],1,'It is the work needed to pull every nucleon apart. A larger binding energy per nucleon means a more stable nucleus.'],
+ ['The nucleus with the highest binding energy per nucleon is close to…',['hydrogen-2','helium-4','iron-56','uranium-235'],2,'Iron and nickel sit at the peak of the curve (about 8.8 MeV per nucleon), so they are the most stable.'],
+ ['Both fission of uranium and fusion of hydrogen release energy because…',['both make heavier nuclei','in both, the products have a higher binding energy per nucleon than the reactants','both destroy protons','both are chemical reactions'],1,'Both move towards the peak of the curve. The products are more tightly bound, so their total mass is less, and the difference is released as energy.'],
+ ['1 u of mass is equivalent to about…',['931.5 MeV','1.66 MeV','9.0 × 10¹⁶ J','0.511 MeV'],0,'\\(E = mc^{2} = 1.661 \\times 10^{-27} \\times (3.00 \\times 10^{8})^{2} = 1.49 \\times 10^{-10}\\) J = 931.5 MeV.'],
+ ['In \\(^{235}_{92}\\)U + \\(^{1}_{0}\\)n → \\(^{141}_{56}\\)Ba + \\(^{92}_{36}\\)Kr + x \\(^{1}_{0}\\)n, x is…',['1','2','3','4'],2,'Nucleon numbers: 235 + 1 = 141 + 92 + x, so x = 3. Charge: 92 = 56 + 36 ✓.'],
+ ['Fusion needs extremely high temperatures because…',['the neutrons must be slowed down','the nuclei must move fast enough to overcome their electrostatic repulsion and get close enough for the strong force','hot hydrogen is heavier','it is a chemical reaction'],1,'Nuclei are positively charged and repel. Only at millions of degrees are they fast enough to get within range of the short-range strong force.'],
+ ['A chain reaction in a reactor is controlled by…',['the moderator speeding up neutrons','control rods that absorb neutrons, so on average one neutron per fission causes another fission','adding more uranium','cooling the fuel'],1,'Control rods (boron or cadmium) absorb neutrons. The moderator slows neutrons so they are more likely to cause fission.']]};
+document.querySelectorAll('.nx-quiz').forEach(host=>{
+ const qs=QUIZ[host.dataset.quiz];let score=0,done=0;
+ function build(){score=0;done=0;host.innerHTML='<div class="nx-qhead"><span class="nx-qscore" aria-live="polite">Score: 0 / '+qs.length+'</span><button type="button" class="tool-btn secondary nx-qreset">Start again</button></div>';
+  qs.forEach(([q,opts,a,ex],i)=>{const d=document.createElement('div');d.className='nx-q';d.innerHTML='<p class="nx-qtext"><span class="nx-qnum">'+(i+1)+'</span>'+q+'</p><div class="nx-opts"></div>';
+   const o=d.querySelector('.nx-opts');opts.forEach((t,k)=>{const b=document.createElement('button');b.type='button';b.className='nx-opt';b.innerHTML=t;
+    b.onclick=()=>{o.querySelectorAll('button').forEach((x,j)=>{x.disabled=true;if(j===a)x.classList.add('right')});
+     const ok=k===a;if(!ok)b.classList.add('wrong');else score++;done++;
+     const e=document.createElement('p');e.className='nx-expl'+(ok?'':' no');e.innerHTML=(ok?'Correct. ':'Not quite. ')+ex;d.appendChild(e);window.EM.tex(e);
+     host.querySelector('.nx-qscore').textContent='Score: '+score+' / '+qs.length;
+     if(done===qs.length){const f=document.createElement('div');f.className='nx-final';f.innerHTML='<strong>'+score+' / '+qs.length+'</strong> · '+(score>=7?'Ready for the Problems tab.':score>=5?'Nearly there. Revisit the Introduction panels for the ones you missed.':'Work back through the Introduction and the lab, then try again.');host.appendChild(f)}};
+    o.appendChild(b)});host.appendChild(d)});
+  host.querySelector('.nx-qreset').onclick=build;window.EM&&window.EM.tex&&window.EM.tex(host)}
+ build()});
+
+/* ---------- canvas helpers (shared with sims) ---------- */
+window.EM={$,store,go,
+ fit(cv,hWide,hNarrow){const W=cv.parentElement.clientWidth||600;const H=W<600?hNarrow:hWide;const d=window.devicePixelRatio||1;
+  if(cv.width!==Math.round(W*d)||cv.height!==Math.round(H*d)){cv.width=Math.round(W*d);cv.height=Math.round(H*d);cv.style.height=H+'px'}
+  const c=cv.getContext('2d');c.setTransform(d,0,0,d,0,0);return{c,W,H}},
+ nice(x){if(!(x>0))return 1;const p=Math.pow(10,Math.floor(Math.log10(x)));const m=x/p;return (m<=1?1:m<=2?2:m<=2.5?2.5:m<=5?5:10)*p},
+ fmt(x,s){if(!isFinite(x))return'—';if(x===0)return'0';const a=Math.abs(x);s=s||3;if(a>=1e4||a<1e-3)return x.toExponential(s-1).replace('e','×10^').replace(/\^\+?(-?\d+)/,(m,e)=>sup(e));return (+x.toPrecision(s)).toString()},
+ eng(x,unit,s){const a=Math.abs(x);s=s||3;const P=[[1e9,'G'],[1e6,'M'],[1e3,'k'],[1,''],[1e-3,'m'],[1e-6,'µ'],[1e-9,'n'],[1e-12,'p']];if(a===0)return'0 '+unit;for(const [v,p] of P){if(a>=v*0.9995)return (+(x/v).toPrecision(s))+' '+p+unit}return (+(x/1e-12).toPrecision(s))+' p'+unit},
+ axisCol(){return'#56657f'},
+ text(c,t,x,y,col,size,align,base){richText(c,String(t),x,y,col||'#e9edf8',size||12,align||'left',base||'alphabetic')},
+ tex(el){if(el)window.renderTeX(el)},
+ set(el,html){if(!el)return;if(el.__h===html)return;el.__h=html;el.innerHTML=html;window.EM.tex(el)}};
+/* canvas typesetter: symbols in KaTeX fonts, current shown as i */
+const PROD=new Set(['mv','mg','mr','GM','Fr','kx','hf','mc','Iw','Mm','IR','VI','LI','BA','BvL','BIL','RC','LC','QV','CV','iR','ir','fL','fC']);
+const GL='ετωφπλθ',GU='ΦΔΣ';
+function rich(str){const T=[];let i=0,prevNum=false,space=false;
+ const push=(t,f,o)=>{T.push(Object.assign({t,f},o||{}))};
+ while(i<str.length){const ch=str[i];
+  if(ch==='_'&&/[A-Za-z0-9]/.test(str[i+1]||'')){const m=str.slice(i+1).match(/^[A-Za-z0-9]+/)[0];push(m==='I'?'i':m,m.length===1&&/[A-Za-z]/.test(m)?'math':'main',{sub:1});i+=m.length+1;prevNum=false;space=false;continue}
+  if('₀₁₂₃₄₅₆₇₈₉'.includes(ch)){push(String('₀₁₂₃₄₅₆₇₈₉'.indexOf(ch)),'main',{sub:1});i++;continue}
+  if(ch==='ᵣ'){push('r','math',{sub:1});i++;continue}
+  if('²³¹⁰⁻'.includes(ch)){const m=str.slice(i).match(/^[²³¹⁰⁻]+/)[0];push(m.replace(/²/g,'2').replace(/³/g,'3').replace(/¹/g,'1').replace(/⁰/g,'0').replace(/⁻/g,'−'),'main',{sup:1});i+=m.length;continue}
+  if(/[0-9]/.test(ch)||(ch==='.'&&/[0-9]/.test(str[i+1]||''))){const m=str.slice(i).match(/^[0-9.]+/)[0];push(m,'main');i+=m.length;prevNum=true;space=false;continue}
+  if(/[A-Za-z]/.test(ch)){const w=str.slice(i).match(/^[A-Za-z]+/)[0];
+   if(prevNum&&space&&w.length<=3)push(w,'main');
+   else if(w.length===1)push(w==='I'?'i':w,'math');
+   else if(PROD.has(w)){for(const ch2 of w)push(ch2==='I'?'i':ch2,'math')}
+   else push(w,'main');
+   i+=w.length;prevNum=prevNum&&space&&w.length<=3;space=false;continue}
+  if(GL.includes(ch)){push(ch,'math');i++;prevNum=false;space=false;continue}
+  if(ch===' '){push(' ','main');space=true;i++;continue}
+  push(ch==='-'?'−':ch,'main');if(!'µkMmnp'.includes(ch)){prevNum=false}space=false;i++}
+ return T}
+function richText(c,str,x,y,col,size,align,base){const T=str[0]==='\u200b'?[{t:str.slice(1),f:'main'}]:rich(str);const fm=(t)=>(t.f==='math'?'italic ':'')+Math.round((t.sub||t.sup?size*0.74:size)*1.08)+'px '+(t.f==='math'?'KaTeX_Math, "Times New Roman", serif':'KaTeX_Main, "Times New Roman", serif');
+ let W=0;T.forEach(t=>{c.font=fm(t);t.w=c.measureText(t.t).width+(t.f==='math'&&!t.sub?size*0.04:0);W+=t.w});
+ let x0=align==='center'?x-W/2:align==='right'?x-W:x;c.fillStyle=col;c.textAlign='left';c.textBaseline=base;
+ const d=window.devicePixelRatio||1;const axisY=base==='middle'?y:base==='top'?y+size*0.55:base==='bottom'?y-size*0.45:y-size*0.3;
+ T.forEach(t=>{c.font=fm(t);
+  if(t.t==='='&&!t.sub&&!t.sup){const gap=Math.max(3/d*1.5,size*0.27),lw=Math.max(1.2/d,size*0.085),pad=t.w*0.12;c.fillRect(x0+pad,Math.round((axisY-gap/2-lw/2)*d)/d,t.w-2*pad,lw);c.fillRect(x0+pad,Math.round((axisY+gap/2-lw/2)*d)/d,t.w-2*pad,lw)}
+  else c.fillText(t.t,x0,y+(t.sub?size*0.3:t.sup?-size*0.38:0));x0+=t.w})}
+function sup(e){const m={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};return String(e).split('').map(ch=>m[ch]||ch).join('')}
+
+/* ---------- start ---------- */
+window.addEventListener('DOMContentLoaded',()=>{
+ window.EM.tex(document.body);
+ if(document.fonts){Promise.all(['16px KaTeX_Main','italic 16px KaTeX_Math'].map(f=>document.fonts.load(f))).then(()=>window.dispatchEvent(new Event('emag-redraw'))).catch(()=>{})}
+ const h=(location.hash||'').replace('#','').split('-');
+ go(h[0]||'map',h[1],false);
+});
+})();
+</script>
+<script>
+(()=>{'use strict';
+const {$,fit,nice,eng,text}=window.EM;
+const sims={};let running=null,raf=0,last=0;
+function loop(ts){const dt=Math.min(0.05,(ts-last)/1000||0);last=ts;if(running&&running.step)running.step(dt);if(running)running.draw();raf=requestAnimationFrame(loop)}
+window.addEventListener('emag-view',e=>{running=sims[e.detail]||null;cancelAnimationFrame(raf);if(running){if(running.enter)running.enter();last=performance.now();raf=requestAnimationFrame(loop)}});
+window.addEventListener('resize',()=>{if(running)running.draw()});
+window.addEventListener('emag-redraw',()=>{if(running)running.draw()});
+const BG='#070b17',GRID='#1c2740',AX='#56657f',INK='#e9edf8',MUT='#9aa6bd',ORG='#f0a66a',CYN='#78d9f7',BLU='#87bbec',PNK='#d99ac6',VIO='#c5a2ff',GRN='#5fd39a';
+function clear(c,W,H){c.fillStyle=BG;c.fillRect(0,0,W,H)}
+function line(c,x1,y1,x2,y2,col,w,dash){c.strokeStyle=col;c.lineWidth=w||1;c.setLineDash(dash||[]);c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();c.setLineDash([])}
+/* plot frame: returns mapping helpers */
+function frame(c,x,y,w,h,tMin,tMax,yMin,yMax,ylab,xlab,yUnitFmt){
+ c.strokeStyle=GRID;c.lineWidth=1;
+ for(let i=0;i<=4;i++){const yy=y+h*i/4;line(c,x,yy,x+w,yy,GRID,1)}
+ const X=t=>x+(t-tMin)/(tMax-tMin)*w,Y=v=>y+(yMax-v)/(yMax-yMin)*h;
+ if(yMin<0&&yMax>0)line(c,x,Y(0),x+w,Y(0),AX,1.3);else line(c,x,y+h,x+w,y+h,AX,1.3);
+ line(c,x,y,x,y+h,AX,1.3);
+ text(c,ylab,x+4,y+12,INK,12);
+ if(yUnitFmt){text(c,yUnitFmt(yMax),x-4,y+4,MUT,10,'right','middle');text(c,yUnitFmt(yMin),x-4,y+h,MUT,10,'right','middle')}
+ if(xlab)text(c,xlab,x+w-3,y+h-5,MUT,10,'right');
+ return{X,Y};
+}
+function path(c,pts,X,Y,col,w){if(pts.length<2)return;c.strokeStyle=col;c.lineWidth=w||2.4;c.beginPath();pts.forEach((p,i)=>i?c.lineTo(X(p[0]),Y(p[1])):c.moveTo(X(p[0]),Y(p[1])));c.stroke()}
+window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO,GRN}};
+/* ================= shared helpers for the modern physics labs ================= */
+const H=6.63e-34,CL=3.00e8,QE=1.60e-19,RY=1.097e7,YEL='#ffd76a',RED='#ff8a7a',GRY='#6f7f9a';
+const num=id=>+$(id).value;
+const setOut=(id,t)=>{const o=$(id+'Out');if(o)o.textContent=t};
+const fx=(x,d)=>(+x).toFixed(d);
+const sci=(x,s)=>window.EM.fmt(x,s||3).replace('×',' × ');
+function setRO(id,html){window.EM.set($(id),html)}
+function arrow(c,x1,y1,x2,y2,col,w,hd){const L=Math.hypot(x2-x1,y2-y1);if(L<2)return;w=w||2.4;hd=Math.min(hd||9,L*0.6);const a=Math.atan2(y2-y1,x2-x1);
+ c.strokeStyle=col;c.fillStyle=col;c.lineWidth=w;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2-hd*0.7*Math.cos(a),y2-hd*0.7*Math.sin(a));c.stroke();
+ c.beginPath();c.moveTo(x2,y2);c.lineTo(x2-hd*Math.cos(a-0.42),y2-hd*Math.sin(a-0.42));c.lineTo(x2-hd*Math.cos(a+0.42),y2-hd*Math.sin(a+0.42));c.closePath();c.fill()}
+function lamCol(nm){// approximate colour of visible light; outside the visible range: grey-violet (UV) or dark red-grey (IR)
+ if(nm<380)return'#9a8cc4';if(nm>750)return'#8a5a5a';let r=0,g=0,b=0;
+ if(nm<440){r=(440-nm)/60;b=1}else if(nm<490){g=(nm-440)/50;b=1}else if(nm<510){g=1;b=(510-nm)/20}else if(nm<580){r=(nm-510)/70;g=1}else if(nm<645){r=1;g=(645-nm)/65}else r=1;
+ const f=nm<420?0.35+0.65*(nm-380)/40:nm>700?0.35+0.65*(750-nm)/50:1;const h=v=>Math.round(255*Math.pow(v*f,0.8)).toString(16).padStart(2,'0');return'#'+h(r)+h(g)+h(b)}
+function wavy(c,x1,y1,x2,y2,col){const L=Math.hypot(x2-x1,y2-y1),a=Math.atan2(y2-y1,x2-x1);c.save();c.translate(x1,y1);c.rotate(a);c.strokeStyle=col;c.lineWidth=2;c.beginPath();
+ for(let s=0;s<=L-8;s+=1)c.lineTo(s,Math.sin(s/4)*4);c.stroke();c.fillStyle=col;c.beginPath();c.moveTo(L,0);c.lineTo(L-9,-5);c.lineTo(L-9,5);c.closePath();c.fill();c.restore()}
+
+/* ============ 1.2 PHOTOELECTRIC LAB ============ */
+(()=>{
+ const cv=$('peCanvas');const st={els:[],acc:0,pts:[],cur:0,hits:0};
+ const P=()=>{const phi=num('peMetal'),lam=num('peLam'),I=num('peInt'),V=num('peV');const f=CL/(lam*1e-9),E=H*f/QE;return{phi,lam,I,V,f,E,K:E-phi}};
+ const current=p=>{if(p.K<=0||p.I<=0)return 0;const fr=p.V>=0?1:Math.max(0,1-(-p.V)/p.K);return 2.0*p.I/100*fr};
+ function ui(){const p=P();setOut('peLam',p.lam+' nm');setOut('peInt',p.I+'%');setOut('peV',(p.V>0?'+':'')+fx(p.V,2)+' V')}
+ ['peMetal','peLam','peInt','peV'].forEach(id=>$(id).addEventListener('input',ui));
+ $('peAuto').onclick=()=>{const p=P();if(p.K<=0){setRO('peFit','No electrons are emitted at this wavelength, so there is no stopping voltage to find. Use a shorter wavelength.');return}$('peV').value=-Math.ceil(p.K/0.02)*0.02;ui()};
+ $('peRec').onclick=()=>{const p=P();if(p.K<=0){setRO('peFit','No electrons: this light is below the threshold frequency for the metal, so there is nothing to record.');return}
+  st.pts.push({f:p.f,K:Math.max(0,p.K+(Math.random()-0.5)*0.04),phi:p.phi})};
+ $('peClear').onclick=()=>{st.pts=[]};
+ const sim={enter(){ui()},step(dt){const p=P();
+  if(p.K>0){st.acc+=dt*p.I*0.45;while(st.acc>=1){st.acc-=1;st.els.push({x:0,y:Math.random(),K0:p.K*Math.random()*0.97+0.03*p.K,dir:1})}}
+  st.els.forEach(e=>{const K=e.K0+p.V*e.x;if(K<=0&&e.dir>0)e.dir=-1;const v=Math.sqrt(Math.max(e.dir>0?K:e.K0+p.V*e.x,0.03))*0.55;e.x+=e.dir*v*dt;if(e.dir<0&&p.V>0&&e.K0+p.V*e.x>0.05)e.dir=1});
+  st.els=st.els.filter(e=>e.x>-0.02&&e.x<1);if(st.els.length>300)st.els.splice(0,st.els.length-300)},
+ draw(){const {c,W,H:HH}=fit(cv,400,640);const Hh=HH;clear(c,W,Hh);const p=P();const nar=W<640;
+  const lw=nar?W:W*0.52;const tx=lw*0.18,tw=lw*0.64,ty=nar?70:Hh*0.28,th=nar?150:Hh*0.36;
+  // tube
+  c.strokeStyle='#5a6886';c.lineWidth=2;c.beginPath();c.ellipse(tx+tw/2,ty+th/2,tw/2+20,th/2+16,0,0,7);c.stroke();c.fillStyle='rgba(135,187,236,.05)';c.fill();
+  const cx0=tx+8,ax=tx+tw-8;c.strokeStyle='#c0c8d8';c.lineWidth=6;c.beginPath();c.arc(cx0-30,ty+th/2,th/2+6,-0.62,0.62);c.stroke();
+  c.fillStyle='#8a96b0';c.fillRect(ax-3,ty+th*0.15,6,th*0.7);
+  text(c,'​metal plate',cx0-4,ty+th+30,MUT,10,'center');text(c,'​collector',ax,ty+th+30,MUT,10,'center');
+  // light
+  const col=lamCol(p.lam);const lx=tx-10,ly=ty-48;c.save();c.globalAlpha=0.15+0.5*p.I/100;c.fillStyle=col;c.beginPath();c.moveTo(lx,ly);c.lineTo(lx+40,ly-6);c.lineTo(cx0+10,ty+th*0.75);c.lineTo(cx0-4,ty+th*0.25);c.closePath();c.fill();c.restore();
+  c.fillStyle='#ffe9a8';c.beginPath();c.arc(lx+16,ly-2,10,0,7);c.fill();text(c,'​'+p.lam+' nm'+(p.lam<380?' (UV, invisible)':''),lx+32,ly-14,MUT,11);
+  for(let i=0;i<5;i++){const k=(performance.now()/600+i/5)%1;wavy(c,lx+20+(cx0-lx-24)*k*0.8,ly+10+(ty+th*0.5-ly-10)*k*0.8,lx+20+(cx0-lx-24)*(k*0.8+0.16),ly+10+(ty+th*0.5-ly-10)*(k*0.8+0.16),col)}
+  // electrons
+  st.els.forEach(e=>{const ex=cx0+6+e.x*(ax-cx0-10),ey=ty+th*0.2+e.y*th*0.6;c.fillStyle=e.dir>0?CYN:'#ff9eb5';c.beginPath();c.arc(ex,ey,3,0,7);c.fill()});
+  // circuit and meters
+  const by=ty+th+56;c.strokeStyle='#8a96b0';c.lineWidth=1.6;c.beginPath();c.moveTo(cx0-34,ty+th/2);c.lineTo(cx0-50,ty+th/2);c.lineTo(cx0-50,by);c.lineTo(ax+40,by);c.lineTo(ax+40,ty+th/2);c.lineTo(ax+3,ty+th/2);c.stroke();
+  const I=current(p);st.cur+=(I-st.cur)*0.15;
+  const meter=(x,lab,val)=>{c.fillStyle='#141c30';c.fillRect(x-48,by-16,96,32);c.strokeStyle='#3a4560';c.strokeRect(x-48,by-16,96,32);text(c,'​'+val,x,by+5,YEL,14,'center');text(c,'​'+lab,x,by+30,MUT,10,'center')};
+  meter(tx+tw*0.25,'voltmeter (collector)',(p.V>0?'+':'')+fx(p.V,2)+' V');meter(tx+tw*0.75,'ammeter',fx(st.cur,2)+' µA');
+  // graph
+  const gx=nar?46:lw+40,gy=nar?by+60:24,gw=nar?W-66:W-lw-56,gh=nar?Hh-gy-40:Hh-70;
+  const {X,Y}=frame(c,gx,gy,gw,gh,0,20,-5,7,'​E_k(max) (eV)','​f (×10¹⁴ Hz)',v=>fx(v,0));
+  for(let k=5;k<=20;k+=5)text(c,'​'+k,X(k),gy+gh+13,MUT,10,'center');
+  c.fillStyle='rgba(255,255,255,.04)';const v0=X(CL/750e-9/1e14),v1=X(CL/380e-9/1e14);c.fillRect(v0,gy,v1-v0,gh);text(c,'​visible',(v0+v1)/2,gy+12,MUT,9,'center');
+  const mine=st.pts.filter(q=>q.phi===p.phi);
+  st.pts.forEach(q=>{c.fillStyle=q.phi===p.phi?YEL:GRY;c.beginPath();c.arc(X(q.f/1e14),Y(q.K),4.5,0,7);c.fill()});
+  c.strokeStyle=CYN;c.lineWidth=2;c.beginPath();c.arc(X(p.f/1e14),Y(Math.max(p.K,0)),7,0,7);c.stroke();
+  let fitTxt='Record two or more points for this metal (at different wavelengths) to draw the line.';
+  if(mine.length>=2){const n=mine.length,sx=mine.reduce((s,q)=>s+q.f,0),sy=mine.reduce((s,q)=>s+q.K,0),sxx=mine.reduce((s,q)=>s+q.f*q.f,0),sxy=mine.reduce((s,q)=>s+q.f*q.K,0);
+   const den=n*sxx-sx*sx;if(den>1e-6*sxx){const m=(n*sxy-sx*sy)/den,b=(sy-m*sx)/n;const f0=-b/m;
+    c.setLineDash([5,5]);path(c,[[0,b],[f0/1e14,0]],X,Y,RED,1.6);c.setLineDash([]);path(c,[[f0/1e14,0],[20,b+m*20e14]],X,Y,RED,2.2);
+    fitTxt='Best-fit line: gradient = '+sci(m,3)+' eV s = <b>'+sci(m*QE,3)+' J s</b> (Planck\'s constant).<br>\\(x\\)-intercept: threshold frequency \\(f_{0}\\) = <b>'+sci(f0,3)+' Hz</b>.<br>\\(y\\)-intercept: −\\(\\phi\\) = <b>'+fx(b,2)+' eV</b>, so the work function is '+fx(-b,2)+' eV.'}}
+  setRO('peFit',fitTxt);
+  setRO('peReadout','Photon: \\(f = c/\\lambda\\) = '+sci(p.f,3)+' Hz; \\(E = hf\\) = '+sci(p.E*QE,3)+' J = <b>'+fx(p.E,2)+' eV</b>.<br>Work function \\(\\phi\\) = '+p.phi+' eV; threshold \\(f_{0}\\) = '+sci(p.phi*QE/H,3)+' Hz (\\(\\lambda_{0}\\) = '+fx(H*CL/(p.phi*QE)*1e9,0)+' nm).<br>'+
+   (p.K>0?'\\(E_{k(\\text{max})} = hf - \\phi\\) = <b>'+fx(p.K,2)+' eV</b> = '+sci(p.K*QE,3)+' J, so the stopping voltage is '+fx(p.K,2)+' V.<br>Current: '+fx(current(p),2)+' µA'+(p.V<0?(current(p)===0?' (every electron is turned back)':' (only electrons faster than '+fx(-p.V,2)+' eV reach the collector)'):' (every electron is collected)')+'.':'<b>No electrons are emitted</b>: \\(hf &lt; \\phi\\). Brighter light will not help.'))}};
+ sims['photo:pe']=sim;
+})();
+
+/* ============ 1.3 ENERGY LEVELS ============ */
+(()=>{
+ const cv=$('lvCanvas');const E=n=>n>=99?0:-13.6/(n*n);
+ const st={n:1,hist:[],lines:[],anim:null,geo:null};
+ const series=s=>s===1?['Lyman','ultraviolet',RED]:s===2?['Balmer',null,YEL]:s===3?['Paschen','infrared','#c5a2ff']:s===4?['Brackett','infrared','#87bbec']:['Pfund','infrared','#9aa6bd'];
+ function lamOf(a,b){const S=Math.min(a,b),L=Math.max(a,b);const inv=RY*(1/(S*S)-(L>=99?0:1/(L*L)));return 1/inv}
+ function jump(to){if(to===st.n)return;const from=st.n;const lam=lamOf(from,to);const S=Math.min(from,to);
+  st.hist.push({from,to,S});if(st.hist.length>9)st.hist.shift();if(!st.lines.some(l=>Math.abs(l.lam-lam)<1e-12))st.lines.push({lam,S});st.anim={t:0,from,to};st.n=to;$('lvTo').value=String(to===99?99:to);}
+ $('lvGo').onclick=()=>jump(+$('lvTo').value);
+ $('lvClear').onclick=()=>{st.lines=[];st.hist=[]};
+ $('lvAll').onclick=()=>{for(let L=2;L<=6;L++)for(let S=1;S<L;S++){const lam=lamOf(S,L);if(!st.lines.some(l=>Math.abs(l.lam-lam)<1e-12))st.lines.push({lam,S})}};
+ cv.addEventListener('click',ev=>{if(!st.geo)return;const r=cv.getBoundingClientRect();const y=ev.clientY-r.top,x=ev.clientX-r.left;if(x>st.geo.x1)return;let best=null,bd=9;[1,2,3,4,5,6,99].forEach(n=>{const d=Math.abs(st.geo.Y(E(n))-y);if(d<bd){bd=d;best=n}});if(best)jump(best)});
+ const sim={enter(){},step(dt){if(st.anim){st.anim.t+=dt;if(st.anim.t>1.4)st.anim=null}},
+ draw(){const {c,W,H:HH}=fit(cv,460,620);clear(c,W,HH);const nar=W<640;
+  const x0=nar?60:90,x1=nar?W-20:W*0.62,y0=24,y1=HH-130;const Y=e=>y0+(0-e)/13.9*(y1-y0);st.geo={Y,x1};
+  text(c,'​Energy (eV)',10,16,MUT,11);text(c,'​n =',x1-18,y0-9,MUT,11);
+  [1,2,3,4,5,6,99].forEach(n=>{const y=Y(E(n));line(c,x0,y,x1,y,n===st.n?'#e9edf8':'#56657f',n===st.n?2.4:1.4,n===99?[5,4]:null);if(n<=3)text(c,'​n = '+n,x1+6,y+4,n===st.n?INK:MUT,11);else{const k=n===99?3:n-4,lx=x1+8+k*(nar?20:30);line(c,x1,y,lx,y0-6,'#3a4560',0.8);text(c,'​'+(n===99?'∞':n),lx+2,y0-9,n===st.n?INK:MUT,11)}
+   if(n<=3||n===99)text(c,'​'+fx(E(n),2),x0-6,y+4,MUT,10,'right')});
+  // history arrows
+  const slot=(x1-x0-40)/9;st.hist.forEach((h,i)=>{const x=x0+30+i*slot;const s=series(h.S);const ya=Y(E(h.from)),yb=Y(E(h.to));arrow(c,x,ya,x,yb,s[2],2.2);});
+  // electron + photon animation
+  const ex=x0+18;let ey=Y(E(st.n));if(st.anim){const k=Math.min(1,st.anim.t/0.5);ey=Y(E(st.anim.from))+(Y(E(st.anim.to))-Y(E(st.anim.from)))*k;
+   const lam=lamOf(st.anim.from,st.anim.to)*1e9;const col=lamCol(lam);const down=st.anim.to<st.anim.from||st.anim.from===99&&st.anim.to<99;const q=Math.min(1,st.anim.t/1.2);
+   if(down)wavy(c,ex+10,ey,ex+10+q*(x1-x0)*0.5,ey-20-q*20,col);else{const yy=Y(E(st.anim.from))-10;wavy(c,ex+60+(1-q)*(x1-x0)*0.45,yy,ex+12+(1-q)*(x1-x0)*0.45,yy,col)}}
+  c.fillStyle=CYN;c.beginPath();c.arc(ex,ey,6,0,7);c.fill();
+  // spectrum strip (log scale 80-2000 nm)
+  const sx0=40,sx1=W-20,sy=HH-92,sh=40;const lo=Math.log(80),hi=Math.log(2000);const SX=nm=>sx0+(Math.log(nm)-lo)/(hi-lo)*(sx1-sx0);const ab=$('lvMode').value==='ab';
+  for(let x=sx0;x<sx1;x++){const nm=Math.exp(lo+(x-sx0)/(sx1-sx0)*(hi-lo));c.fillStyle=ab?(nm>=380&&nm<=750?lamCol(nm):nm<380?'#2a2540':'#33201f'):'#05070d';c.fillRect(x,sy,1,sh)}
+  st.lines.forEach(l=>{const nm=l.lam*1e9;const x=SX(nm);c.fillStyle=ab?'#000':(nm>=380&&nm<=750?lamCol(nm):'#d8d8e8');c.fillRect(x-1.2,sy,2.4,sh)});
+  c.strokeStyle='#3a4560';c.strokeRect(sx0,sy,sx1-sx0,sh);
+  [100,200,400,600,1000,2000].forEach(nm=>{const x=SX(nm);line(c,x,sy+sh,x,sy+sh+5,MUT,1);text(c,'​'+nm,x,sy+sh+17,MUT,10,'center')});
+  text(c,'​wavelength (nm, log scale)',sx1,sy+sh+32,MUT,10,'right');text(c,'​ultraviolet',SX(150),sy-6,MUT,10,'center');text(c,'​visible',SX(540),sy-6,MUT,10,'center');text(c,'​infrared',SX(1300),sy-6,MUT,10,'center');
+  // readout
+  const h=st.hist[st.hist.length-1];let r='Electron in level \\(n\\) = '+(st.n===99?'∞ (ionised)':st.n)+', energy '+fx(E(st.n),2)+' eV.<br>';
+  if(h){const dE=Math.abs(E(h.to)-E(h.from)),lam=lamOf(h.from,h.to),s=series(h.S);const nm=lam*1e9;const up=h.to>h.from;const L=Math.max(h.from,h.to);
+   r+=(up?'<b>Absorbed</b>':'<b>Emitted</b>')+' a photon: \\(n\\) = '+(h.from===99?'∞':h.from)+' → '+(h.to===99?'∞':h.to)+'.<br>\\(\\Delta E\\) = '+fx(dE,2)+' eV = '+sci(dE*QE,3)+' J; \\(f = \\Delta E/h\\) = '+sci(dE*QE/H,3)+' Hz.<br>Rydberg: \\(1/\\lambda = R(1/'+h.S+'^{2} - 1/'+(L===99?'\\infty':L)+'^{2})\\), so \\(\\lambda\\) = <b>'+fx(nm,nm<1000?1:0)+' nm</b>: '+s[0]+' series, '+(s[1]||(nm<380?'ultraviolet':'visible'))+'.'}
+  else r+='Click a level on the diagram, or choose one and press <b>Jump</b>.';
+  setRO('lvReadout',r)}};
+ sims['photo:levels']=sim;
+})();
+
+/* ============ 2.2 BINDING ENERGY ============ */
+(()=>{
+ const cv=$('beCanvas');const MP=1.00728,MN=1.00867,UKG=1.661e-27;
+ const D=[['H',2,1,1.112],['H',3,1,2.827],['He',3,2,2.573],['He',4,2,7.074],['Li',6,3,5.332],['Li',7,3,5.606],['Be',9,4,6.463],['B',11,5,6.928],['C',12,6,7.680],['N',14,7,7.476],['O',16,8,7.976],['Ne',20,10,8.032],['Mg',24,12,8.261],['Si',28,14,8.448],['S',32,16,8.493],['Ca',40,20,8.551],['Fe',56,26,8.790],['Ni',62,28,8.795],['Cu',63,29,8.752],['Zn',64,30,8.736],['Zr',90,40,8.710],['Kr',92,36,8.513],['Sn',120,50,8.505],['Ba',141,56,8.326],['Au',197,79,7.916],['Pb',208,82,7.868],['Ra',226,88,7.662],['U',235,92,7.591],['U',238,92,7.570],['Pu',239,94,7.560]];
+ const name=d=>d[0]+'-'+d[1];let sel=D.findIndex(d=>d[0]==='Fe');let geo=null;
+ $('beNuc').innerHTML=D.map((d,i)=>'<option value="'+i+'">'+name(d)+'</option>').join('');$('beNuc').value=sel;
+ $('beNuc').addEventListener('change',()=>sel=+$('beNuc').value);
+ cv.addEventListener('click',ev=>{if(!geo)return;const r=cv.getBoundingClientRect(),x=ev.clientX-r.left,y=ev.clientY-r.top;let b=-1,bd=14;D.forEach((d,i)=>{const dd=Math.hypot(geo.X(d[1])-x,geo.Y(d[3])-y);if(dd<bd){bd=dd;b=i}});if(b>=0){sel=b;$('beNuc').value=b}});
+ const sim={enter(){},draw(){const {c,W,H:HH}=fit(cv,420,520);clear(c,W,HH);const gx=54,gy=24,gw=W-80,gh=HH-70;
+  const {X,Y}=frame(c,gx,gy,gw,gh,0,250,0,9.5,'​binding energy per nucleon (MeV)','​nucleon number A',v=>fx(v,0));geo={X,Y};
+  for(let a=50;a<=250;a+=50)text(c,'​'+a,X(a),gy+gh+13,MUT,10,'center');for(let e=2;e<=8;e+=2){text(c,'​'+e,gx-4,Y(e)+4,MUT,10,'right');line(c,gx,Y(e),gx+gw,Y(e),'#1c2740',1)}
+  c.fillStyle='rgba(120,217,247,.06)';c.fillRect(gx,gy,X(56)-gx,gh);c.fillStyle='rgba(255,215,106,.05)';c.fillRect(X(56),gy,gx+gw-X(56),gh);
+  text(c,'​fusion releases energy →',X(8),Y(0.6),CYN,11);text(c,'​← fission releases energy',X(245),Y(0.6),YEL,11,'right');
+  const srt=D.slice().sort((a,b)=>a[1]-b[1]||a[3]-b[3]);path(c,srt.filter(d=>!(d[0]==='He'&&d[1]===3)).map(d=>[d[1],d[3]]),X,Y,'rgba(255,138,122,.45)',1.6);
+  D.forEach((d,i)=>{c.fillStyle=i===sel?YEL:RED;c.beginPath();c.arc(X(d[1]),Y(d[3]),i===sel?6:3.8,0,7);c.fill()});
+  ['He-4','C-12','O-16','Fe-56','U-235','Pb-208','H-2','Li-6'].forEach(n=>{const d=D.find(q=>name(q)===n);text(c,'​'+n,X(d[1])+6,Y(d[3])+(n==='H-2'||n==='Li-6'?4:-8),MUT,10)});
+  const pt=n=>{const d=D.find(q=>name(q)===n);return[X(d[1]),Y(d[3])]};
+  if($('beFus').checked){const [a,b,cc]=[pt('H-2'),pt('H-3'),pt('He-4')];arrow(c,a[0]+4,a[1]-4,cc[0]-2,cc[1]+8,CYN,2.2);arrow(c,b[0]+4,b[1]-4,cc[0]+2,cc[1]+8,CYN,2.2)}
+  if($('beFis').checked){const [u,ba,kr]=[pt('U-235'),pt('Ba-141'),pt('Kr-92')];arrow(c,u[0]-6,u[1]-4,ba[0]+8,ba[1]+2,YEL,2.2);arrow(c,u[0]-6,u[1]-6,kr[0]+8,kr[1]+2,YEL,2.2);text(c,'​Ba-141',ba[0]-4,ba[1]+16,YEL,10,'center');text(c,'​Kr-92',kr[0]-4,kr[1]+16,YEL,10,'center')}
+  const d=D[sel],A=d[1],Z=d[2],N=A-Z,BE=A*d[3],dm=BE/931.5;
+  setRO('beReadout','<b>'+name(d)+'</b>: \\(Z\\) = '+Z+' protons, \\(N\\) = '+N+' neutrons, \\(A\\) = '+A+'.<br>Binding energy per nucleon = <b>'+fx(d[3],3)+' MeV</b>; total binding energy = '+A+' × '+fx(d[3],3)+' = <b>'+fx(BE,1)+' MeV</b> = '+sci(BE*1.6e-13,3)+' J.<br>Mass defect \\(\\Delta m\\) = '+fx(BE,1)+' ÷ 931.5 = <b>'+fx(dm,5)+' u</b> = '+sci(dm*UKG,3)+' kg.<br>Mass of separate nucleons = '+Z+' × 1.00728 + '+N+' × 1.00867 = '+fx(Z*MP+N*MN,5)+' u; nucleus ≈ '+fx(Z*MP+N*MN-dm,5)+' u.')}};
+ sims['nuc:binding']=sim;
+})();
+
+/* ============ 2.3 REACTION ENERGY ============ */
+(()=>{
+ const cv=$('rxCanvas');const UKG=1.661e-27;
+ const n={s:'n',A:1,Z:0,m:1.008665},al={s:'He',A:4,Z:2,m:4.002603};
+ const RX=[
+  {name:'Deuterium–tritium fusion',L:[{s:'H',A:2,Z:1,m:2.014102},{s:'H',A:3,Z:1,m:3.016049}],R:[al,n]},
+  {name:'Deuterium–deuterium fusion',L:[{s:'H',A:2,Z:1,m:2.014102},{s:'H',A:2,Z:1,m:2.014102}],R:[{s:'He',A:3,Z:2,m:3.016029},n]},
+  {name:'Uranium-235 fission (barium + krypton)',L:[n,{s:'U',A:235,Z:92,m:235.043930}],R:[{s:'Ba',A:141,Z:56,m:140.914411},{s:'Kr',A:92,Z:36,m:91.926156},n,n,n]},
+  {name:'Uranium-235 fission (xenon + strontium)',L:[n,{s:'U',A:235,Z:92,m:235.043930}],R:[{s:'Xe',A:140,Z:54,m:139.921646},{s:'Sr',A:94,Z:38,m:93.915361},n,n]},
+  {name:'Alpha decay of radium-226',L:[{s:'Ra',A:226,Z:88,m:226.025410}],R:[{s:'Rn',A:222,Z:86,m:222.017578},al]},
+  {name:'Alpha decay of uranium-238',L:[{s:'U',A:238,Z:92,m:238.050788}],R:[{s:'Th',A:234,Z:90,m:234.043601},al]},
+  {name:'Beta-minus decay of carbon-14',L:[{s:'C',A:14,Z:6,m:14.003242}],R:[{s:'N',A:14,Z:7,m:14.003074},{s:'e',A:0,Z:-1,m:0,beta:1},{s:'ν̄',A:0,Z:0,m:0,nu:1}]}];
+ $('rxSel').innerHTML=RX.map((r,i)=>'<option value="'+i+'">'+r.name+'</option>').join('');
+ let t=0;$('rxSel').addEventListener('change',()=>t=0);$('rxPlay').onclick=()=>t=0;
+ function group(list){const out=[];list.forEach(p=>{const k=out.find(o=>o.p.s===p.s&&o.p.A===p.A);if(k)k.k++;else out.push({p,k:1})});return out}
+ function nuclide(c,x,y,p,k,col){// draws  k ^A_Z X ; returns width
+  const sz=22,small=13;let w=0;c.textBaseline='alphabetic';
+  if(k>1){c.font=sz+'px KaTeX_Main, serif';c.fillStyle=col;c.fillText(k+' ',x,y);w+=c.measureText(k+' ').width}
+  c.font=small+'px KaTeX_Main, serif';const a=String(p.A),z=String(p.Z).replace('-','−');const sw=Math.max(c.measureText(a).width,c.measureText(z).width);
+  c.fillStyle=MUT;c.textAlign='right';c.fillText(a,x+w+sw,y-12);c.fillText(z,x+w+sw,y+4);c.textAlign='left';w+=sw+2;
+  c.font=sz+'px KaTeX_Main, serif';c.fillStyle=col;c.fillText(p.s,x+w,y);w+=c.measureText(p.s).width;return w}
+ const sim={enter(){t=0},step(dt){t+=dt},draw(){const {c,W,H:HH}=fit(cv,330,420);clear(c,W,HH);const r=RX[+$('rxSel').value];
+  // animation
+  const ay=80,mid=W/2;const rad=p=>p.A===0?3:p.s==='n'?5:Math.max(6,4*Math.cbrt(p.A));const colOf=p=>p.s==='n'?'#9aa6bd':p.beta?CYN:p.nu?'#c5a2ff':p.A<=4?'#ffb8ad':RED;
+  const ph=Math.min(1,t/1.0),ph2=Math.max(0,Math.min(1,(t-1.0)/1.4));
+  if(t<1.0){r.L.forEach((p,i)=>{const sx=r.L.length===1?mid:(i===0?mid-180:mid+180);const x=sx+(mid-sx)*ph;c.fillStyle=colOf(p);c.beginPath();c.arc(x,ay,rad(p),0,7);c.fill()})}
+  else{if(ph2<0.25){c.fillStyle='rgba(255,215,106,'+(0.8-ph2*3)+')';c.beginPath();c.arc(mid,ay,30+ph2*120,0,7);c.fill()}
+   r.R.forEach((p,i)=>{const ang=(i/(r.R.length))*2*Math.PI+0.4;const sp=p.A>20?120:p.A>3?170:220;c.fillStyle=colOf(p);c.beginPath();c.arc(mid+Math.cos(ang)*sp*ph2,ay+Math.sin(ang)*sp*0.3*ph2,rad(p),0,7);c.fill()})}
+  // equation
+  const ey=HH-120;c.font='22px KaTeX_Main, serif';let parts=[];const L=group(r.L),R=group(r.R);
+  const measure=()=>{let w=0;const tmp=(g)=>{g.forEach((o,i)=>{w+=nuclide(c,-9999,-9999,o.p,o.k,INK)+(i<g.length-1?28:0)})};tmp(L);w+=50;tmp(R);return w};
+  const tw=measure();let x=Math.max(10,(W-tw)/2);
+  L.forEach((o,i)=>{x+=nuclide(c,x,ey,o.p,o.k,INK);if(i<L.length-1){c.fillStyle=INK;c.fillText(' + ',x,ey);x+=28}});c.fillStyle=YEL;c.fillText('  →  ',x,ey);x+=50;
+  R.forEach((o,i)=>{x+=nuclide(c,x,ey,o.p,o.k,INK);if(i<R.length-1){c.fillStyle=INK;c.fillText(' + ',x,ey);x+=28}});
+  const sA=l=>l.reduce((s,p)=>s+p.A,0),sZ=l=>l.reduce((s,p)=>s+p.Z,0),sM=l=>l.reduce((s,p)=>s+p.m,0);
+  const okA=sA(r.L)===sA(r.R),okZ=sZ(r.L)===sZ(r.R);
+  text(c,'​nucleons: '+sA(r.L)+' → '+sA(r.R)+(okA?'  ✓':'  ✗')+'      charge: '+sZ(r.L)+' → '+sZ(r.R)+(okZ?'  ✓':'  ✗'),W/2,ey+40,okA&&okZ?GRN:RED,13,'center');
+  const dm=sM(r.L)-sM(r.R),MeV=dm*931.5,J=dm*UKG*CL*CL;
+  if(t>1.1)text(c,'​+ '+fx(MeV,MeV<1?3:1)+' MeV',mid,ay-50,YEL,18,'center');
+  const row=l=>group(l).map(o=>{const p=o.p;return p.beta?'e⁻ (counted in the atomic mass of the product)':p.nu?'antineutrino (≈ 0)':(o.k>1?o.k+' × ':'')+(p.s==='n'?'n':p.s+'-'+p.A)+' '+p.m.toFixed(6)}).join(' + ');
+  setRO('rxReadout','<b>Mass before:</b> '+row(r.L)+' = '+sM(r.L).toFixed(6)+' u<br><b>Mass after:</b> '+row(r.R)+' = '+sM(r.R).toFixed(6)+' u<br>Mass defect \\(\\Delta m\\) = <b>'+dm.toFixed(6)+' u</b> = '+sci(dm*UKG,4)+' kg.<br>Energy: '+dm.toFixed(6)+' × 931.5 = <b>'+fx(MeV,MeV<1?3:2)+' MeV</b>; or \\(\\Delta E = \\Delta mc^{2}\\) = '+sci(dm*UKG,4)+' × (3.00 × 10⁸)² = <b>'+sci(J,3)+' J</b>.<br>Energy per nucleon of reactants: '+fx(MeV/sA(r.L),3)+' MeV.')}};
+ sims['nuc:react']=sim;
+})();
+
+})();
+</script>
+</body></html>

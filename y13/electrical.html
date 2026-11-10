@@ -413,12 +413,10 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <header class="topbar"><div class="topcurve" aria-hidden="true"></div><div class="titlebar"><div><div class="eyebrow">Science learning systems · Physics level 3</div><h1 id="topicTitle">COURSE MAP</h1></div><div><div class="index">AS91526 · 6 CREDITS<br/>EXTERNAL EXAM<br/>INTERACTIVE LAB</div><div class="hdr-tools"><a class="home-btn" href="../index.html"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg><span>Home</span></a><div aria-label="Page colour theme" class="theme-switch-wrap"><span class="theme-label-dark">Dark</span><label class="theme-switch" title="Switch between dark and light mode"><input aria-label="Use light mode" id="themeToggle" type="checkbox"/><span class="theme-slider"></span></label><span class="theme-label-light">Light</span></div></div></div></div></header>
 <div class="frame"><nav aria-label="Electrical systems sections" class="rail">
 <button data-tab="map" type="button">00<br/>COURSE<br/>MAP</button>
-<button data-tab="dc" type="button">01<br/>DC<br/>CIRCUITS</button>
-<button data-tab="cap" type="button">02<br/>CAPACI-<br/>TORS</button>
-<button data-tab="flux" type="button">03<br/>FLUX &amp;<br/>FARADAY</button>
-<button data-tab="ind" type="button">04<br/>INDUCTORS</button>
-<button data-tab="tx" type="button">05<br/>TRANS-<br/>FORMERS</button>
-<button data-tab="ac" type="button">06<br/>AC<br/>CIRCUITS</button>
+<button data-tab="dc" type="button">01<br/>RESISTORS<br/>IN DC</button>
+<button data-tab="cap" type="button">02<br/>CAPACITORS<br/>IN DC</button>
+<button data-tab="ind" type="button">03<br/>INDUCTORS<br/>IN DC</button>
+<button data-tab="ac" type="button">04<br/>AC<br/>CIRCUITS</button>
 <div class="fill"></div></nav>
 <main class="work">
 <div aria-label="Activities within selected topic" class="tabs" id="activityTabs" role="tablist"></div>
@@ -431,11 +429,11 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <!-- ===================== 00 · COURSE MAP ===================== -->
 <section class="pane hidden" data-section="map" data-view="scope">
 <h2>Course map · AS91526 Electrical systems</h2>
-<p class="sub">This lab covers the whole of <strong>AS91526 Demonstrate understanding of electrical systems</strong>: DC circuits, capacitors, electromagnetic induction, inductors, transformers and AC circuits. Rate yourself on each "I can…" statement, then use <strong>Go</strong> to jump to the part of the lab that teaches it. Your ratings are saved on this device.</p>
+<p class="sub">This lab covers the whole of <strong>AS91526 Demonstrate understanding of electrical systems</strong>: resistors, capacitors and inductors in DC circuits (including electromagnetic induction and transformers), then AC circuits. The four sections follow chapters 13 to 16 of the ESA Level 3 Physics study guide. Rate yourself on each "I can…" statement, then use <strong>Go</strong> to jump to the part of the lab that teaches it. Your ratings are saved on this device.</p>
 <div class="nx-facts">
 <div><span>Standard</span><strong>AS91526 · Physics 3.6</strong></div>
 <div><span>Credits</span><strong>6 · external exam</strong></div>
-<div><span>Sections</span><strong>DC · capacitors · induction · AC</strong></div>
+<div><span>Sections</span><strong>Resistors · capacitors · inductors · AC</strong></div>
 <div><span>Contexts</span><strong>Real-life, info supplied</strong></div>
 </div>
 <h3 class="nx-h3">The big ideas</h3>
@@ -443,9 +441,9 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="nx-bigidea nx-bigidea6" role="list">
 <button class="nx-idea" data-go="dc:battery" role="listitem" style="--c:#8fd694" type="button"><b>DC circuits</b><span>emf = terminal voltage + "lost volts" \(ir\); Kirchhoff's rules</span></button>
 <button class="nx-idea" data-go="cap:rc" role="listitem" style="--c:#ff9eb5" type="button"><b>Capacitors</b><span>Store charge \(Q = CV\); charge and discharge exponentially, \(\tau = RC\)</span></button>
-<button class="nx-idea" data-go="flux:loop" role="listitem" style="--c:#f0a66a" type="button"><b>Induction</b><span>emf = rate of change of flux linkage; Lenz gives direction</span></button>
+<button class="nx-idea" data-go="ind:graphs" role="listitem" style="--c:#f0a66a" type="button"><b>Induction</b><span>emf = rate of change of flux linkage; Lenz gives direction</span></button>
 <button class="nx-idea" data-go="ind:lr" role="listitem" style="--c:#78d9f7" type="button"><b>Inductors</b><span>Back emf opposes changes in current; \(\tau = L/R\)</span></button>
-<button class="nx-idea" data-go="tx:lab" role="listitem" style="--c:#c5a2ff" type="button"><b>Transformers</b><span>Shared changing flux: \(V\) scales with turns</span></button>
+<button class="nx-idea" data-go="ind:txlab" role="listitem" style="--c:#c5a2ff" type="button"><b>Transformers</b><span>Shared changing flux: \(V\) scales with turns</span></button>
 <button class="nx-idea" data-go="ac:lcr" role="listitem" style="--c:#ff8a7a" type="button"><b>AC circuits</b><span>Reactance depends on \(f\); phasors; resonance when \(X_{L} = X_{C}\)</span></button>
 </div>
 <div class="nx-progress-wrap">
@@ -457,12 +455,10 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="nx-scope" id="nxScopeList"></div>
 <h3 class="nx-h3">Suggested route through the lab</h3>
 <ol class="nx-route">
-<li><b>DC circuits</b> · 1.1 → 1.2 → 1.3, then check yourself in 1.4</li>
-<li><b>Capacitors</b> · 2.1 → 2.2 → 2.3 → 2.4, then 2.5</li>
-<li><b>Flux &amp; Faraday</b> · 3.1 → 3.2 → 3.3, then 3.4</li>
-<li><b>Inductors</b> · 4.1 → 4.2 → 4.3 → 4.4, then 4.5. Compare the LR lab (4.3) with the RC lab (2.3).</li>
-<li><b>Transformers</b> · 5.1 → 5.2 → 5.3, then 5.4</li>
-<li><b>AC circuits</b> · 6.1 → 6.2 → 6.3 → 6.4, then 6.5</li>
+<li><b>01 Resistors in DC circuits</b> (ESA chapter 13) · 1.1 → 1.2 → 1.3, then check yourself in 1.4</li>
+<li><b>02 Capacitors in DC circuits</b> (ESA chapter 14) · 2.1 → 2.2 → 2.3 → 2.4, then 2.5</li>
+<li><b>03 Inductors in DC circuits</b> (ESA chapter 15) · flux and Faraday 3.1 → 3.2 → 3.3; inductors 3.4 → 3.5 → 3.6 → 3.7; transformers 3.8 → 3.9 → 3.10; then the three quizzes in 3.11. Compare the LR lab (3.6) with the RC lab (2.3).</li>
+<li><b>04 AC circuits</b> (ESA chapter 16) · 4.1 → 4.2 → 4.3 → 4.4, then 4.5</li>
 <li><b>Applications</b> · the last tab in each section shows where the ideas are used. Exam questions are often set in contexts like these.</li>
 <li><b>Exam practice</b> · 0.2 Exam Skills, then the Problems tab in each section. Keep 0.3 Formula Sheet open beside you.</li>
 </ol>
@@ -565,35 +561,36 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="fs-card"><h4>Combining capacitors</h4><span class="st check">Check booklet</span><div class="fl">\[C_{\text{par}}=C_1+C_2\]\[\dfrac{1}{C_{\text{ser}}}=\dfrac{1}{C_1}+\dfrac{1}{C_2}\]</div><p>The opposite way round to resistors.</p><div class="fs-links"><button class="fs-link" data-go="cap:combine" type="button">2.4</button></div></div>
 </div></div>
 <div class="fs-group"><h3 style="color:#f0a66a">Flux &amp; Faraday</h3><div class="fs-grid">
-<div class="fs-card"><h4>Magnetic flux</h4><span class="st given">Given</span><div class="fl">\[\Phi=BA\]</div><p>\(\Phi\) in Wb, \(B\) in T, A in m² (area perpendicular to the field).</p><div class="fs-links"><button class="fs-link" data-go="flux:intro" type="button">3.1</button></div></div>
-<div class="fs-card"><h4>Faraday's law</h4><span class="st given">Given</span><div class="fl">\[\varepsilon=-\dfrac{\Delta \Phi}{\Delta t}\]</div><p>For \(N\) turns use \(\varepsilon = -N\Delta \Phi /\Delta t\). The minus sign is Lenz's law.</p><div class="fs-links"><button class="fs-link" data-go="flux:coil" type="button">3.2</button><button class="fs-link" data-go="flux:loop" type="button">3.3</button></div></div>
-<div class="fs-card"><h4>Moving conductor</h4><span class="st not-given">Not given</span><div class="fl">\[\varepsilon=BvL\]</div><p>A rod of length \(L\) moving at \(v\) across a field \(B\). It follows from Faraday: the area swept per second is \(vL\).</p><div class="fs-links"><button class="fs-link" data-go="flux:loop" type="button">3.3</button></div></div>
+<div class="fs-card"><h4>Magnetic flux</h4><span class="st given">Given</span><div class="fl">\[\Phi=BA\]</div><p>\(\Phi\) in Wb, \(B\) in T, A in m² (area perpendicular to the field).</p><div class="fs-links"><button class="fs-link" data-go="ind:flux" type="button">3.1</button></div></div>
+<div class="fs-card"><h4>Faraday's law</h4><span class="st given">Given</span><div class="fl">\[\varepsilon=-\dfrac{\Delta \Phi}{\Delta t}\]</div><p>For \(N\) turns use \(\varepsilon = -N\Delta \Phi /\Delta t\). The minus sign is Lenz's law.</p><div class="fs-links"><button class="fs-link" data-go="ind:magnet" type="button">3.2</button><button class="fs-link" data-go="ind:graphs" type="button">3.3</button></div></div>
+<div class="fs-card"><h4>Moving conductor</h4><span class="st not-given">Not given</span><div class="fl">\[\varepsilon=BvL\]</div><p>A rod of length \(L\) moving at \(v\) across a field \(B\). It follows from Faraday: the area swept per second is \(vL\).</p><div class="fs-links"><button class="fs-link" data-go="ind:graphs" type="button">3.3</button></div></div>
 </div></div>
 <div class="fs-group"><h3 style="color:#78d9f7">Inductors</h3><div class="fs-grid">
-<div class="fs-card"><h4>Inductance of a coil</h4><span class="st not-given">Not given</span><div class="fl">\[L=\dfrac{N\Phi}{i}\approx\dfrac{\mu_0\mu_rN^2A}{l}\]</div><p>Know the trends: more turns (\(L \propto N^{2}\)), bigger area, shorter coil, or an iron core (relative permeability \(\mu _{r}\)) all increase \(L\).</p><div class="fs-links"><button class="fs-link" data-go="ind:coil" type="button">4.2</button></div></div>
-<div class="fs-card"><h4>Back emf</h4><span class="st given">Given</span><div class="fl">\[\varepsilon=-L\dfrac{\Delta i}{\Delta t}\]</div><p>\(L\) in henry (H): 1 V of back emf when current changes at 1 A s⁻¹.</p><div class="fs-links"><button class="fs-link" data-go="ind:intro" type="button">4.1</button><button class="fs-link" data-go="ind:off" type="button">4.4</button></div></div>
-<div class="fs-card"><h4>Time constant</h4><span class="st given">Given</span><div class="fl">\[\tau=\dfrac{L}{R}\]</div><p>\(R\) is the <strong>total</strong> resistance, including the inductor's own.</p><div class="fs-links"><button class="fs-link" data-go="ind:lr" type="button">4.3</button></div></div>
-<div class="fs-card"><h4>Energy stored</h4><span class="st given">Given</span><div class="fl">\[E=\dfrac{1}{2}Li^2\]</div><p>Stored in the magnetic field.</p><div class="fs-links"><button class="fs-link" data-go="ind:lr" type="button">4.3</button></div></div>
-<div class="fs-card"><h4>Exponential growth &amp; decay</h4><span class="st not-given">Not given</span><div class="fl">\[x=x_{\text{max}}(1-e^{-t/\tau})\]\[x=x_0e^{-t/\tau}\]</div><p>Same maths for capacitors and inductors. Most answers can be read from 63% / 37%.</p><div class="fs-links"><button class="fs-link" data-go="cap:rc" type="button">2.3</button><button class="fs-link" data-go="ind:lr" type="button">4.3</button></div></div>
+<div class="fs-card"><h4>Inductance of a coil</h4><span class="st not-given">Not given</span><div class="fl">\[L=\dfrac{N\Phi}{i}\approx\dfrac{\mu_0\mu_rN^2A}{l}\]</div><p>Know the trends: more turns (\(L \propto N^{2}\)), bigger area, shorter coil, or an iron core (relative permeability \(\mu _{r}\)) all increase \(L\).</p><div class="fs-links"><button class="fs-link" data-go="ind:coil" type="button">3.5</button></div></div>
+<div class="fs-card"><h4>Back emf</h4><span class="st given">Given</span><div class="fl">\[\varepsilon=-L\dfrac{\Delta i}{\Delta t}\]</div><p>\(L\) in henry (H): 1 V of back emf when current changes at 1 A s⁻¹.</p><div class="fs-links"><button class="fs-link" data-go="ind:intro" type="button">3.4</button><button class="fs-link" data-go="ind:off" type="button">3.7</button></div></div>
+<div class="fs-card"><h4>Time constant</h4><span class="st given">Given</span><div class="fl">\[\tau=\dfrac{L}{R}\]</div><p>\(R\) is the <strong>total</strong> resistance, including the inductor's own.</p><div class="fs-links"><button class="fs-link" data-go="ind:lr" type="button">3.6</button></div></div>
+<div class="fs-card"><h4>Energy stored</h4><span class="st given">Given</span><div class="fl">\[E=\dfrac{1}{2}Li^2\]</div><p>Stored in the magnetic field.</p><div class="fs-links"><button class="fs-link" data-go="ind:lr" type="button">3.6</button></div></div>
+<div class="fs-card"><h4>Exponential growth &amp; decay</h4><span class="st not-given">Not given</span><div class="fl">\[x=x_{\text{max}}(1-e^{-t/\tau})\]\[x=x_0e^{-t/\tau}\]</div><p>Same maths for capacitors and inductors. Most answers can be read from 63% / 37%.</p><div class="fs-links"><button class="fs-link" data-go="cap:rc" type="button">2.3</button><button class="fs-link" data-go="ind:lr" type="button">3.6</button></div></div>
 </div></div>
 <div class="fs-group"><h3 style="color:#c5a2ff">Transformers &amp; transmission</h3><div class="fs-grid">
-<div class="fs-card"><h4>Turns ratio</h4><span class="st given">Given</span><div class="fl">\[\dfrac{V_s}{V_p}=\dfrac{N_s}{N_p}\]</div><p>The same changing flux links every turn of both coils.</p><div class="fs-links"><button class="fs-link" data-go="tx:intro" type="button">5.1</button><button class="fs-link" data-go="tx:lab" type="button">5.2</button></div></div>
-<div class="fs-card"><h4>Ideal transformer power</h4><span class="st not-given">Not given</span><div class="fl">\[V_pi_p=V_si_s\]</div><p>Efficiency = \(P_{\text{out}}/P_{\text{in}}\) for a real transformer.</p><div class="fs-links"><button class="fs-link" data-go="tx:lab" type="button">5.2</button></div></div>
-<div class="fs-card"><h4>Power loss in a line</h4><span class="st not-given">Not given</span><div class="fl">\[P_{\text{loss}}=i^2R\]</div><p>Higher transmission voltage → lower current → much lower loss.</p><div class="fs-links"><button class="fs-link" data-go="tx:grid" type="button">5.3</button></div></div>
+<div class="fs-card"><h4>Turns ratio</h4><span class="st given">Given</span><div class="fl">\[\dfrac{V_s}{V_p}=\dfrac{N_s}{N_p}\]</div><p>The same changing flux links every turn of both coils.</p><div class="fs-links"><button class="fs-link" data-go="ind:tx" type="button">3.8</button><button class="fs-link" data-go="ind:txlab" type="button">3.9</button></div></div>
+<div class="fs-card"><h4>Ideal transformer power</h4><span class="st not-given">Not given</span><div class="fl">\[V_pi_p=V_si_s\]</div><p>Efficiency = \(P_{\text{out}}/P_{\text{in}}\) for a real transformer.</p><div class="fs-links"><button class="fs-link" data-go="ind:txlab" type="button">3.9</button></div></div>
+<div class="fs-card"><h4>Power loss in a line</h4><span class="st not-given">Not given</span><div class="fl">\[P_{\text{loss}}=i^2R\]</div><p>Higher transmission voltage → lower current → much lower loss.</p><div class="fs-links"><button class="fs-link" data-go="ind:grid" type="button">3.10</button></div></div>
 </div></div>
 <div class="fs-group"><h3 style="color:#ff8a7a">AC circuits</h3><div class="fs-grid">
-<div class="fs-card"><h4>Sinusoidal AC</h4><span class="st given">Given</span><div class="fl">\[V=V_{\text{max}}\sin \omega t\]\[\omega=2\pi f\]</div><p>Same form for current: \(i = i_{\text{max}}\) sin \(\omega t\).</p><div class="fs-links"><button class="fs-link" data-go="ac:intro" type="button">6.1</button></div></div>
-<div class="fs-card"><h4>rms values</h4><span class="st given">Given</span><div class="fl">\[V_{\text{rms}}=\dfrac{V_{\text{max}}}{\sqrt{2}}\]\[i_{\text{rms}}=\dfrac{i_{\text{max}}}{\sqrt{2}}\]</div><p>rms = the DC value with the same heating effect. \(V_{\text{max}} = \sqrt{2} \times V_{\text{rms}}\).</p><div class="fs-links"><button class="fs-link" data-go="ac:rms" type="button">6.2</button></div></div>
-<div class="fs-card"><h4>Reactance</h4><span class="st given">Given</span><div class="fl">\[X_L=\omega L\]\[X_C=\dfrac{1}{\omega C}\]</div><p>\(X_{L}\) rises with frequency; \(X_{C}\) falls. Both in ohms.</p><div class="fs-links"><button class="fs-link" data-go="ac:phase" type="button">6.3</button></div></div>
-<div class="fs-card"><h4>Impedance</h4><span class="st given">Given</span><div class="fl">\[V=iZ\]</div><p>Series LCR (from the phasor diagram, not given): \(Z = \sqrt{R^{2} + (X_{L} - X_{C})^{2}}\).</p><div class="fs-links"><button class="fs-link" data-go="ac:lcr" type="button">6.4</button></div></div>
-<div class="fs-card"><h4>Resonant frequency</h4><span class="st not-given">Not given</span><div class="fl">\[f_0=\dfrac{1}{2\pi \sqrt{LC}}\]</div><p>Derive it by setting \(X_{L} = X_{C}\). At resonance, \(Z = R\) and the current is a maximum.</p><div class="fs-links"><button class="fs-link" data-go="ac:lcr" type="button">6.4</button></div></div>
+<div class="fs-card"><h4>Sinusoidal AC</h4><span class="st given">Given</span><div class="fl">\[V=V_{\text{max}}\sin \omega t\]\[\omega=2\pi f\]</div><p>Same form for current: \(i = i_{\text{max}}\) sin \(\omega t\).</p><div class="fs-links"><button class="fs-link" data-go="ac:intro" type="button">4.1</button></div></div>
+<div class="fs-card"><h4>rms values</h4><span class="st given">Given</span><div class="fl">\[V_{\text{rms}}=\dfrac{V_{\text{max}}}{\sqrt{2}}\]\[i_{\text{rms}}=\dfrac{i_{\text{max}}}{\sqrt{2}}\]</div><p>rms = the DC value with the same heating effect. \(V_{\text{max}} = \sqrt{2} \times V_{\text{rms}}\).</p><div class="fs-links"><button class="fs-link" data-go="ac:rms" type="button">4.2</button></div></div>
+<div class="fs-card"><h4>Reactance</h4><span class="st given">Given</span><div class="fl">\[X_L=\omega L\]\[X_C=\dfrac{1}{\omega C}\]</div><p>\(X_{L}\) rises with frequency; \(X_{C}\) falls. Both in ohms.</p><div class="fs-links"><button class="fs-link" data-go="ac:phase" type="button">4.3</button></div></div>
+<div class="fs-card"><h4>Impedance</h4><span class="st given">Given</span><div class="fl">\[V=iZ\]</div><p>Series LCR (from the phasor diagram, not given): \(Z = \sqrt{R^{2} + (X_{L} - X_{C})^{2}}\).</p><div class="fs-links"><button class="fs-link" data-go="ac:lcr" type="button">4.4</button></div></div>
+<div class="fs-card"><h4>Resonant frequency</h4><span class="st not-given">Not given</span><div class="fl">\[f_0=\dfrac{1}{2\pi \sqrt{LC}}\]</div><p>Derive it by setting \(X_{L} = X_{C}\). At resonance, \(Z = R\) and the current is a maximum.</p><div class="fs-links"><button class="fs-link" data-go="ac:lcr" type="button">4.4</button></div></div>
 </div></div>
 <p class="small">Source: <a class="src" href="https://www.nzqa.govt.nz/ncea/assessment/view-detailed.do?standardNumber=91526" rel="noopener" target="_blank">NZQA AS91526 standard</a> (explanatory notes and supplied formulae). Always check against the resource booklet for your exam year.</p>
 </section>
 
-<!-- ===================== 01 · DC CIRCUITS ===================== -->
+
+<!-- ===================== 01 · RESISTORS IN DC CIRCUITS (ESA ch. 13) ===================== -->
 <section class="pane hidden" data-section="dc" data-view="intro">
-<div class="section-identity"><strong>01 · DC circuits</strong><p>emf, internal resistance and Kirchhoff's laws: the energy and charge bookkeeping of any circuit.</p></div>
+<div class="section-identity"><strong>01 · Resistors in DC circuits</strong><p>emf, internal resistance and Kirchhoff's laws: the energy and charge bookkeeping of any circuit.</p></div>
 <h2>emf, internal resistance and Kirchhoff's laws</h2>
 <p class="sub">Six ideas. The 2025 examiners reported many candidates couldn't separate emf from terminal voltage, so read 1.1.1 and 1.1.2 carefully.</p>
 <div class="intro-steps">
@@ -803,11 +800,12 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p>The headlights and starter motor are connected in parallel across the battery. When the starter motor runs, it adds a very low-resistance branch, so the total external resistance drops and the current drawn from the battery becomes very large. The battery has internal resistance \(r\), so the lost volts \(ir\) become large. Since the terminal voltage is \(V = \varepsilon - ir\), the terminal voltage falls, and the headlights, connected across the terminals, receive less voltage. Their power \((V^{2}/R)\) drops, so they dim. When the starter stops, the current falls, \(ir\) falls, and the lights brighten again.</p></details></div>
 </section>
 
-<!-- ===================== 02 · CAPACITORS ===================== -->
+
+<!-- ===================== 02 · CAPACITORS IN DC CIRCUITS (ESA ch. 14) ===================== -->
 <section class="pane hidden" data-section="cap" data-view="intro">
-<div class="section-identity"><strong>02 · Capacitors</strong><p>Storing charge and energy in an electric field, and the exponential curves of charging and discharging.</p></div>
+<div class="section-identity"><strong>02 · Capacitors in DC circuits</strong><p>Storing charge and energy in an electric field, and the exponential curves of charging and discharging.</p></div>
 <h2>Capacitors in DC circuits</h2>
-<p class="sub">Six ideas. Compare 2.1.5 with inductors (4.1.2): the curves look alike, but the physics and the quantity that's delayed are different.</p>
+<p class="sub">Six ideas. Compare 2.1.5 with inductors (3.4.2): the curves look alike, but the physics and the quantity that's delayed are different.</p>
 <div class="intro-steps">
 <details class="intro-step" open><summary>2.1.1 · Capacitance: \(Q = CV\)</summary><div class="intro-step-body">
 <p>A capacitor is two conducting plates separated by an insulator. Connected to a battery, electrons are pushed onto one plate and pulled off the other, so the plates carry equal and opposite charges, +\(Q\) and −\(Q\). No charge crosses the gap.</p>
@@ -843,7 +841,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <path d="M350,40 C380,122 420,160 470,172 S560,179 600,180" fill="none" stroke="#78d9f7" stroke-width="3"/>
 <g fill="#e9edf8" font-family="Arial" font-size="13"><text x="30" y="44">ε</text><text x="56" y="16">capacitor voltage, V<tspan font-size="9" dy="3">C</tspan></text><text x="270" y="198">time</text><text x="84" y="198">τ</text><text x="95" y="86">63%</text>
 <text x="315" y="44">ε/R</text><text x="356" y="16">current, I</text><text x="570" y="198">time</text><text x="384" y="198">τ</text><text x="396" y="124">37%</text></g></svg>
-<p class="visual-caption">Charging: \(V_{C}\) grows while \(i\) decays. For an inductor (4.1.2) the roles are swapped: <em>current</em> grows while the inductor's voltage decays.</p></div>
+<p class="visual-caption">Charging: \(V_{C}\) grows while \(i\) decays. For an inductor (3.4.2) the roles are swapped: <em>current</em> grows while the inductor's voltage decays.</p></div>
 </div></details>
 <details class="intro-step"><summary>2.1.6 · Capacitors in series and parallel</summary><div class="intro-step-body">
 <ul><li><strong>Parallel:</strong> \(C_{T} = C_{1} + C_{2}\). Same voltage across each; like making the plate area bigger. Charges add.</li>
@@ -883,7 +881,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </section>
 
 <section class="pane hidden" data-section="cap" data-view="rc">
-<div class="section-identity"><strong>2.3 · RC circuit</strong><p>Charge and discharge a capacitor through a resistor; compare with the LR lab (4.3).</p></div>
+<div class="section-identity"><strong>2.3 · RC circuit</strong><p>Charge and discharge a capacitor through a resistor; compare with the LR lab (3.6).</p></div>
 <h2>RC circuit lab</h2>
 <p class="sub">A two-way switch connects the capacitor either to the battery through \(R\) (<strong>A, charge</strong>) or straight across \(R\) with the battery removed (<strong>B, discharge</strong>). The current graph is signed: discharge current flows the opposite way and shows as negative.</p>
 <p class="small"><strong>Watch the charges.</strong> Brighter, bigger dots carry more energy per coulomb (higher potential). Charging: they gain \(\varepsilon\) in the cell, lose \(V_{R}\) in the resistor and arrive at the plate with \(V_{C}\) per coulomb, so as \(V_{C}\) builds up, less is lost in \(R\). Discharging: the capacitor is the source, and the charges lose its energy in the resistor.</p>
@@ -1047,9 +1045,10 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p>The charging and discharging times depend on the time constant \(\tau = RC\). The capacitor is charged through a circuit with a relatively large resistance, so \(\tau\) is long, of the order of seconds. When the flash fires, the capacitor discharges through the flash tube, whose resistance is very small once the gas conducts, so \(\tau\) is very short, about a millisecond. The energy stored, \(\tfrac{1}{2}CV^{2}\), is the same either way. Since power = energy ÷ time, releasing it in a thousandth of the time gives a power thousands of times larger, producing a very bright, short flash.</p></details></div>
 </section>
 
-<!-- ===================== 01 · FLUX & FARADAY ===================== -->
-<section class="pane hidden" data-section="flux" data-view="intro">
-<div class="section-identity"><strong>03 · Flux &amp; Faraday</strong><p>Where induced emfs come from, how big they are, and which way they push.</p></div>
+
+<!-- ===================== 03 · INDUCTORS IN DC CIRCUITS (ESA ch. 15) ===================== -->
+<section class="pane hidden" data-section="ind" data-view="flux">
+<div class="section-identity"><strong>3.1 · Flux &amp; Faraday</strong><p>Where induced emfs come from, how big they are, and which way they push.</p></div>
 <h2>Magnetic flux and electromagnetic induction</h2>
 <p class="sub">Six ideas underpin the whole topic. Open each panel for the detail.</p>
 <div class="intro-steps">
@@ -1090,73 +1089,18 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </div></details>
 <details class="intro-step"><summary>3.1.5 · Induction in the real world</summary><div class="intro-step-body">
 <p>Generators, regenerative braking, eddy-current brakes, guitar pickups, microphones and induction cooktops all run on these two laws. A magnet dropped down a copper pipe falls slowly for the same reason: eddy currents induced in the pipe oppose its motion.</p>
-<p><button class="tool-btn secondary" data-go="flux:apps" type="button">See 3.6 Applications →</button></p>
+<p><button class="tool-btn secondary" data-go="ind:apps" type="button">See 3.13 Applications →</button></p>
 </div></details>
 <details class="intro-step"><summary>3.1.6 · Eddy currents</summary><div class="intro-step-body">
 <p>Induction doesn't need a coil. When a block of metal moves through a non-uniform field, or sits in a changing field, emfs are induced inside the metal itself. These drive loops of current called <strong>eddy currents</strong> that circulate within the metal.</p>
 <ul><li>By Lenz's law, eddy currents <strong>oppose the motion</strong> that causes them. This is the basis of magnetic brakes, and why a magnet falls slowly down a copper pipe.</li>
-<li>Eddy currents <strong>heat</strong> the metal \((i^{2}R)\). This is useful in induction cooktops but wasteful in transformer cores, which is why cores are laminated (see 5.1.5).</li>
+<li>Eddy currents <strong>heat</strong> the metal \((i^{2}R)\). This is useful in induction cooktops but wasteful in transformer cores, which is why cores are laminated (see 3.8.5).</li>
 <li>Cutting slots in the metal breaks up the current loops and reduces the effect.</li></ul>
 </div></details>
 </div>
 </section>
 
-<section class="pane hidden" data-section="flux" data-view="loop">
-<div class="section-identity"><strong>3.3 · \(\Phi\) vs \(t\) graphs</strong><p>A loop moving through a field (\(\varepsilon = BvL\)), then turning any \(\Phi\)–\(t\) graph into an \(\varepsilon\)–\(t\) graph: the most common exam sketch.</p></div>
-<h2>Loop moving through a magnetic field</h2>
-<p class="sub">A square loop of wire moves at a steady speed through a region where the field points <strong>into the page</strong> (×). Watch the flux through the loop and the induced emf as it enters, crosses and leaves the field.</p>
-<div class="nx-lab">
-<div class="sim"><canvas id="loopCanvas" height="400" aria-label="Square loop moving at constant speed through a rectangular magnetic field region, with flux and emf graphs"></canvas></div>
-<div class="legend"><span style="--key:#87bbec">Flux through loop, \(\Phi\)</span><span style="--key:#f0a66a">Induced emf, \(\varepsilon\)</span><span style="--key:#ffd76a">Induced current direction</span></div>
-<div class="nx-ctlbar">
-<div class="nx-bar-inputs">
-<h3>Controls</h3>
-<div class="control"><label for="loopB">Field, \(B\) <output id="loopBOut">0.50 T</output></label><input id="loopB" max="1.5" min="0.1" step="0.05" type="range" value="0.5"/></div>
-<div class="control"><label for="loopV">Speed, \(v\) <output id="loopVOut">2.0 m s⁻¹</output></label><input id="loopV" max="5" min="0.5" step="0.1" type="range" value="2"/></div>
-<div class="control"><label for="loopL">Loop side, \(L\) <output id="loopLOut">0.10 m</output></label><input id="loopL" max="0.2" min="0.05" step="0.01" type="range" value="0.1"/></div>
-<div class="control"><label for="loopW">Field width <output id="loopWOut">0.25 m</output></label><input id="loopW" max="0.35" min="0.05" step="0.01" type="range" value="0.25"/></div>
-<div class="control"><label for="loopR">Loop resistance <output id="loopROut">0.50 Ω</output></label><input id="loopR" max="5" min="0.1" step="0.1" type="range" value="0.5"/></div>
-<div class="btn-row"><button class="tool-btn" id="loopPlay" type="button">Pause</button><button class="tool-btn secondary" id="loopRestart" type="button">Restart</button></div>
-</div>
-<div class="nx-bar-info"><div class="readout" id="loopReadout">…</div><div class="readout" id="loopNote" style="border-left-color:#d99ac6">…</div></div>
-</div>
-<p class="sim-caption">Plays in slow motion. Try a field narrower than the loop: once the whole field is inside the loop, the flux stops changing.</p>
-</div>
-<h3>Look for these ideas</h3>
-<ul class="nx-list">
-<li><strong>Entering:</strong> each second the loop sweeps an extra area \(vL\) into the field, so \(\Delta \Phi /\Delta t = BvL\) and the emf is \(\varepsilon = BvL\).</li>
-<li><strong>Fully inside:</strong> the flux is large but constant, so there is no emf and no current. Both vertical sides have an emf \(BvL\), but they cancel around the loop.</li>
-<li><strong>Leaving:</strong> the flux decreases, so the emf and current reverse.</li>
-<li><strong>Direction:</strong> by Lenz's law, the induced current makes a field opposing the change. Entering: the flux into the page is growing, so the current is anticlockwise (its field points out of the page). Fleming's right-hand rule on the moving side gives the same answer.</li>
-<li><strong>Magnetic braking:</strong> the current in the side inside the field feels a force \(F = BiL\) opposing the motion. Something must push the loop to keep its speed steady, and that work becomes electrical energy.</li>
-</ul>
-
-
-<h2 id="phiEpsGraphs" style="margin-top:28px">From a \(\Phi\)–\(t\) graph to an \(\varepsilon\)–\(t\) graph</h2>
-<p class="sub">The loop above makes one particular \(\Phi\)–\(t\) graph. Here you can choose any \(\Phi\)–\(t\) graph, or drag the orange points to make your own. The \(\varepsilon\)–\(t\) graph underneath is \(\varepsilon = -N\) × gradient. Tick <strong>Predict first</strong> to hide it, sketch your answer, then reveal.</p>
-<div class="nx-lab">
-<div class="sim"><canvas id="graphCanvas" height="420" aria-label="Flux against time graph with draggable points above the matching induced emf against time graph"></canvas></div>
-<div class="nx-ctlbar">
-<div class="nx-bar-inputs">
-<h3>Controls</h3>
-<div class="control"><label for="graphPreset">Flux graph</label><select id="graphPreset"><option value="trap">Ramp up, hold, ramp down</option><option value="tri">Fast rise, slow fall</option><option value="step">Switch on, off and reversed</option><option value="sine">Rotating coil (sine)</option><option value="custom">My own (drag the points)</option></select></div>
-<div class="control"><label for="graphN">Turns, \(N\) <output id="graphNOut">50</output></label><input id="graphN" max="200" min="1" step="1" type="range" value="50"/></div>
-<label class="check-row"><input id="graphHide" type="checkbox"/> Predict first (hide the \(\varepsilon\)–\(t\) graph)</label>
-<div class="btn-row"><button class="tool-btn secondary" id="graphReveal" type="button">Reveal \(\varepsilon\)–\(t\) graph</button></div>
-</div>
-<div class="nx-bar-info"><div class="readout" id="graphReadout">Move the pointer over the graphs to read values.</div><div class="readout" id="graphSegs" style="border-left-color:#87bbec"></div></div>
-</div>
-</div>
-<h3>Rules for the sketch</h3>
-<ul class="nx-list">
-<li><strong>Flat \(\Phi\) → zero emf</strong>, however big \(\Phi\) is.</li>
-<li><strong>Straight sloping \(\Phi\) → constant emf</strong>. Steeper slope, bigger emf.</li>
-<li><strong>\(\Phi\) increasing → \(\varepsilon\) negative</strong> (with the sign convention \(\varepsilon = -N\Delta \Phi /\Delta t\)); \(\Phi\) decreasing → \(\varepsilon\) positive.</li>
-<li><strong>Rotating coil:</strong> emf is largest where the flux is zero (steepest point), and zero where the flux is at its peak. The emf graph is a sine wave a quarter of a cycle out of step with the flux.</li>
-</ul>
-</section>
-
-<section class="pane hidden" data-section="flux" data-view="coil">
+<section class="pane hidden" data-section="ind" data-view="magnet">
 <div class="section-identity"><strong>3.2 · Magnet and coil</strong><p>Move a magnet near a coil and watch the flux, the emf and the induced poles.</p></div>
 <h2>Magnet and coil</h2>
 <p class="sub">The coil is connected to a centre-zero <strong>voltmeter</strong>: its needle swings right for a positive emf and left for a negative one. The graph plots the flux through one turn \((\Phi )\) and the induced emf \((\varepsilon )\) against time. Watch for: emf only while \(\Phi\) changes; the emf sign flips when the flux starts decreasing; and the coil's induced pole always opposes the magnet's motion. <strong>Grab the magnet and drag it through the coil</strong>, slowly and then quickly: the faster the flux changes, the bigger the emf.</p>
@@ -1276,60 +1220,73 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </div>
 </section>
 
+<section class="pane hidden" data-section="ind" data-view="graphs">
+<div class="section-identity"><strong>3.3 · \(\Phi\) vs \(t\) graphs</strong><p>A loop moving through a field (\(\varepsilon = BvL\)), then turning any \(\Phi\)–\(t\) graph into an \(\varepsilon\)–\(t\) graph: the most common exam sketch.</p></div>
+<h2>Loop moving through a magnetic field</h2>
+<p class="sub">A square loop of wire moves at a steady speed through a region where the field points <strong>into the page</strong> (×). Watch the flux through the loop and the induced emf as it enters, crosses and leaves the field.</p>
+<div class="nx-lab">
+<div class="sim"><canvas id="loopCanvas" height="400" aria-label="Square loop moving at constant speed through a rectangular magnetic field region, with flux and emf graphs"></canvas></div>
+<div class="legend"><span style="--key:#87bbec">Flux through loop, \(\Phi\)</span><span style="--key:#f0a66a">Induced emf, \(\varepsilon\)</span><span style="--key:#ffd76a">Induced current direction</span></div>
+<div class="nx-ctlbar">
+<div class="nx-bar-inputs">
+<h3>Controls</h3>
+<div class="control"><label for="loopB">Field, \(B\) <output id="loopBOut">0.50 T</output></label><input id="loopB" max="1.5" min="0.1" step="0.05" type="range" value="0.5"/></div>
+<div class="control"><label for="loopV">Speed, \(v\) <output id="loopVOut">2.0 m s⁻¹</output></label><input id="loopV" max="5" min="0.5" step="0.1" type="range" value="2"/></div>
+<div class="control"><label for="loopL">Loop side, \(L\) <output id="loopLOut">0.10 m</output></label><input id="loopL" max="0.2" min="0.05" step="0.01" type="range" value="0.1"/></div>
+<div class="control"><label for="loopW">Field width <output id="loopWOut">0.25 m</output></label><input id="loopW" max="0.35" min="0.05" step="0.01" type="range" value="0.25"/></div>
+<div class="control"><label for="loopR">Loop resistance <output id="loopROut">0.50 Ω</output></label><input id="loopR" max="5" min="0.1" step="0.1" type="range" value="0.5"/></div>
+<div class="btn-row"><button class="tool-btn" id="loopPlay" type="button">Pause</button><button class="tool-btn secondary" id="loopRestart" type="button">Restart</button></div>
+</div>
+<div class="nx-bar-info"><div class="readout" id="loopReadout">…</div><div class="readout" id="loopNote" style="border-left-color:#d99ac6">…</div></div>
+</div>
+<p class="sim-caption">Plays in slow motion. Try a field narrower than the loop: once the whole field is inside the loop, the flux stops changing.</p>
+</div>
+<h3>Look for these ideas</h3>
+<ul class="nx-list">
+<li><strong>Entering:</strong> each second the loop sweeps an extra area \(vL\) into the field, so \(\Delta \Phi /\Delta t = BvL\) and the emf is \(\varepsilon = BvL\).</li>
+<li><strong>Fully inside:</strong> the flux is large but constant, so there is no emf and no current. Both vertical sides have an emf \(BvL\), but they cancel around the loop.</li>
+<li><strong>Leaving:</strong> the flux decreases, so the emf and current reverse.</li>
+<li><strong>Direction:</strong> by Lenz's law, the induced current makes a field opposing the change. Entering: the flux into the page is growing, so the current is anticlockwise (its field points out of the page). Fleming's right-hand rule on the moving side gives the same answer.</li>
+<li><strong>Magnetic braking:</strong> the current in the side inside the field feels a force \(F = BiL\) opposing the motion. Something must push the loop to keep its speed steady, and that work becomes electrical energy.</li>
+</ul>
 
 
-<section class="pane hidden" data-section="flux" data-view="check">
-<h2>Quick check · flux, Faraday and Lenz</h2>
-<p class="sub">Eight questions with instant feedback. Aim for 7/8 before trying the exam-style problems.</p>
-<div class="nx-quiz" data-quiz="flux"></div>
+<h2 id="phiEpsGraphs" style="margin-top:28px">From a \(\Phi\)–\(t\) graph to an \(\varepsilon\)–\(t\) graph</h2>
+<p class="sub">The loop above makes one particular \(\Phi\)–\(t\) graph. Here you can choose any \(\Phi\)–\(t\) graph, or drag the orange points to make your own. The \(\varepsilon\)–\(t\) graph underneath is \(\varepsilon = -N\) × gradient. Tick <strong>Predict first</strong> to hide it, sketch your answer, then reveal.</p>
+<div class="nx-lab">
+<div class="sim"><canvas id="graphCanvas" height="420" aria-label="Flux against time graph with draggable points above the matching induced emf against time graph"></canvas></div>
+<div class="nx-ctlbar">
+<div class="nx-bar-inputs">
+<h3>Controls</h3>
+<div class="control"><label for="graphPreset">Flux graph</label><select id="graphPreset"><option value="trap">Ramp up, hold, ramp down</option><option value="tri">Fast rise, slow fall</option><option value="step">Switch on, off and reversed</option><option value="sine">Rotating coil (sine)</option><option value="custom">My own (drag the points)</option></select></div>
+<div class="control"><label for="graphN">Turns, \(N\) <output id="graphNOut">50</output></label><input id="graphN" max="200" min="1" step="1" type="range" value="50"/></div>
+<label class="check-row"><input id="graphHide" type="checkbox"/> Predict first (hide the \(\varepsilon\)–\(t\) graph)</label>
+<div class="btn-row"><button class="tool-btn secondary" id="graphReveal" type="button">Reveal \(\varepsilon\)–\(t\) graph</button></div>
+</div>
+<div class="nx-bar-info"><div class="readout" id="graphReadout">Move the pointer over the graphs to read values.</div><div class="readout" id="graphSegs" style="border-left-color:#87bbec"></div></div>
+</div>
+</div>
+<h3>Rules for the sketch</h3>
+<ul class="nx-list">
+<li><strong>Flat \(\Phi\) → zero emf</strong>, however big \(\Phi\) is.</li>
+<li><strong>Straight sloping \(\Phi\) → constant emf</strong>. Steeper slope, bigger emf.</li>
+<li><strong>\(\Phi\) increasing → \(\varepsilon\) negative</strong> (with the sign convention \(\varepsilon = -N\Delta \Phi /\Delta t\)); \(\Phi\) decreasing → \(\varepsilon\) positive.</li>
+<li><strong>Rotating coil:</strong> emf is largest where the flux is zero (steepest point), and zero where the flux is at its peak. The emf graph is a sine wave a quarter of a cycle out of step with the flux.</li>
+</ul>
 </section>
 
-<section class="pane hidden" data-section="flux" data-view="problems">
-<h2>Flux &amp; Faraday · exam-style problems</h2>
-<p class="sub">Original practice questions in the style of AS91526. These are not NZQA questions. Attempt each part before opening the worked answer, and show formula, substitution, answer and unit.</p>
-<div class="exam-question"><div class="exam-question-header"><span>QUESTION ONE</span><span>Square coil · flux and emf</span></div>
-<p>A square coil of <strong>40 turns</strong> has sides of <strong>5.0 cm</strong>. It sits with its face perpendicular to a uniform magnetic field of <strong>0.30 T</strong>.</p>
-<p><strong>(a)</strong> Calculate the magnetic flux through one turn of the coil. <span class="exam-level">Achievement</span></p>
-<p><strong>(b)</strong> The field is reduced steadily to zero in 0.12 s. Calculate the size of the emf induced in the coil. <span class="exam-level">Merit</span></p>
-<p><strong>(c)</strong> The coil is part of a closed circuit. Explain why there is a current only while the field is changing, and state the direction of the magnetic field produced by the induced current. <span class="exam-level">Excellence</span></p>
-<details class="exam-answer"><summary>Show worked answer · Question One</summary>
-<p><strong>(a)</strong> \(\Phi = BA = 0.30 \times (0.050)^{2} = 7.5 \times 10^{-4} \,\mathrm{Wb}\)</p>
-<p><strong>(b)</strong> \(\varepsilon = N\Delta \Phi /\Delta t = 40 \times 7.5 \times 10^{-4} / 0.12 = 0.25 \,\mathrm{V}\)</p>
-<p><strong>(c)</strong> By Faraday's law an emf is induced only when the flux linking the coil changes; when \(B\) is steady, \(\Delta \Phi /\Delta t = 0\) so there is no emf and no current. By Lenz's law the induced current opposes the change: the flux is <em>decreasing</em>, so the induced current produces a field in the <strong>same direction as the original field</strong>, trying to keep the flux up.</p>
-<p class="small">Marking focus: correct area conversion (5.0 cm = 0.050 m); \(N\) included; Lenz direction linked to "decreasing flux".</p></details></div>
-<div class="exam-question"><div class="exam-question-header"><span>QUESTION TWO</span><span>Falling magnet · graph interpretation</span></div>
-<p>A bar magnet is dropped from rest, N pole first, through a vertical coil connected to a data logger. The logger shows two pulses of emf: a negative pulse as the magnet enters and a positive pulse as it leaves.</p>
-<p><strong>(a)</strong> Explain why the two pulses have opposite signs. <span class="exam-level">Achievement</span></p>
-<p><strong>(b)</strong> Explain why the second pulse is taller but shorter in duration than the first. <span class="exam-level">Merit</span></p>
-<p><strong>(c)</strong> The ends of the coil are now joined together with a thick wire. Explain, in terms of energy, why the magnet takes slightly longer to fall through the coil. <span class="exam-level">Excellence</span></p>
-<details class="exam-answer"><summary>Show worked answer · Question Two</summary>
-<p><strong>(a)</strong> As the magnet enters, the flux through the coil increases; as it leaves, the flux decreases. Since \(\varepsilon = -N\Delta \Phi /\Delta t\), the rate of change has opposite signs, so the emfs do too.</p>
-<p><strong>(b)</strong> The magnet accelerates, so it is moving faster when it leaves. The same flux change happens in less time, giving a larger \(\Delta \Phi /\Delta t\) (taller pulse) over a shorter time (narrower pulse). The area under each pulse equals \(N\Delta \Phi\), which is the same for both.</p>
-<p><strong>(c)</strong> With a closed circuit, the induced emf drives a current. By Lenz's law, this current makes the coil's field oppose the magnet's motion: repelling it as it enters, attracting it back as it leaves. The magnet does work against this force, so some of its gravitational potential energy becomes electrical energy (then heat in the wire) instead of kinetic energy. It therefore moves more slowly and takes longer to fall.</p></details></div>
-<div class="exam-question"><div class="exam-question-header"><span>QUESTION THREE</span><span>Rotating coil · flux and emf</span></div>
-<p>A small generator has a coil of <strong>200 turns</strong> and area <strong>\(4.0 \times 10^{-3} \,\mathrm{m}^{2}\)</strong>, rotating at a steady rate in a uniform field of <strong>0.050 T</strong>.</p>
-<p><strong>(a)</strong> Calculate the maximum flux through one turn. <span class="exam-level">Achievement</span></p>
-<p><strong>(b)</strong> State the position of the coil when the induced emf is largest, and explain why. <span class="exam-level">Merit</span></p>
-<p><strong>(c)</strong> The rotation rate is doubled. Explain how the peak emf and the frequency of the output change. <span class="exam-level">Excellence</span></p>
-<details class="exam-answer"><summary>Show worked answer · Question Three</summary>
-<p><strong>(a)</strong> \(\Phi _{\text{max}} = BA = 0.050 \times 4.0 \times 10^{-3} = 2.0 \times 10^{-4} \,\mathrm{Wb}\)</p>
-<p><strong>(b)</strong> When the plane of the coil is <strong>parallel</strong> to the field (flux through it is zero). At this point the flux is changing most rapidly (the steepest part of the \(\Phi\)–\(t\) curve), so \(\Delta \Phi /\Delta t\) and the emf are largest.</p>
-<p><strong>(c)</strong> The flux still swings between \(+\Phi _{\text{max}}\) and \(-\Phi _{\text{max}}\), but in half the time, so \(\Delta \Phi /\Delta t\) doubles and the <strong>peak emf doubles</strong>. The coil completes twice as many turns per second, so the <strong>frequency doubles</strong> too.</p></details></div>
-</section>
-
-<!-- ===================== 02 · INDUCTORS ===================== -->
 <section class="pane hidden" data-section="ind" data-view="intro">
-<div class="section-identity"><strong>04 · Inductors</strong><p>A coil that induces an emf in itself, and the delays, energy and sparks that follow.</p></div>
+<div class="section-identity"><strong>3.4 · Inductors</strong><p>A coil that induces an emf in itself, and the delays, energy and sparks that follow.</p></div>
 <h2>Inductors in DC circuits</h2>
-<p class="sub">Six ideas. The comparison with capacitors (4.1.6) is worth learning carefully: the 2025 examiners reported many candidates mixing the two up.</p>
+<p class="sub">Six ideas. The comparison with capacitors (3.4.6) is worth learning carefully: the 2025 examiners reported many candidates mixing the two up.</p>
 <div class="intro-steps">
-<details class="intro-step" open><summary>4.1.1 · Self-inductance and back emf</summary><div class="intro-step-body">
+<details class="intro-step" open><summary>3.4.1 · Self-inductance and back emf</summary><div class="intro-step-body">
 <p>An <strong>inductor</strong> is a coil of wire, often wound on an iron core. When the current in it changes, its own magnetic flux changes, and by Faraday's law an emf is induced in the coil itself. By Lenz's law this <strong>back emf</strong> opposes the change in current.</p>
 <div class="formula">\[\varepsilon=-L\dfrac{\Delta i}{\Delta t}\]</div>
 <p>\(L\) is the <strong>self-inductance</strong>, in henry (H). A 1 H inductor produces 1 V of back emf when its current changes at 1 A s⁻¹. More turns, a larger area and an <strong>iron core</strong> all increase \(L\), because each gives more flux for the same current.</p>
 <p>An inductor opposes <strong>changes</strong> in current, not current itself. With a steady current, an ideal inductor has no voltage across it.</p>
 </div></details>
-<details class="intro-step"><summary>4.1.2 · Switching on: the current grows gradually</summary><div class="intro-step-body">
+<details class="intro-step"><summary>3.4.2 · Switching on: the current grows gradually</summary><div class="intro-step-body">
 <div class="chain"><span>Switch closed</span><i>→</i><span>current starts to rise</span><i>→</i><span>flux in coil increases</span><i>→</i><span>back emf induced</span><i>→</i><span>opposes the rise, so current grows slowly</span></div>
 <p>At the instant of switching on, \(i = 0\) but it is changing fastest, so the back emf equals the supply emf and the voltage across the resistor is zero. As the current rises, it changes more slowly, so the back emf shrinks and more voltage appears across the resistor. Eventually the current is steady at \(i_{\text{max}} = \varepsilon / R_{\text{total}}\).</p>
 <div class="concept-visual"><svg viewBox="0 0 640 210" role="img" aria-label="Current rising exponentially to a maximum, while the voltage across the inductor falls exponentially from the supply voltage to zero">
@@ -1341,23 +1298,23 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <text x="322" y="44">ε</text><text x="356" y="16">inductor voltage, V<tspan font-size="9" dy="3">L</tspan></text><text x="570" y="198">time</text><text x="384" y="198">τ</text><text x="396" y="124">37%</text></g></svg>
 <p class="visual-caption">Switching on: current grows (left) while the voltage across an ideal inductor decays (right).</p></div>
 </div></details>
-<details class="intro-step"><summary>4.1.3 · The time constant \(\tau = L/R\)</summary><div class="intro-step-body">
+<details class="intro-step"><summary>3.4.3 · The time constant \(\tau = L/R\)</summary><div class="intro-step-body">
 <div class="formula">\[\tau=\dfrac{L}{R_{\text{total}}}\]</div>
 <p>In one time constant the current rises to <strong>63%</strong> of its maximum (or falls to <strong>37%</strong> when decaying). After about <strong>\(5\tau\)</strong> it is effectively steady.</p>
 <ul><li><strong>Bigger \(L\) → longer \(\tau\):</strong> a larger back emf for the same \(\Delta i/\Delta t\), so the current changes more slowly.</li>
 <li><strong>Bigger \(R\) → shorter \(\tau\):</strong> the final current is smaller, so it is reached sooner. \(R\) includes the inductor's internal resistance.</li></ul>
 <p>Note the contrast with capacitors, where \(\tau = RC\) and a bigger \(R\) makes the circuit <em>slower</em>.</p>
 </div></details>
-<details class="intro-step"><summary>4.1.4 · Energy stored and real inductors</summary><div class="intro-step-body">
+<details class="intro-step"><summary>3.4.4 · Energy stored and real inductors</summary><div class="intro-step-body">
 <div class="formula">\[E=\dfrac{1}{2}Li^2\]</div>
 <p>While the current builds up, the supply does work against the back emf. That energy is stored in the inductor's <strong>magnetic field</strong>, and it is released when the current falls.</p>
 <p>A <strong>real inductor</strong> is long, thin wire, so it has internal resistance \(r\). It is drawn as an ideal inductor in series with \(r\). Its terminal voltage is the back emf plus \(ir\), so once the current is steady the voltage across it is \(ir\), not zero.</p>
 </div></details>
-<details class="intro-step"><summary>4.1.5 · Switching off: large back emfs and sparks</summary><div class="intro-step-body">
+<details class="intro-step"><summary>3.4.5 · Switching off: large back emfs and sparks</summary><div class="intro-step-body">
 <p>If the switch is simply opened, the current tries to fall to zero almost instantly. \(\Delta i/\Delta t\) is enormous, so the back emf is enormous, often hundreds or thousands of volts. It can make a spark jump the switch gap or light a neon lamp connected across the coil. The spark is where the stored energy \(\tfrac{1}{2}Li^{2}\) goes.</p>
 <p>If there is a closed path (for example a two-way switch that removes the battery but keeps the coil connected to a resistor), the current decays exponentially, \(i = i_{0}e^{-t/\tau}\). The inductor's voltage <strong>reverses polarity</strong>: it now acts like a source, trying to keep the current flowing in its original direction.</p>
 </div></details>
-<details class="intro-step"><summary>4.1.6 · Inductor vs capacitor</summary><div class="intro-step-body">
+<details class="intro-step"><summary>3.4.6 · Inductor vs capacitor</summary><div class="intro-step-body">
 <div class="table-wrap"><table class="mini-table"><thead><tr><th></th><th>Inductor</th><th>Capacitor</th></tr></thead><tbody>
 <tr><td>Opposes</td><td>Changes in <strong>current</strong></td><td>Changes in <strong>voltage</strong> (stores charge)</td></tr>
 <tr><td>Energy stored in</td><td>Magnetic field: \(\tfrac{1}{2}Li^{2}\)</td><td>Electric field: \(\tfrac{1}{2}QV\)</td></tr>
@@ -1370,7 +1327,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </section>
 
 <section class="pane hidden" data-section="ind" data-view="coil">
-<div class="section-identity"><strong>4.2 · Coil builder</strong><p>Change the turns, the area and the length of a coil, and slide in an iron core: watch the inductance \(L\) change.</p></div>
+<div class="section-identity"><strong>3.5 · Coil builder</strong><p>Change the turns, the area and the length of a coil, and slide in an iron core: watch the inductance \(L\) change.</p></div>
 <h2>What sets the inductance of a coil?</h2>
 <p class="sub">Inductance is the flux linkage per amp: \(L = N\Phi /i\). A coil has a large inductance when a current through it makes a lot of flux through a lot of turns. <strong>Drag the core into the coil</strong> (or use the slider) and change the coil's shape. The graph plots the flux linkage \(N\Phi\) against the current \(i\), so its <strong>gradient is the inductance</strong>: \(N\Phi = Li\).</p>
 <div class="nx-lab">
@@ -1394,7 +1351,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <li><strong>Shorter coil</strong> (same turns): the turns are packed closer, so the field is stronger, \(L \propto 1/l\).</li>
 <li><strong>An iron core:</strong> the core's tiny magnetic domains line up with the coil's field and add their own field, multiplying the flux by the <strong>relative permeability</strong> \(\mu _{r}\). Iron itself has \(\mu _{r}\) in the hundreds or thousands, but a straight rod in a coil gives a smaller <em>effective</em> value (about 10 to 30 here), because the field lines still have to return through the air outside. A closed iron loop, as in a transformer, gets much closer to the full value. This is the same idea as a dielectric in a capacitor (2.2), where the relative permittivity \(\varepsilon _{r}\) multiplies \(C\).</li>
 </ol>
-<p class="small">A bigger \(L\) means a bigger back emf for the same rate of change of current, a longer time constant \(\tau = L/R\) (4.3), and more energy stored for the same current, \(\tfrac{1}{2}Li^{2}\).</p>
+<p class="small">A bigger \(L\) means a bigger back emf for the same rate of change of current, a longer time constant \(\tau = L/R\) (3.6), and more energy stored for the same current, \(\tfrac{1}{2}Li^{2}\).</p>
 </div>
 </div>
 </div>
@@ -1408,7 +1365,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </section>
 
 <section class="pane hidden" data-section="ind" data-view="lr">
-<div class="section-identity"><strong>4.3 · LR circuit</strong><p>Switch the supply on and off and watch current, resistor voltage and inductor voltage.</p></div>
+<div class="section-identity"><strong>3.6 · LR circuit</strong><p>Switch the supply on and off and watch current, resistor voltage and inductor voltage.</p></div>
 <h2>LR circuit lab</h2>
 <p class="sub">A battery, a resistor \(R\) and a real inductor (\(L\) with internal resistance \(r\)) are connected through a two-way switch. Position <strong>A</strong> connects the battery; position <strong>B</strong> removes it but keeps the loop closed so the current can decay.</p>
 <p class="small"><strong>Watch the charges.</strong> Brighter, bigger dots carry more energy per coulomb (higher potential). At switch-on the inductor's back emf takes most of the energy and little is lost in \(R\). With the battery removed (B), the inductor becomes the source: the charges gain energy as they pass through it and lose it in \(R\).</p>
@@ -1470,7 +1427,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p>While the current is rising, the changing flux induces a back emf that opposes the rise. The supply has to do <strong>work pushing charge against the back emf</strong>, and that work builds up the magnetic field. The energy stored is \(E = \tfrac{1}{2}Li^{2}\).</p>
 <p>Once the current is steady there is no back emf, so no more energy goes into the field. The supply then only provides the heat \(i^{2}(R + r)\) in the resistance.</p></details>
 <details class="nx-worked"><summary>What happens to the energy when the current is switched off?</summary>
-<p>The field collapses. The changing flux induces an emf that keeps the current flowing the same way for a short time, so the stored energy becomes <strong>heat in the resistance</strong>. If the circuit is broken suddenly, the current tries to drop to zero almost instantly, so \(\Delta i/\Delta t\) is huge: the induced emf can be thousands of volts and the energy appears as a <strong>spark</strong> across the switch (4.4).</p></details>
+<p>The field collapses. The changing flux induces an emf that keeps the current flowing the same way for a short time, so the stored energy becomes <strong>heat in the resistance</strong>. If the circuit is broken suddenly, the current tries to drop to zero almost instantly, so \(\Delta i/\Delta t\) is huge: the induced emf can be thousands of volts and the energy appears as a <strong>spark</strong> across the switch (3.7).</p></details>
 <details class="nx-worked"><summary>Why does it take energy to start a current in an inductor but not to keep it going?</summary>
 <p>Energy only goes into the field while the field is growing, that is while the current is changing. A steady current makes a steady field, so the stored energy stays at \(\tfrac{1}{2}Li^{2}\) and no extra energy is needed (apart from the heat in the resistance).</p></details>
 <h3>Comparing the two</h3>
@@ -1487,7 +1444,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </section>
 
 <section class="pane hidden" data-section="ind" data-view="off">
-<div class="section-identity"><strong>4.4 · Switching off an inductor</strong><p>Why breaking an inductive circuit can produce hundreds of volts from a small battery.</p></div>
+<div class="section-identity"><strong>3.7 · Switching off an inductor</strong><p>Why breaking an inductive circuit can produce hundreds of volts from a small battery.</p></div>
 <h2>Switching off: neon lamp and diode</h2>
 <p class="sub">A neon lamp is connected across a large iron-cored coil, powered by a small battery. A neon lamp needs about 80 V before it glows, far more than the battery gives. Close the switch, then open it.</p>
 <div class="nx-lab">
@@ -1525,50 +1482,12 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p class="note"><strong>The diode fix:</strong> relays and motors usually have a diode across the coil. When the switch opens, the current carries on circulating through the diode and decays steadily. The voltage across the coil is limited to about 0.7 V, and the stored energy is dissipated gently as heat in the coil.</p>
 </section>
 
-<section class="pane hidden" data-section="ind" data-view="check">
-<h2>Quick check · inductors</h2>
-<p class="sub">Eight questions with instant feedback.</p>
-<div class="nx-quiz" data-quiz="ind"></div>
-</section>
-
-<section class="pane hidden" data-section="ind" data-view="problems">
-<h2>Inductors · exam-style problems</h2>
-<p class="sub">Original practice questions in the style of AS91526. These are not NZQA questions.</p>
-<div class="exam-question"><div class="exam-question-header"><span>QUESTION ONE</span><span>LR circuit · calculations</span></div>
-<p>A 12.0 V battery with negligible internal resistance is connected in series with an <strong>18 Ω</strong> resistor and an inductor of inductance <strong>2.4 H</strong> and internal resistance <strong>6.0 Ω</strong>.</p>
-<p><strong>(a)</strong> Calculate the maximum current. <span class="exam-level">Achievement</span></p>
-<p><strong>(b)</strong> Calculate the time constant of the circuit. <span class="exam-level">Achievement</span></p>
-<p><strong>(c)</strong> Calculate the rate at which the current is increasing at the instant the switch is closed. <span class="exam-level">Merit</span></p>
-<p><strong>(\(d\))</strong> Calculate the voltage across the inductor's terminals once the current is steady, and the energy stored. <span class="exam-level">Merit</span></p>
-<details class="exam-answer"><summary>Show worked answer · Question One</summary>
-<p><strong>(a)</strong> \(R_{\text{total}} = 18 + 6.0 = 24 \,\mathrm{\Omega};\qquad i_{\text{max}} = 12.0 / 24 = 0.50 \,\mathrm{A}\)</p>
-<p><strong>(b)</strong> \(\tau = L/R = 2.4 / 24 = 0.10 \,\mathrm{s}\) (using the <em>total</em> resistance).</p>
-<p><strong>(c)</strong> At \(t = 0\), \(i = 0\), so there is no voltage across either resistance; the whole 12.0 V is back emf: \(\Delta i/\Delta t = \varepsilon /L = 12.0 / 2.4 = 5.0 \,\mathrm{A} \,\mathrm{s}^{-1}\).</p>
-<p><strong>(\(d\))</strong> Steady: no back emf, so \(V = ir = 0.50 \times 6.0 = 3.0 \,\mathrm{V}\). Energy \(E = \tfrac{1}{2}Li^{2} = \tfrac{1}{2} \times 2.4 \times 0.50^{2} = 0.30 \,\mathrm{J}\).</p>
-<p class="small">Check: the line from (0, 0) at 5.0 A s⁻¹ reaches 0.50 A at 0.10 s, which is exactly \(\tau\). The initial tangent always meets \(i_{\text{max}}\) at \(t = \tau\).</p></details></div>
-<div class="exam-question"><div class="exam-question-header"><span>QUESTION TWO</span><span>Removing the iron core</span></div>
-<p>The iron core is removed from the inductor in Question One. Its inductance falls to <strong>0.60 H</strong>; its resistance is unchanged.</p>
-<p><strong>(a)</strong> State why removing the core reduces the inductance. <span class="exam-level">Achievement</span></p>
-<p><strong>(b)</strong> Describe and explain how the time constant, the maximum current and the stored energy change. <span class="exam-level">Excellence</span></p>
-<details class="exam-answer"><summary>Show worked answer · Question Two</summary>
-<p><strong>(a)</strong> Iron concentrates the magnetic field, so the same current produces much more flux. Without it, a change in current produces a smaller change in flux and so a smaller back emf, which means a smaller \(L\).</p>
-<p><strong>(b)</strong> \(\tau = 0.60 / 24\) = <strong>0.025 s</strong>, a quarter of before: the smaller back emf opposes the change less, so the current rises faster. \(i_{\text{max}} = \varepsilon /R\) = <strong>0.50 A, unchanged</strong>, because once steady there is no back emf and only resistance limits the current. Energy = \(\tfrac{1}{2} \times 0.60 \times 0.50^{2}\) = <strong>0.075 J</strong>, a quarter of before, since \(E\) ∝ \(L\) at the same current.</p></details></div>
-<div class="exam-question"><div class="exam-question-header"><span>QUESTION THREE</span><span>Lamp and spark · explanation</span></div>
-<p>A lamp is connected in series with a large iron-cored inductor, a switch and a battery. When the switch is closed, the lamp takes about a second to reach full brightness. When the switch is opened, a small spark is seen between the switch contacts.</p>
-<p><strong>(a)</strong> Explain why the lamp brightens gradually. <span class="exam-level">Merit</span></p>
-<p><strong>(b)</strong> Explain why a spark is produced when the switch is opened, and where its energy comes from. <span class="exam-level">Excellence</span></p>
-<details class="exam-answer"><summary>Show worked answer · Question Three</summary>
-<p><strong>(a)</strong> When the switch closes, the current starts to increase, so the flux in the inductor increases. By Faraday's law this changing flux induces a back emf in the coil, and by Lenz's law it opposes the increase in current. The current therefore rises gradually (exponentially) and the lamp brightens gradually. As the current approaches its maximum, \(\Delta i/\Delta t\) falls, the back emf falls, and the lamp reaches full brightness.</p>
-<p><strong>(b)</strong> Opening the switch makes the current fall to zero in a very short time, so \(\Delta i/\Delta t\) is very large. The flux collapses rapidly, inducing a very large back emf \((\varepsilon = -L\Delta i/\Delta t)\) which opposes the fall in current. This voltage is large enough to ionise the air between the switch contacts, so a spark jumps the gap. The energy comes from the energy stored in the inductor's magnetic field, \(\tfrac{1}{2}Li^{2}\), which is released as the field collapses.</p></details></div>
-</section>
-
-<!-- ===================== 03 · TRANSFORMERS ===================== -->
-<section class="pane hidden" data-section="tx" data-view="intro">
-<div class="section-identity"><strong>05 · Transformers</strong><p>Two coils, one changing flux: how voltages are stepped up and down.</p></div>
+<section class="pane hidden" data-section="ind" data-view="tx">
+<div class="section-identity"><strong>3.8 · Transformers</strong><p>Two coils, one changing flux: how voltages are stepped up and down.</p></div>
 <h2>How a transformer works</h2>
 <p class="sub">Five ideas, from the induction chain to why the national grid runs at hundreds of kilovolts.</p>
 <div class="intro-steps">
-<details class="intro-step" open><summary>5.1.1 · The induction chain</summary><div class="intro-step-body">
+<details class="intro-step" open><summary>3.8.1 · The induction chain</summary><div class="intro-step-body">
 <div class="chain"><span>AC in primary coil</span><i>→</i><span>changing magnetic field</span><i>→</i><span>changing flux in the iron core</span><i>→</i><span>same changing flux passes through secondary</span><i>→</i><span>alternating emf induced in secondary (Faraday)</span></div>
 <div class="concept-visual"><svg viewBox="0 0 640 220" role="img" aria-label="Transformer: primary coil and secondary coil wound on opposite sides of a square iron core, with flux circulating in the core">
 <defs><marker id="arrF" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c5a2ff"/></marker></defs>
@@ -1581,22 +1500,22 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <g fill="#e9edf8" font-family="Arial" font-size="13"><text x="40" y="200">AC supply, V<tspan font-size="9" dy="3">p</tspan></text><text x="170" y="22">primary, N<tspan font-size="9" dy="3">p</tspan></text><text x="410" y="22">secondary, N<tspan font-size="9" dy="3">s</tspan></text><text x="510" y="200">load, V<tspan font-size="9" dy="3">s</tspan></text><text x="268" y="115" fill="#c5a2ff">changing flux</text><text x="282" y="132" fill="#c5a2ff">in iron core</text></g></svg>
 <p class="visual-caption">The two coils are not connected electrically. Energy is carried from one to the other by the changing magnetic flux in the core.</p></div>
 </div></details>
-<details class="intro-step"><summary>5.1.2 · The turns ratio</summary><div class="intro-step-body">
+<details class="intro-step"><summary>3.8.2 · The turns ratio</summary><div class="intro-step-body">
 <div class="formula">\[\dfrac{V_s}{V_p}=\dfrac{N_s}{N_p}\]</div>
 <p>The same changing flux passes through every turn of both coils, so each turn has the same emf induced in it. A coil with more turns therefore has a larger total emf.</p>
 <ul><li><strong>Step-up:</strong> \(N_{s}\) &gt; \(N_{p}\), so \(V_{s}\) &gt; \(V_{p}\) (power stations to the grid).</li>
 <li><strong>Step-down:</strong> \(N_{s}\) &lt; \(N_{p}\), so \(V_{s}\) &lt; \(V_{p}\) (substations, phone chargers).</li></ul>
 </div></details>
-<details class="intro-step"><summary>5.1.3 · Ideal transformers: power in = power out</summary><div class="intro-step-body">
+<details class="intro-step"><summary>3.8.3 · Ideal transformers: power in = power out</summary><div class="intro-step-body">
 <p>An <strong>ideal</strong> transformer wastes no energy, so</p>
 <div class="formula">\[V_pi_p=V_si_s\quad \Rightarrow\quad \dfrac{i_s}{i_p}=\dfrac{N_p}{N_s}\]</div>
 <p>Stepping the voltage <em>up</em> steps the current <em>down</em> by the same factor. A transformer cannot create energy. The load on the secondary sets the secondary current, and that sets how much current the primary draws.</p>
 </div></details>
-<details class="intro-step"><summary>5.1.4 · Why transformers need AC</summary><div class="intro-step-body">
+<details class="intro-step"><summary>3.8.4 · Why transformers need AC</summary><div class="intro-step-body">
 <p>With a steady DC supply, the primary current is constant, so the flux in the core is constant. With no change in flux, no emf is induced in the secondary. There is only a brief pulse when the DC is switched on or off, while the current (and flux) is changing.</p>
 <p>AC changes direction continuously, so the flux changes continuously and the secondary has an alternating emf at the <strong>same frequency</strong> as the supply.</p>
 </div></details>
-<details class="intro-step"><summary>5.1.5 · Energy losses and design</summary><div class="intro-step-body">
+<details class="intro-step"><summary>3.8.5 · Energy losses and design</summary><div class="intro-step-body">
 <div class="table-wrap"><table class="mini-table"><thead><tr><th>Loss</th><th>Cause</th><th>Design fix</th></tr></thead><tbody>
 <tr><td>Resistance of windings</td><td>\(i^{2}R\) heating in the copper wire</td><td>Thick copper wire, especially on the high-current side</td></tr>
 <tr><td>Eddy currents</td><td>The changing flux induces circulating currents in the iron core itself, which heat it</td><td><strong>Laminated core</strong>: thin insulated sheets break up the eddy current paths</td></tr>
@@ -1608,8 +1527,8 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </div>
 </section>
 
-<section class="pane hidden" data-section="tx" data-view="lab">
-<div class="section-identity"><strong>5.2 · Transformer lab</strong><p>Change the turns, the supply and the load; watch both voltages and currents.</p></div>
+<section class="pane hidden" data-section="ind" data-view="txlab">
+<div class="section-identity"><strong>3.9 · Transformer lab</strong><p>Change the turns, the supply and the load; watch both voltages and currents.</p></div>
 <h2>Transformer lab</h2>
 <p class="sub">Voltages and currents are rms values. The traces show the primary voltage (orange) and the secondary voltage (cyan) on the same scale, plus the flux in the core (violet, not to scale).</p>
 <div class="nx-lab">
@@ -1654,8 +1573,8 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p class="small"><strong>Exam tip:</strong> "step-up" and "step-down" describe the <em>voltage</em>. The current changes the opposite way, because an ideal transformer cannot create energy: \(V_{p}i_{p} = V_{s}i_{s}\). For an isolating transformer, explain that energy is transferred only by the changing magnetic flux, so there is no conducting path between the primary and secondary circuits.</p>
 </section>
 
-<section class="pane hidden" data-section="tx" data-view="grid">
-<div class="section-identity"><strong>5.3 · Power transmission</strong><p>Why power stations step up to hundreds of kilovolts before sending power along the grid.</p></div>
+<section class="pane hidden" data-section="ind" data-view="grid">
+<div class="section-identity"><strong>3.10 · Power transmission</strong><p>Why power stations step up to hundreds of kilovolts before sending power along the grid.</p></div>
 <h2>Transmission line losses</h2>
 <p class="sub">A power station sends power \(P\) along a line of total resistance \(R\). The line current is \(i = P/V\), and the power wasted heating the line is \(i^{2}R\). Much of New Zealand's national grid backbone runs at 220 kV.</p>
 <div class="nx-lab">
@@ -1676,15 +1595,77 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p class="note">Transformers make this possible, and they only work with AC. That is the main reason mains electricity is AC.</p>
 </section>
 
-<section class="pane hidden" data-section="tx" data-view="check">
-<h2>Quick check · transformers</h2>
-<p class="sub">Eight questions with instant feedback.</p>
+<section class="pane hidden" data-section="ind" data-view="check">
+<h2>Quick check · inductors in DC circuits</h2>
+<p class="sub">Three short quizzes with instant feedback: flux and Faraday's law, inductors, then transformers.</p>
+<h3 class="nx-h3">Flux &amp; Faraday</h3>
+<div class="nx-quiz" data-quiz="flux"></div>
+<h3 class="nx-h3">Inductors</h3>
+<div class="nx-quiz" data-quiz="ind"></div>
+<h3 class="nx-h3">Transformers</h3>
 <div class="nx-quiz" data-quiz="tx"></div>
 </section>
 
-<section class="pane hidden" data-section="tx" data-view="problems">
-<h2>Transformers · exam-style problems</h2>
-<p class="sub">Original practice questions in the style of AS91526. These are not NZQA questions.</p>
+<section class="pane hidden" data-section="ind" data-view="problems">
+<h2>Inductors in DC circuits · exam-style problems</h2>
+<p class="sub">Original practice questions in the style of AS91526, in three groups: flux and Faraday's law, inductors, and transformers. These are not NZQA questions. Attempt each part before opening the worked answer, and show formula, substitution, answer and unit.</p>
+<h3 class="nx-h3">Flux &amp; Faraday</h3>
+<div class="exam-question"><div class="exam-question-header"><span>QUESTION ONE</span><span>Square coil · flux and emf</span></div>
+<p>A square coil of <strong>40 turns</strong> has sides of <strong>5.0 cm</strong>. It sits with its face perpendicular to a uniform magnetic field of <strong>0.30 T</strong>.</p>
+<p><strong>(a)</strong> Calculate the magnetic flux through one turn of the coil. <span class="exam-level">Achievement</span></p>
+<p><strong>(b)</strong> The field is reduced steadily to zero in 0.12 s. Calculate the size of the emf induced in the coil. <span class="exam-level">Merit</span></p>
+<p><strong>(c)</strong> The coil is part of a closed circuit. Explain why there is a current only while the field is changing, and state the direction of the magnetic field produced by the induced current. <span class="exam-level">Excellence</span></p>
+<details class="exam-answer"><summary>Show worked answer · Question One</summary>
+<p><strong>(a)</strong> \(\Phi = BA = 0.30 \times (0.050)^{2} = 7.5 \times 10^{-4} \,\mathrm{Wb}\)</p>
+<p><strong>(b)</strong> \(\varepsilon = N\Delta \Phi /\Delta t = 40 \times 7.5 \times 10^{-4} / 0.12 = 0.25 \,\mathrm{V}\)</p>
+<p><strong>(c)</strong> By Faraday's law an emf is induced only when the flux linking the coil changes; when \(B\) is steady, \(\Delta \Phi /\Delta t = 0\) so there is no emf and no current. By Lenz's law the induced current opposes the change: the flux is <em>decreasing</em>, so the induced current produces a field in the <strong>same direction as the original field</strong>, trying to keep the flux up.</p>
+<p class="small">Marking focus: correct area conversion (5.0 cm = 0.050 m); \(N\) included; Lenz direction linked to "decreasing flux".</p></details></div>
+<div class="exam-question"><div class="exam-question-header"><span>QUESTION TWO</span><span>Falling magnet · graph interpretation</span></div>
+<p>A bar magnet is dropped from rest, N pole first, through a vertical coil connected to a data logger. The logger shows two pulses of emf: a negative pulse as the magnet enters and a positive pulse as it leaves.</p>
+<p><strong>(a)</strong> Explain why the two pulses have opposite signs. <span class="exam-level">Achievement</span></p>
+<p><strong>(b)</strong> Explain why the second pulse is taller but shorter in duration than the first. <span class="exam-level">Merit</span></p>
+<p><strong>(c)</strong> The ends of the coil are now joined together with a thick wire. Explain, in terms of energy, why the magnet takes slightly longer to fall through the coil. <span class="exam-level">Excellence</span></p>
+<details class="exam-answer"><summary>Show worked answer · Question Two</summary>
+<p><strong>(a)</strong> As the magnet enters, the flux through the coil increases; as it leaves, the flux decreases. Since \(\varepsilon = -N\Delta \Phi /\Delta t\), the rate of change has opposite signs, so the emfs do too.</p>
+<p><strong>(b)</strong> The magnet accelerates, so it is moving faster when it leaves. The same flux change happens in less time, giving a larger \(\Delta \Phi /\Delta t\) (taller pulse) over a shorter time (narrower pulse). The area under each pulse equals \(N\Delta \Phi\), which is the same for both.</p>
+<p><strong>(c)</strong> With a closed circuit, the induced emf drives a current. By Lenz's law, this current makes the coil's field oppose the magnet's motion: repelling it as it enters, attracting it back as it leaves. The magnet does work against this force, so some of its gravitational potential energy becomes electrical energy (then heat in the wire) instead of kinetic energy. It therefore moves more slowly and takes longer to fall.</p></details></div>
+<div class="exam-question"><div class="exam-question-header"><span>QUESTION THREE</span><span>Rotating coil · flux and emf</span></div>
+<p>A small generator has a coil of <strong>200 turns</strong> and area <strong>\(4.0 \times 10^{-3} \,\mathrm{m}^{2}\)</strong>, rotating at a steady rate in a uniform field of <strong>0.050 T</strong>.</p>
+<p><strong>(a)</strong> Calculate the maximum flux through one turn. <span class="exam-level">Achievement</span></p>
+<p><strong>(b)</strong> State the position of the coil when the induced emf is largest, and explain why. <span class="exam-level">Merit</span></p>
+<p><strong>(c)</strong> The rotation rate is doubled. Explain how the peak emf and the frequency of the output change. <span class="exam-level">Excellence</span></p>
+<details class="exam-answer"><summary>Show worked answer · Question Three</summary>
+<p><strong>(a)</strong> \(\Phi _{\text{max}} = BA = 0.050 \times 4.0 \times 10^{-3} = 2.0 \times 10^{-4} \,\mathrm{Wb}\)</p>
+<p><strong>(b)</strong> When the plane of the coil is <strong>parallel</strong> to the field (flux through it is zero). At this point the flux is changing most rapidly (the steepest part of the \(\Phi\)–\(t\) curve), so \(\Delta \Phi /\Delta t\) and the emf are largest.</p>
+<p><strong>(c)</strong> The flux still swings between \(+\Phi _{\text{max}}\) and \(-\Phi _{\text{max}}\), but in half the time, so \(\Delta \Phi /\Delta t\) doubles and the <strong>peak emf doubles</strong>. The coil completes twice as many turns per second, so the <strong>frequency doubles</strong> too.</p></details></div>
+<h3 class="nx-h3">Inductors</h3>
+<div class="exam-question"><div class="exam-question-header"><span>QUESTION ONE</span><span>LR circuit · calculations</span></div>
+<p>A 12.0 V battery with negligible internal resistance is connected in series with an <strong>18 Ω</strong> resistor and an inductor of inductance <strong>2.4 H</strong> and internal resistance <strong>6.0 Ω</strong>.</p>
+<p><strong>(a)</strong> Calculate the maximum current. <span class="exam-level">Achievement</span></p>
+<p><strong>(b)</strong> Calculate the time constant of the circuit. <span class="exam-level">Achievement</span></p>
+<p><strong>(c)</strong> Calculate the rate at which the current is increasing at the instant the switch is closed. <span class="exam-level">Merit</span></p>
+<p><strong>(\(d\))</strong> Calculate the voltage across the inductor's terminals once the current is steady, and the energy stored. <span class="exam-level">Merit</span></p>
+<details class="exam-answer"><summary>Show worked answer · Question One</summary>
+<p><strong>(a)</strong> \(R_{\text{total}} = 18 + 6.0 = 24 \,\mathrm{\Omega};\qquad i_{\text{max}} = 12.0 / 24 = 0.50 \,\mathrm{A}\)</p>
+<p><strong>(b)</strong> \(\tau = L/R = 2.4 / 24 = 0.10 \,\mathrm{s}\) (using the <em>total</em> resistance).</p>
+<p><strong>(c)</strong> At \(t = 0\), \(i = 0\), so there is no voltage across either resistance; the whole 12.0 V is back emf: \(\Delta i/\Delta t = \varepsilon /L = 12.0 / 2.4 = 5.0 \,\mathrm{A} \,\mathrm{s}^{-1}\).</p>
+<p><strong>(\(d\))</strong> Steady: no back emf, so \(V = ir = 0.50 \times 6.0 = 3.0 \,\mathrm{V}\). Energy \(E = \tfrac{1}{2}Li^{2} = \tfrac{1}{2} \times 2.4 \times 0.50^{2} = 0.30 \,\mathrm{J}\).</p>
+<p class="small">Check: the line from (0, 0) at 5.0 A s⁻¹ reaches 0.50 A at 0.10 s, which is exactly \(\tau\). The initial tangent always meets \(i_{\text{max}}\) at \(t = \tau\).</p></details></div>
+<div class="exam-question"><div class="exam-question-header"><span>QUESTION TWO</span><span>Removing the iron core</span></div>
+<p>The iron core is removed from the inductor in Question One. Its inductance falls to <strong>0.60 H</strong>; its resistance is unchanged.</p>
+<p><strong>(a)</strong> State why removing the core reduces the inductance. <span class="exam-level">Achievement</span></p>
+<p><strong>(b)</strong> Describe and explain how the time constant, the maximum current and the stored energy change. <span class="exam-level">Excellence</span></p>
+<details class="exam-answer"><summary>Show worked answer · Question Two</summary>
+<p><strong>(a)</strong> Iron concentrates the magnetic field, so the same current produces much more flux. Without it, a change in current produces a smaller change in flux and so a smaller back emf, which means a smaller \(L\).</p>
+<p><strong>(b)</strong> \(\tau = 0.60 / 24\) = <strong>0.025 s</strong>, a quarter of before: the smaller back emf opposes the change less, so the current rises faster. \(i_{\text{max}} = \varepsilon /R\) = <strong>0.50 A, unchanged</strong>, because once steady there is no back emf and only resistance limits the current. Energy = \(\tfrac{1}{2} \times 0.60 \times 0.50^{2}\) = <strong>0.075 J</strong>, a quarter of before, since \(E\) ∝ \(L\) at the same current.</p></details></div>
+<div class="exam-question"><div class="exam-question-header"><span>QUESTION THREE</span><span>Lamp and spark · explanation</span></div>
+<p>A lamp is connected in series with a large iron-cored inductor, a switch and a battery. When the switch is closed, the lamp takes about a second to reach full brightness. When the switch is opened, a small spark is seen between the switch contacts.</p>
+<p><strong>(a)</strong> Explain why the lamp brightens gradually. <span class="exam-level">Merit</span></p>
+<p><strong>(b)</strong> Explain why a spark is produced when the switch is opened, and where its energy comes from. <span class="exam-level">Excellence</span></p>
+<details class="exam-answer"><summary>Show worked answer · Question Three</summary>
+<p><strong>(a)</strong> When the switch closes, the current starts to increase, so the flux in the inductor increases. By Faraday's law this changing flux induces a back emf in the coil, and by Lenz's law it opposes the increase in current. The current therefore rises gradually (exponentially) and the lamp brightens gradually. As the current approaches its maximum, \(\Delta i/\Delta t\) falls, the back emf falls, and the lamp reaches full brightness.</p>
+<p><strong>(b)</strong> Opening the switch makes the current fall to zero in a very short time, so \(\Delta i/\Delta t\) is very large. The flux collapses rapidly, inducing a very large back emf \((\varepsilon = -L\Delta i/\Delta t)\) which opposes the fall in current. This voltage is large enough to ionise the air between the switch contacts, so a spark jumps the gap. The energy comes from the energy stored in the inductor's magnetic field, \(\tfrac{1}{2}Li^{2}\), which is released as the field collapses.</p></details></div>
+<h3 class="nx-h3">Transformers</h3>
 <div class="exam-question"><div class="exam-question-header"><span>QUESTION ONE</span><span>Charger transformer · calculation</span></div>
 <p>A phone charger contains a transformer that steps 230 V mains down to 5.0 V. The primary coil has <strong>2300 turns</strong>.</p>
 <p><strong>(a)</strong> Calculate the number of turns on the secondary coil. <span class="exam-level">Achievement</span></p>
@@ -1709,10 +1690,8 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p><strong>(b)</strong> \(i = 150 \times 10^{6} / 33 \times 10^{3} = 4545 \,\mathrm{A};\qquad P_{\text{loss}} = 4545^{2} \times 4.0 = 8.3 \times 10^{7} \,\mathrm{W} \approx 83 \,\mathrm{MW}\), over half the power sent. For the same power, a higher voltage means a smaller current. Since the loss is \(i^{2}R\), it depends on the <em>square</em> of the current: raising the voltage 6.7 times cuts the current 6.7 times and the loss about 44 times. Transformers step the voltage up at the station and back down near users.</p></details></div>
 </section>
 
-
-<!-- ===================== APPLICATIONS ===================== -->
-<section class="pane hidden" data-section="flux" data-view="apps">
-<div class="section-identity"><strong>3.6 · Applications of induction</strong><p>Where Faraday's and Lenz's laws are working around you.</p></div>
+<section class="pane hidden" data-section="ind" data-view="apps">
+<div class="section-identity"><strong>3.13 · Applications</strong><p>Induction, inductors and transformers at work: where Faraday's and Lenz's laws show up around you.</p></div>
 <h2>Where do we use induction?</h2>
 <p class="sub">Each device below uses a changing flux to induce an emf. Read the chain, then try the "Explain it" question at the bottom. Exam questions are often set in contexts like these, with the information you need supplied.</p>
 <div class="app-grid">
@@ -1745,10 +1724,6 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p>An electric car going downhill switches its motor to generator mode. Explain why this slows the car, and why more braking happens at higher speed.</p>
 <details class="exam-answer"><summary>Show model answer</summary>
 <p>The wheels turn the coils of the motor in its magnetic field, so the flux through the coils changes and an emf is induced (Faraday). This drives a current into the battery. By Lenz's law, the induced current produces a magnetic force that opposes the change causing it, so it opposes the rotation and slows the car. This must happen by conservation of energy, because the electrical energy stored in the battery comes from the car's kinetic energy. At higher speed the flux changes faster, so the induced emf and current are larger and the opposing force is larger.</p></details></div>
-</section>
-
-<section class="pane hidden" data-section="ind" data-view="apps">
-<div class="section-identity"><strong>4.7 · Applications of inductors</strong><p>Using back emf, delays and stored magnetic energy.</p></div>
 <h2>Where do we use inductors?</h2>
 <p class="sub">Some devices use the large back emf when the current is switched off, some use the stored energy \(\tfrac{1}{2}Li^{2}\), and some use the way an inductor slows changes in current.</p>
 <div class="app-grid">
@@ -1781,17 +1756,13 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p>Explain how a car's ignition coil can produce a very high voltage from a 12 V battery when the primary current is switched off.</p>
 <details class="exam-answer"><summary>Show model answer</summary>
 <p>While the switch is closed, a steady current in the primary creates a strong magnetic field in the iron core, storing energy \(\tfrac{1}{2}Li^{2}\). When the switch opens, the current falls to zero in a very short time, so the flux in the core collapses very quickly. By Faraday's law the induced emf depends on the rate of change of flux, \(\Delta \Phi /\Delta t\), so a very large back emf is induced (\(\varepsilon = -L\Delta i/\Delta t\) with a very small \(\Delta t\)). The secondary has many more turns than the primary, and the same collapsing flux links all of them, so the emf is multiplied up to tens of kilovolts. That is enough to make a spark jump the plug gap, and the stored magnetic energy supplies the spark.</p></details></div>
-</section>
-
-<section class="pane hidden" data-section="tx" data-view="apps">
-<div class="section-identity"><strong>5.6 · Applications of transformers</strong><p>From the national grid to the charger in your bag.</p></div>
 <h2>Where do we use transformers?</h2>
 <p class="sub">Every device here relies on a changing current in one coil inducing an emf in another. The turns ratio sets the voltage, and power in ≈ power out sets the current.</p>
 <div class="app-grid">
 <div class="app-card"><div class="app-head"><b>The national grid</b><span class="app-tag">Step-up &amp; step-down</span></div>
 <p>Generators produce electricity at around 11 kV. Transformers at the power station step this up to 220 kV for the main transmission lines. Substations step it down to 33 kV and 11 kV, and the transformer on your street steps it down to 230 V for homes.</p>
 <p class="app-chain">High voltage → low current → small \(i^{2}R\) losses in the lines → step down near users for safety</p>
-<p class="app-exam"><b>Exam angle:</b> see 5.3. Raising \(V\) by a factor \(k\) cuts the loss by \(k^{2}\).</p></div>
+<p class="app-exam"><b>Exam angle:</b> see 3.10. Raising \(V\) by a factor \(k\) cuts the loss by \(k^{2}\).</p></div>
 <div class="app-card"><div class="app-head"><b>Phone and laptop chargers</b><span class="app-tag">Step-down</span></div>
 <p>A charger turns 230 V mains into about 5–20 V. Modern chargers first convert the mains to a very high frequency (tens of kilohertz), so a tiny transformer will do the job.</p>
 <p class="app-chain">Higher frequency → faster-changing flux → enough emf per turn with a much smaller core</p>
@@ -1828,39 +1799,39 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </section>
 
 
-<!-- ===================== 06 · AC CIRCUITS ===================== -->
+<!-- ===================== 04 · AC CIRCUITS (ESA ch. 16) ===================== -->
 <section class="pane hidden" data-section="ac" data-view="intro">
-<div class="section-identity"><strong>06 · AC circuits</strong><p>rms values, phase, reactance, impedance and resonance.</p></div>
+<div class="section-identity"><strong>04 · AC circuits</strong><p>rms values, phase, reactance, impedance and resonance.</p></div>
 <h2>Alternating current circuits</h2>
 <p class="sub">Seven ideas. Watch for one point the 2025 examiners raised: peak voltage is \(\sqrt{2} \times V_{\text{rms}}\), not \(\sqrt{2V_{\text{rms}}}\).</p>
 <div class="intro-steps">
-<details class="intro-step" open><summary>6.1.1 · Describing AC</summary><div class="intro-step-body">
+<details class="intro-step" open><summary>4.1.1 · Describing AC</summary><div class="intro-step-body">
 <p>An alternating voltage varies sinusoidally: \(V = V_{\text{max}} \sin \omega t\), and similarly for current.</p>
 <ul><li><strong>Frequency \(f\)</strong>: cycles per second (Hz). NZ mains is 50 Hz.</li>
 <li><strong>Angular frequency \(\omega = 2\pi f\)</strong> (rad s⁻¹), as in circular motion and SHM. One cycle is \(2\pi\) rad.</li>
 <li><strong>Peak value</strong> \(V_{\text{max}}\) or \(i_{\text{max}}\): the amplitude of the waveform.</li></ul>
 </div></details>
-<details class="intro-step"><summary>6.1.2 · rms values: the heating effect</summary><div class="intro-step-body">
+<details class="intro-step"><summary>4.1.2 · rms values: the heating effect</summary><div class="intro-step-body">
 <p>The power in a resistor, \(P = i^{2}R\), is always positive but varies between 0 and its peak value twice each cycle. The <strong>average</strong> power is half the peak power.</p>
 <p>The <strong>rms (root mean square)</strong> current is the steady DC current that would produce the same heating in the same resistor:</p>
 <div class="formula">\[i_{\text{rms}}=\dfrac{i_{\text{max}}}{\sqrt{2}}\quad V_{\text{rms}}=\dfrac{V_{\text{max}}}{\sqrt{2}}\]</div>
 <p>NZ mains is <strong>230 V rms</strong>, so the peak is √2 × 230 = <strong>325 V</strong>. Meter readings and appliance labels are rms values unless stated otherwise, so \(P = V_{\text{rms}}i_{\text{rms}}\) gives the average power.</p>
 </div></details>
-<details class="intro-step"><summary>6.1.3 · Resistors: in phase</summary><div class="intro-step-body">
+<details class="intro-step"><summary>4.1.3 · Resistors: in phase</summary><div class="intro-step-body">
 <p>For a resistor, \(V = iR\) at every instant, so voltage and current peak at the same time: they are <strong>in phase</strong>. Resistance does not depend on frequency.</p>
 </div></details>
-<details class="intro-step"><summary>6.1.4 · Capacitors: current leads voltage</summary><div class="intro-step-body">
+<details class="intro-step"><summary>4.1.4 · Capacitors: current leads voltage</summary><div class="intro-step-body">
 <p>Current flows onto a capacitor fastest when its voltage is changing fastest (as it passes zero), and the current is zero when the voltage is at its peak and momentarily not changing. So <strong>the current leads the voltage by ¼ cycle (90°)</strong>.</p>
 <div class="formula">\[X_C=\dfrac{1}{\omega C}\]</div>
 <p><strong>Capacitive reactance \(X_{C}\)</strong> (Ω) is the capacitor's opposition to AC. At high frequency the capacitor charges and discharges many times a second, so a large current flows: \(X_{C}\) is small. For DC (\(f\) = 0), \(X_{C}\) is infinite and no steady current flows.</p>
 </div></details>
-<details class="intro-step"><summary>6.1.5 · Inductors: voltage leads current</summary><div class="intro-step-body">
+<details class="intro-step"><summary>4.1.5 · Inductors: voltage leads current</summary><div class="intro-step-body">
 <p>An inductor's back emf is greatest when the current is changing fastest (as it passes zero). So <strong>the voltage leads the current by ¼ cycle (90°)</strong>.</p>
 <div class="formula">\[X_L=\omega L\]</div>
 <p><strong>Inductive reactance \(X_{L}\)</strong> rises with frequency: faster changes in current mean a bigger back emf. For DC, \(X_{L} = 0\) and only the coil's resistance remains.</p>
 <p><strong>Memory aid, "CIVIL":</strong> in a <strong>C</strong>apacitor, <strong>I</strong> (the current, \(i\)) leads <strong>V</strong>; <strong>V</strong> leads <strong>I</strong> in an inductor (<strong>L</strong>). Reactances don't dissipate energy on average: the energy stored each quarter cycle is returned in the next.</p>
 </div></details>
-<details class="intro-step"><summary>6.1.6 · Phasors and impedance</summary><div class="intro-step-body">
+<details class="intro-step"><summary>4.1.6 · Phasors and impedance</summary><div class="intro-step-body">
 <p>A <strong>phasor</strong> is a rotating arrow whose length is a peak (or rms) value and whose angle shows its phase. In a <strong>series</strong> circuit the current is the same everywhere, so draw the current along the reference axis. Then:</p>
 <ul><li>\(V_{R}\) points along the current (in phase).</li>
 <li>\(V_{L}\) points 90° ahead (up).</li>
@@ -1869,7 +1840,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="formula">\[Z=\sqrt{R^2+{(X_L-X_C)}^2}\quad V=iZ\quad \tan \varphi=\dfrac{X_L-X_C}{R}\]</div>
 <p><strong>Impedance \(Z\)</strong> (Ω) is the total opposition to AC. \(\varphi\) is the phase angle between the supply voltage and the current.</p>
 </div></details>
-<details class="intro-step"><summary>6.1.7 · Resonance in LCR circuits</summary><div class="intro-step-body">
+<details class="intro-step"><summary>4.1.7 · Resonance in LCR circuits</summary><div class="intro-step-body">
 <p>As frequency increases, \(X_{L}\) rises and \(X_{C}\) falls. At one frequency they are equal and cancel:</p>
 <div class="formula">\[\omega L=\dfrac{1}{\omega C}\quad \Rightarrow\quad f_0=\dfrac{1}{2\pi \sqrt{LC}}\]</div>
 <p>At the <strong>resonant frequency</strong>: \(Z = R\) (its minimum), so the current is a <strong>maximum</strong>; the supply voltage and current are <strong>in phase</strong>; and \(V_{L}\) and \(V_{C}\) are equal and opposite. Each can be much larger than the supply voltage.</p>
@@ -1878,7 +1849,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </section>
 
 <section class="pane hidden" data-section="ac" data-view="rms">
-<div class="section-identity"><strong>6.2 · rms and heating</strong><p>Why 230 V AC heats a resistor like 230 V DC, even though it peaks at 325 V.</p></div>
+<div class="section-identity"><strong>4.2 · rms and heating</strong><p>Why 230 V AC heats a resistor like 230 V DC, even though it peaks at 325 V.</p></div>
 <h2>Peak, rms and power</h2>
 <p class="sub">Top: the AC voltage, with dashed lines at ±\(V_{\text{rms}}\). Bottom: the power in the resistor, which goes up and down twice per cycle, with its average shown. The two lamps compare AC with a DC supply equal to \(V_{\text{rms}}\): their average brightness matches. The AC lamp flickers at twice the supply frequency (slowed down here).</p>
 <div class="nx-lab">
@@ -1899,7 +1870,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </section>
 
 <section class="pane hidden" data-section="ac" data-view="phase">
-<div class="section-identity"><strong>6.3 · Phase and reactance</strong><p>See \(V\) and \(i\) as rotating phasors and waveforms, and how \(R\), \(C\) and \(L\) respond to frequency.</p></div>
+<div class="section-identity"><strong>4.3 · Phase and reactance</strong><p>See \(V\) and \(i\) as rotating phasors and waveforms, and how \(R\), \(C\) and \(L\) respond to frequency.</p></div>
 <h2>Phase and reactance explorer</h2>
 <p class="sub">Choose a single component connected to an AC supply of 10 V rms. The phasors (left) rotate at the supply frequency (slowed down); their vertical projections draw the waveforms (centre). The graph at the bottom shows how the opposition to current changes with frequency.</p>
 <div class="nx-lab">
@@ -1939,7 +1910,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </section>
 
 <section class="pane hidden" data-section="ac" data-view="lcr">
-<div class="section-identity"><strong>6.4 · LCR resonance</strong><p>Tune a series LCR circuit and watch the phasor diagram and resonance curve.</p></div>
+<div class="section-identity"><strong>4.4 · LCR resonance</strong><p>Tune a series LCR circuit and watch the phasor diagram and resonance curve.</p></div>
 <h2>Series LCR resonance</h2>
 <p class="sub">A 10 V rms supply drives a resistor, inductor and capacitor in series. Left: the voltage phasor diagram (current along the horizontal). Right: current against frequency (the resonance curve) and the reactances against frequency. Press <strong>Tune to resonance</strong>, then change \(R\) and watch the peak get sharper or flatter.</p>
 <div class="nx-lab">
@@ -2043,7 +2014,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 </section>
 
 <section class="pane hidden" data-section="ac" data-view="apps">
-<div class="section-identity"><strong>6.7 · Applications of AC circuits</strong><p>Tuning, filtering and the electricity in your walls.</p></div>
+<div class="section-identity"><strong>4.7 · Applications of AC circuits</strong><p>Tuning, filtering and the electricity in your walls.</p></div>
 <h2>Where do we use AC circuit ideas?</h2>
 <p class="sub">Because reactance depends on frequency, capacitors and inductors can sort signals by frequency. Resonance picks out one frequency from many.</p>
 <div class="app-grid">
@@ -2062,7 +2033,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <div class="app-card"><div class="app-head"><b>Wireless charging</b><span class="app-tag">Resonance</span></div>
 <p>Many charging pads tune the transmitting and receiving coils with capacitors so that both resonate at the same frequency.</p>
 <p class="app-chain">Both LC circuits share the same \(f_{0}\) → large currents at that frequency → more energy transferred across the gap</p>
-<p class="app-exam"><b>Exam angle:</b> links transformers (5.6) with resonance.</p></div>
+<p class="app-exam"><b>Exam angle:</b> links transformers (3.13) with resonance.</p></div>
 <div class="app-card"><div class="app-head"><b>Noise filters</b><span class="app-tag">Reactance</span></div>
 <p>Computers, chargers and power boards contain filters of inductors and capacitors that stop high-frequency electrical noise travelling along the mains wiring.</p>
 <p class="app-chain">Inductor in series: high \(X_{L}\) at high frequency blocks noise. Capacitor across the supply: low \(X_{C}\) at high frequency short-circuits noise away.</p>
@@ -2077,6 +2048,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <details class="exam-answer"><summary>Show model answer</summary>
 <p>The aerial produces small emfs at many frequencies, one for each station. The LC circuit has impedance \(Z = \sqrt{R^{2} + (X_{L} - X_{C})^{2}}\). At its resonant frequency \(f_{0} = 1/(2\pi \sqrt{LC})\), \(X_{L} = X_{C}\) and they cancel, so \(Z = R\), its minimum value, and the current at that frequency is a maximum. At other frequencies \(X_{L}\) ≠ \(X_{C}\), so \(Z\) is larger and the current is much smaller. Adjusting the capacitor changes \(C\) and so moves \(f_{0}\); when \(f_{0}\) equals a station's frequency, that station's signal gives the largest current and is the one heard. A small resistance makes the peak sharp, so nearby stations are rejected.</p></details></div>
 </section>
+
 
 <footer class="footer">PHYSICS · LEVEL 3 · AS91526 ELECTRICAL SYSTEMS   |   LCARS-INSPIRED CLASSROOM PROTOTYPE<br/><span>Contact: Pranav Mistry · Rosmini College · pmistry [at] rosmini.school.nz</span></footer>
 </main></div></div>
@@ -2101,11 +2073,9 @@ const views={
  map:[['scope','0.1 Course Map'],['skills','0.2 Exam Skills'],['formulas','0.3 Formula Sheet']],
  dc:[['intro','1.1 Introduction'],['battery','1.2 Battery Lab'],['kirchhoff','1.3 Kirchhoff'],['check','1.4 Quick Check'],['problems','1.5 Problems'],['apps','1.6 Applications']],
  cap:[['intro','2.1 Introduction'],['plates','2.2 Plate Builder'],['rc','2.3 RC Circuit'],['combine','2.4 Combining'],['check','2.5 Quick Check'],['problems','2.6 Problems'],['apps','2.7 Applications']],
- flux:[['intro','3.1 Introduction'],['coil','3.2 Magnet & Coil'],['loop','3.3 <span class="lc up">Φ</span> vs <i class="lc">t</i> Graphs'],['check','3.4 Quick Check'],['problems','3.5 Problems'],['apps','3.6 Applications']],
- ind:[['intro','4.1 Introduction'],['coil','4.2 Coil Builder'],['lr','4.3 LR Circuit'],['off','4.4 Switching Off'],['check','4.5 Quick Check'],['problems','4.6 Problems'],['apps','4.7 Applications']],
- tx:[['intro','5.1 Introduction'],['lab','5.2 Transformer Lab'],['grid','5.3 Transmission'],['check','5.4 Quick Check'],['problems','5.5 Problems'],['apps','5.6 Applications']],
- ac:[['intro','6.1 Introduction'],['rms','6.2 rms & Power'],['phase','6.3 Phase & Reactance'],['lcr','6.4 LCR Resonance'],['check','6.5 Quick Check'],['problems','6.6 Problems'],['apps','6.7 Applications']]};
-const titles={map:'COURSE MAP',dc:'DC CIRCUITS',cap:'CAPACITORS',flux:'FLUX & FARADAY',ind:'INDUCTORS',tx:'TRANSFORMERS',ac:'AC CIRCUITS'};
+ ind:[['flux','3.1 Flux & Faraday'],['magnet','3.2 Magnet & Coil'],['graphs','3.3 <span class="lc up">Φ</span> vs <i class="lc">t</i> Graphs'],['intro','3.4 Inductors'],['coil','3.5 Coil Builder'],['lr','3.6 LR Circuit'],['off','3.7 Switching Off'],['tx','3.8 Transformers'],['txlab','3.9 Transformer Lab'],['grid','3.10 Transmission'],['check','3.11 Quick Check'],['problems','3.12 Problems'],['apps','3.13 Applications']],
+ ac:[['intro','4.1 Introduction'],['rms','4.2 rms & Power'],['phase','4.3 Phase & Reactance'],['lcr','4.4 LCR Resonance'],['check','4.5 Quick Check'],['problems','4.6 Problems'],['apps','4.7 Applications']]};
+const titles={map:'COURSE MAP',dc:'RESISTORS IN DC CIRCUITS',cap:'CAPACITORS IN DC CIRCUITS',ind:'INDUCTORS IN DC CIRCUITS',ac:'AC CIRCUITS'};
 let active='map',currentView='scope';
 function go(tab,view,scroll){
  if(!views[tab])tab='map';
@@ -2125,35 +2095,35 @@ document.addEventListener('click',e=>{const t=e.target.closest('[data-go]');if(!
 
 /* ---------- course map ---------- */
 const scope=[
- {g:'DC circuits',c:'#8fd694',items:[
+ {g:'01 · Resistors in DC circuits',c:'#8fd694',items:[
   ['Distinguish emf from potential difference and terminal voltage','dc:intro'],
   ['Use \\(\\varepsilon = V + ir\\) and explain why terminal voltage falls as current rises','dc:battery'],
   ['Find emf and internal resistance from a \\(V\\)–I graph','dc:battery'],
   ['Apply Kirchhoff\'s junction and loop rules to find currents','dc:kirchhoff']]},
- {g:'Capacitors',c:'#ff9eb5',items:[
+ {g:'02 · Capacitors in DC circuits',c:'#ff9eb5',items:[
   ['Use \\(Q = CV\\) and \\(C = \\varepsilon _{0}\\varepsilon _{r}A/d\\), and explain the effect of a dielectric','cap:plates'],
   ['Calculate the energy stored, \\(E = \\tfrac{1}{2}QV\\), as the area under a \\(V\\)–Q graph','cap:plates'],
   ['Combine capacitors in series and parallel and find the charge and voltage on each','cap:combine'],
   ['Explain charging and discharging, and sketch \\(V\\)–t and \\(i\\)–t graphs','cap:rc'],
   ['Calculate and use the time constant \\(\\tau = RC\\)','cap:rc']]},
- {g:'Flux & Faraday',c:'#f0a66a',items:[
-  ['Define magnetic flux density and magnetic flux, and use \\(\\Phi = BA\\)','flux:intro'],
-  ['Explain why an emf is induced only while the flux through a coil is changing','flux:coil'],
-  ['Explain the emf in a conductor moving through a field \\((\\varepsilon = BvL)\\)','flux:loop'],
-  ['Calculate an induced emf using \\(\\varepsilon = -N\\Delta \\Phi /\\Delta t\\) and sketch \\(\\varepsilon\\)–\\(t\\) from \\(\\Phi\\)–\\(t\\)','flux:loop'],
-  ['Use Lenz\'s law to find the direction of an induced current, and link it to conservation of energy','flux:coil']]},
- {g:'Inductors',c:'#78d9f7',items:[
+ {g:'03 · Inductors in DC: flux & Faraday',c:'#f0a66a',items:[
+  ['Define magnetic flux density and magnetic flux, and use \\(\\Phi = BA\\)','ind:flux'],
+  ['Explain why an emf is induced only while the flux through a coil is changing','ind:magnet'],
+  ['Explain the emf in a conductor moving through a field \\((\\varepsilon = BvL)\\)','ind:graphs'],
+  ['Calculate an induced emf using \\(\\varepsilon = -N\\Delta \\Phi /\\Delta t\\) and sketch \\(\\varepsilon\\)–\\(t\\) from \\(\\Phi\\)–\\(t\\)','ind:graphs'],
+  ['Use Lenz\'s law to find the direction of an induced current, and link it to conservation of energy','ind:magnet']]},
+ {g:'03 · Inductors in DC: inductors',c:'#78d9f7',items:[
   ['Explain back emf in an inductor when a circuit is switched on and off','ind:intro'],
   ['Explain how the turns, area, length and an iron core affect the inductance of a coil','ind:coil'],
   ['Calculate \\(\\tau = L/R\\), including the inductor\'s internal resistance','ind:lr'],
   ['Sketch and interpret current–time and voltage–time graphs for an LR circuit','ind:lr'],
   ['Calculate the energy stored in an inductor, \\(E = \\tfrac{1}{2}Li^{2}\\)','ind:lr'],
   ['Compare the behaviour of inductors and capacitors in DC circuits','ind:intro']]},
- {g:'Transformers',c:'#c5a2ff',items:[
-  ['Explain how a transformer works, and why it needs AC','tx:intro'],
-  ['Use Vs/Vp = Ns/Np and power in = power out','tx:lab'],
-  ['Describe transformer energy losses and why power is transmitted at high voltage','tx:grid']]},
- {g:'AC circuits',c:'#ff8a7a',items:[
+ {g:'03 · Inductors in DC: transformers',c:'#c5a2ff',items:[
+  ['Explain how a transformer works, and why it needs AC','ind:tx'],
+  ['Use Vs/Vp = Ns/Np and power in = power out','ind:txlab'],
+  ['Describe transformer energy losses and why power is transmitted at high voltage','ind:grid']]},
+ {g:'04 · AC circuits',c:'#ff8a7a',items:[
   ['Compare energy dissipation in a resistor for DC and AC; use peak and rms values','ac:rms'],
   ['Describe the phase relationship of \\(V\\) and \\(i\\) for \\(R\\), \\(C\\) and \\(L\\)','ac:phase'],
   ['Calculate reactance and explain how it depends on frequency','ac:phase'],
@@ -2447,7 +2417,7 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
  cv.addEventListener('pointerup',()=>{st.dragging=false;cv.style.touchAction='pan-y'});
  cv.addEventListener('keydown',e=>{if(st.mode!=='drag')return;if(e.key==='ArrowUp'||e.key==='ArrowDown'){e.preventDefault();st.dragY=Math.max(-0.33,Math.min(0.33,(st.dragY??st.y)+(e.key==='ArrowUp'?-0.02:0.02)))}});
  cv.style.touchAction='pan-y';
- sims['flux:coil']=st;
+ sims['ind:magnet']=st;
 })();
 
 /* ============ 1.3 FLUX GRAPH → EMF GRAPH ============ */
@@ -2493,7 +2463,7 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
  cv.addEventListener('pointerleave',()=>{if(st.drag<0){st.hover=null;$('graphReadout').textContent='Move the pointer over the graphs to read values.';st.draw()}});
  cv.style.touchAction='pan-y';
  st.enter=()=>st.draw();
- sims['flux:graphs']={draw:st.draw,enter:st.enter};
+ sims['ind:graphs']={draw:st.draw,enter:st.enter};
 })();
 
 /* ============ 2.2 LR CIRCUIT ============ */
@@ -2836,7 +2806,7 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
  $('txSwitch').onclick=()=>{st.dcOn=!st.dcOn;st.dcT=0;$('txSwitch').textContent=st.dcOn?'Switch DC off':'Switch DC on'};
  // type buttons below the lab set it up as a step-up, step-down or isolating transformer
  document.querySelectorAll('.txPreset').forEach(b=>b.onclick=()=>{$('txSupply').value='ac';$('txSupply').dispatchEvent(new Event('change'));$('txVp').value=230;$('txNp').value=b.dataset.np;$('txNs').value=b.dataset.ns;$('txRL').value=b.dataset.rl;upd();$('txCanvas').scrollIntoView({behavior:'smooth',block:'center'})});
- sims['tx:lab']=st;
+ sims['ind:txlab']=st;
 })();
 
 /* ============ 3.3 TRANSMISSION ============ */
@@ -2854,7 +2824,7 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   window.EM.set($('gridReadout'),'At '+(p.V/1e3)+' kV: \\(i = P/V\\) = <strong>'+eng(I,'A',3)+'</strong><br/>Loss = \\(i^{2}R\\) = <strong class="big">'+eng(loss,'W',3)+'</strong> ('+(100*loss/p.P).toPrecision(3)+'% of the power sent)<br/>'+(loss<p.P?'Delivered: '+eng(p.P-loss,'W',3):'The line cannot deliver this power at this voltage.')+'<br/><span class="small">Each step up in voltage by a factor \\(k\\) cuts the loss by \\(k^{2}\\).</span>')};
  const upd=()=>{$('gridPOut').textContent=$('gridP').value+' MW';$('gridROut').textContent=(+$('gridR').value).toFixed(1)+' Ω';draw()};
  ['gridP','gridR','gridV'].forEach(id=>$(id).addEventListener('input',upd));$('gridV').addEventListener('change',upd);upd();
- sims['tx:grid']={draw,enter:draw};
+ sims['ind:grid']={draw,enter:draw};
 })();
 })();
 </script>
@@ -2942,7 +2912,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
  ['loopB','loopV','loopL','loopW','loopR'].forEach(id=>$(id).addEventListener('input',()=>{upd();reset()}));upd();
  $('loopPlay').onclick=()=>{st.playing=!st.playing;$('loopPlay').textContent=st.playing?'Pause':'Play'};$('loopRestart').onclick=reset;
  // 3.3 holds both the moving loop and the Φ–t → ε–t graph tool
- {const gr=sims['flux:graphs'];sims['flux:loop']=gr?{step:dt=>st.step(dt),draw:()=>{st.draw();gr.draw()},enter:()=>{if(st.enter)st.enter();if(gr.enter)gr.enter()}}:st;}
+ {const gr=sims['ind:graphs'];sims['ind:graphs']=gr?{step:dt=>st.step(dt),draw:()=>{st.draw();gr.draw()},enter:()=>{if(st.enter)st.enter();if(gr.enter)gr.enter()}}:st;}
 })();
 
 /* ============ 1.2 BATTERY ============ */
@@ -3180,7 +3150,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
  // the zoomed figure: crop to the pipe on narrow screens (its side notes move into a list below)
  const fig=document.querySelector('.pipefig svg');const fitFig=()=>{if(fig)fig.setAttribute('viewBox',innerWidth<=600?'20 0 380 340':'0 0 620 340')};fitFig();addEventListener('resize',fitFig);
  // run alongside the magnet-and-coil lab in 3.2
- const coil=sims['flux:coil'];if(coil){const s0=coil.step,d0=coil.draw;coil.step=dt=>{s0(dt);step(dt)};coil.draw=()=>{d0();draw()}}
+ const coil=sims['ind:magnet'];if(coil){const s0=coil.step,d0=coil.draw;coil.step=dt=>{s0(dt);step(dt)};coil.draw=()=>{d0();draw()}}
 })();
 
 /* ============ 2.2 PARALLEL PLATES ============ */

@@ -5,6 +5,26 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.9 · 11 November 2026 (Year 13 Mechanics and Modern Physics labs; pages follow the ESA study guide)
+- New Year 13 Mechanical Systems lab (AS91524), in ESA chapter order: 01 Translational motion
+  (collision lab with momentum vectors and centre of mass), 02 Circular motion & gravity (vertical
+  circle, banked curve and orbit labs), 03 Rotating systems (torque lab, angular momentum skater,
+  rolling race), 04 Oscillating systems (SHM lab with reference circle and damping, period graphs
+  to find k or g). Each section has an introduction, quick check, exam-style problems and
+  applications; the course map, exam skills (from the 2023 and 2024 NZQA reports) and formula sheet
+  match the other Year 13 labs.
+- New Year 13 Modern Physics lab (AS91525): 01 The photoelectric effect and atomic energy levels
+  (photoelectric lab with E_k–f graph, hydrogen energy level lab with spectrum), 02 Nuclear
+  reactions (binding energy per nucleon curve, reaction energy calculator for fission, fusion and
+  decay), with assessment skills for an internal standard.
+- Year 13 Waves reordered to the ESA chapters: 01 Wave systems & interference (now starting with
+  the wave foundations), 02 Standing waves & music, 03 Doppler. Saved course-map ratings are kept.
+- Year 13 Electrical reordered to the ESA chapters: 01 Resistors in DC, 02 Capacitors in DC,
+  03 Inductors in DC (flux and Faraday, inductors and transformers, with one combined quick check,
+  problem set and applications tab), 04 AC circuits.
+- Home page: Mechanical Systems and Modern Physics cards now open their labs; Year 13 cards are in
+  study-guide order.
+
 ## v1.8 · 31 October 2026 (Year 13 Electrical lab, magnetism, inductors, transformers and AC)
 - Pages now open in the same light or dark mode as the student's device, until they choose with
   the toggle (Year 13 Electrical and Waves; the home page and Year 12 Mechanics already did this).
