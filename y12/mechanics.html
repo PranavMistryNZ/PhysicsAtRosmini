@@ -290,6 +290,17 @@ details.ans[open] summary{margin-bottom:8px}
 .rate button[aria-pressed="true"].r1{border-color:var(--vector);color:var(--vector);background:rgba(200,120,20,.08)}
 .rate button[aria-pressed="true"].r2{border-color:var(--ok);color:var(--ok);background:var(--ok-soft)}
 .gobtn{min-height:34px;padding:0 12px;border-radius:8px;border:1px solid var(--accent);color:var(--accent);background:transparent;cursor:pointer;font-family:var(--mono);font-size:12px}
+.sum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:14px;margin:6px 0 14px}
+.sum-card{gap:8px;border-top:3px solid var(--accent)}
+.sum-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.sum-head .num{font-family:var(--mono);font-size:.8rem;color:var(--accent);font-weight:700}
+.sum-head h3{margin:0;flex:1;min-width:0}
+.sum-ch{font-size:.75rem;color:var(--muted);white-space:nowrap}
+.sum-card ul{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:4px;font-size:.93rem;line-height:1.45}
+.sum-eqs{display:flex;flex-wrap:wrap;gap:6px 18px;padding:9px 12px;border-radius:9px;background:var(--tile)}
+.sum-eqs .katex{font-size:1.06em}
+.sum-trap{margin:0;font-size:.88rem;color:var(--muted)}.sum-trap b{color:var(--accent)}
+.sum-card .btn{align-self:flex-start;margin-top:auto}
 .route{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
 .route button{text-align:left;border:1px solid var(--line);border-radius:10px;background:var(--panel-solid);padding:12px;cursor:pointer;color:var(--ink);display:flex;flex-direction:column;gap:2px}
 .route button:hover{border-color:var(--accent)}
@@ -502,12 +513,14 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 <div class="frame">
 <nav class="rail" aria-label="Topics">
   <div class="rail-label">TOPICS</div>
-  <button class="mod" type="button" data-mod="map"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span><span class="num">00</span><span class="name">Course map &amp; exam skills</span></span></button>
-  <button class="mod" type="button" data-mod="launch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18c3-9 9-13 16-14-1 7-5 13-14 16z"/><circle cx="14.5" cy="9.5" r="2"/><path d="M6 14l-3 1 2 4 1-3"/></svg><span><span class="num">01</span><span class="name">Motion &amp; projectiles</span></span></button>
-  <button class="mod" type="button" data-mod="thrust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12h13"/><path d="m12 7 5 5-5 5"/><path d="M20 5v14"/></svg><span><span class="num">02</span><span class="name">Forces, torque &amp; springs</span></span></button>
-  <button class="mod" type="button" data-mod="orbit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/><circle cx="21" cy="12" r="1.6" fill="currentColor"/></svg><span><span class="num">03</span><span class="name">Circular motion</span></span></button>
+  <button class="mod" type="button" data-mod="map"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span><span class="num">00</span><span class="name">Summary &amp; course map</span></span></button>
+  <button class="mod" type="button" data-mod="launch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18c3-9 9-13 16-14-1 7-5 13-14 16z"/><circle cx="14.5" cy="9.5" r="2"/><path d="M6 14l-3 1 2 4 1-3"/></svg><span><span class="num">01</span><span class="name">Motion</span></span></button>
+  <button class="mod" type="button" data-mod="vec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 11 8"/><path d="m8 8.6 3-.6.4 3"/><path d="M11 8h9"/><path d="m17.5 5.5 2.5 2.5-2.5 2.5"/><path d="M4 19 20 8" stroke-dasharray="2 3"/></svg><span><span class="num">02</span><span class="name">Vectors &amp; relative motion</span></span></button>
+  <button class="mod" type="button" data-mod="thrust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12h13"/><path d="m12 7 5 5-5 5"/><path d="M20 5v14"/></svg><span><span class="num">03</span><span class="name">Forces, torque &amp; springs</span></span></button>
   <button class="mod" type="button" data-mod="dock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2" y="9" width="8" height="6" rx="1"/><rect x="14" y="9" width="8" height="6" rx="1"/><path d="M10 12h4"/><path d="M6 6v3M18 6v3"/></svg><span><span class="num">04</span><span class="name">Momentum &amp; impulse</span></span></button>
-  <button class="mod" type="button" data-mod="fuel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg><span><span class="num">05</span><span class="name">Work, energy &amp; power</span></span></button>
+  <button class="mod" type="button" data-mod="proj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 20c3-14 13-14 18 0" stroke-dasharray="2.5 2.5"/><circle cx="7" cy="11" r="1.6" fill="currentColor"/><path d="M2 20h20"/></svg><span><span class="num">05</span><span class="name">Projectile motion</span></span></button>
+  <button class="mod" type="button" data-mod="orbit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/><circle cx="21" cy="12" r="1.6" fill="currentColor"/></svg><span><span class="num">06</span><span class="name">Circular motion</span></span></button>
+  <button class="mod" type="button" data-mod="fuel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg><span><span class="num">07</span><span class="name">Work, energy &amp; power</span></span></button>
   <div class="fuel" aria-live="polite"><span id="fuelText">PROGRESS · 0%</span><div class="bar"><span id="fuelBar" style="width:0%"></span></div><div style="margin-top:6px" id="fuelSub">Your checklist progress for the whole standard</div></div>
 </nav>
 
@@ -519,8 +532,58 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     <div class="results hidden" id="results" role="listbox" aria-label="Search results"></div>
   </div>
 
-<!-- ======================================================= 00 MISSION BRIEF -->
-<section class="pane" data-mod="map" data-view="scope" data-ref="0.1" data-title="Course map">
+<!-- ======================================================= 00 SUMMARY -->
+<section class="pane" data-mod="map" data-view="summary" data-title="Summary: the essentials of every mechanics topic">
+  <div class="pane-head"><h2>Phase 0.1 · Summary: the essentials of each topic</h2><span class="badge teal">START HERE</span></div>
+  <p class="lede">All of AS91171 on one page, in the order we teach it (textbook chapters 8 to 14). Each card gives the key ideas, the equations you need and the most common mistake. Press <b>Open</b> to go to that topic.</p>
+  <div class="telemetry">
+    <div class="tm"><span>Standard</span><b>AS91171 · 2.4</b></div>
+    <div class="tm"><span>Credits</span><b>6 · external</b></div>
+    <div class="tm"><span>Exam</span><b>3 questions</b></div>
+    <div class="tm"><span>Take g as</span><b>9.8 m s⁻²</b></div>
+  </div>
+  <div class="sum-grid">
+    <article class="card sum-card"><div class="sum-head"><span class="num">01</span><h3>Motion</h3><span class="sum-ch">Textbook ch. 8</span></div>
+      <ul><li>Distance and speed are scalars; displacement, velocity and acceleration are vectors.</li><li>d–t graph: gradient = velocity. v–t graph: gradient = acceleration, area = displacement. a–t graph: area = change in velocity.</li><li>With constant acceleration, use the four equations. Pick the one that leaves out the quantity you don't know and don't need.</li><li>Free fall: every object accelerates at \(g = 9.8\,\mathrm{m\,s^{-2}}\) downwards, whatever its mass, if air resistance is negligible.</li></ul>
+      <div class="sum-eqs"><span>\(v = \frac{\Delta d}{\Delta t}\)</span><span>\(a = \frac{\Delta v}{\Delta t}\)</span><span>\(v_{f} = v_{i} + at\)</span><span>\(d = v_{i}t + \tfrac{1}{2}at^{2}\)</span><span>\(d = \frac{v_{i} + v_{f}}{2}\,t\)</span><span>\(v_{f}^{2} = v_{i}^{2} + 2ad\)</span></div>
+      <p class="sum-trap"><b>Watch out:</b> choose a positive direction at the start and keep it. Slowing down means a negative \(a\) if the motion is positive.</p>
+      <button type="button" class="btn sm" data-go="launch:intro">Open Motion →</button></article>
+    <article class="card sum-card"><div class="sum-head"><span class="num">02</span><h3>Vectors &amp; relative motion</h3><span class="sum-ch">Textbook ch. 9</span></div>
+      <ul><li>A vector has a size and a direction. Add vectors tip to tail; the resultant goes from the first tail to the last tip.</li><li>At right angles, use Pythagoras for the size and \(\tan\theta\) for the direction.</li><li>Split a vector into perpendicular components. The components replace the vector.</li><li>Change in velocity is a vector subtraction: \(\Delta v = v_{f} - v_{i}\), which is \(v_{f} + (-v_{i})\).</li><li>Relative velocity: the velocity of A as seen from B is \(v_{A} - v_{B}\). A river crossing time uses only the velocity straight across.</li></ul>
+      <div class="sum-eqs"><span>\(R = \sqrt{A^{2} + B^{2}}\)</span><span>\(\tan\theta = \frac{B}{A}\)</span><span>\(V_{x} = V\cos\theta\)</span><span>\(V_{y} = V\sin\theta\)</span><span>\(\Delta v = v_{f} - v_{i}\)</span></div>
+      <p class="sum-trap"><b>Watch out:</b> every vector answer needs a direction as well as a size and a unit, for example "5.0 m s⁻¹ at 37° east of north".</p>
+      <button type="button" class="btn sm" data-go="vec:intro">Open Vectors &amp; relative motion →</button></article>
+    <article class="card sum-card"><div class="sum-head"><span class="num">03</span><h3>Forces, torque &amp; springs</h3><span class="sum-ch">Textbook ch. 10</span></div>
+      <ul><li>A net (unbalanced) force causes acceleration: \(F_{\text{net}} = ma\). Balanced forces mean constant velocity or rest.</li><li>Weight \(F_{g} = mg\) acts on the mass. Apparent weight in a lift is the support force, \(F_{N} = m(g + a)\).</li><li>Equilibrium needs two conditions: the forces balance and the torques balance about any point.</li><li>Torque is force × perpendicular distance from the pivot.</li><li>A spring obeys Hooke's law up to its elastic limit; the area under a force–extension graph is the energy stored.</li></ul>
+      <div class="sum-eqs"><span>\(F = ma\)</span><span>\(F_{g} = mg\)</span><span>\(\tau = Fd\)</span><span>\(F = -kx\)</span><span>\(E_{p} = \tfrac{1}{2}kx^{2}\)</span></div>
+      <p class="sum-trap"><b>Watch out:</b> in \(\tau = Fd\), d is the perpendicular distance from the pivot to the line of the force, not the distance along the beam.</p>
+      <button type="button" class="btn sm" data-go="thrust:intro">Open Forces, torque &amp; springs →</button></article>
+    <article class="card sum-card"><div class="sum-head"><span class="num">04</span><h3>Momentum &amp; impulse</h3><span class="sum-ch">Textbook ch. 11</span></div>
+      <ul><li>Momentum is mass × velocity, so it is a vector: give it a direction or a sign.</li><li>Impulse is force × time and equals the change in momentum.</li><li>A longer stopping time means a smaller force for the same \(\Delta p\): crumple zones, airbags, bending your knees.</li><li>With no external force, total momentum before = total momentum after (collisions and explosions).</li><li>Kinetic energy is conserved only in an elastic collision. Check by comparing \(E_{k}\) before and after.</li></ul>
+      <div class="sum-eqs"><span>\(p = mv\)</span><span>\(\Delta p = mv_{f} - mv_{i}\)</span><span>\(\Delta p = F\Delta t\)</span><span>\(\sum p_{\text{before}} = \sum p_{\text{after}}\)</span></div>
+      <p class="sum-trap"><b>Watch out:</b> objects moving the opposite way have negative momentum. A ball that bounces back has a bigger \(\Delta p\) than one that stops.</p>
+      <button type="button" class="btn sm" data-go="dock:intro">Open Momentum &amp; impulse →</button></article>
+    <article class="card sum-card"><div class="sum-head"><span class="num">05</span><h3>Projectile motion</h3><span class="sum-ch">Textbook ch. 12</span></div>
+      <ul><li>After launch, the only force is the weight (ignoring air resistance), so the motion splits into two independent parts.</li><li>Horizontal: no force, so \(v_{x}\) is constant and \(d_{x} = v_{x}t\).</li><li>Vertical: \(a = 9.8\,\mathrm{m\,s^{-2}}\) down. Use the constant-acceleration equations with \(v_{y}\).</li><li>Time is the only link between the two directions. At the highest point \(v_{y} = 0\) but \(v_{x}\) is unchanged.</li><li>On level ground, 45° gives the greatest range, and angles that add to 90° give the same range.</li></ul>
+      <div class="sum-eqs"><span>\(v_{x} = v\cos\theta\)</span><span>\(v_{y} = v\sin\theta\)</span><span>\(d_{x} = v_{x}t\)</span><span>\(d_{y} = v_{y}t + \tfrac{1}{2}at^{2}\)</span></div>
+      <p class="sum-trap"><b>Watch out:</b> never put the launch speed into a vertical equation. Resolve it into \(v_{x}\) and \(v_{y}\) first.</p>
+      <button type="button" class="btn sm" data-go="proj:intro">Open Projectile motion →</button></article>
+    <article class="card sum-card"><div class="sum-head"><span class="num">06</span><h3>Circular motion</h3><span class="sum-ch">Textbook ch. 13</span></div>
+      <ul><li>Moving in a circle at constant speed is still accelerating, because the direction of the velocity keeps changing.</li><li>The acceleration and the net force point towards the centre: centripetal means centre-seeking.</li><li>A real force provides the centripetal force: tension, friction, gravity or a support force.</li><li>If that force disappears, the object carries on in a straight line along the tangent (Newton's first law).</li></ul>
+      <div class="sum-eqs"><span>\(v = \frac{2\pi r}{T}\)</span><span>\(a_{c} = \frac{v^{2}}{r}\)</span><span>\(F_{c} = \frac{mv^{2}}{r}\)</span></div>
+      <p class="sum-trap"><b>Watch out:</b> there is no outward "centrifugal" force in a free-body diagram. Name the real force that points to the centre.</p>
+      <button type="button" class="btn sm" data-go="orbit:intro">Open Circular motion →</button></article>
+    <article class="card sum-card"><div class="sum-head"><span class="num">07</span><h3>Work, energy &amp; power</h3><span class="sum-ch">Textbook ch. 14</span></div>
+      <ul><li>Work is done when a force moves something in the direction of the force. Work done = energy transformed.</li><li>Energy is conserved: it is transformed, never lost. Friction transforms some of it to heat.</li><li>Falling or rising, use the change in height: \(mg\Delta h = \tfrac{1}{2}mv^{2}\) when no energy is lost.</li><li>Power is the rate of doing work. Efficiency = useful energy out ÷ total energy in.</li></ul>
+      <div class="sum-eqs"><span>\(W = Fd\)</span><span>\(E_{k} = \tfrac{1}{2}mv^{2}\)</span><span>\(\Delta E_{p} = mg\Delta h\)</span><span>\(P = \frac{W}{t}\)</span><span>\(E_{p} = \tfrac{1}{2}kx^{2}\)</span></div>
+      <p class="sum-trap"><b>Watch out:</b> \(\Delta h\) is the vertical height change, not the distance along a slope.</p>
+      <button type="button" class="btn sm" data-go="fuel:intro">Open Work, energy &amp; power →</button></article>
+  </div>
+  <div class="card tint"><span class="label">Before every calculation</span><p>Write the equation, substitute with units, give the answer to 2 or 3 significant figures with a unit, and state a direction for every vector. Convert to SI units (m, kg, s) first. The <button type="button" class="btn sm" data-go="map:formulas">formula sheet</button> lists every equation, and you can <button type="button" class="btn sm" data-go="map:rearrange">practise rearranging</button> each one.</p></div>
+</section>
+
+<!-- ======================================================= 00 COURSE MAP -->
+<section class="pane hidden" data-mod="map" data-view="scope" data-title="Course map">
   <div class="pane-head"><h2>Phase 0.1 · Course map: what AS91171 covers</h2><span class="badge teal">START HERE</span></div>
   <p class="lede">This is the whole standard on one page. Rate yourself on each "I can…" statement, then press <b>Go</b> to jump to the place in this lab that teaches it. Ticking an item in the checklist at the bottom of a topic marks that statement as Confident. Your ratings are saved on this device.</p>
   <div class="telemetry">
@@ -540,14 +603,16 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     <div class="btns"><button class="btn sm" type="button" id="resetRatings">Reset my ratings</button></div>
   </div>
   <div class="ratings" id="ratings"></div>
-  <h3>Suggested route through the lab</h3>
+  <h3>Suggested route through the lab (the order we teach it)</h3>
   <div class="route">
-    <button type="button" data-go="launch:intro"><span class="num">01</span><b>Motion &amp; projectiles</b></button>
-    <button type="button" data-go="thrust:intro"><span class="num">02</span><b>Forces, torque &amp; springs</b></button>
-    <button type="button" data-go="orbit:intro"><span class="num">03</span><b>Circular motion</b></button>
+    <button type="button" data-go="launch:intro"><span class="num">01</span><b>Motion</b></button>
+    <button type="button" data-go="vec:intro"><span class="num">02</span><b>Vectors &amp; relative motion</b></button>
+    <button type="button" data-go="thrust:intro"><span class="num">03</span><b>Forces, torque &amp; springs</b></button>
     <button type="button" data-go="dock:intro"><span class="num">04</span><b>Momentum &amp; impulse</b></button>
-    <button type="button" data-go="fuel:intro"><span class="num">05</span><b>Work, energy &amp; power</b></button>
-    <button type="button" data-go="map:challenge"><span class="num">0.4</span><b>Mixed challenge</b></button>
+    <button type="button" data-go="proj:intro"><span class="num">05</span><b>Projectile motion</b></button>
+    <button type="button" data-go="orbit:intro"><span class="num">06</span><b>Circular motion</b></button>
+    <button type="button" data-go="fuel:intro"><span class="num">07</span><b>Work, energy &amp; power</b></button>
+    <button type="button" data-go="map:challenge"><span class="num">0.7</span><b>Mixed challenge</b></button>
   </div>
 </section>
 
@@ -706,7 +771,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 </section>
 
 <!-- ======================================================= 01 TOOLKIT: VECTORS -->
-<section class="pane hidden" data-mod="map" data-view="vectors" data-ref="1.1" data-title="Scalars and vectors">
+<section class="pane hidden" data-mod="vec" data-view="lab" data-title="Scalars and vectors">
   <div class="pane-head"><h2>Phase 1.2 · Scalars &amp; vectors lab</h2><span class="badge">INTERACTIVE</span></div>
   <p class="lede">Every quantity in physics is either a scalar or a vector. Before you can describe motion or forces, you need to know which is which and how to add vectors together.</p>
 
@@ -793,7 +858,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <p><span class="eq">\(A - B = A + (-B)\)</span>. Flip B round to point the other way, then add it tip to tail.</p>
       <p>You need this for a <b>change</b> in a vector, such as <span class="eq">\(\Delta v = v_{f} - v_{i}\)</span>. A ball moving at 4 m s⁻¹ east that ends up moving 3 m s⁻¹ north has \(\Delta v = 5\,\mathrm{m\,s^{-1}}\) towards the north-west, even though its speed only dropped by 1 m s⁻¹.</p></div>
   </div>
-  <div class="card tint"><span class="label">Splitting a vector into components</span><p>Any vector can be split into two perpendicular parts that add back to it: <span class="eq">\(\text{horizontal} = V \cos \theta\)</span> and <span class="eq">\(\text{vertical} = V \sin \theta\)</span>, with θ measured from the horizontal. You'll use this for projectiles (phase <span data-phase="launch:projectiles">1.5</span>) and for forces (phase <span data-phase="thrust:vectors">2.2</span>).</p></div>
+  <div class="card tint"><span class="label">Splitting a vector into components</span><p>Any vector can be split into two perpendicular parts that add back to it: <span class="eq">\(\text{horizontal} = V \cos \theta\)</span> and <span class="eq">\(\text{vertical} = V \sin \theta\)</span>, with θ measured from the horizontal. You'll use this for projectiles (phase <span data-phase="proj:lab">1.5</span>) and for forces (phase <span data-phase="thrust:vectors">2.2</span>).</p></div>
 </section>
 
 <!-- ======================================================= 01 TOOLKIT: NUMBERS -->
@@ -897,71 +962,11 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 </section>
 
 <!-- ======================================================= 01 LAUNCH -->
-<section class="pane hidden" data-mod="launch" data-view="intro" data-ref="1.3" data-title="Motion foundations: vectors, velocity, graphs, free fall, projectiles">
+<section class="pane hidden" data-mod="launch" data-view="intro" data-ref="1.3" data-title="Motion foundations: velocity, acceleration and motion graphs">
   <div class="pane-head"><h2>Phase 1.3 · Motion foundations</h2><span class="badge teal">FOUNDATIONS</span></div>
-  <p class="lede">Four ideas underpin the rest of this topic. Open each panel for the detail you need. Free fall has its own tab: phase <span data-phase="launch:vertical">1.4</span> Vertical motion.</p>
+  <p class="lede">Velocity, acceleration and motion graphs underpin everything else in mechanics. Open each panel for the detail you need. Free fall has its own tab: phase <span data-phase="launch:vertical">1.4</span> Vertical motion.</p>
   <div class="steps">
-    <details class="step" open><summary><span class="ref">1.1.1</span>Vectors</summary><div class="step-body">
-      <h3 style="margin:0">Scalars and vectors</h3>
-      <div class="grid2">
-        <div class="card tint"><span class="label">Scalar: size only</span><p>A number with a unit. Scalars add like ordinary numbers.</p><p class="small">Examples: distance, speed, mass, time, energy, power, work, temperature.</p><p class="eq-block">\(40 \,\mathrm{m},\ 12 \,\mathrm{m\,s^{-1}},\ 65 \,\mathrm{kg},\ 3.0 \,\mathrm{s}\)</p></div>
-        <div class="card tint"><span class="label">Vector: size and direction</span><p>A number, a unit and a direction. Drawn as an arrow: its length shows the size and it points in the direction.</p><p class="small">Examples: displacement, velocity, acceleration, force, weight, momentum, impulse.</p><p class="eq-block">\(40 \,\mathrm{m}\ \text{north},\ 12 \,\mathrm{m\,s^{-1}}\ \text{left},\ 590 \,\mathrm{N}\ \text{down}\)</p></div>
-      </div>
-      <p>Many quantities come in pairs: <b>distance</b> (scalar) and <b>displacement</b> (vector), <b>speed</b> and <b>velocity</b>, <b>mass</b> and <b>weight</b>. A runner who completes one 400 m lap has run a distance of 400 m but has a displacement of zero, because they finish where they started.</p>
-
-      <h3 style="margin:6px 0 0">Two different jobs: combining vectors and splitting into components</h3>
-      <p>Students often mix these up. They go in opposite directions.</p>
-      <div class="grid2">
-        <div class="card">
-          <span class="label">Adding or subtracting: many → one</span>
-          <svg viewBox="0 0 240 130" role="img" aria-label="Two vectors A and B drawn tip to tail with the resultant from the start of A to the tip of B, marked with a double arrowhead" style="width:100%;max-width:280px;height:auto">
-            <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M30 110h120" style="stroke:var(--data)"/><path d="M140 103l10 7-10 7" style="stroke:var(--data)"/>
-              <path d="M150 110V30" style="stroke:var(--vector)"/><path d="M143 40l7-10 7 10" style="stroke:var(--vector)"/>
-              <path d="M30 110L150 30" style="stroke:var(--accent)"/><path d="M93.1 76.4L97.5 65.0L85.3 64.7M85.6 81.4L90.0 70.0L77.8 69.7" style="stroke:var(--accent)"/>
-            </g>
-            <g font-family="JetBrains Mono" font-size="12"><text x="80" y="126" style="fill:var(--data)">A</text><text x="158" y="74" style="fill:var(--vector)">B</text><text x="50" y="66" style="fill:var(--accent)">A + B</text></g>
-          </svg>
-          <p>Two or more <b>separate</b> vectors act together, and you combine them into <b>one resultant</b>. Draw them tip to tail. The resultant goes from the start of the first to the tip of the last, and is marked with a double arrowhead.</p>
-          <p class="small">Use it for: two forces pulling on the same object; a walk made of several legs; a boat's velocity plus the river current. Subtracting (\(A - B = A + (-B)\)) gives a <b>change</b>, such as \(\Delta v = v_{f} - v_{i}\).</p>
-        </div>
-        <div class="card">
-          <span class="label">Components: one → two</span>
-          <svg viewBox="0 0 240 130" role="img" aria-label="One vector F at an angle, with its horizontal and vertical components both drawn from the same starting point, completing a rectangle" style="width:100%;max-width:280px;height:auto">
-            <g fill="none" stroke-width="1.2" style="stroke:var(--muted)" stroke-dasharray="2 4"><path d="M200 110V30M80 30H200"/></g>
-            <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M80 110H200" style="stroke:var(--data)" stroke-dasharray="7 5"/><path d="M190.0 117.0L200.0 110.0L190.0 103.0" style="stroke:var(--data)"/>
-              <path d="M80 110V30" style="stroke:var(--vector)" stroke-dasharray="7 5"/><path d="M87.0 40.0L80.0 30.0L73.0 40.0" style="stroke:var(--vector)"/>
-              <path d="M80 110L200 30" style="stroke:var(--accent)"/><path d="M195.6 41.4L200.0 30.0L187.8 29.7" style="stroke:var(--accent)"/>
-              <path d="M120 110a40 40 0 0 0-6-22" style="stroke:var(--muted)" stroke-width="1.5"/>
-            </g>
-            <g font-family="JetBrains Mono" font-size="12"><text x="118" y="126" style="fill:var(--data)">F cos θ</text><text x="72" y="74" text-anchor="end" style="fill:var(--vector)">F sin θ</text><text x="124" y="62" style="fill:var(--accent)">F</text><text x="126" y="104" style="fill:var(--muted)">θ</text></g>
-          </svg>
-          <p><b>One</b> vector is split into <b>two perpendicular parts</b>, usually horizontal and vertical. Together the components have exactly the same effect as the original vector.</p>
-          <p class="small">Use it for: a projectile's launch velocity (horizontal and vertical motion are worked out separately); a rope pulling a crate at an angle; a force meter held at an angle.</p>
-        </div>
-      </div>
-      <div class="tbl-wrap"><table>
-        <thead><tr><th></th><th>Adding / subtracting</th><th>Components</th></tr></thead>
-        <tbody>
-          <tr><td>Starts with</td><td>two or more vectors</td><td>one vector</td></tr>
-          <tr><td>Ends with</td><td>one resultant</td><td>two perpendicular parts</td></tr>
-          <tr><td>Diagram</td><td>arrows tip to tail; the resultant closes the triangle</td><td>the original vector is the diagonal; the components are the sides of the right-angled triangle</td></tr>
-          <tr><td>Maths</td><td>\(R = \sqrt{A^{2} + B^{2}}\), \(\tan\theta = \frac{B}{A}\) (at right angles)</td><td>horizontal \(= V\cos\theta\), vertical \(= V\sin\theta\)</td></tr>
-        </tbody>
-      </table></div>
-      <div class="card tint"><span class="label">Watch out</span><p>Components <b>replace</b> the vector, they don't add to it. Once you have split a 150 N pull into 130 N horizontal and 75 N vertical, use those two parts <b>or</b> the 150 N, never all three, or you will count the same force twice.</p></div>
-
-      <h3 style="margin:6px 0 0">Examples</h3>
-      <div class="grid2x">
-        <div class="card"><span class="label">Adding at right angles</span><p>Forces of 3.0 N east and 4.0 N north act on a box.</p><p class="eq-block">\(R = \sqrt{3.0^{2} + 4.0^{2}} = 5.0 \,\mathrm{N},\ \tan \theta = 4.0 \div 3.0,\ \theta = 53^\circ\)</p><p>Resultant: <b>5.0 N at 53° north of east</b>.</p></div>
-        <div class="card"><span class="label">Adding in a line</span><p>A 600 N push forwards and 250 N of friction backwards. Take forwards as +.</p><p class="eq-block">\((+600) + (-250) = +350 \,\mathrm{N}\)</p><p>Net force: <b>350 N forwards</b>.</p></div>
-        <div class="card"><span class="label">Subtracting: change in velocity</span><p>A ball hits a wall at 6.0 m s⁻¹ right and bounces back at 4.0 m s⁻¹ left. Take right as +.</p><p class="eq-block">\(\Delta v = v_{f} - v_{i} = (-4.0) - (+6.0) = -10 \,\mathrm{m\,s^{-1}}\)</p><p>Change in velocity: <b>10 m s⁻¹ to the left</b>, much bigger than the 2 m s⁻¹ drop in speed.</p></div>
-        <div class="card"><span class="label">Components</span><p>A ball is kicked at 20 m s⁻¹ at 40° above the horizontal.</p><p class="eq-block">\(v_{x} = 20 \cos 40^\circ = 15.3 \,\mathrm{m\,s^{-1}},\ v_{y} = 20 \sin 40^\circ = 12.9 \,\mathrm{m\,s^{-1}}\)</p><p>The ball moves sideways at 15.3 m s⁻¹ while it rises and falls as if thrown straight up at 12.9 m s⁻¹.</p></div>
-      </div>
-      <p class="small">Try both in the interactive vector lab: <button type="button" class="btn sm" data-go="map:vectors">Course map &amp; exam skills → phase <span data-phase="map:vectors">0.6</span> Vectors</button></p>
-    </div></details>
-    <details class="step"><summary><span class="ref">1.3.1</span>Velocity and acceleration</summary><div class="step-body">
+    <details class="step" open><summary><span class="ref">1.3.1</span>Velocity and acceleration</summary><div class="step-body">
       <p>Velocity is the rate of change of displacement: <span class="eq">\(v=\frac{\Delta d}{\Delta t}\)</span>. Acceleration is the rate of change of velocity: <span class="eq">\(a=\frac{\Delta v}{\Delta t}\)</span>, in m s⁻².</p>
       <p>An acceleration of 3 m s⁻² means the velocity changes by 3 m s⁻¹ every second. If the acceleration points opposite to the velocity, the object slows down. Exams often call this deceleration, but in the equations it is a negative a.</p>
     </div></details>
@@ -981,14 +986,6 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
         </div>
       </div>
       <p class="small">Moving between graphs: the gradient of each graph gives the next one down (d–t → v–t → a–t), and the area under each gives the change in the one above (a–t → v–t → d–t).</p>
-    </div></details>
-    <details class="step"><summary><span class="ref">1.3.4</span>Projectiles: two motions at once</summary><div class="step-body">
-      <p>After launch, the only force on a projectile (ignoring air resistance) is its weight, which acts straight down. So the two directions behave completely differently:</p>
-      <div class="grid2">
-        <div class="card tint"><span class="label">Horizontal</span><p>No force, so no acceleration. <span class="eq">\(v_{x}\)</span> is constant and <span class="eq">\(d_{x} = v_{x}t\)</span>.</p></div>
-        <div class="card tint"><span class="label">Vertical</span><p>\(a = 9.8\,\mathrm{m\,s^{-2}}\) down. Use the constant-acceleration equations with <span class="eq">\(v_{y}\)</span>.</p></div>
-      </div>
-      <p>The only thing the two directions share is <b>time</b>. Find it from whichever direction you have enough information for, then use it in the other.</p>
     </div></details>
   </div>
 </section>
@@ -1041,7 +1038,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
-<section class="pane hidden" data-mod="launch" data-view="projectiles" data-ref="1.5" data-title="Projectile motion">
+<section class="pane hidden" data-mod="proj" data-view="lab" data-title="Projectile motion">
   <div class="pane-head"><h2>Phase 1.5 · Projectile motion</h2><span class="badge">SIMULATION</span></div>
   <p class="lede">Launch a water balloon from ground level or an elevated height. Adjust its initial height, speed and angle, then predict the range before you fire. After release, the water balloon follows a gravity-only trajectory (ignoring air resistance).</p>
   <div class="screen"><canvas id="pjCanvas" width="900" height="380" style="touch-action:none;cursor:crosshair" aria-label="Projectile simulation. Drag the launcher tip to change the angle, drag the platform height handle to set the initial height, or click the scene to launch."></canvas><div class="hud" id="pjHud">READY</div><span id="pjGravityMath" class="pj-gravity-math" aria-label="Gravitational force F sub g equals m g">\(F_g=mg\)</span></div>
@@ -1695,26 +1692,19 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <tr><td>"lands at the same height"</td><td>vertical displacement \(d_{y}\) = 0, and the flight is symmetric</td></tr>
     </tbody>
   </table></div>
-  <h3>4 · Projectile recipe</h3>
-  <div class="grid2">
-    <div class="card"><span class="label">Step 1 · Resolve</span><p><span class="eq">\(v_{x} = v \cos \theta\)</span> and <span class="eq">\(v_{y} = v \sin \theta\)</span></p></div>
-    <div class="card"><span class="label">Step 2 · Time from vertical</span><p>Level ground: time to the top is <span class="eq">\(t = v_{y} \div 9.8\)</span>, so flight time is double that. From a height, use <span class="eq">\(d = v_{i}t + \tfrac{1}{2}at^{2}\)</span>.</p></div>
-    <div class="card"><span class="label">Step 3 · Range from horizontal</span><p><span class="eq">\(d_{x} = v_{x} \times t\)</span></p></div>
-    <div class="card"><span class="label">Step 4 · Max height</span><p>At the top \(v_{y}\) = 0: <span class="eq">\(0 = v_{y}^{2} - 2(9.8)h\)</span>, so <span class="eq">\(h = v_{y}^{2} \div 19.6\)</span></p></div>
-  </div>
-  <h3>5 · Significant figures</h3>
+  <h3>4 · Significant figures</h3>
   <p>Give the answer to the same number of significant figures as the least precise data, usually 2 or 3. Keep full values in your calculator between steps and round only at the end.</p>
 </section>
 
 <section class="pane hidden" data-mod="launch" data-view="check" data-ref="1.7" data-title="Motion quick check">
-  <div class="pane-head"><h2>Phase 1.7 · Quick check: motion &amp; projectiles</h2><span class="badge red">QUICK CHECK</span></div>
+  <div class="pane-head"><h2>Phase 1.7 · Quick check: motion</h2><span class="badge red">QUICK CHECK</span></div>
   <p class="lede">Eight questions, instant feedback. Aim for 7 out of 8 before you attempt the exam-style problems.</p>
   <div class="quiz" data-quiz="launch" data-count="8"></div>
 </section>
 
 <section class="pane hidden" data-mod="launch" data-view="problems" data-ref="1.8" data-title="Motion problems">
-  <div class="pane-head"><h2>Phase 1.8 · Exam-style problems: motion &amp; projectiles</h2><span class="badge red">EXAM PRACTICE</span></div>
-  <p class="lede">Four original practice questions in the style of NCEA Level 2 AS91171 papers. They are not NZQA questions. Attempt every part before opening the worked answer. Take \(g = 9.8\,\mathrm{m\,s^{-2}}\).</p>
+  <div class="pane-head"><h2>Phase 1.8 · Exam-style problems: motion</h2><span class="badge red">EXAM PRACTICE</span></div>
+  <p class="lede">Two original practice questions in the style of NCEA Level 2 AS91171 papers. They are not NZQA questions. Attempt every part before opening the worked answer. Take \(g = 9.8\,\mathrm{m\,s^{-2}}\).</p>
 
   <article class="q"><div class="q-head"><b>QUESTION ONE</b><span>Rover test run · straight-line motion</span></div><div class="q-body">
     <p>A test rover starts from rest and accelerates uniformly at <b>2.5 m s⁻²</b> for <b>8.0 s</b>. It then brakes uniformly and stops in a further <b>50 m</b>.</p>
@@ -1743,40 +1733,89 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <p class="small">Marking focus: a consistent sign convention; the camera keeps the drone's velocity (Newton's first law); the quadratic set up correctly.</p>
     </div></details>
   </div></article>
+</section>
 
-  <article class="q"><div class="q-head"><b>QUESTION THREE</b><span>Cliff kick · horizontal launch</span></div><div class="q-body">
-    <p>A ball is kicked <b>horizontally</b> at <b>12 m s⁻¹</b> from the top of a <b>20 m</b> cliff. Ignore air resistance.</p>
-    <p><b>(a)</b> Calculate the time the ball is in the air. <span class="lvl A">A</span></p>
-    <p><b>(b)</b> Calculate how far from the base of the cliff the ball lands. <span class="lvl M">M</span></p>
-    <p><b>(c)</b> Calculate the ball's velocity (size and direction) just before it lands. <span class="lvl M">M</span></p>
-    <p><b>(d)</b> The ball is kicked at 24 m s⁻¹ instead. Explain what happens to the flight time and the range. <span class="lvl E">E</span></p>
-    <details class="ans"><summary>Show worked answer · Question Three</summary><div class="ans-body">
-      <p><b>(a)</b> Vertically, \(v_{i}\) = 0 because the kick is horizontal. <span class="eq">\(20 = \tfrac{1}{2} \times 9.8 \times t^{2}\)</span>, so <span class="eq">\(t = 2.02 \,\mathrm{s}\)</span>.</p>
-      <p><b>(b)</b> Horizontally, the velocity is constant: <span class="eq">\(d_{x} = 12 \times 2.02 = 24.2 \,\mathrm{m}\)</span>.</p>
-      <p><b>(c)</b> <span class="eq">\(v_{y} = 9.8 \times 2.02 = 19.8 \,\mathrm{m\,s^{-1}}\)</span> down and <span class="eq">\(v_{x} = 12 \,\mathrm{m\,s^{-1}}\)</span>. <span class="eq">\(v = \sqrt{12^{2} + 19.8^{2}} = 23.2 \,\mathrm{m\,s^{-1}}\)</span> at <span class="eq">\(\tan ^{-1}(19.8 \div 12) = 59^\circ\)</span> below the horizontal.</p>
-      <p><b>(d)</b> The flight time depends only on the vertical motion: the same 20 m drop with \(v_{y}\) starting at 0. So the time stays 2.02 s. The horizontal velocity doubles over the same time, so the range doubles to 48.5 m.</p>
-      <p class="small">Marking focus: independence of horizontal and vertical motion stated and used; vector addition for the final velocity with a direction.</p>
-    </div></details>
-  </div></article>
+<!-- ======================================================= 02 VECTORS & RELATIVE MOTION -->
+<section class="pane hidden" data-mod="vec" data-view="intro" data-title="Vectors foundations: scalars and vectors, adding, components, change in velocity, relative velocity">
+  <div class="pane-head"><h2>Phase 2.1 · Vectors foundations</h2><span class="badge teal">FOUNDATIONS</span></div>
+  <p class="lede">Vectors are the language of the rest of mechanics: forces, momentum and projectiles all need them. Open each panel for the detail you need.</p>
+  <div class="steps">
+    <details class="step" open><summary><span class="ref">1.1.1</span>Vectors</summary><div class="step-body">
+      <h3 style="margin:0">Scalars and vectors</h3>
+      <div class="grid2">
+        <div class="card tint"><span class="label">Scalar: size only</span><p>A number with a unit. Scalars add like ordinary numbers.</p><p class="small">Examples: distance, speed, mass, time, energy, power, work, temperature.</p><p class="eq-block">\(40 \,\mathrm{m},\ 12 \,\mathrm{m\,s^{-1}},\ 65 \,\mathrm{kg},\ 3.0 \,\mathrm{s}\)</p></div>
+        <div class="card tint"><span class="label">Vector: size and direction</span><p>A number, a unit and a direction. Drawn as an arrow: its length shows the size and it points in the direction.</p><p class="small">Examples: displacement, velocity, acceleration, force, weight, momentum, impulse.</p><p class="eq-block">\(40 \,\mathrm{m}\ \text{north},\ 12 \,\mathrm{m\,s^{-1}}\ \text{left},\ 590 \,\mathrm{N}\ \text{down}\)</p></div>
+      </div>
+      <p>Many quantities come in pairs: <b>distance</b> (scalar) and <b>displacement</b> (vector), <b>speed</b> and <b>velocity</b>, <b>mass</b> and <b>weight</b>. A runner who completes one 400 m lap has run a distance of 400 m but has a displacement of zero, because they finish where they started.</p>
 
-  <article class="q"><div class="q-head"><b>QUESTION FOUR</b><span>Probe launch · angled projectile</span></div><div class="q-body">
-    <p>A probe is launched from level ground at <b>20 m s⁻¹</b> at <b>40°</b> above the horizontal. Ignore air resistance.</p>
-    <p><b>(a)</b> Calculate the horizontal and vertical components of the launch velocity. <span class="lvl A">A</span></p>
-    <p><b>(b)</b> Calculate the time of flight and the range. <span class="lvl M">M</span></p>
-    <p><b>(c)</b> Calculate the maximum height. <span class="lvl M">M</span></p>
-    <p><b>(d)</b> Explain why a launch at 50° at the same speed lands at the same place, and describe how air resistance would change the path. <span class="lvl E">E</span></p>
-    <details class="ans"><summary>Show worked answer · Question Four</summary><div class="ans-body">
-      <p><b>(a)</b> <span class="eq">\(v_{x} = 20 \cos 40^\circ = 15.3 \,\mathrm{m\,s^{-1}}\)</span>, <span class="eq">\(v_{y} = 20 \sin 40^\circ = 12.9 \,\mathrm{m\,s^{-1}}\)</span></p>
-      <p><b>(b)</b> Time to the top: <span class="eq">\(t = 12.86 \div 9.8 = 1.31 \,\mathrm{s}\)</span>. The flight is symmetric, so the total time is <b>2.62 s</b>. Range: <span class="eq">\(15.32 \times 2.62 = 40.2 \,\mathrm{m}\)</span>.</p>
-      <p><b>(c)</b> <span class="eq">\(h = v_{y}^{2} \div 2g = 12.86^{2} \div 19.6 = 8.4 \,\mathrm{m}\)</span></p>
-      <p><b>(d)</b> At 50°, \(v_{y}\) is larger (so the probe is in the air longer) but \(v_{x}\) is smaller. The two changes exactly balance: 20 sin 50° and 20 cos 50° are 20 cos 40° and 20 sin 40° swapped, so the product \(v_{x}\) × time is the same and the range is 40.2 m again. Angles that add to 90° give equal ranges on level ground. Air resistance acts against the velocity, so \(v_{x}\) falls during the flight and the upward climb is shorter. The probe reaches a lower maximum height, has a shorter range, and comes down more steeply than it went up, so the path is no longer symmetric.</p>
-      <p class="small">Marking focus: components; the link between time, range and height; a reasoned comparison rather than a statement.</p>
+      <h3 style="margin:6px 0 0">Two different jobs: combining vectors and splitting into components</h3>
+      <p>Students often mix these up. They go in opposite directions.</p>
+      <div class="grid2">
+        <div class="card">
+          <span class="label">Adding or subtracting: many → one</span>
+          <svg viewBox="0 0 240 130" role="img" aria-label="Two vectors A and B drawn tip to tail with the resultant from the start of A to the tip of B, marked with a double arrowhead" style="width:100%;max-width:280px;height:auto">
+            <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M30 110h120" style="stroke:var(--data)"/><path d="M140 103l10 7-10 7" style="stroke:var(--data)"/>
+              <path d="M150 110V30" style="stroke:var(--vector)"/><path d="M143 40l7-10 7 10" style="stroke:var(--vector)"/>
+              <path d="M30 110L150 30" style="stroke:var(--accent)"/><path d="M93.1 76.4L97.5 65.0L85.3 64.7M85.6 81.4L90.0 70.0L77.8 69.7" style="stroke:var(--accent)"/>
+            </g>
+            <g font-family="JetBrains Mono" font-size="12"><text x="80" y="126" style="fill:var(--data)">A</text><text x="158" y="74" style="fill:var(--vector)">B</text><text x="50" y="66" style="fill:var(--accent)">A + B</text></g>
+          </svg>
+          <p>Two or more <b>separate</b> vectors act together, and you combine them into <b>one resultant</b>. Draw them tip to tail. The resultant goes from the start of the first to the tip of the last, and is marked with a double arrowhead.</p>
+          <p class="small">Use it for: two forces pulling on the same object; a walk made of several legs; a boat's velocity plus the river current. Subtracting (\(A - B = A + (-B)\)) gives a <b>change</b>, such as \(\Delta v = v_{f} - v_{i}\).</p>
+        </div>
+        <div class="card">
+          <span class="label">Components: one → two</span>
+          <svg viewBox="0 0 240 130" role="img" aria-label="One vector F at an angle, with its horizontal and vertical components both drawn from the same starting point, completing a rectangle" style="width:100%;max-width:280px;height:auto">
+            <g fill="none" stroke-width="1.2" style="stroke:var(--muted)" stroke-dasharray="2 4"><path d="M200 110V30M80 30H200"/></g>
+            <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M80 110H200" style="stroke:var(--data)" stroke-dasharray="7 5"/><path d="M190.0 117.0L200.0 110.0L190.0 103.0" style="stroke:var(--data)"/>
+              <path d="M80 110V30" style="stroke:var(--vector)" stroke-dasharray="7 5"/><path d="M87.0 40.0L80.0 30.0L73.0 40.0" style="stroke:var(--vector)"/>
+              <path d="M80 110L200 30" style="stroke:var(--accent)"/><path d="M195.6 41.4L200.0 30.0L187.8 29.7" style="stroke:var(--accent)"/>
+              <path d="M120 110a40 40 0 0 0-6-22" style="stroke:var(--muted)" stroke-width="1.5"/>
+            </g>
+            <g font-family="JetBrains Mono" font-size="12"><text x="118" y="126" style="fill:var(--data)">F cos θ</text><text x="72" y="74" text-anchor="end" style="fill:var(--vector)">F sin θ</text><text x="124" y="62" style="fill:var(--accent)">F</text><text x="126" y="104" style="fill:var(--muted)">θ</text></g>
+          </svg>
+          <p><b>One</b> vector is split into <b>two perpendicular parts</b>, usually horizontal and vertical. Together the components have exactly the same effect as the original vector.</p>
+          <p class="small">Use it for: a projectile's launch velocity (horizontal and vertical motion are worked out separately); a rope pulling a crate at an angle; a force meter held at an angle.</p>
+        </div>
+      </div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th></th><th>Adding / subtracting</th><th>Components</th></tr></thead>
+        <tbody>
+          <tr><td>Starts with</td><td>two or more vectors</td><td>one vector</td></tr>
+          <tr><td>Ends with</td><td>one resultant</td><td>two perpendicular parts</td></tr>
+          <tr><td>Diagram</td><td>arrows tip to tail; the resultant closes the triangle</td><td>the original vector is the diagonal; the components are the sides of the right-angled triangle</td></tr>
+          <tr><td>Maths</td><td>\(R = \sqrt{A^{2} + B^{2}}\), \(\tan\theta = \frac{B}{A}\) (at right angles)</td><td>horizontal \(= V\cos\theta\), vertical \(= V\sin\theta\)</td></tr>
+        </tbody>
+      </table></div>
+      <div class="card tint"><span class="label">Watch out</span><p>Components <b>replace</b> the vector, they don't add to it. Once you have split a 150 N pull into 130 N horizontal and 75 N vertical, use those two parts <b>or</b> the 150 N, never all three, or you will count the same force twice.</p></div>
+
+      <h3 style="margin:6px 0 0">Examples</h3>
+      <div class="grid2x">
+        <div class="card"><span class="label">Adding at right angles</span><p>Forces of 3.0 N east and 4.0 N north act on a box.</p><p class="eq-block">\(R = \sqrt{3.0^{2} + 4.0^{2}} = 5.0 \,\mathrm{N},\ \tan \theta = 4.0 \div 3.0,\ \theta = 53^\circ\)</p><p>Resultant: <b>5.0 N at 53° north of east</b>.</p></div>
+        <div class="card"><span class="label">Adding in a line</span><p>A 600 N push forwards and 250 N of friction backwards. Take forwards as +.</p><p class="eq-block">\((+600) + (-250) = +350 \,\mathrm{N}\)</p><p>Net force: <b>350 N forwards</b>.</p></div>
+        <div class="card"><span class="label">Subtracting: change in velocity</span><p>A ball hits a wall at 6.0 m s⁻¹ right and bounces back at 4.0 m s⁻¹ left. Take right as +.</p><p class="eq-block">\(\Delta v = v_{f} - v_{i} = (-4.0) - (+6.0) = -10 \,\mathrm{m\,s^{-1}}\)</p><p>Change in velocity: <b>10 m s⁻¹ to the left</b>, much bigger than the 2 m s⁻¹ drop in speed.</p></div>
+        <div class="card"><span class="label">Components</span><p>A ball is kicked at 20 m s⁻¹ at 40° above the horizontal.</p><p class="eq-block">\(v_{x} = 20 \cos 40^\circ = 15.3 \,\mathrm{m\,s^{-1}},\ v_{y} = 20 \sin 40^\circ = 12.9 \,\mathrm{m\,s^{-1}}\)</p><p>The ball moves sideways at 15.3 m s⁻¹ while it rises and falls as if thrown straight up at 12.9 m s⁻¹.</p></div>
+      </div>
+      <p class="small">Try both in the interactive vector lab: <button type="button" class="btn sm" data-go="vec:lab">phase <span data-phase="vec:lab"></span> Vector lab</button></p>
     </div></details>
-  </div></article>
+    <details class="step"><summary><span class="ref"></span>Relative velocity</summary><div class="step-body">
+      <p>Every velocity is measured relative to something. The velocity of A as seen from B is a vector subtraction: <span class="eq">\(v_{A\,\text{rel}\,B} = v_{A} - v_{B}\)</span>. Two cars travelling north at 25 m s⁻¹ and 20 m s⁻¹ see each other moving at 5 m s⁻¹.</p>
+      <p>A boat in a current or a plane in a crosswind moves with its own velocity <b>plus</b> the velocity of the water or air. Add them tip to tail. The crossing time uses only the velocity component straight across; the drift is the sideways velocity × that time.</p>
+      <p class="small"><button type="button" class="btn sm" data-go="vec:relvel">Try river crossings and crosswinds → phase <span data-phase="vec:relvel"></span></button></p>
+    </div></details>
+  </div>
+</section>
+
+<section class="pane hidden" data-mod="vec" data-view="check" data-title="Vectors and relative motion quick check">
+  <div class="pane-head"><h2>Phase 2.4 · Quick check: vectors &amp; relative motion</h2><span class="badge red">QUICK CHECK</span></div>
+  <p class="lede">Eight questions, instant feedback. Aim for 7 out of 8 before moving on.</p>
+  <div class="quiz" data-quiz="vec" data-count="8"></div>
 </section>
 
 <!-- ======================================================= 01 RELATIVE VELOCITY -->
-<section class="pane hidden" data-mod="launch" data-view="relvel" data-title="Relative velocity: river crossings and crosswinds">
+<section class="pane hidden" data-mod="vec" data-view="relvel" data-title="Relative velocity: river crossings and crosswinds">
   <div class="pane-head"><h2>Phase 1.5 · Relative velocity: river crossings &amp; crosswinds</h2><span class="badge">SIMULATION</span></div>
   <p class="lede">A boat on a river is carried along by the current while it moves through the water. Its actual velocity is the vector sum of the two: <span class="eq">\(v_{\text{boat}} + v_{\text{current}} = v_{\text{resultant}}\)</span>. A plane in a crosswind works the same way.</p>
   <div class="seg" role="group" aria-label="Context"><button type="button" data-rv-ctx="river" aria-pressed="true">Boat crossing a river</button><button type="button" data-rv-ctx="plane" aria-pressed="false">Plane in a crosswind</button></div>
@@ -1810,7 +1849,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <p>Aim upstream so the upstream part of the boat's velocity cancels the current: <span class="eq">\(\sin \theta = \text{current} \div \text{boat speed}\)</span>. The crossing takes longer because only <span class="eq">\(\text{boat speed} \times \cos \theta\)</span> is left for crossing.</p>
       <p class="small">Same river: \(\sin\theta = \frac{3.0}{4.0}\), so \(\theta = 49^\circ\) upstream. Speed across \(= \sqrt{4.0^{2} - 3.0^{2}} = 2.6\,\mathrm{m\,s^{-1}}\), so \(t = \frac{60}{2.6} = 23\,\mathrm{s}\). If the current is faster than the boat, it can't be done.</p></div>
   </div>
-  <div class="card tint"><span class="label">Relative velocity in general</span><p>The velocity of A relative to B is <span class="eq">\(v_{A} - v_{B}\)</span>. Two cars on a motorway at 100 km h⁻¹ and 90 km h⁻¹ in the same direction have a relative velocity of 10 km h⁻¹. If they drive towards each other, it is 190 km h⁻¹. This is vector subtraction (phase <span data-phase="map:vectors">1.1</span>).</p></div>
+  <div class="card tint"><span class="label">Relative velocity in general</span><p>The velocity of A relative to B is <span class="eq">\(v_{A} - v_{B}\)</span>. Two cars on a motorway at 100 km h⁻¹ and 90 km h⁻¹ in the same direction have a relative velocity of 10 km h⁻¹. If they drive towards each other, it is 190 km h⁻¹. This is vector subtraction (phase <span data-phase="vec:lab">1.1</span>).</p></div>
 </section>
 
 <!-- ======================================================= 01 VERTICAL MOTION -->
@@ -2234,6 +2273,73 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 </section>
 
 <!-- ======================================================= 03 ORBIT -->
+<!-- ======================================================= 05 PROJECTILE MOTION -->
+<section class="pane hidden" data-mod="proj" data-view="intro" data-title="Projectile foundations: two motions at once, the projectile recipe">
+  <div class="pane-head"><h2>Phase 5.1 · Projectile foundations</h2><span class="badge teal">FOUNDATIONS</span></div>
+  <p class="lede">A projectile combines the two earlier topics: constant-acceleration motion (vertically) and vectors (to split the launch velocity). Open each panel for the detail you need.</p>
+  <div class="steps">
+    <details class="step" open><summary><span class="ref">1.3.4</span>Projectiles: two motions at once</summary><div class="step-body">
+      <p>After launch, the only force on a projectile (ignoring air resistance) is its weight, which acts straight down. So the two directions behave completely differently:</p>
+      <div class="grid2">
+        <div class="card tint"><span class="label">Horizontal</span><p>No force, so no acceleration. <span class="eq">\(v_{x}\)</span> is constant and <span class="eq">\(d_{x} = v_{x}t\)</span>.</p></div>
+        <div class="card tint"><span class="label">Vertical</span><p>\(a = 9.8\,\mathrm{m\,s^{-2}}\) down. Use the constant-acceleration equations with <span class="eq">\(v_{y}\)</span>.</p></div>
+      </div>
+      <p>The only thing the two directions share is <b>time</b>. Find it from whichever direction you have enough information for, then use it in the other.</p>
+    </div></details>
+    <details class="step" open><summary><span class="ref"></span>Projectile recipe</summary><div class="step-body">
+  <div class="grid2">
+        <div class="card"><span class="label">Step 1 · Resolve</span><p><span class="eq">\(v_{x} = v \cos \theta\)</span> and <span class="eq">\(v_{y} = v \sin \theta\)</span></p></div>
+        <div class="card"><span class="label">Step 2 · Time from vertical</span><p>Level ground: time to the top is <span class="eq">\(t = v_{y} \div 9.8\)</span>, so flight time is double that. From a height, use <span class="eq">\(d = v_{i}t + \tfrac{1}{2}at^{2}\)</span>.</p></div>
+        <div class="card"><span class="label">Step 3 · Range from horizontal</span><p><span class="eq">\(d_{x} = v_{x} \times t\)</span></p></div>
+        <div class="card"><span class="label">Step 4 · Max height</span><p>At the top \(v_{y}\) = 0: <span class="eq">\(0 = v_{y}^{2} - 2(9.8)h\)</span>, so <span class="eq">\(h = v_{y}^{2} \div 19.6\)</span></p></div>
+      </div>
+      <p class="small"><button type="button" class="btn sm" data-go="proj:lab">Launch some projectiles → phase <span data-phase="proj:lab"></span></button></p>
+    </div></details>
+  </div>
+</section>
+
+<section class="pane hidden" data-mod="proj" data-view="check" data-title="Projectile quick check">
+  <div class="pane-head"><h2>Phase 5.3 · Quick check: projectile motion</h2><span class="badge red">QUICK CHECK</span></div>
+  <p class="lede">Eight questions, instant feedback. Aim for 7 out of 8 before you attempt the exam-style problems.</p>
+  <div class="quiz" data-quiz="proj" data-count="8"></div>
+</section>
+
+<section class="pane hidden" data-mod="proj" data-view="problems" data-title="Projectile problems">
+  <div class="pane-head"><h2>Phase 5.4 · Exam-style problems: projectile motion</h2><span class="badge red">EXAM PRACTICE</span></div>
+  <p class="lede">Two original practice questions in the style of NCEA Level 2 AS91171 papers. They are not NZQA questions. Attempt every part before opening the worked answer. Take \(g = 9.8\,\mathrm{m\,s^{-2}}\).</p>
+
+  <article class="q"><div class="q-head"><b>QUESTION ONE</b><span>Cliff kick · horizontal launch</span></div><div class="q-body">
+    <p>A ball is kicked <b>horizontally</b> at <b>12 m s⁻¹</b> from the top of a <b>20 m</b> cliff. Ignore air resistance.</p>
+    <p><b>(a)</b> Calculate the time the ball is in the air. <span class="lvl A">A</span></p>
+    <p><b>(b)</b> Calculate how far from the base of the cliff the ball lands. <span class="lvl M">M</span></p>
+    <p><b>(c)</b> Calculate the ball's velocity (size and direction) just before it lands. <span class="lvl M">M</span></p>
+    <p><b>(d)</b> The ball is kicked at 24 m s⁻¹ instead. Explain what happens to the flight time and the range. <span class="lvl E">E</span></p>
+    <details class="ans"><summary>Show worked answer · Question One</summary><div class="ans-body">
+      <p><b>(a)</b> Vertically, \(v_{i}\) = 0 because the kick is horizontal. <span class="eq">\(20 = \tfrac{1}{2} \times 9.8 \times t^{2}\)</span>, so <span class="eq">\(t = 2.02 \,\mathrm{s}\)</span>.</p>
+      <p><b>(b)</b> Horizontally, the velocity is constant: <span class="eq">\(d_{x} = 12 \times 2.02 = 24.2 \,\mathrm{m}\)</span>.</p>
+      <p><b>(c)</b> <span class="eq">\(v_{y} = 9.8 \times 2.02 = 19.8 \,\mathrm{m\,s^{-1}}\)</span> down and <span class="eq">\(v_{x} = 12 \,\mathrm{m\,s^{-1}}\)</span>. <span class="eq">\(v = \sqrt{12^{2} + 19.8^{2}} = 23.2 \,\mathrm{m\,s^{-1}}\)</span> at <span class="eq">\(\tan ^{-1}(19.8 \div 12) = 59^\circ\)</span> below the horizontal.</p>
+      <p><b>(d)</b> The flight time depends only on the vertical motion: the same 20 m drop with \(v_{y}\) starting at 0. So the time stays 2.02 s. The horizontal velocity doubles over the same time, so the range doubles to 48.5 m.</p>
+      <p class="small">Marking focus: independence of horizontal and vertical motion stated and used; vector addition for the final velocity with a direction.</p>
+    </div></details>
+  </div></article>
+
+
+  <article class="q"><div class="q-head"><b>QUESTION TWO</b><span>Probe launch · angled projectile</span></div><div class="q-body">
+    <p>A probe is launched from level ground at <b>20 m s⁻¹</b> at <b>40°</b> above the horizontal. Ignore air resistance.</p>
+    <p><b>(a)</b> Calculate the horizontal and vertical components of the launch velocity. <span class="lvl A">A</span></p>
+    <p><b>(b)</b> Calculate the time of flight and the range. <span class="lvl M">M</span></p>
+    <p><b>(c)</b> Calculate the maximum height. <span class="lvl M">M</span></p>
+    <p><b>(d)</b> Explain why a launch at 50° at the same speed lands at the same place, and describe how air resistance would change the path. <span class="lvl E">E</span></p>
+    <details class="ans"><summary>Show worked answer · Question Two</summary><div class="ans-body">
+      <p><b>(a)</b> <span class="eq">\(v_{x} = 20 \cos 40^\circ = 15.3 \,\mathrm{m\,s^{-1}}\)</span>, <span class="eq">\(v_{y} = 20 \sin 40^\circ = 12.9 \,\mathrm{m\,s^{-1}}\)</span></p>
+      <p><b>(b)</b> Time to the top: <span class="eq">\(t = 12.86 \div 9.8 = 1.31 \,\mathrm{s}\)</span>. The flight is symmetric, so the total time is <b>2.62 s</b>. Range: <span class="eq">\(15.32 \times 2.62 = 40.2 \,\mathrm{m}\)</span>.</p>
+      <p><b>(c)</b> <span class="eq">\(h = v_{y}^{2} \div 2g = 12.86^{2} \div 19.6 = 8.4 \,\mathrm{m}\)</span></p>
+      <p><b>(d)</b> At 50°, \(v_{y}\) is larger (so the probe is in the air longer) but \(v_{x}\) is smaller. The two changes exactly balance: 20 sin 50° and 20 cos 50° are 20 cos 40° and 20 sin 40° swapped, so the product \(v_{x}\) × time is the same and the range is 40.2 m again. Angles that add to 90° give equal ranges on level ground. Air resistance acts against the velocity, so \(v_{x}\) falls during the flight and the upward climb is shorter. The probe reaches a lower maximum height, has a shorter range, and comes down more steeply than it went up, so the path is no longer symmetric.</p>
+      <p class="small">Marking focus: components; the link between time, range and height; a reasoned comparison rather than a statement.</p>
+    </div></details>
+  </div></article>
+</section>
+
 <section class="pane hidden" data-mod="orbit" data-view="intro" data-ref="3.1" data-title="Circular motion foundations">
   <div class="pane-head"><h2>Phase 3.1 · Circular motion foundations</h2><span class="badge teal">FOUNDATIONS</span></div>
   <p class="lede">At Level 2 you study objects moving in a horizontal circle at constant speed, where one force alone provides the centripetal force.</p>
@@ -2837,24 +2943,27 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
-  map: { title: "COURSE MAP", name: "Course map & exam skills", views: [["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["rearrange", "Rearranging formulae"], ["numbers", "Numbers & units"], ["vectors", "Vectors"], ["challenge", "Mixed challenge"]] },
-  launch: { title: "MOTION & PROJECTILES", name: "Motion & projectiles", views: [["intro", "Foundations"], ["graphs", "Graphs"], ["relvel", "Relative velocity"], ["vertical", "Vertical motion"], ["projectiles", "Projectiles"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
+  map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["rearrange", "Rearranging formulae"], ["numbers", "Numbers & units"], ["challenge", "Mixed challenge"]] },
+  launch: { title: "MOTION", name: "Motion", views: [["intro", "Foundations"], ["graphs", "Graphs"], ["vertical", "Vertical motion"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
+  vec: { title: "VECTORS & RELATIVE MOTION", name: "Vectors & relative motion", views: [["intro", "Foundations"], ["lab", "Vector lab"], ["relvel", "Relative velocity"], ["check", "Quick check"]] },
   thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "Foundations"], ["vectors", "Vectors"], ["lift", "Lift"], ["torque", "Torque"], ["bridges", "Bridges & seesaws"], ["springs", "Springs"], ["practicals", "Practicals"], ["check", "Quick check"], ["problems", "Problems"]] },
-  orbit: { title: "CIRCULAR MOTION", name: "Circular motion", views: [["intro", "Foundations"], ["lab", "Centripetal force"], ["practical", "Practical"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
   dock: { title: "MOMENTUM & IMPULSE", name: "Momentum & impulse", views: [["intro", "Foundations"], ["collide", "Collisions"], ["impulse", "Impulse"], ["check", "Quick check"], ["problems", "Problems"]] },
+  proj: { title: "PROJECTILE MOTION", name: "Projectile motion", views: [["intro", "Foundations"], ["lab", "Projectile lab"], ["check", "Quick check"], ["problems", "Problems"]] },
+  orbit: { title: "CIRCULAR MOTION", name: "Circular motion", views: [["intro", "Foundations"], ["lab", "Centripetal force"], ["practical", "Practical"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
   fuel: { title: "WORK, ENERGY & POWER", name: "Work, energy & power", views: [["intro", "Foundations"], ["lab", "Energy track"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
 };
 const SCOPE = {
   launch: [
-    ["Tell scalars from vectors and add vectors tip to tail, choosing a positive direction", "Scalars & vectors", "map:vectors"],
     ["Read gradients and areas on d–t and v–t graphs", "Motion graphs", "launch:graphs"],
     ["Use the four constant-acceleration equations, including free fall", "\\(v_{f} = v_{i} + at\\) …", "launch:clinic"],
-    ["Split a launch velocity into horizontal and vertical parts and explain why vx stays constant", "Projectiles", "launch:projectiles"],
-    ["Calculate time of flight, range and maximum height", "Projectile recipe", "launch:clinic"],
-    ["Use prefixes and powers of ten, and multiply, divide, add and subtract numbers in standard form", "Numbers & units", "map:numbers"],
     ["Read acceleration–time graphs and move between d–t, v–t and a–t graphs", "Graph matching", "launch:graphs"],
-    ["Use vector addition for relative velocity: river crossings and crosswinds", "Relative velocity", "launch:relvel"],
     ["Calculate the motion of falling and thrown objects, and explain terminal velocity", "Vertical motion", "launch:vertical"],
+    ["Use prefixes and powers of ten, and multiply, divide, add and subtract numbers in standard form", "Numbers & units", "map:numbers"],
+  ],
+  vec: [
+    ["Tell scalars from vectors and add vectors tip to tail, choosing a positive direction", "Scalars & vectors", "vec:lab"],
+    ["Use vector addition for relative velocity: river crossings and crosswinds", "Relative velocity", "vec:relvel"],
+    ["Resolve a vector into perpendicular components and find a change in velocity", "Components & \\(\\Delta v\\)", "vec:intro"],
   ],
   thrust: [
     ["Draw free-body diagrams and use \\(F = ma\\) with the net force", "Newton's laws", "thrust:intro"],
@@ -2865,18 +2974,22 @@ const SCOPE = {
     ["Find the support forces on a bridge or plank with two supports, and balance a seesaw", "Bridges & seesaws", "thrust:bridges"],
     ["Take readings, draw a graph, transform data and find a quantity from a gradient", "Practicals", "thrust:practicals"],
   ],
+  dock: [
+    ["Calculate momentum and change in momentum, with direction", "\\(p = mv\\)", "dock:intro"],
+    ["Use impulse \\(F\\Delta t = \\Delta p\\) to explain safety features", "Impulse", "dock:impulse"],
+    ["Apply conservation of momentum to collisions and explosions", "Collision lab", "dock:collide"],
+    ["Decide whether kinetic energy was conserved in a collision", "Elastic or inelastic", "dock:collide"],
+  ],
+  proj: [
+    ["Split a launch velocity into horizontal and vertical parts and explain why \\(v_{x}\\) stays constant", "Projectiles", "proj:lab"],
+    ["Calculate time of flight, range and maximum height", "Projectile recipe", "proj:intro"],
+  ],
   orbit: [
     ["Explain why constant speed in a circle means acceleration towards the centre", "\\(\\Delta v\\) and \\(a_{c}\\)", "orbit:intro"],
     ["Name the real force that provides the centripetal force", "Tension, friction, gravity", "orbit:lab"],
     ["Calculate v from the period, then \\(a_{c}\\) and \\(F_{c}\\)", "\\(v = \\frac{2\\pi r}{T}\\)", "orbit:clinic"],
     ["Explain the path when the centripetal force is removed", "Newton's first law", "orbit:lab"],
     ["Test \\(F_{c} = \\frac{mv^{2}}{r}\\) with the whirling-bung experiment and evaluate the errors", "Whirling bung", "orbit:practical"],
-  ],
-  dock: [
-    ["Calculate momentum and change in momentum, with direction", "\\(p = mv\\)", "dock:intro"],
-    ["Use impulse \\(F\\Delta t = \\Delta p\\) to explain safety features", "Impulse", "dock:impulse"],
-    ["Apply conservation of momentum to collisions and explosions", "Collision lab", "dock:collide"],
-    ["Decide whether kinetic energy was conserved in a collision", "Elastic or inelastic", "dock:collide"],
   ],
   fuel: [
     ["Calculate work done and power", "\\(W = Fd\\), \\(P = \\frac{W}{t}\\)", "fuel:clinic"],
@@ -2887,11 +3000,19 @@ const SCOPE = {
 };
 const TOTAL = Object.values(SCOPE).reduce((a, g) => a + g.length, 0);
 const ratings = store.get("ratings", {});
+if (!store.get("order-2026", false)) { // topics were reordered to match the teaching order: carry old ratings across
+  const MV = { "launch.0": "vec.0", "launch.1": "launch.0", "launch.2": "launch.1", "launch.3": "proj.0", "launch.4": "proj.1", "launch.5": "launch.4", "launch.6": "launch.2", "launch.7": "vec.1", "launch.8": "launch.3" };
+  const old = { ...ratings }; Object.keys(MV).forEach((k) => delete ratings[k]);
+  Object.entries(MV).forEach(([o, n]) => { if (old[o] !== undefined) ratings[n] = old[o]; });
+  store.set("ratings", ratings); store.set("order-2026", true);
+}
 const TIP_CHECK = "Got one wrong? Read the explanation, then reopen the matching lab before trying a new set.";
 const TIPS = {
-  "map:vectors": "Every vector answer needs a direction as well as a size and a unit: \"5.0 m at 53° north of east\", not just \"5.0 m\".",
+  "vec:intro": "Every vector answer needs a direction as well as a size and a unit. Draw the vector diagram before you calculate anything.",
+  "proj:intro": "Write \\(v_{x}\\) and \\(v_{y}\\) first, then keep the horizontal and vertical working in two separate columns. Only the time moves between them.",
+  "vec:lab": "Every vector answer needs a direction as well as a size and a unit: \"5.0 m at 53° north of east\", not just \"5.0 m\".",
   "map:numbers": "Convert to SI units (m, kg, s) before substituting. Most lost marks in calculations come from g instead of kg or cm instead of m.",
-  "launch:relvel": "Draw the vector triangle first. The crossing time uses only the velocity component straight across; the drift uses only the sideways component.",
+  "vec:relvel": "Draw the vector triangle first. The crossing time uses only the velocity component straight across; the drift uses only the sideways component.",
   "thrust:lift": "Draw the free-body diagram, choose up as positive, then write \\(F_{\\text{net}} = ma\\): \\(F_{N} - mg = ma\\). Never write the weight as changing.",
   "thrust:bridges": "Take torques about one support to find the other support force, then use 'forces up = forces down' to find the first.",
   "thrust:practicals": "When a graph is a curve, say what you would plot to get a straight line, and what the gradient represents.",
@@ -2899,7 +3020,7 @@ const TIPS = {
   "launch:vertical": "State your positive direction. If up is positive, \\(a = -g = -9.8\\,\\mathrm{m\\,s^{-2}}\\) and a landing point below the start is a negative displacement.",
   "launch:intro": "Before any calculation, write which direction is positive. Most sign errors come from switching direction halfway through a question.",
   "launch:graphs": "On a v–t graph, gradient means acceleration and area means displacement. Say which one you are using in your answer.",
-  "launch:projectiles": "Treat the two directions separately and only link them through time. Write the equation first, then substitute, then the answer with a unit, so the marker can follow your working.",
+  "proj:lab": "Treat the two directions separately and only link them through time. Write the equation first, then substitute, then the answer with a unit, so the marker can follow your working.",
   "launch:clinic": "List d, vi, vf, a and t before choosing an equation. Use the one without the quantity you don't know and don't need.",
   "launch:problems": "Merit and Excellence answers explain why, not just what. Name the physics, link it to the situation, then conclude.",
   "thrust:intro": "Only the net force goes into \\(F = ma\\). List every force on the object first, then add them with directions.",
@@ -2928,7 +3049,8 @@ const modBtns = [...document.querySelectorAll(".rail .mod")];
 const sims = {}; // key "mod:view" -> { draw(dt), reset?() }
 
 function go(mod, view, scroll) {
-  if (mod === "launch" && (view === "vectors" || view === "numbers")) mod = "map";
+  const ALIAS = { "map:vectors": "vec:lab", "launch:vectors": "vec:lab", "launch:relvel": "vec:relvel", "launch:projectiles": "proj:lab", "launch:numbers": "map:numbers" }; // old links still work
+  if (ALIAS[mod + ":" + view]) [mod, view] = ALIAS[mod + ":" + view].split(":");
   if (!MODS[mod]) mod = "map";
   if (!view || !MODS[mod].views.some((v) => v[0] === view)) view = MODS[mod].views[0][0];
   curMod = mod; curView = view;
@@ -2953,7 +3075,7 @@ function go(mod, view, scroll) {
     renderChecklist();
     $("tipText").textContent = TIPS[mod + ":" + view] || TIP_CHECK;
     const tl = $("tipLink");
-    if (view === "problems") { tl.textContent = "Try the quick check →"; tl.onclick = () => go(mod, "check", true); }
+    if (view === "problems" || !MODS[mod].views.some((v) => v[0] === "problems")) { tl.textContent = "Try the quick check →"; tl.onclick = () => go(mod, "check", true); }
     else { tl.textContent = "Open the exam-style problems →"; tl.onclick = () => go(mod, "problems", true); }
   }
   updateStatus();
@@ -3113,9 +3235,6 @@ document.addEventListener("click", (e) => { if (!e.target.closest(".search")) { 
 /* ====================================================== QUIZZES ===== */
 const Q = {
   launch: [
-    ["Which of these is a vector?", ["Speed", "Distance", "Displacement", "Energy"], 2, "Displacement has a size and a direction. Speed, distance and energy have size only."],
-    ["A hiker walks 6.0 km east then 8.0 km north. How far is she from her starting point?", ["14 km", "10 km", "2.0 km", "48 km"], 1, "The walks are at right angles: \\(\\sqrt{6.0^{2} + 8.0^{2}} = 10\\,\\mathrm{km}\\). 14 km is the distance walked, not the displacement."],
-    ["Forces of 7 N left and 3 N right act on a box. The resultant force is…", ["10 N left", "4 N left", "4 N right", "10 N right"], 1, "They are in opposite directions, so subtract: 7 − 3 = 4 N, in the direction of the bigger force."],
     ["What is 450 nm in metres?", ["4.5 × 10⁻⁷ m", "4.5 × 10⁻⁹ m", "4.5 × 10⁻⁶ m", "4.5 × 10⁷ m"], 0, "\\(450\\,\\mathrm{nm} = 450 \\times 10^{-9}\\,\\mathrm{m} = 4.5 \\times 10^{-7}\\,\\mathrm{m}\\)."],
     ["(3.0 × 10⁴) × (2.0 × 10⁻²) = ?", ["6.0 × 10⁻⁸", "6.0 × 10²", "5.0 × 10²", "6.0 × 10⁶"], 1, "Multiply the numbers (3.0 × 2.0 = 6.0) and add the powers (4 + (−2) = 2)."],
     ["3.0 × 10⁵ + 4.0 × 10⁴ = ?", ["7.0 × 10⁹", "7.0 × 10⁵", "3.4 × 10⁵", "3.04 × 10⁵"], 2, "Make the powers match first: 4.0 × 10⁴ = 0.40 × 10⁵, so the total is 3.4 × 10⁵."],
@@ -3124,13 +3243,28 @@ const Q = {
     ["A car goes from 12 m s⁻¹ to 30 m s⁻¹ in 6.0 s. Its acceleration is…", ["3.0 m s⁻²", "5.0 m s⁻²", "2.0 m s⁻²", "7.0 m s⁻²"], 0, "\\(a = \\frac{\\Delta v}{\\Delta t} = \\frac{30 - 12}{6.0} = 3.0\\,\\mathrm{m\\,s^{-2}}\\)."],
     ["A ball is thrown straight up. At its highest point…", ["\\(v = 0\\) and \\(a = 0\\)", "\\(v = 0\\) and \\(a = 9.8\\,\\mathrm{m\\,s^{-2}}\\) down", "\\(v\\) is at its maximum", "\\(a\\) changes direction"], 1, "Gravity still acts, so the acceleration is 9.8 m s⁻² down even at the instant the ball is still."],
     ["A stone is dropped from rest. How far does it fall in 2.0 s?", ["9.8 m", "19.6 m", "39.2 m", "4.9 m"], 1, "\\(d = \\tfrac{1}{2}gt^{2} = \\tfrac{1}{2} \\times 9.8 \\times 2.0^{2} = 19.6\\,\\mathrm{m}\\)."],
+    ["A train slows uniformly from 20 m s⁻¹ to rest over 100 m. Its acceleration is…", ["−2.0 m s⁻²", "−0.2 m s⁻²", "−4.0 m s⁻²", "−0.4 m s⁻²"], 0, "\\(v_{f}^{2} = v_{i}^{2} + 2ad\\): \\(0 = 400 + 200a\\), so \\(a = -2.0\\,\\mathrm{m\\,s^{-2}}\\). No time is given, so this is the equation to use."],
+    ["A distance–time graph is a straight line sloping upwards. The object has…", ["constant acceleration", "constant velocity", "zero velocity", "increasing velocity"], 1, "A constant gradient on a d–t graph means a constant velocity."],
+  ],
+  vec: [
+    ["Which of these is a vector?", ["Speed", "Distance", "Displacement", "Energy"], 2, "Displacement has a size and a direction. Speed, distance and energy have size only."],
+    ["A hiker walks 6.0 km east then 8.0 km north. How far is she from her starting point?", ["14 km", "10 km", "2.0 km", "48 km"], 1, "The walks are at right angles: \\(\\sqrt{6.0^{2} + 8.0^{2}} = 10\\,\\mathrm{km}\\). 14 km is the distance walked, not the displacement."],
+    ["Forces of 7 N left and 3 N right act on a box. The resultant force is…", ["10 N left", "4 N left", "4 N right", "10 N right"], 1, "They are in opposite directions, so subtract: 7 − 3 = 4 N, in the direction of the bigger force."],
+    ["A boat heads straight across a river at 4.0 m s⁻¹ while the current flows at 3.0 m s⁻¹. What is its speed relative to the bank?", ["7.0 m s⁻¹", "5.0 m s⁻¹", "1.0 m s⁻¹", "12 m s⁻¹"], 1, "The two velocities are at right angles: \\(v = \\sqrt{4.0^{2} + 3.0^{2}} = 5.0\\,\\mathrm{m\\,s^{-1}}\\)."],
+    ["For a boat crossing a river, which velocity decides how long the crossing takes?", ["The current", "The resultant velocity", "The boat\\'s velocity straight across", "The difference between the two"], 2, "Only the component straight across moves the boat towards the far bank: \\(t = \\frac{\\text{width}}{v_{\\text{across}}}\\). The current only causes drift."],
+    ["A ball moving at 5.0 m s⁻¹ east bounces back at 3.0 m s⁻¹ west. What is its change in velocity?", ["2.0 m s⁻¹ east", "8.0 m s⁻¹ west", "2.0 m s⁻¹ west", "8.0 m s⁻¹ east"], 1, "Take east as positive: \\(\\Delta v = v_{f} - v_{i} = -3.0 - (+5.0) = -8.0\\,\\mathrm{m\\,s^{-1}}\\), so 8.0 m s⁻¹ west."],
+    ["A 50 N force acts at 30° above the horizontal. What is its vertical component?", ["43 N", "25 N", "50 N", "29 N"], 1, "\\(F_{y} = 50\\sin 30^\\circ = 25\\,\\mathrm{N}\\). The horizontal component is \\(50\\cos 30^\\circ = 43\\,\\mathrm{N}\\)."],
+    ["Car A drives north at 25 m s⁻¹ and car B drives north at 20 m s⁻¹. What is the velocity of A relative to B?", ["45 m s⁻¹ north", "5 m s⁻¹ north", "5 m s⁻¹ south", "45 m s⁻¹ south"], 1, "\\(v_{A\\,\\text{rel}\\,B} = v_{A} - v_{B} = 25 - 20 = 5\\,\\mathrm{m\\,s^{-1}}\\) north."],
+  ],
+  proj: [
     ["A projectile is launched at 25 m s⁻¹ at 30° above the horizontal. Its horizontal velocity component is…", ["12.5 m s⁻¹", "21.7 m s⁻¹", "25 m s⁻¹", "14.4 m s⁻¹"], 1, "\\(v_{x} = 25\\cos 30^\\circ = 21.7\\,\\mathrm{m\\,s^{-1}}\\). 12.5 m s⁻¹ is the vertical component, \\(25\\sin 30^\\circ\\)."],
     ["Ignoring air resistance, what happens to a projectile's horizontal velocity during its flight?", ["It decreases", "It increases", "It stays constant", "It is zero at the top"], 2, "No horizontal force acts, so there is no horizontal acceleration."],
     ["Two balls leave a table edge at the same moment: one just falls off, the other is launched horizontally at 5 m s⁻¹. Which lands first?", ["The one that falls off", "The launched one", "They land together", "It depends on their masses"], 2, "Both start with zero vertical velocity and fall the same height with the same acceleration, so their vertical motions and times are identical."],
-    ["A train slows uniformly from 20 m s⁻¹ to rest over 100 m. Its acceleration is…", ["−2.0 m s⁻²", "−0.2 m s⁻²", "−4.0 m s⁻²", "−0.4 m s⁻²"], 0, "\\(v_{f}^{2} = v_{i}^{2} + 2ad\\): \\(0 = 400 + 200a\\), so \\(a = -2.0\\,\\mathrm{m\\,s^{-2}}\\). No time is given, so this is the equation to use."],
     ["A probe on level ground has \\(v_{y} = 14.7\\,\\mathrm{m\\,s^{-1}}\\) at launch. What is its time of flight?", ["1.5 s", "3.0 s", "1.0 s", "14.7 s"], 1, "Time to the top \\(= \\frac{14.7}{9.8} = 1.5\\,\\mathrm{s}\\). The flight is symmetric, so the total is 3.0 s."],
     ["Which launch angle gives the greatest range on level ground (no air resistance)?", ["30°", "45°", "60°", "90°"], 1, "45° gives the best balance of time in the air and horizontal speed. 30° and 60° give equal, shorter ranges."],
-    ["A distance–time graph is a straight line sloping upwards. The object has…", ["constant acceleration", "constant velocity", "zero velocity", "increasing velocity"], 1, "A constant gradient on a d–t graph means a constant velocity."],
+    ["A ball rolls off a 1.25 m high table at 2.0 m s⁻¹. How long is it in the air?", ["0.25 s", "0.51 s", "0.63 s", "1.0 s"], 1, "Vertically it starts from 0: \\(t = \\sqrt{\\frac{2h}{g}} = \\sqrt{\\frac{2 \\times 1.25}{9.8}} = 0.51\\,\\mathrm{s}\\). The horizontal speed makes no difference."],
+    ["At the highest point of an angled projectile\\'s path, its velocity is…", ["zero", "straight down", "horizontal and equal to \\(v_{x}\\)", "straight up"], 2, "At the top \\(v_{y} = 0\\), but \\(v_{x}\\) has not changed, so the velocity is horizontal."],
+    ["A ball is kicked horizontally at 12 m s⁻¹ and is in the air for 0.80 s. How far does it travel horizontally?", ["9.6 m", "15 m", "3.1 m", "6.0 m"], 0, "\\(d_{x} = v_{x}t = 12 \\times 0.80 = 9.6\\,\\mathrm{m}\\)."],
   ],
   thrust: [
     ["A 5.0 kg trolley has a net force of 20 N acting on it. Its acceleration is…", ["100 m s⁻²", "4.0 m s⁻²", "0.25 m s⁻²", "15 m s⁻²"], 1, "\\(a = \\frac{F}{m} = \\frac{20}{5.0} = 4.0\\,\\mathrm{m\\,s^{-2}}\\)."],
@@ -3189,7 +3323,7 @@ const Q = {
     ["Two cranes lift identical loads to the same height. Crane A takes half as long as crane B. Crane A…", ["does twice the work", "has twice the power", "does half the work", "has half the power"], 1, "They do the same work (the same mgh). Doing it in half the time means twice the power."],
   ],
 };
-const QTAG = { launch: "MOTION", thrust: "FORCES", orbit: "CIRCULAR", dock: "MOMENTUM", fuel: "ENERGY" };
+const QTAG = { launch: "MOTION", vec: "VECTORS", thrust: "FORCES", dock: "MOMENTUM", proj: "PROJECTILES", orbit: "CIRCULAR", fuel: "ENERGY" };
 function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 function buildQuiz(box) {
   const name = box.dataset.quiz, count = Number(box.dataset.count) || 8;
@@ -3364,7 +3498,7 @@ function powerCalc() {
 (() => {
   const cv = $("pjCanvas"), S = { phase: "ready", t: 0, guess: null, slow: false, comp: true };
   const gravityMath = $("pjGravityMath");
-  const sim = { dirty: true, anim: false }; sims["launch:projectiles"] = sim;
+  const sim = { dirty: true, anim: false }; sims["proj:lab"] = sim;
   const ang = bindRange("pjAng", "pjAngOut", (v) => v + "°"), spd = bindRange("pjSpd", "pjSpdOut", (v) => v + " m s⁻¹"), hh = bindRange("pjH", "pjHOut", (v) => v + " m");
   let D = {};
   function derive() {
@@ -3961,7 +4095,7 @@ function powerCalc() {
 
 /* ====================================================== 1.1 · VECTOR ADDITION LAB ===== */
 (() => {
-  const cv = $("vaCanvas"), sim = { dirty: true, anim: false }; sims["map:vectors"] = sim;
+  const cv = $("vaCanvas"), sim = { dirty: true, anim: false }; sims["vec:lab"] = sim;
   const S = { op: "add", para: false, drag: null, hover: null };
   const sl = { ax: $("vaAx"), ay: $("vaAy"), bx: $("vaBx"), by: $("vaBy") };
   const XR = 5, YR = 4;
@@ -4266,7 +4400,7 @@ function powerCalc() {
 
 /* ====================================================== 1.5 · RELATIVE VELOCITY ===== */
 (() => {
-  const cv = $("rvCanvas"), sim = { dirty: true, anim: false }; sims["launch:relvel"] = sim;
+  const cv = $("rvCanvas"), sim = { dirty: true, anim: false }; sims["vec:relvel"] = sim;
   const CFG = {
     river: { W: 60, du: "m", vu: "m s⁻¹", s: [1, 5, 0.1, 4], u: [0, 3, 0.1, 3], sLab: "Boat speed through the water", uLab: "River current", tUnit: (t) => fmt(t) + " s", jet: "jetty" },
     plane: { W: 120, du: "km", vu: "km h⁻¹", s: [80, 250, 10, 200], u: [0, 100, 5, 60], sLab: "Airspeed", uLab: "Crosswind (blowing east)", tUnit: (t) => fmt(t * 60) + " min", jet: "airport" },
@@ -5689,8 +5823,8 @@ window.addEventListener("resize", dirtyAll);
 $("themeToggle").addEventListener("change", dirtyAll);
 Object.values(sims).forEach((s) => (s.show = () => (s.dirty = true)));
 const [hm, hv] = (location.hash || "").slice(1).split("/");
-go(MODS[hm] ? hm : "launch", MODS[hm] ? hv : "projectiles");
-window.addEventListener("hashchange", () => { const [m, v] = location.hash.slice(1).split("/"); if (MODS[m] && (m !== curMod || v !== curView)) go(m, v); });
+go(MODS[hm] ? hm : "map", MODS[hm] ? hv : "summary");
+window.addEventListener("hashchange", () => { const [m, v] = location.hash.slice(1).split("/"); if ((MODS[m] || m === "launch") && (m !== curMod || v !== curView)) go(m, v); });
 requestAnimationFrame(loop);
 })();
 </script>
