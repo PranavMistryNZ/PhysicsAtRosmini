@@ -197,6 +197,7 @@ input[type=range]{width:100%;accent-color:var(--accent);height:24px}
 .telemetry{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
 .tm{background:var(--tile);border-radius:10px;padding:10px 12px;min-width:0}
 .tm span{display:block;font-size:12px;color:var(--muted)}
+.tm span span{display:inline;font-size:inherit} /* maths inside a reading label: stays on one line and keeps KaTeX's own sizes for subscripts and fractions */
 .tm b{display:block;font-family:var(--mono);font-weight:400;font-size:clamp(17px,2vw,22px);line-height:1.3;color:var(--ink);overflow-wrap:anywhere}
 .tm.hl b{color:var(--data)}
 .note{font-size:14px;color:var(--ink-2);line-height:1.55}
@@ -739,7 +740,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
         <button type="button" data-rr-std="all" aria-pressed="false">All</button>
       </div>
       <div class="bar" style="height:8px" aria-hidden="true"><span id="rrBar" style="height:8px;width:0"></span></div>
-      <p class="small" id="rrProg">0 of 36 done</p>
+      <p class="small" id="rrProg">0 done</p>
       <div class="rr-list" id="rrList"></div>
       <button type="button" class="btn sm" id="rrResetAll">Reset my progress</button>
     </aside>
@@ -4909,9 +4910,18 @@ const RR = (() => {
     { id: "lens", std: "91170", name: "Lens / mirror formula", f: "1/f = 1/d_i + 1/d_o", t: "d_o", a: "1/(1/f - 1/d_i)",
       g: () => { const d_i = U(0.2, 2), d_o = U(0.2, 2); return { d_i, d_o, f: 1 / (1 / d_i + 1 / d_o) }; },
       tr: [["f - d_i", "You can't flip each term separately. Subtract first, then take the reciprocal of the whole side."]], s: ["Subtract {1/d_i} from both sides: {1/d_o = 1/f - 1/d_i}", "Take the reciprocal (flip) of both sides: {d_o = 1/(1/f - 1/d_i)}", "This can also be written {d_o = f d_i/(d_i - f)}. Flip the whole side, never each term separately."] },
-    { id: "mag", std: "91170", name: "Magnification", f: "h_i/h_o = -d_i/d_o", t: "d_o", a: "-d_i h_o/h_i",
-      g: () => { const h_o = U(0.02, 0.3), d_i = U(0.2, 2), d_o = U(0.2, 2); return { h_o, d_i, d_o, h_i: (-h_o * d_i) / d_o }; },
-      s: ["Multiply both sides by {d_o}: {h_i d_o/h_o = -d_i}", "Multiply both sides by {h_o}: {h_i d_o = -d_i h_o}", "Divide both sides by {h_i}: {d_o = -d_i h_o/h_i}"] },
+    { id: "mag", std: "91170", name: "Magnification", f: "h_i/h_o = d_i/d_o", t: "d_o", a: "d_i h_o/h_i",
+      g: () => { const h_o = U(0.02, 0.3), d_i = U(0.2, 2), d_o = U(0.2, 2); return { h_o, d_i, d_o, h_i: (h_o * d_i) / d_o }; },
+      s: ["Multiply both sides by {d_o}: {h_i d_o/h_o = d_i}", "Multiply both sides by {h_o}: {h_i d_o = d_i h_o}", "Divide both sides by {h_i}: {d_o = d_i h_o/h_i}"] },
+    { id: "newton", std: "91170", name: "Lens / mirror formula (from the focal points)", f: "s_i s_o = f^2", t: "s_o", a: "f^2/s_i",
+      g: () => { const s_i = U(0.05, 2), s_o = U(0.05, 2); return { s_i, s_o, f: Math.sqrt(s_i * s_o) }; },
+      tr: [["f/s_i", "f is squared on the sheet: s_o = f²/s_i."]], s: ["{s_o} is multiplied by {s_i}, so divide both sides by {s_i}: {s_o = f^2/s_i}", "{s_o} and {s_i} are measured from the focal points, not from the lens or mirror."] },
+    { id: "nratio", std: "91170", name: "Refraction ratio (speeds)", f: "n_1/n_2 = v_2/v_1", t: "v_2", a: "n_1 v_1/n_2",
+      g: () => { const n_1 = U(1, 1.6), n_2 = U(1, 2.4), v_1 = 3e8 / n_1; return { n_1, n_2, v_1, v_2: (n_1 * v_1) / n_2 }; },
+      tr: [["n_2 v_1/n_1", "Upside down: light is slower in the medium with the bigger n, so v₂ = n₁v₁/n₂."]], s: ["Multiply both sides by {v_1}: {n_1 v_1/n_2 = v_2}", "Swap sides: {v_2 = n_1 v_1/n_2}"] },
+    { id: "lratio", std: "91170", name: "Refraction ratio (wavelengths)", f: "n_1/n_2 = λ_2/λ_1", t: "n_2", a: "n_1 λ_1/λ_2",
+      g: () => { const n_1 = U(1, 1.6), n_2 = U(1, 2.4), λ_1 = U(4e-7, 7e-7); return { n_1, n_2, λ_1, λ_2: (n_1 * λ_1) / n_2 }; },
+      s: ["Multiply both sides by {n_2}: {n_1 = n_2 λ_2/λ_1}", "Multiply both sides by {λ_1}: {n_1 λ_1 = n_2 λ_2}", "Divide both sides by {λ_2}: {n_2 = n_1 λ_1/λ_2}"] },
     { id: "wave", std: "91170", name: "Wave speed", f: "v = f λ", t: "f", a: "v/λ",
       g: () => { const f = U(1, 500), λ = U(0.05, 5); return { f, λ, v: f * λ }; },
       s: ["{f} is multiplied by {λ}, so divide both sides by {λ}: {v/λ = f}", "Swap sides: {f = v/λ}"] },
@@ -5134,7 +5144,7 @@ const RR = (() => {
 
   /* ---------- the task sheet UI ---------- */
   const done = store.get("rr-done", {});
-  let std = "91171", cur = null, target = null, hintN = 0, tries = 0;
+  let std = (document.querySelector("[data-rr-std][aria-pressed=\"true\"]") || { dataset: { rrStd: "91171" } }).dataset.rrStd, cur = null, target = null, hintN = 0, tries = 0;
   const list = () => F.filter((f) => std === "all" || f.std === std);
   function renderList() {
     const box = $("rrList"); box.replaceChildren();
