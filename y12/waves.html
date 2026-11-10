@@ -491,6 +491,23 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 .pj-math .katex-display,.vm-energy-math .katex-display{margin:.2em 0}
 /* working shown under the labs: scroll sideways on a narrow phone rather than spill out of the card */
 #wmEq,#mbEq,#lbEq,#snEq{overflow-x:auto;overflow-y:hidden}
+/* explaining interference: sentence-ordering task, written answers, marking points */
+.chain-out{margin:0;padding-left:1.4em;display:grid;gap:6px;font-size:14px}
+.chain-out:empty{display:none}
+.chain-out li{background:var(--ok-soft);color:var(--ink);border-radius:8px;padding:6px 10px}
+.chain-pool{display:grid;gap:8px}
+.chain-pool button{text-align:left;font:inherit;font-size:14px;line-height:1.45;color:var(--ink);background:var(--tile);border:1px solid var(--line);border-radius:10px;padding:9px 12px;cursor:pointer;min-height:44px}
+.chain-pool button:hover{border-color:var(--accent)}
+.chain-pool button.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.explain[data-ex] textarea{width:100%;box-sizing:border-box;resize:vertical;min-height:140px;font:inherit;font-size:15px;line-height:1.5;color:var(--ink);background:var(--field);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.explain[data-ex] textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+.mark-list{display:grid;gap:8px}
+.mark-list label{display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer}
+.mark-list input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--ok);flex:none}
+.pane>h3{margin:18px 0 0}
+.wave-graphs{display:grid;gap:14px;max-width:700px}
+.wave-graphs figure,.phase-fig{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--canvas);display:flex;flex-direction:column;gap:6px}
+.phase-fig{max-width:700px}
 </style>
 </head>
 <body>
@@ -738,24 +755,21 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 <!-- ======================================================= 01 WAVES (textbook ch. 5) -->
 <section class="pane hidden" data-mod="wave" data-view="intro" data-title="Wave foundations: transverse and longitudinal, v = fλ, reflection, refraction, diffraction, interference">
   <div class="pane-head"><h2>Phase 1.1 · Wave foundations</h2><span class="badge teal">FOUNDATIONS</span></div>
-  <p class="lede">A wave is a moving disturbance that carries energy. The material it moves through only vibrates about where it started. Work through each step, then try the two labs.</p>
+  <p class="lede">A wave is a moving disturbance that carries energy. The material it moves through only vibrates about where it started. Work through each step, then try the labs.</p>
   <div class="steps">
     <details class="step" open><summary><span class="ref"></span>Transverse and longitudinal waves</summary><div class="step-body">
+      <p>A wave carries <b>energy</b> from one place to another without carrying the material with it. Each particle of the medium only vibrates about its own rest position. In each animation, watch the highlighted particle.</p>
       <div class="grid2">
-        <div class="card tint"><span class="label">Transverse</span><p>The particles vibrate <b>at right angles</b> to the direction the wave travels. Crests and troughs. Examples: a wave sent along a rope or slinky by moving one end sideways, ripples on water, all electromagnetic waves.</p></div>
-        <div class="card tint"><span class="label">Longitudinal</span><p>The particles vibrate <b>parallel</b> to the direction the wave travels. Compressions (squashed together) and rarefactions (spread out). Examples: sound, a slinky pushed and pulled along its length.</p></div>
+        <div class="card tint"><span class="label">Transverse</span><p>The particles vibrate <b>at right angles</b> to the direction the wave travels, making crests and troughs. Examples: a rope or slinky shaken sideways, ripples on water, all electromagnetic waves, S-waves in an earthquake.</p></div>
+        <div class="card tint"><span class="label">Longitudinal</span><p>The particles vibrate <b>parallel</b> to the direction the wave travels, making compressions and rarefactions. Examples: sound, a slinky pushed and pulled along its length, P-waves in an earthquake.</p></div>
       </div>
-      <figure class="mini" style="margin:0"><svg viewBox="0 0 640 170" role="img" aria-label="A transverse wave with the wavelength marked from crest to crest and the amplitude marked from the rest position to a crest" style="display:block;width:100%;height:auto">
-        <line x1="20" y1="85" x2="620" y2="85" style="stroke:var(--axis)" stroke-dasharray="4 4"/>
-        <path d="M20 85 C 57 15, 95 15, 132 85 S 207 155, 245 85 S 320 15, 357 85 S 432 155, 470 85 S 545 15, 582 85" fill="none" style="stroke:var(--data)" stroke-width="3"/>
-        <line x1="76" y1="22" x2="301" y2="22" style="stroke:var(--vector)" stroke-width="1.5"/><path d="M84 17l-8 5 8 5M293 17l8 5-8 5" fill="none" style="stroke:var(--vector)" stroke-width="1.5"/>
-        <text x="188" y="14" text-anchor="middle" style="fill:var(--vector);font:600 13px var(--mono)">wavelength λ (crest to crest)</text>
-        <line x1="526" y1="85" x2="526" y2="33" style="stroke:var(--accent)" stroke-width="1.5"/><path d="M521 41l5-8 5 8M521 77l5 8 5-8" fill="none" style="stroke:var(--accent)" stroke-width="1.5"/>
-        <text x="534" y="62" style="fill:var(--accent);font:600 13px var(--mono)">amplitude A</text>
-        <text x="30" y="104" style="fill:var(--muted);font:12px var(--mono)">rest position</text>
-        <text x="245" y="160" text-anchor="middle" style="fill:var(--muted);font:12px var(--mono)">trough</text>
-        <text x="76" y="40" text-anchor="middle" style="fill:var(--muted);font:12px var(--mono)">crest</text>
-      </svg></figure>
+      <div class="screen"><canvas id="wiTr" aria-label="Animation of a transverse wave: particles move up and down while the wave moves to the right"></canvas><div class="hud">TRANSVERSE</div></div>
+      <div class="screen"><canvas id="wiLo" aria-label="Animation of a longitudinal wave: particles move back and forth making compressions and rarefactions, with a graph underneath where each crest lines up with a compression"></canvas><div class="hud">LONGITUDINAL</div></div>
+      <div class="grid2">
+        <div class="card tint"><span class="label">Compression</span><p>A region where the particles are <b>closer together</b> than normal (higher pressure).</p></div>
+        <div class="card tint"><span class="label">Rarefaction</span><p>A region where the particles are <b>further apart</b> than normal (lower pressure).</p></div>
+      </div>
+      <div class="card"><span class="label">Drawing a longitudinal wave as a graph</span><p>Compressions are hard to draw, so we often show a longitudinal wave as a transverse-style graph, like the lower half of the animation. A <b>crest stands for a compression</b> and a <b>trough stands for a rarefaction</b>. The particles are not really moving up and down: the graph only shows how squashed together they are.</p></div>
     </div></details>
     <details class="step"><summary><span class="ref"></span>Mechanical and electromagnetic waves</summary><div class="step-body">
       <p>A <b>mechanical</b> wave needs a medium (solid, liquid or gas) to travel through: sound, water waves, earthquake waves, waves on a string. Sound can't cross a vacuum.</p>
@@ -770,17 +784,35 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
         </tbody>
       </table></div>
     </div></details>
-    <details class="step"><summary><span class="ref"></span>Describing a wave: A, λ, T, f and v</summary><div class="step-body">
+    <details class="step"><summary><span class="ref"></span>Describing a wave: λ, A, T, f, v and phase</summary><div class="step-body">
       <div class="grid3">
-        <div class="card tint"><span class="label">Amplitude, A</span><p>Biggest displacement from the rest position. More amplitude means more energy.</p></div>
-        <div class="card tint"><span class="label">Wavelength, λ</span><p>Length of one complete wave, in m. Crest to crest, or compression to compression.</p></div>
-        <div class="card tint"><span class="label">Period, T</span><p>Time for one complete wave to pass a point, in s.</p></div>
-        <div class="card tint"><span class="label">Frequency, f</span><p>Number of waves per second, in hertz (Hz). \(f = \frac{1}{T}\).</p></div>
-        <div class="card tint"><span class="label">Speed, v</span><p>How fast the wave pattern moves. In one period it moves one wavelength, so \(v = \frac{\lambda}{T} = f\lambda\).</p></div>
+        <div class="card tint"><span class="label">Wavelength, λ · m</span><p>The distance between two <b>consecutive points in phase</b>: crest to crest, trough to trough, or compression to compression. One complete wave.</p></div>
+        <div class="card tint"><span class="label">Amplitude, A · m</span><p>The maximum displacement from the rest (equilibrium) position. Measured from the middle, not trough to crest. More amplitude means more energy.</p></div>
+        <div class="card tint"><span class="label">Period, T · s</span><p>The time for one complete oscillation, or for one whole wave to pass a point.</p></div>
+        <div class="card tint"><span class="label">Frequency, f · Hz</span><p>The number of complete oscillations per second. \(f = \frac{1}{T}\).</p></div>
+        <div class="card tint"><span class="label">Wave speed, v · m s⁻¹</span><p>The distance the wave travels per second. In one period it moves one wavelength, so \(v = \frac{\lambda}{T} = f\lambda\).</p></div>
+        <div class="card tint"><span class="label">Phase · degrees</span><p>Where a point is in its cycle. One whole cycle is 360°. The next step explains phase.</p></div>
       </div>
+      <div class="wave-graphs">
+        <figure class="mini" style="margin:0"><span class="label">Displacement–distance graph</span><svg viewBox="0 0 640 216" role="img" aria-label="Displacement against distance: the wavelength is marked crest to crest and the amplitude from the rest position to a crest" style="display:block;width:100%;height:auto"><line x1="80.0" y1="34.0" x2="80.0" y2="186.0" style="stroke:var(--axis)" stroke-width="1.4"/><line x1="80.0" y1="186.0" x2="612.0" y2="186.0" style="stroke:var(--axis)" stroke-width="1.4"/><line x1="80.0" y1="112.0" x2="600.0" y2="112.0" style="stroke:var(--line)" stroke-width="1" stroke-dasharray="4 4"/><text x="10" y="24" text-anchor="start" style="fill:var(--muted);font:15px var(--mono)">displacement</text><text x="612" y="208" text-anchor="end" style="fill:var(--muted);font:15px var(--mono)">distance (m)</text><path d="M80.0 112.0 L82.2 109.4 L84.3 106.8 L86.5 104.2 L88.7 101.6 L90.8 99.1 L93.0 96.5 L95.2 94.1 L97.3 91.7 L99.5 89.3 L101.7 87.0 L103.8 84.8 L106.0 82.6 L108.2 80.5 L110.3 78.5 L112.5 76.6 L114.7 74.8 L116.8 73.1 L119.0 71.5 L121.2 70.1 L123.3 68.7 L125.5 67.4 L127.7 66.3 L129.8 65.3 L132.0 64.4 L134.2 63.7 L136.3 63.1 L138.5 62.6 L140.7 62.3 L142.8 62.1 L145.0 62.0 L147.2 62.1 L149.3 62.3 L151.5 62.6 L153.7 63.1 L155.8 63.7 L158.0 64.4 L160.2 65.3 L162.3 66.3 L164.5 67.4 L166.7 68.7 L168.8 70.1 L171.0 71.5 L173.2 73.1 L175.3 74.8 L177.5 76.6 L179.7 78.5 L181.8 80.5 L184.0 82.6 L186.2 84.8 L188.3 87.0 L190.5 89.3 L192.7 91.7 L194.8 94.1 L197.0 96.5 L199.2 99.1 L201.3 101.6 L203.5 104.2 L205.7 106.8 L207.8 109.4 L210.0 112.0 L212.2 114.6 L214.3 117.2 L216.5 119.8 L218.7 122.4 L220.8 124.9 L223.0 127.5 L225.2 129.9 L227.3 132.3 L229.5 134.7 L231.7 137.0 L233.8 139.2 L236.0 141.4 L238.2 143.5 L240.3 145.5 L242.5 147.4 L244.7 149.2 L246.8 150.9 L249.0 152.5 L251.2 153.9 L253.3 155.3 L255.5 156.6 L257.7 157.7 L259.8 158.7 L262.0 159.6 L264.2 160.3 L266.3 160.9 L268.5 161.4 L270.7 161.7 L272.8 161.9 L275.0 162.0 L277.2 161.9 L279.3 161.7 L281.5 161.4 L283.7 160.9 L285.8 160.3 L288.0 159.6 L290.2 158.7 L292.3 157.7 L294.5 156.6 L296.7 155.3 L298.8 153.9 L301.0 152.5 L303.2 150.9 L305.3 149.2 L307.5 147.4 L309.7 145.5 L311.8 143.5 L314.0 141.4 L316.2 139.2 L318.3 137.0 L320.5 134.7 L322.7 132.3 L324.8 129.9 L327.0 127.5 L329.2 124.9 L331.3 122.4 L333.5 119.8 L335.7 117.2 L337.8 114.6 L340.0 112.0 L342.2 109.4 L344.3 106.8 L346.5 104.2 L348.7 101.6 L350.8 99.1 L353.0 96.5 L355.2 94.1 L357.3 91.7 L359.5 89.3 L361.7 87.0 L363.8 84.8 L366.0 82.6 L368.2 80.5 L370.3 78.5 L372.5 76.6 L374.7 74.8 L376.8 73.1 L379.0 71.5 L381.2 70.1 L383.3 68.7 L385.5 67.4 L387.7 66.3 L389.8 65.3 L392.0 64.4 L394.2 63.7 L396.3 63.1 L398.5 62.6 L400.7 62.3 L402.8 62.1 L405.0 62.0 L407.2 62.1 L409.3 62.3 L411.5 62.6 L413.7 63.1 L415.8 63.7 L418.0 64.4 L420.2 65.3 L422.3 66.3 L424.5 67.4 L426.7 68.7 L428.8 70.1 L431.0 71.5 L433.2 73.1 L435.3 74.8 L437.5 76.6 L439.7 78.5 L441.8 80.5 L444.0 82.6 L446.2 84.8 L448.3 87.0 L450.5 89.3 L452.7 91.7 L454.8 94.1 L457.0 96.5 L459.2 99.1 L461.3 101.6 L463.5 104.2 L465.7 106.8 L467.8 109.4 L470.0 112.0 L472.2 114.6 L474.3 117.2 L476.5 119.8 L478.7 122.4 L480.8 124.9 L483.0 127.5 L485.2 129.9 L487.3 132.3 L489.5 134.7 L491.7 137.0 L493.8 139.2 L496.0 141.4 L498.2 143.5 L500.3 145.5 L502.5 147.4 L504.7 149.2 L506.8 150.9 L509.0 152.5 L511.2 153.9 L513.3 155.3 L515.5 156.6 L517.7 157.7 L519.8 158.7 L522.0 159.6 L524.2 160.3 L526.3 160.9 L528.5 161.4 L530.7 161.7 L532.8 161.9 L535.0 162.0 L537.2 161.9 L539.3 161.7 L541.5 161.4 L543.7 160.9 L545.8 160.3 L548.0 159.6 L550.2 158.7 L552.3 157.7 L554.5 156.6 L556.7 155.3 L558.8 153.9 L561.0 152.5 L563.2 150.9 L565.3 149.2 L567.5 147.4 L569.7 145.5 L571.8 143.5 L574.0 141.4 L576.2 139.2 L578.3 137.0 L580.5 134.7 L582.7 132.3 L584.8 129.9 L587.0 127.5 L589.2 124.9 L591.3 122.4 L593.5 119.8 L595.7 117.2 L597.8 114.6 L600.0 112.0" fill="none" style="stroke:var(--data)" stroke-width="3.5"/><line x1="145.0" y1="62.0" x2="145.0" y2="44.0" style="stroke:var(--muted)" stroke-width="1" stroke-dasharray="3 4"/><line x1="405.0" y1="62.0" x2="405.0" y2="44.0" style="stroke:var(--muted)" stroke-width="1" stroke-dasharray="3 4"/><line x1="145.0" y1="44.0" x2="405.0" y2="44.0" style="stroke:var(--vector)" stroke-width="2"/><line x1="145.0" y1="38.0" x2="145.0" y2="50.0" style="stroke:var(--vector)" stroke-width="2"/><line x1="405.0" y1="38.0" x2="405.0" y2="50.0" style="stroke:var(--vector)" stroke-width="2"/><text x="275" y="34" text-anchor="middle" style="fill:var(--vector);font:600 17px var(--mono)">λ = one wavelength</text><circle cx="145.0" cy="62.0" r="4.5" style="fill:var(--vector)"/><circle cx="405.0" cy="62.0" r="4.5" style="fill:var(--vector)"/><line x1="275.0" y1="112.0" x2="275.0" y2="162.0" style="stroke:var(--accent)" stroke-width="2.2"/><path d="M270.0 154.0L275.0 162.0L280.0 154.0M270.0 120.0L275.0 112.0L280.0 120.0" fill="none" style="stroke:var(--accent)" stroke-width="2.2"/><text x="285" y="143" text-anchor="start" style="fill:var(--accent);font:600 18px var(--mono)">A</text><text x="88" y="136" text-anchor="start" style="fill:var(--muted);font:14px var(--mono)">rest position</text></svg><figcaption class="small">A snapshot of the whole wave at one instant. Read λ along the distance axis. A is measured from the rest line to a crest or a trough.</figcaption></figure>
+        <figure class="mini" style="margin:0"><span class="label">Displacement–time graph</span><svg viewBox="0 0 640 216" role="img" aria-label="Displacement against time for one point: the period is marked from one crest to the next" style="display:block;width:100%;height:auto"><line x1="80.0" y1="34.0" x2="80.0" y2="186.0" style="stroke:var(--axis)" stroke-width="1.4"/><line x1="80.0" y1="186.0" x2="612.0" y2="186.0" style="stroke:var(--axis)" stroke-width="1.4"/><line x1="80.0" y1="112.0" x2="600.0" y2="112.0" style="stroke:var(--line)" stroke-width="1" stroke-dasharray="4 4"/><text x="10" y="24" text-anchor="start" style="fill:var(--muted);font:15px var(--mono)">displacement</text><text x="560" y="208" text-anchor="end" style="fill:var(--muted);font:15px var(--mono)">time (s)</text><path d="M80.0 112.0 L82.2 109.4 L84.3 106.8 L86.5 104.2 L88.7 101.6 L90.8 99.1 L93.0 96.5 L95.2 94.1 L97.3 91.7 L99.5 89.3 L101.7 87.0 L103.8 84.8 L106.0 82.6 L108.2 80.5 L110.3 78.5 L112.5 76.6 L114.7 74.8 L116.8 73.1 L119.0 71.5 L121.2 70.1 L123.3 68.7 L125.5 67.4 L127.7 66.3 L129.8 65.3 L132.0 64.4 L134.2 63.7 L136.3 63.1 L138.5 62.6 L140.7 62.3 L142.8 62.1 L145.0 62.0 L147.2 62.1 L149.3 62.3 L151.5 62.6 L153.7 63.1 L155.8 63.7 L158.0 64.4 L160.2 65.3 L162.3 66.3 L164.5 67.4 L166.7 68.7 L168.8 70.1 L171.0 71.5 L173.2 73.1 L175.3 74.8 L177.5 76.6 L179.7 78.5 L181.8 80.5 L184.0 82.6 L186.2 84.8 L188.3 87.0 L190.5 89.3 L192.7 91.7 L194.8 94.1 L197.0 96.5 L199.2 99.1 L201.3 101.6 L203.5 104.2 L205.7 106.8 L207.8 109.4 L210.0 112.0 L212.2 114.6 L214.3 117.2 L216.5 119.8 L218.7 122.4 L220.8 124.9 L223.0 127.5 L225.2 129.9 L227.3 132.3 L229.5 134.7 L231.7 137.0 L233.8 139.2 L236.0 141.4 L238.2 143.5 L240.3 145.5 L242.5 147.4 L244.7 149.2 L246.8 150.9 L249.0 152.5 L251.2 153.9 L253.3 155.3 L255.5 156.6 L257.7 157.7 L259.8 158.7 L262.0 159.6 L264.2 160.3 L266.3 160.9 L268.5 161.4 L270.7 161.7 L272.8 161.9 L275.0 162.0 L277.2 161.9 L279.3 161.7 L281.5 161.4 L283.7 160.9 L285.8 160.3 L288.0 159.6 L290.2 158.7 L292.3 157.7 L294.5 156.6 L296.7 155.3 L298.8 153.9 L301.0 152.5 L303.2 150.9 L305.3 149.2 L307.5 147.4 L309.7 145.5 L311.8 143.5 L314.0 141.4 L316.2 139.2 L318.3 137.0 L320.5 134.7 L322.7 132.3 L324.8 129.9 L327.0 127.5 L329.2 124.9 L331.3 122.4 L333.5 119.8 L335.7 117.2 L337.8 114.6 L340.0 112.0 L342.2 109.4 L344.3 106.8 L346.5 104.2 L348.7 101.6 L350.8 99.1 L353.0 96.5 L355.2 94.1 L357.3 91.7 L359.5 89.3 L361.7 87.0 L363.8 84.8 L366.0 82.6 L368.2 80.5 L370.3 78.5 L372.5 76.6 L374.7 74.8 L376.8 73.1 L379.0 71.5 L381.2 70.1 L383.3 68.7 L385.5 67.4 L387.7 66.3 L389.8 65.3 L392.0 64.4 L394.2 63.7 L396.3 63.1 L398.5 62.6 L400.7 62.3 L402.8 62.1 L405.0 62.0 L407.2 62.1 L409.3 62.3 L411.5 62.6 L413.7 63.1 L415.8 63.7 L418.0 64.4 L420.2 65.3 L422.3 66.3 L424.5 67.4 L426.7 68.7 L428.8 70.1 L431.0 71.5 L433.2 73.1 L435.3 74.8 L437.5 76.6 L439.7 78.5 L441.8 80.5 L444.0 82.6 L446.2 84.8 L448.3 87.0 L450.5 89.3 L452.7 91.7 L454.8 94.1 L457.0 96.5 L459.2 99.1 L461.3 101.6 L463.5 104.2 L465.7 106.8 L467.8 109.4 L470.0 112.0 L472.2 114.6 L474.3 117.2 L476.5 119.8 L478.7 122.4 L480.8 124.9 L483.0 127.5 L485.2 129.9 L487.3 132.3 L489.5 134.7 L491.7 137.0 L493.8 139.2 L496.0 141.4 L498.2 143.5 L500.3 145.5 L502.5 147.4 L504.7 149.2 L506.8 150.9 L509.0 152.5 L511.2 153.9 L513.3 155.3 L515.5 156.6 L517.7 157.7 L519.8 158.7 L522.0 159.6 L524.2 160.3 L526.3 160.9 L528.5 161.4 L530.7 161.7 L532.8 161.9 L535.0 162.0 L537.2 161.9 L539.3 161.7 L541.5 161.4 L543.7 160.9 L545.8 160.3 L548.0 159.6 L550.2 158.7 L552.3 157.7 L554.5 156.6 L556.7 155.3 L558.8 153.9 L561.0 152.5 L563.2 150.9 L565.3 149.2 L567.5 147.4 L569.7 145.5 L571.8 143.5 L574.0 141.4 L576.2 139.2 L578.3 137.0 L580.5 134.7 L582.7 132.3 L584.8 129.9 L587.0 127.5 L589.2 124.9 L591.3 122.4 L593.5 119.8 L595.7 117.2 L597.8 114.6 L600.0 112.0" fill="none" style="stroke:var(--data)" stroke-width="3.5"/><line x1="145.0" y1="62.0" x2="145.0" y2="44.0" style="stroke:var(--muted)" stroke-width="1" stroke-dasharray="3 4"/><line x1="405.0" y1="62.0" x2="405.0" y2="44.0" style="stroke:var(--muted)" stroke-width="1" stroke-dasharray="3 4"/><line x1="145.0" y1="44.0" x2="405.0" y2="44.0" style="stroke:var(--third)" stroke-width="2"/><line x1="145.0" y1="38.0" x2="145.0" y2="50.0" style="stroke:var(--third)" stroke-width="2"/><line x1="405.0" y1="38.0" x2="405.0" y2="50.0" style="stroke:var(--third)" stroke-width="2"/><text x="275" y="34" text-anchor="middle" style="fill:var(--third);font:600 17px var(--mono)">T = one period</text><circle cx="145.0" cy="62.0" r="4.5" style="fill:var(--third)"/><circle cx="405.0" cy="62.0" r="4.5" style="fill:var(--third)"/><line x1="80.0" y1="186.0" x2="80.0" y2="192.0" style="stroke:var(--axis)" stroke-width="1.4"/><text x="80" y="208" text-anchor="middle" style="fill:var(--muted);font:15px var(--mono)">0</text><line x1="340.0" y1="186.0" x2="340.0" y2="192.0" style="stroke:var(--axis)" stroke-width="1.4"/><text x="340" y="208" text-anchor="middle" style="fill:var(--muted);font:15px var(--mono)">T</text><line x1="600.0" y1="186.0" x2="600.0" y2="192.0" style="stroke:var(--axis)" stroke-width="1.4"/><text x="600" y="208" text-anchor="middle" style="fill:var(--muted);font:15px var(--mono)">2T</text></svg><figcaption class="small">One point on the wave, watched over time. Read the period T along the time axis, then \(f = \frac{1}{T}\).</figcaption></figure>
+      </div>
+      <p><b>Check the axis first.</b> The two graphs look the same, but crest to crest is λ on a distance axis and T on a time axis.</p>
       <p class="eq-block">\(v = f\lambda \qquad f = \frac{1}{T}\)</p>
       <p><b>Example.</b> A radio station broadcasts at 92.4 MHz. \(\lambda = \frac{v}{f} = \frac{3.00 \times 10^{8}}{92.4 \times 10^{6}} = 3.25\,\mathrm{m}\).</p>
       <p><b>The key rule:</b> the <b>source</b> decides the frequency and the <b>medium</b> decides the speed. In one medium, a higher frequency means a shorter wavelength (v stays the same). In a new medium the frequency stays the same, so if the speed drops, the wavelength drops in proportion.</p>
+    </div></details>
+    <details class="step"><summary><span class="ref"></span>Phase: in step and out of step</summary><div class="step-body">
+      <p><b>Phase</b> tells you where a point is in its cycle: at a crest, at the rest position on the way down, at a trough, and so on. One whole cycle is 360°. The <b>phase difference</b> tells you how far one vibration is ahead of or behind another.</p>
+      <div class="grid3">
+        <div class="card tint"><span class="label">In phase · 0°</span><p>Both reach a crest at the same moment, then a trough at the same moment. Two points <b>one whole wavelength</b> apart on a wave are in phase.</p></div>
+        <div class="card tint"><span class="label">Antiphase · 180°</span><p>Completely out of step: one is at a crest when the other is at a trough. Two points <b>half a wavelength</b> apart are in antiphase.</p></div>
+        <div class="card tint"><span class="label">In between</span><p>Anything else is partly out of step. 90° is a quarter of a cycle, so points ¼λ apart are 90° out of phase.</p></div>
+      </div>
+      <figure class="mini phase-fig" style="margin:0"><svg viewBox="0 0 640 378" role="img" aria-label="Three pairs of waves: in phase with crests lined up, 90 degrees out of phase shifted a quarter of a cycle, and 180 degrees out of phase with each crest lined up with a trough" style="display:block;width:100%;height:auto"><text x="14" y="20" text-anchor="start" style="fill:var(--ink);font:600 13px var(--mono)">IN PHASE · 0°</text><text x="600" y="20" text-anchor="end" style="fill:var(--third);font:12px var(--mono)">crests line up</text><line x1="110.0" y1="46.0" x2="600.0" y2="46.0" style="stroke:var(--line)" stroke-width="1" stroke-dasharray="4 4"/><line x1="110.0" y1="100.0" x2="600.0" y2="100.0" style="stroke:var(--line)" stroke-width="1" stroke-dasharray="4 4"/><text x="14" y="51" text-anchor="start" style="fill:var(--muted);font:12px var(--mono)">wave 1</text><text x="14" y="105" text-anchor="start" style="fill:var(--muted);font:12px var(--mono)">wave 2</text><path d="M110.0 46.0 L112.0 45.1 L114.1 44.1 L116.1 43.2 L118.2 42.3 L120.2 41.3 L122.2 40.4 L124.3 39.5 L126.3 38.7 L128.4 37.8 L130.4 37.0 L132.5 36.2 L134.5 35.4 L136.5 34.7 L138.6 34.0 L140.6 33.3 L142.7 32.6 L144.7 32.0 L146.8 31.4 L148.8 30.9 L150.8 30.4 L152.9 30.0 L154.9 29.6 L157.0 29.2 L159.0 28.9 L161.0 28.6 L163.1 28.4 L165.1 28.2 L167.2 28.1 L169.2 28.0 L171.2 28.0 L173.3 28.0 L175.3 28.1 L177.4 28.2 L179.4 28.4 L181.5 28.6 L183.5 28.9 L185.5 29.2 L187.6 29.6 L189.6 30.0 L191.7 30.4 L193.7 30.9 L195.8 31.4 L197.8 32.0 L199.8 32.6 L201.9 33.3 L203.9 34.0 L206.0 34.7 L208.0 35.4 L210.0 36.2 L212.1 37.0 L214.1 37.8 L216.2 38.7 L218.2 39.5 L220.2 40.4 L222.3 41.3 L224.3 42.3 L226.4 43.2 L228.4 44.1 L230.5 45.1 L232.5 46.0 L234.5 46.9 L236.6 47.9 L238.6 48.8 L240.7 49.7 L242.7 50.7 L244.8 51.6 L246.8 52.5 L248.8 53.3 L250.9 54.2 L252.9 55.0 L255.0 55.8 L257.0 56.6 L259.0 57.3 L261.1 58.0 L263.1 58.7 L265.2 59.4 L267.2 60.0 L269.2 60.6 L271.3 61.1 L273.3 61.6 L275.4 62.0 L277.4 62.4 L279.5 62.8 L281.5 63.1 L283.5 63.4 L285.6 63.6 L287.6 63.8 L289.7 63.9 L291.7 64.0 L293.8 64.0 L295.8 64.0 L297.8 63.9 L299.9 63.8 L301.9 63.6 L304.0 63.4 L306.0 63.1 L308.0 62.8 L310.1 62.4 L312.1 62.0 L314.2 61.6 L316.2 61.1 L318.2 60.6 L320.3 60.0 L322.3 59.4 L324.4 58.7 L326.4 58.0 L328.5 57.3 L330.5 56.6 L332.5 55.8 L334.6 55.0 L336.6 54.2 L338.7 53.3 L340.7 52.5 L342.8 51.6 L344.8 50.7 L346.8 49.7 L348.9 48.8 L350.9 47.9 L353.0 46.9 L355.0 46.0 L357.0 45.1 L359.1 44.1 L361.1 43.2 L363.2 42.3 L365.2 41.3 L367.2 40.4 L369.3 39.5 L371.3 38.7 L373.4 37.8 L375.4 37.0 L377.5 36.2 L379.5 35.4 L381.5 34.7 L383.6 34.0 L385.6 33.3 L387.7 32.6 L389.7 32.0 L391.8 31.4 L393.8 30.9 L395.8 30.4 L397.9 30.0 L399.9 29.6 L402.0 29.2 L404.0 28.9 L406.0 28.6 L408.1 28.4 L410.1 28.2 L412.2 28.1 L414.2 28.0 L416.2 28.0 L418.3 28.0 L420.3 28.1 L422.4 28.2 L424.4 28.4 L426.5 28.6 L428.5 28.9 L430.5 29.2 L432.6 29.6 L434.6 30.0 L436.7 30.4 L438.7 30.9 L440.8 31.4 L442.8 32.0 L444.8 32.6 L446.9 33.3 L448.9 34.0 L451.0 34.7 L453.0 35.4 L455.0 36.2 L457.1 37.0 L459.1 37.8 L461.2 38.7 L463.2 39.5 L465.2 40.4 L467.3 41.3 L469.3 42.3 L471.4 43.2 L473.4 44.1 L475.5 45.1 L477.5 46.0 L479.5 46.9 L481.6 47.9 L483.6 48.8 L485.7 49.7 L487.7 50.7 L489.8 51.6 L491.8 52.5 L493.8 53.3 L495.9 54.2 L497.9 55.0 L500.0 55.8 L502.0 56.6 L504.0 57.3 L506.1 58.0 L508.1 58.7 L510.2 59.4 L512.2 60.0 L514.2 60.6 L516.3 61.1 L518.3 61.6 L520.4 62.0 L522.4 62.4 L524.5 62.8 L526.5 63.1 L528.5 63.4 L530.6 63.6 L532.6 63.8 L534.7 63.9 L536.7 64.0 L538.8 64.0 L540.8 64.0 L542.8 63.9 L544.9 63.8 L546.9 63.6 L549.0 63.4 L551.0 63.1 L553.0 62.8 L555.1 62.4 L557.1 62.0 L559.2 61.6 L561.2 61.1 L563.2 60.6 L565.3 60.0 L567.3 59.4 L569.4 58.7 L571.4 58.0 L573.5 57.3 L575.5 56.6 L577.5 55.8 L579.6 55.0 L581.6 54.2 L583.7 53.3 L585.7 52.5 L587.8 51.6 L589.8 50.7 L591.8 49.7 L593.9 48.8 L595.9 47.9 L598.0 46.9 L600.0 46.0" fill="none" style="stroke:var(--data)" stroke-width="2.6"/><path d="M110.0 100.0 L112.0 99.1 L114.1 98.1 L116.1 97.2 L118.2 96.3 L120.2 95.3 L122.2 94.4 L124.3 93.5 L126.3 92.7 L128.4 91.8 L130.4 91.0 L132.5 90.2 L134.5 89.4 L136.5 88.7 L138.6 88.0 L140.6 87.3 L142.7 86.6 L144.7 86.0 L146.8 85.4 L148.8 84.9 L150.8 84.4 L152.9 84.0 L154.9 83.6 L157.0 83.2 L159.0 82.9 L161.0 82.6 L163.1 82.4 L165.1 82.2 L167.2 82.1 L169.2 82.0 L171.2 82.0 L173.3 82.0 L175.3 82.1 L177.4 82.2 L179.4 82.4 L181.5 82.6 L183.5 82.9 L185.5 83.2 L187.6 83.6 L189.6 84.0 L191.7 84.4 L193.7 84.9 L195.8 85.4 L197.8 86.0 L199.8 86.6 L201.9 87.3 L203.9 88.0 L206.0 88.7 L208.0 89.4 L210.0 90.2 L212.1 91.0 L214.1 91.8 L216.2 92.7 L218.2 93.5 L220.2 94.4 L222.3 95.3 L224.3 96.3 L226.4 97.2 L228.4 98.1 L230.5 99.1 L232.5 100.0 L234.5 100.9 L236.6 101.9 L238.6 102.8 L240.7 103.7 L242.7 104.7 L244.8 105.6 L246.8 106.5 L248.8 107.3 L250.9 108.2 L252.9 109.0 L255.0 109.8 L257.0 110.6 L259.0 111.3 L261.1 112.0 L263.1 112.7 L265.2 113.4 L267.2 114.0 L269.2 114.6 L271.3 115.1 L273.3 115.6 L275.4 116.0 L277.4 116.4 L279.5 116.8 L281.5 117.1 L283.5 117.4 L285.6 117.6 L287.6 117.8 L289.7 117.9 L291.7 118.0 L293.8 118.0 L295.8 118.0 L297.8 117.9 L299.9 117.8 L301.9 117.6 L304.0 117.4 L306.0 117.1 L308.0 116.8 L310.1 116.4 L312.1 116.0 L314.2 115.6 L316.2 115.1 L318.2 114.6 L320.3 114.0 L322.3 113.4 L324.4 112.7 L326.4 112.0 L328.5 111.3 L330.5 110.6 L332.5 109.8 L334.6 109.0 L336.6 108.2 L338.7 107.3 L340.7 106.5 L342.8 105.6 L344.8 104.7 L346.8 103.7 L348.9 102.8 L350.9 101.9 L353.0 100.9 L355.0 100.0 L357.0 99.1 L359.1 98.1 L361.1 97.2 L363.2 96.3 L365.2 95.3 L367.2 94.4 L369.3 93.5 L371.3 92.7 L373.4 91.8 L375.4 91.0 L377.5 90.2 L379.5 89.4 L381.5 88.7 L383.6 88.0 L385.6 87.3 L387.7 86.6 L389.7 86.0 L391.8 85.4 L393.8 84.9 L395.8 84.4 L397.9 84.0 L399.9 83.6 L402.0 83.2 L404.0 82.9 L406.0 82.6 L408.1 82.4 L410.1 82.2 L412.2 82.1 L414.2 82.0 L416.2 82.0 L418.3 82.0 L420.3 82.1 L422.4 82.2 L424.4 82.4 L426.5 82.6 L428.5 82.9 L430.5 83.2 L432.6 83.6 L434.6 84.0 L436.7 84.4 L438.7 84.9 L440.8 85.4 L442.8 86.0 L444.8 86.6 L446.9 87.3 L448.9 88.0 L451.0 88.7 L453.0 89.4 L455.0 90.2 L457.1 91.0 L459.1 91.8 L461.2 92.7 L463.2 93.5 L465.2 94.4 L467.3 95.3 L469.3 96.3 L471.4 97.2 L473.4 98.1 L475.5 99.1 L477.5 100.0 L479.5 100.9 L481.6 101.9 L483.6 102.8 L485.7 103.7 L487.7 104.7 L489.8 105.6 L491.8 106.5 L493.8 107.3 L495.9 108.2 L497.9 109.0 L500.0 109.8 L502.0 110.6 L504.0 111.3 L506.1 112.0 L508.1 112.7 L510.2 113.4 L512.2 114.0 L514.2 114.6 L516.3 115.1 L518.3 115.6 L520.4 116.0 L522.4 116.4 L524.5 116.8 L526.5 117.1 L528.5 117.4 L530.6 117.6 L532.6 117.8 L534.7 117.9 L536.7 118.0 L538.8 118.0 L540.8 118.0 L542.8 117.9 L544.9 117.8 L546.9 117.6 L549.0 117.4 L551.0 117.1 L553.0 116.8 L555.1 116.4 L557.1 116.0 L559.2 115.6 L561.2 115.1 L563.2 114.6 L565.3 114.0 L567.3 113.4 L569.4 112.7 L571.4 112.0 L573.5 111.3 L575.5 110.6 L577.5 109.8 L579.6 109.0 L581.6 108.2 L583.7 107.3 L585.7 106.5 L587.8 105.6 L589.8 104.7 L591.8 103.7 L593.9 102.8 L595.9 101.9 L598.0 100.9 L600.0 100.0" fill="none" style="stroke:var(--vector)" stroke-width="2.6"/><line x1="171.2" y1="28.0" x2="171.2" y2="122.0" style="stroke:var(--muted)" stroke-width="1" stroke-dasharray="3 4"/><circle cx="171.2" cy="28.0" r="4.5" style="fill:var(--data)"/><circle cx="171.2" cy="82.0" r="4.5" style="fill:var(--vector)"/><text x="14" y="148" text-anchor="start" style="fill:var(--ink);font:600 13px var(--mono)">90° OUT OF PHASE</text><text x="600" y="148" text-anchor="end" style="fill:var(--third);font:12px var(--mono)">shifted ¼ cycle</text><line x1="110.0" y1="174.0" x2="600.0" y2="174.0" style="stroke:var(--line)" stroke-width="1" stroke-dasharray="4 4"/><line x1="110.0" y1="228.0" x2="600.0" y2="228.0" style="stroke:var(--line)" stroke-width="1" stroke-dasharray="4 4"/><text x="14" y="179" text-anchor="start" style="fill:var(--muted);font:12px var(--mono)">wave 1</text><text x="14" y="233" text-anchor="start" style="fill:var(--muted);font:12px var(--mono)">wave 2</text><path d="M110.0 174.0 L112.0 173.1 L114.1 172.1 L116.1 171.2 L118.2 170.3 L120.2 169.3 L122.2 168.4 L124.3 167.5 L126.3 166.7 L128.4 165.8 L130.4 165.0 L132.5 164.2 L134.5 163.4 L136.5 162.7 L138.6 162.0 L140.6 161.3 L142.7 160.6 L144.7 160.0 L146.8 159.4 L148.8 158.9 L150.8 158.4 L152.9 158.0 L154.9 157.6 L157.0 157.2 L159.0 156.9 L161.0 156.6 L163.1 156.4 L165.1 156.2 L167.2 156.1 L169.2 156.0 L171.2 156.0 L173.3 156.0 L175.3 156.1 L177.4 156.2 L179.4 156.4 L181.5 156.6 L183.5 156.9 L185.5 157.2 L187.6 157.6 L189.6 158.0 L191.7 158.4 L193.7 158.9 L195.8 159.4 L197.8 160.0 L199.8 160.6 L201.9 161.3 L203.9 162.0 L206.0 162.7 L208.0 163.4 L210.0 164.2 L212.1 165.0 L214.1 165.8 L216.2 166.7 L218.2 167.5 L220.2 168.4 L222.3 169.3 L224.3 170.3 L226.4 171.2 L228.4 172.1 L230.5 173.1 L232.5 174.0 L234.5 174.9 L236.6 175.9 L238.6 176.8 L240.7 177.7 L242.7 178.7 L244.8 179.6 L246.8 180.5 L248.8 181.3 L250.9 182.2 L252.9 183.0 L255.0 183.8 L257.0 184.6 L259.0 185.3 L261.1 186.0 L263.1 186.7 L265.2 187.4 L267.2 188.0 L269.2 188.6 L271.3 189.1 L273.3 189.6 L275.4 190.0 L277.4 190.4 L279.5 190.8 L281.5 191.1 L283.5 191.4 L285.6 191.6 L287.6 191.8 L289.7 191.9 L291.7 192.0 L293.8 192.0 L295.8 192.0 L297.8 191.9 L299.9 191.8 L301.9 191.6 L304.0 191.4 L306.0 191.1 L308.0 190.8 L310.1 190.4 L312.1 190.0 L314.2 189.6 L316.2 189.1 L318.2 188.6 L320.3 188.0 L322.3 187.4 L324.4 186.7 L326.4 186.0 L328.5 185.3 L330.5 184.6 L332.5 183.8 L334.6 183.0 L336.6 182.2 L338.7 181.3 L340.7 180.5 L342.8 179.6 L344.8 178.7 L346.8 177.7 L348.9 176.8 L350.9 175.9 L353.0 174.9 L355.0 174.0 L357.0 173.1 L359.1 172.1 L361.1 171.2 L363.2 170.3 L365.2 169.3 L367.2 168.4 L369.3 167.5 L371.3 166.7 L373.4 165.8 L375.4 165.0 L377.5 164.2 L379.5 163.4 L381.5 162.7 L383.6 162.0 L385.6 161.3 L387.7 160.6 L389.7 160.0 L391.8 159.4 L393.8 158.9 L395.8 158.4 L397.9 158.0 L399.9 157.6 L402.0 157.2 L404.0 156.9 L406.0 156.6 L408.1 156.4 L410.1 156.2 L412.2 156.1 L414.2 156.0 L416.2 156.0 L418.3 156.0 L420.3 156.1 L422.4 156.2 L424.4 156.4 L426.5 156.6 L428.5 156.9 L430.5 157.2 L432.6 157.6 L434.6 158.0 L436.7 158.4 L438.7 158.9 L440.8 159.4 L442.8 160.0 L444.8 160.6 L446.9 161.3 L448.9 162.0 L451.0 162.7 L453.0 163.4 L455.0 164.2 L457.1 165.0 L459.1 165.8 L461.2 166.7 L463.2 167.5 L465.2 168.4 L467.3 169.3 L469.3 170.3 L471.4 171.2 L473.4 172.1 L475.5 173.1 L477.5 174.0 L479.5 174.9 L481.6 175.9 L483.6 176.8 L485.7 177.7 L487.7 178.7 L489.8 179.6 L491.8 180.5 L493.8 181.3 L495.9 182.2 L497.9 183.0 L500.0 183.8 L502.0 184.6 L504.0 185.3 L506.1 186.0 L508.1 186.7 L510.2 187.4 L512.2 188.0 L514.2 188.6 L516.3 189.1 L518.3 189.6 L520.4 190.0 L522.4 190.4 L524.5 190.8 L526.5 191.1 L528.5 191.4 L530.6 191.6 L532.6 191.8 L534.7 191.9 L536.7 192.0 L538.8 192.0 L540.8 192.0 L542.8 191.9 L544.9 191.8 L546.9 191.6 L549.0 191.4 L551.0 191.1 L553.0 190.8 L555.1 190.4 L557.1 190.0 L559.2 189.6 L561.2 189.1 L563.2 188.6 L565.3 188.0 L567.3 187.4 L569.4 186.7 L571.4 186.0 L573.5 185.3 L575.5 184.6 L577.5 183.8 L579.6 183.0 L581.6 182.2 L583.7 181.3 L585.7 180.5 L587.8 179.6 L589.8 178.7 L591.8 177.7 L593.9 176.8 L595.9 175.9 L598.0 174.9 L600.0 174.0" fill="none" style="stroke:var(--data)" stroke-width="2.6"/><path d="M110.0 246.0 L112.0 246.0 L114.1 245.9 L116.1 245.8 L118.2 245.6 L120.2 245.4 L122.2 245.1 L124.3 244.8 L126.3 244.4 L128.4 244.0 L130.4 243.6 L132.5 243.1 L134.5 242.6 L136.5 242.0 L138.6 241.4 L140.6 240.7 L142.7 240.0 L144.7 239.3 L146.8 238.6 L148.8 237.8 L150.8 237.0 L152.9 236.2 L154.9 235.3 L157.0 234.5 L159.0 233.6 L161.0 232.7 L163.1 231.7 L165.1 230.8 L167.2 229.9 L169.2 228.9 L171.2 228.0 L173.3 227.1 L175.3 226.1 L177.4 225.2 L179.4 224.3 L181.5 223.3 L183.5 222.4 L185.5 221.5 L187.6 220.7 L189.6 219.8 L191.7 219.0 L193.7 218.2 L195.8 217.4 L197.8 216.7 L199.8 216.0 L201.9 215.3 L203.9 214.6 L206.0 214.0 L208.0 213.4 L210.0 212.9 L212.1 212.4 L214.1 212.0 L216.2 211.6 L218.2 211.2 L220.2 210.9 L222.3 210.6 L224.3 210.4 L226.4 210.2 L228.4 210.1 L230.5 210.0 L232.5 210.0 L234.5 210.0 L236.6 210.1 L238.6 210.2 L240.7 210.4 L242.7 210.6 L244.8 210.9 L246.8 211.2 L248.8 211.6 L250.9 212.0 L252.9 212.4 L255.0 212.9 L257.0 213.4 L259.0 214.0 L261.1 214.6 L263.1 215.3 L265.2 216.0 L267.2 216.7 L269.2 217.4 L271.3 218.2 L273.3 219.0 L275.4 219.8 L277.4 220.7 L279.5 221.5 L281.5 222.4 L283.5 223.3 L285.6 224.3 L287.6 225.2 L289.7 226.1 L291.7 227.1 L293.8 228.0 L295.8 228.9 L297.8 229.9 L299.9 230.8 L301.9 231.7 L304.0 232.7 L306.0 233.6 L308.0 234.5 L310.1 235.3 L312.1 236.2 L314.2 237.0 L316.2 237.8 L318.2 238.6 L320.3 239.3 L322.3 240.0 L324.4 240.7 L326.4 241.4 L328.5 242.0 L330.5 242.6 L332.5 243.1 L334.6 243.6 L336.6 244.0 L338.7 244.4 L340.7 244.8 L342.8 245.1 L344.8 245.4 L346.8 245.6 L348.9 245.8 L350.9 245.9 L353.0 246.0 L355.0 246.0 L357.0 246.0 L359.1 245.9 L361.1 245.8 L363.2 245.6 L365.2 245.4 L367.2 245.1 L369.3 244.8 L371.3 244.4 L373.4 244.0 L375.4 243.6 L377.5 243.1 L379.5 242.6 L381.5 242.0 L383.6 241.4 L385.6 240.7 L387.7 240.0 L389.7 239.3 L391.8 238.6 L393.8 237.8 L395.8 237.0 L397.9 236.2 L399.9 235.3 L402.0 234.5 L404.0 233.6 L406.0 232.7 L408.1 231.7 L410.1 230.8 L412.2 229.9 L414.2 228.9 L416.2 228.0 L418.3 227.1 L420.3 226.1 L422.4 225.2 L424.4 224.3 L426.5 223.3 L428.5 222.4 L430.5 221.5 L432.6 220.7 L434.6 219.8 L436.7 219.0 L438.7 218.2 L440.8 217.4 L442.8 216.7 L444.8 216.0 L446.9 215.3 L448.9 214.6 L451.0 214.0 L453.0 213.4 L455.0 212.9 L457.1 212.4 L459.1 212.0 L461.2 211.6 L463.2 211.2 L465.2 210.9 L467.3 210.6 L469.3 210.4 L471.4 210.2 L473.4 210.1 L475.5 210.0 L477.5 210.0 L479.5 210.0 L481.6 210.1 L483.6 210.2 L485.7 210.4 L487.7 210.6 L489.8 210.9 L491.8 211.2 L493.8 211.6 L495.9 212.0 L497.9 212.4 L500.0 212.9 L502.0 213.4 L504.0 214.0 L506.1 214.6 L508.1 215.3 L510.2 216.0 L512.2 216.7 L514.2 217.4 L516.3 218.2 L518.3 219.0 L520.4 219.8 L522.4 220.7 L524.5 221.5 L526.5 222.4 L528.5 223.3 L530.6 224.3 L532.6 225.2 L534.7 226.1 L536.7 227.1 L538.8 228.0 L540.8 228.9 L542.8 229.9 L544.9 230.8 L546.9 231.7 L549.0 232.7 L551.0 233.6 L553.0 234.5 L555.1 235.3 L557.1 236.2 L559.2 237.0 L561.2 237.8 L563.2 238.6 L565.3 239.3 L567.3 240.0 L569.4 240.7 L571.4 241.4 L573.5 242.0 L575.5 242.6 L577.5 243.1 L579.6 243.6 L581.6 244.0 L583.7 244.4 L585.7 244.8 L587.8 245.1 L589.8 245.4 L591.8 245.6 L593.9 245.8 L595.9 245.9 L598.0 246.0 L600.0 246.0" fill="none" style="stroke:var(--vector)" stroke-width="2.6"/><line x1="171.2" y1="156.0" x2="171.2" y2="250.0" style="stroke:var(--muted)" stroke-width="1" stroke-dasharray="3 4"/><circle cx="171.2" cy="156.0" r="4.5" style="fill:var(--data)"/><circle cx="232.5" cy="210.0" r="4.5" style="fill:var(--vector)"/><line x1="171.2" y1="201.0" x2="232.5" y2="201.0" style="stroke:var(--third)" stroke-width="2"/><line x1="171.2" y1="195.0" x2="171.2" y2="207.0" style="stroke:var(--third)" stroke-width="2"/><line x1="232.5" y1="195.0" x2="232.5" y2="207.0" style="stroke:var(--third)" stroke-width="2"/><text x="14" y="276" text-anchor="start" style="fill:var(--ink);font:600 13px var(--mono)">180° OUT OF PHASE (antiphase)</text><text x="600" y="276" text-anchor="end" style="fill:var(--third);font:12px var(--mono)">crest lines up with trough</text><line x1="110.0" y1="302.0" x2="600.0" y2="302.0" style="stroke:var(--line)" stroke-width="1" stroke-dasharray="4 4"/><line x1="110.0" y1="356.0" x2="600.0" y2="356.0" style="stroke:var(--line)" stroke-width="1" stroke-dasharray="4 4"/><text x="14" y="307" text-anchor="start" style="fill:var(--muted);font:12px var(--mono)">wave 1</text><text x="14" y="361" text-anchor="start" style="fill:var(--muted);font:12px var(--mono)">wave 2</text><path d="M110.0 302.0 L112.0 301.1 L114.1 300.1 L116.1 299.2 L118.2 298.3 L120.2 297.3 L122.2 296.4 L124.3 295.5 L126.3 294.7 L128.4 293.8 L130.4 293.0 L132.5 292.2 L134.5 291.4 L136.5 290.7 L138.6 290.0 L140.6 289.3 L142.7 288.6 L144.7 288.0 L146.8 287.4 L148.8 286.9 L150.8 286.4 L152.9 286.0 L154.9 285.6 L157.0 285.2 L159.0 284.9 L161.0 284.6 L163.1 284.4 L165.1 284.2 L167.2 284.1 L169.2 284.0 L171.2 284.0 L173.3 284.0 L175.3 284.1 L177.4 284.2 L179.4 284.4 L181.5 284.6 L183.5 284.9 L185.5 285.2 L187.6 285.6 L189.6 286.0 L191.7 286.4 L193.7 286.9 L195.8 287.4 L197.8 288.0 L199.8 288.6 L201.9 289.3 L203.9 290.0 L206.0 290.7 L208.0 291.4 L210.0 292.2 L212.1 293.0 L214.1 293.8 L216.2 294.7 L218.2 295.5 L220.2 296.4 L222.3 297.3 L224.3 298.3 L226.4 299.2 L228.4 300.1 L230.5 301.1 L232.5 302.0 L234.5 302.9 L236.6 303.9 L238.6 304.8 L240.7 305.7 L242.7 306.7 L244.8 307.6 L246.8 308.5 L248.8 309.3 L250.9 310.2 L252.9 311.0 L255.0 311.8 L257.0 312.6 L259.0 313.3 L261.1 314.0 L263.1 314.7 L265.2 315.4 L267.2 316.0 L269.2 316.6 L271.3 317.1 L273.3 317.6 L275.4 318.0 L277.4 318.4 L279.5 318.8 L281.5 319.1 L283.5 319.4 L285.6 319.6 L287.6 319.8 L289.7 319.9 L291.7 320.0 L293.8 320.0 L295.8 320.0 L297.8 319.9 L299.9 319.8 L301.9 319.6 L304.0 319.4 L306.0 319.1 L308.0 318.8 L310.1 318.4 L312.1 318.0 L314.2 317.6 L316.2 317.1 L318.2 316.6 L320.3 316.0 L322.3 315.4 L324.4 314.7 L326.4 314.0 L328.5 313.3 L330.5 312.6 L332.5 311.8 L334.6 311.0 L336.6 310.2 L338.7 309.3 L340.7 308.5 L342.8 307.6 L344.8 306.7 L346.8 305.7 L348.9 304.8 L350.9 303.9 L353.0 302.9 L355.0 302.0 L357.0 301.1 L359.1 300.1 L361.1 299.2 L363.2 298.3 L365.2 297.3 L367.2 296.4 L369.3 295.5 L371.3 294.7 L373.4 293.8 L375.4 293.0 L377.5 292.2 L379.5 291.4 L381.5 290.7 L383.6 290.0 L385.6 289.3 L387.7 288.6 L389.7 288.0 L391.8 287.4 L393.8 286.9 L395.8 286.4 L397.9 286.0 L399.9 285.6 L402.0 285.2 L404.0 284.9 L406.0 284.6 L408.1 284.4 L410.1 284.2 L412.2 284.1 L414.2 284.0 L416.2 284.0 L418.3 284.0 L420.3 284.1 L422.4 284.2 L424.4 284.4 L426.5 284.6 L428.5 284.9 L430.5 285.2 L432.6 285.6 L434.6 286.0 L436.7 286.4 L438.7 286.9 L440.8 287.4 L442.8 288.0 L444.8 288.6 L446.9 289.3 L448.9 290.0 L451.0 290.7 L453.0 291.4 L455.0 292.2 L457.1 293.0 L459.1 293.8 L461.2 294.7 L463.2 295.5 L465.2 296.4 L467.3 297.3 L469.3 298.3 L471.4 299.2 L473.4 300.1 L475.5 301.1 L477.5 302.0 L479.5 302.9 L481.6 303.9 L483.6 304.8 L485.7 305.7 L487.7 306.7 L489.8 307.6 L491.8 308.5 L493.8 309.3 L495.9 310.2 L497.9 311.0 L500.0 311.8 L502.0 312.6 L504.0 313.3 L506.1 314.0 L508.1 314.7 L510.2 315.4 L512.2 316.0 L514.2 316.6 L516.3 317.1 L518.3 317.6 L520.4 318.0 L522.4 318.4 L524.5 318.8 L526.5 319.1 L528.5 319.4 L530.6 319.6 L532.6 319.8 L534.7 319.9 L536.7 320.0 L538.8 320.0 L540.8 320.0 L542.8 319.9 L544.9 319.8 L546.9 319.6 L549.0 319.4 L551.0 319.1 L553.0 318.8 L555.1 318.4 L557.1 318.0 L559.2 317.6 L561.2 317.1 L563.2 316.6 L565.3 316.0 L567.3 315.4 L569.4 314.7 L571.4 314.0 L573.5 313.3 L575.5 312.6 L577.5 311.8 L579.6 311.0 L581.6 310.2 L583.7 309.3 L585.7 308.5 L587.8 307.6 L589.8 306.7 L591.8 305.7 L593.9 304.8 L595.9 303.9 L598.0 302.9 L600.0 302.0" fill="none" style="stroke:var(--data)" stroke-width="2.6"/><path d="M110.0 356.0 L112.0 356.9 L114.1 357.9 L116.1 358.8 L118.2 359.7 L120.2 360.7 L122.2 361.6 L124.3 362.5 L126.3 363.3 L128.4 364.2 L130.4 365.0 L132.5 365.8 L134.5 366.6 L136.5 367.3 L138.6 368.0 L140.6 368.7 L142.7 369.4 L144.7 370.0 L146.8 370.6 L148.8 371.1 L150.8 371.6 L152.9 372.0 L154.9 372.4 L157.0 372.8 L159.0 373.1 L161.0 373.4 L163.1 373.6 L165.1 373.8 L167.2 373.9 L169.2 374.0 L171.2 374.0 L173.3 374.0 L175.3 373.9 L177.4 373.8 L179.4 373.6 L181.5 373.4 L183.5 373.1 L185.5 372.8 L187.6 372.4 L189.6 372.0 L191.7 371.6 L193.7 371.1 L195.8 370.6 L197.8 370.0 L199.8 369.4 L201.9 368.7 L203.9 368.0 L206.0 367.3 L208.0 366.6 L210.0 365.8 L212.1 365.0 L214.1 364.2 L216.2 363.3 L218.2 362.5 L220.2 361.6 L222.3 360.7 L224.3 359.7 L226.4 358.8 L228.4 357.9 L230.5 356.9 L232.5 356.0 L234.5 355.1 L236.6 354.1 L238.6 353.2 L240.7 352.3 L242.7 351.3 L244.8 350.4 L246.8 349.5 L248.8 348.7 L250.9 347.8 L252.9 347.0 L255.0 346.2 L257.0 345.4 L259.0 344.7 L261.1 344.0 L263.1 343.3 L265.2 342.6 L267.2 342.0 L269.2 341.4 L271.3 340.9 L273.3 340.4 L275.4 340.0 L277.4 339.6 L279.5 339.2 L281.5 338.9 L283.5 338.6 L285.6 338.4 L287.6 338.2 L289.7 338.1 L291.7 338.0 L293.8 338.0 L295.8 338.0 L297.8 338.1 L299.9 338.2 L301.9 338.4 L304.0 338.6 L306.0 338.9 L308.0 339.2 L310.1 339.6 L312.1 340.0 L314.2 340.4 L316.2 340.9 L318.2 341.4 L320.3 342.0 L322.3 342.6 L324.4 343.3 L326.4 344.0 L328.5 344.7 L330.5 345.4 L332.5 346.2 L334.6 347.0 L336.6 347.8 L338.7 348.7 L340.7 349.5 L342.8 350.4 L344.8 351.3 L346.8 352.3 L348.9 353.2 L350.9 354.1 L353.0 355.1 L355.0 356.0 L357.0 356.9 L359.1 357.9 L361.1 358.8 L363.2 359.7 L365.2 360.7 L367.2 361.6 L369.3 362.5 L371.3 363.3 L373.4 364.2 L375.4 365.0 L377.5 365.8 L379.5 366.6 L381.5 367.3 L383.6 368.0 L385.6 368.7 L387.7 369.4 L389.7 370.0 L391.8 370.6 L393.8 371.1 L395.8 371.6 L397.9 372.0 L399.9 372.4 L402.0 372.8 L404.0 373.1 L406.0 373.4 L408.1 373.6 L410.1 373.8 L412.2 373.9 L414.2 374.0 L416.2 374.0 L418.3 374.0 L420.3 373.9 L422.4 373.8 L424.4 373.6 L426.5 373.4 L428.5 373.1 L430.5 372.8 L432.6 372.4 L434.6 372.0 L436.7 371.6 L438.7 371.1 L440.8 370.6 L442.8 370.0 L444.8 369.4 L446.9 368.7 L448.9 368.0 L451.0 367.3 L453.0 366.6 L455.0 365.8 L457.1 365.0 L459.1 364.2 L461.2 363.3 L463.2 362.5 L465.2 361.6 L467.3 360.7 L469.3 359.7 L471.4 358.8 L473.4 357.9 L475.5 356.9 L477.5 356.0 L479.5 355.1 L481.6 354.1 L483.6 353.2 L485.7 352.3 L487.7 351.3 L489.8 350.4 L491.8 349.5 L493.8 348.7 L495.9 347.8 L497.9 347.0 L500.0 346.2 L502.0 345.4 L504.0 344.7 L506.1 344.0 L508.1 343.3 L510.2 342.6 L512.2 342.0 L514.2 341.4 L516.3 340.9 L518.3 340.4 L520.4 340.0 L522.4 339.6 L524.5 339.2 L526.5 338.9 L528.5 338.6 L530.6 338.4 L532.6 338.2 L534.7 338.1 L536.7 338.0 L538.8 338.0 L540.8 338.0 L542.8 338.1 L544.9 338.2 L546.9 338.4 L549.0 338.6 L551.0 338.9 L553.0 339.2 L555.1 339.6 L557.1 340.0 L559.2 340.4 L561.2 340.9 L563.2 341.4 L565.3 342.0 L567.3 342.6 L569.4 343.3 L571.4 344.0 L573.5 344.7 L575.5 345.4 L577.5 346.2 L579.6 347.0 L581.6 347.8 L583.7 348.7 L585.7 349.5 L587.8 350.4 L589.8 351.3 L591.8 352.3 L593.9 353.2 L595.9 354.1 L598.0 355.1 L600.0 356.0" fill="none" style="stroke:var(--vector)" stroke-width="2.6"/><line x1="171.2" y1="284.0" x2="171.2" y2="378.0" style="stroke:var(--muted)" stroke-width="1" stroke-dasharray="3 4"/><circle cx="171.2" cy="284.0" r="4.5" style="fill:var(--data)"/><circle cx="293.8" cy="338.0" r="4.5" style="fill:var(--vector)"/><line x1="171.2" y1="329.0" x2="293.8" y2="329.0" style="stroke:var(--third)" stroke-width="2"/><line x1="171.2" y1="323.0" x2="171.2" y2="335.0" style="stroke:var(--third)" stroke-width="2"/><line x1="293.8" y1="323.0" x2="293.8" y2="335.0" style="stroke:var(--third)" stroke-width="2"/></svg></figure>
+      <p class="small">The phase difference is the sideways shift between matching crests, as a fraction of a whole cycle. The waves are drawn one above the other only so you can see them both.</p>
+      <p>This is why wavelength is defined using phase: it is the distance to the <b>next point that is in phase</b>. It is also the key to interference, because what happens when two waves meet depends on whether they arrive in phase or in antiphase.</p>
+      <button type="button" class="btn sm" data-go="wave:interfere">See what phase does when two waves overlap →</button>
     </div></details>
     <details class="step"><summary><span class="ref"></span>Reflection of waves and pulses</summary><div class="step-body">
       <p>Waves reflect from a barrier with the <b>angle of incidence equal to the angle of reflection</b>, both measured from the normal. Speed, wavelength and frequency are unchanged after reflection (same medium).</p>
@@ -817,8 +849,8 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
         <li>Move the sources further apart → more lines, closer together.</li>
         <li>The central line, the same distance from both sources, is always antinodal.</li>
       </ul>
-      <p>Two loudspeakers playing the same note do the same thing: walk across the room and the sound gets loud and quiet. Light from two narrow slits makes bright and dark bands.</p>
-      <button type="button" class="btn sm" data-go="wave:ripple">Measure a path difference in the ripple tank →</button>
+      <p>Two loudspeakers playing the same note do the same thing: walk across the room and the sound gets loud and quiet. Light from two narrow slits makes bright and dark bands. At Level 2 you need to <b>explain</b> where and why these happen.</p>
+      <div class="btns"><button type="button" class="btn sm" data-go="wave:ripple">Measure a path difference in the ripple tank →</button><button type="button" class="btn sm" data-go="wave:interfere">Learn to explain it: speakers and light →</button></div>
     </div></details>
   </div>
 </section>
@@ -886,6 +918,196 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
+<section class="pane hidden" data-mod="wave" data-view="interfere" data-title="Explaining interference: superposition, phase, coherent sources, path difference, two loudspeakers, light through two slits, model answers">
+  <div class="pane-head"><h2>Phase 1.4 · Explaining interference: speakers and light</h2><span class="badge">EXPLAIN IT</span></div>
+  <p class="lede">At Level 2, interference questions are mostly about <b>explaining</b>: why it is loud in one place and quiet in another, or why there is a bright band here and a dark band there. Every good answer uses the same chain of ideas. Learn the chain with the phase demo, see it with two loudspeakers and with light, then write your own answers.</p>
+
+  <h3>A · Superposition: what happens when two waves meet</h3>
+  <p>Where two waves overlap, the displacement at each point is the <b>sum</b> of the two displacements. This is the <b>principle of superposition</b>. The result depends on the phase difference between the waves when they arrive. Drag the slider and watch the resultant.</p>
+  <div class="screen"><canvas id="ifPhase" aria-label="Two waves and their sum. Changing the phase difference changes the amplitude of the resultant wave"></canvas><div class="hud">SUPERPOSITION</div></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Phase difference between the waves</div>
+      <label class="ctrl"><span class="row"><span>Wave 2 shifted by</span><output id="ifPhOut">0°</output></span><input type="range" id="ifPh" min="0" max="360" step="5" value="0"></label>
+      <div class="seg" role="group" aria-label="Phase presets" id="ifPhPre"><button type="button" data-p="0" aria-pressed="true">0°</button><button type="button" data-p="90" aria-pressed="false">90°</button><button type="button" data-p="180" aria-pressed="false">180°</button><button type="button" data-p="360" aria-pressed="false">360°</button></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry">
+        <div class="tm"><span>Same as a path difference of</span><b id="ifPD">0λ</b></div>
+        <div class="tm hl"><span>Resultant amplitude</span><b id="ifAmp">2.00 A</b></div>
+      </div>
+      <div class="verdict ok" id="ifPhV" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card tint"><span class="label">Constructive interference</span><p>The waves arrive <b>in phase</b>: crest meets crest, trough meets trough. The resultant amplitude is <b>large</b> (2A for equal waves).</p></div>
+    <div class="card tint"><span class="label">Destructive interference</span><p>The waves arrive in <b>antiphase</b> (180° apart): crest meets trough. They <b>cancel</b>, so the resultant amplitude is small (zero for equal waves).</p></div>
+  </div>
+
+  <h3>B · Coherent sources and path difference</h3>
+  <div class="grid2">
+    <div class="card"><span class="label">Coherent sources</span><p>To make a <b>steady</b> pattern, the two sources must be <b>coherent</b>: the same frequency and a constant phase difference (usually in phase). You can see or hear the pattern only if it stays still.</p>
+      <ul class="clean"><li><b>Two loudspeakers</b> connected to the <b>same signal generator</b>.</li><li><b>Two dippers</b> on one vibrating bar in a ripple tank.</li><li><b>Light:</b> one laser shining on two narrow slits. Each slit gets light from the same wavefront. Two separate lamps are <b>not</b> coherent: their phase changes randomly millions of times a second.</li></ul></div>
+    <div class="card"><span class="label">Path difference decides the phase</span><p>The waves leave the sources in phase. If one has to travel further to reach a point, it arrives later in its cycle. Each extra wavelength of path is one whole cycle (360°), which puts it back in step.</p>
+      <p class="eq-block">\(\text{path difference} = |S_{2}P - S_{1}P|\)</p></div>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Path difference</th><th>Waves arrive…</th><th>Interference</th><th>Sound</th><th>Light</th><th>Water</th></tr></thead>
+    <tbody>
+      <tr><td>\(0,\ \lambda,\ 2\lambda,\ 3\lambda \ldots\) (whole number of λ)</td><td>in phase</td><td>constructive</td><td>loud</td><td>bright band</td><td>large ripples (antinodal line)</td></tr>
+      <tr><td>\(\tfrac{1}{2}\lambda,\ 1\tfrac{1}{2}\lambda,\ 2\tfrac{1}{2}\lambda \ldots\) (half-number of λ)</td><td>in antiphase</td><td>destructive</td><td>quiet</td><td>dark band</td><td>still water (nodal line)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>C · The explanation chain</h3>
+  <p>Use these five links, in this order, in every interference explanation. Leaving one out is the most common reason for missing Merit or Excellence.</p>
+  <div class="method">
+    <div><b>Coherent sources</b>Say why the sources are coherent: same signal generator, one laser through two slits.</div>
+    <div><b>Path difference</b>Work out (or describe) how much further one wave travels, as a number of wavelengths.</div>
+    <div><b>Phase on arrival</b>Whole number of λ: in phase. Half-number: in antiphase (crest meets trough, compression meets rarefaction).</div>
+    <div><b>Superposition</b>The waves superpose constructively (amplitudes add) or destructively (they cancel).</div>
+    <div><b>What you observe</b>Large amplitude: loud or bright. Small amplitude: quiet or dark. Answer the question that was asked.</div>
+  </div>
+  <div class="card tint"><span class="label">Sentence starters</span><ul class="clean">
+    <li>"The two speakers are connected to the same signal generator, so they are coherent: they have the same frequency and are in phase."</li>
+    <li>"The path difference to P is ___ m, which is ___ wavelengths."</li>
+    <li>"So the waves arrive at P in phase / in antiphase: a compression from one speaker arrives at the same time as a compression / rarefaction from the other."</li>
+    <li>"They superpose constructively / destructively, so the resultant amplitude is large / small and the sound is loud / quiet."</li>
+  </ul></div>
+
+  <h3>D · Context 1 · Two loudspeakers</h3>
+  <p>Two speakers driven by the same signal generator send out sound waves that overlap in front of them. This is a view from above of a room 8 m wide. Move the listener along the dashed line (or tap the room) and read the path difference. The graph under the room shows how loud it is at each place along the line.</p>
+  <div class="btns" style="flex-wrap:wrap">
+    <div class="seg" role="group" aria-label="View" id="spView"><button type="button" data-v="live" aria-pressed="true">Sound waves moving</button><button type="button" data-v="avg" aria-pressed="false">Loud and quiet regions</button></div>
+    <div class="seg" role="group" aria-label="How speaker S2 is wired" id="spWire"><button type="button" data-w="0" aria-pressed="true">S2 wired normally</button><button type="button" data-w="1" aria-pressed="false">S2 wires swapped</button></div>
+  </div>
+  <div class="screen"><canvas id="spCanvas" aria-label="Top view of a room with two loudspeakers at the front. The sound waves overlap, making loud and quiet regions. A listener P can be moved"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings · speed of sound 340 m s⁻¹</div>
+      <label class="ctrl"><span class="row"><span>Frequency, f</span><output id="spFOut">340 Hz</output></span><input type="range" id="spF" min="170" max="850" step="5" value="340"></label>
+      <label class="ctrl"><span class="row"><span>Distance between the speakers</span><output id="spDOut">2.0 m</output></span><input type="range" id="spD" min="0.6" max="3.5" step="0.1" value="2"></label>
+      <label class="ctrl"><span class="row"><span>Listener position along the line</span><output id="spXOut">0.00 m</output></span><input type="range" id="spX" min="-3.8" max="3.8" step="0.02" value="0"></label>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry">
+        <div class="tm"><span>Wavelength, \(\lambda = \frac{v}{f}\)</span><b id="spLam">–</b></div>
+        <div class="tm"><span>\(S_{1}P\)</span><b id="spD1">–</b></div>
+        <div class="tm"><span>\(S_{2}P\)</span><b id="spD2">–</b></div>
+        <div class="tm hl"><span>Path difference</span><b id="spPD">–</b></div>
+      </div>
+      <div class="verdict info" id="spV" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">Try this</span><ul class="clean">
+    <li>Walk P along the line. Where is the centre line? Why is it always loud there?</li>
+    <li>Find the first quiet place on each side. Check the path difference is ½λ.</li>
+    <li>Raise the frequency: λ gets shorter, so a smaller step sideways changes the path difference by ½λ. The loud and quiet places get <b>closer together</b>.</li>
+    <li>Move the speakers further apart: the loud and quiet places also get closer together.</li>
+    <li>Swap the wires on S2: it now pushes out when S1 pulls in (antiphase). Every loud place becomes quiet and every quiet place becomes loud, including the centre.</li>
+  </ul></div>
+
+  <div class="card">
+    <span class="label">Build the explanation</span>
+    <p><b>P is 3.0 m from S1 and 4.0 m from S2. The sound has λ = 0.50 m. Explain why the sound at P is loud.</b> Tap the sentences in the right order.</p>
+    <ol class="chain-out" id="chainOut"></ol>
+    <div class="chain-pool" id="chainPool"></div>
+    <div class="verdict info" id="chainV" aria-live="polite">Start with the sources.</div>
+    <div class="btns"><button type="button" class="btn sm" id="chainReset">Start again</button></div>
+  </div>
+
+  <details class="ans"><summary>Model answers · "Explain why the sound gets louder and quieter as a student walks across the room in front of the speakers"</summary><div class="ans-body">
+    <p><span class="lvl A">A</span> The sound waves from the two speakers overlap and interfere. In some places they add together and it is loud; in other places they cancel and it is quiet.</p>
+    <p><span class="lvl M">M</span> At the loud places the path difference from the two speakers is a whole number of wavelengths, so the waves arrive in phase and interfere constructively. At the quiet places the path difference is a half-number of wavelengths (½λ, 1½λ…), so a compression from one speaker arrives with a rarefaction from the other and they interfere destructively.</p>
+    <p><span class="lvl E">E</span> The speakers are connected to the same signal generator, so they are coherent: they have the same frequency and are in phase. As the student walks sideways, the distance to one speaker increases while the distance to the other decreases, so the path difference changes steadily. Where it is a whole number of wavelengths (including 0 on the centre line), the waves arrive in phase, superpose constructively and give a large amplitude, so the sound is loud. Where it is a half-number of wavelengths, they arrive in antiphase, compressions meet rarefactions and they superpose destructively, giving a small amplitude, so the sound is quiet. Loud and quiet places therefore alternate. The energy isn't destroyed at the quiet places: it is redistributed to the loud ones.</p>
+  </div></details>
+
+  <h3>E · Context 2 · Light through two slits</h3>
+  <p>Laser light shines on two narrow slits close together. Each slit <b>diffracts</b> the light, so the two spreading waves overlap and interfere, making bright and dark bands on a screen. Light has a tiny wavelength, so the path differences are tiny too: one wavelength of green light is about 0.0005 mm. Choose a band to see the path difference to it.</p>
+  <div class="btns" style="flex-wrap:wrap">
+    <div class="seg" role="group" aria-label="Laser colour" id="lsCol"><button type="button" data-l="650" aria-pressed="true">Red · 650 nm</button><button type="button" data-l="532" aria-pressed="false">Green · 532 nm</button><button type="button" data-l="450" aria-pressed="false">Blue · 450 nm</button></div>
+    <div class="seg" role="group" aria-label="Band on the screen" id="lsBand"><button type="button" data-n="0" aria-pressed="true">Central bright</button><button type="button" data-n="0.5" aria-pressed="false">1st dark</button><button type="button" data-n="1" aria-pressed="false">1st bright</button><button type="button" data-n="1.5" aria-pressed="false">2nd dark</button><button type="button" data-n="2" aria-pressed="false">2nd bright</button></div>
+  </div>
+  <div class="screen"><canvas id="lsCanvas" aria-label="Laser light passing through two slits. Waves spread out from each slit and overlap to make bright and dark bands on a screen"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry">
+        <div class="tm hl"><span>Path difference to the band</span><b id="lsPD">–</b></div>
+        <div class="tm"><span>Waves arrive</span><b id="lsPh">–</b></div>
+        <div class="tm"><span>On the screen</span><b id="lsRes">–</b></div>
+      </div>
+    </div>
+    <div class="card"><div class="label">Why it happens here</div><div class="verdict info" id="lsV" aria-live="polite"></div></div>
+  </div>
+  <div class="grid2">
+    <div class="card tint"><span class="label">Same physics as the speakers</span><ul class="clean"><li>Coherent sources: the two slits are lit by the <b>same laser</b>.</li><li>Bright band: whole number of λ, in phase, constructive.</li><li>Dark band: half-number of λ, antiphase, destructive.</li><li>The centre of the screen is the same distance from both slits, so it is always bright.</li></ul></div>
+    <div class="card tint"><span class="label">What changes the spacing</span><ul class="clean"><li>Longer wavelength (red): you have to go further from the centre to get the same path difference, so the bands are <b>further apart</b>. Try red then blue.</li><li>Slits closer together: bands further apart.</li><li>Screen further away: bands further apart.</li><li>The slits must be narrow so the light <b>diffracts</b> enough for the two waves to overlap.</li></ul></div>
+  </div>
+  <details class="ans"><summary>Model answers · "Explain how the pattern of bright and dark bands is formed"</summary><div class="ans-body">
+    <p><span class="lvl A">A</span> Light from the two slits interferes. Bright bands are where the waves add up (constructive interference) and dark bands are where they cancel (destructive interference).</p>
+    <p><span class="lvl M">M</span> The light diffracts through each slit, so the waves spread out and overlap. At a bright band the path difference from the two slits is a whole number of wavelengths, so the waves arrive in phase and interfere constructively. At a dark band it is a half-number of wavelengths, so a crest from one slit meets a trough from the other and they interfere destructively.</p>
+    <p><span class="lvl E">E</span> Both slits are lit by the same laser, so they act as coherent sources: same frequency, in phase. Each narrow slit diffracts the light so the waves from the two slits overlap on the screen. The centre of the screen is the same distance from both slits, so the path difference is zero, the waves arrive in phase, superpose constructively, and there is a bright band. Moving away from the centre, the path difference increases. Where it is ½λ, 1½λ…, the waves arrive in antiphase, crest meets trough, they cancel and the screen is dark. Where it is λ, 2λ…, they are back in phase and the screen is bright, so bright and dark bands alternate across the screen.</p>
+  </div></details>
+
+  <h3>F · Your turn</h3>
+  <p>Write each answer in full sentences, then open the marking points and tick the ones you included. Your writing is saved on this device.</p>
+  <div class="grid2">
+    <div class="card explain" data-ex="spk">
+      <span class="label">Speakers · quiet or loud?</span>
+      <p>Two speakers are connected to one signal generator playing <b>425 Hz</b>. The speed of sound is 340 m s⁻¹. Mere stands at Q, which is <b>5.2 m</b> from one speaker and <b>5.6 m</b> from the other. <b>Explain whether the sound at Q is loud or quiet.</b> <span class="lvl E">E</span></p>
+      <textarea rows="7" aria-label="Your answer for the speakers question" placeholder="The speakers are…"></textarea>
+      <details class="ans"><summary>Marking points and model answer</summary><div class="ans-body">
+        <div class="mark-list">
+          <label><input type="checkbox"> The speakers are coherent (same signal generator, same frequency, in phase)</label>
+          <label><input type="checkbox"> \(\lambda = \frac{v}{f} = \frac{340}{425} = 0.80\,\mathrm{m}\)</label>
+          <label><input type="checkbox"> Path difference = 5.6 − 5.2 = 0.40 m = ½λ</label>
+          <label><input type="checkbox"> So the waves arrive in antiphase: compression meets rarefaction</label>
+          <label><input type="checkbox"> They superpose destructively and (almost) cancel</label>
+          <label><input type="checkbox"> Small amplitude, so the sound at Q is quiet</label>
+        </div>
+        <p class="small mark-score">0 of 6 marking points ticked</p>
+        <p><b>Model answer.</b> The speakers are connected to the same signal generator, so they are coherent: same frequency and in phase. The wavelength is \(\lambda = \frac{340}{425} = 0.80\,\mathrm{m}\). The path difference to Q is 5.6 − 5.2 = 0.40 m, which is half a wavelength. So the sound waves arrive at Q in antiphase: a compression from one speaker arrives with a rarefaction from the other. They superpose destructively and cancel, so the resultant amplitude is small and the sound at Q is quiet.</p>
+      </div></details>
+    </div>
+    <div class="card explain" data-ex="lgt">
+      <span class="label">Light · bright or dark?</span>
+      <p>Green laser light of wavelength <b>530 nm</b> shines on two narrow slits. At point X on the screen the path difference from the two slits is <b>795 nm</b>. <b>Explain why X is dark, but the centre of the screen is bright.</b> <span class="lvl E">E</span></p>
+      <textarea rows="7" aria-label="Your answer for the light question" placeholder="Both slits are lit by…"></textarea>
+      <details class="ans"><summary>Marking points and model answer</summary><div class="ans-body">
+        <div class="mark-list">
+          <label><input type="checkbox"> The slits are coherent sources because one laser lights both</label>
+          <label><input type="checkbox"> The light diffracts at each slit, so the waves overlap</label>
+          <label><input type="checkbox"> 795 ÷ 530 = 1.5, so the path difference at X is 1½λ</label>
+          <label><input type="checkbox"> At X the waves arrive in antiphase, crest meets trough, destructive: dark</label>
+          <label><input type="checkbox"> At the centre the distances are equal: path difference 0</label>
+          <label><input type="checkbox"> At the centre the waves arrive in phase, constructive: bright</label>
+        </div>
+        <p class="small mark-score">0 of 6 marking points ticked</p>
+        <p><b>Model answer.</b> One laser lights both slits, so the slits are coherent sources: same frequency and in phase. Each slit diffracts the light, so the two waves spread out and overlap on the screen. At X the path difference is \(\frac{795}{530} = 1.5\) wavelengths, so the waves arrive in antiphase: a crest from one slit meets a trough from the other. They superpose destructively and cancel, so X is dark. The centre is the same distance from both slits, so the path difference is zero. The waves arrive in phase, superpose constructively and give a large amplitude, so the centre is bright.</p>
+      </div></details>
+    </div>
+  </div>
+
+  <h3>G · Words that lose marks</h3>
+  <div class="do-dont">
+    <div class="card"><h3>Do</h3><ul class="clean">
+      <li>Say <b>why</b> the sources are coherent (same signal generator, one laser).</li>
+      <li>Give the path difference <b>in wavelengths</b>: "0.40 m, which is ½λ".</li>
+      <li>Use "in phase" and "in antiphase", and say what meets what (compression meets rarefaction, crest meets trough).</li>
+      <li>Finish with what is heard or seen: loud or quiet, bright or dark.</li>
+    </ul></div>
+    <div class="card"><h3>Don't</h3><ul class="clean">
+      <li>Say the waves "collide" or "bounce off each other". They pass through each other and superpose.</li>
+      <li>Say the energy is destroyed at a quiet spot. It is <b>redistributed</b> to the loud spots.</li>
+      <li>Write "the path difference is a half". Half of what? Write "half a wavelength".</li>
+      <li>Expect total silence. In a real room the two waves have slightly different amplitudes and sound reflects off the walls, so quiet places are quieter, not silent.</li>
+    </ul></div>
+  </div>
+</section>
+
 <section class="pane hidden" data-mod="wave" data-view="check" data-title="Waves quick check">
   <div class="pane-head"><h2>Phase 1.4 · Quick check: waves</h2><span class="badge red">QUICK CHECK</span></div>
   <p class="lede">Eight questions, instant feedback. Have a calculator ready.</p>
@@ -894,7 +1116,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 
 <section class="pane hidden" data-mod="wave" data-view="problems" data-title="Waves problems">
   <div class="pane-head"><h2>Phase 1.5 · Exam-style problems: waves</h2><span class="badge red">EXAM PRACTICE</span></div>
-  <p class="lede">Three original practice questions in the style of NCEA Level 2 AS91170 papers. Attempt every part before opening the worked answer.</p>
+  <p class="lede">Four original practice questions in the style of NCEA Level 2 AS91170 papers. Attempt every part before opening the worked answer.</p>
 
   <article class="q"><div class="q-head"><b>QUESTION ONE</b><span>Surf beach · wave speed</span></div><div class="q-body">
     <p>Swells arrive at a beach every <b>8.0 s</b>. A surfer waiting beyond the break estimates the crests are <b>96 m</b> apart.</p>
@@ -929,6 +1151,19 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <p><b>(a)</b> <span class="eq">\(\lambda = \frac{v}{f} = \frac{340}{680} = 0.50\,\mathrm{m}\)</span></p>
       <p><b>(b)</b> Path difference = 5.00 − 4.25 = 0.75 m = <b>1.5λ</b>. That's a whole number plus a half, so a compression from one speaker arrives with a rarefaction from the other and they cancel. P is on a nodal line: quiet.</p>
       <p><b>(c)</b> New wavelength \(\lambda = \frac{340}{340} = 1.0\,\mathrm{m}\). The path difference is still 0.75 m, which is now 0.75λ: neither a whole number nor a half-number of wavelengths, so the sound at P is in between, neither as loud as possible nor silent. Overall, the longer wavelength spreads the pattern out: there are fewer loud and quiet lines across the room and they are further apart.</p>
+    </div></details>
+  </div></article>
+  <article class="q"><div class="q-head"><b>QUESTION FOUR</b><span>Laser and two slits · explaining a pattern</span></div><div class="q-body">
+    <p>Red laser light of wavelength <b>650 nm</b> shines on two narrow slits. A pattern of bright and dark bands appears on a screen 2 m away.</p>
+    <p><b>(a)</b> Name the wave behaviour that makes the light spread out after each slit. <span class="lvl A">A</span></p>
+    <p><b>(b)</b> Point Y on the screen is 1300 nm further from one slit than from the other. Show whether Y is on a bright or a dark band. <span class="lvl M">M</span></p>
+    <p><b>(c)</b> Explain why the light must come from a single laser shining on both slits, and why a bright band is always seen at the centre of the screen. <span class="lvl E">E</span></p>
+    <p><b>(d)</b> The red laser is replaced with a blue one. Describe and explain how the pattern changes. <span class="lvl M">M</span></p>
+    <details class="ans"><summary>Show worked answer · Question Four</summary><div class="ans-body">
+      <p><b>(a)</b> Diffraction.</p>
+      <p><b>(b)</b> Path difference \(= \frac{1300}{650} = 2.0\) wavelengths, a whole number. The waves arrive at Y in phase and interfere constructively, so Y is on a <b>bright</b> band (the second bright band from the centre).</p>
+      <p><b>(c)</b> For a steady pattern the two slits must be coherent sources: the same frequency with a constant phase difference. Light from one laser reaches both slits from the same wavefront, so the slits are in phase with each other. Two separate lamps would change phase randomly, and the bands would move about too fast to see. The centre of the screen is the same distance from both slits, so the path difference is zero. The waves arrive in phase, superpose constructively and give a large amplitude, so the centre is always bright.</p>
+      <p><b>(d)</b> Blue light has a shorter wavelength. A path difference of one wavelength is reached closer to the centre, so the bright and dark bands are <b>closer together</b>. The centre is still bright.</p>
     </div></details>
   </div></article>
 </section>
@@ -1343,7 +1578,7 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
   map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["rearrange", "Rearranging formulae"], ["challenge", "Mixed challenge"]] },
-  wave: { title: "WAVES", name: "Waves", views: [["intro", "Foundations"], ["machine", "Wave machine"], ["ripple", "Ripple tank"], ["check", "Quick check"], ["problems", "Problems"]] },
+  wave: { title: "WAVES", name: "Waves", views: [["intro", "Foundations"], ["machine", "Wave machine"], ["ripple", "Ripple tank"], ["interfere", "Explaining interference"], ["check", "Quick check"], ["problems", "Problems"]] },
   mirror: { title: "REFLECTION OF LIGHT", name: "Reflection of light", views: [["intro", "Foundations"], ["bench", "Mirror lab"], ["check", "Quick check"], ["problems", "Problems"]] },
   refr: { title: "REFRACTION", name: "Refraction", views: [["intro", "Foundations"], ["snell", "Snell's law lab"], ["lens", "Lens lab"], ["check", "Quick check"], ["problems", "Problems"]] },
 };
@@ -1351,10 +1586,13 @@ const SCOPE = {
   wave: [
     ["Describe transverse and longitudinal waves, and compare mechanical and electromagnetic waves", "Types of wave", "wave:intro"],
     ["Use \\(v = f\\lambda\\) and \\(f = \\frac{1}{T}\\), and explain why the frequency doesn't change in a new medium", "Wave machine", "wave:machine"],
+    ["Define wavelength, amplitude, period, frequency and phase, and read displacement–distance and displacement–time graphs", "Describing waves", "wave:intro"],
     ["Describe the reflection of pulses at fixed and free ends", "Pulses", "wave:intro"],
     ["Explain the refraction of water waves going into shallow water", "Refraction of waves", "wave:intro"],
     ["Explain how the gap width and the wavelength affect diffraction", "Diffraction", "wave:ripple"],
     ["Explain two-source interference using nodal lines, antinodal lines and path difference", "Interference", "wave:ripple"],
+    ["Explain where constructive and destructive interference happen using coherent sources, path difference, phase and superposition", "Explaining interference", "wave:interfere"],
+    ["Explain the loud and quiet places from two loudspeakers and the bright and dark bands from two slits", "Speakers and light", "wave:interfere"],
   ],
   mirror: [
     ["Use the law of reflection and describe the image in a plane mirror", "Plane mirrors", "mirror:intro"],
@@ -1377,6 +1615,7 @@ const TIPS = {
   "wave:intro": "In explanations, say what is set by the source (frequency) and what is set by the medium (speed). Then use \\(v = f\\lambda\\) to link them.",
   "wave:machine": "Wavelength is one whole cycle: crest to crest. If a diagram shows 2½ waves across 5.0 m, then \\(\\lambda = \\frac{5.0}{2.5} = 2.0\\,\\mathrm{m}\\).",
   "wave:ripple": "For interference, always work out the path difference and divide by the wavelength. A whole number means antinode (loud, bright, big ripples); a half-number means node.",
+  "wave:interfere": "Every interference explanation follows one chain: coherent sources → path difference in wavelengths → in phase or antiphase → constructive or destructive superposition → loud/bright or quiet/dark.",
   "wave:problems": "Merit and Excellence answers explain why: name the behaviour, link it to the change in speed or path difference, then answer the question asked.",
   "mirror:intro": "State the sign you used. A negative image distance isn't a mistake: it tells you the image is virtual.",
   "mirror:bench": "Draw rays from the top of the object, with a ruler, and put arrows on them. Real rays solid, extensions dashed.",
@@ -1589,6 +1828,14 @@ const Q = {
     ["After diffracting through a gap, the wavelength of a wave…", ["increases", "decreases", "stays the same", "becomes zero"], 2, "Diffraction changes the shape of the wavefronts, not the speed, frequency or wavelength."],
     ["At a point P, the path difference from two in-phase sources is 2λ. At P there is…", ["a node (cancelling)", "an antinode (reinforcing)", "no wave at all", "a reflection"], 1, "A whole number of wavelengths means the waves arrive in step: crest meets crest, so they reinforce."],
     ["In a two-source interference pattern, the frequency of both sources is increased. The nodal lines…", ["move further apart", "move closer together", "disappear", "stay in the same places"], 1, "Higher frequency means a shorter wavelength, so a path difference of ½λ is reached closer to the centre: the lines get closer together."],
+    ["Wavelength is best defined as the distance between…", ["a crest and a trough", "two consecutive points in phase", "the source and the first crest", "the rest position and a crest"], 1, "One wavelength takes you to the next point that is doing exactly the same thing: crest to crest, or compression to compression."],
+    ["Two points on a wave are half a wavelength apart. Their phase difference is…", ["0°", "90°", "180°", "360°"], 2, "Half a cycle is 180°: when one is at a crest the other is at a trough (antiphase)."],
+    ["Two equal waves arrive at a point 180° out of phase. The resultant amplitude is…", ["2A", "A", "zero", "A/2"], 2, "Crest meets trough, so the displacements cancel: destructive interference."],
+    ["Two loudspeakers make a steady pattern of loud and quiet places only if they are coherent. This means they have…", ["the same loudness", "the same frequency and a constant phase difference", "the same position", "different frequencies"], 1, "Connecting both speakers to one signal generator makes them coherent."],
+    ["Why is one laser shining on two slits used, rather than two separate lamps?", ["Lamps are too dim", "The two slits then act as coherent sources", "Lasers travel faster", "Lamps cannot diffract"], 1, "Light from one laser reaches both slits from the same wavefront, so they stay in phase. Two lamps change phase randomly, so no steady pattern forms."],
+    ["Sound from two in-phase speakers has λ = 0.60 m. At point Q the path difference is 0.90 m. At Q the sound is…", ["loud, because the waves arrive in phase", "quiet, because a compression meets a rarefaction", "loud, because 0.90 m is more than λ", "the same as everywhere else"], 1, "0.90 ÷ 0.60 = 1.5λ, a half-number of wavelengths, so the waves arrive in antiphase and interfere destructively."],
+    ["Why is the centre of a two-slit pattern always bright?", ["The light is strongest there", "The path difference from the two slits is zero, so the waves arrive in phase", "The slits point at it", "Diffraction stops there"], 1, "Equal distances mean no path difference: the waves arrive in phase and interfere constructively."],
+    ["At a quiet place in front of two speakers, the energy of the sound has…", ["been destroyed", "been redistributed to the loud places", "turned into light", "gone back into the speakers"], 1, "Interference doesn't destroy energy. Less arrives at the quiet places and more at the loud ones."],
     ["What do all electromagnetic waves have in common in a vacuum?", ["The same frequency", "The same wavelength", "The same speed", "The same amplitude"], 2, "All EM waves travel at \\(c = 3.00 \\times 10^{8}\\,\\mathrm{m\\,s^{-1}}\\) in a vacuum."],
   ],
   mirror: [
@@ -2340,6 +2587,239 @@ opticalBench({ prefix: "lb", key: "refr:lens", first: "cv", kinds: { cv: { mirro
   sim.show = () => (sim.dirty = true);
   upd();
   checkPredict("snPred", "snPredGo", "snPredV", Math.asin(1 / 1.33) * 180 / Math.PI, 0.6, "°", "\\(\\sin\\theta_{c} = \\frac{1.00}{1.33} = 0.752\\), so \\(\\theta_{c} = 48.8^\\circ\\). Set water → air in the lab and try 48° and 50°.", "Use \\(\\sin\\theta_{c} = \\frac{n_{2}}{n_{1}} = \\frac{1.00}{1.33}\\), then sin⁻¹.");
+})();
+
+/* ====================================================== 1.1 · FOUNDATION ANIMATIONS (transverse, longitudinal) ===== */
+(() => {
+  const sim = { dirty: true, anim: true, t: 0 }; sims["wave:intro"] = sim;
+  const tr = $("wiTr"), lo = $("wiLo"), open = (cv) => { const d = cv.closest("details"); return !d || d.open; };
+  const dblH = (ctx, xa, xb, y, col) => { arrow(ctx, (xa + xb) / 2, y, xa, y, col, 1.8, 6); arrow(ctx, (xa + xb) / 2, y, xb, y, col, 1.8, 6); };
+  const dblV = (ctx, x, ya, yb, col) => { arrow(ctx, x, (ya + yb) / 2, x, ya, col, 1.8, 6); arrow(ctx, x, (ya + yb) / 2, x, yb, col, 1.8, 6); };
+  const travels = (ctx, x1, w) => { const L = w < 600 ? 44 : 120; arrow(ctx, x1 - L, 22, x1 - 6, 22, C.vector, 2); text(ctx, w < 600 ? "wave" : "wave travels", x1 - L - 6, 26, C.vector, 11, "right"); };
+  function drawTr(t) {
+    const { ctx, w, h } = fit(tr, (w) => (w < 600 ? 190 : 200)); clear(ctx, w, h);
+    const x0 = 24, x1 = w - 24, mid = h * 0.56, A = Math.min(46, h * 0.24), n = Math.max(24, Math.round((x1 - x0) / 16)), cyc = w < 600 ? 1.5 : 2.5, wt = 2 * Math.PI * 0.5 * t;
+    const y = (u) => mid - A * Math.sin(2 * Math.PI * cyc * u - wt), hi = Math.round(n * 0.3);
+    ctx.strokeStyle = C.line; ctx.setLineDash([3, 4]); ctx.beginPath(); ctx.moveTo(x0, mid); ctx.lineTo(x1, mid); ctx.stroke(); ctx.setLineDash([]);
+    ctx.strokeStyle = C.grid; ctx.lineWidth = 1.2; ctx.beginPath();
+    for (let i = 0; i <= n; i++) { const u = i / n, X = x0 + u * (x1 - x0); i ? ctx.lineTo(X, y(u)) : ctx.moveTo(X, y(u)); } ctx.stroke();
+    for (let i = 0; i <= n; i++) { const u = i / n, X = x0 + u * (x1 - x0); ctx.fillStyle = i === hi ? C.hot : C.data; ctx.beginPath(); ctx.arc(X, y(u), i === hi ? 6.5 : 4, 0, 7); ctx.fill(); }
+    const xh = x0 + (hi / n) * (x1 - x0); dblV(ctx, xh - 16, mid - A, mid + A, C.hot);
+    text(ctx, "particle moves up and down", xh - 24, mid + A + 22, C.hot, 11, "left");
+    travels(ctx, x1, w);
+  }
+  function drawLo(t) {
+    const narrow = (lo.clientWidth || 600) < 600;
+    const { ctx, w, h } = fit(lo, (w) => (w < 600 ? 270 : 280)); clear(ctx, w, h);
+    const x0 = 28, x1 = w - 28, span = x1 - x0, cyc = narrow ? 1.5 : 2.5, k = 2 * Math.PI * cyc, wt = 2 * Math.PI * 0.5 * t;
+    const n = Math.round(span / 11), D = (0.55 / k) * span; // particle displacement in px (kept small enough that particles never cross)
+    const rows = [48, 64, 80, 96, 112], gy = 200, gA = 34, hi = Math.round(n * 0.3);
+    // particles: x = x0 + D sin(k u − ωt); they bunch up (compression) where k u − ωt = π
+    rows.forEach((ry, r) => {
+      for (let i = 0; i <= n; i++) {
+        const u = i / n, X = x0 + u * span + D * Math.sin(k * u - wt), isHi = i === hi && r === 2;
+        ctx.fillStyle = isHi ? C.hot : C.data; ctx.globalAlpha = isHi ? 1 : 0.8; ctx.beginPath(); ctx.arc(X, ry, isHi ? 5.5 : 3, 0, 7); ctx.fill();
+      }
+    });
+    ctx.globalAlpha = 1;
+    const uh = hi / n, xh0 = x0 + uh * span; dblH(ctx, xh0 - D, xh0 + D, 128, C.hot);
+    text(ctx, "particle moves back and forth", Math.min(xh0 - D, w - 210), 145, C.hot, 11, "left");
+    travels(ctx, x1, w);
+    // labels and guides at each compression and rarefaction
+    for (let m = -3; m <= 6; m++) {
+      const uc = (Math.PI + wt + 2 * Math.PI * m) / k, ur = (wt + 2 * Math.PI * m) / k;
+      [[uc, "C", C.vector, gy - gA], [ur, "R", C.third, gy + gA]].forEach(([u, lab, col, yy]) => {
+        if (u < 0.03 || u > 0.97) return; const X = x0 + u * span;
+        ctx.strokeStyle = col; ctx.globalAlpha = 0.45; ctx.setLineDash([3, 4]); ctx.beginPath(); ctx.moveTo(X, 40); ctx.lineTo(X, yy); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+        text(ctx, lab, X, 38, col, 12, "center");
+      });
+    }
+    // transverse-style graph: how squashed together the particles are (crest = compression)
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x0, gy); ctx.lineTo(x1, gy); ctx.stroke();
+    ctx.strokeStyle = C.data; ctx.lineWidth = 2.4; ctx.beginPath();
+    for (let j = 0; j <= 300; j++) { const u = j / 300, X = x0 + u * span, Y = gy + gA * Math.cos(k * u - wt); j ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); } ctx.stroke();
+    text(ctx, narrow ? "graph: crest = C, trough = R" : "the same wave drawn as a graph: crest = compression (C), trough = rarefaction (R)", x0, h - 12, C.ink2, 11);
+  }
+  sim.frame = (dt) => { sim.t += dt; if (open(tr)) drawTr(sim.t); if (open(lo)) drawLo(sim.t); };
+})();
+
+/* ====================================================== 1.4 · EXPLAINING INTERFERENCE ===== */
+(() => {
+  const sim = { dirty: true, anim: true, t: 0 }; sims["wave:interfere"] = sim;
+  /* ---------- A · superposition and phase ---------- */
+  const pc = $("ifPhase"), phR = bindRange("ifPh", "ifPhOut", (v) => v.toFixed(0) + "°"), preBs = [...$("ifPhPre").querySelectorAll("button")];
+  preBs.forEach((b) => b.addEventListener("click", () => { phR.value = b.dataset.p; phR.dispatchEvent(new Event("input")); }));
+  const frac = (x) => { const m = { 0: "0", 0.25: "¼", 0.5: "½", 0.75: "¾", 1: "1" }; const r = Math.round(x * 100) / 100; return (m[r] !== undefined ? m[r] : fmt(r, 2)) + "λ"; };
+  function phUI() {
+    const p = +phR.value, amp = 2 * Math.abs(Math.cos((p * Math.PI) / 360));
+    preBs.forEach((b) => b.setAttribute("aria-pressed", String(+b.dataset.p === p)));
+    $("ifPD").textContent = frac(p / 360); $("ifAmp").textContent = amp.toFixed(2) + " A";
+    const v = $("ifPhV"), m = p % 360;
+    if (m <= 10 || m >= 350) { v.className = "verdict ok"; v.textContent = (p === 360 ? "360° is one whole cycle, so the waves are back in phase. " : "In phase. ") + "Crest meets crest and trough meets trough: constructive interference. The amplitude doubles."; }
+    else if (Math.abs(m - 180) <= 10) { v.className = "verdict bad"; v.textContent = "Antiphase (180°). Crest meets trough: destructive interference. The waves cancel out."; }
+    else { v.className = "verdict info"; v.textContent = "Partly out of step: the resultant is between 0 and 2A."; }
+  }
+  phR.addEventListener("input", phUI); phUI();
+  function drawPhase(t) {
+    const { ctx, w, h } = fit(pc, (w) => (w < 600 ? 280 : 260)); clear(ctx, w, h);
+    const lx = w < 600 ? 74 : 120, x0 = lx + 8, x1 = w - 14, a = h * 0.06, rows = [h * 0.22, h * 0.42, h * 0.74], cyc = w < 600 ? 1.5 : 2.5, ph = (+phR.value * Math.PI) / 180, wt = 2 * Math.PI * 0.4 * t;
+    const f1 = (u) => Math.sin(2 * Math.PI * cyc * u - wt), f2 = (u) => Math.sin(2 * Math.PI * cyc * u - wt - ph);
+    const draw = (y0, fn, col, lw) => { ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.beginPath(); for (let j = 0; j <= 300; j++) { const u = j / 300, X = x0 + u * (x1 - x0), Y = y0 - a * fn(u); j ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); } ctx.stroke(); };
+    rows.forEach((y0) => { ctx.strokeStyle = C.line; ctx.setLineDash([3, 4]); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y0); ctx.stroke(); ctx.setLineDash([]); });
+    draw(rows[0], f1, C.data, 2.4); draw(rows[1], f2, C.vector, 2.4); draw(rows[2], (u) => f1(u) + f2(u), C.ink, 3);
+    text(ctx, "wave 1", 10, rows[0] + 4, C.data, 12); text(ctx, "wave 2", 10, rows[1] + 4, C.vector, 12);
+    text(ctx, "resultant", 10, rows[2] - 2, C.ink, 12); text(ctx, w < 600 ? "(1 + 2)" : "(wave 1 + wave 2)", 10, rows[2] + 14, C.muted, 11);
+  }
+  /* ---------- D · two loudspeakers ---------- */
+  const VS = 340, RW = 8, RD = 4.6, SY = 0.35, NX = 200, NY = Math.round((NX * RD) / RW);
+  const sc = $("spCanvas"), fR = bindRange("spF", "spFOut", (v) => v.toFixed(0) + " Hz"), dR = bindRange("spD", "spDOut", (v) => v.toFixed(1) + " m"), xR = bindRange("spX", "spXOut", (v) => (v > 0 ? "+" : "") + v.toFixed(2) + " m");
+  let spView = "live", flip = 0, P = { x: 0, y: 3.8 }, geoKey = "", R1 = new Float32Array(NX * NY), R2 = new Float32Array(NX * NY), lay = null;
+  segGroup("spView", "v", (v) => (spView = v)); segGroup("spWire", "w", (v) => { flip = +v; spUI(); });
+  const off = document.createElement("canvas"); off.width = NX; off.height = NY; const octx = off.getContext("2d"), img = octx.createImageData(NX, NY);
+  const spk = () => { const d = +dR.value; return [[-d / 2, SY], [d / 2, SY]]; };
+  function geo() {
+    const key = dR.value; if (key === geoKey) return; geoKey = key; const [s1, s2] = spk();
+    for (let j = 0; j < NY; j++) for (let i = 0; i < NX; i++) { const X = ((i + 0.5) / NX) * RW - RW / 2, Y = ((j + 0.5) / NY) * RD, q = j * NX + i; R1[q] = Math.hypot(X - s1[0], Y - s1[1]); R2[q] = Math.hypot(X - s2[0], Y - s2[1]); }
+  }
+  const loud = (x, y) => { const [s1, s2] = spk(), lam = VS / +fR.value, pd = Math.hypot(x - s2[0], y - s2[1]) - Math.hypot(x - s1[0], y - s1[1]); return Math.cos(Math.PI * (pd / lam + flip / 2)) ** 2; };
+  function spUI() {
+    P.x = +xR.value; const lam = VS / +fR.value, [s1, s2] = spk(), d1 = Math.hypot(P.x - s1[0], P.y - s1[1]), d2 = Math.hypot(P.x - s2[0], P.y - s2[1]), pd = Math.abs(d2 - d1), n = pd / lam;
+    $("spLam").textContent = fmt(lam) + " m"; $("spD1").textContent = d1.toFixed(2) + " m"; $("spD2").textContent = d2.toFixed(2) + " m"; $("spPD").textContent = pd.toFixed(2) + " m = " + n.toFixed(2) + "λ";
+    const fr = n - Math.floor(n), whole = fr < 0.1 || fr > 0.9, half = Math.abs(fr - 0.5) < 0.1, v = $("spV");
+    const nW = Math.round(n), nH = (Math.floor(n) || "") + "½", pdTxt = whole ? (nW === 0 ? "0 (P is the same distance from both speakers)" : `${nW} whole wavelength${nW === 1 ? "" : "s"}`) : `${nH} ${Math.floor(n) ? "wavelengths" : "a wavelength"}`;
+    const inPh = (whole && !flip) || (half && flip), anti = (half && !flip) || (whole && flip);
+    const why = flip ? " (S2's wires are swapped, so the speakers start in antiphase and the result is reversed)" : "";
+    if (inPh) { v.className = "verdict ok"; v.textContent = `Path difference ≈ ${pdTxt}. The waves arrive at P in phase${why}: compression meets compression. They superpose constructively, the amplitude is large, so P is LOUD.`; }
+    else if (anti) { v.className = "verdict bad"; v.textContent = `Path difference ≈ ${pdTxt}. The waves arrive at P in antiphase${why}: compression meets rarefaction. They superpose destructively and cancel, so P is QUIET.`; }
+    else { v.className = "verdict info"; v.textContent = "The path difference is neither a whole number nor a half-number of wavelengths, so the waves are partly out of step. The sound at P is in between loud and quiet."; }
+  }
+  [fR, dR, xR].forEach((r) => r.addEventListener("input", spUI)); spUI();
+  sc.addEventListener("click", (e) => {
+    if (!lay) return; const r = sc.getBoundingClientRect(), X = (e.clientX - r.left) / lay.s - RW / 2, Y = (e.clientY - r.top) / lay.s;
+    if (Y > RD || Y < 1.2 || Math.abs(X) > 3.8) return; P.y = Y; xR.value = X.toFixed(2); xR.dispatchEvent(new Event("input"));
+  });
+  function drawSpk(t) {
+    geo();
+    const { ctx, w, h } = fit(sc, (w) => Math.round((w * RD) / RW) + 96); clear(ctx, w, h);
+    const s = w / RW, fh = RD * s, px = (X) => (X + RW / 2) * s, py = (Y) => Y * s; lay = { s };
+    const k = (2 * Math.PI * +fR.value) / VS, wt = 2 * Math.PI * 0.8 * t, fp = flip * Math.PI, bg = rgbOf(C.canvas), fg = rgbOf(C.data), D = img.data, lam = VS / +fR.value;
+    for (let q = 0; q < NX * NY; q++) {
+      const u = spView === "avg" ? Math.cos((k * (R2[q] - R1[q]) + fp) / 2) ** 2 : 0.5 + 0.25 * (Math.cos(k * R1[q] - wt) + Math.cos(k * R2[q] - wt + fp));
+      const o = q * 4; D[o] = bg[0] + (fg[0] - bg[0]) * u; D[o + 1] = bg[1] + (fg[1] - bg[1]) * u; D[o + 2] = bg[2] + (fg[2] - bg[2]) * u; D[o + 3] = 255;
+    }
+    octx.putImageData(img, 0, 0); ctx.imageSmoothingEnabled = true; ctx.drawImage(off, 0, 0, w, fh);
+    ctx.fillStyle = C.canvas; ctx.fillRect(0, 0, w, py(SY) + 2); // the wall the speakers are on
+    // walking line, paths, speakers, listener
+    ctx.strokeStyle = C.ink; ctx.globalAlpha = 0.6; ctx.setLineDash([6, 5]); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(px(-3.8), py(P.y)); ctx.lineTo(px(3.8), py(P.y)); ctx.stroke(); ctx.globalAlpha = 1;
+    const [s1, s2] = spk(); ctx.lineWidth = 1.8;
+    [[s1, C.vector], [s2, C.third]].forEach(([q, col]) => { ctx.strokeStyle = col; ctx.beginPath(); ctx.moveTo(px(q[0]), py(q[1])); ctx.lineTo(px(P.x), py(P.y)); ctx.stroke(); });
+    ctx.setLineDash([]);
+    [s1, s2].forEach((q, i) => { ctx.fillStyle = i ? C.third : C.vector; rrect(ctx, px(q[0]) - 11, py(q[1]) - 14, 22, 16, 3); ctx.fill(); text(ctx, "S" + (i + 1), px(q[0]), py(q[1]) - 18, C.ink, 11, "center"); });
+    ctx.fillStyle = C.hot; ctx.beginPath(); ctx.arc(px(P.x), py(P.y), 7, 0, 7); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 1.5; ctx.stroke();
+    text(ctx, "P", px(P.x) + (P.x > 3 ? -12 : 12), py(P.y) - 9, C.ink, 13, P.x > 3 ? "right" : "left");
+    const sy = py(SY) + 20; ctx.strokeStyle = C.ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(w - 12 - s, sy); ctx.lineTo(w - 12, sy); ctx.stroke(); text(ctx, "1 m", w - 12 - s / 2, sy - 6, C.ink, 11, "center");
+    text(ctx, "top view", 10, py(SY) - 4, C.muted, 10);
+    if (spView === "live") text(ctx, "bright = compression · dark = rarefaction", 10, fh - 12, C.ink, 11);
+    else text(ctx, "bright = loud · dark = quiet", 10, fh - 12, C.ink, 11);
+    // loudness along the walking line
+    const g0 = fh + 18, g1 = h - 22, gx0 = px(-3.8), gx1 = px(3.8);
+    ctx.fillStyle = C.tile; ctx.fillRect(0, fh, w, h - fh);
+    text(ctx, "loudness along the dashed line (higher = louder)", 10, fh + 13, C.ink2, 11);
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(gx0, g1); ctx.lineTo(gx1, g1); ctx.stroke();
+    ctx.strokeStyle = C.data; ctx.lineWidth = 2.2; ctx.beginPath();
+    for (let j = 0; j <= 400; j++) { const X = -3.8 + (7.6 * j) / 400, Y = g1 - (g1 - g0 - 4) * loud(X, P.y); j ? ctx.lineTo(px(X), Y) : ctx.moveTo(px(X), Y); } ctx.stroke();
+    ctx.strokeStyle = C.hot; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(px(P.x), g0); ctx.lineTo(px(P.x), g1); ctx.stroke();
+    text(ctx, "−4 m", gx0, h - 8, C.muted, 10, "left"); text(ctx, "0", px(0), h - 8, C.muted, 10, "center"); text(ctx, "+4 m", gx1, h - 8, C.muted, 10, "right");
+  }
+  /* ---------- E · light through two slits ---------- */
+  const lc = $("lsCanvas"), LCOL = { 650: "#ff3b3b", 532: "#2fe05a", 450: "#4d7cff" };
+  let lam = 650, band = 0;
+  const bandBs = [...$("lsBand").querySelectorAll("button")];
+  segGroup("lsCol", "l", (v) => { lam = +v; lsUI(); }); segGroup("lsBand", "n", (v) => { band = +v; lsUI(); });
+  const ORD = ["", "1st", "2nd", "3rd"];
+  function lsUI() {
+    const whole = Number.isInteger(band), pdnm = Math.round(band * lam), lamTxt = band === 0 ? "0" : (band === 0.5 ? "½" : band === 1.5 ? "1½" : band) + "λ";
+    $("lsPD").textContent = band === 0 ? "0" : `${lamTxt} = ${pdnm} nm`;
+    $("lsPh").textContent = whole ? "in phase" : "in antiphase"; $("lsRes").textContent = whole ? "bright band" : "dark band";
+    const v = $("lsV"), which = band === 0 ? "the central bright band" : `the ${ORD[Math.ceil(band)]} ${whole ? "bright" : "dark"} band`;
+    v.className = "verdict " + (whole ? "ok" : "bad");
+    v.textContent = band === 0
+      ? "At the centre the two slits are the same distance away, so the path difference is zero. The waves arrive in phase (crest meets crest), superpose constructively and give a large amplitude: a bright band."
+      : `To ${which}, the light from one slit travels ${pdnm} nm (${lamTxt}) further. That's ${whole ? "a whole number" : "a half-number"} of wavelengths, so the waves arrive ${whole ? "in phase: crest meets crest. They superpose constructively and the screen is bright." : "in antiphase: crest meets trough. They superpose destructively and cancel, so the screen is dark."}`;
+  }
+  lsUI();
+  function drawLight(t) {
+    const narrow = (lc.clientWidth || 600) < 600;
+    const { ctx, w, h } = fit(lc, (w) => (w < 600 ? Math.round(w * 0.82) : Math.round(Math.min(380, w * 0.42)))); clear(ctx, w, h);
+    const cy = h / 2 + 6, xs = w * (narrow ? 0.2 : 0.24), xsc = w * (narrow ? 0.84 : 0.86), sg = h * 0.07, col = LCOL[lam], lv = 15 * (lam / 532), sp = h * 0.135 * (lam / 532);
+    const S1 = [xs, cy - sg], S2 = [xs, cy + sg], yq = cy - band * sp;
+    // laser and incoming plane wavefronts
+    ctx.fillStyle = C.ink2; rrect(ctx, 6, cy - 9, narrow ? 26 : 40, 18, 3); ctx.fill(); if (!narrow) text(ctx, "laser", 6, cy + 26, C.muted, 10);
+    const lx0 = narrow ? 34 : 48;
+    ctx.strokeStyle = col; ctx.globalAlpha = 0.85; ctx.lineWidth = 2;
+    for (let x = lx0 + ((t * 30) % lv); x < xs - 3; x += lv) { ctx.beginPath(); ctx.moveTo(x, cy - sg - 10); ctx.lineTo(x, cy + sg + 10); ctx.stroke(); }
+    // circular wavefronts from each slit, clipped to the region in front of the slits
+    ctx.save(); ctx.beginPath(); ctx.rect(xs + 2, 0, xsc - xs - 2, h); ctx.clip(); ctx.lineWidth = 1.4;
+    const rmax = Math.hypot(xsc - xs, h);
+    [S1, S2].forEach(([sx, sy]) => { for (let r = (t * 30) % lv; r < rmax; r += lv) { ctx.globalAlpha = 0.5 * Math.max(0, 1 - r / rmax); ctx.beginPath(); ctx.arc(sx, sy, r, -Math.PI / 2, Math.PI / 2); ctx.stroke(); } });
+    ctx.restore(); ctx.globalAlpha = 1;
+    // barrier with two slits
+    ctx.fillStyle = C.ink2; const bw = 6, gap = 6;
+    ctx.fillRect(xs - bw / 2, 0, bw, S1[1] - gap / 2); ctx.fillRect(xs - bw / 2, S1[1] + gap / 2, bw, S2[1] - S1[1] - gap); ctx.fillRect(xs - bw / 2, S2[1] + gap / 2, bw, h - S2[1] - gap / 2);
+    text(ctx, "S1", xs - 8, S1[1] - 6, C.ink, 11, "right"); text(ctx, "S2", xs - 8, S2[1] + 14, C.ink, 11, "right");
+    // screen: the band pattern, drawn on a dark screen as in a darkened lab
+    const sw = Math.max(18, w * 0.05), rgb = rgbOf(col);
+    ctx.fillStyle = "#05070d"; ctx.fillRect(xsc, 0, sw, h);
+    for (let y = 0; y < h; y++) { const I = Math.cos((Math.PI * (cy - y)) / sp) ** 2 * Math.exp(-(((y - cy) / (h * 0.55)) ** 2)); ctx.fillStyle = `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${I.toFixed(3)})`; ctx.fillRect(xsc, y, sw, 1); }
+    text(ctx, "screen", xsc + sw / 2, h - 6, C.muted, 10, "center");
+    // the two paths to the chosen band
+    ctx.setLineDash([6, 4]); ctx.lineWidth = 1.8;
+    [[S1, C.vector], [S2, C.third]].forEach(([q, c]) => { ctx.strokeStyle = c; ctx.beginPath(); ctx.moveTo(q[0], q[1]); ctx.lineTo(xsc, yq); ctx.stroke(); });
+    ctx.setLineDash([]);
+    ctx.strokeStyle = C.ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(xsc - 10, yq); ctx.lineTo(xsc - 2, yq); ctx.stroke();
+    const lab = band === 0 ? "centre" : (Number.isInteger(band) ? "bright" : "dark");
+    text(ctx, lab, xsc - 12, yq - 6, C.ink, 11, "right");
+    text(ctx, "λ = " + lam + " nm", xs + 8, h - 8, C.ink, 11);
+    text(ctx, "not to scale", xsc - 6, 16, C.muted, 10, "right");
+  }
+  sim.frame = (dt) => { sim.t += dt; drawPhase(sim.t); drawSpk(sim.t); drawLight(sim.t); };
+  document.addEventListener("themechange", () => (sim.dirty = true));
+
+  /* ---------- build the explanation (sentence ordering) ---------- */
+  const CHAIN = [
+    ["Both speakers are connected to the same signal generator, so they are coherent: same frequency and in phase.", "Start with the sources. What makes the pattern steady?"],
+    ["The path difference is S2P − S1P = 4.0 − 3.0 = 1.0 m.", "Next, work out how much further one wave travels."],
+    ["1.0 m ÷ 0.50 m = 2, so the path difference is a whole number of wavelengths (2λ).", "Now turn the path difference into wavelengths."],
+    ["So the waves arrive at P in phase: compression arrives with compression, rarefaction with rarefaction.", "What does a whole number of wavelengths mean for the phase?"],
+    ["They superpose constructively, so the resultant amplitude is large.", "What happens when in-phase waves add?"],
+    ["A large amplitude means more energy reaches P, so the sound at P is loud.", "Finish with what the listener hears."],
+  ];
+  let next = 0;
+  function chainReset() {
+    next = 0; $("chainOut").replaceChildren(); const pool = $("chainPool"); pool.replaceChildren();
+    shuffle(CHAIN.map((c, i) => i)).forEach((i) => {
+      const b = document.createElement("button"); b.type = "button"; b.textContent = CHAIN[i][0];
+      b.addEventListener("click", () => {
+        const v = $("chainV");
+        if (i !== next) { b.classList.add("wrong"); setTimeout(() => b.classList.remove("wrong"), 700); v.className = "verdict bad"; v.textContent = "Not that one yet. " + CHAIN[next][1]; return; }
+        const li = document.createElement("li"); li.textContent = CHAIN[i][0]; $("chainOut").append(li); b.remove(); next++;
+        if (next === CHAIN.length) { v.className = "verdict ok"; v.textContent = "That's the full chain: coherent sources → path difference → in wavelengths → phase → superposition → what you hear. Use the same order every time."; }
+        else { v.className = "verdict info"; v.textContent = "Good. " + CHAIN[next][1]; }
+      });
+      pool.append(b);
+    });
+    $("chainV").className = "verdict info"; $("chainV").textContent = CHAIN[0][1];
+  }
+  $("chainReset").addEventListener("click", chainReset); chainReset();
+
+  /* ---------- your turn: saved answers and marking points ---------- */
+  document.querySelectorAll(".explain[data-ex]").forEach((box) => {
+    const id = box.dataset.ex, ta = box.querySelector("textarea"), cbs = [...box.querySelectorAll(".mark-list input")], out = box.querySelector(".mark-score");
+    ta.value = store.get("ex-" + id, ""); ta.addEventListener("input", () => store.set("ex-" + id, ta.value));
+    const ticks = store.get("exm-" + id, []); cbs.forEach((c, i) => (c.checked = !!ticks[i]));
+    const score = () => { const n = cbs.filter((c) => c.checked).length; out.textContent = `${n} of ${cbs.length} marking points ticked` + (n === cbs.length ? " · a complete Excellence answer" : ""); store.set("exm-" + id, cbs.map((c) => c.checked)); };
+    cbs.forEach((c) => c.addEventListener("change", score)); score();
+  });
 })();
 
 
