@@ -5,6 +5,16 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.11 · 12 November 2026 (Year 13 Waves: save progress and share results with a teacher)
+- New 0.7 My Progress tab: one report of the student's self-ratings, quiz best scores, answer
+  practice and self-marked exam sets.
+- Save or load progress: a progress code (or a small file) carries a student's progress to another
+  device. No accounts; nothing is stored on a server.
+- Share with a teacher: the student types their name and any teacher's email address, and the
+  page opens a ready-written email in Gmail or their mail app for them to send. Works for any
+  school. The site itself never sends or collects the name or address.
+- Answer practice and exam-set results are now remembered on the device.
+
 ## v1.10 · 12 November 2026 (Year 13 Waves becomes a revision site first)
 - 0.1 is now a revision Summary and is the first thing that loads: six cards covering the whole
   standard (key ideas, equations, a "say it like this" sentence, the common mistake, and links to
