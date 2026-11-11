@@ -5,6 +5,22 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.10 · 12 November 2026 (Year 13 Waves becomes a revision site first)
+- 0.1 is now a revision Summary and is the first thing that loads: six cards covering the whole
+  standard (key ideas, equations, a "say it like this" sentence, the common mistake, and links to
+  the tabs that teach it). The course map and self-ratings sit underneath.
+- Summary tools: "Cover and recall" hides the cards so students recall before revealing; a
+  "Start here today" list shows their three weakest areas from the course-map ratings; "Print
+  one-page summary" prints the six cards on one A4 sheet.
+- 0.2 Exam Skills: CEO (Conceptualise, Execute, Outcomes) now covers explain questions as well as
+  calculations, with four model explain answers (fringes, closed pipe, Doppler, beats).
+- New 0.5 Answer Practice: build a CEO answer by sorting sentences into C, E, O or "leave out";
+  spot the mistake in a student's answer; draw standing waves by placing nodes and antinodes.
+- New 0.6 Exam Set: a 30-minute timed set (one question from each topic) or single untimed
+  questions, self-marked against Achieved, Merit and Excellence points.
+- Problems tabs: a box to write an answer before opening the worked answer, and a tick list to
+  mark each part.
+
 ## v1.9 · 11 November 2026 (Year 13 Mechanics and Modern Physics labs; pages follow the ESA study guide)
 - New Year 13 Mechanical Systems lab (AS91524), in ESA chapter order: 01 Translational motion
   (collision lab with momentum vectors and centre of mass), 02 Circular motion & gravity (vertical
