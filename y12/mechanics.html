@@ -5684,6 +5684,16 @@ const RR = (() => {
   $("cmRelease").addEventListener("click", () => { rel = rel ? null : { t: 0, th0: th }; });
   const dvBtn = $("cmDv"); dvBtn.addEventListener("click", () => { showDv = !showDv; dvBtn.setAttribute("aria-pressed", String(showDv)); });
   const fT = (T) => (T < 120 ? fmt(T, 2) + " s" : T < 7200 ? fmt(T / 60, 3) + " min" : fmt(T / 3600, 3) + " h");
+  // fixed pseudo-random stars, so the field does not move between frames
+  const starfield = (ctx, w, h) => {
+    ctx.fillStyle = C.muted;
+    for (let i = 0; i < 70; i++) {
+      const sx = (Math.sin(i * 12.9898) * 43758.5453) % 1, sy = (Math.sin(i * 78.233) * 24634.6345) % 1;
+      const x = (Math.abs(sx)) * w, y = (Math.abs(sy)) * h, rr = 0.6 + (i % 3) * 0.4;
+      ctx.globalAlpha = 0.25 + (i % 4) * 0.12; ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  };
   sim.frame = (dt) => {
     const m = val(sm, "m"), r = val(sr, "r"), v = val(svv, "v"), a = (v * v) / r, F = m * a, T = (2 * Math.PI * r) / v;
     const cfg = CTX[ctxName], uR = Number(sr.value), uV = Number(svv.value);
@@ -5694,10 +5704,25 @@ const RR = (() => {
     const rMax = Math.min(h / 2 - 36, narrow ? w / 2 - 40 : w * 0.32), rpx = rMax * (0.38 + 0.62 * uR);
     const om = clamp((v / r) * cfg.S, 0.25, 4.5);
     // scene
-    if (ctxName === "car") { ctx.strokeStyle = C.tile; ctx.lineWidth = 30; ctx.beginPath(); ctx.arc(cx, cy, rpx, 0, 7); ctx.stroke(); }
-    ctx.strokeStyle = C.axis; ctx.lineWidth = 1.2; ctx.setLineDash([5, 6]); ctx.beginPath(); ctx.arc(cx, cy, rpx, 0, 7); ctx.stroke(); ctx.setLineDash([]);
-    if (ctxName === "sat") { const pr = Math.max(8, (RE / r) * rpx); ctx.fillStyle = C.tile; ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(cx, cy, pr, 0, 7); ctx.fill(); ctx.stroke(); text(ctx, "Earth", cx, cy + 4, C.muted, 11, "center"); }
-    else { ctx.fillStyle = C.muted; ctx.beginPath(); ctx.arc(cx, cy, 4, 0, 7); ctx.fill(); }
+    if (ctxName === "sat") starfield(ctx, w, h);
+    if (ctxName === "car") {
+      // a banked road: grey band with a dashed centre line
+      ctx.strokeStyle = C.tile; ctx.lineWidth = 30; ctx.beginPath(); ctx.arc(cx, cy, rpx, 0, 7); ctx.stroke();
+      ctx.strokeStyle = C.line; ctx.lineWidth = 1.5; ctx.setLineDash([10, 12]); ctx.beginPath(); ctx.arc(cx, cy, rpx, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+    } else {
+      ctx.strokeStyle = C.axis; ctx.lineWidth = 1.2; ctx.setLineDash([5, 6]); ctx.beginPath(); ctx.arc(cx, cy, rpx, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+    }
+    if (ctxName === "sat") {
+      const pr = Math.max(8, (RE / r) * rpx);
+      const eg = ctx.createRadialGradient(cx - pr * 0.35, cy - pr * 0.35, pr * 0.1, cx, cy, pr);
+      eg.addColorStop(0, C.tile); eg.addColorStop(0.7, C.data); eg.addColorStop(1, C.ink2);
+      ctx.fillStyle = eg; ctx.beginPath(); ctx.arc(cx, cy, pr, 0, 7); ctx.fill();
+      text(ctx, "Earth", cx, cy + pr + 16, C.muted, 11, "center");
+    } else {
+      // pivot hub
+      ctx.fillStyle = C.ink2; ctx.beginPath(); ctx.arc(cx, cy, 5, 0, 7); ctx.fill();
+      ctx.fillStyle = C.canvas; ctx.beginPath(); ctx.arc(cx, cy, 1.8, 0, 7); ctx.fill();
+    }
     let ox, oy, vx, vy;
     if (rel) {
       rel.t += dt;
@@ -5711,11 +5736,42 @@ const RR = (() => {
       ox = cx + rpx * Math.cos(th); oy = cy - rpx * Math.sin(th); vx = -Math.sin(th); vy = -Math.cos(th);
       if (ctxName === "string") { ctx.strokeStyle = C.ink2; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(ox, oy); ctx.stroke(); }
     }
+    // fading trail: the last part of the path, brightest nearest the object
+    if (!rel) {
+      const N = 28, span = 1.2, tc = ctxName === "car" ? C.hot : C.data;
+      ctx.lineCap = "round";
+      for (let i = 0; i < N; i++) {
+        const a0 = th - (span * (i + 1)) / N, a1 = th - (span * i) / N;
+        ctx.globalAlpha = 0.5 * (1 - i / N) * (1 - i / N);
+        ctx.strokeStyle = tc; ctx.lineWidth = ctxName === "car" ? 6 : 3;
+        ctx.beginPath(); ctx.arc(cx, cy, rpx, -a1, -a0); ctx.stroke(); // canvas angles run clockwise, so negate
+      }
+      ctx.globalAlpha = 1;
+    }
     // object
     ctx.save(); ctx.translate(ox, oy);
-    if (ctxName === "string") { ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(0, 0, 9 + 4 * Number(sm.value), 0, 7); ctx.fill(); }
-    else if (ctxName === "car") { ctx.rotate(Math.atan2(vy, vx)); ctx.fillStyle = C.hot; rrect(ctx, -13, -7, 26, 14, 3); ctx.fill(); ctx.fillStyle = C.ink; ctx.fillRect(-9, -9, 6, 3); ctx.fillRect(4, -9, 6, 3); ctx.fillRect(-9, 6, 6, 3); ctx.fillRect(4, 6, 6, 3); }
-    else { ctx.rotate(Math.atan2(vy, vx)); ctx.fillStyle = C.data; ctx.fillRect(-4, -14, 8, 9); ctx.fillRect(-4, 5, 8, 9); ctx.fillStyle = C.ink; ctx.fillRect(-6, -5, 12, 10); }
+    if (ctxName === "string") {
+      // a shaded bob
+      const br = 9 + 4 * Number(sm.value), bg = ctx.createRadialGradient(-br * 0.35, -br * 0.35, br * 0.1, 0, 0, br);
+      bg.addColorStop(0, C.data); bg.addColorStop(1, C.ink);
+      ctx.fillStyle = bg; ctx.beginPath(); ctx.arc(0, 0, br, 0, 7); ctx.fill();
+      ctx.fillStyle = "rgba(255,255,255,0.45)"; ctx.beginPath(); ctx.arc(-br * 0.35, -br * 0.35, br * 0.22, 0, 7); ctx.fill();
+    } else if (ctxName === "car") {
+      // a small car with windscreen, four wheels and headlights
+      ctx.rotate(Math.atan2(vy, vx));
+      ctx.fillStyle = C.ink; rrect(ctx, -11, -11, 6, 4, 1); ctx.fill(); rrect(ctx, 5, -11, 6, 4, 1); ctx.fill(); rrect(ctx, -11, 7, 6, 4, 1); ctx.fill(); rrect(ctx, 5, 7, 6, 4, 1); ctx.fill();
+      ctx.fillStyle = C.hot; rrect(ctx, -13, -7, 26, 14, 4); ctx.fill();
+      ctx.fillStyle = C.tile; rrect(ctx, -2, -5, 8, 10, 2); ctx.fill();
+      ctx.fillStyle = C.accent; ctx.fillRect(11, -5, 2, 3); ctx.fillRect(11, 2, 2, 3);
+    } else {
+      // a satellite: body, two solar wings with panel lines, and an antenna
+      ctx.rotate(Math.atan2(vy, vx));
+      ctx.strokeStyle = C.ink2; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(0, -5); ctx.lineTo(0, -10); ctx.stroke();
+      ctx.fillStyle = C.data; ctx.fillRect(-4, -15, 8, 10); ctx.fillRect(-4, 5, 8, 10);
+      ctx.strokeStyle = C.panel; ctx.lineWidth = 0.8; ctx.beginPath(); ctx.moveTo(-4, -10); ctx.lineTo(4, -10); ctx.moveTo(-4, 10); ctx.lineTo(4, 10); ctx.stroke();
+      ctx.fillStyle = C.ink; rrect(ctx, -6, -5, 12, 10, 2); ctx.fill();
+      ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(0, 0, 1.6, 0, 7); ctx.fill();
+    }
     ctx.restore();
     const Lv = 34 + 60 * uV;
     arrow(ctx, ox, oy, ox + vx * Lv, oy + vy * Lv, C.data, 3, 10);
@@ -5777,7 +5833,7 @@ const RR = (() => {
     R = { mA, vA, mB, vB, fa, fb, meet, wA: 0.5 + 0.16 * mA, wB: 0.5 + 0.16 * mB, pb: mA * vA + mB * vB, pa: mA * fa + mB * fb, Eb: 0.5 * mA * vA * vA + 0.5 * mB * vB * vB, Ea: 0.5 * mA * fa * fa + 0.5 * mB * fb * fb };
   }
   const verdict = $("clVerdict");
-  function reset() { solve(); S.phase = "ready"; S.xa = 4; S.xb = 9.5; S.ca = R.vA; S.cb = R.vB; S.hit = false; S.t = 0; S.after = 0; sim.anim = false; sim.dirty = true; }
+  function reset() { solve(); S.phase = "ready"; S.xa = 4; S.xb = 9.5; S.ca = R.vA; S.cb = R.vB; S.hit = false; S.t = 0; S.after = 0; S.trail = []; S.lastTrail = -1; S.sparks = []; S.rings = []; sim.anim = false; sim.dirty = true; }
   [ma, va, mb, vb].forEach((el) => el.addEventListener("input", () => { verdict.classList.add("hidden"); reset(); }));
   const typeBtns = [...document.querySelectorAll("[data-cl-type]")];
   typeBtns.forEach((b) => b.addEventListener("click", () => { S.type = b.dataset.clType; setPressed(typeBtns, b); verdict.classList.add("hidden"); reset(); }));
@@ -5791,33 +5847,77 @@ const RR = (() => {
     S.phase = "done"; sim.anim = false;
     if (S.guess !== null) { const ok = Math.abs(S.guess - R.fa) <= Math.max(0.05, Math.abs(R.fa) * 0.03); verdict.className = "verdict " + (ok ? "ok" : "bad"); verdict.textContent = ok ? `Docked on target: A's velocity after is ${fx(R.fa, 2, true)} m s⁻¹.` : `A's velocity after is ${fx(R.fa, 2, true)} m s⁻¹, not ${fx(S.guess, 2, true)}. Write total momentum before = total momentum after, with signs.`; S.guess = null; }
   }
+  /* impact effects: a flash ring and sparks at the contact point (metres along the rail) */
+  function burst(m) {
+    S.rings.push({ m, age: 0 });
+    for (let i = 0; i < 26; i++) {
+      const up = -Math.PI * (0.12 + 0.76 * Math.random()), sp = 80 + Math.random() * 160, life = 0.35 + Math.random() * 0.45;
+      S.sparks.push({ m, x: 0, y: 0, vx: Math.cos(up) * sp, vy: Math.sin(up) * sp, life, max: life, hot: Math.random() < 0.6 });
+    }
+  }
   sim.frame = (dt) => {
     if (S.phase === "run") {
       S.t += dt; S.xa += S.ca * dt; S.xb += S.cb * dt;
       if (!S.hit && R.meet && S.xb - R.wB / 2 - (S.xa + R.wA / 2) <= 0) {
         S.hit = true; const ov = S.xa + R.wA / 2 - (S.xb - R.wB / 2); S.xa -= ov / 2; S.xb += ov / 2; S.ca = R.fa; S.cb = R.fb;
+        burst(S.xa + R.wA / 2);
       }
       if (S.hit) S.after += dt;
+      if (S.t - S.lastTrail >= 0.07) { S.lastTrail = S.t; S.trail.push({ a: S.xa, b: S.xb }); if (S.trail.length > 12) S.trail.shift(); }
       const off = (S.xa < -2 || S.xa > 16) && (S.xb < -2 || S.xb > 16);
       if (S.after > 3 || S.t > 14 || off) finish();
     }
+    // effects age and fall under a little gravity
+    S.rings.forEach((r) => (r.age += dt)); S.rings = S.rings.filter((r) => r.age < 0.5);
+    S.sparks.forEach((p) => { p.vy += 420 * dt; p.x += p.vx * dt; p.y += p.vy * dt; p.life -= dt; });
+    S.sparks = S.sparks.filter((p) => p.life > 0);
+
     const { ctx, w, h } = fit(cv, (w) => Math.max(270, Math.round(w * 0.33)));
     clear(ctx, w, h);
     const L = 20, s = (w - 2 * L) / 14, X = (m) => L + m * s, RY = Math.max(96, Math.round(h * 0.38));
-    ctx.strokeStyle = C.axis; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(L, RY); ctx.lineTo(w - L, RY); ctx.stroke();
-    ctx.lineWidth = 1; for (let m = 0; m <= 14; m++) { ctx.beginPath(); ctx.moveTo(X(m), RY); ctx.lineTo(X(m), RY + 5); ctx.stroke(); }
-    const ks = Math.min(14, s * 0.9);
-    const craft = (x, wd, col, lab, v, shift = 0, noLabel = false) => {
-      const px = X(x - wd / 2), pw = wd * s, ch = 30, lx = px + pw / 2 + (shift || 0) * s;
-      ctx.fillStyle = col; rrect(ctx, px, RY - ch - 3, pw, ch, 6); ctx.fill();
-      text(ctx, lab, px + pw / 2, RY - ch / 2 + 1, C.panel, 11, "center");
-      if (noLabel) return;
-      if (Math.abs(v) > 0.01) { arrow(ctx, lx, RY - ch - 16, lx + v * ks, RY - ch - 16, col, 2.5, 8); }
-      text(ctx, fx(v, 1, true) + " m s⁻¹", lx, RY - ch - 26, C.ink2, 11, "center");
+    const ks = Math.min(14, s * 0.9), cy = RY - 18;
+    // scenery: sleepers under a steel rail, one per metre
+    ctx.fillStyle = C.grid; for (let m = 0; m <= 14; m++) ctx.fillRect(X(m) - 2.5, RY + 4, 5, 5);
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 3; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(L, RY); ctx.lineTo(w - L, RY); ctx.stroke();
+    // fading trail: where each craft has been
+    S.trail.forEach((p, i) => {
+      ctx.globalAlpha = 0.07 + 0.2 * (i + 1) / S.trail.length;
+      ctx.fillStyle = C.data; rrect(ctx, X(p.a - R.wA / 2), RY - 34, R.wA * s, 24, 6); ctx.fill();
+      ctx.fillStyle = C.vector; rrect(ctx, X(p.b - R.wB / 2), RY - 34, R.wB * s, 24, 6); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    // trolleys: cab, body, glint, wheels that turn as the trolley rolls, and a velocity arrow
+    const trolley = (x, wd, col, tag, v, mass, showV) => {
+      const px = X(x - wd / 2), pw = wd * s, spin = (x * s) / 6;
+      ctx.fillStyle = C.tile; rrect(ctx, px + pw * 0.2, RY - 46, pw * 0.6, 14, 4); ctx.fill();
+      ctx.fillStyle = col; rrect(ctx, px, RY - 34, pw, 24, 6); ctx.fill();
+      ctx.fillStyle = "rgba(255,255,255,0.22)"; rrect(ctx, px + 5, RY - 32, pw - 10, 4, 2); ctx.fill();
+      text(ctx, tag, px + pw / 2, RY - 16, C.panel, 12, "center");
+      text(ctx, mass, px + pw / 2, RY + 24, C.ink2, 10, "center");
+      [0.22, 0.78].forEach((f) => {
+        const wx = px + pw * f, wy = RY - 5;
+        ctx.fillStyle = C.ink2; ctx.beginPath(); ctx.arc(wx, wy, 6, 0, 7); ctx.fill();
+        ctx.strokeStyle = C.canvas; ctx.lineWidth = 1.5;
+        for (let k = 0; k < 2; k++) { const a = spin + (k * Math.PI) / 2, ux = Math.cos(a) * 4.5, uy = Math.sin(a) * 4.5; ctx.beginPath(); ctx.moveTo(wx - ux, wy - uy); ctx.lineTo(wx + ux, wy + uy); ctx.stroke(); }
+        ctx.fillStyle = C.canvas; ctx.beginPath(); ctx.arc(wx, wy, 1.8, 0, 7); ctx.fill();
+      });
+      if (!showV) return;
+      if (Math.abs(v) > 0.01) arrow(ctx, px + pw / 2, RY - 62, px + pw / 2 + v * ks, RY - 62, col, 3, 9);
+      text(ctx, fx(v, 1, true) + " m s⁻¹", px + pw / 2, RY - 72, C.ink2, 11, "center");
     };
-    const docked = S.hit && S.type === "stick";
-    craft(S.xa, R.wA, C.data, "A " + R.mA.toFixed(1) + " kg", S.ca, docked ? (R.wA + R.wB) / 2 - R.wA / 2 : 0);
-    craft(S.xb, R.wB, C.vector, "B " + R.mB.toFixed(1) + " kg", S.cb, null, docked);
+    // once latched, the pair moves as one: a single joined arrow instead of two overlapping labels
+    const joined = S.hit && S.type === "stick";
+    trolley(S.xa, R.wA, C.data, "A", S.ca, R.mA.toFixed(1) + " kg", !joined);
+    trolley(S.xb, R.wB, C.vector, "B", S.cb, R.mB.toFixed(1) + " kg", !joined);
+    if (joined) {
+      const jx = (X(S.xa - R.wA / 2) + X(S.xb + R.wB / 2)) / 2;
+      if (Math.abs(S.ca) > 0.01) arrow(ctx, jx, RY - 62, jx + S.ca * ks, RY - 62, C.ink, 3, 9);
+      text(ctx, "joined " + fx(S.ca, 1, true) + " m s⁻¹", jx, RY - 72, C.ink2, 11, "center");
+    }
+    // impact flash and sparks
+    S.rings.forEach((r) => { const k = r.age / 0.5; ctx.globalAlpha = 1 - k; ctx.strokeStyle = C.hot; ctx.lineWidth = 3 * (1 - k) + 0.5; ctx.beginPath(); ctx.arc(X(r.m), cy, 6 + 30 * k, 0, 7); ctx.stroke(); });
+    S.sparks.forEach((p) => { ctx.globalAlpha = clamp(p.life / p.max, 0, 1); ctx.strokeStyle = p.hot ? C.hot : C.accent; ctx.lineWidth = 2; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(X(p.m) + p.x, cy + p.y); ctx.lineTo(X(p.m) + p.x - p.vx * 0.04, cy + p.y - p.vy * 0.04); ctx.stroke(); });
+    ctx.globalAlpha = 1;
     // momentum bars
     const done = S.phase === "done", pA0 = R.mA * R.vA, pB0 = R.mB * R.vB, pA1 = R.mA * R.fa, pB1 = R.mB * R.fb;
     const pmax = Math.max(5, Math.abs(pA0) + Math.abs(pB0), Math.abs(pA1) + Math.abs(pB1));
@@ -5845,6 +5945,8 @@ const RR = (() => {
     else if (S.type === "stick") { const lost = R.Eb - R.Ea, pc = R.Eb > 0 ? (100 * lost) / R.Eb : 0; n = `Total momentum is ${fx(R.pb, 1, true)} kg m s⁻¹ before and after: conserved. Kinetic energy fell from ${fmt(R.Eb)} J to ${fmt(R.Ea)} J, so ${fmt(pc, 2)}% was transformed into heat, sound and deformation. This is an inelastic collision.`; }
     else n = `Momentum (${fx(R.pb, 1, true)} kg m s⁻¹) and kinetic energy (${fmt(R.Eb)} J) are both the same before and after: an elastic collision.${Math.abs(R.mA - R.mB) < 1e-9 ? " With equal masses, the craft simply swap velocities." : ""}`;
     $("clNote").textContent = n;
+    // keep animating only while something is moving or sparking
+    sim.anim = S.phase === "run" || S.sparks.length > 0 || S.rings.length > 0;
   };
 })();
 
@@ -5853,25 +5955,46 @@ const RR = (() => {
   const cv = $("imCanvas"), sim = { dirty: true, anim: false }; sims["dock:impulse"] = sim;
   const mm = bindRange("imM", "imMOut", (v) => v + " kg"), vv = bindRange("imV", "imVOut", (v) => v + " m s⁻¹"), tt = bindRange("imT", "imTOut", (v) => v.toFixed(3) + " s");
   let mode = "stop";
-  [mm, vv, tt].forEach((el) => el.addEventListener("input", () => (sim.dirty = true)));
+  // slow-motion timings in seconds (approach, contact, settle). The animation is stretched for viewing; the graph is to scale.
+  const T_APP = 0.6, T_HIT = 1.2, T_END = 2.2;
+  const P = { on: false, t: T_END };
+  const play = () => { P.on = true; P.t = 0; sim.anim = true; sim.dirty = true; };
+  [mm, vv, tt].forEach((el) => el.addEventListener("input", play));
   const mBtns = [...document.querySelectorAll("[data-im-mode]")];
-  mBtns.forEach((b) => b.addEventListener("click", () => { mode = b.dataset.imMode; setPressed(mBtns, b); sim.dirty = true; }));
-  sim.frame = () => {
+  mBtns.forEach((b) => b.addEventListener("click", () => { mode = b.dataset.imMode; setPressed(mBtns, b); play(); }));
+  cv.addEventListener("click", play);
+  sim.frame = (d) => {
+    if (P.on) { P.t += d; if (P.t >= T_END) { P.t = T_END; P.on = false; sim.anim = false; } }
     const m = Number(mm.value), v = Number(vv.value), dt = Number(tt.value), vf = mode === "bounce" ? v / 2 : 0;
     const dp = m * (v + vf), Favg = dp / dt, Fpk = (Math.PI / 2) * Favg;
+    const app = clamp(P.t / T_APP, 0, 1), hit = clamp((P.t - T_APP) / T_HIT, 0, 1), settle = clamp((P.t - T_APP - T_HIT) / (T_END - T_APP - T_HIT), 0, 1);
+    const contact = P.t > T_APP && P.t < T_APP + T_HIT;
     const { ctx, w, h } = fit(cv, (w) => Math.max(280, Math.round(w * 0.42)));
     clear(ctx, w, h);
     const narrow = w < 560, sw = narrow ? 0 : Math.min(170, w * 0.2);
+    const drop = 44, lift = P.t < T_APP ? drop * (1 - app) : mode === "bounce" ? drop * 0.25 * settle : 0;
     if (!narrow) {
       const cx = sw / 2 + 10, gy = h - 50, cush = 8 + dt * 160;
+      const squash = P.t >= T_APP ? cush * 0.45 * Math.sin(Math.PI * hit) : 0, ch = cush - squash;
+      // cushion squashes as the object pushes into it, then springs back
       ctx.fillStyle = C.axis; ctx.fillRect(14, gy, sw - 8, 3);
-      ctx.fillStyle = C.asoft; ctx.strokeStyle = C.data; ctx.lineWidth = 1.5; rrect(ctx, cx - 45, gy - cush, 90, cush, 6); ctx.fill(); ctx.stroke();
-      text(ctx, "cushion", cx, gy - cush / 2 + 4, C.data, 10, "center");
-      const ph = 40; ctx.fillStyle = C.hot; rrect(ctx, cx - 26, gy - cush - ph - 2, 52, ph, 8); ctx.fill();
-      text(ctx, m + " kg", cx, gy - cush - ph / 2 + 2, C.panel, 11, "center");
-      arrow(ctx, cx, gy - cush - ph - 60, cx, gy - cush - ph - 10, C.vector, 3, 10); text(ctx, v + " m s⁻¹", cx + 8, gy - cush - ph - 44, C.vector, 11);
+      ctx.fillStyle = C.asoft; ctx.strokeStyle = C.data; ctx.lineWidth = 1.5; rrect(ctx, cx - 45, gy - ch, 90, ch, 6); ctx.fill(); ctx.stroke();
+      if (ch > 22) text(ctx, "cushion", cx, gy - ch / 2 + 4, C.data, 10, "center");
+      // dust puffs at the cushion edges on impact
+      if (contact) {
+        ctx.strokeStyle = C.muted; ctx.lineWidth = 1.5;
+        for (const sx of [-1, 1]) { const r = 6 + 22 * hit; ctx.globalAlpha = 0.6 * (1 - hit); ctx.beginPath(); ctx.ellipse(cx + sx * 50, gy, r, r * 0.35, 0, Math.PI, 2 * Math.PI); ctx.stroke(); }
+        ctx.globalAlpha = 1;
+      }
+      // the object, with speed lines while it is still falling
+      const ph = 40, objTop = gy - ch - lift - ph;
+      if (P.on && P.t < T_APP) { ctx.strokeStyle = C.muted; ctx.globalAlpha = 0.5; ctx.lineWidth = 2; ctx.lineCap = "round"; for (const ox of [-20, 0, 20]) { ctx.beginPath(); ctx.moveTo(cx + ox, objTop - 8); ctx.lineTo(cx + ox, objTop - 20); ctx.stroke(); } ctx.globalAlpha = 1; }
+      ctx.fillStyle = C.hot; rrect(ctx, cx - 26, objTop, 52, ph, 8); ctx.fill();
+      text(ctx, m + " kg", cx, objTop + ph / 2 + 4, C.panel, 11, "center");
+      arrow(ctx, cx, objTop - 56, cx, objTop - 12, C.vector, 3, 10); text(ctx, v + " m s⁻¹", cx + 8, objTop - 40, C.vector, 11);
     }
-    const gx0 = sw + 60, gx1 = w - 24, gy0 = 40, gy1 = h - 44;
+    // force-time graph, drawn to scale and revealed as the impact plays
+    const gx0 = sw + 60, gx1 = w - 24, gy0 = 58, gy1 = h - 44;
     const tMax = 0.45, ref = (Math.PI / 2) * (dp / 0.05), yMax = niceStep(ref * 1.25, 5) * Math.ceil((ref * 1.25) / niceStep(ref * 1.25, 5));
     const X = (t) => gx0 + (t / tMax) * (gx1 - gx0), Y = (f) => gy1 - (Math.min(f, yMax) / yMax) * (gy1 - gy0);
     ctx.strokeStyle = C.grid; ctx.lineWidth = 1; ctx.beginPath();
@@ -5879,22 +6002,33 @@ const RR = (() => {
     const ys = yMax / 5; for (let f = 0; f <= yMax + 1e-9; f += ys) { ctx.moveTo(gx0, Y(f)); ctx.lineTo(gx1, Y(f)); text(ctx, fmt(f, 2), gx0 - 6, Y(f) + 4, C.muted, 10, "right"); }
     ctx.stroke();
     ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(gx0, gy0); ctx.lineTo(gx0, gy1); ctx.lineTo(gx1, gy1); ctx.stroke();
-    text(ctx, "F (N)", gx0 + 6, gy0 - 10, C.ink2, 11); text(ctx, "t (s)", gx1, gy1 + 32, C.ink2, 11, "right");
+    text(ctx, "F (N)", gx0 + 6, gy0 - 12, C.ink2, 11); text(ctx, "t (s)", gx1, gy1 + 32, C.ink2, 11, "right");
+    const tr = hit * dt, F = (t) => Fpk * Math.sin((Math.PI * t) / dt), NP = 100;
     ctx.save(); ctx.beginPath(); ctx.rect(gx0, gy0 - 2, gx1 - gx0, gy1 - gy0 + 2); ctx.clip();
     ctx.beginPath(); ctx.moveTo(X(0), Y(0));
-    for (let i = 0; i <= 100; i++) { const t = (dt * i) / 100; ctx.lineTo(X(t), Y(Fpk * Math.sin((Math.PI * t) / dt))); }
-    ctx.lineTo(X(dt), Y(0)); ctx.closePath(); ctx.fillStyle = C.asoft; ctx.fill(); ctx.strokeStyle = C.accent; ctx.lineWidth = 2.5; ctx.stroke();
-    ctx.strokeStyle = C.vector; ctx.setLineDash([6, 4]); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(0), Y(Favg)); ctx.lineTo(X(dt), Y(Favg)); ctx.stroke(); ctx.setLineDash([]);
+    for (let i = 0; i <= NP; i++) { const t = (tr * i) / NP; ctx.lineTo(X(t), Y(F(t))); }
+    ctx.lineTo(X(tr), Y(0)); ctx.closePath(); ctx.fillStyle = C.asoft; ctx.fill();
+    ctx.beginPath(); for (let i = 0; i <= NP; i++) { const t = (tr * i) / NP; i ? ctx.lineTo(X(t), Y(F(t))) : ctx.moveTo(X(t), Y(F(t))); }
+    ctx.strokeStyle = C.accent; ctx.lineWidth = 2.5; ctx.stroke();
+    if (hit >= 1) { ctx.strokeStyle = C.vector; ctx.setLineDash([6, 4]); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(0), Y(Favg)); ctx.lineTo(X(dt), Y(Favg)); ctx.stroke(); ctx.setLineDash([]); }
+    if (contact && hit > 0) {
+      ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(X(tr), gy0); ctx.lineTo(X(tr), gy1); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(X(tr), Y(F(tr)), 5, 0, 7); ctx.fill();
+    }
     ctx.restore();
-    if (Fpk > yMax) text(ctx, "↑ peak off scale: " + fmt(Fpk) + " N", X(dt) + 8, gy0 + 12, C.bad, 11);
-    if (Favg <= yMax) text(ctx, "average F = " + fmt(Favg) + " N", X(dt) + 8, Y(Favg) + 4, C.vector, 11);
-    text(ctx, "area = Δp = " + fmt(dp) + " N s", X(Math.min(dt, 0.4)) / 2 + gx0 / 2 + 10, gy1 - 10, C.accent, 11, "left");
-    $("imHud").textContent = "IMPACT ANALYSIS · Δt = " + dt.toFixed(3) + " s";
+    if (hit >= 1) {
+      if (Fpk > yMax) text(ctx, "↑ peak off scale: " + fmt(Fpk) + " N", X(dt) + 8, gy0 + 12, C.bad, 11);
+      if (Favg <= yMax) text(ctx, "average F = " + fmt(Favg) + " N", X(dt) + 8, Y(Favg) + 4, C.vector, 11);
+      text(ctx, "area = Δp = " + fmt(dp) + " N s", X(Math.min(dt, 0.4)) / 2 + gx0 / 2 + 10, gy1 - 10, C.accent, 11, "left");
+    }
+    $("imHud").textContent = (P.on ? "SLOW MOTION" : "IMPACT ANALYSIS") + " · Δt = " + dt.toFixed(3) + " s";
     $("imDp").textContent = fmt(dp) + " kg m s⁻¹ up"; $("imF").textContent = fmt(Favg) + " N"; $("imG").textContent = fmt(Favg / (m * G), 2) + " × weight";
     const k = dt / 0.01;
     let n = `Every curve with these settings has the same area, ${fmt(dp)} N s, because the change in momentum is fixed by the mass and speed. This stopping time is ${fmt(k, 2)} times longer than a 0.010 s hard stop, so the average force is ${fmt(k, 2)} times smaller.`;
     if (mode === "bounce") n += " Bouncing back means a bigger \\(\\Delta p\\) (stop, then go back up), so a bigger force than stopping dead in the same time.";
+    n += P.on ? " The animation is in slow motion; the graph is drawn to scale." : " Tap the graph to replay the impact.";
     $("imNote").textContent = n;
+    sim.anim = P.on;
   };
 })();
 

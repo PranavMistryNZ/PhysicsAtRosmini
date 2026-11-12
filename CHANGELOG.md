@@ -5,6 +5,14 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.13 · 13 November 2026 (Year 12 Mechanics: livelier simulations)
+- Collisions: trolleys with wheels that turn as they roll, a fading trail, a flash and sparks at
+  impact, and one joined arrow once the trolleys latch together.
+- Impulse: the impact replays in slow motion (tap the graph to replay), the cushion squashes and
+  springs back, and the force-time graph fills in to scale as the impact plays.
+- Circular motion: a fading trail behind the object, a car with wheels and headlights on a
+  banked road, a shaded string bob, a satellite with solar panels, and a starfield around Earth.
+
 ## v1.12 · 12 November 2026 (Year 13 Electrical becomes a revision site first)
 - 0.1 is now a revision Summary and loads first: eight cards covering AS91526 (DC circuits,
   capacitors, flux and Faraday, inductors, capacitor and inductor side by side, transformers,
