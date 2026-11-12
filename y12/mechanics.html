@@ -130,7 +130,6 @@ sub,sup{font-size:.72em;line-height:0}
 .tabs{display:flex;flex-wrap:wrap;gap:8px}
 .tab{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid var(--line);background:var(--panel-solid);color:var(--ink-2);font-family:var(--mono);font-size:13px;cursor:pointer}
 .tab:hover{border-color:var(--accent);color:var(--ink)}
-.tab.check{border-color:var(--check-line);color:var(--check-line);background:transparent}
 .tab[aria-selected="true"]{border-color:var(--accent);background:var(--accent-fill);color:var(--on-accent);font-weight:600;box-shadow:0 0 22px -8px var(--accent-glow)}
 
 /* search */
@@ -254,7 +253,7 @@ details.ans[open] summary{margin-bottom:8px}
 /* quizzes */
 .quiz{display:flex;flex-direction:column;gap:12px}
 .q-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:13px;color:var(--ink-2)}
-.qq{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--panel-solid);display:flex;flex-direction:column;gap:10px}
+.qq{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--tile);display:flex;flex-direction:column;gap:10px}
 .qq .tag{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.12em}
 .opts{display:grid;gap:8px}
 .opts button{text-align:left;min-height:44px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--field);color:var(--ink);cursor:pointer;font-size:15px}
@@ -645,8 +644,8 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <p class="sum-trap"><b>Watch out:</b> choose a positive direction at the start and keep it. Slowing down means a negative \(a\) if the motion is positive.</p>
       <button type="button" class="btn sm" data-go="launch:intro">Open Motion →</button></article>
     <article class="card sum-card"><div class="sum-head"><span class="num">02</span><h3>Vectors &amp; relative motion</h3><span class="sum-ch">Textbook ch. 9</span></div>
-      <ul><li>A vector has a size and a direction. Add vectors tip to tail; the resultant goes from the first tail to the last tip.</li><li>At right angles, use Pythagoras for the size and \(\tan\theta\) for the direction.</li><li>Split a vector into perpendicular components. The components replace the vector.</li><li>Change in velocity is a vector subtraction: \(\Delta v = v_{f} - v_{i}\), which is \(v_{f} + (-v_{i})\).</li><li>Relative velocity: the velocity of A as seen from B is \(v_{A} - v_{B}\). A river crossing time uses only the velocity straight across.</li></ul>
-      <div class="sum-eqs"><span>\(R = \sqrt{A^{2} + B^{2}}\)</span><span>\(\tan\theta = \frac{B}{A}\)</span><span>\(V_{x} = V\cos\theta\)</span><span>\(V_{y} = V\sin\theta\)</span><span>\(\Delta v = v_{f} - v_{i}\)</span></div>
+      <ul><li>A vector has a size and a direction. Add vectors nose to tail: the resultant goes from the tail of the first vector to the nose of the last, and has two arrowheads.</li><li>At right angles, use Pythagoras for the size and \(\tan\theta\) for the direction.</li><li>Split a vector into perpendicular components. The components replace the vector.</li><li>To subtract a vector, flip it round so it points the other way, label it with a minus sign (for example \(-v_{i}\)), and add it nose to tail exactly as in addition. Change in velocity is \(\Delta v = v_{f} + (-v_{i})\).</li><li>Relative velocity: the velocity of A as seen from B is \(v_{A} - v_{B}\). A river crossing time uses only the velocity straight across.</li></ul>
+      <div class="sum-eqs"><span>\(R = \sqrt{A^{2} + B^{2}}\)</span><span>\(\tan\theta = \frac{B}{A}\)</span><span>\(V_{x} = V\cos\theta\)</span><span>\(V_{y} = V\sin\theta\)</span><span>\(\Delta v = v_{f} + (-v_{i})\)</span></div>
       <p class="sum-say"><b>Say it like this:</b> “The velocity of the boat relative to the bank is the vector sum of its velocity through the water and the velocity of the current.”</p>
       <p class="sum-trap"><b>Watch out:</b> every vector answer needs a direction as well as a size and a unit, for example "5.0 m s⁻¹ at 37° east of north".</p>
       <button type="button" class="btn sm" data-go="vec:intro">Open Vectors &amp; relative motion →</button></article>
@@ -969,8 +968,8 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     <div class="card tint"><span class="label">Using signs</span><p>Right is +: (+5) + (−3) = <b>+2 m</b>. The sign tells you the direction.</p></div>
   </div>
 
-  <h3>4 · Adding vectors at an angle: tip to tail</h3>
-  <p>To add vectors in two dimensions, draw them <b>tip to tail</b>: start the second arrow where the first one ends. The <b>resultant</b> runs from the start of the first arrow to the tip of the last, and is drawn with a <b>double arrowhead in the middle</b> so it isn't mistaken for one of the vectors being added. Its size comes from Pythagoras when the vectors are at right angles, and its direction from trigonometry.</p>
+  <h3>4 · Adding vectors at an angle: nose to tail</h3>
+  <p>To add vectors in two dimensions, draw them <b>nose to tail</b>: start the second arrow at the nose of the first. The <b>resultant</b> runs from the tail of the first arrow to the nose of the last, and is drawn with a <b>double arrowhead in the middle</b> so it isn't mistaken for one of the vectors being added. Its size comes from Pythagoras when the vectors are at right angles, and its direction from trigonometry.</p>
   <div class="seg" role="group" aria-label="Examples">
     <button type="button" data-va="3,0,0,4" aria-pressed="true">3 m east, then 4 m north</button>
     <button type="button" data-va="5,0,3,0" aria-pressed="false">Same direction</button>
@@ -1007,9 +1006,9 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <p class="eq-block">\(R = \sqrt{3.0^{2} + 4.0^{2}} = 5.0 \,\mathrm{m}\)</p>
       <p class="eq-block">\(\tan \theta = 4.0 \div 3.0,\ \text{so}\ \theta = 53^\circ\)</p>
       <p>Resultant: <b>5.0 m at 53° north of east</b>. Always give a direction with a vector answer.</p></div>
-    <div class="card"><span class="label">Subtracting: add the opposite</span>
-      <p><span class="eq">\(A - B = A + (-B)\)</span>. Flip B round to point the other way, then add it tip to tail.</p>
-      <p>You need this for a <b>change</b> in a vector, such as <span class="eq">\(\Delta v = v_{f} - v_{i}\)</span>. A ball moving at 4 m s⁻¹ east that ends up moving 3 m s⁻¹ north has \(\Delta v = 5\,\mathrm{m\,s^{-1}}\) towards the north-west, even though its speed only dropped by 1 m s⁻¹.</p></div>
+    <div class="card"><span class="label">Subtracting: flip it, then add</span>
+      <p><span class="eq">\(A - B = A + (-B)\)</span>. Flip B round so it points the other way, label it <b>−B</b>, then add it nose to tail after A. The resultant runs from the tail of A to the nose of −B.</p>
+      <p>You need this for a <b>change</b> in a vector, such as <span class="eq">\(\Delta v = v_{f} + (-v_{i})\)</span>. A ball moving at 4 m s⁻¹ east that ends up moving 3 m s⁻¹ north has \(\Delta v = 5\,\mathrm{m\,s^{-1}}\) towards the north-west, even though its speed only dropped by 1 m s⁻¹.</p></div>
   </div>
   <div class="card tint"><span class="label">Splitting a vector into components</span><p>Any vector can be split into two perpendicular parts that add back to it: <span class="eq">\(\text{horizontal} = V \cos \theta\)</span> and <span class="eq">\(\text{vertical} = V \sin \theta\)</span>, with θ measured from the horizontal. You'll use this for projectiles (phase <span data-phase="proj:lab">1.5</span>) and for forces (phase <span data-phase="thrust:vectors">2.2</span>).</p></div>
 </section>
@@ -1914,8 +1913,8 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
             </g>
             <g font-family="JetBrains Mono" font-size="12"><text x="80" y="126" style="fill:var(--data)">A</text><text x="158" y="74" style="fill:var(--vector)">B</text><text x="50" y="66" style="fill:var(--accent)">A + B</text></g>
           </svg>
-          <p>Two or more <b>separate</b> vectors act together, and you combine them into <b>one resultant</b>. Draw them tip to tail. The resultant goes from the start of the first to the tip of the last, and is marked with a double arrowhead.</p>
-          <p class="small">Use it for: two forces pulling on the same object; a walk made of several legs; a boat's velocity plus the river current. Subtracting (\(A - B = A + (-B)\)) gives a <b>change</b>, such as \(\Delta v = v_{f} - v_{i}\).</p>
+          <p>Two or more <b>separate</b> vectors act together, and you combine them into <b>one resultant</b>. Draw them nose to tail. The resultant goes from the tail of the first to the nose of the last, and is marked with two arrowheads.</p>
+          <p class="small">Use it for: two forces pulling on the same object; a walk made of several legs; a boat's velocity plus the river current. Subtracting (\(A - B = A + (-B)\)) gives a <b>change</b>, such as \(\Delta v = v_{f} + (-v_{i})\): flip the second vector, label it with a minus sign, and add it nose to tail.</p>
         </div>
         <div class="card">
           <span class="label">Components: one → two</span>
@@ -1948,7 +1947,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <div class="grid2x">
         <div class="card"><span class="label">Adding at right angles</span><p>Forces of 3.0 N east and 4.0 N north act on a box.</p><p class="eq-block">\(R = \sqrt{3.0^{2} + 4.0^{2}} = 5.0 \,\mathrm{N},\ \tan \theta = 4.0 \div 3.0,\ \theta = 53^\circ\)</p><p>Resultant: <b>5.0 N at 53° north of east</b>.</p></div>
         <div class="card"><span class="label">Adding in a line</span><p>A 600 N push forwards and 250 N of friction backwards. Take forwards as +.</p><p class="eq-block">\((+600) + (-250) = +350 \,\mathrm{N}\)</p><p>Net force: <b>350 N forwards</b>.</p></div>
-        <div class="card"><span class="label">Subtracting: change in velocity</span><p>A ball hits a wall at 6.0 m s⁻¹ right and bounces back at 4.0 m s⁻¹ left. Take right as +.</p><p class="eq-block">\(\Delta v = v_{f} - v_{i} = (-4.0) - (+6.0) = -10 \,\mathrm{m\,s^{-1}}\)</p><p>Change in velocity: <b>10 m s⁻¹ to the left</b>, much bigger than the 2 m s⁻¹ drop in speed.</p></div>
+        <div class="card"><span class="label">Subtracting: change in velocity</span><p>A ball hits a wall at 6.0 m s⁻¹ right and bounces back at 4.0 m s⁻¹ left. Take right as +.</p><p class="eq-block">\(\Delta v = v_{f} + (-v_{i}) = (-4.0) - (+6.0) = -10 \,\mathrm{m\,s^{-1}}\)</p><p>Change in velocity: <b>10 m s⁻¹ to the left</b>, much bigger than the 2 m s⁻¹ drop in speed.</p></div>
         <div class="card"><span class="label">Components</span><p>A ball is kicked at 20 m s⁻¹ at 40° above the horizontal.</p><p class="eq-block">\(v_{x} = 20 \cos 40^\circ = 15.3 \,\mathrm{m\,s^{-1}},\ v_{y} = 20 \sin 40^\circ = 12.9 \,\mathrm{m\,s^{-1}}\)</p><p>The ball moves sideways at 15.3 m s⁻¹ while it rises and falls as if thrown straight up at 12.9 m s⁻¹.</p></div>
       </div>
       <p class="small">Try both in the interactive vector lab: <button type="button" class="btn sm" data-go="vec:lab">phase <span data-phase="vec:lab"></span> Vector lab</button></p>
@@ -2505,10 +2504,10 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <svg viewBox="0 0 420 170" role="img" aria-label="Two velocity vectors on a circle and their difference pointing towards the centre" style="width:100%;max-width:480px;height:auto">
         <circle cx="90" cy="90" r="65" fill="none" style="stroke:var(--axis)" stroke-width="2" stroke-dasharray="4 5"/><circle cx="90" cy="90" r="3" style="fill:var(--muted)"/>
         <g stroke-width="3" stroke-linecap="round" fill="none"><path d="M90 25h60" style="stroke:var(--data)"/><path d="M143 19l7 6-7 6" style="stroke:var(--data)"/><path d="M136 44l42 42" style="stroke:var(--vector)"/><path d="M168 85l10 1-1-10" style="stroke:var(--vector)"/></g>
-        <g transform="translate(250 30)" stroke-width="3" stroke-linecap="round" fill="none"><path d="M0 40h60" style="stroke:var(--data)"/><path d="M0 40l42 42" style="stroke:var(--vector)"/><path d="M60 40 L42 82" style="stroke:var(--accent)"/><path d="M41 72l1 10 7-7" style="stroke:var(--accent)"/></g>
+        <g transform="translate(250 30)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M0 40L42 82" style="stroke:var(--vector)"/><path d="M34 81.3L42 82L41.3 74" style="stroke:var(--vector)"/><path d="M42 82L-18 82" style="stroke:var(--data)"/><path d="M-10 76L-18 82L-10 88" style="stroke:var(--data)"/><path d="M0 40L-18 82" style="stroke:var(--accent)"/><path d="M-11.5 56.7L-10.6 64.7L-4.1 59.8" style="stroke:var(--accent)"/><path d="M-8.3 49.3L-7.4 57.3L-1 52.5" style="stroke:var(--accent)"/><g font-family="JetBrains Mono" font-size="11" stroke="none"><text x="30" y="56" style="fill:var(--vector)">v₂</text><text x="6" y="98" style="fill:var(--data)">−v₁</text><text x="-34" y="60" style="fill:var(--accent)">Δv</text></g></g>
         <g font-family="JetBrains Mono" font-size="12"><text x="152" y="22" style="fill:var(--data)">v₁</text><text x="182" y="98" style="fill:var(--vector)">v₂</text><text x="254" y="22" style="fill:var(--muted)">v₂ = v₁ + Δv</text><text x="304" y="112" style="fill:var(--accent)">Δv → centre</text></g>
       </svg>
-      <p>Compare the velocity at two nearby points. The change, <span class="eq">\(\Delta v = v_{2} - v_{1}\)</span>, points towards the centre, so the acceleration points towards the centre too: <span class="eq">\(a_c=\frac{v^2}{r}\)</span>.</p>
+      <p>Compare the velocity at two nearby points. To find the change, start with <span class="eq">\(v_{2}\)</span> and add <span class="eq">\(-v_{1}\)</span> nose to tail after it. The resultant from the tail of <span class="eq">\(v_{2}\)</span> to the nose of <span class="eq">\(-v_{1}\)</span> is <span class="eq">\(\Delta v = v_{2} + (-v_{1})\)</span>, and it points towards the centre, so the acceleration points towards the centre too: <span class="eq">\(a_c=\frac{v^2}{r}\)</span>.</p>
     </div></details>
     <details class="step"><summary><span class="ref">3.1.3</span>Centripetal force is a job, not a new force</summary><div class="step-body">
       <p>By Newton's second law, an acceleration towards the centre needs a net force towards the centre: <span class="eq">\(F_c=\frac{mv^2}{r}\)</span>. This is not an extra force to add to a diagram. It is the role played by a real force:</p>
@@ -2538,7 +2537,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
       <label class="ctrl"><span class="row"><span>Mass, m</span><output id="cmMOut">0.50 kg</output></span><input type="range" id="cmM" min="0" max="1" step="0.01" value="0.5"></label>
       <label class="ctrl"><span class="row"><span>Radius, r</span><output id="cmROut">0.80 m</output></span><input type="range" id="cmR" min="0" max="1" step="0.01" value="0.5"></label>
       <label class="ctrl"><span class="row"><span>Speed, v</span><output id="cmVOut">4.0 m s⁻¹</output></span><input type="range" id="cmV" min="0" max="1" step="0.01" value="0.5"></label>
-      <div class="btns"><button class="btn go" type="button" id="cmRelease">RELEASE</button><button class="btn" type="button" id="cmDv" aria-pressed="false">Show \(\Delta v\)</button></div>
+      <div class="btns"><button class="btn go" type="button" id="cmRelease">RELEASE</button><button class="btn" type="button" id="cmPause" aria-pressed="false">Pause</button><button class="btn" type="button" id="cmDv" aria-pressed="false">Show \(\Delta v\)</button></div>
     </div>
     <div class="card">
       <div class="label">Readings</div>
@@ -2549,6 +2548,32 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
         <div class="tm"><span>Force provided by</span><b id="cmBy">–</b></div>
       </div>
       <p class="note" id="cmNote"></p>
+    </div>
+  </div>
+</section>
+
+<section class="pane hidden" data-mod="orbit" data-view="derive" data-title="Where a = v²/r comes from">
+  <div class="pane-head"><h2>Phase 3.3 · Where a = v²/r comes from</h2><span class="badge">DERIVATION</span></div>
+  <p class="lede">The object at two positions a short time apart. Its change in velocity points to the centre, and two similar triangles give the acceleration. Step through it, and slide the angle to see the exact average approach v²/r.</p>
+  <div class="screen"><canvas id="dvCanvas" width="900" height="360" aria-label="Left: the object at an earlier and a later position on a circle, with their velocities. Right: the velocity triangle showing the change in velocity pointing to the centre."></canvas><div class="hud" id="dvHud">STEP 1 OF 4</div></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Step</div>
+      <div class="dv-step" id="dvStep" aria-live="polite"></div>
+      <div class="btns"><button class="btn" type="button" id="dvBack">Back</button><button class="btn go" type="button" id="dvNext">Next</button></div>
+    </div>
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Angle between the positions, Δθ</span><output id="dvThOut">30°</output></span><input type="range" id="dvTh" min="2" max="60" step="1" value="30"></label>
+      <label class="ctrl"><span class="row"><span>Speed, v</span><output id="dvVOut">4.0 m s⁻¹</output></span><input type="range" id="dvV" min="1" max="8" step="0.5" value="4"></label>
+      <label class="ctrl"><span class="row"><span>Radius, r</span><output id="dvROut">0.80 m</output></span><input type="range" id="dvR" min="0.2" max="2" step="0.05" value="0.8"></label>
+      <div class="telemetry">
+        <div class="tm"><span>Time between positions, Δt</span><b id="dvT">–</b></div>
+        <div class="tm"><span>Change in velocity, Δv</span><b id="dvDv">–</b></div>
+        <div class="tm hl"><span>Average acceleration, Δv ÷ Δt</span><b id="dvAvg">–</b></div>
+        <div class="tm hl"><span>Exact value, v² ÷ r</span><b id="dvExact">–</b></div>
+      </div>
+      <p class="note" id="dvNote"></p>
     </div>
   </div>
 </section>
@@ -3102,7 +3127,7 @@ const MODS = {
   thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "Foundations"], ["vectors", "Vectors"], ["lift", "Lift"], ["torque", "Torque"], ["bridges", "Bridges & seesaws"], ["springs", "Springs"], ["practicals", "Practicals"], ["check", "Quick check"], ["problems", "Problems"]] },
   dock: { title: "MOMENTUM & IMPULSE", name: "Momentum & impulse", views: [["intro", "Foundations"], ["collide", "Collisions"], ["impulse", "Impulse"], ["check", "Quick check"], ["problems", "Problems"]] },
   proj: { title: "PROJECTILE MOTION", name: "Projectile motion", views: [["intro", "Foundations"], ["lab", "Projectile lab"], ["check", "Quick check"], ["problems", "Problems"]] },
-  orbit: { title: "CIRCULAR MOTION", name: "Circular motion", views: [["intro", "Foundations"], ["lab", "Centripetal force"], ["practical", "Practical"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
+  orbit: { title: "CIRCULAR MOTION", name: "Circular motion", views: [["intro", "Foundations"], ["lab", "Centripetal force"], ["derive", "Derivation"], ["practical", "Practical"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
   fuel: { title: "WORK, ENERGY & POWER", name: "Work, energy & power", views: [["intro", "Foundations"], ["lab", "Energy track"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
 };
 const SCOPE = {
@@ -3406,7 +3431,7 @@ const Q = {
     ["Forces of 7 N left and 3 N right act on a box. The resultant force is…", ["10 N left", "4 N left", "4 N right", "10 N right"], 1, "They are in opposite directions, so subtract: 7 − 3 = 4 N, in the direction of the bigger force."],
     ["A boat heads straight across a river at 4.0 m s⁻¹ while the current flows at 3.0 m s⁻¹. What is its speed relative to the bank?", ["7.0 m s⁻¹", "5.0 m s⁻¹", "1.0 m s⁻¹", "12 m s⁻¹"], 1, "The two velocities are at right angles: \\(v = \\sqrt{4.0^{2} + 3.0^{2}} = 5.0\\,\\mathrm{m\\,s^{-1}}\\)."],
     ["For a boat crossing a river, which velocity decides how long the crossing takes?", ["The current", "The resultant velocity", "The boat\\'s velocity straight across", "The difference between the two"], 2, "Only the component straight across moves the boat towards the far bank: \\(t = \\frac{\\text{width}}{v_{\\text{across}}}\\). The current only causes drift."],
-    ["A ball moving at 5.0 m s⁻¹ east bounces back at 3.0 m s⁻¹ west. What is its change in velocity?", ["2.0 m s⁻¹ east", "8.0 m s⁻¹ west", "2.0 m s⁻¹ west", "8.0 m s⁻¹ east"], 1, "Take east as positive: \\(\\Delta v = v_{f} - v_{i} = -3.0 - (+5.0) = -8.0\\,\\mathrm{m\\,s^{-1}}\\), so 8.0 m s⁻¹ west."],
+    ["A ball moving at 5.0 m s⁻¹ east bounces back at 3.0 m s⁻¹ west. What is its change in velocity?", ["2.0 m s⁻¹ east", "8.0 m s⁻¹ west", "2.0 m s⁻¹ west", "8.0 m s⁻¹ east"], 1, "Take east as positive: \\(\\Delta v = v_{f} + (-v_{i}) = -3.0 - (+5.0) = -8.0\\,\\mathrm{m\\,s^{-1}}\\), so 8.0 m s⁻¹ west."],
     ["A 50 N force acts at 30° above the horizontal. What is its vertical component?", ["43 N", "25 N", "50 N", "29 N"], 1, "\\(F_{y} = 50\\sin 30^\\circ = 25\\,\\mathrm{N}\\). The horizontal component is \\(50\\cos 30^\\circ = 43\\,\\mathrm{N}\\)."],
     ["Car A drives north at 25 m s⁻¹ and car B drives north at 20 m s⁻¹. What is the velocity of A relative to B?", ["45 m s⁻¹ north", "5 m s⁻¹ north", "5 m s⁻¹ south", "45 m s⁻¹ south"], 1, "\\(v_{A\\,\\text{rel}\\,B} = v_{A} - v_{B} = 25 - 20 = 5\\,\\mathrm{m\\,s^{-1}}\\) north."],
   ],
@@ -4319,7 +4344,6 @@ function powerCalc() {
     }
     // components of resultant
     if (rx && ry) { ctx.save(); ctx.strokeStyle = C.accent; ctx.globalAlpha = 0.5; ctx.setLineDash([3, 4]); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(O.x, O.y); ctx.lineTo(P(rx, 0).x, O.y); ctx.lineTo(B.x, B.y); ctx.stroke(); ctx.restore(); }
-    if (S.op === "sub" && (v.bx || v.by)) { const Bo = P(v.ax + v.bx, v.ay + v.by); ctx.save(); ctx.globalAlpha = 0.35; arrow(ctx, A.x, A.y, Bo.x, Bo.y, C.vector, 2, 8, [2, 4]); ctx.restore(); text(ctx, "B", Bo.x + 6, Bo.y - 6, C.muted, 11); }
     if (v.ax || v.ay) arrow(ctx, O.x, O.y, A.x, A.y, C.data, 3.5, 12);
     if (bx || by) arrow(ctx, A.x, A.y, B.x, B.y, C.vector, 3.5, 12);
     const inLine = Math.abs(v.ax * by - v.ay * bx) < 1e-9;
@@ -4352,7 +4376,7 @@ function powerCalc() {
     else if (parallel) { const same = v.ax * bx + v.ay * by > 0; n = same ? `The vectors point the same way, so their sizes simply add: ${fmt(Math.hypot(v.ax, v.ay))} + ${fmt(Math.hypot(bx, by))} = ${fmt(R)} m.` : `The vectors point in opposite directions, so subtract the sizes: |${fmt(Math.hypot(v.ax, v.ay))} − ${fmt(Math.hypot(bx, by))}| = ${fmt(R)} m, in the direction of the bigger one.`; }
     else if (perp) n = `At right angles: \\(R = \\sqrt{${tn(fmt(Math.hypot(v.ax, v.ay)))}^{2} + ${tn(fmt(Math.hypot(bx, by)))}^{2}} = ${tn(fmt(R))}\\,\\mathrm{m}\\). Note this is less than ${fmt(Math.hypot(v.ax, v.ay) + Math.hypot(bx, by))} m, the sum of the sizes.`;
     else n = `Add the parts separately: east ${fx(v.ax, 0, true)} ${bx < 0 ? "−" : "+"} ${Math.abs(bx)} = ${fx(rx, 0, true)} m, north ${fx(v.ay, 0, true)} ${by < 0 ? "−" : "+"} ${Math.abs(by)} = ${fx(ry, 0, true)} m. Then \\(R = \\sqrt{${sq(rx)} + ${sq(ry)}} = ${tn(fmt(R))}\\,\\mathrm{m}\\).`;
-    if (S.op === "sub" && R > 1e-9) n = "To subtract B, flip it round (−B) and add it tip to tail. " + n;
+    if (S.op === "sub" && R > 1e-9) n = "To subtract B, flip it round to −B and add it nose to tail after A. The resultant runs from the tail of A to the nose of −B. " + n;
     $("vaNote").textContent = n;
     $("vaHud").textContent = S.drag ? "DRAGGING " + S.drag : "DRAG AN ARROWHEAD TO CHANGE A VECTOR";
   };
@@ -5661,7 +5685,9 @@ const RR = (() => {
     car: { m: [600, 2000], r: [20, 100], v: [5, 30], def: { m: 1100, r: 50, v: 17.3 }, by: "Friction", S: 2.5 },
     sat: { m: [100, 5000], r: [6.6e6, 4.22e7], v: [2000, 9000], def: { m: 500, r: 6.78e6, v: 7660 }, by: "Gravity", S: 700, logR: true },
   };
-  let ctxName = "string", th = 0, rel = null, showDv = false;
+  let ctxName = "string", th = 0, rel = null, showDv = false, paused = false;
+  const pauseBtn = $("cmPause");
+  pauseBtn.addEventListener("click", () => { paused = !paused; pauseBtn.textContent = paused ? "Resume" : "Pause"; pauseBtn.setAttribute("aria-pressed", String(paused)); });
   const sm = $("cmM"), sr = $("cmR"), svv = $("cmV");
   const val = (el, key) => { const [lo, hi] = CTX[ctxName][key], u = Number(el.value); return key === "r" && CTX[ctxName].logR ? lo * Math.pow(hi / lo, u) : lo + u * (hi - lo); };
   const inv = (x, key) => { const [lo, hi] = CTX[ctxName][key]; return key === "r" && CTX[ctxName].logR ? Math.log(x / lo) / Math.log(hi / lo) : (x - lo) / (hi - lo); };
@@ -5684,6 +5710,33 @@ const RR = (() => {
   $("cmRelease").addEventListener("click", () => { rel = rel ? null : { t: 0, th0: th }; });
   const dvBtn = $("cmDv"); dvBtn.addEventListener("click", () => { showDv = !showDv; dvBtn.setAttribute("aria-pressed", String(showDv)); });
   const fT = (T) => (T < 120 ? fmt(T, 2) + " s" : T < 7200 ? fmt(T / 60, 3) + " min" : fmt(T / 3600, 3) + " h");
+  // the object (ball, rover or satellite) drawn at a point, facing its velocity; alpha 0.3 gives the ghost
+  const drawBody = (ctx, x, y, vx, vy, alpha) => {
+    ctx.save(); ctx.globalAlpha = alpha; ctx.translate(x, y);
+    if (ctxName === "string") {
+      // a shaded bob
+      const br = 9 + 4 * Number(sm.value), bg = ctx.createRadialGradient(-br * 0.35, -br * 0.35, br * 0.1, 0, 0, br);
+      bg.addColorStop(0, C.data); bg.addColorStop(1, C.ink);
+      ctx.fillStyle = bg; ctx.beginPath(); ctx.arc(0, 0, br, 0, 7); ctx.fill();
+      ctx.fillStyle = "rgba(255,255,255,0.45)"; ctx.beginPath(); ctx.arc(-br * 0.35, -br * 0.35, br * 0.22, 0, 7); ctx.fill();
+    } else if (ctxName === "car") {
+      // a small car with windscreen, four wheels and headlights
+      ctx.rotate(Math.atan2(vy, vx));
+      ctx.fillStyle = C.ink; rrect(ctx, -11, -11, 6, 4, 1); ctx.fill(); rrect(ctx, 5, -11, 6, 4, 1); ctx.fill(); rrect(ctx, -11, 7, 6, 4, 1); ctx.fill(); rrect(ctx, 5, 7, 6, 4, 1); ctx.fill();
+      ctx.fillStyle = C.hot; rrect(ctx, -13, -7, 26, 14, 4); ctx.fill();
+      ctx.fillStyle = C.tile; rrect(ctx, -2, -5, 8, 10, 2); ctx.fill();
+      ctx.fillStyle = C.accent; ctx.fillRect(11, -5, 2, 3); ctx.fillRect(11, 2, 2, 3);
+    } else {
+      // a satellite: body, two solar wings with panel lines, and an antenna
+      ctx.rotate(Math.atan2(vy, vx));
+      ctx.strokeStyle = C.ink2; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(0, -5); ctx.lineTo(0, -10); ctx.stroke();
+      ctx.fillStyle = C.data; ctx.fillRect(-4, -15, 8, 10); ctx.fillRect(-4, 5, 8, 10);
+      ctx.strokeStyle = C.panel; ctx.lineWidth = 0.8; ctx.beginPath(); ctx.moveTo(-4, -10); ctx.lineTo(4, -10); ctx.moveTo(-4, 10); ctx.lineTo(4, 10); ctx.stroke();
+      ctx.fillStyle = C.ink; rrect(ctx, -6, -5, 12, 10, 2); ctx.fill();
+      ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(0, 0, 1.6, 0, 7); ctx.fill();
+    }
+    ctx.restore();
+  };
   // fixed pseudo-random stars, so the field does not move between frames
   const starfield = (ctx, w, h) => {
     ctx.fillStyle = C.muted;
@@ -5694,7 +5747,8 @@ const RR = (() => {
     }
     ctx.globalAlpha = 1;
   };
-  sim.frame = (dt) => {
+  sim.frame = (frameDt) => {
+    const dt = paused ? 0 : frameDt;
     const m = val(sm, "m"), r = val(sr, "r"), v = val(svv, "v"), a = (v * v) / r, F = m * a, T = (2 * Math.PI * r) / v;
     const cfg = CTX[ctxName], uR = Number(sr.value), uV = Number(svv.value);
     const Fmax = cfg.m[1] * cfg.v[1] * cfg.v[1] / cfg.r[0];
@@ -5749,30 +5803,7 @@ const RR = (() => {
       ctx.globalAlpha = 1;
     }
     // object
-    ctx.save(); ctx.translate(ox, oy);
-    if (ctxName === "string") {
-      // a shaded bob
-      const br = 9 + 4 * Number(sm.value), bg = ctx.createRadialGradient(-br * 0.35, -br * 0.35, br * 0.1, 0, 0, br);
-      bg.addColorStop(0, C.data); bg.addColorStop(1, C.ink);
-      ctx.fillStyle = bg; ctx.beginPath(); ctx.arc(0, 0, br, 0, 7); ctx.fill();
-      ctx.fillStyle = "rgba(255,255,255,0.45)"; ctx.beginPath(); ctx.arc(-br * 0.35, -br * 0.35, br * 0.22, 0, 7); ctx.fill();
-    } else if (ctxName === "car") {
-      // a small car with windscreen, four wheels and headlights
-      ctx.rotate(Math.atan2(vy, vx));
-      ctx.fillStyle = C.ink; rrect(ctx, -11, -11, 6, 4, 1); ctx.fill(); rrect(ctx, 5, -11, 6, 4, 1); ctx.fill(); rrect(ctx, -11, 7, 6, 4, 1); ctx.fill(); rrect(ctx, 5, 7, 6, 4, 1); ctx.fill();
-      ctx.fillStyle = C.hot; rrect(ctx, -13, -7, 26, 14, 4); ctx.fill();
-      ctx.fillStyle = C.tile; rrect(ctx, -2, -5, 8, 10, 2); ctx.fill();
-      ctx.fillStyle = C.accent; ctx.fillRect(11, -5, 2, 3); ctx.fillRect(11, 2, 2, 3);
-    } else {
-      // a satellite: body, two solar wings with panel lines, and an antenna
-      ctx.rotate(Math.atan2(vy, vx));
-      ctx.strokeStyle = C.ink2; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(0, -5); ctx.lineTo(0, -10); ctx.stroke();
-      ctx.fillStyle = C.data; ctx.fillRect(-4, -15, 8, 10); ctx.fillRect(-4, 5, 8, 10);
-      ctx.strokeStyle = C.panel; ctx.lineWidth = 0.8; ctx.beginPath(); ctx.moveTo(-4, -10); ctx.lineTo(4, -10); ctx.moveTo(-4, 10); ctx.lineTo(4, 10); ctx.stroke();
-      ctx.fillStyle = C.ink; rrect(ctx, -6, -5, 12, 10, 2); ctx.fill();
-      ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(0, 0, 1.6, 0, 7); ctx.fill();
-    }
-    ctx.restore();
+    drawBody(ctx, ox, oy, vx, vy, 1);
     const Lv = 34 + 60 * uV;
     arrow(ctx, ox, oy, ox + vx * Lv, oy + vy * Lv, C.data, 3, 10);
     text(ctx, "v", ox + vx * (Lv + 12), oy + vy * (Lv + 12) + 4, C.data, 12, "center");
@@ -5782,19 +5813,25 @@ const RR = (() => {
       text(ctx, "F꜀", ox + ux * (LF + 14), oy + uy * (LF + 14) + 4, C.vector, 12, "center");
       if (showDv) {
         const d = 0.55, t1 = th - d, p1x = cx + rpx * Math.cos(t1), p1y = cy - rpx * Math.sin(t1), v1x = -Math.sin(t1), v1y = -Math.cos(t1);
+        // ghost: where the object was a moment earlier, with its velocity
+        drawBody(ctx, p1x, p1y, v1x, v1y, 0.3);
         ctx.save(); ctx.globalAlpha = 0.5; arrow(ctx, p1x, p1y, p1x + v1x * Lv, p1y + v1y * Lv, C.data, 2.5, 9); ctx.restore();
+        text(ctx, "earlier", p1x + 16, p1y + 4, C.muted, 10, "left");
         const mid = th - d / 2, mx = cx + rpx * Math.cos(mid), my = cy - rpx * Math.sin(mid);
         arrow(ctx, mx, my, mx + (cx - mx) * 0.3, my + (cy - my) * 0.3, C.accent, 2.5, 9);
         text(ctx, "Δv", mx + (cx - mx) * 0.38, my + (cy - my) * 0.38 + 4, C.accent, 12, "center");
-        // inset: tail-to-tail
-        const bw = narrow ? 120 : 160, bx = w - bw - 14, byy = 40, ic = { x: bx + bw / 2 - 20, y: byy + bw / 2 + 10 }, L2 = bw * 0.38;
+        // inset, nose to tail: start with v₂, add −v₁ after it; the resultant from the tail of v₂ to the nose of −v₁ is Δv
+        const bw = narrow ? 120 : 160, bx = w - bw - 14, byy = 40, L2 = bw * 0.3;
         ctx.fillStyle = C.panel; ctx.strokeStyle = C.line; ctx.lineWidth = 1; rrect(ctx, bx, byy, bw, bw + 20, 8); ctx.fill(); ctx.stroke();
-        text(ctx, "TAIL TO TAIL", bx + 10, byy + 16, C.muted, 9);
-        const a1 = { x: ic.x + v1x * L2, y: ic.y + v1y * L2 }, a2 = { x: ic.x + vx * L2, y: ic.y + vy * L2 };
-        ctx.save(); ctx.globalAlpha = 0.5; arrow(ctx, ic.x, ic.y, a1.x, a1.y, C.data, 2.5, 8); ctx.restore();
-        arrow(ctx, ic.x, ic.y, a2.x, a2.y, C.data, 2.5, 8);
-        arrow(ctx, a1.x, a1.y, a2.x, a2.y, C.accent, 2.5, 8);
-        text(ctx, "Δv = v₂ − v₁", bx + bw / 2, byy + bw + 12, C.accent, 10, "center");
+        text(ctx, "NOSE TO TAIL", bx + 10, byy + 16, C.muted, 9);
+        const o = { x: bx + bw * 0.22, y: byy + bw * 0.62 };
+        const N2 = { x: o.x + vx * L2, y: o.y + vy * L2 }, Ne = { x: N2.x - v1x * L2, y: N2.y - v1y * L2 };
+        arrow(ctx, o.x, o.y, N2.x, N2.y, C.data, 2.5, 8);
+        arrow(ctx, N2.x, N2.y, Ne.x, Ne.y, C.vector, 2.5, 8);
+        resultant(ctx, o.x, o.y, Ne.x, Ne.y, C.accent, 3, 9);
+        text(ctx, "v₂", (o.x + N2.x) / 2 + 8, (o.y + N2.y) / 2, C.data, 10, "left");
+        text(ctx, "−v₁", (N2.x + Ne.x) / 2, (N2.y + Ne.y) / 2 + 14, C.vector, 10, "center");
+        text(ctx, "Δv = v₂ + (−v₁)", bx + bw / 2, byy + bw + 12, C.accent, 10, "center");
       }
     }
     // telemetry and notes
@@ -5922,7 +5959,7 @@ const RR = (() => {
     const done = S.phase === "done", pA0 = R.mA * R.vA, pB0 = R.mB * R.vB, pA1 = R.mA * R.fa, pB1 = R.mB * R.fb;
     const pmax = Math.max(5, Math.abs(pA0) + Math.abs(pB0), Math.abs(pA1) + Math.abs(pB1));
     const mx = w / 2, ps = (w / 2 - 90) / pmax, y0 = RY + 44;
-    text(ctx, "MOMENTUM (kg m s⁻¹) · A tip-to-tail with B", L, y0 - 8, C.muted, 10);
+    text(ctx, "MOMENTUM (kg m s⁻¹) · B added nose to tail after A", L, y0 - 8, C.muted, 10);
     ctx.strokeStyle = C.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(mx, y0); ctx.lineTo(mx, h - 14); ctx.stroke();
     const row = (y, pa, pb, lab, show) => {
       text(ctx, lab, L, y + 12, C.ink2, 11);
@@ -6029,6 +6066,110 @@ const RR = (() => {
     n += P.on ? " The animation is in slow motion; the graph is drawn to scale." : " Tap the graph to replay the impact.";
     $("imNote").textContent = n;
     sim.anim = P.on;
+  };
+})();
+
+/* ====================================================== DERIVATION: a = v²/r ===== */
+(() => {
+  const cv = $("dvCanvas"), sim = { dirty: true, anim: false }; sims["orbit:derive"] = sim;
+  const th = $("dvTh"), vv = $("dvV"), rr = $("dvR");
+  bindRange("dvTh", "dvThOut", (v) => v + "°"); bindRange("dvV", "dvVOut", (v) => v.toFixed(1) + " m s⁻¹"); bindRange("dvR", "dvROut", (v) => v.toFixed(2) + " m");
+  const STEPS = [
+    `<p>After a short time \\(\\Delta t\\) the object has moved round the circle through the angle \\(\\Delta\\theta\\). Its velocity is at right angles to its radius, so the angle between \\(v_{i}\\) and \\(v_{f}\\) is also \\(\\Delta\\theta\\).</p>`,
+    `<p>\\(v_{i}\\) and \\(v_{f}\\) have the same length \\(v\\). To find the change in velocity, \\(\\Delta v = v_{f} + (-v_{i})\\): flip \\(v_{i}\\) round to get \\(-v_{i}\\) and add it nose to tail after \\(v_{f}\\). The resultant runs from the tail of \\(v_{f}\\) to the nose of \\(-v_{i}\\), and points towards the centre.</p><p>\\(\\Delta v = 2v\\sin\\frac{\\Delta\\theta}{2}\\)</p>`,
+    `<p>The position triangle (sides \\(r\\), \\(r\\), \\(\\Delta s\\)) and the velocity triangle (sides \\(v\\), \\(v\\), \\(\\Delta v\\)) both have the apex angle \\(\\Delta\\theta\\), so they are similar. For a small angle the chord is the arc, \\(\\Delta s \\approx r\\,\\Delta\\theta\\).</p><p>\\(\\dfrac{\\Delta v}{v} = \\dfrac{\\Delta s}{r}\\)</p>`,
+    `<p>The object travels \\(\\Delta s = v\\,\\Delta t\\), so \\(\\Delta v = \\dfrac{v}{r}\\,v\\Delta t = \\dfrac{v^{2}\\Delta t}{r}\\). Acceleration is the change in velocity per unit time:</p><p>\\(a_{c} = \\dfrac{\\Delta v}{\\Delta t} = \\dfrac{v^{2}}{r}\\)</p><p>As \\(\\Delta\\theta\\) gets smaller, the approximation becomes exact.</p>`
+  ];
+  // v with a small subscript, centred on (x, y)
+  const subLabel = (ctx, base, sub, x, y, col) => {
+    ctx.font = `12px ${MONO}`; const wb = ctx.measureText(base).width;
+    ctx.font = `9px ${MONO}`; const ws = ctx.measureText(sub).width;
+    const x0 = x - (wb + ws) / 2; text(ctx, base, x0, y, col, 12, "left"); text(ctx, sub, x0 + wb, y + 4, col, 9, "left");
+  };
+  let step = 0;
+  const stepEl = $("dvStep");
+  function setStep(n) {
+    step = clamp(n, 0, STEPS.length - 1);
+    stepEl.innerHTML = STEPS[step];
+    $("dvHud").textContent = `STEP ${step + 1} OF ${STEPS.length}`;
+    $("dvBack").disabled = step === 0;
+    $("dvNext").textContent = step === STEPS.length - 1 ? "Restart" : "Next";
+    sim.dirty = true;
+  }
+  $("dvBack").addEventListener("click", () => setStep(step - 1));
+  $("dvNext").addEventListener("click", () => setStep(step === STEPS.length - 1 ? 0 : step + 1));
+  [th, vv, rr].forEach((el) => el.addEventListener("input", () => (sim.dirty = true)));
+  setStep(0);
+
+  sim.frame = () => {
+    const dth = (Number(th.value) * Math.PI) / 180, v = Number(vv.value), r = Number(rr.value);
+    const dtime = (r * dth) / v, dv = 2 * v * Math.sin(dth / 2), avg = dv / dtime, exact = (v * v) / r;
+    const { ctx, w, h } = fit(cv, (w) => (w < 560 ? 540 : 340));
+    clear(ctx, w, h);
+    const narrow = w < 560;
+    // layout: circle on the left (top on narrow screens), velocity triangle on the right (bottom)
+    const c1 = narrow ? { x: w / 2, y: h * 0.26 } : { x: w * 0.24, y: h * 0.52 };
+    const R = narrow ? Math.min(w * 0.3, h * 0.19) : Math.min(w * 0.19, h * 0.36);
+    const Q = narrow ? { x: w / 2, y: h * 0.76 } : { x: w * 0.74, y: h * 0.52 };
+    const Lv = R * 0.6;
+    const af = 1.0, ai = af - dth;
+    const P = (a) => ({ x: c1.x + R * Math.cos(a), y: c1.y - R * Math.sin(a) });
+    const dirv = (a) => ({ x: -Math.sin(a), y: -Math.cos(a) });
+    const Pi = P(ai), Pf = P(af), di = dirv(ai), df = dirv(af);
+    const seg = (a, b) => { ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); };
+    const outward = (from, p, d) => { const dx = p.x - from.x, dy = p.y - from.y, L = Math.hypot(dx, dy) || 1; return { x: p.x + (dx / L) * d, y: p.y + (dy / L) * d }; };
+    const hiPos = step === 0 || step === 2, hiDv = step === 1 || step === 3, hiTri = step === 2, hiArc = step === 3;
+
+    // ---- left: the circle, two positions, radii, the chord and the arc travelled
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 1.2; ctx.setLineDash([5, 6]); ctx.beginPath(); ctx.arc(c1.x, c1.y, R, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+    if (hiTri) { ctx.fillStyle = C.asoft; ctx.beginPath(); ctx.moveTo(c1.x, c1.y); ctx.lineTo(Pi.x, Pi.y); ctx.lineTo(Pf.x, Pf.y); ctx.closePath(); ctx.fill(); }
+    ctx.strokeStyle = C.accent; ctx.lineWidth = hiArc ? 6 : 3; ctx.lineCap = "round"; ctx.beginPath(); ctx.arc(c1.x, c1.y, R, -af, -ai); ctx.stroke();
+    ctx.strokeStyle = C.ink2; ctx.lineWidth = hiPos ? 2.2 : 1.2; seg(c1, Pi); seg(c1, Pf);
+    ctx.strokeStyle = C.accent; ctx.lineWidth = 1.5; ctx.setLineDash([4, 4]); seg(Pi, Pf); ctx.setLineDash([]);
+    const rm = { x: (c1.x + Pf.x) / 2 + 6, y: (c1.y + Pf.y) / 2 };
+    text(ctx, "r", rm.x, rm.y, C.ink2, 12);
+    const am = (ai + af) / 2;
+    text(ctx, "Δθ", c1.x + Math.cos(am) * R * 0.42, c1.y - Math.sin(am) * R * 0.42 + 4, C.accent, 12, "center");
+    // velocities at the two positions
+    arrow(ctx, Pi.x, Pi.y, Pi.x + di.x * Lv, Pi.y + di.y * Lv, C.data, 3, 9);
+    arrow(ctx, Pf.x, Pf.y, Pf.x + df.x * Lv, Pf.y + df.y * Lv, C.data, 3, 9);
+    // each velocity is labelled beside the middle of its arrow, on the side away from the other arrow
+    const vlab = (from, d, other, sub) => {
+      const mx = from.x + d.x * Lv * 0.55, my = from.y + d.y * Lv * 0.55;
+      let nx = -d.y, ny = d.x; if (nx * other.x + ny * other.y > 0) { nx = -nx; ny = -ny; }
+      subLabel(ctx, "v", sub, mx + nx * 14, my + ny * 14 + 4, C.data);
+    };
+    vlab(Pi, di, df, "i"); vlab(Pf, df, di, "f");
+    [Pi, Pf].forEach((p) => { ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(p.x, p.y, 4.5, 0, 7); ctx.fill(); });
+    text(ctx, "i = earlier position, f = now", 14, h - 14, C.muted, 10);
+
+    // ---- right: the velocity triangle, built nose to tail. Start with v_f, add -v_i after it;
+    // the resultant from the tail of v_f to the nose of -v_i is Δv. The apex angle at the nose of v_f is Δθ.
+    const Lt = Math.min(Lv * 1.7, h * 0.36);   // the triangle is drawn larger than the circle's arrows
+    const Tf = { x: Q.x + df.x * Lt, y: Q.y + df.y * Lt }, Mi = { x: Tf.x - di.x * Lt, y: Tf.y - di.y * Lt };
+    // a label beside the middle of the segment p-q, on the side away from the point 'away'
+    const sideAt = (p, q, away, draw) => {
+      const mx = (p.x + q.x) / 2, my = (p.y + q.y) / 2, dx = q.x - p.x, dy = q.y - p.y, L = Math.hypot(dx, dy) || 1;
+      let nx = -dy / L, ny = dx / L; if (nx * (away.x - mx) + ny * (away.y - my) > 0) { nx = -nx; ny = -ny; }
+      draw(mx + nx * 14, my + ny * 14);
+    };
+    if (hiTri) { ctx.fillStyle = C.asoft; ctx.beginPath(); ctx.moveTo(Q.x, Q.y); ctx.lineTo(Tf.x, Tf.y); ctx.lineTo(Mi.x, Mi.y); ctx.closePath(); ctx.fill(); }
+    arrow(ctx, Q.x, Q.y, Tf.x, Tf.y, C.data, 3, 9);
+    arrow(ctx, Tf.x, Tf.y, Mi.x, Mi.y, C.vector, 3, 9);
+    resultant(ctx, Q.x, Q.y, Mi.x, Mi.y, C.accent, hiDv ? 6 : 4, 12);
+    sideAt(Q, Tf, Mi, (x, y) => subLabel(ctx, "v", "f", x, y + 4, C.data));
+    sideAt(Tf, Mi, Q, (x, y) => subLabel(ctx, "−v", "i", x, y + 4, C.vector));
+    sideAt(Q, Mi, Tf, (x, y) => text(ctx, "Δv", x, y + 4, C.accent, 13, "center"));
+    const a1 = Math.atan2(-df.y, -df.x), a2 = Math.atan2(-di.y, -di.x), amr = (a1 + a2) / 2;
+    ctx.strokeStyle = C.accent; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(Tf.x, Tf.y, Lt * 0.3, Math.min(a1, a2), Math.max(a1, a2)); ctx.stroke();
+    text(ctx, "Δθ", Tf.x + Math.cos(amr) * Lt * 0.5, Tf.y + Math.sin(amr) * Lt * 0.5 + 4, C.accent, 12, "center");
+    ctx.lineCap = "butt";
+
+    $("dvT").textContent = fmt(dtime, 3) + " s";
+    $("dvDv").textContent = fmt(dv, 3) + " m s⁻¹";
+    $("dvAvg").textContent = fmt(avg, 3) + " m s⁻²";
+    $("dvExact").textContent = fmt(exact, 3) + " m s⁻²";
+    $("dvNote").textContent = `At Δθ = ${Math.round(Number(th.value))}° the average acceleration is ${fmt(avg, 3)} m s⁻², against v²/r = ${fmt(exact, 3)} m s⁻². Make Δθ smaller and the two values get closer: the exact value is the limit as Δt goes to zero.`;
   };
 })();
 
