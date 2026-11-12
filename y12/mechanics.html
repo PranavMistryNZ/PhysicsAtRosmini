@@ -302,6 +302,97 @@ details.ans[open] summary{margin-bottom:8px}
 .sum-eqs .katex{font-size:1.06em}
 .sum-trap{margin:0;font-size:.88rem;color:var(--muted)}.sum-trap b{color:var(--accent)}
 .sum-card .btn{align-self:flex-start;margin-top:auto}
+/* ===== revision tools: summary, CEO, answer practice, exam set, my progress ===== */
+.sum-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.sum-tools .small{flex:1 1 220px}
+.sum-eqs>span{padding:3px 9px;border:1px solid var(--line);border-radius:7px;background:var(--panel-solid)}
+.sum-eqs>span.given{border-color:var(--ok)}
+.sum-key{font-size:.8rem;color:var(--muted);margin:0}
+.sum-key i{display:inline-block;width:10px;height:10px;border:1px solid var(--ok);border-radius:3px;margin-right:5px}
+.sum-say{margin:0;padding:8px 10px;border-left:3px solid var(--data);background:var(--tile);border-radius:0 8px 8px 0;font-size:.88rem;line-height:1.45}
+.weak{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;background:var(--panel-solid);font-size:14px}
+.weak-h{flex:1 1 100%;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.weak-item{flex:1 1 240px;text-align:left;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:9px;padding:8px 10px;font:inherit;font-size:13.5px;line-height:1.35;color:var(--ink);background:var(--tile);cursor:pointer}
+.weak-item i{display:block;font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.weak-item:hover,.weak-item:focus-visible{border-color:var(--accent)}
+.recall-box{display:none;padding:12px;border:1px dashed var(--accent);border-radius:9px;font-size:14px}
+.recall-box p{margin:0 0 8px}
+.sum-grid.recall .sum-card:not(.revealed) .recall-box{display:block}
+.sum-grid.recall .sum-card:not(.revealed)>ul,.sum-grid.recall .sum-card:not(.revealed)>.sum-eqs,.sum-grid.recall .sum-card:not(.revealed)>.sum-say,.sum-grid.recall .sum-card:not(.revealed)>.sum-trap{display:none}
+.ceo{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.ceo>div{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--panel-solid);font-size:14px;line-height:1.45}
+.ceo>div>span{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent-fill);color:var(--on-accent);font-weight:800;margin-right:8px}
+.ceo>div>p{margin:6px 0 0;color:var(--ink-2)}
+.ceo ul{margin:6px 0 0;padding-left:1.1em}.ceo li{margin:4px 0}
+details.worked{border:1px solid var(--line);border-radius:10px;background:var(--panel-solid);padding:10px 14px}
+details.worked summary{cursor:pointer;font-weight:600}
+details.worked p{font-size:14.5px;line-height:1.55;margin:8px 0 0}
+.qhead{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:space-between;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-2)}
+.rt-box{display:flex;flex-direction:column;gap:8px}
+.rt-box>p{margin:0}
+.sent{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:center;border:1px solid var(--line);border-radius:9px;padding:9px 12px;background:var(--panel-solid)}
+.sent>p{margin:0;font-size:14px;line-height:1.45}
+.pick{display:flex;gap:5px}
+.pick button{width:38px;height:38px;border-radius:8px;border:1px solid var(--line);background:var(--tile);color:var(--ink);font-weight:800;cursor:pointer}
+.pick button[aria-pressed="true"]{background:var(--accent-fill);color:var(--on-accent);border-color:var(--accent-fill)}
+.sent.right{border-color:var(--ok);background:var(--ok-soft)}
+.sent.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.sent-fb{grid-column:1/-1;margin:0;font-size:13.5px;color:var(--ink-2)}
+.final{border-radius:10px;padding:12px 14px;background:var(--tile);font-size:14.5px;line-height:1.5}
+.final p{margin:8px 0 0}
+.student{display:grid;gap:6px;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--panel-solid)}
+.ss{text-align:left;padding:8px 10px;border-radius:7px;border:1px solid transparent;background:none;font:inherit;font-size:15px;line-height:1.45;font-style:italic;color:var(--ink);cursor:pointer}
+.ss:hover,.ss:focus-visible{border-color:var(--accent)}
+.ss.found{background:var(--bad-soft);border-color:var(--bad);text-decoration:line-through}
+.ss.fine{opacity:.6}
+.write{display:block;width:100%;box-sizing:border-box;padding:9px 11px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink);font:inherit;font-size:14px;line-height:1.45;resize:vertical}
+.q-body .write{margin:8px 0}
+.part{margin:10px 0}.part>p{margin:0 0 6px}
+.model{margin:6px 0;padding:10px 12px;border-left:4px solid var(--ok);background:var(--ok-soft);border-radius:4px;font-size:14px;line-height:1.5;color:var(--ink)}
+.mark{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line-dash)}
+.tick{display:flex;gap:8px;align-items:flex-start;padding:6px 4px;font-size:14px;line-height:1.4;cursor:pointer}
+.tick .lvl{margin-left:0}
+.tick input,.selfcheck input{width:18px;height:18px;flex:0 0 auto;margin-top:2px;accent-color:var(--accent)}
+.grade{margin:8px 0 0;font-size:14.5px}
+.exam-head{position:sticky;top:0;z-index:3;background:var(--bg);padding:8px 0;justify-content:flex-start}
+.exam-head .clock{margin-right:auto;font-variant-numeric:tabular-nums;font-size:14px}
+.exam-head .clock.over{color:var(--bad)}
+.exam-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:8px}
+.exam-list button{text-align:left;border:1px solid var(--line);border-radius:10px;background:var(--panel-solid);padding:10px 12px;cursor:pointer;color:var(--ink);font:inherit;font-size:14px}
+.exam-list button:hover,.exam-list button:focus-visible{border-color:var(--accent)}
+.exam-list button span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.selfcheck{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line-dash);font-size:14px}
+.selfcheck label{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.report{white-space:pre-wrap;font:13px/1.5 var(--mono);background:var(--field);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0;max-height:320px;overflow:auto;color:var(--ink)}
+.code{font:12.5px/1.4 var(--mono);word-break:break-all}
+.share{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px}
+.share label{display:grid;gap:4px;font-size:13px;font-weight:600}
+.share input{min-height:42px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink);font:inherit;font-weight:400;min-width:0}
+a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;box-sizing:border-box}
+a.btn.off{opacity:.5}
+@media (max-width:700px){.sent{grid-template-columns:minmax(0,1fr)}}
+#printSheet{display:none}
+@media print{
+  body.print-sum{background:#fff!important}
+  body.print-sum>*:not(#printSheet){display:none!important}
+  body.print-sum #printSheet{display:block;color:#000;font-size:7.1pt;line-height:1.24;font-family:Arial,Helvetica,sans-serif}
+  #printSheet h1{font-size:12pt;margin:0 0 4pt;color:#000}
+  #printSheet .sum-grid{display:grid;grid-template-columns:1fr 1fr;gap:5pt;margin:0}
+  #printSheet .sum-card{background:#fff!important;border:.7pt solid #555!important;border-top:2.5pt solid #333!important;border-radius:4pt;padding:4pt 6pt;gap:2pt;break-inside:avoid;box-shadow:none!important}
+  #printSheet .sum-head h3,#printSheet .sum-head .num{font-size:9.5pt!important;color:#000!important}
+  #printSheet .sum-ch{font-size:6.5pt;color:#444}
+  #printSheet ul{font-size:7.1pt!important;line-height:1.24;margin:1pt 0;padding-left:11pt;gap:1pt}
+  #printSheet .sum-eqs{gap:3pt;padding:0;background:none}
+  #printSheet .sum-eqs>span{background:#fff!important;border:.6pt solid #888!important;padding:1pt 4pt;font-size:7.1pt}
+  #printSheet .katex .bar-eq,#printSheet .katex .bar-minus{-webkit-text-fill-color:currentColor}
+  #printSheet .katex .bar-eq::before,#printSheet .katex .bar-minus::before{display:none}
+  #printSheet .sum-eqs>span.given{border:1.2pt solid #1d8a55!important}
+  #printSheet .sum-say,#printSheet .sum-trap{font-size:6.9pt!important;line-height:1.24;margin:0!important;padding:2pt 5pt;background:#f1f1f1!important;border-left:2pt solid #555;border-radius:0;color:#000!important}
+  #printSheet .sum-trap{background:#fff!important;border-left:0;padding:0}
+  #printSheet .sum-trap b{color:#000!important}
+  #printSheet .print-foot{font-size:6.5pt;color:#444;margin:4pt 0 0}
+  @page{size:A4;margin:9mm}
+}
 .route{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
 .route button{text-align:left;border:1px solid var(--line);border-radius:10px;background:var(--panel-solid);padding:12px;cursor:pointer;color:var(--ink);display:flex;flex-direction:column;gap:2px}
 .route button:hover{border-color:var(--accent)}
@@ -536,63 +627,63 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 <!-- ======================================================= 00 SUMMARY -->
 <section class="pane" data-mod="map" data-view="summary" data-title="Summary: the essentials of every mechanics topic">
   <div class="pane-head"><h2>Phase 0.1 · Summary: the essentials of each topic</h2><span class="badge teal">START HERE</span></div>
-  <p class="lede">All of AS91171 on one page, in the order we teach it (textbook chapters 8 to 14). Each card gives the key ideas, the equations you need and the most common mistake. Press <b>Open</b> to go to that topic.</p>
+  <p class="lede">Revise from this page first. It has all of AS91171 in the order we teach it (textbook chapters 8 to 14). Each card gives the key ideas, the equations, a sentence you can use in an explanation and the most common mistake. Press <b>Open</b> to go to that topic.</p>
+  <div class="weak" id="weakBox" aria-live="polite"></div>
+  <div class="sum-tools"><button class="btn sm" id="recallToggle" type="button" aria-pressed="false">Cover and recall</button><button class="btn sm" id="printSum" type="button">Print one-page summary</button><button class="btn sm" data-go="map:progress" type="button">Save or share my progress</button><span class="small">Cover the cards, recall each one from memory, then reveal it to check.</span></div>
   <div class="telemetry">
     <div class="tm"><span>Standard</span><b>AS91171 · 2.4</b></div>
     <div class="tm"><span>Credits</span><b>6 · external</b></div>
     <div class="tm"><span>Exam</span><b>3 questions</b></div>
     <div class="tm"><span>Take g as</span><b>9.8 m s⁻²</b></div>
   </div>
-  <div class="sum-grid">
+  <p class="sum-key"><i></i>Green border: given on the formula sheet in the exam. The others you need to know or work out.</p>
+  <div class="sum-grid" id="sumGrid">
     <article class="card sum-card"><div class="sum-head"><span class="num">01</span><h3>Motion</h3><span class="sum-ch">Textbook ch. 8</span></div>
       <ul><li>Distance and speed are scalars; displacement, velocity and acceleration are vectors.</li><li>d–t graph: gradient = velocity. v–t graph: gradient = acceleration, area = displacement. a–t graph: area = change in velocity.</li><li>With constant acceleration, use the four equations. Pick the one that leaves out the quantity you don't know and don't need.</li><li>Free fall: every object accelerates at \(g = 9.8\,\mathrm{m\,s^{-2}}\) downwards, whatever its mass, if air resistance is negligible.</li></ul>
-      <div class="sum-eqs"><span>\(v = \frac{\Delta d}{\Delta t}\)</span><span>\(a = \frac{\Delta v}{\Delta t}\)</span><span>\(v_{f} = v_{i} + at\)</span><span>\(d = v_{i}t + \tfrac{1}{2}at^{2}\)</span><span>\(d = \frac{v_{i} + v_{f}}{2}\,t\)</span><span>\(v_{f}^{2} = v_{i}^{2} + 2ad\)</span></div>
+      <div class="sum-eqs"><span class="given">\(v = \frac{\Delta d}{\Delta t}\)</span><span class="given">\(a = \frac{\Delta v}{\Delta t}\)</span><span class="given">\(v_{f} = v_{i} + at\)</span><span class="given">\(d = v_{i}t + \tfrac{1}{2}at^{2}\)</span><span class="given">\(d = \frac{v_{i} + v_{f}}{2}\,t\)</span><span class="given">\(v_{f}^{2} = v_{i}^{2} + 2ad\)</span></div>
+      <p class="sum-say"><b>Say it like this:</b> “The gradient of the velocity–time graph is constant, so the acceleration is constant, and the area under the graph gives the displacement.”</p>
       <p class="sum-trap"><b>Watch out:</b> choose a positive direction at the start and keep it. Slowing down means a negative \(a\) if the motion is positive.</p>
       <button type="button" class="btn sm" data-go="launch:intro">Open Motion →</button></article>
     <article class="card sum-card"><div class="sum-head"><span class="num">02</span><h3>Vectors &amp; relative motion</h3><span class="sum-ch">Textbook ch. 9</span></div>
       <ul><li>A vector has a size and a direction. Add vectors tip to tail; the resultant goes from the first tail to the last tip.</li><li>At right angles, use Pythagoras for the size and \(\tan\theta\) for the direction.</li><li>Split a vector into perpendicular components. The components replace the vector.</li><li>Change in velocity is a vector subtraction: \(\Delta v = v_{f} - v_{i}\), which is \(v_{f} + (-v_{i})\).</li><li>Relative velocity: the velocity of A as seen from B is \(v_{A} - v_{B}\). A river crossing time uses only the velocity straight across.</li></ul>
       <div class="sum-eqs"><span>\(R = \sqrt{A^{2} + B^{2}}\)</span><span>\(\tan\theta = \frac{B}{A}\)</span><span>\(V_{x} = V\cos\theta\)</span><span>\(V_{y} = V\sin\theta\)</span><span>\(\Delta v = v_{f} - v_{i}\)</span></div>
+      <p class="sum-say"><b>Say it like this:</b> “The velocity of the boat relative to the bank is the vector sum of its velocity through the water and the velocity of the current.”</p>
       <p class="sum-trap"><b>Watch out:</b> every vector answer needs a direction as well as a size and a unit, for example "5.0 m s⁻¹ at 37° east of north".</p>
       <button type="button" class="btn sm" data-go="vec:intro">Open Vectors &amp; relative motion →</button></article>
     <article class="card sum-card"><div class="sum-head"><span class="num">03</span><h3>Forces, torque &amp; springs</h3><span class="sum-ch">Textbook ch. 10</span></div>
       <ul><li>A net (unbalanced) force causes acceleration: \(F_{\text{net}} = ma\). Balanced forces mean constant velocity or rest.</li><li>Weight \(F_{g} = mg\) acts on the mass. Apparent weight in a lift is the support force, \(F_{N} = m(g + a)\).</li><li>Equilibrium needs two conditions: the forces balance and the torques balance about any point.</li><li>Torque is force × perpendicular distance from the pivot.</li><li>A spring obeys Hooke's law up to its elastic limit; the area under a force–extension graph is the energy stored.</li></ul>
-      <div class="sum-eqs"><span>\(F = ma\)</span><span>\(F_{g} = mg\)</span><span>\(\tau = Fd\)</span><span>\(F = -kx\)</span><span>\(E_{p} = \tfrac{1}{2}kx^{2}\)</span></div>
+      <div class="sum-eqs"><span class="given">\(F = ma\)</span><span class="given">\(F_{g} = mg\)</span><span class="given">\(\tau = Fd\)</span><span class="given">\(F = -kx\)</span><span class="given">\(E_{p} = \tfrac{1}{2}kx^{2}\)</span></div>
+      <p class="sum-say"><b>Say it like this:</b> “The beam is in equilibrium, so the total clockwise torque about the pivot equals the total anticlockwise torque, and the upward forces equal the downward forces.”</p>
       <p class="sum-trap"><b>Watch out:</b> in \(\tau = Fd\), d is the perpendicular distance from the pivot to the line of the force, not the distance along the beam.</p>
       <button type="button" class="btn sm" data-go="thrust:intro">Open Forces, torque &amp; springs →</button></article>
     <article class="card sum-card"><div class="sum-head"><span class="num">04</span><h3>Momentum &amp; impulse</h3><span class="sum-ch">Textbook ch. 11</span></div>
       <ul><li>Momentum is mass × velocity, so it is a vector: give it a direction or a sign.</li><li>Impulse is force × time and equals the change in momentum.</li><li>A longer stopping time means a smaller force for the same \(\Delta p\): crumple zones, airbags, bending your knees.</li><li>With no external force, total momentum before = total momentum after (collisions and explosions).</li><li>Kinetic energy is conserved only in an elastic collision. Check by comparing \(E_{k}\) before and after.</li></ul>
-      <div class="sum-eqs"><span>\(p = mv\)</span><span>\(\Delta p = mv_{f} - mv_{i}\)</span><span>\(\Delta p = F\Delta t\)</span><span>\(\sum p_{\text{before}} = \sum p_{\text{after}}\)</span></div>
+      <div class="sum-eqs"><span class="given">\(p = mv\)</span><span>\(\Delta p = mv_{f} - mv_{i}\)</span><span class="given">\(\Delta p = F\Delta t\)</span><span>\(\sum p_{\text{before}} = \sum p_{\text{after}}\)</span></div>
+      <p class="sum-say"><b>Say it like this:</b> “The change in momentum is the same, but the stopping time is longer, so from \(F = \frac{\Delta p}{\Delta t}\) the average force is smaller.”</p>
       <p class="sum-trap"><b>Watch out:</b> objects moving the opposite way have negative momentum. A ball that bounces back has a bigger \(\Delta p\) than one that stops.</p>
       <button type="button" class="btn sm" data-go="dock:intro">Open Momentum &amp; impulse →</button></article>
     <article class="card sum-card"><div class="sum-head"><span class="num">05</span><h3>Projectile motion</h3><span class="sum-ch">Textbook ch. 12</span></div>
       <ul><li>After launch, the only force is the weight (ignoring air resistance), so the motion splits into two independent parts.</li><li>Horizontal: no force, so \(v_{x}\) is constant and \(d_{x} = v_{x}t\).</li><li>Vertical: \(a = 9.8\,\mathrm{m\,s^{-2}}\) down. Use the constant-acceleration equations with \(v_{y}\).</li><li>Time is the only link between the two directions. At the highest point \(v_{y} = 0\) but \(v_{x}\) is unchanged.</li><li>On level ground, 45° gives the greatest range, and angles that add to 90° give the same range.</li></ul>
       <div class="sum-eqs"><span>\(v_{x} = v\cos\theta\)</span><span>\(v_{y} = v\sin\theta\)</span><span>\(d_{x} = v_{x}t\)</span><span>\(d_{y} = v_{y}t + \tfrac{1}{2}at^{2}\)</span></div>
+      <p class="sum-say"><b>Say it like this:</b> “Gravity is the only force and it acts vertically, so the horizontal velocity stays constant while the vertical velocity changes by 9.8 m s⁻¹ every second.”</p>
       <p class="sum-trap"><b>Watch out:</b> never put the launch speed into a vertical equation. Resolve it into \(v_{x}\) and \(v_{y}\) first.</p>
       <button type="button" class="btn sm" data-go="proj:intro">Open Projectile motion →</button></article>
     <article class="card sum-card"><div class="sum-head"><span class="num">06</span><h3>Circular motion</h3><span class="sum-ch">Textbook ch. 13</span></div>
       <ul><li>Moving in a circle at constant speed is still accelerating, because the direction of the velocity keeps changing.</li><li>The acceleration and the net force point towards the centre: centripetal means centre-seeking.</li><li>A real force provides the centripetal force: tension, friction, gravity or a support force.</li><li>If that force disappears, the object carries on in a straight line along the tangent (Newton's first law).</li></ul>
-      <div class="sum-eqs"><span>\(v = \frac{2\pi r}{T}\)</span><span>\(a_{c} = \frac{v^{2}}{r}\)</span><span>\(F_{c} = \frac{mv^{2}}{r}\)</span></div>
+      <div class="sum-eqs"><span>\(v = \frac{2\pi r}{T}\)</span><span class="given">\(a_{c} = \frac{v^{2}}{r}\)</span><span class="given">\(F_{c} = \frac{mv^{2}}{r}\)</span></div>
+      <p class="sum-say"><b>Say it like this:</b> “The friction force between the tyres and the road acts towards the centre of the circle and provides the centripetal force.”</p>
       <p class="sum-trap"><b>Watch out:</b> there is no outward "centrifugal" force in a free-body diagram. Name the real force that points to the centre.</p>
       <button type="button" class="btn sm" data-go="orbit:intro">Open Circular motion →</button></article>
     <article class="card sum-card"><div class="sum-head"><span class="num">07</span><h3>Work, energy &amp; power</h3><span class="sum-ch">Textbook ch. 14</span></div>
       <ul><li>Work is done when a force moves something in the direction of the force. Work done = energy transformed.</li><li>Energy is conserved: it is transformed, never lost. Friction transforms some of it to heat.</li><li>Falling or rising, use the change in height: \(mg\Delta h = \tfrac{1}{2}mv^{2}\) when no energy is lost.</li><li>Power is the rate of doing work. Efficiency = useful energy out ÷ total energy in.</li></ul>
-      <div class="sum-eqs"><span>\(W = Fd\)</span><span>\(E_{k} = \tfrac{1}{2}mv^{2}\)</span><span>\(\Delta E_{p} = mg\Delta h\)</span><span>\(P = \frac{W}{t}\)</span><span>\(E_{p} = \tfrac{1}{2}kx^{2}\)</span></div>
+      <div class="sum-eqs"><span class="given">\(W = Fd\)</span><span class="given">\(E_{k} = \tfrac{1}{2}mv^{2}\)</span><span class="given">\(\Delta E_{p} = mg\Delta h\)</span><span class="given">\(P = \frac{W}{t}\)</span><span class="given">\(E_{p} = \tfrac{1}{2}kx^{2}\)</span></div>
+      <p class="sum-say"><b>Say it like this:</b> “Gravitational potential energy is transformed into kinetic energy. Friction transforms some of it into heat, so the final speed is less than \(\sqrt{2g\Delta h}\).”</p>
       <p class="sum-trap"><b>Watch out:</b> \(\Delta h\) is the vertical height change, not the distance along a slope.</p>
       <button type="button" class="btn sm" data-go="fuel:intro">Open Work, energy &amp; power →</button></article>
   </div>
   <div class="card tint"><span class="label">Before every calculation</span><p>Write the equation, substitute with units, give the answer to 2 or 3 significant figures with a unit, and state a direction for every vector. Convert to SI units (m, kg, s) first. The <button type="button" class="btn sm" data-go="map:formulas">formula sheet</button> lists every equation, and you can <button type="button" class="btn sm" data-go="map:rearrange">practise rearranging</button> each one.</p></div>
-</section>
-
-<!-- ======================================================= 00 COURSE MAP -->
-<section class="pane hidden" data-mod="map" data-view="scope" data-title="Course map">
-  <div class="pane-head"><h2>Phase 0.1 · Course map: what AS91171 covers</h2><span class="badge teal">START HERE</span></div>
-  <p class="lede">This is the whole standard on one page. Rate yourself on each "I can…" statement, then press <b>Go</b> to jump to the place in this lab that teaches it. Ticking an item in the checklist at the bottom of a topic marks that statement as Confident. Your ratings are saved on this device.</p>
-  <div class="telemetry">
-    <div class="tm"><span>Standard</span><b>AS91171 · 2.4</b></div>
-    <div class="tm"><span>Credits</span><b>6 · external</b></div>
-    <div class="tm"><span>Exam</span><b>3 questions</b></div>
-    <div class="tm"><span>Take g as</span><b>9.8 m s⁻²</b></div>
-  </div>
+  <h3 id="scopeTop">Course map: rate yourself on what AS91171 covers</h3>
+  <p class="note">Rate yourself on each "I can…" statement, then press <b>Go</b> to jump to the place in this lab that teaches it. Ticking an item in the checklist at the bottom of a topic marks that statement as Confident. Your ratings are saved on this device.</p>
   <div class="card tint">
     <h3 style="margin:0">The big idea that links everything: forces change motion</h3>
     <p>Every part of this standard comes back to Newton's laws. A net force causes acceleration (<span class="eq">\(F = ma\)</span>). Acting over a time, it changes momentum (<span class="eq">\(F\Delta t = \Delta p\)</span>). Acting over a distance, it does work and changes energy (<span class="eq">\(W = Fd\)</span>). Projectiles and circular motion are just two special cases: a constant force downwards, and a force that always points to the centre.</p>
@@ -613,7 +704,9 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     <button type="button" data-go="proj:intro"><span class="num">05</span><b>Projectile motion</b></button>
     <button type="button" data-go="orbit:intro"><span class="num">06</span><b>Circular motion</b></button>
     <button type="button" data-go="fuel:intro"><span class="num">07</span><b>Work, energy &amp; power</b></button>
-    <button type="button" data-go="map:challenge"><span class="num">0.7</span><b>Mixed challenge</b></button>
+    <button type="button" data-go="map:challenge"><span class="num" data-phase="map:challenge"></span><b>Mixed challenge</b></button>
+    <button type="button" data-go="map:explain"><span class="num" data-phase="map:explain"></span><b>Answer practice</b></button>
+    <button type="button" data-go="map:exam"><span class="num" data-phase="map:exam"></span><b>Timed exam set</b></button>
   </div>
 </section>
 
@@ -632,6 +725,43 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     <div><b>Link it</b>Connect cause to effect with "so", "therefore" or "because".</div>
     <div><b>Conclude</b>Answer the exact question asked: bigger, smaller, the same, or a direction.</div>
   </div>
+  <h3>The CEO framework: for calculate and explain questions</h3>
+  <p class="note">One structure works for every question: <b>C</b>onceptualise, <b>E</b>xecute and <b>O</b>utcomes. For <b>calculate</b>, <b>determine</b> or <b>show that</b>, follow the three boxes below. For <b>explain</b>, the same three letters hold the four steps above: C is steps 1 and 2 (name the physics and apply it to the situation), E is step 3 (the chain of reasoning) and O is step 4 (the conclusion that answers the question).</p>
+  <div class="ceo">
+    <div><span>C</span><b>Conceptualise</b><p>Understand the situation before you write any maths.</p>
+      <ul><li><b>Core physics:</b> which idea applies? Constant acceleration, Newton's laws, torque, conservation of momentum or conservation of energy.</li><li><b>Visualise:</b> sketch it. Draw the force diagram or the vector triangle and label what you know, with units.</li><li><b>Define the system:</b> which object? Which direction is positive? Where is the pivot?</li></ul></div>
+    <div><span>E</span><b>Execute</b><p>Turn the idea into a solution.</p>
+      <ul><li><b>Select the equation</b> that links what you know to what you want (see the formula sheet).</li><li><b>Rearrange first,</b> then put the numbers in.</li><li><b>Substitute</b> in SI units (km h⁻¹, g, cm and minutes converted), then calculate.</li></ul></div>
+    <div><span>O</span><b>Outcomes</b><p>Check the answer makes physical sense.</p>
+      <ul><li><b>Units and figures:</b> m s⁻¹, N, kg m s⁻¹, J or W, to 2 or 3 significant figures.</li><li><b>Reality check:</b> a car travels at about 30 m s⁻¹ and a person weighs about 600 N. Is your answer that kind of size?</li><li><b>Direction:</b> every vector answer needs one. Then reread the question: did you answer what was asked?</li></ul></div>
+  </div>
+  <h3>CEO for "explain" questions: model answers</h3>
+  <p class="note">Read the question, cover the answer and write your own C, E and O first. Then compare. Notice that every answer names the physics, links each step with <b>so</b> or <b>because</b>, says <b>increases</b>, <b>decreases</b> or <b>stays the same</b>, and ends by answering the question that was asked.</p>
+  <details class="worked" open><summary>CEO explain example · why an airbag reduces injury</summary>
+    <p><b>Question:</b> A car crashes into a wall and stops. Explain why the airbag reduces the injury to the driver.</p>
+    <p><b>C · Conceptualise:</b> this is about <b>impulse and change in momentum</b>. The driver's momentum must change from \(mv\) to zero whether or not there is an airbag, so the change in momentum \(\Delta p\) is the <b>same</b> in both cases.</p>
+    <p><b>E · Execute:</b> the airbag squashes as the driver moves into it, so the driver takes a <b>longer time</b> to stop. Since \(\Delta p = F\Delta t\) and \(\Delta p\) is fixed, a longer \(\Delta t\) means a <b>smaller average force</b> on the driver. The airbag also spreads that force over a larger area of the body.</p>
+    <p><b>O · Outcomes:</b> so the force on the driver is smaller and injury is less likely ✓. Check: stopping in 0.20 s instead of 0.020 s makes the average force ten times smaller ✓. The airbag does not "absorb the momentum": \(\Delta p\) is unchanged, only the time changes ✓.</p>
+  </details>
+  <details class="worked"><summary>CEO explain example · a car on an icy bend</summary>
+    <p><b>Question:</b> A car drives round a flat bend at a constant speed. Explain why the car is accelerating, and what happens if the road is icy.</p>
+    <p><b>C · Conceptualise:</b> this is <b>circular motion</b>. Velocity is a vector. The direction of the car's velocity changes all the time, so its velocity is changing and it is accelerating towards the centre of the circle. An acceleration needs a net force in the same direction: the <b>centripetal force</b>.</p>
+    <p><b>E · Execute:</b> the <b>friction force</b> between the tyres and the road acts towards the centre and provides the centripetal force, \(F_{c} = \frac{mv^{2}}{r}\). On ice the largest friction force available is much smaller. If it is less than the \(\frac{mv^{2}}{r}\) needed for that speed and radius, the car cannot follow the bend.</p>
+    <p><b>O · Outcomes:</b> so on ice the car follows a path of larger radius and slides towards the outside of the bend, heading along the tangent ✓. Nothing pushes it outwards: there is too little force <b>inwards</b>, so it tends to carry on in a straight line (Newton's first law) ✓. Slowing down helps because \(F_{c} \propto v^{2}\): half the speed needs a quarter of the force ✓.</p>
+  </details>
+  <details class="worked"><summary>CEO explain example · thrown and dropped balls</summary>
+    <p><b>Question:</b> A ball is thrown horizontally from a cliff at the same instant as an identical ball is dropped from the same height. Ignore air resistance. Explain which ball lands first.</p>
+    <p><b>C · Conceptualise:</b> this is <b>projectile motion</b>. The only force on each ball is its weight, which acts vertically, so the horizontal and vertical motions are <b>independent</b>.</p>
+    <p><b>E · Execute:</b> both balls start with <b>zero vertical velocity</b>, have the same vertical acceleration (9.8 m s⁻² downwards) and fall the same height. From \(d = v_{i}t + \tfrac{1}{2}at^{2}\) with \(v_{i} = 0\), the time to fall depends only on the height and on g. The thrown ball's horizontal velocity stays constant because there is no horizontal force, and it has no effect on the vertical motion.</p>
+    <p><b>O · Outcomes:</b> so the two balls land <b>at the same time</b> ✓. The thrown ball lands further from the cliff, by \(d_{x} = v_{x}t\) ✓. It also lands faster, because it has its horizontal velocity as well as the same vertical velocity ✓.</p>
+  </details>
+  <details class="worked"><summary>CEO explain example · scales in a lift</summary>
+    <p><b>Question:</b> A student stands on bathroom scales in a lift. Explain why the reading is greater than normal as the lift starts to move upwards, and what the scales read while the lift moves up at constant speed.</p>
+    <p><b>C · Conceptualise:</b> this is <b>Newton's second law</b>. Two forces act on the student: the weight \(mg\) downwards and the support force \(F_{N}\) from the scales upwards. The scales read the <b>support force</b>, not the weight.</p>
+    <p><b>E · Execute:</b> as the lift starts moving up, the student accelerates upwards, so the net force must be upwards: \(F_{N} - mg = ma\), which gives \(F_{N} = m(g + a)\). This is <b>greater than</b> \(mg\). At constant speed \(a = 0\), so the forces are balanced and \(F_{N} = mg\).</p>
+    <p><b>O · Outcomes:</b> so the reading is higher than normal while the lift speeds up and returns to normal at constant speed ✓. Check: for a 60 kg student and \(a = 2.0\,\mathrm{m\,s^{-2}}\), \(F_{N} = 60 \times 11.8 = 708\,\mathrm{N}\), compared with a weight of 588 N ✓. The student's weight has not changed; only the support force has ✓.</p>
+  </details>
+  <p><button type="button" class="btn sm" data-go="map:explain">Now you try: build a CEO answer →</button> <button type="button" class="btn sm" data-go="map:exam">Timed exam set →</button></p>
   <h3>Lay out every calculation the same way</h3>
   <div class="grid3">
     <div class="card tint"><span class="label">Equation</span><p>Write the equation you are using first, in symbols.</p></div>
@@ -723,8 +853,30 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 
 <section class="pane hidden" data-mod="map" data-view="challenge" data-ref="0.4" data-title="Mixed challenge">
   <div class="pane-head"><h2>Phase 0.4 · Mixed challenge: the whole standard</h2><span class="badge red">QUICK CHECK</span></div>
-  <p class="lede">Ten questions drawn at random from all five modules. Every answer comes with an explanation. Press <b>New set</b> for a different mix. Your best score is saved on this device.</p>
+  <p class="lede">Ten questions drawn at random from every topic. Every answer comes with an explanation. Press <b>New set</b> for a different mix. Your best score is saved on this device.</p>
   <div class="quiz" data-quiz="mixed" data-count="10"></div>
+</section>
+
+<section class="pane hidden" data-mod="map" data-view="explain" data-title="Answer practice: build a CEO answer and spot the mistake">
+  <div class="pane-head"><h2>Phase 0.7 · Answer practice: build it and fix it</h2><span class="badge red">EXAM PRACTICE</span></div>
+  <p class="lede">Two ways to practise the skills that earn Merit and Excellence: build an explanation with CEO, and find the mistake in a student's answer.</p>
+  <h3>A · Build a CEO answer</h3>
+  <div class="rt-box" id="ceoBuild"></div>
+  <h3>B · Spot the mistake</h3>
+  <p class="note">Each answer contains one classic error.</p>
+  <div class="rt-box" id="spotBox"></div>
+</section>
+
+<section class="pane hidden" data-mod="map" data-view="exam" data-title="Exam set: timed questions you mark yourself">
+  <div class="pane-head"><h2>Phase 0.8 · Exam set: timed questions you mark yourself</h2><span class="badge red">EXAM PRACTICE</span></div>
+  <p class="lede">Exam-style questions with the marking points a marker looks for. They are original practice questions, not NZQA questions. The real exam has three longer questions in about an hour; these are shorter, so allow 10 minutes each. Take \(g = 9.8\,\mathrm{m\,s^{-2}}\). What you type in the answer boxes is not saved or sent anywhere.</p>
+  <div class="rt-box" id="examBox"></div>
+</section>
+
+<section class="pane hidden" data-mod="map" data-view="progress" data-title="My progress: save it or share it with a teacher">
+  <div class="pane-head"><h2>Phase 0.9 · My progress: save it or share it</h2><span class="badge teal">MY PROGRESS</span></div>
+  <p class="lede">Everything you have rated, scored and marked in this lab, in one place. Save it to carry on from another device, or send it to your teacher.</p>
+  <div class="rt-box" id="progressBox"></div>
 </section>
 
 <!-- ======================================================= 00 REARRANGING FORMULAE -->
@@ -2944,7 +3096,7 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
-  map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["rearrange", "Rearranging formulae"], ["numbers", "Numbers & units"], ["challenge", "Mixed challenge"]] },
+  map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["rearrange", "Rearranging formulae"], ["numbers", "Numbers & units"], ["challenge", "Mixed challenge"], ["explain", "Answer practice"], ["exam", "Exam set"], ["progress", "My progress"]] },
   launch: { title: "MOTION", name: "Motion", views: [["intro", "Foundations"], ["graphs", "Graphs"], ["vertical", "Vertical motion"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
   vec: { title: "VECTORS & RELATIVE MOTION", name: "Vectors & relative motion", views: [["intro", "Foundations"], ["lab", "Vector lab"], ["relvel", "Relative velocity"], ["check", "Quick check"]] },
   thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "Foundations"], ["vectors", "Vectors"], ["lift", "Lift"], ["torque", "Torque"], ["bridges", "Bridges & seesaws"], ["springs", "Springs"], ["practicals", "Practicals"], ["check", "Quick check"], ["problems", "Problems"]] },
@@ -3050,7 +3202,7 @@ const modBtns = [...document.querySelectorAll(".rail .mod")];
 const sims = {}; // key "mod:view" -> { draw(dt), reset?() }
 
 function go(mod, view, scroll) {
-  const ALIAS = { "map:vectors": "vec:lab", "launch:vectors": "vec:lab", "launch:relvel": "vec:relvel", "launch:projectiles": "proj:lab", "launch:numbers": "map:numbers" }; // old links still work
+  const ALIAS = { "map:scope": "map:summary", "map:vectors": "vec:lab", "launch:vectors": "vec:lab", "launch:relvel": "vec:relvel", "launch:projectiles": "proj:lab", "launch:numbers": "map:numbers" }; // old links still work
   if (ALIAS[mod + ":" + view]) [mod, view] = ALIAS[mod + ":" + view].split(":");
   if (!MODS[mod]) mod = "map";
   if (!view || !MODS[mod].views.some((v) => v[0] === view)) view = MODS[mod].views[0][0];
@@ -3140,6 +3292,7 @@ function renderRatings() {
   const vals = Object.values(ratings), conf = vals.filter((v) => v === 2).length, get = vals.filter((v) => v === 1).length;
   $("mapBarC").style.width = (conf / TOTAL) * 100 + "%"; $("mapBarG").style.width = (get / TOTAL) * 100 + "%";
   $("mapSummary").textContent = `${conf} of ${TOTAL} confident · ${get} getting there · ${TOTAL - conf - get} still to do`;
+  if (window.__weak) window.__weak();
 }
 $("resetRatings").addEventListener("click", () => { Object.keys(ratings).forEach((k) => delete ratings[k]); store.set("ratings", ratings); renderRatings(); updateStatus(); });
 renderRatings();
@@ -5818,6 +5971,302 @@ const RR = (() => {
     else n = `The cart has stopped. Of the ${fmt(S.E0)} J it started with, ${fmt(S.heat)} J is now heat and ${fmt(Ep)} J is still gravitational potential energy where it came to rest.`;
     $("enNote").textContent = n;
   };
+})();
+
+/* ===== Revision tools: cover and recall, weakest areas, print, CEO builder, spot the mistake, exam set, my progress ===== */
+(function () {
+  const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+  const btn = (cls, text, fn) => { const b = el("button", cls); b.type = "button"; if (text != null) b.textContent = text; if (fn) b.addEventListener("click", fn); return b; };
+  const say = (box, cls, html) => { box.hidden = false; box.className = "verdict " + cls; box.innerHTML = html; };
+  const allItems = () => Object.keys(SCOPE).flatMap((mod) => SCOPE[mod].map((it, i) => ({ r: ratings[mod + "." + i], text: it[0], go: it[2], mod })));
+
+  /* ---------- 0.1 cover and recall ---------- */
+  const sum = $("sumGrid"), cards = [...sum.querySelectorAll(".sum-card")];
+  cards.forEach((c) => {
+    const box = el("div", "recall-box", "<p><b>From memory:</b> say or write the key ideas, the equations and one mistake to avoid. Then check.</p>");
+    box.appendChild(btn("btn sm", "Reveal", () => c.classList.add("revealed")));
+    c.insertBefore(box, c.querySelector("ul"));
+  });
+  const rt = $("recallToggle");
+  rt.addEventListener("click", () => { const on = !sum.classList.contains("recall"); sum.classList.toggle("recall", on); cards.forEach((c) => c.classList.remove("revealed")); rt.textContent = on ? "Show all cards" : "Cover and recall"; rt.setAttribute("aria-pressed", String(on)); });
+
+  /* ---------- 0.1 weakest areas, from the course-map ratings ---------- */
+  window.__weak = function () {
+    const box = $("weakBox"), all = allItems(), rated = all.filter((x) => x.r !== undefined), weak = rated.filter((x) => x.r < 2).sort((a, b) => a.r - b.r).slice(0, 3);
+    box.replaceChildren(); const h = el("b", "weak-h"); box.appendChild(h);
+    if (!rated.length) { h.textContent = "Your revision list"; box.appendChild(el("span", null, "Rate yourself in the course map further down this page and your three weakest areas will appear here."));
+      box.appendChild(btn("btn sm", "Rate myself ↓", () => $("scopeTop").scrollIntoView({ behavior: "smooth", block: "start" }))); return; }
+    if (!weak.length) { h.textContent = "Your revision list"; box.appendChild(el("span", null, rated.length < all.length ? "Nothing rated below Confident so far. Rate the rest of the course map, or test yourself." : "You rated everything Confident. Prove it with a timed exam set."));
+      const b = btn("btn sm", "Exam set →"); b.dataset.go = "map:exam"; box.appendChild(b); return; }
+    h.textContent = "Start here today · your weakest areas";
+    weak.forEach((x) => { const b = btn("weak-item"); b.dataset.go = x.go; b.innerHTML = "<i>" + (x.r === 0 ? "Not yet" : "Getting there") + " · " + MODS[x.mod].name + "</i>" + x.text + " →"; box.appendChild(b); });
+  };
+  window.__weak();
+
+  /* ---------- 0.1 print the summary ---------- */
+  $("printSum").addEventListener("click", () => {
+    let s = $("printSheet"); if (s) s.remove(); s = el("div"); s.id = "printSheet";
+    s.appendChild(el("h1", null, "AS91171 Mechanics · revision summary"));
+    const g = sum.cloneNode(true); g.removeAttribute("id"); g.classList.remove("recall"); g.querySelectorAll(".recall-box,.btn").forEach((e) => e.remove()); s.appendChild(g);
+    s.appendChild(el("p", "print-foot", "Green border: given on the formula sheet in the exam. Physics@Rosmini · Year 12 Mechanics lab")); document.body.appendChild(s);
+    document.body.classList.add("print-sum");
+    const done = () => { document.body.classList.remove("print-sum"); window.removeEventListener("afterprint", done); }; window.addEventListener("afterprint", done); window.print();
+  });
+
+  /* ---------- 0.7 CEO answer builder ---------- */
+  const CEO = [
+    { title: "Catching a cricket ball", q: "A fielder catches a fast cricket ball. Explain why moving the hands back with the ball as it is caught makes the catch hurt less.",
+      s: [["C", "This is about impulse: the force on the ball, acting for the time it takes to stop, changes the ball's momentum."],
+          ["C", "The ball's momentum changes from \\(mv\\) to zero however it is caught, so the change in momentum is the same."],
+          ["E", "Moving the hands back with the ball increases the time the ball takes to stop."],
+          ["E", "\\(\\Delta p = F\\Delta t\\), so for the same change in momentum a longer time means a smaller average force on the ball."],
+          ["E", "By Newton's third law, the force of the ball on the hands is the same size as the force of the hands on the ball, so it is smaller too."],
+          ["O", "So moving the hands back reduces the force on the hands, and the catch hurts less."],
+          ["X", "Moving the hands back reduces the change in momentum of the ball.", "The ball still goes from \\(mv\\) to zero, so \\(\\Delta p\\) is the same. It is the stopping time that changes."],
+          ["X", "The ball has less energy when it is caught slowly, so it pushes less hard.", "The ball loses all of its kinetic energy either way. The force is smaller because the stopping time is longer."]] },
+    { title: "Hammer throw", q: "An athlete swings a heavy ball on a wire in a horizontal circle at constant speed, then lets go. Explain the motion of the ball before and after it is released.",
+      s: [["C", "The ball moves in a circle at constant speed. Its direction changes all the time, so its velocity is changing and it is accelerating."],
+          ["C", "An acceleration needs a net force. For circular motion the net force points towards the centre of the circle."],
+          ["E", "The tension in the wire pulls the ball towards the centre and provides the centripetal force."],
+          ["E", "This force is at right angles to the velocity, so it changes the direction of the ball but not its speed."],
+          ["E", "When the athlete lets go, the tension becomes zero, so there is no longer a force towards the centre."],
+          ["O", "So the ball stops following the circle and moves off in a straight line along the tangent, in the direction it was moving at the instant of release."],
+          ["X", "When it is released, the ball flies straight outwards from the centre because of the centrifugal force.", "There is no outward force. With no force towards the centre, the ball carries on along the tangent (Newton's first law)."],
+          ["X", "The ball moves at constant speed, so the forces on it are balanced.", "Constant speed is not constant velocity. The direction is changing, so there is a net force towards the centre."]] },
+    { title: "Balancing a seesaw", q: "A heavy adult and a light child sit on opposite sides of a seesaw and it balances. Explain why the adult must sit closer to the pivot than the child.",
+      s: [["C", "The seesaw is in equilibrium, so the clockwise torque about the pivot equals the anticlockwise torque."],
+          ["C", "Torque is the force multiplied by its perpendicular distance from the pivot: \\(\\tau = Fd\\)."],
+          ["E", "The adult's weight is a larger force than the child's weight."],
+          ["E", "For the two torques to be equal, the larger force must act at a smaller distance from the pivot."],
+          ["E", "For example, an adult with twice the child's weight must sit at half the child's distance."],
+          ["O", "So the adult sits closer to the pivot, and the seesaw balances because the torques are equal even though the forces are not."],
+          ["X", "The seesaw balances when the forces on each side of the pivot are equal.", "The two weights are different. It is the torques (force × distance) that are equal."],
+          ["X", "The support force at the pivot provides a torque that helps to balance the adult.", "The support force acts at the pivot, so its distance from the pivot is zero and it has no torque about the pivot."]] },
+    { title: "Skateboarder on a ramp", q: "A skateboarder starts from rest at the top of a ramp and rolls to the bottom. Her speed at the bottom is less than \\(\\sqrt{2g\\Delta h}\\). Explain why.",
+      s: [["C", "This is conservation of energy. At the top she has gravitational potential energy and no kinetic energy."],
+          ["C", "Energy cannot be created or destroyed. It is transformed from one type into another."],
+          ["E", "As she rolls down, gravitational potential energy is transformed into kinetic energy."],
+          ["E", "Friction and air resistance act against the motion, so some of the energy is transformed into heat."],
+          ["E", "The kinetic energy at the bottom is therefore less than the gravitational potential energy lost: \\(\\tfrac{1}{2}mv^{2} < mg\\Delta h\\)."],
+          ["O", "So her speed at the bottom is less than \\(\\sqrt{2g\\Delta h}\\), which is the speed she would reach with no friction."],
+          ["X", "Some of the energy is lost and disappears because of friction.", "Energy is never destroyed. Friction transforms some of it into heat."],
+          ["X", "A heavier skateboarder would reach the bottom faster, because she has more potential energy.", "With no friction the mass cancels: \\(mg\\Delta h = \\tfrac{1}{2}mv^{2}\\) gives \\(v = \\sqrt{2g\\Delta h}\\) for any mass."]] },
+  ];
+  const NAME = { C: "C · Conceptualise", E: "E · Execute", O: "O · Outcomes", X: "Leave out" };
+  const cb = $("ceoBuild"); let ci = 0;
+  function renderCeo() {
+    const Qn = CEO[ci]; cb.replaceChildren();
+    const head = el("div", "qhead"); head.appendChild(el("span", null, "QUESTION " + (ci + 1) + " OF " + CEO.length + " · " + Qn.title.toUpperCase()));
+    head.appendChild(btn("btn sm", "Next question", () => { ci = (ci + 1) % CEO.length; renderCeo(); })); cb.appendChild(head);
+    cb.appendChild(el("p", null, "<b>Question:</b> " + Qn.q));
+    cb.appendChild(el("p", "small", "Sort each sentence: does it belong in <b>C</b>, <b>E</b> or <b>O</b>? Two sentences contain wrong physics. Mark those <b>✕ Leave out</b>."));
+    const rows = shuffle(Qn.s).map((s) => {
+      const r = el("div", "sent"); r.appendChild(el("p", null, s[1])); const pick = el("div", "pick"); pick.setAttribute("role", "group"); pick.setAttribute("aria-label", "Where does this sentence belong?");
+      ["C", "E", "O", "X"].forEach((k) => { const b = btn(null, k === "X" ? "✕" : k, () => { if (r.dataset.done) return; r.dataset.pick = k; [...pick.children].forEach((x) => x.setAttribute("aria-pressed", String(x === b))); }); b.setAttribute("aria-pressed", "false"); b.setAttribute("aria-label", NAME[k]); b.title = NAME[k]; pick.appendChild(b); });
+      r.appendChild(pick); const fb = el("p", "sent-fb"); fb.hidden = true; r.appendChild(fb); cb.appendChild(r); return { r, s, fb };
+    });
+    const out = el("div", "final"); out.hidden = true;
+    const check = btn("btn sm go", "CHECK MY ANSWER", () => {
+      const missing = rows.filter((x) => !x.r.dataset.pick); if (missing.length) { out.hidden = false; out.innerHTML = "<strong>Sort every sentence first.</strong> " + missing.length + " still to do."; return; }
+      let ok = 0; rows.forEach((x) => { const right = x.r.dataset.pick === x.s[0]; x.r.dataset.done = "1"; x.r.classList.add(right ? "right" : "wrong"); if (right) ok++;
+        if (!right || x.s[0] === "X") { x.fb.hidden = false; x.fb.innerHTML = (right ? "<b>Correct, leave it out.</b> " : "<b>This belongs in: " + NAME[x.s[0]] + ".</b> ") + (x.s[2] || ""); } });
+      const c = store.get("ceo", {}); c[ci] = Math.max(c[ci] || 0, ok); store.set("ceo", c);
+      const part = (k) => Qn.s.filter((s) => s[0] === k).map((s) => s[1]).join(" ");
+      out.hidden = false; out.innerHTML = "<strong>" + ok + " of " + rows.length + " sorted correctly.</strong> The finished answer reads:<p><b>C · Conceptualise:</b> " + part("C") + "</p><p><b>E · Execute:</b> " + part("E") + "</p><p><b>O · Outcomes:</b> " + part("O") + "</p>";
+    });
+    const row = el("div"); row.appendChild(check); cb.appendChild(row); cb.appendChild(out);
+  }
+  renderCeo();
+
+  /* ---------- 0.7 spot the mistake ---------- */
+  const SPOT = [
+    { q: "A ball is thrown straight up. Describe its velocity and acceleration at the highest point.", a: ["At the highest point the ball stops for an instant, so its velocity is zero.", "Because it has stopped, its acceleration is also zero.", "It then speeds up on the way down."], bad: 1, fix: "The acceleration is still <b>9.8 m s⁻² downwards</b>. Gravity acts the whole time; that is why the velocity changes from upwards to downwards." },
+    { q: "A ball is kicked at 20 m s⁻¹ at 30° above the horizontal. Find the time it takes to reach its highest point.", a: ["At the highest point the vertical velocity is zero.", "Using \\(v_{f} = v_{i} + at\\): 0 = 20 − 9.8t.", "So t = 2.0 s."], bad: 1, fix: "Use the <b>vertical component</b>, not the launch speed: \\(v_{y} = 20\\sin 30^\\circ = 10\\,\\mathrm{m\\,s^{-1}}\\), so t = 10 ÷ 9.8 = 1.0 s." },
+    { q: "A 0.20 kg ball hits a wall at 6.0 m s⁻¹ and bounces straight back at 4.0 m s⁻¹. Calculate the size of its change in momentum.", a: ["Momentum is \\(p = mv\\).", "\\(\\Delta p = 0.20 \\times (6.0 - 4.0)\\)", "\\(\\Delta p = 0.40\\,\\mathrm{kg\\,m\\,s^{-1}}\\)"], bad: 1, fix: "The velocity <b>reverses</b>, so one of the velocities is negative: \\(\\Delta p = 0.20 \\times (-4.0 - 6.0) = -2.0\\,\\mathrm{kg\\,m\\,s^{-1}}\\). The size is 2.0 kg m s⁻¹." },
+    { q: "A car travels round a roundabout at a constant speed. Explain whether it is accelerating.", a: ["The speed of the car is constant.", "So the velocity is constant and the acceleration is zero.", "Friction between the tyres and the road keeps the car on its circular path."], bad: 1, fix: "The <b>direction</b> of the velocity keeps changing, so the velocity changes. The car accelerates towards the centre: \\(a_{c} = \\frac{v^{2}}{r}\\)." },
+    { q: "A 50 kg box slides 3.0 m down a ramp, dropping a vertical height of 1.2 m. Calculate the gravitational potential energy it loses.", a: ["\\(\\Delta E_{p} = mg\\Delta h\\)", "\\(\\Delta E_{p} = 50 \\times 9.8 \\times 3.0\\)", "\\(\\Delta E_{p} = 1470\\,\\mathrm{J}\\)"], bad: 1, fix: "\\(\\Delta h\\) is the <b>vertical</b> height, not the distance along the ramp: 50 × 9.8 × 1.2 = 588 J." },
+    { q: "A spring stretches 5.0 cm when a 2.0 N force is applied. Calculate the spring constant.", a: ["\\(k = \\frac{F}{x}\\)", "\\(k = \\frac{2.0}{5.0}\\)", "\\(k = 0.40\\,\\mathrm{N\\,m^{-1}}\\)"], bad: 1, fix: "Convert first: 5.0 cm = 0.050 m, so \\(k = \\frac{2.0}{0.050} = 40\\,\\mathrm{N\\,m^{-1}}\\)." },
+    { q: "A book rests on a table. Identify the Newton's third law partner of the weight of the book.", a: ["The weight of the book is the gravitational force of the Earth on the book.", "Its third-law partner is the support force of the table on the book.", "The two forces in a third-law pair are equal in size and opposite in direction."], bad: 1, fix: "A third-law pair acts on <b>two different objects</b>: the partner is the gravitational force of the book on the Earth. The weight and the support force both act on the book. They are balanced forces, not a third-law pair." },
+    { q: "A 2.0 kg trolley moving at 3.0 m s⁻¹ hits a stationary 1.0 kg trolley and they stick together. State what is conserved.", a: ["The total momentum before the collision equals the total momentum after it.", "The trolleys move off together at 2.0 m s⁻¹.", "Kinetic energy is conserved as well, because momentum is conserved."], bad: 2, fix: "\\(E_{k}\\) before is 9.0 J and after is 6.0 J. A collision where the objects stick together is <b>inelastic</b>: some kinetic energy is transformed into heat and sound. Momentum is conserved; kinetic energy is not." },
+    { q: "A uniform plank rests on a support at each end. A person stands on it, close to the left-hand end. Explain which support provides the larger force.", a: ["The plank is in equilibrium, so the torques about any point balance.", "The person is close to the left support, so their weight has a large torque about the left-hand end.", "So the left support provides the larger force."], bad: 1, fix: "Close to the left end means a <b>small distance</b>, so a small torque about the left end. The right support then needs only a small force to balance it, and the left support provides the rest. The conclusion was right, but the reason was wrong." },
+    { q: "A river flows at 3.0 m s⁻¹. A boat that travels at 4.0 m s⁻¹ in still water heads straight across the 60 m wide river. Calculate the time it takes to cross.", a: ["The boat's speed relative to the bank is \\(\\sqrt{4.0^{2} + 3.0^{2}} = 5.0\\,\\mathrm{m\\,s^{-1}}\\).", "Time = 60 ÷ 5.0", "Time = 12 s"], bad: 1, fix: "Only the velocity <b>straight across</b> carries the boat across: t = 60 ÷ 4.0 = 15 s. In that time it also drifts 45 m downstream, so it travels 75 m at 5.0 m s⁻¹." },
+    { q: "A motor lifts a 200 N load through 6.0 m in 0.50 minutes. Calculate the power of the motor.", a: ["\\(W = Fd = 200 \\times 6.0 = 1200\\,\\mathrm{J}\\)", "\\(P = \\frac{W}{t} = \\frac{1200}{0.50}\\)", "\\(P = 2400\\,\\mathrm{W}\\)"], bad: 1, fix: "Time must be in <b>seconds</b>: 0.50 min = 30 s, so \\(P = \\frac{1200}{30} = 40\\,\\mathrm{W}\\)." },
+    { q: "A skydiver falls at terminal velocity. Describe the forces on the skydiver.", a: ["The weight of the skydiver acts downwards.", "Air resistance acts upwards and is equal in size to the weight.", "The skydiver is still moving downwards, so there must be a net force downwards."], bad: 2, fix: "At a constant velocity the net force is <b>zero</b> (Newton's first law). Balanced forces mean no acceleration; they do not mean no motion." },
+  ];
+  const sb = $("spotBox"); let order = [], si = 0, sScore = 0, sDone = 0;
+  function renderSpot() {
+    if (!order.length || si >= order.length) { order = shuffle(SPOT.map((_, i) => i)); si = 0; sScore = 0; sDone = 0; }
+    const it = SPOT[order[si]]; sb.replaceChildren(); let tries = 0, solved = false;
+    const head = el("div", "qhead"), sc = el("span"); const upd = () => (sc.textContent = "ANSWER " + (si + 1) + " OF " + SPOT.length + " · FOUND FIRST TIME: " + sScore + " / " + sDone); upd();
+    head.appendChild(sc); head.appendChild(btn("btn sm", "Next answer", () => { si++; renderSpot(); })); sb.appendChild(head);
+    sb.appendChild(el("p", null, "<b>Question:</b> " + it.q)); sb.appendChild(el("p", "small", "A student wrote this. Click the sentence that contains the mistake."));
+    const ans = el("div", "student"), fb = el("div"); fb.hidden = true; fb.setAttribute("aria-live", "polite");
+    it.a.forEach((t, k) => { const b = btn("ss", null, () => { if (solved) return; tries++;
+      if (k === it.bad) { solved = true; b.classList.add("found"); sDone++; if (tries === 1) { sScore++; store.set("spot", Math.max(store.get("spot", 0), sScore)); } else if (store.get("spot", null) === null) store.set("spot", 0); say(fb, "ok", "<strong>Found it.</strong> " + it.fix); upd(); }
+      else { b.classList.add("fine"); say(fb, "bad", "<strong>That sentence is fine.</strong> Look again."); } }); b.innerHTML = t; ans.appendChild(b); });
+    sb.append(ans, fb);
+  }
+  renderSpot();
+
+  /* ---------- 0.8 exam set with self-marking ---------- */
+  const EX = [
+    { t: "mot", name: "Stone thrown from a cliff", ctx: "A stone is thrown horizontally at 15 m s⁻¹ from the top of a 30 m high cliff. Ignore air resistance.",
+      parts: [["Calculate the time the stone takes to reach the sea.", "Vertically, \\(v_{i} = 0\\): \\(d = \\tfrac{1}{2}at^{2}\\), so \\(t = \\sqrt{\\frac{2 \\times 30}{9.8}}\\) = <b>2.5 s</b> (2.47 s)."],
+              ["Calculate how far from the base of the cliff the stone lands.", "Horizontally the velocity is constant: \\(d_{x} = v_{x}t = 15 \\times 2.47\\) = <b>37 m</b>."],
+              ["Calculate the size and direction of the stone's velocity just before it hits the sea, and explain why its horizontal velocity has not changed.", "\\(v_{y} = 9.8 \\times 2.47 = 24.2\\,\\mathrm{m\\,s^{-1}}\\) downwards and \\(v_{x} = 15\\,\\mathrm{m\\,s^{-1}}\\). Speed \\(= \\sqrt{15^{2} + 24.2^{2}}\\) = <b>29 m s⁻¹</b>, at \\(\\tan^{-1}\\frac{24.2}{15}\\) = <b>58° below the horizontal</b>. The only force on the stone is its weight, which acts vertically. There is no horizontal force, so there is no horizontal acceleration and \\(v_{x}\\) stays at 15 m s⁻¹."]],
+      pts: [["A", "(a) Uses \\(d = \\tfrac{1}{2}at^{2}\\) with a vertical starting velocity of zero"], ["A", "(b) Uses \\(d_{x} = v_{x}t\\)"], ["A", "(c) Vertical velocity of about 24 m s⁻¹"],
+            ["M", "(a) Time of 2.5 s"], ["M", "(b) Distance of 37 m"], ["M", "(c) Speed of 29 m s⁻¹ from Pythagoras"],
+            ["E", "(c) Complete answer: speed, the angle of 58° below the horizontal, and no horizontal force so \\(v_{x}\\) is constant"]] },
+    { t: "mot", name: "Cyclist's journey", ctx: "A cyclist starts from rest and accelerates at 1.5 m s⁻² for 8.0 s. She then rides at constant velocity for 10 s, and finally brakes steadily to rest in 4.0 s.",
+      parts: [["Calculate her maximum velocity.", "\\(v_{f} = v_{i} + at = 0 + 1.5 \\times 8.0\\) = <b>12 m s⁻¹</b>."],
+              ["Calculate the total distance she travels.", "Distance is the area under the velocity–time graph: \\(\\tfrac{1}{2} \\times 8.0 \\times 12 = 48\\,\\mathrm{m}\\), then \\(12 \\times 10 = 120\\,\\mathrm{m}\\), then \\(\\tfrac{1}{2} \\times 4.0 \\times 12 = 24\\,\\mathrm{m}\\). Total = <b>192 m</b>."],
+              ["Calculate her acceleration while braking. Use the velocity–time graph to explain why the braking distance is half the distance she covered while speeding up.", "\\(a = \\frac{\\Delta v}{\\Delta t} = \\frac{0 - 12}{4.0}\\) = <b>−3.0 m s⁻²</b>: 3.0 m s⁻² in the opposite direction to her motion. On the graph both stages are triangles with the same height (12 m s⁻¹). The braking triangle has half the base (4.0 s instead of 8.0 s), so it has half the area. Area is distance, so she covers 24 m braking and 48 m speeding up."]],
+      pts: [["A", "(a) 12 m s⁻¹"], ["A", "(b) Finds the distance for at least one stage correctly"], ["A", "(c) Acceleration of size 3.0 m s⁻²"],
+            ["M", "(b) Total distance of 192 m"], ["M", "(c) Shows the acceleration is negative, or opposite to the motion"], ["M", "(c) States that distance is the area under the velocity–time graph"],
+            ["E", "(c) Compares the two triangles: same height, half the base, so half the area (24 m and 48 m)"]] },
+    { t: "for", name: "Painter on a plank", ctx: "A uniform plank of length 4.0 m and weight 200 N rests on two supports, one at each end. A painter of weight 700 N stands 1.0 m from the left-hand end.",
+      parts: [["State the total upward force that the two supports provide together.", "The plank is in equilibrium, so the upward forces equal the downward forces: 200 + 700 = <b>900 N</b>."],
+              ["Calculate the force provided by the right-hand support.", "Take torques about the left-hand end (so the left support has no torque). Clockwise: \\(700 \\times 1.0 + 200 \\times 2.0 = 1100\\,\\mathrm{N\\,m}\\). Anticlockwise: \\(F_{R} \\times 4.0\\). So \\(F_{R} = \\frac{1100}{4.0}\\) = <b>275 N</b>."],
+              ["Calculate the force provided by the left-hand support, and explain what happens to the two support forces as the painter walks towards the right-hand end.", "\\(F_{L} = 900 - 275\\) = <b>625 N</b>. As the painter walks to the right, the distance of their weight from the left-hand end increases, so its torque about that end increases. The right-hand support force must increase to balance it. The total must stay at 900 N, because the forces still balance, so the left-hand support force decreases by the same amount."]],
+      pts: [["A", "(a) 900 N"], ["A", "(b) Works out a torque using force × distance"], ["A", "(c) States that the right-hand force increases, or the left-hand force decreases"],
+            ["M", "(b) 275 N from a balanced torque equation"], ["M", "(c) Left-hand force of 625 N"], ["M", "(c) Links the change to the larger torque about the left-hand end"],
+            ["E", "(c) Complete answer: both forces change by the same amount and the total stays 900 N because the plank is in equilibrium"]] },
+    { t: "for", name: "Car on a bend", ctx: "A 1200 kg car travels round a flat circular bend of radius 50 m at a constant speed of 14 m s⁻¹.",
+      parts: [["Calculate the centripetal acceleration of the car.", "\\(a_{c} = \\frac{v^{2}}{r} = \\frac{14^{2}}{50}\\) = <b>3.9 m s⁻²</b>, towards the centre of the bend."],
+              ["Calculate the centripetal force on the car, and state what provides this force.", "\\(F_{c} = ma_{c} = 1200 \\times 3.92\\) = <b>4.7 × 10³ N</b>, towards the centre. It is provided by the friction force between the tyres and the road."],
+              ["The largest friction force the road can provide is 9000 N. Calculate the maximum speed at which the car can take this bend, and explain what happens if the driver goes faster.", "\\(v = \\sqrt{\\frac{F_{c}r}{m}} = \\sqrt{\\frac{9000 \\times 50}{1200}}\\) = <b>19 m s⁻¹</b>. The force needed increases with the square of the speed (\\(F_{c} \\propto v^{2}\\)). Above 19 m s⁻¹ the force needed is more than the friction available, so the car cannot follow the bend. It slides towards the outside of the bend on a path of larger radius. Nothing pushes it outwards: there is not enough force inwards."]],
+      pts: [["A", "(a) 3.9 m s⁻²"], ["A", "(b) Names friction as the force"], ["A", "(c) Rearranges \\(F_{c} = \\frac{mv^{2}}{r}\\) for the speed"],
+            ["M", "(b) 4.7 × 10³ N, towards the centre"], ["M", "(c) Maximum speed of 19 m s⁻¹"], ["M", "(c) States that the force needed is more than the friction available"],
+            ["E", "(c) Complete answer: \\(F_{c} \\propto v^{2}\\), the car follows a path of larger radius, and no outward force is claimed"]] },
+    { t: "mom", name: "Trolley collision", ctx: "A 1.5 kg trolley moving at 4.0 m s⁻¹ collides with a stationary 2.5 kg trolley. The two trolleys stick together.",
+      parts: [["Calculate the momentum of the moving trolley before the collision.", "\\(p = mv = 1.5 \\times 4.0\\) = <b>6.0 kg m s⁻¹</b>, in the direction it is moving."],
+              ["Calculate the speed of the trolleys after the collision.", "Momentum is conserved: \\(6.0 = (1.5 + 2.5)v\\), so \\(v = \\frac{6.0}{4.0}\\) = <b>1.5 m s⁻¹</b>."],
+              ["Use calculations to decide whether the collision is elastic, and explain what has happened to the energy.", "\\(E_{k}\\) before \\(= \\tfrac{1}{2} \\times 1.5 \\times 4.0^{2} = 12\\,\\mathrm{J}\\). \\(E_{k}\\) after \\(= \\tfrac{1}{2} \\times 4.0 \\times 1.5^{2} = 4.5\\,\\mathrm{J}\\). Kinetic energy has decreased, so the collision is <b>inelastic</b>. The missing 7.5 J has been transformed into heat and sound, and into deforming the trolleys. Momentum is still conserved, because there is no external force on the two trolleys."]],
+      pts: [["A", "(a) 6.0 kg m s⁻¹"], ["A", "(b) States that total momentum before equals total momentum after"], ["A", "(c) Calculates one kinetic energy correctly"],
+            ["M", "(b) 1.5 m s⁻¹"], ["M", "(c) Both kinetic energies: 12 J and 4.5 J"], ["M", "(c) Inelastic, because the kinetic energy decreases"],
+            ["E", "(c) Complete answer: 7.5 J transformed into heat and sound, while momentum is conserved because there is no external force"]] },
+    { t: "mom", name: "Skier on a slope", ctx: "A 60 kg skier starts from rest at the top of a slope and descends a vertical height of 25 m. The slope is 80 m long.",
+      parts: [["Calculate the gravitational potential energy the skier loses.", "\\(\\Delta E_{p} = mg\\Delta h = 60 \\times 9.8 \\times 25\\) = <b>1.5 × 10⁴ J</b> (14 700 J)."],
+              ["Calculate the speed the skier would reach at the bottom if there were no friction.", "\\(mg\\Delta h = \\tfrac{1}{2}mv^{2}\\), so \\(v = \\sqrt{2g\\Delta h} = \\sqrt{2 \\times 9.8 \\times 25}\\) = <b>22 m s⁻¹</b>."],
+              ["The skier's actual speed at the bottom is 18 m s⁻¹. Calculate the average friction force on the skier, and explain the energy changes.", "\\(E_{k}\\) at the bottom \\(= \\tfrac{1}{2} \\times 60 \\times 18^{2} = 9720\\,\\mathrm{J}\\). Energy transformed into heat = 14 700 − 9720 = 4980 J. This is the work done against friction along the slope: \\(W = Fd\\), so \\(F = \\frac{4980}{80}\\) = <b>62 N</b>. Gravitational potential energy is transformed into kinetic energy and heat. The total energy is conserved."]],
+      pts: [["A", "(a) 1.5 × 10⁴ J"], ["A", "(b) Equates \\(mg\\Delta h\\) and \\(\\tfrac{1}{2}mv^{2}\\)"], ["A", "(c) Kinetic energy of 9720 J at the bottom"],
+            ["M", "(b) 22 m s⁻¹"], ["M", "(c) 4980 J transformed into heat"], ["M", "(c) Uses \\(W = Fd\\) with the 80 m length of the slope"],
+            ["E", "(c) 62 N, with the energy changes explained: potential energy becomes kinetic energy and heat, and the total is conserved"]] },
+  ];
+  const TOPIC = { mot: "Motion & projectiles", for: "Forces & circular motion", mom: "Momentum & energy" }, GROUPS = ["mot", "for", "mom"];
+  const xb = $("examBox"); let timer = 0;
+  function examHome() {
+    clearInterval(timer); xb.replaceChildren();
+    const last = store.get("exam-last", null);
+    xb.appendChild(el("p", null, "<b>Timed set:</b> three questions, one from each part of the standard, in 30 minutes. Write full answers on paper or in the boxes. When you finish, mark yourself against the marking points."));
+    const row = el("div"); row.appendChild(btn("btn sm go", "START TIMED SET (30 MIN)", () => examRun(GROUPS.map((t) => shuffle(EX.filter((q) => q.t === t))[0]), 30))); xb.appendChild(row);
+    if (last) xb.appendChild(el("p", "small", "Last timed set: " + last.join(" · ")));
+    xb.appendChild(el("p", null, "<b>Or practise one question, untimed:</b>"));
+    const list = el("div", "exam-list"); EX.forEach((q) => { const b = btn(null, null, () => examRun([q], 0)); b.innerHTML = "<span>" + TOPIC[q.t] + "</span>" + q.name; list.appendChild(b); }); xb.appendChild(list);
+  }
+  function examRun(qs, mins) {
+    xb.replaceChildren(); const head = el("div", "qhead exam-head"), clock = el("span", "clock"); head.appendChild(clock);
+    const fin = btn("btn sm go", "FINISH AND MARK"); head.appendChild(fin); head.appendChild(btn("btn sm", "Quit", examHome)); xb.appendChild(head);
+    let left = mins * 60; const mmss = (n) => Math.floor(Math.abs(n) / 60) + ":" + String(Math.abs(n) % 60).padStart(2, "0");
+    const tick = () => { if (!mins) { clock.textContent = "Untimed practice"; return; } clock.textContent = left >= 0 ? "Time left " + mmss(left) : "Over time by " + mmss(left); clock.classList.toggle("over", left < 0); }; tick();
+    if (mins) timer = setInterval(() => { if (!document.body.contains(clock)) { clearInterval(timer); return; } left--; tick(); }, 1000);
+    const cards = qs.map((q, qi) => {
+      const card = el("article", "q"); card.appendChild(el("div", "q-head", "<b>QUESTION " + ["ONE", "TWO", "THREE"][qi] + "</b><span>" + TOPIC[q.t] + " · " + q.name + "</span>"));
+      const body = el("div", "q-body"); card.appendChild(body); body.appendChild(el("p", null, q.ctx));
+      const parts = q.parts.map((p, pi) => { const w = el("div", "part"); w.appendChild(el("p", null, "<b>(" + "abc"[pi] + ")</b> " + p[0])); const ta = el("textarea", "write"); ta.rows = 3; ta.placeholder = "Write your answer here, or on paper"; ta.setAttribute("aria-label", "Your answer to part " + "abc"[pi]); w.appendChild(ta);
+        const model = el("div", "model", "<b>Model answer:</b> " + p[1]); model.hidden = true; w.appendChild(model); body.appendChild(w); return model; });
+      const mark = el("div", "mark"); mark.hidden = true; body.appendChild(mark); xb.appendChild(card); return { q, parts, mark, card };
+    });
+    const total = el("div", "final"); total.hidden = true; xb.appendChild(total);
+    fin.addEventListener("click", () => {
+      clearInterval(timer); fin.disabled = true; if (mins) clock.textContent = left >= 0 ? "Finished with " + mmss(left) + " to spare" : "Finished " + mmss(left) + " over time";
+      const grades = cards.map(() => "Not achieved"), hist = store.get("exam-hist", []), entry = { d: new Date().toLocaleDateString("en-NZ", { day: "numeric", month: "short" }), timed: !!mins, q: cards.map((c) => c.q.name), g: grades };
+      hist.push(entry); while (hist.length > 12) hist.shift();
+      const sumUp = () => { total.hidden = false; total.innerHTML = "<strong>Your marks:</strong> " + cards.map((c, i) => "Q" + (i + 1) + " " + grades[i]).join(" · ") + ". Reread the model answer for any point you could not tick, then try another set."; if (mins) store.set("exam-last", cards.map((c, i) => TOPIC[c.q.t] + ": " + grades[i])); entry.g = grades.slice(); store.set("exam-hist", hist); };
+      cards.forEach((c, k) => {
+        c.parts.forEach((m) => (m.hidden = false)); c.mark.hidden = false; c.mark.appendChild(el("p", null, "<b>Mark your answer.</b> Tick each point that is clearly in what you wrote."));
+        const res = el("p", "grade"); const boxes = c.q.pts.map((p) => { const lab = el("label", "tick"), i = el("input"); i.type = "checkbox"; lab.appendChild(i); lab.appendChild(el("span", "lvl " + p[0], p[0])); lab.appendChild(el("span", null, p[1])); c.mark.appendChild(lab); return { i, g: p[0] }; });
+        const calc = () => { const n = (g) => boxes.filter((b) => b.g === g && b.i.checked).length, all = (g) => boxes.filter((b) => b.g === g).length; let gr = "Not achieved"; if (n("A") >= 2) { gr = "Achieved"; if (n("M") >= 2) { gr = "Merit"; if (n("E") === all("E")) gr = "Excellence"; } }
+          grades[k] = gr; res.innerHTML = "A " + n("A") + "/" + all("A") + " · M " + n("M") + "/" + all("M") + " · E " + n("E") + "/" + all("E") + " → about <b>" + gr + "</b> for this question"; sumUp(); };
+        boxes.forEach((b) => b.i.addEventListener("change", calc)); c.mark.appendChild(res); calc();
+      });
+      cards[0].card.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    xb.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  examHome();
+
+  /* ---------- 0.9 my progress: save, load, share with a teacher ---------- */
+  const PRE = "y12mech-", KEYS = (k) => /^(ratings|order-2026|rr-done|ceo|spot|exam-last|exam-hist|best-[a-z]+)$/.test(k);
+  const QUIZ = [["mixed", "Mixed challenge", 10]].concat(Object.keys(SCOPE).map((m) => [m, MODS[m].name + " quick check", 8]));
+  const plain = (t) => (typeof plainTeX === "function" ? plainTeX(t) : t);
+  function snapshot() {
+    let conf = 0, get = 0, not = 0; const all = allItems(), weak = [];
+    all.forEach((x) => { if (x.r === 2) conf++; else if (x.r === 1) { get++; weak.push("Getting there: " + plain(x.text)); } else if (x.r === 0) { not++; weak.unshift("Not yet: " + plain(x.text)); } });
+    const ceo = store.get("ceo", {}), ceoDone = Object.keys(ceo).length, ceoSum = Object.values(ceo).reduce((a, b) => a + b, 0);
+    return { conf, get, not, total: all.length, weak, quiz: QUIZ.map((q) => [q[1], store.get("best-" + q[0], null), q[2]]), hist: store.get("exam-hist", []), ceoDone, ceoSum, spot: store.get("spot", null), rr: Object.keys(store.get("rr-done", {})).length };
+  }
+  function report(name) {
+    const s = snapshot(), L = [];
+    L.push("Year 12 Physics · Mechanics (AS91171) revision progress"); L.push("Student: " + (name || "(no name given)")); L.push("Date: " + new Date().toLocaleDateString("en-NZ", { day: "numeric", month: "long", year: "numeric" })); L.push("");
+    L.push("SELF-RATINGS (course map, " + s.total + " statements)"); L.push("Confident " + s.conf + " · Getting there " + s.get + " · Not yet " + s.not + " · Not rated " + (s.total - s.conf - s.get - s.not));
+    s.weak.slice(0, 6).forEach((w) => L.push("- " + w)); L.push("");
+    L.push("QUIZ BEST SCORES"); s.quiz.forEach((q) => L.push("- " + q[0] + ": " + (q[1] === null ? "not tried" : q[1] + "/" + q[2]))); L.push("");
+    L.push("ANSWER PRACTICE"); L.push("- CEO answers built: " + s.ceoDone + " of " + CEO.length + (s.ceoDone ? " (" + s.ceoSum + "/" + s.ceoDone * 8 + " sentences sorted correctly)" : ""));
+    L.push("- Spot the mistake, found first time: " + (s.spot === null ? "not tried" : s.spot + " of " + SPOT.length)); L.push("- Formulae rearranged correctly: " + s.rr); L.push("");
+    L.push("EXAM SETS (self-marked)"); if (!s.hist.length) L.push("- none yet"); s.hist.slice(-5).forEach((h) => L.push("- " + h.d + (h.timed ? " timed" : " untimed") + ": " + h.q.map((q, i) => q + " = " + h.g[i]).join("; "))); L.push("");
+    L.push("Note: these results are self-rated and self-marked by the student in the Physics@Rosmini Mechanics lab."); return L.join("\n");
+  }
+  const enc = (o) => "M12." + btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  const dec = (t) => { t = String(t).trim().replace(/\s+/g, ""); if (!t.startsWith("M12.")) throw 0; const o = JSON.parse(decodeURIComponent(escape(atob(t.slice(4).replace(/-/g, "+").replace(/_/g, "/"))))); if (!o || typeof o !== "object" || Array.isArray(o)) throw 0; return o; };
+  const collect = () => { const o = {}; try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k.startsWith(PRE) && KEYS(k.slice(PRE.length))) o[k.slice(PRE.length)] = JSON.parse(localStorage.getItem(k)); } } catch (e) {} return o; };
+  const pv = $("progressBox");
+  function renderProgress() {
+    const s = snapshot(); pv.replaceChildren();
+    const g = el("div", "telemetry"); [["Confident", s.conf + " of " + s.total], ["Getting there / Not yet", s.get + " / " + s.not], ["Best mixed challenge", s.quiz[0][1] === null ? "not tried" : s.quiz[0][1] + "/10"], ["Exam sets marked", String(s.hist.length)]].forEach((f) => g.appendChild(el("div", "tm", "<span>" + f[0] + "</span><b>" + f[1] + "</b>"))); pv.appendChild(g);
+    const pre = el("pre", "report"); pre.textContent = report(store.get("me", {}).name || ""); pv.appendChild(pre);
+    /* save and load */
+    pv.appendChild(el("h3", null, "Save or load my progress"));
+    pv.appendChild(el("p", "note", "Your progress is kept automatically on this device. To carry it to another device, save a progress code here and load it there. There are no accounts and nothing is stored on a server."));
+    const row = el("div", "sum-tools"), code = el("textarea", "write code"); code.rows = 3; code.placeholder = "Your progress code appears here. To load, paste a code here."; code.setAttribute("aria-label", "Progress code");
+    const msg = el("div"); msg.hidden = true; msg.setAttribute("aria-live", "polite");
+    row.appendChild(btn("btn sm", "Save: make my code", () => { code.value = enc(collect()); code.select(); let ok = false; try { ok = document.execCommand("copy"); } catch (e) {} if (navigator.clipboard) navigator.clipboard.writeText(code.value).catch(() => {}); say(msg, "ok", "<strong>Code ready" + (ok ? " and copied" : "") + ".</strong> Paste it somewhere you can reach from your other device (an email to yourself, or a Google Doc), or download it as a file."); }));
+    row.appendChild(btn("btn sm", "Download as a file", () => { const a = el("a"); a.href = URL.createObjectURL(new Blob([enc(collect())], { type: "text/plain" })); a.download = "mechanics-progress.txt"; document.body.appendChild(a); a.click(); a.remove(); say(msg, "ok", "<strong>Saved</strong> as mechanics-progress.txt in your downloads."); }));
+    const load = (t) => { let o; try { o = dec(t); } catch (e) { say(msg, "bad", "<strong>That is not a valid progress code.</strong> Copy the whole code, starting with M12."); return; }
+      say(msg, "info", "<strong>Load this progress?</strong> It will replace the progress saved on this device. "); msg.appendChild(btn("btn sm", "Yes, load it", () => { try { Object.keys(collect()).forEach((k) => localStorage.removeItem(PRE + k)); Object.keys(o).forEach((k) => { if (KEYS(k)) localStorage.setItem(PRE + k, JSON.stringify(o[k])); }); } catch (e) {} location.reload(); })); };
+    row.appendChild(btn("btn sm", "Load the code in the box", () => load(code.value)));
+    const file = el("input"); file.type = "file"; file.accept = ".txt,text/plain"; file.hidden = true; file.addEventListener("change", () => { const f = file.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => { code.value = String(rd.result); load(code.value); }; rd.readAsText(f); });
+    row.appendChild(btn("btn sm", "Load from a file", () => file.click())); row.appendChild(file);
+    pv.append(row, code, msg);
+    /* share */
+    pv.appendChild(el("h3", null, "Share my results with my teacher"));
+    pv.appendChild(el("p", "note", "Type your name and your teacher's email address. The button opens an email with your results already written. Check it, then press <b>Send</b>. Nothing is sent until you send it yourself, and this website does not collect your name or the address."));
+    const me = store.get("me", {}), form = el("div", "share");
+    const fld = (lab, type, val, ph) => { const l = el("label"); l.append(lab); const i = el("input"); i.type = type; i.value = val || ""; i.placeholder = ph; i.autocomplete = type === "email" ? "off" : "name"; l.appendChild(i); form.appendChild(l); return i; };
+    const nm = fld("Your name", "text", me.name, "First and last name"), em = fld("Teacher's email address", "email", me.teacher, "teacher@school.nz"); pv.appendChild(form);
+    const links = el("div", "sum-tools"); const mk = (t) => { const a = el("a", "btn sm"); a.textContent = t; a.target = "_blank"; a.rel = "noopener"; a.setAttribute("role", "button"); links.appendChild(a); return a; };
+    const gm = mk("Open in Gmail"), ml = mk("Open in my email app"), smsg = el("div"); smsg.hidden = true; smsg.setAttribute("aria-live", "polite"); let warned = false;
+    links.appendChild(btn("btn sm", "Copy the report", () => { const t = report(nm.value.trim()), ta = el("textarea"); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (e) {} ta.remove(); if (navigator.clipboard) navigator.clipboard.writeText(t).then(() => {}, () => {}); warned = false; say(smsg, "ok", "<strong>Report copied.</strong> Paste it into an email or Google Classroom."); }));
+    const upd = () => { const name = nm.value.trim(), to = em.value.trim(), ok = /^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/.test(to); store.set("me", { name, teacher: to }); pre.textContent = report(name);
+      const su = "Mechanics revision progress" + (name ? " · " + name : ""), body = report(name);
+      if (ok && warned) { smsg.hidden = true; warned = false; } [gm, ml].forEach((a) => { a.classList.toggle("off", !ok); a.setAttribute("aria-disabled", String(!ok)); });
+      if (ok) { gm.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(to) + "&su=" + encodeURIComponent(su) + "&body=" + encodeURIComponent(body); ml.href = "mailto:" + encodeURIComponent(to).replace(/%40/g, "@") + "?subject=" + encodeURIComponent(su) + "&body=" + encodeURIComponent(body.replace(/\n/g, "\r\n")); } else { gm.removeAttribute("href"); ml.removeAttribute("href"); } };
+    [gm, ml].forEach((a) => a.addEventListener("click", (e) => { if (!a.hasAttribute("href")) { e.preventDefault(); warned = true; say(smsg, "bad", "<strong>Enter your teacher's email address first.</strong> For example name@school.nz"); } else { warned = false; say(smsg, "ok", "<strong>Your email is ready.</strong> Check it, then press Send. If nothing opened, use Copy the report and paste it into an email."); } }));
+    nm.addEventListener("input", upd); em.addEventListener("input", upd); upd(); pv.append(links, smsg);
+  }
+  renderProgress();
+  const psec = document.querySelector('section[data-mod="map"][data-view="progress"]');
+  new MutationObserver(() => { if (!psec.classList.contains("hidden")) renderProgress(); }).observe(psec, { attributes: true, attributeFilter: ["class"] });
+
+  /* ---------- Problems tabs: write first, then mark each part ---------- */
+  document.querySelectorAll('section[data-view="problems"] article.q').forEach((q) => {
+    const d = q.querySelector("details.ans"); if (!d) return;
+    const n = [...d.parentNode.children].filter((c) => c.tagName === "P" && c.firstElementChild && c.firstElementChild.tagName === "B" && /^\([a-h]\)$/.test(c.firstElementChild.textContent.trim())).length; if (!n) return;
+    const ta = el("textarea", "write"); ta.rows = 3; ta.placeholder = "Write your answer here first (or on paper), then open the worked answer"; ta.setAttribute("aria-label", "Your answer"); d.parentNode.insertBefore(ta, d);
+    const row = el("div", "selfcheck", "<span>Mark yourself:</span>"), out = el("b"), boxes = [];
+    for (let i = 0; i < n; i++) { const lab = el("label"), c = el("input"); c.type = "checkbox"; lab.appendChild(c); lab.append(" (" + "abcdefgh"[i] + ") correct"); row.appendChild(lab); boxes.push(c); c.addEventListener("change", () => { const k = boxes.filter((b) => b.checked).length; out.textContent = k + " of " + n + (k === n ? " ✓" : ""); }); }
+    row.appendChild(out); (d.querySelector(".ans-body") || d).appendChild(row);
+  });
 })();
 
 /* ====================================================== LOOP & START ===== */
