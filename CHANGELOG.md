@@ -5,6 +5,20 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.12 · 12 November 2026 (Year 13 Electrical becomes a revision site first)
+- 0.1 is now a revision Summary and loads first: eight cards covering AS91526 (DC circuits,
+  capacitors, flux and Faraday, inductors, capacitor and inductor side by side, transformers,
+  AC, LCR resonance). The course map and self-ratings sit underneath.
+- Summary tools: cover and recall, a "Start here today" list of the weakest rated areas, and a
+  printable summary (two A4 pages).
+- 0.2 Exam Skills: CEO now covers explain questions, with four model explain answers.
+- New 0.4 Answer Practice: build a CEO answer (four questions) and spot the mistake (twelve).
+- New 0.5 Exam Set: a 40-minute timed set (one question per section) or single untimed
+  questions, self-marked against Achieved, Merit and Excellence points (nine questions).
+- New 0.6 My Progress: save or load progress with a code or file, and share results with any
+  teacher by email. Nothing is stored on a server.
+- Problems tabs: a write-first box and a tick list for each part of all 18 questions.
+
 ## v1.11 · 12 November 2026 (Year 13 Waves: save progress and share results with a teacher)
 - New 0.7 My Progress tab: one report of the student's self-ratings, quiz best scores, answer
   practice and self-marked exam sets.

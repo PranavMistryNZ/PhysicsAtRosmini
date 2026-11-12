@@ -408,11 +408,142 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
   .control input[type=range]{min-height:28px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* 0.1 revision summary */
+.nx-start{display:inline-block;margin-left:10px;padding:2px 9px;border-radius:999px;background:var(--topic,#f0a66a);color:var(--topic-contrast,#111);font-size:11px;font-weight:800;letter-spacing:.08em;vertical-align:middle}
+.nx-sum{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}
+.nx-sum .nx-card{border-top:5px solid var(--c);display:flex;flex-direction:column}
+.nx-sum-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+.nx-sum-head .num{font-weight:800;color:var(--c);font-size:13px;letter-spacing:.06em}
+.nx-sum .nx-card .nx-sum-head h3{margin:0;color:var(--c);font-size:17px}
+.nx-sum-head .where{margin-left:auto;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.nx-sum .nx-list{font-size:14px;line-height:1.45}
+.nx-sum-eqs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nx-sum-eqs>span{background:#0c1222;border:1px solid #3a4560;border-radius:6px;padding:4px 9px;font-size:14px}
+.nx-sum-eqs>span.given{border-color:#5fd39a}
+.nx-sum-say{margin:8px 0 0!important;padding:8px 10px;border-left:4px solid var(--c);background:rgba(255,255,255,.04);font-size:13.5px;border-radius:0 6px 6px 0}
+.nx-sum-trap{margin:8px 0 0!important;font-size:13.5px;color:var(--muted)}
+.nx-sum-trap b{color:#f07a7a}
+.nx-sum .fs-links{margin-top:auto!important;padding-top:10px;border-top:0}
+.nx-sum .fs-link{border-color:var(--c);color:var(--c)}
+.nx-sum .fs-link:hover,.nx-sum .fs-link:focus-visible{background:var(--c);color:#0b0c14}
+.nx-sum-key{font-size:12.5px;color:var(--muted);margin:2px 0 0}
+.nx-sum-key i{display:inline-block;width:10px;height:10px;border:1px solid #5fd39a;border-radius:3px;margin-right:4px;vertical-align:baseline}
+@media (max-width:900px){.nx-sum{grid-template-columns:minmax(0,1fr)}}
+body.light-mode .nx-sum-eqs>span{background:#fff;border-color:#c6d0db}
+body.light-mode .nx-sum-eqs>span.given{border-color:#1d8a55}
+body.light-mode .nx-sum-key i{border-color:#1d8a55}
+body.light-mode .nx-sum-say{background:#eef2f7}
+body.light-mode .nx-sum-head .num,body.light-mode .nx-sum .nx-card .nx-sum-head h3{filter:brightness(.55) saturate(1.4)}
+body.light-mode .nx-sum .fs-link{color:#26324a;border-color:#6b7890}
+body.light-mode .nx-sum .fs-link:hover{background:#26324a;color:#fff}
+body.light-mode .nx-sum-trap b{color:#b3261e}
+
+/* revision tools */
+.nx-weak{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0 4px;padding:10px 12px;border:1px solid #3a4560;border-left:5px solid var(--topic,#f2d16b);border-radius:8px;background:#0c1222;font-size:14px}
+.nx-weak-h{flex:1 1 100%;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--topic,#f2d16b)}
+.nx-weak-item{all:unset;box-sizing:border-box;cursor:pointer;flex:1 1 240px;border:1px solid #3a4560;border-top:4px solid var(--c);border-radius:8px;padding:8px 10px;font-size:13.5px;line-height:1.35;color:var(--ink);background:#11182b}
+.nx-weak-item i{display:block;font-style:normal;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.nx-weak-item:hover,.nx-weak-item:focus-visible{outline:2px solid var(--c);outline-offset:1px}
+.nx-sumtools,.nx-drawtools{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0}
+.nx-sumtools .tool-btn,.nx-drawtools .tool-btn,.nx-recall-box .tool-btn,.nx-exam-btns .tool-btn{width:auto!important;flex:0 0 auto!important;min-height:36px;padding:6px 14px!important;font-size:13.5px}
+.nx-drawtools .tool-btn[aria-pressed="false"]{opacity:.6}
+.nx-drawtools .tool-btn[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:1px}
+.nx-recall-box{display:none;margin:10px 0;padding:12px;border:1px dashed var(--c);border-radius:8px;font-size:14px}
+.nx-recall-box p{margin:0 0 8px}
+.nx-sum.recall .nx-card:not(.revealed) .nx-recall-box{display:block}
+.nx-sum.recall .nx-card:not(.revealed)>.nx-list,.nx-sum.recall .nx-card:not(.revealed)>.nx-sum-eqs,.nx-sum.recall .nx-card:not(.revealed)>.nx-sum-say,.nx-sum.recall .nx-card:not(.revealed)>.nx-sum-trap{display:none}
+.nx-build-q{font-weight:400!important}
+.nx-sent{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:center;background:#0c1222;border:1px solid #3d4864;border-radius:8px;padding:9px 12px;margin:7px 0}
+.nx-sent>p{margin:0;font-size:14px;line-height:1.45}
+.nx-pick{display:flex;gap:5px}
+.nx-pick button{width:38px;height:38px;border-radius:8px;border:1px solid #4a5574;background:#161d33;color:var(--ink);font-weight:800;cursor:pointer}
+.nx-pick button[aria-pressed="true"]{background:var(--topic,#f2d16b);color:var(--topic-contrast,#111);border-color:var(--topic,#f2d16b)}
+.nx-sent.right{border-color:#5fd39a;background:#11261f}
+.nx-sent.wrong{border-color:#ff8a7a;background:#2a1716}
+.nx-sent-fb{grid-column:1/-1;margin:0!important;font-size:13.5px;color:var(--muted)}
+.nx-sent-fb[hidden]{display:none}
+#nxCeoBuild>.tool-btn{width:auto;margin-top:6px}
+.nx-final p{margin:8px 0 0}
+.nx-student{display:grid;gap:6px;margin:8px 0;padding:12px;border-radius:8px;border:1px solid #3d4864;background:#0c1222}
+.nx-ss{all:unset;box-sizing:border-box;cursor:pointer;padding:8px 10px;border-radius:6px;border:1px solid transparent;font-size:15px;line-height:1.45;font-style:italic;color:var(--ink)}
+.nx-ss:hover,.nx-ss:focus-visible{border-color:var(--topic,#f2d16b)}
+.nx-ss.found{background:#43201f;border-color:#ff8a7a;text-decoration:line-through;text-decoration-color:#ff8a7a}
+.nx-ss.fine{opacity:.65}
+canvas.nx-draw{display:block;width:100%;height:210px;border:1px solid #3d4864;border-radius:8px}
+.nx-expl[hidden]{display:none}
+.nx-write{display:block;width:100%;box-sizing:border-box;margin:8px 0;padding:9px 11px;border-radius:6px;border:1px solid #4a5574;background:#0a0f1d;color:var(--ink);font:inherit;font-size:14px;line-height:1.45;resize:vertical}
+.nx-part{margin:12px 0}
+.nx-part-q{margin:0}
+.nx-model{margin:6px 0;padding:10px 12px;border-left:4px solid #5fd39a;background:#0f1a1a;border-radius:4px;font-size:14px;line-height:1.5}
+.nx-model[hidden],.nx-mark[hidden]{display:none}
+.nx-mark{margin-top:12px;padding-top:10px;border-top:1px dashed #4a5574}
+.nx-tick{display:flex;gap:8px;align-items:flex-start;padding:6px 4px;font-size:14px;line-height:1.4;cursor:pointer}
+.nx-tick input,.nx-selfcheck input{width:18px;height:18px;flex:0 0 auto;margin-top:2px}
+.nx-lvl{flex:0 0 auto;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;font-size:12px;font-weight:800;color:#0b0c14;background:#f2d16b}
+.nx-M .nx-lvl{background:#78d9f7}.nx-E .nx-lvl{background:#c5a2ff}
+.nx-grade{margin:8px 0 0;font-size:14.5px}
+.nx-exam-head{position:sticky;top:0;z-index:3;background:var(--panel,#121526);padding:8px 0;justify-content:flex-start}
+.nx-exam-head .nx-qscore{margin-right:auto;font-variant-numeric:tabular-nums}
+.nx-exam-head .nx-qscore.over{color:#ff8a7a}
+.nx-exam-head .tool-btn{width:auto!important;flex:0 0 auto!important}
+.nx-exam-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.nx-selfcheck{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;margin-top:10px;padding-top:10px;border-top:1px dashed #4a5574;font-size:14px}
+.nx-selfcheck label{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+@media (max-width:700px){.nx-exam-list{grid-template-columns:minmax(0,1fr)}.nx-sent{grid-template-columns:minmax(0,1fr)}}
+body.light-mode .nx-weak,body.light-mode .nx-weak-item,body.light-mode .nx-sent,body.light-mode .nx-student{background:#f7f9fc;border-color:#c6d0db}
+body.light-mode .nx-weak{border-left-color:#7a5c00}body.light-mode .nx-weak-h{color:#5c4400}
+body.light-mode .nx-pick button,body.light-mode .nx-write{background:#fff;color:#1b2430;border-color:#aab6c4}
+body.light-mode .nx-pick button[aria-pressed="true"]{background:#26324a;color:#fff;border-color:#26324a}
+body.light-mode .nx-sent.right{background:#dcf5e8;border-color:#2c9a63}
+body.light-mode .nx-sent.wrong,body.light-mode .nx-ss.found{background:#fde2df;border-color:#c0392b}
+body.light-mode .nx-model{background:#eefaf3}
+body.light-mode .nx-exam-head{background:#fff}
+body.light-mode .nx-final{background:#f3eefb;color:#1b2430}
+body.light-mode .nx-exam-head .nx-qscore.over{color:#b3261e}
+.nx-report{white-space:pre-wrap;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;background:#0a0f1d;border:1px solid #3d4864;border-radius:8px;padding:12px 14px;margin:10px 0;max-height:300px;overflow:auto;color:var(--ink)}
+.nx-code{font:12.5px/1.4 ui-monospace,Menlo,Consolas,monospace;word-break:break-all}
+.nx-share{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:10px 0}
+.nx-share label{display:grid;gap:4px;font-size:13px;font-weight:700}
+.nx-share input{min-height:42px;padding:8px 10px;border-radius:6px;border:1px solid #4a5574;background:#0a0f1d;color:var(--ink);font:inherit;font-weight:400;min-width:0}
+a.tool-btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;box-sizing:border-box;cursor:pointer}
+a.tool-btn.nx-off{opacity:.5}
+.nx-expl .tool-btn{width:auto!important;min-height:34px;padding:5px 12px!important;margin-left:6px}
+@media (max-width:700px){.nx-share{grid-template-columns:minmax(0,1fr)}}
+body.light-mode .nx-report,body.light-mode .nx-share input{background:#fff;color:#1b2430;border-color:#aab6c4}
+
+#nxPrintSheet{display:none}
+@media print{
+ body.nx-print-sum{background:#fff!important}
+ body.nx-print-sum>*:not(#nxPrintSheet){display:none!important}
+ body.nx-print-sum #nxPrintSheet{display:block;color:#000;font-size:7.5pt;line-height:1.28;font-family:Arial,Helvetica,sans-serif}
+ #nxPrintSheet h1{font-size:13pt;margin:0 0 5pt;color:#000}
+ #nxPrintSheet .nx-sum{display:grid;grid-template-columns:1fr 1fr;gap:5pt;margin:0}
+ #nxPrintSheet .nx-card{background:#fff!important;border:.7pt solid #555!important;border-top:2.5pt solid #333!important;border-radius:4pt;padding:4pt 6pt;break-inside:avoid;box-shadow:none!important;transform:none!important}
+ #nxPrintSheet .nx-sum-head{margin:0}
+ #nxPrintSheet .nx-sum-head h3,#nxPrintSheet .nx-sum-head .num{font-size:9.5pt!important;color:#000!important;filter:none!important}
+ #nxPrintSheet .nx-sum-head .where{font-size:6.5pt;color:#444}
+ #nxPrintSheet .nx-list{font-size:7.5pt!important;line-height:1.28;margin:2pt 0;padding-left:11pt}
+ #nxPrintSheet .nx-list li{margin:1pt 0}
+ #nxPrintSheet .nx-sum-eqs{margin:2pt 0;gap:3pt}
+ #nxPrintSheet .nx-sum-eqs>span{background:#fff!important;border:.6pt solid #888!important;padding:1pt 4pt;font-size:7.6pt}
+ #nxPrintSheet .nx-sum-eqs>span.given{border:1.2pt solid #1d8a55!important}
+ #nxPrintSheet .nx-sum-say,#nxPrintSheet .nx-sum-trap{font-size:7.3pt!important;margin:2pt 0 0!important;padding:2pt 5pt;background:#f1f1f1!important;border-left:2pt solid #555;color:#000!important}
+ #nxPrintSheet .nx-sum-trap{background:#fff!important;border-left:0;padding:0}
+ #nxPrintSheet .nx-sum-trap b{color:#000!important}
+ #nxPrintSheet .nx-print-foot{font-size:6.5pt;color:#444;margin:4pt 0 0}
+ @page{size:A4;margin:9mm}
+}
+.nx-qtag{display:inline-block;margin-right:8px;padding:1px 8px;border-radius:999px;border:1px solid var(--topic);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--topic)}
+.nx-build-q{font-size:15px}
+.nx-small-btn{min-height:36px}
+.nx-sum .nx-card h3{margin:0!important}
+body.light-mode .nx-qtag{color:#26324a;border-color:#6b7890}
 </style></head>
 <body data-topic="map"><div class="shell">
 <header class="topbar"><div class="topcurve" aria-hidden="true"></div><div class="titlebar"><div><div class="eyebrow">Science learning systems · Physics level 3</div><h1 id="topicTitle">COURSE MAP</h1></div><div><div class="index">AS91526 · 6 CREDITS<br/>EXTERNAL EXAM<br/>INTERACTIVE LAB</div><div class="hdr-tools"><a class="home-btn" href="../index.html"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg><span>Home</span></a><div aria-label="Page colour theme" class="theme-switch-wrap"><span class="theme-label-dark">Dark</span><label class="theme-switch" title="Switch between dark and light mode"><input aria-label="Use light mode" id="themeToggle" type="checkbox"/><span class="theme-slider"></span></label><span class="theme-label-light">Light</span></div></div></div></div></header>
 <div class="frame"><nav aria-label="Electrical systems sections" class="rail">
-<button data-tab="map" type="button">00<br/>COURSE<br/>MAP</button>
+<button data-tab="map" type="button">00<br/>SUMMARY<br/>&amp; MAP</button>
 <button data-tab="dc" type="button">01<br/>RESISTORS<br/>IN DC</button>
 <button data-tab="cap" type="button">02<br/>CAPACITORS<br/>IN DC</button>
 <button data-tab="ind" type="button">03<br/>INDUCTORS<br/>IN DC</button>
@@ -428,14 +559,17 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 
 <!-- ===================== 00 · COURSE MAP ===================== -->
 <section class="pane hidden" data-section="map" data-view="scope">
-<h2>Course map · AS91526 Electrical systems</h2>
-<p class="sub">This lab covers the whole of <strong>AS91526 Demonstrate understanding of electrical systems</strong>: resistors, capacitors and inductors in DC circuits (including electromagnetic induction and transformers), then AC circuits. The four sections follow chapters 13 to 16 of the ESA Level 3 Physics study guide. Rate yourself on each "I can…" statement, then use <strong>Go</strong> to jump to the part of the lab that teaches it. Your ratings are saved on this device.</p>
+<h2>Summary · all of AS91526 on one page <span class="nx-start">START HERE</span></h2>
+<p class="sub">Revise from this page first. Each card gives the key ideas, the equations, a sentence you can use in an explanation and the most common mistake. Press a button on a card to open the part of the lab that teaches it. The sections follow chapters 13 to 16 of the ESA Level 3 Physics study guide.</p>
 <div class="nx-facts">
 <div><span>Standard</span><strong>AS91526 · Physics 3.6</strong></div>
 <div><span>Credits</span><strong>6 · external exam</strong></div>
 <div><span>Sections</span><strong>Resistors · capacitors · inductors · AC</strong></div>
 <div><span>Contexts</span><strong>Real-life, info supplied</strong></div>
 </div>
+<div class="nx-weak" id="nxWeak" aria-live="polite"></div>
+<div class="nx-sumtools"><button class="tool-btn nx-small-btn" id="nxRecallToggle" type="button" aria-pressed="false">Cover and recall</button><button class="tool-btn secondary nx-small-btn" id="nxPrintSum" type="button">Print the summary</button><button class="tool-btn secondary nx-small-btn" data-go="map:progress" type="button">Save or share my progress</button><span class="small">Cover the cards, recall each one from memory, then reveal it to check.</span></div>
+<div class="nx-sum"><article class="nx-card" style="--c:#8fd694"><div class="nx-sum-head"><span class="num">01</span><h3>DC circuits: emf and Kirchhoff</h3><span class="where">Tabs 1.1 to 1.3</span></div><ul class="nx-list"><li><b>emf</b> (\(\varepsilon\)) is the energy given to each coulomb by the source. <b>Potential difference</b> is the energy each coulomb loses in a component.</li><li>A real battery has <b>internal resistance</b> \(r\). The "lost volts" are \(ir\), so the terminal voltage is \(V = \varepsilon - ir\).</li><li>More current means more lost volts, so the terminal voltage falls. With no current, \(V = \varepsilon\).</li><li>On a graph of \(V\) against \(i\): the gradient is \(-r\) and the intercept is \(\varepsilon\).</li><li><b>Junction rule:</b> current in = current out (charge is conserved). <b>Loop rule:</b> the voltages around any closed loop add to zero (energy is conserved).</li></ul><div class="nx-sum-eqs"><span>\(\varepsilon = V + ir\)</span><span>\(V = iR\)</span><span>\(P = Vi\)</span><span>\(\Sigma i = 0\)</span><span>\(\Sigma V = 0\)</span></div><p class="nx-sum-say"><b>Say it like this:</b> “The current increases, so the lost volts \(ir\) increase. The emf is constant, so the terminal voltage \(V = \varepsilon - ir\) decreases.”</p><p class="nx-sum-trap"><b>Watch out:</b> the emf does not change when the current changes. Current does not take the “path of least resistance”: every branch carries some.</p><div class="fs-links"><button class="fs-link" data-go="dc:intro" type="button">1.1 Introduction →</button><button class="fs-link" data-go="dc:battery" type="button">1.2 Battery lab →</button><button class="fs-link" data-go="dc:kirchhoff" type="button">1.3 Kirchhoff →</button></div></article><article class="nx-card" style="--c:#ff9eb5"><div class="nx-sum-head"><span class="num">02</span><h3>Capacitors in DC circuits</h3><span class="where">Tabs 2.1 to 2.4</span></div><ul class="nx-list"><li>A capacitor stores charge on its plates: \(Q = CV\). Bigger plate area, a smaller gap or a dielectric all increase \(C\).</li><li>Energy stored is the area under the \(V\)–\(Q\) graph: \(E = \tfrac{1}{2}QV\).</li><li><b>Charging:</b> as charge builds up, \(V_C\) rises, so the voltage across the resistor falls, so the current falls. Charging slows down (exponential).</li><li><b>Time constant</b> \(\tau = RC\): 63% charged after \(\tau\); when discharging, 37% is left after \(\tau\). About \(5\tau\) to finish.</li><li><b>Parallel:</b> same voltage, capacitances add. <b>Series:</b> same charge, \(1/C\) adds. The opposite way round to resistors.</li></ul><div class="nx-sum-eqs"><span class="given">\(Q = CV\)</span><span class="given">\(C = \dfrac{\varepsilon_0\varepsilon_r A}{d}\)</span><span class="given">\(E = \tfrac{1}{2}QV\)</span><span class="given">\(\tau = RC\)</span><span>\(C_{\text{par}} = C_1 + C_2\)</span></div><p class="nx-sum-say"><b>Say it like this:</b> “As the capacitor charges, \(V_C\) increases, so the voltage across the resistor decreases and the current \(i = V_R/R\) decreases.”</p><p class="nx-sum-trap"><b>Watch out:</b> no charge crosses the gap between the plates. A capacitor is not full after one time constant. Convert µF to F.</p><div class="fs-links"><button class="fs-link" data-go="cap:intro" type="button">2.1 Introduction →</button><button class="fs-link" data-go="cap:plates" type="button">2.2 Plate builder →</button><button class="fs-link" data-go="cap:rc" type="button">2.3 RC circuit →</button><button class="fs-link" data-go="cap:combine" type="button">2.4 Combining →</button></div></article><article class="nx-card" style="--c:#f0a66a"><div class="nx-sum-head"><span class="num">03</span><h3>Flux, Faraday and Lenz</h3><span class="where">Tabs 3.1 to 3.3</span></div><ul class="nx-list"><li><b>Magnetic flux</b> through a coil: \(\Phi = BA\), with the area at right angles to the field.</li><li><b>Faraday:</b> an emf is induced only while the flux is <b>changing</b>. Its size is the rate of change of flux, times the number of turns.</li><li>On a \(\Phi\)–\(t\) graph the emf is the (negative) <b>gradient</b>. Steady flux gives zero emf.</li><li><b>Lenz:</b> the induced current flows in the direction that <b>opposes the change</b> in flux. This is conservation of energy.</li><li>A rod of length \(L\) moving at speed \(v\) across a field has an emf \(\varepsilon = BvL\).</li></ul><div class="nx-sum-eqs"><span class="given">\(\Phi = BA\)</span><span class="given">\(\varepsilon = -\dfrac{\Delta\Phi}{\Delta t}\)</span><span>\(\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}\)</span><span>\(\varepsilon = BvL\)</span></div><p class="nx-sum-say"><b>Say it like this:</b> “The flux through the coil is increasing, so an emf is induced. The induced current produces a field that opposes this increase.”</p><p class="nx-sum-trap"><b>Watch out:</b> Lenz opposes the <b>change</b> in flux, not the flux. A large steady flux induces nothing.</p><div class="fs-links"><button class="fs-link" data-go="ind:flux" type="button">3.1 Flux &amp; Faraday →</button><button class="fs-link" data-go="ind:magnet" type="button">3.2 Magnet &amp; coil →</button><button class="fs-link" data-go="ind:graphs" type="button">3.3 Graphs →</button></div></article><article class="nx-card" style="--c:#78d9f7"><div class="nx-sum-head"><span class="num">04</span><h3>Inductors in DC circuits</h3><span class="where">Tabs 3.4 to 3.7</span></div><ul class="nx-list"><li>A changing current in a coil changes its own flux, which induces a <b>back emf</b> that opposes the change in current.</li><li><b>Switch on:</b> the back emf is largest at the start, so the current rises gradually (exponentially) to \(\varepsilon/R\).</li><li><b>Time constant</b> \(\tau = L/R\), where \(R\) is the <b>total</b> resistance, including the inductor's own. 63% of the final current after \(\tau\).</li><li><b>Steady current:</b> no change in flux, so no back emf. An ideal inductor then acts like a plain wire.</li><li><b>Switch off:</b> the current falls very quickly, so the induced emf is very large: a spark. The energy \(\tfrac{1}{2}Li^2\) stored in the magnetic field is released.</li></ul><div class="nx-sum-eqs"><span class="given">\(\varepsilon = -L\dfrac{\Delta i}{\Delta t}\)</span><span class="given">\(\tau = \dfrac{L}{R}\)</span><span class="given">\(E = \tfrac{1}{2}Li^{2}\)</span></div><p class="nx-sum-say"><b>Say it like this:</b> “The current is changing, so the flux through the coil is changing. This induces a back emf that opposes the change in current.”</p><p class="nx-sum-trap"><b>Watch out:</b> an inductor opposes a <b>change</b> in current, not the current. More inductance does not change the final current, only how long it takes.</p><div class="fs-links"><button class="fs-link" data-go="ind:intro" type="button">3.4 Inductors →</button><button class="fs-link" data-go="ind:coil" type="button">3.5 Coil builder →</button><button class="fs-link" data-go="ind:lr" type="button">3.6 LR circuit →</button><button class="fs-link" data-go="ind:off" type="button">3.7 Switching off →</button></div></article><article class="nx-card" style="--c:#78d9f7"><div class="nx-sum-head"><span class="num">05</span><h3>Capacitor and inductor side by side</h3><span class="where">Tabs 2.3, 3.6</span></div><ul class="nx-list"><li><b>At the instant the switch closes:</b> a capacitor has \(V_C = 0\) and the current is a maximum, \(\varepsilon/R\). An inductor has the full supply voltage across it and the current is zero.</li><li><b>A long time later:</b> a capacitor has \(V_C = \varepsilon\) and the current is zero. An inductor has no back emf and the current is a maximum, \(\varepsilon/R\).</li><li>Capacitor current <b>decays</b>; inductor current <b>grows</b>. Both are exponential with a time constant.</li><li>A capacitor stores energy in the <b>electric field</b> between its plates; an inductor stores energy in its <b>magnetic field</b>.</li><li>Bigger \(R\) makes an RC circuit slower (\(\tau = RC\)) but an LR circuit faster (\(\tau = L/R\)).</li></ul><div class="nx-sum-eqs"><span class="given">\(\tau = RC\)</span><span class="given">\(\tau = \dfrac{L}{R}\)</span><span class="given">\(E = \tfrac{1}{2}QV\)</span><span class="given">\(E = \tfrac{1}{2}Li^{2}\)</span></div><p class="nx-sum-say"><b>Say it like this:</b> “At first the capacitor behaves like a wire and the inductor like a break in the circuit. In the steady state it is the other way round.”</p><p class="nx-sum-trap"><b>Watch out:</b> read 63% and 37% from the graph instead of guessing. Decide first: is the quantity growing or decaying?</p><div class="fs-links"><button class="fs-link" data-go="cap:rc" type="button">2.3 RC circuit →</button><button class="fs-link" data-go="ind:lr" type="button">3.6 LR circuit →</button></div></article><article class="nx-card" style="--c:#c5a2ff"><div class="nx-sum-head"><span class="num">06</span><h3>Transformers and transmission</h3><span class="where">Tabs 3.8 to 3.10</span></div><ul class="nx-list"><li>AC in the primary coil gives a <b>changing flux</b> in the iron core. The core links this flux to the secondary coil, where it induces an emf in every turn.</li><li>The voltage ratio equals the turns ratio. More turns on the secondary: step up.</li><li>A transformer needs AC. Steady DC gives a constant flux, so no emf is induced.</li><li><b>Ideal:</b> power in = power out, so stepping the voltage up steps the current down.</li><li><b>Transmission:</b> power lost in the lines is \(i^2R\). A high voltage means a low current for the same power, so much less is wasted.</li><li>Real losses: eddy currents in the core (reduced by laminations), resistance of the coils, flux that does not link the secondary.</li></ul><div class="nx-sum-eqs"><span class="given">\(\dfrac{V_s}{V_p} = \dfrac{N_s}{N_p}\)</span><span>\(V_p i_p = V_s i_s\)</span><span>\(P_{\text{loss}} = i^{2}R\)</span></div><p class="nx-sum-say"><b>Say it like this:</b> “The alternating current in the primary produces a changing flux in the core, which links the secondary and induces an emf in it.”</p><p class="nx-sum-trap"><b>Watch out:</b> a transformer never increases power. No current flows through the core from one coil to the other.</p><div class="fs-links"><button class="fs-link" data-go="ind:tx" type="button">3.8 Transformers →</button><button class="fs-link" data-go="ind:txlab" type="button">3.9 Transformer lab →</button><button class="fs-link" data-go="ind:grid" type="button">3.10 Transmission →</button></div></article><article class="nx-card" style="--c:#ff8a7a"><div class="nx-sum-head"><span class="num">07</span><h3>AC: rms, phase and reactance</h3><span class="where">Tabs 4.1 to 4.3</span></div><ul class="nx-list"><li>AC voltage and current vary as sine curves. The average over a cycle is zero, so we use <b>rms</b> values: the DC value with the same heating effect.</li><li>Peak is bigger than rms: \(V_{\text{max}} = \sqrt{2}\,V_{\text{rms}}\). Use rms values in \(P = Vi\) for average power.</li><li><b>Resistor:</b> voltage and current are in phase. <b>Inductor:</b> voltage leads the current by 90°. <b>Capacitor:</b> voltage lags the current by 90°.</li><li><b>Reactance</b> is the opposition of an inductor or capacitor to AC, in ohms. \(X_L\) rises with frequency; \(X_C\) falls with frequency.</li><li>Only the resistor dissipates energy. Inductors and capacitors store energy and return it each cycle.</li></ul><div class="nx-sum-eqs"><span class="given">\(V_{\text{rms}} = \dfrac{V_{\text{max}}}{\sqrt{2}}\)</span><span class="given">\(\omega = 2\pi f\)</span><span class="given">\(X_L = \omega L\)</span><span class="given">\(X_C = \dfrac{1}{\omega C}\)</span></div><p class="nx-sum-say"><b>Say it like this:</b> “A higher frequency means the current changes more rapidly, so the back emf in the inductor is larger and its reactance \(X_L = \omega L\) increases.”</p><p class="nx-sum-trap"><b>Watch out:</b> do not mix peak and rms values in one calculation. Use \(\omega = 2\pi f\), not \(f\), in the reactance formulas.</p><div class="fs-links"><button class="fs-link" data-go="ac:intro" type="button">4.1 Introduction →</button><button class="fs-link" data-go="ac:rms" type="button">4.2 rms &amp; power →</button><button class="fs-link" data-go="ac:phase" type="button">4.3 Phase &amp; reactance →</button></div></article><article class="nx-card" style="--c:#ff8a7a"><div class="nx-sum-head"><span class="num">08</span><h3>Series LCR and resonance</h3><span class="where">Tab 4.4</span></div><ul class="nx-list"><li>In a series circuit the current is the same everywhere, so draw the current phasor first. \(V_R\) is in phase with it, \(V_L\) is 90° ahead, \(V_C\) is 90° behind.</li><li>\(V_L\) and \(V_C\) are 180° out of phase, so they subtract. The supply voltage is the <b>phasor sum</b>, not the ordinary sum: \(V_s = \sqrt{V_R^2 + (V_L - V_C)^2}\).</li><li><b>Impedance</b> \(Z\) is the total opposition to AC: \(V = iZ\).</li><li><b>Resonance:</b> when \(X_L = X_C\), the voltages \(V_L\) and \(V_C\) cancel. \(Z = R\) (a minimum), the current is a maximum, and the supply voltage is in phase with the current.</li><li>Below \(f_0\) the circuit is capacitive (\(X_C > X_L\)); above \(f_0\) it is inductive.</li></ul><div class="nx-sum-eqs"><span class="given">\(V = iZ\)</span><span>\(Z = \sqrt{R^{2} + (X_L - X_C)^{2}}\)</span><span>\(f_0 = \dfrac{1}{2\pi\sqrt{LC}}\)</span></div><p class="nx-sum-say"><b>Say it like this:</b> “At resonance \(X_L = X_C\), so \(V_L\) and \(V_C\) are equal and opposite and cancel. The impedance is a minimum, \(Z = R\), so the current is a maximum.”</p><p class="nx-sum-trap"><b>Watch out:</b> voltages in an AC circuit add as phasors: \(V_R + V_L + V_C\) can be more than the supply voltage. At resonance \(V_L\) and \(V_C\) are not zero, they cancel.</p><div class="fs-links"><button class="fs-link" data-go="ac:lcr" type="button">4.4 LCR resonance →</button></div></article></div><p class="nx-sum-key"><i></i>Green border: listed in the AS91526 supplied formulae. Check the others against your exam's resource booklet, or know how to derive them.</p><div class="fs-links" style="border-top:0"><span>Next:</span><button class="fs-link" data-go="map:skills" type="button">0.2 How to write explain answers (CEO) →</button><button class="fs-link" data-go="map:explain" type="button">0.4 Answer practice →</button><button class="fs-link" data-go="map:exam" type="button">0.5 Timed exam set →</button><button class="fs-link" data-go="map:formulas" type="button">0.3 Formula sheet →</button></div>
 <h3 class="nx-h3">The big ideas</h3>
 <p class="note">Two conservation laws and one rule run through the whole standard. <strong>Energy is conserved</strong> (Kirchhoff's loop rule, Lenz's law, power in = power out). <strong>Charge is conserved</strong> (Kirchhoff's junction rule, charge on capacitors). And <strong>a changing flux induces an emf</strong> (Faraday), which explains inductors, transformers and why reactance depends on frequency.</p>
 <div class="nx-bigidea nx-bigidea6" role="list">
@@ -446,6 +580,8 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <button class="nx-idea" data-go="ind:txlab" role="listitem" style="--c:#c5a2ff" type="button"><b>Transformers</b><span>Shared changing flux: \(V\) scales with turns</span></button>
 <button class="nx-idea" data-go="ac:lcr" role="listitem" style="--c:#ff8a7a" type="button"><b>AC circuits</b><span>Reactance depends on \(f\); phasors; resonance when \(X_{L} = X_{C}\)</span></button>
 </div>
+<h3 class="nx-h3">Course map · rate yourself on what AS91526 covers</h3>
+<p class="note">Rate yourself on each "I can…" statement, then use <strong>Go</strong> to jump to the part of the lab that teaches it. Your ratings are saved on this device.</p>
 <div class="nx-progress-wrap">
 <div class="nx-progress-head"><h3 class="nx-h3" style="margin:0!important">Your progress</h3><span aria-live="polite" id="nxScopeSummary"></span></div>
 <div aria-hidden="true" class="nx-bar"><span class="nx-bar-c" id="nxBarC"></span><span class="nx-bar-g" id="nxBarG"></span></div>
@@ -460,7 +596,7 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <li><b>03 Inductors in DC circuits</b> (ESA chapter 15) · flux and Faraday 3.1 → 3.2 → 3.3; inductors 3.4 → 3.5 → 3.6 → 3.7; transformers 3.8 → 3.9 → 3.10; then the three quizzes in 3.11. Compare the LR lab (3.6) with the RC lab (2.3).</li>
 <li><b>04 AC circuits</b> (ESA chapter 16) · 4.1 → 4.2 → 4.3 → 4.4, then 4.5</li>
 <li><b>Applications</b> · the last tab in each section shows where the ideas are used. Exam questions are often set in contexts like these.</li>
-<li><b>Exam practice</b> · 0.2 Exam Skills, then the Problems tab in each section. Keep 0.3 Formula Sheet open beside you.</li>
+<li><b>Exam practice</b> · 0.2 Exam Skills (CEO answers), 0.4 Answer Practice, the Problems tab in each section, then a timed set in 0.5. Keep 0.3 Formula Sheet open beside you. Save or share your results in 0.6.</li>
 </ol>
 </section>
 
@@ -482,8 +618,8 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p class="note">Merit and Excellence explanations link ideas in order and name the physics principle behind each step. Two chains cover most questions:</p>
 <div class="chain" aria-label="Induction chain"><span>Change in current or motion</span><i>→</i><span>change in flux</span><i>→</i><span>induced emf (Faraday)</span><i>→</i><span>opposes the change (Lenz)</span><i>→</i><span>effect on current, time or energy</span></div>
 <div class="chain" aria-label="Capacitor chain"><span>Charge builds on plates</span><i>→</i><span>\(V_{C} = Q/C\) rises</span><i>→</i><span>\(V_{R} = \varepsilon - V_{C}\) falls</span><i>→</i><span>current \(i = V_{R}/R\) falls</span><i>→</i><span>charging slows (exponential)</span></div>
-<h3 class="nx-h3">The CEO framework for calculation questions</h3>
-<p class="note">Use the four steps above when the question says <b>explain</b>. When it says <b>calculate</b>, <b>determine</b> or <b>show that</b>, work through <b>C</b>onceptualise, <b>E</b>xecute and <b>O</b>utcomes. The C step is also where you name the physics principle, so it supports explain answers too.</p>
+<h3 class="nx-h3">The CEO framework · for calculate and explain questions</h3>
+<p class="note">One structure works for every question: <b>C</b>onceptualise, <b>E</b>xecute and <b>O</b>utcomes. For <b>calculate</b>, <b>determine</b> or <b>show that</b>, follow the three boxes below. For <b>explain</b>, the same three letters hold the steps above: C names the principle and describes the situation, E is the chain of reasoning, and O is the conclusion that answers the question.</p>
 <div class="nx-steps nx-steps3 nx-ceo">
 <div><span>C</span><b>Conceptualise</b><p>Understand the circuit before you write any maths.</p>
 <ul class="nx-list"><li><b>Core physics:</b> which principle applies? Internal resistance, Kirchhoff, RC or LR time constant, Faraday, transformer, reactance…</li><li><b>Visualise:</b> sketch the circuit and mark current directions, + and − ends, and the loop you will follow. Label knowns and unknowns with units.</li><li><b>Define the system:</b> series or parallel? Charging or discharging? Switch just closed, or steady state? AC or DC? rms or peak?</li></ul></div>
@@ -505,6 +641,33 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <p><b>O · Outcomes:</b> the units are s, C and J ✓. With \(\tau\) ≈ 10 s it takes about \(5\tau\) ≈ 50 s to charge fully, which is believable for a large capacitor and resistor ✓. Cross-check: \(\tfrac{1}{2}CV^{2} = 0.5 \times 470 \times 10^{-6} \times 12^{2}\) = 3.4 × 10⁻² J, the same ✓. The unrounded 5.64 × 10⁻³ C was carried into the energy step and rounded only at the end ✓.</p>
 </details>
 
+<h3 class="nx-h3">CEO for “explain” questions · model answers</h3>
+<p class="note">Read the question, cover the answer and write your own C, E and O first. Then compare. Notice that every answer names the principle, says what <b>increases</b>, <b>decreases</b> or stays <b>constant</b>, and ends by answering the question that was asked.</p>
+<details class="nx-worked" open><summary>CEO explain example · terminal voltage and current</summary>
+<p><b>Question:</b> A battery is connected to a variable resistor. Explain why the terminal voltage of the battery falls when the resistance is reduced.</p>
+<p><b>C · Conceptualise:</b> a real battery has <b>internal resistance</b> \(r\). The emf \(\varepsilon\) is the energy given to each coulomb by the battery; some of that energy is dissipated inside the battery, and the rest is the terminal voltage.</p>
+<p><b>E · Execute:</b> reducing the resistance reduces the total resistance of the circuit, so the current increases. The lost volts across the internal resistance, \(ir\), therefore <b>increase</b>. The emf is <b>constant</b>, so the terminal voltage \(V = \varepsilon - ir\) <b>decreases</b>.</p>
+<p><b>O · Outcomes:</b> so the terminal voltage falls as the current rises ✓. Check: with no current, \(ir = 0\) and \(V = \varepsilon\), which is why a voltmeter alone reads the emf ✓. The emf itself has not changed ✓.</p>
+</details>
+<details class="nx-worked"><summary>CEO explain example · why the charging current falls</summary>
+<p><b>Question:</b> An uncharged capacitor is connected in series with a resistor and a battery. Explain why the current is largest at the start and then decreases to zero.</p>
+<p><b>C · Conceptualise:</b> charge flows onto one plate and off the other, so the capacitor charges. Around the loop, the battery voltage is shared: \(\varepsilon = V_R + V_C\) (Kirchhoff's loop rule).</p>
+<p><b>E · Execute:</b> at the start there is no charge on the capacitor, so \(V_C = 0\) and the whole battery voltage is across the resistor: the current \(i = \varepsilon/R\) is a maximum. As charge builds up, \(V_C = Q/C\) <b>increases</b>, so \(V_R = \varepsilon - V_C\) <b>decreases</b> and the current \(i = V_R/R\) <b>decreases</b>. A smaller current adds charge more slowly, so the current falls at a decreasing rate.</p>
+<p><b>O · Outcomes:</b> so the current decays exponentially from \(\varepsilon/R\) to zero, reaching zero when \(V_C = \varepsilon\) ✓. Check: after one time constant \(\tau = RC\) the current is 37% of its initial value ✓. No charge has crossed the gap between the plates ✓.</p>
+</details>
+<details class="nx-worked"><summary>CEO explain example · why the current in an inductor rises gradually</summary>
+<p><b>Question:</b> A coil with a large inductance is connected in series with a lamp and a battery. When the switch is closed the lamp takes a noticeable time to reach full brightness. Explain why.</p>
+<p><b>C · Conceptualise:</b> the coil is an <b>inductor</b>. A changing current in the coil changes the magnetic flux through it, and a changing flux induces an emf (Faraday). By Lenz's law this <b>back emf</b> opposes the change in current.</p>
+<p><b>E · Execute:</b> when the switch is closed the current starts to increase, so the flux through the coil is increasing. The back emf opposes this increase, so the current cannot jump to its final value; at the first instant the back emf is almost equal to the battery voltage and the current is almost zero. As the current rises, its rate of change <b>decreases</b>, so the back emf <b>decreases</b> and more of the battery voltage is across the lamp.</p>
+<p><b>O · Outcomes:</b> so the current, and the brightness of the lamp, rise gradually (exponentially) to a steady value ✓. Check: once the current is steady the flux is not changing, so there is no back emf and the coil has no further effect ✓. The time taken depends on \(\tau = L/R\): a larger inductance takes longer but reaches the same final current ✓.</p>
+</details>
+<details class="nx-worked"><summary>CEO explain example · why the current is a maximum at resonance</summary>
+<p><b>Question:</b> A resistor, an inductor and a capacitor are connected in series to an AC supply. The frequency is changed, and at one frequency the current is a maximum. Explain why.</p>
+<p><b>C · Conceptualise:</b> this is <b>resonance</b> in a series LCR circuit. The current is the same in every component. The voltage across the inductor leads the current by 90° and the voltage across the capacitor lags it by 90°, so \(V_L\) and \(V_C\) are <b>180° out of phase</b> with each other.</p>
+<p><b>E · Execute:</b> the reactances depend on frequency: \(X_L = \omega L\) increases with frequency and \(X_C = 1/\omega C\) decreases. At one frequency they are <b>equal</b>. Then \(V_L\) and \(V_C\) are equal in size and opposite in phase, so they cancel. The impedance \(Z = \sqrt{R^2 + (X_L - X_C)^2}\) falls to its <b>minimum</b> value, \(Z = R\).</p>
+<p><b>O · Outcomes:</b> so the current \(i = V/Z\) is a maximum at this frequency, \(f_0 = 1/(2\pi\sqrt{LC})\) ✓. Check: at resonance the supply voltage equals \(V_R\) and is in phase with the current ✓. \(V_L\) and \(V_C\) are not zero; each can be larger than the supply voltage ✓.</p>
+</details>
+<div class="fs-links" style="border-top:0"><span>Now you try:</span><button class="fs-link" data-go="map:explain" type="button">0.4 Build a CEO answer →</button><button class="fs-link" data-go="map:exam" type="button">0.5 Timed exam set →</button></div>
 <h3 class="nx-h3">Traps the 2025 examiners reported</h3>
 <div class="nx-traps">
 <div class="nx-trap" data-go="dc:intro"><b>"Path of least resistance"</b>Current does not "choose" one path. It divides between branches according to their resistances, and every closed path carries some current.</div>
@@ -543,6 +706,26 @@ body.light-mode button:focus-visible,body.light-mode a:focus-visible,body.light-
 <a class="resource" href="https://www.youtube.com/watch?v=r3YrhcagKMw" rel="noopener" target="_blank">YouTube · 2020 Electrical Systems exam, worked through ↗</a>
 <a class="resource" href="https://www.youtube.com/watch?v=AsTjwicJN4Q" rel="noopener" target="_blank">YouTube · 2019 Electrical Systems exam, worked through ↗</a>
 <p class="small">Source: <a class="src" href="https://www.nzqa.govt.nz/nqfdocs/ncea-resource/reports/2025/91526-report-2025.pdf" rel="noopener" target="_blank">NZQA assessment report 91526 (2025)</a>.</p>
+</section>
+
+<section class="pane hidden" data-section="map" data-view="explain">
+<h2>Answer practice · build and fix explanations</h2>
+<p class="sub">Two ways to practise the skills that earn Merit and Excellence: build an explanation with CEO, and find the mistake in a student's answer.</p>
+<h3 class="nx-h3">A · Build a CEO answer</h3>
+<div id="nxCeoBuild"></div>
+<h3 class="nx-h3">B · Spot the mistake</h3>
+<p class="note">Each answer contains one classic error from the examiners' reports.</p>
+<div id="nxSpot"></div>
+</section>
+<section class="pane hidden" data-section="map" data-view="exam">
+<h2>Exam set · timed questions you mark yourself</h2>
+<p class="sub">Exam-style questions with the marking points an examiner looks for. These are shorter than a full exam question, so allow 10 minutes each. Nothing you type is saved or sent anywhere.</p>
+<div id="nxExam"></div>
+</section>
+<section class="pane hidden" data-section="map" data-view="progress">
+<h2>My progress · save it or share it</h2>
+<p class="sub">Everything you have rated and marked in this lab, in one place. Save it to carry on from another device, or send it to your teacher.</p>
+<div id="nxProgress"></div>
 </section>
 
 <section class="pane hidden" data-section="map" data-view="formulas">
@@ -2070,12 +2253,12 @@ themeToggle.addEventListener('change',()=>{document.body.classList.toggle('light
 
 /* ---------- navigation ---------- */
 const views={
- map:[['scope','0.1 Course Map'],['skills','0.2 Exam Skills'],['formulas','0.3 Formula Sheet']],
+ map:[['scope','0.1 Summary'],['skills','0.2 Exam Skills'],['formulas','0.3 Formula Sheet'],['explain','0.4 Answer Practice'],['exam','0.5 Exam Set'],['progress','0.6 My Progress']],
  dc:[['intro','1.1 Introduction'],['battery','1.2 Battery Lab'],['kirchhoff','1.3 Kirchhoff'],['check','1.4 Quick Check'],['problems','1.5 Problems'],['apps','1.6 Applications']],
  cap:[['intro','2.1 Introduction'],['plates','2.2 Plate Builder'],['rc','2.3 RC Circuit'],['combine','2.4 Combining'],['check','2.5 Quick Check'],['problems','2.6 Problems'],['apps','2.7 Applications']],
  ind:[['flux','3.1 Flux & Faraday'],['magnet','3.2 Magnet & Coil'],['graphs','3.3 <span class="lc up">Φ</span> vs <i class="lc">t</i> Graphs'],['intro','3.4 Inductors'],['coil','3.5 Coil Builder'],['lr','3.6 LR Circuit'],['off','3.7 Switching Off'],['tx','3.8 Transformers'],['txlab','3.9 Transformer Lab'],['grid','3.10 Transmission'],['check','3.11 Quick Check'],['problems','3.12 Problems'],['apps','3.13 Applications']],
  ac:[['intro','4.1 Introduction'],['rms','4.2 rms & Power'],['phase','4.3 Phase & Reactance'],['lcr','4.4 LCR Resonance'],['check','4.5 Quick Check'],['problems','4.6 Problems'],['apps','4.7 Applications']]};
-const titles={map:'COURSE MAP',dc:'RESISTORS IN DC CIRCUITS',cap:'CAPACITORS IN DC CIRCUITS',ind:'INDUCTORS IN DC CIRCUITS',ac:'AC CIRCUITS'};
+const titles={map:'SUMMARY & COURSE MAP',dc:'RESISTORS IN DC CIRCUITS',cap:'CAPACITORS IN DC CIRCUITS',ind:'INDUCTORS IN DC CIRCUITS',ac:'AC CIRCUITS'};
 let active='map',currentView='scope';
 function go(tab,view,scroll){
  if(!views[tab])tab='map';
@@ -2141,7 +2324,9 @@ function drawScope(){
  window.EM&&window.EM.tex&&window.EM.tex(host);
  $('nxBarC').style.width=(100*c/total)+'%';$('nxBarG').style.width=(100*g/total)+'%';
  $('nxScopeSummary').textContent=c+' confident · '+g+' getting there · '+(total-c-g)+' to go';
+ window.__nxWeak&&window.__nxWeak();
 }
+window.__nxScope={scope,ratings:()=>ratings};
 $('nxScopeReset').onclick=()=>{ratings={};store.set('emag-scope','{}');drawScope()};
 drawScope();
 
@@ -3629,6 +3814,302 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
  const drawAll=()=>{draw();drawAdd();dTxt()};
  sims['ac:lcr']={draw:drawAll,enter:drawAll};
 })();
+})();
+</script>
+<script>
+/* ===== Revision tools: recall, weak spots, print, CEO builder, spot the mistake, exam set, my progress ===== */
+(function(){
+  const $=id=>document.getElementById(id);
+  const el=(tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e};
+  const btn=(cls,text,fn)=>{const b=el('button',cls);b.type='button';if(text!=null)b.textContent=text;if(fn)b.addEventListener('click',fn);return b};
+  const store={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+  const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+  const plain=e=>{const k=e.cloneNode(true);k.querySelectorAll('.katex-mathml').forEach(x=>x.remove());return k.textContent.replace(/\s+/g,' ').trim()};
+  const scopeRows=()=>{const S=window.__nxScope,rows=[...document.querySelectorAll('#nxScopeList .nx-item')],out=[];if(!S)return out;let n=0;
+    S.scope.forEach((g,gi)=>g.items.forEach((it,ii)=>{const p=rows[n]&&rows[n].querySelector('p');out.push({r:S.ratings()[gi+'.'+ii],go:it[1],c:g.c,html:it[0],text:p?plain(p).replace(/^I can…\s*/,''):it[0]});n++}));return out};
+
+  /* ---------- 0.1 cover and recall ---------- */
+  const sum=document.querySelector('.nx-sum');
+  if(sum){
+    const cards=[...sum.querySelectorAll('.nx-card')];
+    cards.forEach(c=>{const box=el('div','nx-recall-box','<p><b>From memory:</b> say or write the key ideas, the equations and one mistake to avoid. Then check.</p>');
+      box.appendChild(btn('tool-btn nx-small-btn','Reveal',()=>c.classList.add('revealed')));
+      c.insertBefore(box,c.querySelector('.nx-list'))});
+    const t=$('nxRecallToggle');
+    const set=on=>{sum.classList.toggle('recall',on);cards.forEach(c=>c.classList.remove('revealed'));t.textContent=on?'Show all cards':'Cover and recall';t.setAttribute('aria-pressed',String(on))};
+    if(t)t.addEventListener('click',()=>set(!sum.classList.contains('recall')));
+  }
+
+  /* ---------- 0.1 weak spots (from the course-map ratings) ---------- */
+  window.__nxWeak=function(){
+    const box=$('nxWeak');if(!box||!window.__nxScope)return;const all=scopeRows();
+    const rated=all.filter(x=>x.r!==undefined),weak=rated.filter(x=>x.r<2).sort((a,b)=>a.r-b.r).slice(0,3);
+    box.replaceChildren();const h=el('b','nx-weak-h');box.appendChild(h);
+    if(!rated.length){h.textContent='Your revision list';box.appendChild(el('span',null,'Rate yourself in the course map further down this page and your three weakest areas will appear here.'));
+      box.appendChild(btn('fs-link','Rate myself ↓',()=>{const m=$('nxScopeList');if(m)m.scrollIntoView({behavior:'smooth',block:'start'})}));return}
+    if(!weak.length){h.textContent='Your revision list';box.appendChild(el('span',null,rated.length<all.length?'Nothing rated below Confident so far. Rate the rest of the course map, or test yourself.':'You rated everything Confident. Prove it with a timed exam set.'));
+      const b=btn('fs-link','0.5 Exam set →');b.dataset.go='map:exam';box.appendChild(b);return}
+    h.textContent='Start here today · your weakest areas';
+    weak.forEach(x=>{const b=btn('nx-weak-item');b.dataset.go=x.go;b.style.setProperty('--c',x.c);b.innerHTML='<i>'+(x.r===0?'Not yet':'Getting there')+'</i>'+x.html+' →';box.appendChild(b)});
+    window.EM&&window.EM.tex&&window.EM.tex(box);
+  };
+  window.__nxWeak();
+
+  /* ---------- 0.1 print the summary ---------- */
+  function buildSheet(){let s=$('nxPrintSheet');if(s)s.remove();s=el('div');s.id='nxPrintSheet';
+    s.appendChild(el('h1',null,'AS91526 Electrical Systems · revision summary'));
+    const g=sum.cloneNode(true);g.classList.remove('recall');g.querySelectorAll('.nx-recall-box,.fs-links').forEach(e=>e.remove());s.appendChild(g);
+    s.appendChild(el('p','nx-print-foot','Green border: listed in the AS91526 supplied formulae. Physics@Rosmini · Year 13 Electrical lab'));document.body.appendChild(s)}
+  const pb=$('nxPrintSum');
+  if(pb&&sum)pb.addEventListener('click',()=>{buildSheet();document.body.classList.add('nx-print-sum');
+    const done=()=>{document.body.classList.remove('nx-print-sum');window.removeEventListener('afterprint',done)};window.addEventListener('afterprint',done);window.print()});
+  window.__nxBuildSheet=()=>{buildSheet();document.body.classList.add('nx-print-sum')};
+
+  /* ---------- 0.4 CEO answer builder ---------- */
+  const CEO=[
+   {title:'Magnet falling into a coil',q:'A bar magnet is dropped, north pole first, towards a coil whose ends are joined together. Explain why the magnet falls with an acceleration less than g as it approaches the coil.',
+    s:[['C','This is electromagnetic induction. An emf is induced in a coil whenever the magnetic flux through it is changing (Faraday\'s law).'],
+       ['C','Lenz\'s law: the induced current flows in the direction that opposes the change in flux that caused it.'],
+       ['E','As the magnet approaches, the field through the coil gets stronger, so the flux through the coil is increasing.'],
+       ['E','The changing flux induces an emf, and because the coil is a closed circuit a current flows.'],
+       ['E','The induced current makes the top of the coil a north pole, which opposes the increase in flux and repels the approaching magnet.'],
+       ['O','So there is an upward force on the magnet, the net force is less than its weight, and it accelerates at less than g. The kinetic energy it does not gain becomes electrical energy and then heat in the coil.'],
+       ['X','A current is induced because there is a magnetic flux through the coil.','Flux alone induces nothing. The flux must be changing.'],
+       ['X','The coil attracts the magnet as it approaches, because unlike poles attract.','The coil repels an approaching magnet. Attraction would speed the magnet up and create energy from nothing.']]},
+   {title:'Why a transformer needs AC',q:'A transformer is connected to a steady DC supply. Explain why there is no voltage across the secondary coil, although there would be with an AC supply.',
+    s:[['C','A transformer is two coils on the same iron core. Current in the primary coil produces a magnetic flux in the core, and the core links that flux to the secondary coil.'],
+       ['C','An emf is induced in the secondary coil only while the flux through it is changing (Faraday\'s law).'],
+       ['E','With AC, the primary current changes continuously, so the flux in the core changes continuously.'],
+       ['E','This changing flux passes through every turn of the secondary coil and induces an emf in each turn.'],
+       ['E','With steady DC, the primary current is constant, so the flux in the core is constant and its rate of change is zero.'],
+       ['O','So with DC no emf is induced in the secondary and the output voltage is zero, except for a brief pulse when the supply is switched on or off. With AC there is a continuous alternating output.'],
+       ['X','The current flows through the iron core from the primary coil to the secondary coil.','No current passes through the core between the coils. The coils are linked only by the changing magnetic flux.'],
+       ['X','DC has a frequency that is too high for the transformer to respond to.','Steady DC does not change at all. The problem is that the flux is constant.']]},
+   {title:'High-voltage transmission',q:'Power stations step the voltage up to 220 kV before sending electrical power along transmission lines. Explain why this reduces the energy wasted in the lines.',
+    s:[['C','The lines have resistance, so power is dissipated as heat in them: P = i²R.'],
+       ['C','The power sent along the line is P = Vi, so the same power can be sent as a high voltage with a low current, or a low voltage with a high current.'],
+       ['E','A step-up transformer increases the voltage, so for the same power the current in the lines is much smaller.'],
+       ['E','The power lost in the lines depends on the current squared, so a small reduction in current gives a large reduction in the loss.'],
+       ['E','For example, making the voltage 10 times bigger makes the current 10 times smaller and the power lost 100 times smaller.'],
+       ['O','So transmitting at high voltage means a low current and a much smaller i²R loss, and more of the power reaches the consumer. Transformers then step the voltage down again to a safe value.'],
+       ['X','A higher voltage makes the electrons travel faster, so they spend less time in the wires losing energy.','The loss depends on the current in the line (P = i²R), not on how long charges spend in the wire.'],
+       ['X','Stepping up the voltage increases the power, so the losses are a smaller fraction.','A transformer cannot increase power. Power out is at most equal to power in.']]},
+   {title:'Spark at a switch',q:'A coil with a large inductance carries a steady current from a 12 V battery. When the switch is opened, a spark jumps across the switch contacts. Explain why.',
+    s:[['C','An inductor produces an induced emf whenever the current through it changes: ε = −L Δi/Δt.'],
+       ['C','By Lenz\'s law this emf acts in the direction that opposes the change in current.'],
+       ['E','Opening the switch makes the current fall to zero in a very short time, so the rate of change of current is very large.'],
+       ['E','The flux through the coil collapses quickly, so the induced emf is very large, much greater than 12 V.'],
+       ['E','The emf acts to keep the current flowing in the same direction, so a large voltage appears across the gap in the switch.'],
+       ['O','So the voltage across the gap is large enough to make the air conduct and a spark jumps. The energy stored in the magnetic field of the coil, ½Li², is released in the spark.'],
+       ['X','The spark happens because the battery voltage builds up across the open switch.','The battery gives only 12 V, which cannot make air conduct. The large voltage comes from the emf induced in the coil.'],
+       ['X','The induced emf opposes the current, so it stops the current instantly.','The emf opposes the change in current. Here it tries to keep the current flowing.']]},
+  ];
+  const NAME={C:'C · Conceptualise',E:'E · Execute',O:'O · Outcomes',X:'Leave out'};
+  const cb=$('nxCeoBuild');let ci=0;
+  function renderCeo(){if(!cb)return;const Qn=CEO[ci];cb.replaceChildren();
+    const head=el('div','nx-qhead');head.appendChild(el('span','nx-qscore','Question '+(ci+1)+' of '+CEO.length+' · '+Qn.title));
+    head.appendChild(btn('tool-btn secondary','Next question',()=>{ci=(ci+1)%CEO.length;renderCeo()}));cb.appendChild(head);
+    cb.appendChild(el('p','nx-build-q','<b>Question:</b> '+Qn.q));
+    cb.appendChild(el('p','small','Sort each sentence: does it belong in <b>C</b>, <b>E</b> or <b>O</b>? Two sentences contain wrong physics. Mark those <b>✕ Leave out</b>.'));
+    const rows=shuffle(Qn.s).map(s=>{const r=el('div','nx-sent');r.appendChild(el('p',null,s[1]));const pick=el('div','nx-pick');pick.setAttribute('role','group');
+      ['C','E','O','X'].forEach(k=>{const b=btn(null,k==='X'?'✕':k,()=>{if(r.dataset.done)return;r.dataset.pick=k;[...pick.children].forEach(x=>x.setAttribute('aria-pressed',String(x===b)))});b.setAttribute('aria-pressed','false');b.setAttribute('aria-label',NAME[k]);b.title=NAME[k];pick.appendChild(b)});
+      r.appendChild(pick);const fb=el('p','nx-sent-fb');fb.hidden=true;r.appendChild(fb);cb.appendChild(r);return {r,s,fb}});
+    const out=el('div','nx-final');out.hidden=true;
+    cb.appendChild(btn('tool-btn','Check my answer',()=>{
+      const missing=rows.filter(x=>!x.r.dataset.pick);if(missing.length){out.hidden=false;out.innerHTML='<strong>Sort every sentence first.</strong> '+missing.length+' still to do.';return}
+      let ok=0;rows.forEach(x=>{const right=x.r.dataset.pick===x.s[0];x.r.dataset.done='1';x.r.classList.add(right?'right':'wrong');if(right)ok++;
+        if(!right||x.s[0]==='X'){x.fb.hidden=false;x.fb.innerHTML=(right?'<b>Correct, leave it out.</b> ':'<b>This belongs in: '+NAME[x.s[0]]+'.</b> ')+(x.s[2]||'')}});
+      {const c=store.get('emag-ceo',{});c[ci]=Math.max(c[ci]||0,ok);store.set('emag-ceo',c)}
+      out.hidden=false;const part=k=>Qn.s.filter(s=>s[0]===k).map(s=>s[1]).join(' ');
+      out.innerHTML='<strong>'+ok+' of '+rows.length+' sorted correctly.</strong> The finished answer reads:<p><b>C · Conceptualise:</b> '+part('C')+'</p><p><b>E · Execute:</b> '+part('E')+'</p><p><b>O · Outcomes:</b> '+part('O')+'</p>';
+    }));
+    cb.appendChild(out)}
+  renderCeo();
+
+  /* ---------- 0.4 spot the mistake ---------- */
+  const SPOT=[
+   {q:'Two resistors, 2 Ω and 8 Ω, are connected in parallel across a battery. Describe the current in each.',a:['Both resistors have the same voltage across them.','Current takes the path of least resistance, so all of the current flows through the 2 Ω resistor.','The total current is the sum of the branch currents.'],bad:1,fix:'Current divides between the branches. Every branch carries some current: the 2 Ω resistor carries <b>four times</b> the current of the 8 Ω resistor, not all of it.'},
+   {q:'A battery supplies a larger current when a second lamp is added in parallel. Explain what happens to the terminal voltage.',a:['The battery has internal resistance.','When the current increases, the emf of the battery decreases.','So the voltage across the terminals is lower.'],bad:1,fix:'The <b>emf does not change</b>. The lost volts, ir, increase, so the terminal voltage V = ε − ir decreases.'},
+   {q:'Describe what happens when a capacitor is connected to a battery through a resistor.',a:['Electrons flow onto one plate and off the other plate.','The current flows through the gap between the plates of the capacitor.','The voltage across the capacitor rises until it equals the battery voltage.'],bad:1,fix:'No charge crosses the gap. Charge flows <b>onto one plate and off the other</b> through the rest of the circuit, and that flow is the current.'},
+   {q:'A 100 µF capacitor is charged through a 10 kΩ resistor. How long does it take to charge?',a:['The time constant is τ = RC = 1.0 s.','After one time constant the capacitor is fully charged.','The current then falls to zero.'],bad:1,fix:'After one time constant the capacitor has reached <b>63%</b> of its final voltage. It is fully charged after about five time constants (5 s).'},
+   {q:'Two capacitors, 4 µF and 6 µF, are connected in series. Find the total capacitance.',a:['Capacitors in series add together, like resistors in series.','So the total capacitance is 10 µF.'],bad:0,fix:'Capacitors combine the opposite way to resistors. In series, 1/C = 1/4 + 1/6, so C = <b>2.4 µF</b>. They add in parallel.'},
+   {q:'A coil sits in a strong, steady magnetic field. Explain whether there is an induced emf.',a:['There is a large magnetic flux through the coil.','Because the flux is large, a large emf is induced in the coil.','If the coil is part of a circuit, a current flows.'],bad:1,fix:'A steady flux induces <b>no emf</b>. An emf is induced only while the flux is <b>changing</b>; its size depends on the rate of change.'},
+   {q:'State Lenz\'s law.',a:['An induced current produces its own magnetic field.','This field always opposes the magnetic field that caused it.','This is a consequence of conservation of energy.'],bad:1,fix:'The induced field opposes the <b>change</b> in flux, not the field itself. If the flux is decreasing, the induced field is in the <b>same</b> direction as the original field.'},
+   {q:'An inductor and a resistor are connected in series to a battery. Describe the voltage across the inductor a long time after the switch is closed.',a:['The current has reached a steady value.','The inductor now has its maximum voltage across it, because the current through it is a maximum.','The current is limited only by the resistance in the circuit.'],bad:1,fix:'In the steady state the current is not changing, so the back emf is <b>zero</b>. An ideal inductor then has no voltage across it. The voltage is a maximum at the instant the switch is closed.'},
+   {q:'An ideal transformer steps 240 V up to 2400 V. Describe the power output.',a:['The secondary coil has 10 times as many turns as the primary coil.','The voltage is 10 times bigger, so the power out is 10 times bigger than the power in.','The secondary current is smaller than the primary current.'],bad:1,fix:'A transformer cannot create power. For an ideal transformer <b>power out = power in</b>, so the current is 10 times smaller.'},
+   {q:'The mains supply is 240 V rms. Find the peak voltage.',a:['The rms voltage is the DC voltage that gives the same heating effect.','V_max = V_rms / √2','So the peak voltage is 170 V.'],bad:1,fix:'The peak is bigger than the rms value: V<sub>max</sub> = √2 × V<sub>rms</sub> = <b>339 V</b>.'},
+   {q:'The frequency of an AC supply connected to a capacitor is increased. Describe the effect on the current.',a:['The reactance of a capacitor is X_C = 1/ωC.','So when the frequency increases, the reactance of the capacitor increases.','The current changes because i = V/X_C.'],bad:1,fix:'X<sub>C</sub> = 1/ωC, so a higher frequency gives a <b>smaller</b> reactance and a larger current. It is the inductor whose reactance rises with frequency.'},
+   {q:'Describe a series LCR circuit at resonance.',a:['At resonance the reactances are equal: X_L = X_C.','The impedance of the circuit is a maximum.','The supply voltage is in phase with the current.'],bad:1,fix:'V<sub>L</sub> and V<sub>C</sub> cancel, so the impedance is a <b>minimum</b> (Z = R) and the current is a maximum.'},
+  ];
+  const sb=$('nxSpot');let order=[],si=0,sScore=0,sDone=0;
+  function renderSpot(){if(!sb)return;if(!order.length||si>=order.length){order=shuffle(SPOT.map((_,i)=>i));si=0;sScore=0;sDone=0}
+    const it=SPOT[order[si]];sb.replaceChildren();let tries=0,solved=false;
+    const head=el('div','nx-qhead'),sc=el('span','nx-qscore');const upd=()=>sc.textContent='Answer '+(si+1)+' of '+SPOT.length+' · found first time: '+sScore+' / '+sDone;upd();
+    head.appendChild(sc);head.appendChild(btn('tool-btn secondary','Next answer',()=>{si++;renderSpot()}));sb.appendChild(head);
+    sb.appendChild(el('p','nx-build-q','<b>Question:</b> '+it.q));sb.appendChild(el('p','small','A student wrote this. Click the sentence that contains the mistake.'));
+    const ans=el('div','nx-student');const fb=el('p','nx-expl');fb.hidden=true;
+    it.a.forEach((t,k)=>{const b=btn('nx-ss',t,()=>{if(solved)return;tries++;
+      if(k===it.bad){solved=true;b.classList.add('found');sDone++;if(tries===1){sScore++;store.set('emag-spot',Math.max(store.get('emag-spot',0),sScore))}else if(store.get('emag-spot',null)===null)store.set('emag-spot',0);fb.hidden=false;fb.classList.remove('no');fb.innerHTML='<strong>Found it.</strong> '+it.fix;upd()}
+      else{b.classList.add('fine');fb.hidden=false;fb.classList.add('no');fb.innerHTML='<strong>That sentence is fine.</strong> Look again.'}});ans.appendChild(b)});
+    sb.append(ans,fb)}
+  renderSpot();
+
+  /* ---------- 0.5 exam set with self-marking ---------- */
+  const EX=[
+   {t:'dc',name:'Heater and battery',ctx:'A battery has an emf of 12.0 V and an internal resistance of 0.80 Ω. It is connected to a heater of resistance 5.2 Ω.',
+    parts:[['Calculate the current in the circuit and the terminal voltage of the battery.','i = ε/(R + r) = 12.0/6.0 = <b>2.0 A</b>. V = iR = 2.0 × 5.2 = <b>10.4 V</b> (or V = ε − ir = 12.0 − 1.6).'],
+           ['Explain why the terminal voltage is less than the emf.','The emf is the energy given to each coulomb by the battery. The current also flows through the internal resistance, so each coulomb loses some of that energy as heat inside the battery (the lost volts, ir = 1.6 V). What is left, V = ε − ir, is the terminal voltage.'],
+           ['A second identical heater is connected in parallel with the first. Explain, with calculations, what happens to the terminal voltage and to the total power delivered to the heaters.','Two 5.2 Ω heaters in parallel have a resistance of 2.6 Ω, so the total resistance falls to 3.4 Ω and the current rises to 12.0/3.4 = <b>3.5 A</b>. The lost volts rise to 3.5 × 0.80 = 2.8 V, so the terminal voltage falls to <b>9.2 V</b>. Total power to the heaters rises from 10.4 × 2.0 = 20.8 W to 9.2 × 3.5 = <b>32 W</b>, but each heater now gets only 16 W because the voltage across it is lower.']],
+    pts:[['A','(a) 2.0 A and 10.4 V'],['A','(b) Mentions internal resistance or lost volts'],['A','(c) Parallel resistance 2.6 Ω'],
+         ['M','(b) Energy per coulomb is dissipated in the internal resistance, so V = ε − ir'],['M','(c) New current 3.5 A and terminal voltage 9.2 V'],['M','(c) Terminal voltage falls because the larger current gives larger lost volts'],
+         ['E','(c) Complete answer including the power: total rises from 20.8 W to 32 W, while each heater gets less (16 W)']]},
+   {t:'dc',name:'Two batteries and Kirchhoff',ctx:'Battery A (emf 12.0 V, in series with a 2.0 Ω resistor) and battery B (emf 6.0 V, in series with a 4.0 Ω resistor) are connected in parallel with each other across an 8.0 Ω resistor. The positive terminals of both batteries are joined to the top of the 8.0 Ω resistor. Call the current up through battery A i₁, the current up through battery B i₂, and the current down through the 8.0 Ω resistor i₃.',
+    parts:[['Write the junction equation for the top junction, and state the conservation law it expresses.','i₁ + i₂ = i₃. Charge is conserved: the charge arriving at the junction each second equals the charge leaving.'],
+           ['Write a loop equation for each battery loop (each loop includes the 8.0 Ω resistor), and state the conservation law the loop rule expresses.','Loop A: 12.0 − 2.0i₁ − 8.0i₃ = 0. Loop B: 6.0 − 4.0i₂ − 8.0i₃ = 0. Energy is conserved: around a closed loop the energy gained per coulomb equals the energy lost per coulomb.'],
+           ['Solve the equations to find the three currents, and explain what your answer for i₂ shows.','Substituting i₁ = (12.0 − 8.0i₃)/2.0 and i₂ = (6.0 − 8.0i₃)/4.0 into the junction equation gives i₃ = <b>1.07 A</b>, so the voltage across the 8.0 Ω resistor is 8.6 V. Then i₁ = <b>1.71 A</b> and i₂ = <b>−0.64 A</b>. The negative sign means the current in battery B is opposite to the direction assumed: it flows down through B, into its positive terminal. The voltage across the branch (8.6 V) is greater than B\'s emf (6.0 V), so battery A is driving current backwards through B and charging it.']],
+    pts:[['A','(a) i₁ + i₂ = i₃ and conservation of charge'],['A','(b) One correct loop equation'],['A','(b) States the loop rule expresses conservation of energy'],
+         ['M','(b) Both loop equations correct, with consistent signs'],['M','(c) i₃ = 1.07 A (or 8.6 V across the resistor)'],['M','(c) i₁ = 1.71 A and i₂ = −0.64 A'],
+         ['E','(c) Interprets the negative sign: current flows backwards through B because 8.6 V is greater than its 6.0 V emf, so B is being charged']]},
+   {t:'cap',name:'Charging a capacitor',ctx:'A 470 µF capacitor is charged from a 9.0 V battery through a 2.2 kΩ resistor. The capacitor is uncharged when the switch is closed.',
+    parts:[['Calculate the time constant of the circuit.','τ = RC = 2200 × 470 × 10⁻⁶ = <b>1.0 s</b>.'],
+           ['Calculate the charge on the capacitor and the energy it stores when it is fully charged.','Q = CV = 470 × 10⁻⁶ × 9.0 = <b>4.2 × 10⁻³ C</b>. E = ½QV = ½ × 4.23 × 10⁻³ × 9.0 = <b>0.019 J</b>.'],
+           ['Describe and explain how the current in the circuit changes with time as the capacitor charges. Include values.','At the instant the switch is closed the capacitor has no charge, so V<sub>C</sub> = 0 and all 9.0 V is across the resistor: i = 9.0/2200 = <b>4.1 mA</b>, its maximum. As charge builds up on the plates, V<sub>C</sub> = Q/C rises, so the voltage across the resistor, V<sub>R</sub> = ε − V<sub>C</sub>, falls and the current i = V<sub>R</sub>/R falls. A smaller current adds charge more slowly, so the current falls at a decreasing rate (exponentially). After one time constant (1.0 s) it has fallen to 37% of its initial value, 1.5 mA, and it is effectively zero after about 5 s, when V<sub>C</sub> = 9.0 V.']],
+    pts:[['A','(a) τ = 1.0 s'],['A','(b) Q = 4.2 × 10⁻³ C'],['A','(c) Initial current 4.1 mA'],
+         ['M','(b) E = 0.019 J'],['M','(c) V_C rises, so the voltage across the resistor falls'],['M','(c) Current falls, so charge is added more slowly: a decreasing rate'],
+         ['E','(c) Complete chain with values: 4.1 mA at the start, 37% (1.5 mA) after one time constant, zero after about 5τ']]},
+   {t:'cap',name:'Capacitors in series and a dielectric',ctx:'A 20 µF capacitor and a 30 µF capacitor are connected in series across a 12 V battery.',
+    parts:[['Calculate the total capacitance.','1/C = 1/20 + 1/30, so C = <b>12 µF</b>.'],
+           ['Calculate the charge on each capacitor and the voltage across each.','Capacitors in series carry the same charge: Q = CV = 12 × 10⁻⁶ × 12 = <b>1.44 × 10⁻⁴ C</b> on each. V = Q/C gives <b>7.2 V</b> across the 20 µF and <b>4.8 V</b> across the 30 µF.'],
+           ['A dielectric with a dielectric constant of 3.0 is now placed between the plates of the 20 µF capacitor, with the battery still connected. Explain, with calculations, what happens to the charge stored and to the voltage across each capacitor.','C ∝ ε<sub>r</sub>, so that capacitor becomes 60 µF. The total capacitance rises to (60 × 30)/90 = <b>20 µF</b>. The battery voltage is unchanged, so the charge on each capacitor rises to 20 × 10⁻⁶ × 12 = <b>2.4 × 10⁻⁴ C</b>: extra charge flows from the battery. The voltages become 2.4 × 10⁻⁴/60 × 10⁻⁶ = <b>4.0 V</b> across the capacitor with the dielectric and <b>8.0 V</b> across the 30 µF. They still add to 12 V.']],
+    pts:[['A','(a) 12 µF'],['A','(b) States that capacitors in series have the same charge'],['A','(c) New capacitance 60 µF'],
+         ['M','(b) Q = 1.44 × 10⁻⁴ C'],['M','(b) 7.2 V and 4.8 V'],['M','(c) New total 20 µF and charge 2.4 × 10⁻⁴ C'],
+         ['E','(c) Complete answer: more charge flows from the battery, and the voltages change to 4.0 V and 8.0 V, still adding to 12 V']]},
+   {t:'ind',name:'Changing flux in a coil',ctx:'A coil of 200 turns has an area of 4.0 × 10⁻³ m². A magnetic field at right angles to the plane of the coil falls steadily from 0.50 T to 0.10 T in 0.020 s.',
+    parts:[['Calculate the flux through one turn of the coil at the start.','Φ = BA = 0.50 × 4.0 × 10⁻³ = <b>2.0 × 10⁻³ Wb</b>.'],
+           ['Calculate the emf induced in the coil.','ΔΦ = (0.10 − 0.50) × 4.0 × 10⁻³ = −1.6 × 10⁻³ Wb. ε = −N ΔΦ/Δt = 200 × 1.6 × 10⁻³/0.020 = <b>16 V</b>.'],
+           ['The same change in field now takes place in half the time, and the ends of the coil are joined. Explain what happens to the induced emf, and use Lenz\'s law to explain the direction of the magnetic field produced by the induced current.','The change in flux is the same but it happens in half the time, so the rate of change of flux doubles and the emf doubles to <b>32 V</b>. The flux through the coil is decreasing. By Lenz\'s law the induced current opposes this change, so its magnetic field is in the <b>same direction</b> as the original field, trying to keep the flux up. If it acted the other way it would increase the change and energy would not be conserved.']],
+    pts:[['A','(a) 2.0 × 10⁻³ Wb'],['A','(b) Uses Faraday\'s law with N = 200'],['A','(c) States the emf is larger'],
+         ['M','(b) 16 V'],['M','(c) 32 V, because the rate of change of flux doubles'],['M','(c) Induced field is in the same direction as the original field'],
+         ['E','(c) Complete Lenz reasoning: it opposes the decrease in flux (not the field), linked to conservation of energy']]},
+   {t:'ind',name:'Inductor in a DC circuit',ctx:'An inductor of inductance 0.40 H and internal resistance 4.0 Ω is connected in series with a 16 Ω resistor, a switch and a 12 V battery.',
+    parts:[['Calculate the time constant of the circuit.','τ = L/R, using the total resistance: 0.40/(16 + 4.0) = <b>0.020 s</b>.'],
+           ['Calculate the steady current, and the energy stored in the inductor when the current is steady.','i = V/R = 12/20 = <b>0.60 A</b>. E = ½Li² = ½ × 0.40 × 0.60² = <b>0.072 J</b>.'],
+           ['Explain why the current does not reach its steady value as soon as the switch is closed, and why a spark may be seen at the switch when it is opened again.','When the switch is closed the current starts to rise, so the flux through the coil is changing. This induces a back emf that opposes the increase (Lenz), so the current rises gradually; as the rate of change falls the back emf falls, until the current is steady at 0.60 A. When the switch is opened the current falls to zero in a very short time, so Δi/Δt is very large and ε = −L Δi/Δt is very large, much more than 12 V. This emf tries to keep the current flowing, so a large voltage appears across the switch gap, the air conducts and a spark jumps, releasing the 0.072 J stored in the magnetic field.']],
+    pts:[['A','(a) τ = 0.020 s, using the total resistance of 20 Ω'],['A','(b) 0.60 A'],['A','(c) Mentions back emf or induced emf'],
+         ['M','(b) 0.072 J'],['M','(c) Rising current gives a changing flux, so a back emf opposes the increase'],['M','(c) Opening the switch gives a very large rate of change of current, so a very large emf'],
+         ['E','(c) Complete answer for both: gradual rise and the spark, with the emf trying to keep the current flowing and the stored energy released']]},
+   {t:'ind',name:'Transformer and lamp',ctx:'A transformer is used to run a 12 V, 36 W lamp from a 240 V AC supply. The primary coil has 2000 turns.',
+    parts:[['Calculate the number of turns on the secondary coil.','N<sub>s</sub> = N<sub>p</sub> × V<sub>s</sub>/V<sub>p</sub> = 2000 × 12/240 = <b>100 turns</b>.'],
+           ['Assuming the transformer is ideal, calculate the current in the primary coil.','Power in = power out: i<sub>p</sub> = 36/240 = <b>0.15 A</b>.'],
+           ['Explain why the transformer would not light the lamp if it were connected to a 240 V DC supply, and why the input power of a real transformer is more than 36 W.','An emf is induced in the secondary only while the flux through it is changing. AC in the primary gives a continuously changing flux in the core, which links the secondary and induces an emf in every turn. A steady DC current gives a constant flux, so no emf is induced and the lamp does not light. In a real transformer some energy is wasted: the changing flux induces eddy currents in the iron core, which heat it (reduced by laminating the core); the coils have resistance, so there is i²R heating; and not all the flux links the secondary. The efficiency is below 100%, so the input power must be more than 36 W.']],
+    pts:[['A','(a) 100 turns'],['A','(b) 0.15 A'],['A','(c) States that a changing flux (or changing current) is needed'],
+         ['M','(b) Uses power in = power out'],['M','(c) AC gives a changing flux in the core, which induces an emf in the secondary; DC gives a constant flux, so no emf'],['M','(c) Names one loss: eddy currents in the core, or resistance heating of the coils'],
+         ['E','(c) Complete answer for both parts, with at least two losses explained and linked to efficiency below 100%']]},
+   {t:'ac',name:'Heater on the mains',ctx:'A 60 Ω heater is connected to a 240 V rms, 50 Hz AC supply.',
+    parts:[['Calculate the peak voltage of the supply.','V<sub>max</sub> = √2 × V<sub>rms</sub> = 1.414 × 240 = <b>339 V</b>.'],
+           ['Calculate the average power dissipated in the heater.','P = V<sub>rms</sub>²/R = 240²/60 = <b>960 W</b> (i<sub>rms</sub> = 4.0 A).'],
+           ['Explain why AC voltages are quoted as rms values, and not as peak or average values.','The average of an alternating voltage over a whole cycle is zero, because it is positive for half the cycle and negative for the other half, so the average is no use. The power dissipated in a resistor depends on V² (P = V²/R), which is always positive, so energy is dissipated in both halves of the cycle. The rms value is the steady DC voltage that would dissipate energy in a resistor at the same average rate, so it can be used directly in P = Vi. The peak value is reached only for an instant: the peak power is 339²/60 = 1920 W, twice the average.']],
+    pts:[['A','(a) 339 V'],['A','(b) 960 W'],['A','(c) States the average of an AC voltage is zero'],
+         ['M','(c) rms is the DC value that gives the same heating effect (same average power)'],['M','(c) Power depends on V², so it is positive in both halves of the cycle'],['M','(b) or (c) i_rms = 4.0 A, or peak power 1920 W'],
+         ['E','(c) Complete, linked explanation of why neither the average nor the peak is useful, and what rms represents']]},
+   {t:'ac',name:'Series LCR circuit',ctx:'A 30 Ω resistor, a 0.20 H inductor and a 100 µF capacitor are connected in series to a 12 V rms, 50 Hz AC supply.',
+    parts:[['Calculate the reactance of the inductor and of the capacitor.','ω = 2πf = 314 rad s⁻¹. X<sub>L</sub> = ωL = 314 × 0.20 = <b>62.8 Ω</b>. X<sub>C</sub> = 1/ωC = 1/(314 × 100 × 10⁻⁶) = <b>31.8 Ω</b>.'],
+           ['Calculate the impedance of the circuit and the rms current.','Z = √(R² + (X<sub>L</sub> − X<sub>C</sub>)²) = √(30² + 31.0²) = <b>43 Ω</b>. i = V/Z = 12/43.1 = <b>0.28 A</b>.'],
+           ['The frequency of the supply is lowered until the current is a maximum. Calculate this frequency and explain why the current is a maximum.','This is resonance, when X<sub>L</sub> = X<sub>C</sub>: f₀ = 1/(2π√(LC)) = 1/(2π√(0.20 × 100 × 10⁻⁶)) = <b>36 Hz</b>. The voltages across the inductor and the capacitor are 180° out of phase with each other. At resonance they are equal in size, so they cancel. The impedance is then a minimum, Z = R = 30 Ω, so the current i = V/Z = 12/30 = <b>0.40 A</b> is a maximum, and the supply voltage is in phase with the current.']],
+    pts:[['A','(a) X_L = 62.8 Ω'],['A','(a) X_C = 31.8 Ω'],['A','(c) States resonance, or X_L = X_C'],
+         ['M','(b) Z = 43 Ω'],['M','(b) i = 0.28 A'],['M','(c) f₀ = 36 Hz'],
+         ['E','(c) Explanation: V_L and V_C are 180° out of phase and equal, so they cancel; Z = R is a minimum; the current is 0.40 A']]},
+  ];
+  const TOPIC={dc:'DC circuits',cap:'Capacitors',ind:'Induction and inductors',ac:'AC circuits'},ORDER=['dc','cap','ind','ac'];
+  const xb=$('nxExam');
+  function examHome(){if(!xb)return;clearInterval(xb._t);xb.replaceChildren();
+    const last=store.get('emag-exam-last',null);
+    const home=el('div','nx-exam-home');
+    home.appendChild(el('p',null,'<b>Timed set:</b> four questions, one from each section, 40 minutes. Write full answers on paper or in the boxes. When you finish, mark yourself against the schedule.'));
+    const row=el('div','nx-exam-btns');row.appendChild(btn('tool-btn','Start timed set (40 min)',()=>examRun(ORDER.map(t=>shuffle(EX.filter(q=>q.t===t))[0]),40)));
+    home.appendChild(row);
+    if(last)home.appendChild(el('p','small','Last timed set: '+last.join(' · ')));
+    home.appendChild(el('p',null,'<b>Or practise one question, untimed:</b>'));
+    const list=el('div','nx-exam-list');EX.forEach(q=>{const b=btn('nx-opt',null,()=>examRun([q],0));b.innerHTML='<span class="nx-qtag">'+TOPIC[q.t]+'</span>'+q.name;list.appendChild(b)});home.appendChild(list);
+    xb.appendChild(home)}
+  function examRun(qs,mins){xb.replaceChildren();const head=el('div','nx-qhead nx-exam-head');const clock=el('span','nx-qscore');head.appendChild(clock);
+    const fin=btn('tool-btn','Finish and mark');head.appendChild(fin);head.appendChild(btn('tool-btn secondary','Quit',examHome));xb.appendChild(head);
+    let left=mins*60;const tick=()=>{if(!mins){clock.textContent='Untimed practice';return}const m=Math.floor(Math.abs(left)/60),s=String(Math.abs(left)%60).padStart(2,'0');clock.textContent=left>=0?'Time left '+m+':'+s:'Over time by '+m+':'+s;clock.classList.toggle('over',left<0)};tick();
+    if(mins)xb._t=setInterval(()=>{if(!document.body.contains(clock)){clearInterval(xb._t);return}left--;tick()},1000);
+    const cards=qs.map((q,qi)=>{const card=el('article','exam-question');card.appendChild(el('div','exam-question-header','<span>QUESTION '+(qi+1)+'</span><span>'+TOPIC[q.t]+' · '+q.name+'</span>'));card.appendChild(el('p',null,q.ctx));
+      const parts=q.parts.map((p,pi)=>{const w=el('div','nx-part');w.appendChild(el('p','nx-part-q','<b>('+'abc'[pi]+')</b> '+p[0]));const ta=el('textarea','nx-write');ta.rows=3;ta.placeholder='Write your answer here, or on paper';ta.setAttribute('aria-label','Your answer to part '+'abc'[pi]);w.appendChild(ta);
+        const model=el('div','nx-model','<b>Model answer:</b> '+p[1]);model.hidden=true;w.appendChild(model);card.appendChild(w);return model});
+      const mark=el('div','nx-mark');mark.hidden=true;card.appendChild(mark);xb.appendChild(card);return {q,parts,mark,card}});
+    const total=el('div','nx-final');total.hidden=true;xb.appendChild(total);
+    fin.addEventListener('click',()=>{clearInterval(xb._t);fin.disabled=true;if(mins)clock.textContent=(left>=0?'Finished with '+Math.floor(left/60)+':'+String(left%60).padStart(2,'0')+' to spare':'Finished '+Math.floor(-left/60)+':'+String(-left%60).padStart(2,'0')+' over time');
+      const grades=cards.map(()=> 'Not achieved');const hist=store.get('emag-exam-hist',[]),entry={d:new Date().toLocaleDateString('en-NZ',{day:'numeric',month:'short'}),timed:!!mins,q:cards.map(c=>c.q.name),g:grades};hist.push(entry);while(hist.length>12)hist.shift();
+      const sumUp=()=>{total.hidden=false;total.innerHTML='<strong>Your marks:</strong> '+cards.map((c,i)=>'Q'+(i+1)+' '+grades[i]).join(' · ')+'. Reread the model answer for any point you could not tick, then try another set.';if(mins)store.set('emag-exam-last',cards.map((c,i)=>TOPIC[c.q.t]+': '+grades[i]));entry.g=grades.slice();store.set('emag-exam-hist',hist)};
+      cards.forEach((c,ci)=>{c.parts.forEach(m=>m.hidden=false);c.mark.hidden=false;c.mark.appendChild(el('p',null,'<b>Mark your answer.</b> Tick each point that is clearly in what you wrote.'));
+        const res=el('p','nx-grade');const boxes=c.q.pts.map(p=>{const lab=el('label','nx-tick nx-'+p[0]);const i=el('input');i.type='checkbox';lab.appendChild(i);lab.appendChild(el('span','nx-lvl',p[0]));lab.append(' '+p[1]);c.mark.appendChild(lab);return {i,g:p[0]}});
+        const calc=()=>{const n=g=>boxes.filter(b=>b.g===g&&b.i.checked).length,all=g=>boxes.filter(b=>b.g===g).length;let gr='Not achieved';if(n('A')>=2){gr='Achieved';if(n('M')>=2){gr='Merit';if(n('E')===all('E'))gr='Excellence'}}
+          grades[ci]=gr;res.innerHTML='A '+n('A')+'/'+all('A')+' · M '+n('M')+'/'+all('M')+' · E '+n('E')+'/'+all('E')+' → about <b>'+gr+'</b> for this question';sumUp()};
+        boxes.forEach(b=>b.i.addEventListener('change',calc));c.mark.appendChild(res);calc()});
+      cards[0].card.scrollIntoView({behavior:'smooth',block:'start'})});
+    xb.scrollIntoView({behavior:'smooth',block:'start'})}
+  examHome();
+
+  /* ---------- 0.6 my progress: save, load, share with a teacher ---------- */
+  const KEYS=k=>['emag-scope','emag-exam-last','emag-exam-hist','emag-ceo','emag-spot'].includes(k);
+  function snapshot(){const rows=scopeRows();let conf=0,get=0,not=0;const weak=[];
+    rows.forEach(x=>{if(x.r===2)conf++;else if(x.r===1){get++;weak.push('Getting there: '+x.text)}else if(x.r===0){not++;weak.unshift('Not yet: '+x.text)}});
+    const ceo=store.get('emag-ceo',{}),ceoDone=Object.keys(ceo).length,ceoSum=Object.values(ceo).reduce((a,b)=>a+b,0);
+    return {conf,get,not,total:rows.length,weak,hist:store.get('emag-exam-hist',[]),ceoDone,ceoSum,spot:store.get('emag-spot',null)}}
+  function report(name){const s=snapshot(),L=[];
+    L.push('Year 13 Physics · Electrical systems (AS91526) revision progress');L.push('Student: '+(name||'(no name given)'));L.push('Date: '+new Date().toLocaleDateString('en-NZ',{day:'numeric',month:'long',year:'numeric'}));L.push('');
+    L.push('SELF-RATINGS (course map, '+s.total+' statements)');L.push('Confident '+s.conf+' · Getting there '+s.get+' · Not yet '+s.not+' · Not rated '+(s.total-s.conf-s.get-s.not));
+    s.weak.slice(0,6).forEach(w=>L.push('- '+w));L.push('');
+    L.push('ANSWER PRACTICE');L.push('- CEO answers built: '+s.ceoDone+' of '+CEO.length+(s.ceoDone?' ('+s.ceoSum+'/'+s.ceoDone*8+' sentences sorted correctly)':''));
+    L.push('- Spot the mistake, found first time: '+(s.spot===null?'not tried':s.spot+' of '+SPOT.length));L.push('');
+    L.push('EXAM SETS (self-marked)');if(!s.hist.length)L.push('- none yet');s.hist.slice(-5).forEach(h=>L.push('- '+h.d+(h.timed?' timed':' untimed')+': '+h.q.map((q,i)=>q+' = '+h.g[i]).join('; ')));L.push('');
+    L.push('Note: these results are self-rated and self-marked by the student in the Physics@Rosmini Electrical lab.');return L.join('\n')}
+  const enc=o=>'E13.'+btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+  const dec=t=>{t=String(t).trim().replace(/\s+/g,'');if(!t.startsWith('E13.'))throw 0;const o=JSON.parse(decodeURIComponent(escape(atob(t.slice(4).replace(/-/g,'+').replace(/_/g,'/')))));if(!o||typeof o!=='object'||Array.isArray(o))throw 0;return o};
+  const collect=()=>{const o={};try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(KEYS(k))o[k]=JSON.parse(localStorage.getItem(k))}}catch(e){}return o};
+  const pv=$('nxProgress');
+  function renderProgress(){if(!pv)return;const s=snapshot();pv.replaceChildren();
+    const g=el('div','nx-facts');[['Confident',s.conf+' of '+s.total],['Getting there / Not yet',s.get+' / '+s.not],['CEO answers built',s.ceoDone+' of '+CEO.length],['Exam sets marked',String(s.hist.length)]].forEach(f=>g.appendChild(el('div',null,'<span>'+f[0]+'</span><strong>'+f[1]+'</strong>')));pv.appendChild(g);
+    const pre=el('pre','nx-report');pre.textContent=report(store.get('emag-me',{}).name||'');pv.appendChild(pre);
+    pv.appendChild(el('h3','nx-h3','Save or load my progress'));
+    pv.appendChild(el('p','note','Your progress is kept automatically on this device. To carry it to another device, save a progress code here and load it there.'));
+    const row=el('div','nx-sumtools');const code=el('textarea','nx-write nx-code');code.rows=3;code.placeholder='Your progress code appears here. To load, paste a code here.';code.setAttribute('aria-label','Progress code');
+    const msg=el('p','nx-expl');msg.hidden=true;const say=(t,bad)=>{msg.hidden=false;msg.classList.toggle('no',!!bad);msg.innerHTML=t};
+    row.appendChild(btn('tool-btn nx-small-btn','Save: make my code',()=>{code.value=enc(collect());code.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}if(navigator.clipboard)navigator.clipboard.writeText(code.value).catch(()=>{});say('<strong>Code ready'+(ok?' and copied':'')+'.</strong> Paste it somewhere you can reach from your other device (an email to yourself, or a Google Doc), or download it as a file.')}));
+    row.appendChild(btn('tool-btn secondary nx-small-btn','Download as a file',()=>{const a=el('a');a.href=URL.createObjectURL(new Blob([enc(collect())],{type:'text/plain'}));a.download='electrical-progress.txt';document.body.appendChild(a);a.click();a.remove();say('<strong>Saved</strong> as electrical-progress.txt in your downloads.')}));
+    const load=t=>{let o;try{o=dec(t)}catch(e){say('<strong>That is not a valid progress code.</strong> Copy the whole code, starting with E13.',true);return}
+      say('<strong>Load this progress?</strong> It will replace the progress saved on this device. ');msg.appendChild(btn('tool-btn nx-small-btn','Yes, load it',()=>{try{Object.keys(collect()).forEach(k=>localStorage.removeItem(k));Object.keys(o).forEach(k=>{if(KEYS(k))localStorage.setItem(k,JSON.stringify(o[k]))})}catch(e){}location.reload()}))};
+    row.appendChild(btn('tool-btn secondary nx-small-btn','Load the code in the box',()=>load(code.value)));
+    const file=el('input');file.type='file';file.accept='.txt,text/plain';file.hidden=true;file.addEventListener('change',()=>{const f=file.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{code.value=String(rd.result);load(code.value)};rd.readAsText(f)});
+    row.appendChild(btn('tool-btn secondary nx-small-btn','Load from a file',()=>file.click()));row.appendChild(file);
+    pv.append(row,code,msg);
+    pv.appendChild(el('h3','nx-h3','Share my results with my teacher'));
+    pv.appendChild(el('p','note','Type your name and your teacher\'s email address. The button opens an email with your results already written. Check it, then press <b>Send</b>. Nothing is sent until you send it yourself, and this website does not collect your name or the address.'));
+    const me=store.get('emag-me',{});const form=el('div','nx-share');
+    const fld=(lab,type,val,ph)=>{const l=el('label');l.append(lab);const i=el('input');i.type=type;i.value=val||'';i.placeholder=ph;i.autocomplete=type==='email'?'off':'name';l.appendChild(i);form.appendChild(l);return i};
+    const nm=fld('Your name','text',me.name,'First and last name'),em=fld('Teacher\'s email address','email',me.teacher,'teacher@school.nz');pv.appendChild(form);
+    const links=el('div','nx-sumtools');const mk=(t,cls)=>{const a=el('a','tool-btn nx-small-btn '+cls);a.textContent=t;a.target='_blank';a.rel='noopener';a.setAttribute('role','button');links.appendChild(a);return a};
+    const gm=mk('Open in Gmail',''),ml=mk('Open in my email app','secondary');const smsg=el('p','nx-expl');smsg.hidden=true;
+    links.appendChild(btn('tool-btn secondary nx-small-btn','Copy the report',()=>{const t=report(nm.value.trim());const ta=el('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}ta.remove();if(navigator.clipboard)navigator.clipboard.writeText(t).then(()=>{},()=>{});smsg.hidden=false;smsg.classList.remove('no');smsg.innerHTML='<strong>Report copied.</strong> Paste it into an email or Google Classroom.'}));
+    const upd=()=>{const name=nm.value.trim(),to=em.value.trim(),ok=/^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/.test(to);store.set('emag-me',{name,teacher:to});pre.textContent=report(name);
+      const su='Electrical systems revision progress'+(name?' · '+name:''),body=report(name);
+      if(ok&&smsg.classList.contains('no'))smsg.hidden=true;[gm,ml].forEach(a=>{a.classList.toggle('nx-off',!ok);a.setAttribute('aria-disabled',String(!ok))});
+      if(ok){gm.href='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(to)+'&su='+encodeURIComponent(su)+'&body='+encodeURIComponent(body);ml.href='mailto:'+encodeURIComponent(to).replace(/%40/g,'@')+'?subject='+encodeURIComponent(su)+'&body='+encodeURIComponent(body.replace(/\n/g,'\r\n'))}else{gm.removeAttribute('href');ml.removeAttribute('href')}};
+    [gm,ml].forEach(a=>a.addEventListener('click',e=>{if(!a.hasAttribute('href')){e.preventDefault();smsg.hidden=false;smsg.classList.add('no');smsg.innerHTML='<strong>Enter your teacher\'s email address first.</strong> For example name@school.nz'}else{smsg.hidden=false;smsg.classList.remove('no');smsg.innerHTML='<strong>Your email is ready.</strong> Check it, then press Send. If nothing opened, use Copy the report and paste it into an email.'}}));
+    nm.addEventListener('input',upd);em.addEventListener('input',upd);upd();pv.append(links,smsg)}
+  renderProgress();
+  window.addEventListener('emag-view',e=>{if(e.detail==='map:progress')renderProgress()});
+
+  /* ---------- Problems tabs: write first, then mark each part ---------- */
+  document.querySelectorAll('section[data-view="problems"] .exam-question').forEach(q=>{const d=q.querySelector('details.exam-answer');if(!d)return;
+    const n=[...q.children].filter(c=>c.tagName==='P'&&c.firstElementChild&&c.firstElementChild.tagName==='STRONG'&&/^\([a-h]\)/.test(c.firstElementChild.textContent)).length;if(!n)return;
+    const ta=el('textarea','nx-write');ta.rows=3;ta.placeholder='Write your answer here first (or on paper), then open the worked answer';ta.setAttribute('aria-label','Your answer');q.insertBefore(ta,d);
+    const row=el('div','nx-selfcheck','<span>Mark yourself:</span>');const out=el('b');const boxes=[];
+    for(let i=0;i<n;i++){const lab=el('label');const c=el('input');c.type='checkbox';lab.appendChild(c);lab.append(' ('+'abcdefgh'[i]+') correct');row.appendChild(lab);boxes.push(c);c.addEventListener('change',()=>{const k=boxes.filter(b=>b.checked).length;out.textContent=k+' of '+n+(k===n?' ✓':'')})}
+    row.appendChild(out);d.appendChild(row)});
 })();
 </script>
 </body></html>
