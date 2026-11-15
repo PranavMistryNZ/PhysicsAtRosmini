@@ -414,9 +414,9 @@ body.light-mode .fig .c2{stroke:#b3261e}body.light-mode .fig .t2{fill:#b3261e}bo
 .fig .c3{stroke:#ffd76a;stroke-width:2.4;fill:none;stroke-linecap:round}.fig .t3{fill:#ffd76a}.fig .f3b{fill:#ffd76a}
 body.light-mode .fig .c3{stroke:#9a6b00}body.light-mode .fig .t3{fill:#9a6b00}body.light-mode .fig .f3b{fill:#9a6b00}
 .fig .guide{stroke:currentColor;stroke-width:1;stroke-dasharray:3 4;opacity:.45;fill:none}
-.pe-metals-wrap{margin:12px 0 4px;font-size:13px;color:var(--muted)}.pe-metals-wrap b{color:var(--ink)}
-.pe-metals{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
-.pe-metals button{display:flex;align-items:center;gap:8px;border:1px solid #46516b;background:#11182b;color:var(--ink);border-radius:999px;padding:6px 12px 6px 7px;font-size:13px;cursor:pointer;font-family:inherit;transition:transform .12s,border-color .12s}
+.pe-metals-wrap{margin:4px 0 0;font-size:12px;color:var(--muted)}.pe-metals-wrap b{color:var(--ink)}
+.pe-metals{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.pe-metals button{display:flex;align-items:center;gap:6px;border:1px solid #46516b;background:#11182b;color:var(--ink);border-radius:999px;padding:2px 9px 2px 5px;font-size:12px;cursor:pointer;font-family:inherit;transition:transform .12s,border-color .12s}
 .pe-metals button:hover,.pe-metals button:focus-visible{transform:translateY(-1px);border-color:var(--topic)}
 .pe-metals button[aria-pressed="true"]{border-color:var(--topic);box-shadow:0 0 0 2px var(--topic) inset;font-weight:700}
 .pe-metals .dot{width:18px;height:18px;border-radius:50%;border:1px solid rgba(0,0,0,.35);box-shadow:inset -3px -3px 5px rgba(0,0,0,.28),inset 2px 2px 3px rgba(255,255,255,.5)}
@@ -549,7 +549,7 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <div class="fs-group"><h3 style="color:#78d9f7">Photons and the photoelectric effect</h3><div class="fs-grid">
 <div class="fs-card"><h4>Photon energy</h4><span class="st check">Check sheet</span><div class="fl">\[E=hf\]\[c=f\lambda\]</div><p>\(h = 6.63 \times 10^{-34}\) J s; \(c = 3.00 \times 10^{8}\) m s⁻¹. So \(E = hc/\lambda\).</p><div class="fs-links"><button class="fs-link" data-go="photo:intro" type="button">1.1</button></div></div>
 <div class="fs-card"><h4>Einstein's photoelectric equation</h4><span class="st check">Check sheet</span><div class="fl">\[E_k=hf-\phi\]</div><p>\(E_{k}\) is the <em>maximum</em> kinetic energy. Threshold: \(f_{0} = \phi /h\).</p><div class="fs-links"><button class="fs-link" data-go="photo:intro" type="button">1.1</button><button class="fs-link" data-go="photo:pe" type="button">1.3</button></div></div>
-<div class="fs-card"><h4>Stopping voltage</h4><span class="st not-given">Not given</span><div class="fl">\[E_{k(\text{max})}=eV_s\]</div><p>\(e = 1.60 \times 10^{-19}\) C. Work done by the field stops the fastest electrons. Graph of \(V_{s}\) against \(f\): gradient \(h/e\).</p><div class="fs-links"><button class="fs-link" data-go="photo:pe" type="button">1.3</button></div></div>
+<div class="fs-card"><h4>Stopping voltage</h4><span class="st not-given">Not given</span><div class="fl">\[E_{k(\text{max})}=eV_s\]</div><p>\(e = 1.60 \times 10^{-19}\) C. Work done by the field stops the fastest electrons. Graph of \(V_{s}\) versus \(f\): gradient \(h/e\).</p><div class="fs-links"><button class="fs-link" data-go="photo:pe" type="button">1.3</button></div></div>
 <div class="fs-card"><h4>Electronvolt</h4><span class="st not-given">Not given</span><div class="fl">\[1\ \text{eV}=1.60\times10^{-19}\ \text{J}\]</div><p>The energy an electron gains moving through 1 V.</p><div class="fs-links"><button class="fs-link" data-go="photo:intro" type="button">1.1</button></div></div>
 </div></div>
 <div class="fs-group"><h3 style="color:#c5a2ff">Atomic energy levels and spectra</h3><div class="fs-grid">
@@ -576,7 +576,7 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <p>All hot bodies radiate. An ideal radiator is called a <strong>black body</strong>. Classical physics assumed the thermal energy of a hot body is shared among its atoms, making them vibrate and emit electromagnetic waves of every frequency.</p>
 <ul><li>At long wavelengths the classical prediction matched experiment.</li>
 <li>At short wavelengths the predicted intensity rose towards infinity, which would break conservation of energy. This failure is called the <strong>ultraviolet catastrophe</strong>.</li></ul>
-<figure class="fig"><svg viewBox="0 0 520 250" role="img" aria-label="Graph of intensity against wavelength for a hot body. The measured curve rises to a peak and falls to zero at short wavelengths; the classical prediction keeps rising without limit.">
+<figure class="fig"><svg viewBox="0 0 520 250" role="img" aria-label="Graph of intensity versus wavelength for a hot body. The measured curve rises to a peak and falls to zero at short wavelengths; the classical prediction keeps rising without limit.">
 <line x1="50" y1="215" x2="490" y2="215" class="ax"/><line x1="50" y1="215" x2="50" y2="30" class="ax"/>
 <path d="M490.0 211.7 L487.0 211.6 L483.9 211.5 L480.9 211.4 L477.9 211.3 L474.8 211.2 L471.8 211.1 L468.8 211.0 L465.7 210.9 L462.7 210.8 L459.7 210.7 L456.6 210.5 L453.6 210.4 L450.6 210.3 L447.5 210.1 L444.5 210.0 L441.4 209.8 L438.4 209.7 L435.4 209.5 L432.3 209.4 L429.3 209.2 L426.3 209.0 L423.2 208.8 L420.2 208.6 L417.2 208.4 L414.1 208.2 L411.1 208.0 L408.1 207.7 L405.0 207.5 L402.0 207.2 L399.0 207.0 L395.9 206.7 L392.9 206.4 L389.9 206.1 L386.8 205.8 L383.8 205.5 L380.8 205.2 L377.7 204.8 L374.7 204.4 L371.7 204.1 L368.6 203.6 L365.6 203.2 L362.6 202.8 L359.5 202.3 L356.5 201.8 L353.4 201.3 L350.4 200.8 L347.4 200.2 L344.3 199.6 L341.3 199.0 L338.3 198.4 L335.2 197.7 L332.2 197.0 L329.2 196.2 L326.1 195.4 L323.1 194.6 L320.1 193.7 L317.0 192.8 L314.0 191.8 L311.0 190.8 L307.9 189.7 L304.9 188.5 L301.9 187.3 L298.8 186.0 L295.8 184.6 L292.8 183.2 L289.7 181.6 L286.7 180.0 L283.7 178.2 L280.6 176.4 L277.6 174.4 L274.6 172.3 L271.5 170.1 L268.5 167.7 L265.4 165.2 L262.4 162.5 L259.4 159.6 L256.3 156.5 L253.3 153.2 L250.3 149.6 L247.2 145.8 L244.2 141.7 L241.2 137.3 L238.1 132.5 L235.1 127.4 L232.1 121.9 L229.0 115.9 L226.0 109.5 L223.0 102.5 L219.9 95.0 L216.9 86.8 L213.9 77.9 L210.8 68.1 L207.8 57.6 L204.8 46.0 L201.7 33.4" class="c2 dash"/><path d="M50.0 215.0 L57.6 214.5 L65.2 207.3 L72.8 184.1 L80.3 149.2 L87.9 114.9 L95.5 89.4 L103.1 75.2 L110.7 70.7 L118.3 73.3 L125.9 80.4 L133.4 89.9 L141.0 100.6 L148.6 111.4 L156.2 121.8 L163.8 131.5 L171.4 140.4 L179.0 148.4 L186.6 155.6 L194.1 161.9 L201.7 167.6 L209.3 172.6 L216.9 177.0 L224.5 180.9 L232.1 184.4 L239.7 187.4 L247.2 190.1 L254.8 192.5 L262.4 194.6 L270.0 196.5 L277.6 198.2 L285.2 199.7 L292.8 201.0 L300.3 202.2 L307.9 203.3 L315.5 204.3 L323.1 205.2 L330.7 205.9 L338.3 206.7 L345.9 207.3 L353.4 207.9 L361.0 208.4 L368.6 208.9 L376.2 209.3 L383.8 209.7 L391.4 210.1 L399.0 210.4 L406.6 210.8 L414.1 211.0 L421.7 211.3 L429.3 211.5 L436.9 211.8 L444.5 212.0 L452.1 212.1 L459.7 212.3 L467.2 212.5 L474.8 212.6 L482.4 212.8 L490.0 212.9" class="c1"/>
 <text x="490" y="233" text-anchor="end" class="mu">wavelength →</text><text x="52" y="233" class="mu">short (ultraviolet)</text>
@@ -639,7 +639,7 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <div class="formula">\[eV_s=\tfrac{1}{2}mv_{\text{max}}^{2}=hf-\phi\]</div>
 <p>Measuring \(V_{s}\) for light of several frequencies gives a straight-line graph:</p>
 <div class="formula">\[V_s=\dfrac{h}{e}f-\dfrac{\phi}{e}\]</div>
-<figure class="fig"><svg viewBox="0 0 520 260" role="img" aria-label="Graph of stopping voltage against frequency: two parallel straight lines for two metals, each starting from its threshold frequency on the frequency axis.">
+<figure class="fig"><svg viewBox="0 0 520 260" role="img" aria-label="Graph of stopping voltage versus frequency: two parallel straight lines for two metals, each starting from its threshold frequency on the frequency axis.">
 <line x1="70" y1="170" x2="490" y2="170" class="ax"/><line x1="70" y1="20" x2="70" y2="245" class="ax"/>
 <line x1="70" y1="235" x2="200" y2="170" class="c1 dash"/><line x1="200" y1="170" x2="460" y2="40" class="c1"/>
 <line x1="300" y1="170" x2="480" y2="80" class="c2"/>
@@ -649,10 +649,10 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <text x="78" y="248" class="t1">intercept = −φ/e</text>
 <text x="330" y="70" text-anchor="end" class="t1">gradient = h/e</text>
 <text x="490" y="158" text-anchor="end" class="t2">metal B: larger φ</text>
-</svg><figcaption>Stopping voltage against frequency. Every metal gives the same gradient, h/e; a larger work function shifts the line to the right.</figcaption></figure>
+</svg><figcaption>Stopping voltage versus frequency. Every metal gives the same gradient, h/e; a larger work function shifts the line to the right.</figcaption></figure>
 <ul><li>Gradient = \(h/e\), the same for every metal.</li>
 <li>\(x\)-intercept = threshold frequency \(f_{0}\); \(y\)-intercept = −\(\phi /e\).</li>
-<li>Plotting \(E_{k(\text{max})}\) against \(f\) instead gives gradient \(h\) and \(y\)-intercept −\(\phi\). Build this graph in 1.3.</li></ul>
+<li>Plotting \(E_{k(\text{max})}\) versus \(f\) instead gives gradient \(h\) and \(y\)-intercept −\(\phi\). Build this graph in 1.3.</li></ul>
 </div></details>
 </div>
 </section>
@@ -696,16 +696,16 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <section class="pane hidden" data-section="photo" data-view="pe">
 <div class="section-identity"><strong>1.3 · Photoelectric lab</strong><p>Shine light on a metal and measure the electrons that come out.</p></div>
 <h2>Photoelectric lab</h2>
-<p class="sub">Light shines through the glass of an evacuated tube onto the <strong>emitter</strong> plate. Electrons freed from the emitter cross the vacuum to the <strong>collector</strong> and return through the circuit, where the <strong>microammeter</strong> (in series with the tube) measures the current. The <strong>voltmeter</strong> (across the tube) reads the collector voltage set by the variable supply: a negative voltage repels the electrons. Choose the emitter metal, the wavelength and the brightness. Find the <strong>stopping voltage</strong> where the current just falls to zero, then press <strong>Record point</strong> and build a graph of \(E_{k(\text{max})}\) against frequency.</p>
+<p class="sub">Light shines through the glass of an evacuated tube onto the <strong>emitter</strong> plate. Electrons freed from the emitter cross the vacuum to the <strong>collector</strong> and return through the circuit, where the <strong>microammeter</strong> (in series with the tube) measures the current. The <strong>voltmeter</strong> (across the tube) reads the collector voltage set by the variable supply: a negative voltage repels the electrons. Choose the emitter metal, the wavelength and the brightness. Find the <strong>stopping voltage</strong> where the current just falls to zero, then press <strong>Record point</strong> and build a graph of \(E_{k(\text{max})}\) versus frequency.</p>
 <div class="nx-lab">
-<div class="sim"><canvas id="peCanvas" aria-label="Circuit diagram of a vacuum photocell: a lamp shines on the emitter plate, electrons cross to the collector, a microammeter is in series with the tube, a voltmeter is across it and a variable d.c. supply completes the circuit. Beside it is a graph of maximum kinetic energy against frequency."></canvas></div>
+<div class="sim"><canvas id="peCanvas" aria-label="Circuit diagram of a vacuum photocell: a lamp shines on the emitter plate, electrons cross to the collector, a microammeter is in series with the tube, a voltmeter is across it and a variable d.c. supply completes the circuit. Beside it is a graph of maximum kinetic energy versus frequency."></canvas></div>
 <div class="legend"><span style="--key:#78d9f7">Photoelectrons</span><span style="--key:#ff9eb5">Electrons turned back</span><span style="--key:#ffd76a">Recorded points</span><span style="--key:#ff8a7a">Best-fit line</span><span style="--key:#8a96b0">Faded: caesium, zinc, platinum (same slope, different threshold)</span></div>
-<div class="pe-metals-wrap"><b>Emitter plate metal</b> · the plate the light falls on. Each metal has its own work function.<div class="pe-metals" id="peMetals" role="group" aria-label="Emitter plate metal"></div></div>
 <div class="nx-ctlbar">
 <div class="nx-bar-inputs">
 <h3>Controls</h3>
-<select id="peMetal" aria-label="Emitter plate metal" style="display:none"><option value="2.1">Caesium (2.1 eV)</option><option value="2.28" selected>Sodium (2.28 eV)</option><option value="2.3">Potassium (2.3 eV)</option><option value="2.9">Calcium (2.9 eV)</option><option value="3.7">Magnesium (3.7 eV)</option><option value="4.1">Aluminium (4.1 eV)</option><option value="4.3">Zinc (4.3 eV)</option><option value="4.7">Copper (4.7 eV)</option><option value="5.6">Platinum (5.6 eV)</option></select>
-<div class="control"><label for="peF">Frequency, \(f\) <output id="peFOut">7.50 ×10¹⁴ Hz</output></label><input id="peF" max="20" min="0.5" step="0.05" type="range" value="7.5"/></div>
+<div class="control"><label for="peMetal">Emitter plate metal</label><select id="peMetal" aria-label="Emitter plate metal"><option value="2.1">Caesium (2.1 eV)</option><option value="2.28" selected>Sodium (2.28 eV)</option><option value="2.3">Potassium (2.3 eV)</option><option value="2.9">Calcium (2.9 eV)</option><option value="3.7">Magnesium (3.7 eV)</option><option value="4.1">Aluminium (4.1 eV)</option><option value="4.3">Zinc (4.3 eV)</option><option value="4.7">Copper (4.7 eV)</option><option value="5.6">Platinum (5.6 eV)</option></select></div>
+<div class="control"><label for="peYAx">Vertical axis</label><select id="peYAx" aria-label="Vertical axis"><option value="ev" selected>E_k(max) in eV</option><option value="j">E_k(max) in J</option><option value="v">Stopping voltage V_s</option></select></div>
+<div class="control"><label for="peF">Frequency, \(f\) <output id="peFOut">7.50 ×10¹⁴ Hz</output></label><input id="peF" max="30" min="0.5" step="0.05" type="range" value="7.5"/></div>
 <div class="control"><label for="peInt">Brightness (intensity) <output id="peIntOut">60%</output></label><input id="peInt" max="100" min="0" step="5" type="range" value="60"/></div>
 <div class="control"><label for="peV">Collector voltage, \(V\) <output id="peVOut">0.00 V</output></label><input id="peV" max="3" min="-5" step="0.02" type="range" value="0"/></div>
 <div class="btn-row"><button class="tool-btn" id="peRec" type="button">Record point</button><button class="tool-btn secondary" id="peAuto" type="button">Find stopping voltage</button><button class="tool-btn secondary" id="peClear" type="button">Clear graph</button></div>
@@ -725,8 +725,8 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <h3>Graphs of the photoelectric effect</h3>
 <p class="sub">Six graphs that come up in assessments. Open each one for what it shows, how to read it and the mistakes to avoid. You can produce most of them with the lab above.</p>
 <div class="intro-steps pe-graphs">
-<details class="intro-step"><summary>Graph 1 · Maximum kinetic energy against frequency</summary><div class="intro-step-body">
-<figure class="fig"><svg viewBox="0 0 520 262" role="img" aria-label="Graph of maximum kinetic energy against frequency: a straight line starting at the threshold frequency, with a dashed extension back to minus the work function on the energy axis, and a parallel line for a second metal.">
+<details class="intro-step"><summary>Graph 1 · Maximum kinetic energy versus frequency</summary><div class="intro-step-body">
+<figure class="fig"><svg viewBox="0 0 520 262" role="img" aria-label="Graph of maximum kinetic energy versus frequency: a straight line starting at the threshold frequency, with a dashed extension back to minus the work function on the energy axis, and a parallel line for a second metal.">
 <line x1="70" y1="170" x2="490" y2="170" class="ax"/><line x1="70" y1="20" x2="70" y2="248" class="ax"/>
 <line x1="70" y1="235" x2="200" y2="170" class="c1 dash"/><line x1="200" y1="170" x2="460" y2="40" class="c1"/>
 <line x1="300" y1="170" x2="480" y2="80" class="c2"/>
@@ -737,7 +737,7 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <text x="78" y="250" class="t1">intercept = −φ</text><text x="322" y="62" text-anchor="end" class="t1">gradient = h</text>
 <text x="490" y="158" text-anchor="end" class="t2">metal B: larger φ</text>
 <text x="130" y="160" text-anchor="middle" class="mu">no electrons</text>
-</svg><figcaption>Maximum kinetic energy against frequency for two metals.</figcaption></figure>
+</svg><figcaption>Maximum kinetic energy versus frequency for two metals.</figcaption></figure>
 <p>From \(E_{k(\text{max})} = hf - \phi\), which has the form \(y = mx + c\):</p>
 <ul><li><strong>Gradient</strong> = \(h\), Planck's constant. It is the same for every metal.</li>
 <li><strong>\(x\)-intercept</strong> = the threshold frequency \(f_{0}\). Below it there are no electrons, so the line stops at the axis.</li>
@@ -749,8 +749,8 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <li>"The dashed part is real data." Kinetic energy cannot be negative. The dashed line is only a construction to find \(\phi\).</li>
 <li>"Brighter light moves the line up." Intensity does not appear in the equation, so the line does not move.</li></ul></div>
 </div></details>
-<details class="intro-step"><summary>Graph 2 · Stopping voltage against frequency</summary><div class="intro-step-body">
-<figure class="fig"><svg viewBox="0 0 520 262" role="img" aria-label="Graph of stopping voltage against frequency: a straight line starting at the threshold frequency, with a dashed extension back to minus the work function divided by e on the voltage axis, and a parallel line for a second metal.">
+<details class="intro-step"><summary>Graph 2 · Stopping voltage versus frequency</summary><div class="intro-step-body">
+<figure class="fig"><svg viewBox="0 0 520 262" role="img" aria-label="Graph of stopping voltage versus frequency: a straight line starting at the threshold frequency, with a dashed extension back to minus the work function divided by e on the voltage axis, and a parallel line for a second metal.">
 <line x1="70" y1="170" x2="490" y2="170" class="ax"/><line x1="70" y1="20" x2="70" y2="248" class="ax"/>
 <line x1="70" y1="235" x2="200" y2="170" class="c1 dash"/><line x1="200" y1="170" x2="460" y2="40" class="c1"/>
 <line x1="300" y1="170" x2="480" y2="80" class="c2"/>
@@ -761,7 +761,7 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <text x="78" y="250" class="t1">intercept = −φ/e</text><text x="322" y="62" text-anchor="end" class="t1">gradient = h/e</text>
 <text x="490" y="158" text-anchor="end" class="t2">metal B: larger φ</text>
 <text x="130" y="160" text-anchor="middle" class="mu">no electrons</text>
-</svg><figcaption>Stopping voltage against frequency for two metals.</figcaption></figure>
+</svg><figcaption>Stopping voltage versus frequency for two metals.</figcaption></figure>
 <p>The stopping voltage measures the maximum kinetic energy, \(eV_{s} = E_{k(\text{max})}\), so \(V_{s} = \dfrac{h}{e}f - \dfrac{\phi}{e}\). It is Graph 1 with the vertical axis divided by \(e\).</p>
 <ul><li><strong>Gradient</strong> = \(h/e\) = 4.14 × 10⁻¹⁵ V s. Multiply the gradient by \(e\) to get \(h\).</li>
 <li><strong>\(x\)-intercept</strong> = \(f_{0}\), exactly as in Graph 1.</li>
@@ -771,12 +771,12 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <li>"A stopping voltage of 1.5 V means 1.5 J." It means 1.5 eV = 2.4 × 10⁻¹⁹ J.</li>
 <li>"The stopping voltage stops the photons." It stops the electrons. The light still reaches the metal and electrons are still freed; they are turned back before the collector.</li></ul></div>
 </div></details>
-<details class="intro-step"><summary>Graph 3 · Current against voltage, different intensities</summary><div class="intro-step-body">
-<figure class="fig"><svg viewBox="0 0 520 236" role="img" aria-label="Graph of photocurrent against collector voltage for three light intensities at the same frequency. All three curves reach zero at the same negative stopping voltage and level off at different saturation currents.">
+<details class="intro-step"><summary>Graph 3 · Current versus voltage, different intensities</summary><div class="intro-step-body">
+<figure class="fig"><svg viewBox="0 0 520 236" role="img" aria-label="Graph of photocurrent versus collector voltage for three light intensities at the same frequency. All three curves reach zero at the same negative stopping voltage and level off at different saturation currents.">
 <line x1="50" y1="200" x2="490" y2="200" class="ax"/><line x1="270" y1="24" x2="270" y2="212" class="ax"/><text x="490" y="218" text-anchor="end" class="mu">collector voltage, V →</text><text x="278" y="30" class="mu">current, I</text><text x="270" y="228" text-anchor="middle" class="mu">0</text><text x="60" y="218" class="mu">negative (opposing)</text><path d="M166 200 C230 200 262 50 312 50 L480 50" class="c1"/><path d="M166 200 C230 200 262 100 312 100 L480 100" class="c3"/><path d="M166 200 C230 200 262 150 312 150 L480 150" class="c2"/>
 <circle cx="166" cy="200" r="4" class="f1"/><text x="158" y="190" text-anchor="end" class="t1">−Vs (same for all)</text>
 <text x="486" y="42" text-anchor="end" class="t1">high intensity</text><text x="486" y="92" text-anchor="end" class="t3">medium intensity</text><text x="486" y="142" text-anchor="end" class="t2">low intensity</text>
-</svg><figcaption>Current against voltage: same frequency, three intensities.</figcaption></figure>
+</svg><figcaption>Current versus voltage: same frequency, three intensities.</figcaption></figure>
 <p>The frequency is fixed and only the brightness changes.</p>
 <ul><li><strong>Positive voltage:</strong> every emitted electron is collected, so the current levels off at a <strong>saturation current</strong>. Brighter light means more photons per second, more electrons per second and a higher saturation current.</li>
 <li><strong>Negative voltage:</strong> the electrons are slowed, and only the faster ones arrive, so the current falls. It falls gradually because the electrons have a range of kinetic energies.</li>
@@ -786,13 +786,13 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <li>"Increasing the positive voltage keeps increasing the current." Once every electron is collected, a larger voltage cannot collect more. Only brighter light can.</li>
 <li>"The current is zero at zero voltage." Electrons leave with kinetic energy, so they reach the collector with no help.</li></ul></div>
 </div></details>
-<details class="intro-step"><summary>Graph 4 · Current against voltage, different frequencies</summary><div class="intro-step-body">
-<figure class="fig"><svg viewBox="0 0 520 236" role="img" aria-label="Graph of photocurrent against collector voltage for three light frequencies. The curves reach zero at different stopping voltages, the highest frequency needing the largest stopping voltage, and level off at the same saturation current.">
+<details class="intro-step"><summary>Graph 4 · Current versus voltage, different frequencies</summary><div class="intro-step-body">
+<figure class="fig"><svg viewBox="0 0 520 236" role="img" aria-label="Graph of photocurrent versus collector voltage for three light frequencies. The curves reach zero at different stopping voltages, the highest frequency needing the largest stopping voltage, and level off at the same saturation current.">
 <line x1="50" y1="200" x2="490" y2="200" class="ax"/><line x1="270" y1="24" x2="270" y2="212" class="ax"/><text x="490" y="218" text-anchor="end" class="mu">collector voltage, V →</text><text x="278" y="30" class="mu">current, I</text><text x="270" y="228" text-anchor="middle" class="mu">0</text><path d="M114 200 C211 200 262 70 312 70 L480 70" class="c1"/><path d="M166 200 C230 200 262 70 312 70 L480 70" class="c3"/><path d="M218 200 C250 200 262 70 312 70 L480 70" class="c2"/>
 <circle cx="114" cy="200" r="4" class="f1"/><circle cx="166" cy="200" r="4" class="f3b"/><circle cx="218" cy="200" r="4" class="f2"/>
 <text x="114" y="218" text-anchor="middle" class="t1">high f</text><text x="166" y="218" text-anchor="middle" class="t3">medium f</text><text x="218" y="218" text-anchor="middle" class="t2">low f</text>
 <text x="486" y="62" text-anchor="end" class="mu">same saturation current</text>
-</svg><figcaption>Current against voltage: three frequencies, the same number of photons per second.</figcaption></figure>
+</svg><figcaption>Current versus voltage: three frequencies, the same number of photons per second.</figcaption></figure>
 <p>Now the frequency changes, with the same number of photons arriving per second.</p>
 <ul><li>Higher frequency means more energy per photon, a larger \(E_{k(\text{max})}\) and so a <strong>larger stopping voltage</strong>: the curve reaches zero further to the left.</li>
 <li>The saturation current is the same, because the same number of photons frees the same number of electrons each second.</li></ul>
@@ -800,26 +800,26 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <li>"Higher frequency gives more current." Frequency sets the energy of each electron; the number of photons sets how many electrons there are.</li>
 <li>"Same intensity means same saturation current." Intensity is energy per second. At a higher frequency each photon carries more energy, so the same intensity contains <em>fewer</em> photons and would give a slightly smaller current. Graphs like this one assume equal photon numbers.</li></ul></div>
 </div></details>
-<details class="intro-step"><summary>Graph 5 · Current against intensity</summary><div class="intro-step-body">
-<figure class="fig"><svg viewBox="0 0 520 236" role="img" aria-label="Graph of photocurrent against light intensity. Above the threshold frequency the current is directly proportional to intensity; below the threshold frequency the current stays at zero.">
+<details class="intro-step"><summary>Graph 5 · Current versus intensity</summary><div class="intro-step-body">
+<figure class="fig"><svg viewBox="0 0 520 236" role="img" aria-label="Graph of photocurrent versus light intensity. Above the threshold frequency the current is directly proportional to intensity; below the threshold frequency the current stays at zero.">
 <line x1="70" y1="200" x2="490" y2="200" class="ax"/><line x1="70" y1="24" x2="70" y2="200" class="ax"/>
 <line x1="70" y1="200" x2="460" y2="50" class="c1"/><line x1="70" y1="197" x2="470" y2="197" class="c2"/>
 <text x="490" y="218" text-anchor="end" class="mu">light intensity →</text><text x="78" y="30" class="mu">current, I</text>
 <text x="330" y="88" text-anchor="end" class="t1">f above f₀: I ∝ intensity</text><text x="470" y="188" text-anchor="end" class="t2">f below f₀: no current at any intensity</text>
-</svg><figcaption>Current against intensity (collector positive, so every electron is collected).</figcaption></figure>
+</svg><figcaption>Current versus intensity (collector positive, so every electron is collected).</figcaption></figure>
 <ul><li>Above the threshold frequency the line is straight and passes through the origin: doubling the intensity doubles the number of photons per second, and so doubles the current.</li>
 <li>Below the threshold frequency the current is zero at every intensity. No photon has enough energy to free an electron.</li></ul>
 <div class="miscon"><b>Common misconceptions</b><ul>
 <li>"Bright enough light will always give a current." Not below \(f_{0}\): one electron absorbs one photon, and energy from several photons does not add up.</li>
 <li>"Every photon frees an electron." Only a fraction do, but that fraction is constant, so the current is still proportional to intensity.</li></ul></div>
 </div></details>
-<details class="intro-step"><summary>Graph 6 · Maximum kinetic energy against intensity</summary><div class="intro-step-body">
-<figure class="fig"><svg viewBox="0 0 520 236" role="img" aria-label="Graph of maximum kinetic energy against light intensity: horizontal lines, one for each frequency, with the higher frequency giving the higher line.">
+<details class="intro-step"><summary>Graph 6 · Maximum kinetic energy versus intensity</summary><div class="intro-step-body">
+<figure class="fig"><svg viewBox="0 0 520 236" role="img" aria-label="Graph of maximum kinetic energy versus light intensity: horizontal lines, one for each frequency, with the higher frequency giving the higher line.">
 <line x1="70" y1="200" x2="490" y2="200" class="ax"/><line x1="70" y1="24" x2="70" y2="200" class="ax"/>
 <line x1="80" y1="70" x2="470" y2="70" class="c1"/><line x1="80" y1="140" x2="470" y2="140" class="c3"/>
 <text x="490" y="218" text-anchor="end" class="mu">light intensity →</text><text x="78" y="30" class="mu">E<tspan dy="3" font-size="9">k(max)</tspan></text>
 <text x="466" y="60" text-anchor="end" class="t1">higher frequency</text><text x="466" y="130" text-anchor="end" class="t3">lower frequency (still above f₀)</text>
-</svg><figcaption>Maximum kinetic energy against intensity.</figcaption></figure>
+</svg><figcaption>Maximum kinetic energy versus intensity.</figcaption></figure>
 <ul><li>The line is horizontal. Intensity changes how many photons arrive, not the energy \(hf\) of each one, so \(E_{k(\text{max})} = hf - \phi\) stays the same.</li>
 <li>Changing the frequency moves the whole line up or down.</li>
 <li>This is the graph the wave model gets most clearly wrong: it predicts a rising line. Compare with the classical model in 1.2.</li></ul>
@@ -855,10 +855,10 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <p><strong>(c)</strong> Find the work function in eV and the threshold frequency. Explain why using brighter light would not change these results. <span class="exam-level">Excellence</span></p>
 <details class="exam-answer"><summary>Show worked answer · Question Two</summary>
 <p><strong>(a)</strong> \(E_{k} = eV_{s}\): \(1.60 \times 10^{-19} \times 1.65 = 2.64 \times 10^{-19}\) J and \(1.60 \times 10^{-19} \times 3.72 = 5.95 \times 10^{-19}\) J.</p>
-<p><strong>(b)</strong> The gradient of \(E_{k}\) against \(f\) is \(h\): \(h = (5.95 - 2.64) \times 10^{-19}/(0.50 \times 10^{15}) = 6.62 \times 10^{-34}\) J s.</p>
+<p><strong>(b)</strong> The gradient of \(E_{k}\) versus \(f\) is \(h\): \(h = (5.95 - 2.64) \times 10^{-19}/(0.50 \times 10^{15}) = 6.62 \times 10^{-34}\) J s.</p>
 <p><strong>(c)</strong> \(\phi = hf - E_{k} = 6.62 \times 10^{-34} \times 1.50 \times 10^{15} - 2.64 \times 10^{-19} = 7.29 \times 10^{-19}\) J = 4.6 eV. \(f_{0} = \phi /h = 1.10 \times 10^{15}\) Hz. Brighter light delivers more photons per second, so more electrons are emitted and the current rises, but each photon still has energy \(hf\), so the maximum kinetic energy, and hence the stopping voltage, is unchanged.</p></details></div>
 <div class="exam-question"><div class="exam-question-header"><span>QUESTION THREE</span><span>Stopping voltage graph</span></div>
-<p>A student plots stopping voltage \(V_{s}\) against frequency \(f\) for a metal. The straight line meets the frequency axis at <strong>5.6 × 10¹⁴ Hz</strong> and passes through \(V_{s}\) = <strong>1.24 V</strong> at <strong>8.6 × 10¹⁴ Hz</strong>.</p>
+<p>A student plots stopping voltage \(V_{s}\) versus frequency \(f\) for a metal. The straight line meets the frequency axis at <strong>5.6 × 10¹⁴ Hz</strong> and passes through \(V_{s}\) = <strong>1.24 V</strong> at <strong>8.6 × 10¹⁴ Hz</strong>.</p>
 <p><strong>(a)</strong> State the threshold frequency and calculate the work function in eV. <span class="exam-level">Achievement</span></p>
 <p><strong>(b)</strong> Use the gradient of the graph to find a value for Planck's constant. <span class="exam-level">Merit</span></p>
 <p><strong>(c)</strong> Describe and explain how the graph would change if (i) a metal with a larger work function were used, and (ii) brighter light were used with the original metal. <span class="exam-level">Excellence</span></p>
@@ -894,6 +894,23 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <p>Dim ultraviolet light ejects electrons from a zinc plate immediately, but very bright red light never does. Explain why this supports the photon model of light rather than the wave model.</p>
 <details class="exam-answer"><summary>Show model answer</summary>
 <p>In the wave model, the energy of light depends on its intensity, and it is spread across the surface. Bright red light would deliver plenty of energy, so it should eventually eject electrons, and dim UV light should take time to build up enough energy in one electron. The observations are the opposite. In the photon model, light arrives as photons of energy \(hf\), and each electron absorbs one whole photon. A UV photon has a high frequency, so \(hf\) is greater than zinc's work function and the electron escapes straight away, even if there are only a few photons (dim light). A red photon has \(hf\) less than the work function, so no electron ever gets enough energy to escape; making the light brighter only adds more photons that are each too weak. So the threshold frequency and the instant emission can only be explained by light being made of photons.</p></details></div>
+</section>
+
+<section class="pane hidden" data-section="photo" data-view="history">
+<div class="section-identity"><strong>1.7 · Advanced understanding</strong><p>How the photoelectric effect was discovered, debated and accepted.</p></div>
+<h2>The history of the photoelectric effect</h2>
+<p class="sub"><strong>Advanced.</strong> This section goes beyond the AS91525 standard and is not usually assessed as a specific question. It is here to deepen your understanding of how science develops.</p>
+<div class="intro-steps">
+<details class="intro-step"><summary>The history: rival ideas and slow acceptance</summary><div class="intro-step-body">
+<p>Einstein's equation is now standard, but it was not accepted quickly. Historians of science who study how textbooks present this episode (Niaz et al., 2010) argue that a textbook which leaves out the points below makes the idea look simpler than it was.</p>
+<ul><li><strong>There was a rival explanation.</strong> Lenard's <em>trigger hypothesis</em> (1902) said that electrons already hold their energy inside the atom, and light only triggers their release. Einstein's photon model competed with this idea, and both had to explain the same measurements.</li>
+<li><strong>Acceptance was slow.</strong> Einstein's light-quantum idea was largely set aside for about fifteen years. Planck, who had started the quantum idea, opposed Einstein's version until about 1913.</li>
+<li><strong>The experiments came first, and the interpretation was contested.</strong> Millikan confirmed Einstein's equation with great precision, and measured \(h\), in papers published between 1914 and 1916. He still called the light-quantum hypothesis <em>reckless</em>, because it seemed to conflict with the wave evidence for interference.</li>
+<li><strong>Data alone do not decide a theory.</strong> Millikan's measurements were accepted, but his rejection of the photon was not, so the same result can support different interpretations.</li></ul>
+<p>Einstein received the 1921 Nobel Prize in physics, mainly for explaining the photoelectric effect. Millikan received the 1923 prize, partly for his experiments on this effect.</p>
+<p><em>Source: Niaz, M., Klassen, S., McMillan, B. &amp; Metz, D. (2010). Reconstruction of the history of the photoelectric effect and its implications for general physics textbooks. <em>Science Education</em>, 94, 903–931.</em></p>
+</div></details>
+</div>
 </section>
 
 <!-- ===================== 02 · MODELS OF THE ATOM AND SPECTRA ===================== -->
@@ -1270,7 +1287,7 @@ themeToggle.addEventListener('change',()=>{document.body.classList.toggle('light
 /* ---------- navigation ---------- */
 const views={
  map:[['scope','0.1 Course Map'],['skills','0.2 Assessment Skills'],['formulas','0.3 Formula Sheet']],
- photo:[['intro','1.1 Introduction'],['classical','1.2 Classical Model'],['pe','1.3 Photoelectric Lab'],['check','1.4 Quick Check'],['problems','1.5 Problems'],['apps','1.6 Applications']],
+ photo:[['intro','1.1 Introduction'],['classical','1.2 Classical Model'],['pe','1.3 Photoelectric Lab'],['check','1.4 Quick Check'],['problems','1.5 Problems'],['apps','1.6 Applications'],['history','1.7 Advanced']],
  atom:[['intro','2.1 Introduction'],['levels','2.2 Energy Levels'],['check','2.3 Quick Check'],['problems','2.4 Problems'],['apps','2.5 Applications']],
  nuc:[['intro','3.1 Introduction'],['binding','3.2 Binding Energy'],['react','3.3 Reaction Energy'],['check','3.4 Quick Check'],['problems','3.5 Problems'],['apps','3.6 Applications']]};
 const titles={map:'COURSE MAP',photo:'THE PHOTOELECTRIC EFFECT',atom:'MODELS OF THE ATOM & SPECTRA',nuc:'NUCLEAR REACTIONS'};
@@ -1298,7 +1315,7 @@ const scope=[
   ['Use \\(E = hf\\) and \\(c = f\\lambda\\) to find the energy of a photon, in joules and electronvolts','photo:intro'],
   ['Describe the observations of the photoelectric effect and explain why the wave model cannot explain them','photo:classical'],
   ['Use \\(E_{k} = hf - \\phi\\) and find the threshold frequency and stopping voltage','photo:pe'],
-  ['Find Planck\'s constant and the work function from a graph of \\(E_{k}\\) against \\(f\\)','photo:pe'],
+  ['Find Planck\'s constant and the work function from a graph of \\(E_{k}\\) versus \\(f\\)','photo:pe'],
   ['Explain why brighter light gives more current but not more energetic electrons','photo:pe'],
   ['Explain how quantised energy, \\(E = nhf\\), solved the ultraviolet catastrophe','photo:intro']]},
  {g:'02 · Models of the atom and spectra',c:'#c5a2ff',items:[
@@ -1353,11 +1370,11 @@ photo:[
  ['A photon of light has a wavelength of 500 nm. Its energy is about…',['4.0 × 10⁻¹⁹ J','3.3 × 10⁻²⁷ J','1.0 × 10⁻¹⁵ J','2.0 × 10⁻²⁵ J'],0,'\\(E = hc/\\lambda = 6.63 \\times 10^{-34} \\times 3.00 \\times 10^{8}/500 \\times 10^{-9} = 4.0 \\times 10^{-19}\\) J (2.5 eV).'],
  ['Light below the threshold frequency shines on a metal. Making it much brighter…',['ejects electrons after a delay','ejects more energetic electrons','still ejects no electrons','ejects electrons slowly'],2,'Each photon still has too little energy (\\(hf &lt; \\phi\\)). Brighter means more photons, not more energetic ones, and one electron absorbs one photon.'],
  ['Above the threshold, the intensity of the light is doubled. The maximum kinetic energy of the electrons…',['doubles','is unchanged','halves','quadruples'],1,'\\(E_{k} = hf - \\phi\\) depends on frequency only. Twice the intensity means twice as many photons, so twice the current.'],
- ['On a graph of \\(E_{k(\\text{max})}\\) against \\(f\\), the gradient is…',['the work function','Planck\'s constant','the threshold frequency','the charge on an electron'],1,'\\(E_{k} = hf - \\phi\\) is \\(y = mx + c\\): gradient \\(h\\), \\(y\\)-intercept −\\(\\phi\\), \\(x\\)-intercept \\(f_{0}\\).'],
+ ['On a graph of \\(E_{k(\\text{max})}\\) versus \\(f\\), the gradient is…',['the work function','Planck\'s constant','the threshold frequency','the charge on an electron'],1,'\\(E_{k} = hf - \\phi\\) is \\(y = mx + c\\): gradient \\(h\\), \\(y\\)-intercept −\\(\\phi\\), \\(x\\)-intercept \\(f_{0}\\).'],
  ['A metal has a work function of 3.0 eV. Its threshold frequency is about…',['7.2 × 10¹⁴ Hz','4.5 × 10¹⁴ Hz','3.0 × 10¹⁵ Hz','1.4 × 10¹⁴ Hz'],0,'\\(f_{0} = \\phi /h = 3.0 \\times 1.6 \\times 10^{-19}/6.63 \\times 10^{-34} = 7.2 \\times 10^{14}\\) Hz. Convert eV to J first.'],
  ['The stopping voltage for some photoelectrons is 1.5 V. Their maximum kinetic energy is…',['1.5 J','1.5 eV','2.4 × 10⁻¹⁸ J','0.94 eV'],1,'\\(E_{k(\\text{max})} = eV_{s}\\) = 1.5 eV = 2.4 × 10⁻¹⁹ J.'],
  ['Planck explained the black-body spectrum by assuming that…',['light is a wave','oscillators can only have energies that are whole-number multiples of \\(hf\\)','hot bodies do not radiate ultraviolet','electrons orbit the nucleus'],1,'Energy is quantised: \\(E = nhf\\). A high-frequency quantum is too large for thermal energy to supply, so the intensity falls at short wavelengths and the ultraviolet catastrophe is avoided.'],
- ['On a graph of stopping voltage \\(V_{s}\\) against \\(f\\), the gradient is…',['\\(h\\)','\\(h/e\\)','\\(\\phi /e\\)','\\(e/h\\)'],1,'\\(eV_{s} = hf - \\phi\\), so \\(V_{s} = (h/e)f - \\phi /e\\): gradient \\(h/e\\), \\(y\\)-intercept −\\(\\phi /e\\).']],
+ ['On a graph of stopping voltage \\(V_{s}\\) versus \\(f\\), the gradient is…',['\\(h\\)','\\(h/e\\)','\\(\\phi /e\\)','\\(e/h\\)'],1,'\\(eV_{s} = hf - \\phi\\), so \\(V_{s} = (h/e)f - \\phi /e\\): gradient \\(h/e\\), \\(y\\)-intercept −\\(\\phi /e\\).']],
 atom:[
  ['The energy levels of hydrogen are negative because…',['electrons have negative charge','zero is defined as the energy of a free (ionised) electron, and bound electrons have less','energy is lost when the atom forms','the nucleus is negative'],1,'A bound electron needs energy to escape to \\(E\\) = 0, so its energy is below zero.'],
  ['An electron drops from n = 3 to n = 2 in hydrogen. The emitted light is…',['ultraviolet (Lyman)','visible red (Balmer, 656 nm)','infrared (Paschen)','X-rays'],1,'\\(1/\\lambda = R(1/2^{2} - 1/3^{2})\\) gives 656 nm. All transitions ending on n = 2 form the Balmer series.'],
@@ -1527,13 +1544,14 @@ function wavy(c,x1,y1,x2,y2,col){const L=Math.hypot(x2-x1,y2-y1),a=Math.atan2(y2
 
 /* ============ 1.3 PHOTOELECTRIC LAB ============ */
 (()=>{
- const cv=$('peCanvas');const st={els:[],acc:0,pts:[],cur:0,hits:0};
+ const cv=$('peCanvas');const st={els:[],acc:0,pts:[],cur:0,hits:0,yq:'ev'};
  const P=()=>{const phi=num('peMetal'),f=num('peF')*1e14,I=num('peInt'),V=num('peV');const lam=CL/f*1e9,E=H*f/QE;return{phi,lam,I,V,f,E,K:E-phi}};
  const current=p=>{if(p.K<=0||p.I<=0)return 0;const fr=p.V>=0?1:Math.max(0,1-(-p.V)/p.K);return 2.0*p.I/100*fr};
  const METALS={'2.1':['Caesium','#d9c36f'],'2.28':['Sodium','#e6e9ef'],'2.3':['Potassium','#cdd3df'],'2.9':['Calcium','#b9c2c4'],'3.7':['Magnesium','#aeb9c9'],'4.1':['Aluminium','#c5ccd6'],'4.3':['Zinc','#9db3c4'],'4.7':['Copper','#d9895b'],'5.6':['Platinum','#e3e0d6']};
  (()=>{const sel=$('peMetal'),host=$('peMetals');if(!host)return;const sync=()=>host.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===sel.value));
   [...sel.options].forEach(o=>{const m=METALS[o.value]||[o.textContent,'#c0c8d8'];const b=document.createElement('button');b.type='button';b.dataset.v=o.value;b.innerHTML='<span class="dot" style="background:'+m[1]+'"></span>'+m[0]+' <small>'+o.value+' eV</small>';
    b.onclick=()=>{sel.value=o.value;sel.dispatchEvent(new Event('input',{bubbles:true}));st.els=[];sync()};host.appendChild(b)});sync()})();
+ (()=>{const sel=$('peYAx');if(sel)sel.addEventListener('input',()=>{st.yq=sel.value});})();
  function ui(){const p=P();setOut('peF',fx(p.f/1e14,2)+' ×10¹⁴ Hz  ·  λ = '+fx(p.lam,0)+' nm');setOut('peInt',p.I+'%');setOut('peV',(p.V>0?'+':'')+fx(p.V,2)+' V')}
  ['peMetal','peF','peInt','peV'].forEach(id=>$(id).addEventListener('input',ui));
  $('peAuto').onclick=()=>{const p=P();if(p.K<=0){$('peV').value=0;ui();setRO('peFit','No electrons are emitted at this wavelength, so \\(E_{k(\\text{max})}\\) = 0 and the stopping voltage is 0 V. Press Record point to mark this on the graph.');return}$('peV').value=-Math.ceil(p.K/0.02)*0.02;ui()};
@@ -1558,25 +1576,28 @@ function wavy(c,x1,y1,x2,y2,col){const L=Math.hypot(x2-x1,y2-y1),a=Math.atan2(y2
    const gap=30,off=(performance.now()/1000*(18+40*Math.min(1,st.cur)))%gap;c.fillStyle='rgba(120,217,247,.85)';
    for(let s=off;s<tot;s+=gap){let r=s,i=0;while(i<seg.length-1&&r>seg[i]){r-=seg[i];i++}const k=r/seg[i];c.beginPath();c.arc(pts[i][0]+(pts[i+1][0]-pts[i][0])*k,pts[i][1]+(pts[i+1][1]-pts[i][1])*k,2.3,0,7);c.fill()}}
   // light beam (drawn before the glass so the glass sits over it)
-  const col=lamCol(p.lam),lx=tx+tw*0.66,ly=30;
-  if(p.I>0){c.save();c.globalAlpha=0.1+0.42*p.I/100;c.fillStyle=col;c.beginPath();c.moveTo(lx-9,ly+8);c.lineTo(lx+9,ly+12);c.lineTo(cx0+12,yc+40);c.lineTo(cx0+6,yc-40);c.closePath();c.fill();c.restore();
-   const n=3+Math.round(p.I/25);for(let i=0;i<n;i++){const k=(performance.now()/700+i/n)%1,x1=lx+(cx0+10-lx)*k*0.84,y1=ly+12+(yc-ly-12)*k*0.84;wavy(c,x1,y1,x1+(cx0+10-lx)*0.14,y1+(yc-ly-12)*0.14,col)}}
+  const col=lamCol(p.lam),lx=cx0+52,ly=30;
+  const tgY=yc, faceX=cx0+5, half=th*0.36;
+  if(p.I>0){c.save();c.globalAlpha=0.1+0.42*p.I/100;c.fillStyle=col;c.beginPath();c.moveTo(lx-7,ly+6);c.lineTo(lx+7,ly+10);c.lineTo(faceX,yc+half);c.lineTo(faceX,yc-half);c.closePath();c.fill();c.restore();
+   const n=4+Math.round(p.I/20);for(let i=0;i<n;i++){const ty2=yc-half+(i+0.5)/n*2*half;const k=(performance.now()/700+i/n)%1,x0=lx,y0=ly+10;const x1=x0+(faceX-x0)*k*0.84,y1=y0+(ty2-y0)*k*0.84;wavy(c,x1,y1,x1+(faceX-x0)*0.14,y1+(ty2-y0)*0.14,col)}}
   // lamp
   c.fillStyle='#3a4560';c.beginPath();c.moveTo(lx-13,ly-16);c.lineTo(lx+13,ly-16);c.lineTo(lx+9,ly+6);c.lineTo(lx-9,ly+6);c.closePath();c.fill();
   c.fillStyle=p.I>0?col:'#56657f';c.beginPath();c.arc(lx,ly+6,8,0,Math.PI);c.fill();
-  text(c,'​'+p.lam+' nm'+(p.lam<380?' · ultraviolet':p.lam>700?' · deep red':''),lx+20,ly-2,MUT,11);text(c,'​lamp',lx+20,ly-15,MUT,10);
+  text(c,'​'+fx(p.lam,0)+' nm'+(p.lam<380?' · ultraviolet':p.lam>700?' · deep red':''),lx+20,ly-2,MUT,11);text(c,'​lamp',lx+20,ly-15,MUT,10);
   // glass envelope
   const gx0=tx-24,gy0=ty-16,gw0=tw+48,gh0=th+32,gr=gh0/2;c.beginPath();c.moveTo(gx0+gr,gy0);c.lineTo(gx0+gw0-gr,gy0);c.arc(gx0+gw0-gr,gy0+gr,gr,-Math.PI/2,Math.PI/2);c.lineTo(gx0+gr,gy0+gh0);c.arc(gx0+gr,gy0+gr,gr,Math.PI/2,Math.PI*1.5);c.closePath();
   c.fillStyle='rgba(135,187,236,.07)';c.fill();c.strokeStyle='#7385a8';c.lineWidth=2.2;c.stroke();
   c.strokeStyle='rgba(255,255,255,.22)';c.lineWidth=3;c.lineCap='round';c.beginPath();c.moveTo(gx0+gr*0.9,gy0+7);c.lineTo(gx0+gw0-gr*0.9,gy0+7);c.stroke();c.lineCap='butt';
-  text(c,'​vacuum',tx+tw/2,ty+th-2,'#56657f',10,'center');
+  text(c,'​electrons',tx+tw/2,ty+30,INK,12,'center');text(c,'​arrow length = speed',tx+tw/2,ty+th+70,MUT,9,'center');text(c,'​evacuated quartz tube',tx+tw/2,ty+th+52,MUT,10,'center');
+  text(c,'\u2212',gx0-14,yc-9,YEL,20,'center');text(c,'+',gx0+gw0+14,yc-9,YEL,20,'center');
   // emitter (curved, facing the collector) and collector (thin rod)
-  c.strokeStyle=metal[1];c.lineWidth=8;c.lineCap='round';c.beginPath();c.arc(cx0+78,yc,78,Math.PI-0.6,Math.PI+0.6);c.stroke();
-  c.strokeStyle='rgba(255,255,255,.45)';c.lineWidth=1.6;c.beginPath();c.arc(cx0+75,yc,78,Math.PI-0.56,Math.PI+0.56);c.stroke();c.lineCap='butt';
-  c.fillStyle='#aab4c8';c.fillRect(ax-2.5,yc-th*0.36,5,th*0.72);c.fillStyle='rgba(255,255,255,.4)';c.fillRect(ax-2.5,yc-th*0.36,1.5,th*0.72);
+  c.fillStyle=metal[1];c.fillRect(cx0-4,yc-th*0.36,9,th*0.72);c.strokeStyle='#05070d';c.lineWidth=1.5;c.strokeRect(cx0-4,yc-th*0.36,9,th*0.72);
+  c.fillStyle='#2a3146';c.fillRect(ax-4,yc-th*0.36,9,th*0.72);c.strokeStyle='#8a96b0';c.lineWidth=1.5;c.strokeRect(ax-4,yc-th*0.36,9,th*0.72);
   text(c,'​'+metal[0]+' emitter',cx0+14,ty+th+32,metal[1],11,'center');text(c,'​collector',ax-4,ty+th+32,MUT,11,'center');
   // photoelectrons
-  st.els.forEach(e=>{const ex=cx0+10+e.x*(ax-cx0-14),ey=ty+th*0.2+e.y*th*0.6,ec=e.dir>0?'120,217,247':'255,158,181';c.fillStyle='rgba('+ec+',.22)';c.beginPath();c.arc(ex,ey,6,0,7);c.fill();c.fillStyle='rgb('+ec+')';c.beginPath();c.arc(ex,ey,2.8,0,7);c.fill()});
+  st.els.forEach(e=>{const ex=cx0+10+e.x*(ax-cx0-14),ey=ty+th*0.2+e.y*th*0.6,ec=e.dir>0?'120,217,247':'255,158,181';c.fillStyle='rgba('+ec+',.22)';c.beginPath();c.arc(ex,ey,6,0,7);c.fill();c.fillStyle='rgb('+ec+')';c.beginPath();c.arc(ex,ey,2.8,0,7);c.fill();
+   /* velocity vector: length proportional to speed, and speed is proportional to sqrt(kinetic energy at this point) */
+   {const Kc=Math.max(e.K0+p.V*e.x,0),Lv=Math.min(30,11*Math.sqrt(Kc));if(Lv>=3)arrow(c,ex+e.dir*7,ey,ex+e.dir*(7+Lv),ey,'rgb('+ec+')',1.6,5)}});
   // meters
   const meter=(x,y,sym)=>{c.fillStyle='#141c30';c.beginPath();c.arc(x,y,17,0,7);c.fill();c.strokeStyle='#c0c8d8';c.lineWidth=2;c.stroke();text(c,'​'+sym,x,y+5,INK,13,'center')};
   meter(xR,yA,'µA');text(c,'​'+fx(st.cur,2)+' µA',xR-24,yA+5,YEL,14,'right');text(c,'​microammeter',xR-24,yA+20,MUT,10,'right');
@@ -1590,16 +1611,16 @@ function wavy(c,x1,y1,x2,y2,col){const L=Math.hypot(x2-x1,y2-y1),a=Math.atan2(y2
   text(c,'​variable d.c. supply',xs,yB+34,MUT,10,'center');
   text(c,'​'+(p.V<0?'collector negative: electrons are repelled':p.V>0?'collector positive: electrons are attracted':'no applied voltage'),xs,yB+49,p.V<0?'#ff9eb5':MUT,10,'center');
   // graph
-  const gx=nar?46:lw+40,gy=nar?by+60:24,gw=nar?W-46-80:W-lw-40-80,gh=nar?Hh-gy-40:Hh-70;
-  const {X,Y}=frame(c,gx,gy,gw,gh,0,20,-5,7,'','​f (×10¹⁴ Hz)');
-  for(let k=0;k<=20;k+=5)text(c,'\u200b'+k,X(k),gy+gh+13,MUT,10,'center');
-  const xr=gx+gw;c.strokeStyle=AX;c.lineWidth=1.3;c.beginPath();c.moveTo(xr,gy);c.lineTo(xr,gy+gh);c.stroke();
-  [-4,-2,0,2,4,6].forEach(v=>{const y=Y(v);line(c,xr,y,xr+4,y,AX,1);text(c,window.EM.fmt(v*QE,2),xr+7,y+4,MUT,10);line(c,gx-4,y,gx,y,AX,1);text(c,String(v),gx-7,y+4,MUT,10,'right')});
-  text(c,'E_k(max) (J)',xr+7,gy-8,INK,11);text(c,'E_k(max) (eV)',gx+4,gy-8,INK,11);
+  const gx=nar?46:lw+40,gy=nar?by+60:24,gw=nar?W-46-24:W-lw-40-24,gh=nar?Hh-gy-40:Hh-70;
+  const {X,Y}=frame(c,gx,gy,gw,gh,0,30,-5,7,'','​f (×10¹⁴ Hz)');
+  for(let k=0;k<=30;k+=5)text(c,'\u200b'+k,X(k),gy+gh+13,MUT,10,'center');
+  const yq=st.yq||'ev';
+  [-4,-2,0,2,4,6].forEach(v=>{const y=Y(v);line(c,gx-4,y,gx,y,AX,1);text(c,yq==='j'?(v*1.602).toFixed(1):String(v),gx-7,y+4,MUT,10,'right')});
+  text(c,yq==='j'?'E_k(max) (×10\u207b\u00b9\u2079 J)':yq==='v'?'V_s (V)':'E_k(max) (eV)',gx+4,gy-8,INK,11);
   c.fillStyle='rgba(255,255,255,.04)';const v0=X(CL/750e-9/1e14),v1=X(CL/380e-9/1e14);c.fillRect(v0,gy,v1-v0,gh);text(c,'​visible',(v0+v1)/2,gy+gh-10,MUT,9,'center');
   {const fc=p.phi*QE/H/1e14;c.save();c.strokeStyle=CYN;c.lineWidth=3;c.globalAlpha=0.9;c.beginPath();c.moveTo(X(0),Y(0));c.lineTo(X(fc),Y(0));c.stroke();c.restore();
-   text(c,'E_k = 0 for λ > '+fx(H*CL/(p.phi*QE)*1e9,0)+' nm (no emission)',X(0)+8,Y(0)+17,CYN,10);}
-  ['2.1','4.3','5.6'].forEach(k=>{const phiM=+k;if(phiM===p.phi)return;const f0m=phiM*QE/H,m=METALS[k];c.save();c.globalAlpha=0.6;c.strokeStyle=m[1];c.lineWidth=1.6;c.setLineDash([]);c.beginPath();c.moveTo(X(f0m/1e14),Y(0));for(let fq=f0m;fq<=20e14;fq+=0.1e14){const K=H*fq/QE-phiM;if(K>7)break;c.lineTo(X(fq/1e14),Y(Math.max(K,-5)))}c.stroke();c.restore();const fK=(1.5+phiM)*QE/H/1e14;if(fK<20)text(c,m[0],X(fK)+5,Y(1.5)-6,m[1],10)});
+   text(c,(st.yq==='v'?'V_s = 0 V':'E_k = 0')+' for λ > '+fx(H*CL/(p.phi*QE)*1e9,0)+' nm (no emission)',X(0)+8,Y(0)+17,CYN,10);}
+  ['2.1','4.3','5.6'].forEach(k=>{const phiM=+k;if(phiM===p.phi)return;const f0m=phiM*QE/H,m=METALS[k];c.save();c.globalAlpha=0.6;c.strokeStyle=m[1];c.lineWidth=1.6;c.setLineDash([]);c.beginPath();c.moveTo(X(f0m/1e14),Y(0));for(let fq=f0m;fq<=30e14;fq+=0.1e14){const K=H*fq/QE-phiM;if(K>7)break;c.lineTo(X(fq/1e14),Y(Math.max(K,-5)))}c.stroke();c.restore();const fK=(1.5+phiM)*QE/H/1e14;if(fK<30)text(c,m[0],X(fK)+5,Y(1.5)-6,m[1],10)});
   const mine=st.pts.filter(q=>q.phi===p.phi&&!q.zero);
   st.pts.forEach(q=>{if(q.zero){c.strokeStyle=q.phi===p.phi?YEL:GRY;c.lineWidth=2;c.beginPath();c.arc(X(q.f/1e14),Y(0),5,0,7);c.stroke();return}c.fillStyle=q.phi===p.phi?YEL:GRY;c.beginPath();c.arc(X(q.f/1e14),Y(q.K),4.5,0,7);c.fill()});
   c.strokeStyle=CYN;c.lineWidth=2;c.beginPath();c.arc(X(p.f/1e14),Y(Math.max(p.K,0)),7,0,7);c.stroke();
@@ -1609,12 +1630,12 @@ function wavy(c,x1,y1,x2,y2,col){const L=Math.hypot(x2-x1,y2-y1),a=Math.atan2(y2
     const fl=Math.min(...mine.map(q=>q.f))/1e14,fh=Math.max(...mine.map(q=>q.f))/1e14,L=f=>b+m*f*1e14;
     c.save();c.beginPath();c.rect(gx,gy,gw,gh);c.clip();const f0n=f0/1e14;
     c.setLineDash([5,5]);path(c,[[0,L(0)],[f0n,0]],X,Y,RED,1.6);c.setLineDash([]);
-    path(c,[[f0n,0],[20,L(20)]],X,Y,RED,2.6);c.restore();
-    text(c,'intercept = −φ',X(0)+6,Y(L(0))-6,RED,10);
+    path(c,[[f0n,0],[30,L(30)]],X,Y,RED,2.6);c.restore();
+    text(c,st.yq==='v'?'intercept = −φ/e':'intercept = −φ',X(0)+6,Y(L(0))-6,RED,10);
     fitTxt='Best-fit line: gradient = '+sci(m,3)+' eV s = <b>'+sci(m*QE,3)+' J s</b> (Planck\'s constant).<br>\\(x\\)-intercept: threshold frequency \\(f_{0}\\) = <b>'+sci(f0,3)+' Hz</b>.<br>\\(y\\)-intercept: −\\(\\phi\\) = <b>'+fx(b,2)+' eV</b>, so the work function is '+fx(-b,2)+' eV.'}}
   setRO('peFit',fitTxt);
   setRO('peReadout','Photon: \\(f = c/\\lambda\\) = '+sci(p.f,3)+' Hz; \\(E = hf\\) = '+sci(p.E*QE,3)+' J = <b>'+fx(p.E,2)+' eV</b>.<br>Work function \\(\\phi\\) = '+p.phi+' eV; threshold \\(f_{0}\\) = '+sci(p.phi*QE/H,3)+' Hz (\\(\\lambda_{0}\\) = '+fx(H*CL/(p.phi*QE)*1e9,0)+' nm).<br>'+
-   (p.K>0?'\\(E_{k(\\text{max})} = hf - \\phi\\) = <b>'+fx(p.K,2)+' eV</b> = '+sci(p.K*QE,3)+' J, so the stopping voltage is '+fx(p.K,2)+' V.<br>Current: '+fx(current(p),2)+' µA'+(p.V<0?(current(p)===0?' (every electron is turned back)':' (only electrons faster than '+fx(-p.V,2)+' eV reach the collector)'):' (every electron is collected)')+'.':'<b>No electrons are emitted</b>: \\(hf &lt; \\phi\\). Brighter light will not help.'))}};
+   (p.K>0?'\\(E_{k(\\text{max})} = hf - \\phi\\) = <b>'+fx(p.K,2)+' eV</b> = '+sci(p.K*QE,3)+' J, so the stopping voltage is '+fx(p.K,2)+' V.<br><b>Energy spread:</b> each electron leaves the metal with a kinetic energy from 0 up to \\(E_{k(\\text{max})}\\). Electrons from deeper in the metal lose energy on the way out, and the fastest electrons come from the surface with no loss. Only the fastest need the full stopping voltage, so the current falls gradually as the collector voltage is made more negative.<br>Current: '+fx(current(p),2)+' µA'+(p.V<0?(current(p)===0?' (every electron is turned back)':' (only electrons faster than '+fx(-p.V,2)+' eV reach the collector)'):' (every electron is collected)')+'.':'<b>No electrons are emitted</b>: \\(hf &lt; \\phi\\). Brighter light will not help.'))}};
  sims['photo:pe']=sim;
 })();
 
