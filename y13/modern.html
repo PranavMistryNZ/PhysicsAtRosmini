@@ -1110,6 +1110,84 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <p>The hot, dense interior of the Sun emits a continuous spectrum, because its tightly packed atoms have a huge number of possible energy states. This light then passes through the cooler, low-density gas of the Sun's outer layers, which includes hydrogen. A hydrogen atom can only have certain energies, so it absorbs a photon only if the photon's energy exactly equals the gap between two of its levels, \(hf = E_{L} - E_{S}\). The excited atom soon drops back and re-emits a photon of the same energy, but in a random direction, so much less light of that wavelength continues towards Earth: a dark line. Emission from a discharge tube uses the same pairs of levels, with the electron dropping instead of rising, so the photon energies, and therefore the wavelengths, are identical. The pattern of dark lines identifies the elements in the Sun's outer layers.</p></details></div>
 </section>
 
+<section class="pane hidden" data-section="atom" data-view="debroglie">
+<div class="section-identity"><strong>2.6 · Advanced understanding</strong><p>Beyond Bohr: why his orbits work, and what replaced them.</p></div>
+<h2>Beyond Bohr: waves, clouds and orbitals</h2>
+<p class="sub"><strong>Advanced.</strong> This section goes beyond the AS91525 standard and is not usually assessed as a specific question. It explains why Bohr's rule works, and what replaced the orbits.</p>
+<div class="intro-steps">
+<details class="intro-step" open><summary>De Broglie's idea</summary><div class="intro-step-body">
+<p>In 1924 de Broglie suggested that particles, including electrons, have a wavelength given by the same kind of relation as light's:</p>
+<p style="text-align:center">\( \lambda = \dfrac{h}{p} = \dfrac{h}{mv} \)</p>
+<p>Electron diffraction in 1927 (Davisson and Germer) showed that electrons do produce interference patterns, which supports the idea.</p>
+</div></details>
+<details class="intro-step" open><summary>Why it explains Bohr's orbits</summary><div class="intro-step-body">
+<p>Think of the electron as a wave that must join up with itself around the orbit. That only happens if the circumference holds a whole number of wavelengths:</p>
+<p style="text-align:center">\( 2\pi r = n\lambda \)</p>
+<p>Substituting \( \lambda = h/mv \) and rearranging gives \( mvr = \dfrac{nh}{2\pi} = n\hbar \). This is Bohr's rule for angular momentum, so it is not an extra assumption. It follows from the wave picture.</p>
+</div></details>
+<details class="intro-step" open><summary>Hydrogen, n = 1 to 4</summary><div class="intro-step-body">
+<table style="border-collapse:collapse;width:100%;margin:6px 0;font-size:13px">
+<tr><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">n</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Orbit radius \(r_n\) (nm)</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Speed \(v_n\) (m s⁻¹)</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">de Broglie wavelength \(\lambda_n\) (nm)</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Circumference \(2\pi r_n\) (nm)</th></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">1</td><td style="padding:4px 8px;vertical-align:top">0.0529</td><td style="padding:4px 8px;vertical-align:top">2.19 × 10⁶</td><td style="padding:4px 8px;vertical-align:top">0.332</td><td style="padding:4px 8px;vertical-align:top">0.332</td></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">2</td><td style="padding:4px 8px;vertical-align:top">0.212</td><td style="padding:4px 8px;vertical-align:top">1.09 × 10⁶</td><td style="padding:4px 8px;vertical-align:top">0.665</td><td style="padding:4px 8px;vertical-align:top">1.33</td></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">3</td><td style="padding:4px 8px;vertical-align:top">0.476</td><td style="padding:4px 8px;vertical-align:top">7.29 × 10⁵</td><td style="padding:4px 8px;vertical-align:top">0.997</td><td style="padding:4px 8px;vertical-align:top">2.99</td></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">4</td><td style="padding:4px 8px;vertical-align:top">0.847</td><td style="padding:4px 8px;vertical-align:top">5.47 × 10⁵</td><td style="padding:4px 8px;vertical-align:top">1.33</td><td style="padding:4px 8px;vertical-align:top">5.32</td></tr>
+</table>
+<p>Each orbit has a circumference equal to \(n\) wavelengths, so the wave fits around it exactly. The wavelength grows with \(n\) because the electron slows down in the higher orbits.</p>
+</div></details>
+<details class="intro-step" open><summary>Interactive: standing waves around the orbit</summary><div class="intro-step-body">
+<p>Move the slider. The orbit is drawn with a standing wave that has \(n\) lobes, one for each wavelength that fits around the circle. The right-hand panel unrolls the circle into a straight line, so you can count the wavelengths.</p>
+<canvas id="dbCanvas" style="width:100%;display:block;border-radius:8px"></canvas>
+<div class="control"><label for="dbN">Energy level \(n\) <output id="dbNOut">n = 1</output></label><input id="dbN" max="4" min="1" step="1" type="range" value="1"/></div>
+</div></details>
+<details class="intro-step" open><summary>Bohr and de Broglie compared</summary><div class="intro-step-body">
+<table style="border-collapse:collapse;width:100%;margin:6px 0;font-size:13px">
+<tr><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Feature</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Bohr model (1913)</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">De Broglie wave picture (1924)</th></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">Orbit radius</td><td style="padding:4px 8px;vertical-align:top">Fixed by the rule \(mvr = n\hbar\)</td><td style="padding:4px 8px;vertical-align:top">Fixed by requiring a whole number of wavelengths around the orbit</td></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">What is quantised</td><td style="padding:4px 8px;vertical-align:top">Angular momentum, as a rule added to the model</td><td style="padding:4px 8px;vertical-align:top">The same quantity, but it follows from the wave nature of the electron</td></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">Picture of the electron</td><td style="padding:4px 8px;vertical-align:top">A particle in a circular orbit</td><td style="padding:4px 8px;vertical-align:top">A wave that fits around the orbit, so the particle picture needs care</td></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">Main limitation</td><td style="padding:4px 8px;vertical-align:top">Works for hydrogen-like atoms, but not for atoms with more than one electron</td><td style="padding:4px 8px;vertical-align:top">Leads on to Schrödinger's wave equation, which describes electrons in more complex atoms (beyond NCEA)</td></tr>
+</table>
+</div></details>
+</div>
+<details class="intro-step" open><summary>Where the electron cloud came from</summary><div class="intro-step-body">
+<ul>
+<li><strong>1926, Schrödinger:</strong> he wrote a wave equation for the electron in an atom. Its solutions \(\psi\) are allowed wave patterns, each with a set of quantum numbers. Bohr's orbit is replaced by a wave pattern around the nucleus.</li>
+<li><strong>1926, Born:</strong> he proposed that \(|\psi|^2\) gives the probability of finding the electron at a point. The electron is not on a path, so the cloud is a map of likelihood.</li>
+<li><strong>1927, Heisenberg:</strong> position and momentum cannot both be known exactly, so an orbit with a definite radius and speed cannot be measured. A probability cloud is needed instead.</li>
+</ul>
+<p>Bohr's model still gives the right energy levels for hydrogen. The cloud model keeps those energies and changes the picture of where the electron is.</p>
+</div></details>
+<details class="intro-step" open><summary>Interactive: 3D electron clouds, coloured by energy level</summary><div class="intro-step-body">
+<p>Each dot is one possible position of the electron, so the density of dots is the probability. Colours show the energy level: <span style="color:#78d9f7">n = 1</span>, <span style="color:#f0a66a">n = 2</span>, <span style="color:#c5a2ff">n = 3</span>. Tick orbitals to show them together. Each p or d shape is one orientation (2p along z, 3d z²); the other orientations are the same shape turned. Drag the cloud with the mouse to turn it.</p>
+<canvas id="clCanvas" style="width:100%;display:block;border-radius:8px"></canvas>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;font-size:13px">
+<label><input type="checkbox" id="clO_1s" checked> 1s</label>
+<label><input type="checkbox" id="clO_2s"> 2s</label>
+<label><input type="checkbox" id="clO_2p" checked> 2p</label>
+<label><input type="checkbox" id="clO_3s"> 3s</label>
+<label><input type="checkbox" id="clO_3p"> 3p</label>
+<label><input type="checkbox" id="clO_3d"> 3d</label>
+</div>
+</div></details>
+<details class="intro-step" open><summary>Shells, subshells and the letters s, p, d, f</summary><div class="intro-step-body">
+<p>Each energy level \(n\) has subshells, labelled by a second quantum number \(l\). Chemists use the letters below. Only s, p and d are shown in the simulation, and f is beyond NCEA.</p>
+<table style="border-collapse:collapse;width:100%;margin:6px 0;font-size:13px">
+<tr><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Subshell</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">\(l\)</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Shape</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Orbitals</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Electrons</th></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">s</td><td style="padding:4px 8px;vertical-align:top">0</td><td style="padding:4px 8px;vertical-align:top">Sphere</td><td style="padding:4px 8px;vertical-align:top">1</td><td style="padding:4px 8px;vertical-align:top">2</td></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">p</td><td style="padding:4px 8px;vertical-align:top">1</td><td style="padding:4px 8px;vertical-align:top">Dumbbell along x, y or z</td><td style="padding:4px 8px;vertical-align:top">3</td><td style="padding:4px 8px;vertical-align:top">6</td></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">d</td><td style="padding:4px 8px;vertical-align:top">2</td><td style="padding:4px 8px;vertical-align:top">Four-lobed and dumbbell-with-ring shapes</td><td style="padding:4px 8px;vertical-align:top">5</td><td style="padding:4px 8px;vertical-align:top">10</td></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">f</td><td style="padding:4px 8px;vertical-align:top">3</td><td style="padding:4px 8px;vertical-align:top">More complex lobed shapes</td><td style="padding:4px 8px;vertical-align:top">7</td><td style="padding:4px 8px;vertical-align:top">14</td></tr>
+</table>
+<p>Each shell with a given \(n\) contains \(n^2\) orbitals and holds \(2n^2\) electrons. The letters are why chemistry talks about s and p electrons.</p>
+</div></details>
+<details class="intro-step" open><summary>How the model shrank the building blocks</summary><div class="intro-step-body">
+<p>Before 1964, physicists had found hundreds of hadrons (particles that feel the strong force, such as protons, neutrons and pions), and many seemed equally fundamental. Gell-Mann and Zweig showed that this pattern could be explained by a small set of building blocks. Three quark flavours, u, d and s, and their antiquarks were enough to build the known hadrons.</p>
+<p>This also made the proton and neutron less fundamental. Instead of being simple particles, they became combinations of three quarks. The proton is about \(10^{-15}\) m across, and in experiments so far each quark has looked point-like.</p>
+<p>In 1968, experiments at SLAC fired electrons at protons and found hard scattering from point-like particles inside, which were identified with quarks. Gell-Mann received the 1969 Nobel Prize in Physics for his work on the classification of elementary particles.</p>
+</div></details>
+</section>
+
 <!-- ===================== 03 · NUCLEAR REACTIONS ===================== -->
 <section class="pane hidden" data-section="nuc" data-view="intro">
 <div class="section-identity"><strong>03 · Nuclear reactions</strong><p>Mass defect, binding energy, and why splitting heavy nuclei and joining light ones both release energy.</p></div>
@@ -1295,6 +1373,30 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <p>Binding energy is the energy needed to separate a nucleus into its nucleons; it equals the mass defect times \(c^{2}\). The binding energy per nucleon rises from light nuclei to a peak near iron-56 and then falls for heavier nuclei. In fusion, light nuclei such as deuterium and tritium (low on the curve) join to form helium-4, which has a much higher binding energy per nucleon. In fission, a heavy nucleus such as uranium-235 splits into two medium nuclei that are nearer the peak. In both cases the products have more binding energy in total than the reactants, so they are more tightly bound. A greater binding energy means a greater mass defect, so the products have less total mass than the reactants. The mass that disappears is released as energy, \(\Delta E = \Delta mc^{2}\), mostly as kinetic energy of the products. Neither process can release energy from iron, because it is already at the peak.</p></details></div>
 </section>
 
+<section class="pane hidden" data-section="nuc" data-view="quarks">
+<div class="section-identity"><strong>3.7 · Advanced understanding</strong><p>What protons and neutrons are made of.</p></div>
+<h2>Quarks: the Gell-Mann model</h2>
+<p class="sub"><strong>Advanced.</strong> This section goes beyond the AS91525 standard and is not usually assessed as a specific question. It shows how the particle zoo was organised.</p>
+<div class="intro-steps">
+<details class="intro-step" open><summary>Where the model came from</summary><div class="intro-step-body">
+<p>In 1964 Murray Gell-Mann proposed that many particles are built from smaller particles, which he called quarks. George Zweig made a similar proposal at the same time. Gell-Mann took the name from James Joyce's <em>Finnegans Wake</em>.</p>
+<p>Three quarks were enough to explain the particles known at the time. Charm (1974), bottom (1977) and top (1995) were found later, and each one was predicted by the same pattern.</p>
+</div></details>
+<details class="intro-step" open><summary>Interactive: build particles from quarks</summary><div class="intro-step-body">
+<p>Choose a particle to see its quark content and its charge. Quark charges are \(+\tfrac{2}{3}\) for u and \(-\tfrac{1}{3}\) for d and s. Antiquarks have the opposite charge, shown with a bar.</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:6px 0">
+<button type="button" data-q="proton">proton</button><button type="button" data-q="neutron">neutron</button><button type="button" data-q="pi+">π⁺</button><button type="button" data-q="pi-">π⁻</button><button type="button" data-q="K+">K⁺</button><button type="button" data-q="lambda">Λ⁰</button><button type="button" data-q="omega">Ω⁻</button>
+</div>
+<div id="qOut" style="min-height:70px;padding:10px;border-radius:8px;background:#11182b;border:1px solid #46516b"></div>
+</div></details>
+<details class="intro-step" open><summary>Why quarks are never seen alone</summary><div class="intro-step-body">
+<p>Quarks are held together by the strong force, which is carried by particles called gluons. The force does not weaken as quarks move apart, so a single quark is never observed. Only combinations are seen. These combinations are called hadrons: particles made of quarks and held together by the strong force. Protons and neutrons are hadrons made of three quarks; mesons such as the pion are a quark and an antiquark.</p>
+</div></details>
+</div>
+</section>
+
+
+
 </main></div></div>
 <script>
 (()=>{'use strict';
@@ -1316,8 +1418,8 @@ themeToggle.addEventListener('change',()=>{document.body.classList.toggle('light
 const views={
  map:[['scope','0.1 Course Map'],['skills','0.2 Assessment Skills'],['formulas','0.3 Formula Sheet']],
  photo:[['intro','1.1 Introduction'],['classical','1.2 Classical Model'],['pe','1.3 Photoelectric Lab'],['check','1.4 Quick Check'],['problems','1.5 Problems'],['apps','1.6 Applications'],['history','1.7 Advanced']],
- atom:[['intro','2.1 Introduction'],['levels','2.2 Energy Levels'],['check','2.3 Quick Check'],['problems','2.4 Problems'],['apps','2.5 Applications']],
- nuc:[['intro','3.1 Introduction'],['binding','3.2 Binding Energy'],['react','3.3 Reaction Energy'],['check','3.4 Quick Check'],['problems','3.5 Problems'],['apps','3.6 Applications']]};
+ atom:[['intro','2.1 Introduction'],['levels','2.2 Energy Levels'],['check','2.3 Quick Check'],['problems','2.4 Problems'],['apps','2.5 Applications'],['debroglie','2.6 Advanced']],
+ nuc:[['intro','3.1 Introduction'],['binding','3.2 Binding Energy'],['react','3.3 Reaction Energy'],['check','3.4 Quick Check'],['problems','3.5 Problems'],['apps','3.6 Applications'],['quarks','3.7 Advanced']]};
 const titles={map:'COURSE MAP',photo:'THE PHOTOELECTRIC EFFECT',atom:'MODELS OF THE ATOM & SPECTRA',nuc:'NUCLEAR REACTIONS'};
 let active='map',currentView='scope';
 function go(tab,view,scroll){
@@ -1679,6 +1781,96 @@ function wavy(c,x1,y1,x2,y2,col){const L=Math.hypot(x2-x1,y2-y1),a=Math.atan2(y2
  sims['photo:pe']=sim;
 })();
 
+(()=>{
+ const st={t:0};
+ sims['atom:debroglie']={enter(){},step(dt){st.t+=dt},draw(){
+  const cv=$('dbCanvas');if(!cv)return;
+  const n=+$('dbN').value;$('dbNOut').textContent='n = '+n;
+  const {c,W,H:HH}=fit(cv,300,260);clear(c,W,HH);
+  const cx=W*0.24,cy=HH*0.5,k=Math.min(W*0.2,HH*0.42)/16,r=k*n*n,A=Math.max(2,0.12*r);
+  c.beginPath();for(let i=0;i<=720;i++){const th=i/720*2*Math.PI,rr=r+A*Math.sin(n*th),x=cx+rr*Math.cos(th),y=cy+rr*Math.sin(th);i?c.lineTo(x,y):c.moveTo(x,y)}
+  c.closePath();c.strokeStyle=CYN;c.lineWidth=2;c.stroke();
+  c.fillStyle=ORG;c.beginPath();c.arc(cx,cy,4,0,7);c.fill();
+  const ang=st.t*1.6/n,ex=cx+r*Math.cos(ang),ey=cy+r*Math.sin(ang);
+  c.fillStyle=INK;c.beginPath();c.arc(ex,ey,4.5,0,7);c.fill();
+  text(c,'standing wave around the orbit',8,16,INK,11);
+  const x0=W*0.52,x1=W*0.94,L=x1-x0,ya=cy,B=Math.min(26,HH*0.12);
+  line(c,x0,ya,x1,ya,AX,1,[3,3]);
+  c.beginPath();for(let i=0;i<=400;i++){const u=i/400,x=x0+u*L,y=ya-B*Math.sin(2*Math.PI*n*u);i?c.lineTo(x,y):c.moveTo(x,y)}
+  c.strokeStyle=GRN;c.lineWidth=2;c.stroke();
+  text(c,'circumference, unrolled',x0,ya+B+18,MUT,10);
+  text(c,'r = '+(0.0529*n*n).toFixed(3)+' nm',x0,HH*0.76,INK,11);
+  text(c,'λ = '+(0.332*n).toFixed(3)+' nm',x0,HH*0.76+16,INK,11);
+  text(c,'2πr = '+(0.332*n*n).toFixed(3)+' nm = nλ',x0,HH*0.76+32,INK,11);
+ }};
+})();
+(()=>{
+ const prev=sims['atom:debroglie'];const st={t:0,dots:{},R:9,ry:0.5,rx:0.32};
+ const LV={'1s':1,'2s':2,'2p':2,'3s':3,'3p':3,'3d':3};
+ const COL={1:'120,217,247',2:'240,166,106',3:'197,162,255'};
+ // each orbital is a list of lobes; a lobe is a function giving |psi|^2 (a0 = 1)
+ const L={
+  '1s':[(x,y,z,r)=>Math.exp(-2*r)],
+  '2s':[(x,y,z,r)=>{const q=2-r;return q*q*Math.exp(-r)}],
+  '2p':[(x,y,z,r)=>z*z*Math.exp(-r)],
+  '3s':[(x,y,z,r)=>{const q=27-18*r+2*r*r;return q*q*Math.exp(-2*r/3)}],
+  '3p':[(x,y,z,r)=>{const q=6-r;return z*z*q*q*Math.exp(-2*r/3)}],
+  '3d':[(x,y,z,r)=>{const q=3*z*z-r*r;return q*q*Math.exp(-2*r/3)}]
+ };
+function build(o){
+  const lobes=L[o],N=1800,per=Math.ceil(N/lobes.length),out=[],lam=0.3,RMAX=40;
+  const rnd=()=>{const z=Math.random()*2-1,t=Math.random()*2*Math.PI,s=Math.sqrt(1-z*z);return [s*Math.cos(t),s*Math.sin(t),z]};
+  lobes.forEach(f=>{
+   const wt=(u,r)=>f(u[0]*r,u[1]*r,u[2]*r,r)*r*r/(lam*Math.exp(-lam*r));
+   let M=0;for(let i=0;i<20000;i++){const u=rnd(),r=-Math.log(Math.random())/lam;if(r<=RMAX)M=Math.max(M,wt(u,r))}
+   M*=1.1;let got=0,tries=0;
+   while(got<per&&tries<3000000){tries++;const u=rnd(),r=-Math.log(Math.random())/lam;if(r>RMAX)continue;
+    if(Math.random()*M<wt(u,r)){out.push([u[0]*r,u[1]*r,u[2]*r]);got++}}
+  });
+  st.dots[o]={n:LV[o],pts:out};
+ }
+ function cloudDraw(){
+  const cv=$('clCanvas');if(!cv)return;
+  if(!cv._bound){cv._bound=1;cv.style.cursor='grab';cv.style.touchAction='none';let drag=null;
+   cv.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY};cv.setPointerCapture(e.pointerId);cv.style.cursor='grabbing'});
+   cv.addEventListener('pointermove',e=>{if(!drag)return;st.ry+=(e.clientX-drag.x)*0.01;st.rx=Math.max(-1.5,Math.min(1.5,st.rx+(e.clientY-drag.y)*0.01));drag={x:e.clientX,y:e.clientY};cloudDraw()});
+   const up=()=>{drag=null;cv.style.cursor='grab'};cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);}
+  const on=['1s','2s','2p','3s','3p','3d'].filter(o=>$('clO_'+o)&&$('clO_'+o).checked);
+  const {c,W,H:HH}=fit(cv,340,300);clear(c,W,HH);
+  const cx=W/2,cy=HH/2,sc=Math.min(W,HH)/(2*st.R+4),a=st.ry,b=st.rx;
+  const ca=Math.cos(a),sa=Math.sin(a),cb=Math.cos(b),sb=Math.sin(b);
+  const pts=[];
+  on.forEach(o=>{if(!st.dots[o])build(o);st.dots[o].pts.forEach(p=>pts.push([p,st.dots[o].n]))});
+  pts.sort((u,v)=>0);
+  for(const [p,n] of pts){
+   const x=p[0],y=p[1],z=p[2];
+   const x1=x*ca+z*sa,z1=-x*sa+z*ca;
+   const y1=y*cb-z1*sb,z2=y*sb+z1*cb;
+   const al=0.35+0.45*(z2+st.R)/(2*st.R);
+   c.fillStyle='rgba('+COL[n]+','+al.toFixed(2)+')';
+   c.fillRect(cx+x1*sc,cy-y1*sc,2,2);
+  }
+  const P=(x,y,z)=>{const x1=x*ca+z*sa,z1=-x*sa+z*ca;const y1=y*cb-z1*sb;return [cx+x1*sc,cy-y1*sc]};
+  const [ox,oy]=P(0,0,0);const LA=st.R-1;
+  [[1,0,0,'x','#ff7b7b'],[0,1,0,'y','#ffd166'],[0,0,1,'z','#9be564']].forEach(([x,y,z,l,col])=>{const [px,py]=P(x*LA,y*LA,z*LA);arrow(c,ox,oy,px,py,col,2,8);text(c,l,px+6,py-4,col,13,'left');});
+  c.fillStyle=ORG;c.beginPath();c.arc(cx,cy,3,0,7);c.fill();
+  let lab='';on.forEach(o=>{lab+=o+' ';});
+  text(c,'dots = probability; colour = energy level (cyan n=1, orange n=2, violet n=3)',8,16,INK,10);
+  text(c,on.length?('shown: '+lab.trim()):'tick an orbital above',8,HH-10,MUT,10);
+ }
+ sims['atom:debroglie']={enter(){if(prev&&prev.enter)prev.enter()},step(dt){if(prev&&prev.step)prev.step(dt);st.t+=dt},draw(){if(prev&&prev.draw)prev.draw();cloudDraw()}};
+ ['1s','2s','2p','3s','3p','3d'].forEach(o=>{const el=$('clO_'+o);if(el)el.addEventListener('change',()=>{})});
+})();
+(()=>{
+ const Q={proton:['u','u','d'],neutron:['u','d','d'],'pi+':['u','d~'],'pi-':['d','u~'],'K+':['u','s~'],lambda:['u','d','s'],omega:['s','s','s']};
+ const NAME={proton:'proton (p)',neutron:'neutron (n)','pi+':'pion π⁺','pi-':'pion π⁻','K+':'kaon K⁺',lambda:'lambda Λ⁰',omega:'omega Ω⁻'};
+ const thirds={u:2,d:-1,s:-1};const COLQ={u:'#f0a66a',d:'#87bbec',s:'#5fd39a'};
+ const show=k=>{const qs=Q[k];let t=0;const chips=qs.map(q=>{const anti=q.endsWith('~');const base=q[0];t+=anti?-thirds[base]:thirds[base];return '<span style="display:inline-block;margin:2px;padding:4px 10px;border-radius:999px;background:'+(anti?'transparent':COLQ[base])+';color:'+(anti?COLQ[base]:'#070b17')+';border:2px solid '+COLQ[base]+';font-weight:600">'+(anti?base+'̄':q)+'</span>'}).join('');
+  const charge=t/3;const cs=(charge>0?'+':'')+(charge===0?'0':charge);
+  document.getElementById('qOut').innerHTML='<b>'+NAME[k]+'</b><br>Quarks: '+chips+'<br>Total charge: <b>'+cs+'</b> (sum of the quark charges)';};
+ document.querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.q)));
+ show('proton');
+})();
 /* ============ 1.3 ENERGY LEVELS ============ */
 (()=>{
  const cv=$('lvCanvas');const E=n=>n>=99?0:-13.6/(n*n);
