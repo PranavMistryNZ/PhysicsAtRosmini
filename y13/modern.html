@@ -725,6 +725,22 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <h3>Graphs of the photoelectric effect</h3>
 <p class="sub">Six graphs that come up in assessments. Open each one for what it shows, how to read it and the mistakes to avoid. You can produce most of them with the lab above.</p>
 <div class="intro-steps pe-graphs">
+<details class="intro-step" open><summary>Translating between eV, joules and stopping voltage</summary><div class="intro-step-body">
+<p>The same electron energy can be written three ways. In an experiment you measure the stopping voltage, and the other two follow from it.</p>
+<table style="border-collapse:collapse;width:100%;margin:6px 0;font-size:13px">
+<tr><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Quantity</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Relation</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Sodium, with \(V_s = 0.82\) V</th></tr>
+<tr><td style="padding:4px 8px">Stopping voltage \(V_s\)</td><td style="padding:4px 8px">measured with the voltmeter</td><td style="padding:4px 8px">0.82 V</td></tr>
+<tr><td style="padding:4px 8px">Maximum kinetic energy in eV</td><td style="padding:4px 8px">\(E_{k(\text{max})} = eV_s\), so the number matches \(V_s\) in volts</td><td style="padding:4px 8px">0.82 eV</td></tr>
+<tr><td style="padding:4px 8px">Maximum kinetic energy in joules</td><td style="padding:4px 8px">\(E_{k(\text{max})}\) (J) = \(e \times\) \(E_{k(\text{max})}\) (eV), with \(e = 1.60 \times 10^{-19}\) C</td><td style="padding:4px 8px">\(0.82 \times 1.60 \times 10^{-19} = 1.3 \times 10^{-19}\) J</td></tr>
+<tr><td style="padding:4px 8px">Photon energy</td><td style="padding:4px 8px">\(hf = \phi + eV_s\)</td><td style="padding:4px 8px">\(2.28 + 0.82 = 3.10\) eV</td></tr>
+</table>
+<p><strong>From an experiment:</strong></p>
+<ol><li>Measure \(V_s\) for several frequencies.</li>
+<li>Plot \(V_s\) against \(f\), as in Graph 2. The gradient is \(h/e\) in V Hz⁻¹, so \(h = e \times\) gradient.</li>
+<li>The intercept is \(-\phi/e\) in volts, so \(\phi = -e \times\) intercept in joules, or \(\phi\) = −intercept in eV.</li>
+<li>Any single measured \(V_s\) gives \(E_{k(\text{max})}\). Multiply it by \(e\) to get the value in joules.</li></ol>
+<p><em>Stopping voltage is also introduced in 1.1.6. The same relations are repeated here so you can use them while you work in the lab.</em></p>
+</div></details>
 <details class="intro-step"><summary>Graph 1 · Maximum kinetic energy versus frequency</summary><div class="intro-step-body">
 <figure class="fig"><svg viewBox="0 0 520 262" role="img" aria-label="Graph of maximum kinetic energy versus frequency: a straight line starting at the threshold frequency, with a dashed extension back to minus the work function on the energy axis, and a parallel line for a second metal.">
 <line x1="70" y1="170" x2="490" y2="170" class="ax"/><line x1="70" y1="20" x2="70" y2="248" class="ax"/>
@@ -828,6 +844,18 @@ body.light-mode[data-topic="nuc"]{--topic:#b3261e;--topic-contrast:#fff}
 <li>"All the electrons have this kinetic energy." It is the maximum. Electrons from deeper in the metal lose energy on the way out and leave more slowly.</li></ul></div>
 </div></details>
 </div>
+<details class="intro-step" open><summary>Consolidation: wave-theory predictions compared with observations</summary><div class="intro-step-body">
+<p>Before 1905, wave theory predicted the results in the table. Each row compares that prediction with what was observed, and then shows how the photon model explains it.</p>
+<table style="border-collapse:collapse;width:100%;margin:6px 0;font-size:13px">
+<tr><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Feature</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Wave-theory prediction</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Observed</th><th style="text-align:left;border-bottom:1px solid #46516b;padding:4px 8px">Photon explanation</th></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">Threshold frequency</td><td style="padding:4px 8px;vertical-align:top">No minimum frequency: any light should release electrons if it is bright enough</td><td style="padding:4px 8px;vertical-align:top">Emission only above a threshold frequency \(f_{0}\) that depends on the metal</td><td style="padding:4px 8px;vertical-align:top">\(hf_{0} = \phi\): a photon must carry at least \(\phi\)</td></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">Time delay</td><td style="padding:4px 8px;vertical-align:top">Dim light should take time to build up enough energy for an electron to escape</td><td style="padding:4px 8px;vertical-align:top">Emission starts at once, even for dim light</td><td style="padding:4px 8px;vertical-align:top">One photon is absorbed by one electron, so there is no delay</td></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">Intensity and kinetic energy</td><td style="padding:4px 8px;vertical-align:top">Brighter light should give the electrons more kinetic energy</td><td style="padding:4px 8px;vertical-align:top">Kinetic energy does not depend on intensity; even dim light gives fast electrons</td><td style="padding:4px 8px;vertical-align:top">Intensity changes the number of photons, not their energy</td></tr>
+<tr><td style="padding:4px 8px;vertical-align:top">Frequency and kinetic energy</td><td style="padding:4px 8px;vertical-align:top">Frequency should have no effect on kinetic energy</td><td style="padding:4px 8px;vertical-align:top">Maximum kinetic energy rises with frequency above \(f_{0}\)</td><td style="padding:4px 8px;vertical-align:top">Higher frequency means more energy per photon: \(E_{k(\text{max})} = hf - \phi\)</td></tr>
+</table>
+<p>Use this table to explain why the photon model won out over the wave model. The lab shows each of these observations.</p>
+<p><em>Source: AS91525, The photoelectric effect: observations and the failure of wave theory.</em></p>
+</div></details>
 </section>
 
 <section class="pane hidden" data-section="photo" data-view="check">
@@ -1556,6 +1584,18 @@ function wavy(c,x1,y1,x2,y2,col){const L=Math.hypot(x2-x1,y2-y1),a=Math.atan2(y2
  ['peMetal','peF','peInt','peV'].forEach(id=>$(id).addEventListener('input',ui));
  $('peAuto').onclick=()=>{const p=P();if(p.K<=0){$('peV').value=0;ui();setRO('peFit','No electrons are emitted at this wavelength, so \\(E_{k(\\text{max})}\\) = 0 and the stopping voltage is 0 V. Press Record point to mark this on the graph.');return}$('peV').value=-Math.ceil(p.K/0.02)*0.02;ui()};
  $('peRec').onclick=()=>{const p=P();const zero=p.K<=0;st.pts.push({f:p.f,K:zero?0:Math.max(0,p.K+(Math.random()-0.5)*0.008),phi:p.phi,zero});};
+ const toCanvas=(ev)=>{const r=cv.getBoundingClientRect(),g=st.pg;return {r,g,sx:(ev.clientX-r.left)*(g.W/r.width),sy:(ev.clientY-r.top)*(g.H/r.height)}};
+ const inBox=(b,x,y)=>b&&x>=b.x&&x<=b.x+b.w&&y>=b.y&&y<=b.y+b.h;
+ const inGraph=(g,x,y)=>x>=g.gx&&x<=g.gx+g.gw&&y>=g.gy&&y<=g.gy+g.gh;
+ let pop=null, popY=null;
+ function openY(ev,t){const {r,g}=t;if(!popY){popY=document.createElement('select');popY.id='peYPop';popY.size=3;popY.style.cssText='position:fixed;z-index:50;font:12px sans-serif;border-radius:6px;padding:2px;background:#11182b;color:#eef2fb;border:1px solid #46516b';Array.from($('peYAx').options).forEach(o=>popY.add(new Option(o.text,o.value)));popY.addEventListener('change',()=>{$('peYAx').value=popY.value;$('peYAx').dispatchEvent(new Event('input',{bubbles:true}));popY.style.display='none'});popY.addEventListener('blur',()=>{popY.style.display='none'});document.body.appendChild(popY)}
+  const b=st.yBox;popY.value=$('peYAx').value;popY.style.left=(r.left+b.x*r.width/g.W)+'px';popY.style.top=(r.top+(b.y+b.h)*r.height/g.H)+'px';popY.style.display='block';popY.focus();}
+ function openMetal(ev,t){const {r,g}=t;if(!pop){pop=document.createElement('select');pop.id='peMetalPop';pop.size=9;pop.style.cssText='position:fixed;z-index:50;font:12px sans-serif;border-radius:6px;padding:2px;background:#11182b;color:#eef2fb;border:1px solid #46516b';Array.from($('peMetal').options).forEach(o=>pop.add(new Option(o.text,o.value)));pop.addEventListener('change',()=>{$('peMetal').value=pop.value;$('peMetal').dispatchEvent(new Event('input',{bubbles:true}));pop.style.display='none'});pop.addEventListener('blur',()=>{pop.style.display='none'});document.body.appendChild(pop)}
+  const e=st.emit;pop.value=$('peMetal').value;pop.style.left=(r.left+e.x*r.width/g.W)+'px';pop.style.top=(r.top+(e.y+e.h)*r.height/g.H)+'px';pop.style.display='block';pop.focus();}
+ cv.addEventListener('click',ev=>{const t=toCanvas(ev);if(!st.pg)return;if(inBox(st.emit,t.sx,t.sy)){openMetal(ev,t);return}
+  if(inBox(st.yBox,t.sx,t.sy)){openY(ev,t);return}
+  if(inGraph(t.g,t.sx,t.sy)){const f=Math.max(0.5,Math.min(30,(t.sx-t.g.gx)/t.g.gw*30));$('peF').value=f.toFixed(2);$('peF').dispatchEvent(new Event('input',{bubbles:true}));$('peRec').click();}});
+ cv.addEventListener('mousemove',ev=>{if(!st.pg){return}const t=toCanvas(ev);cv.style.cursor=(inBox(st.emit,t.sx,t.sy)||inBox(st.yBox,t.sx,t.sy)||inGraph(t.g,t.sx,t.sy))?'pointer':'default'});
  $('peClear').onclick=()=>{st.pts=[]};
  const sim={enter(){ui()},step(dt){const p=P();
   if(p.K>0){st.acc+=dt*p.I*0.45;while(st.acc>=1){st.acc-=1;st.els.push({x:0,y:Math.random(),K0:p.K*Math.random()*0.97+0.03*p.K,dir:1})}}
@@ -1593,7 +1633,7 @@ function wavy(c,x1,y1,x2,y2,col){const L=Math.hypot(x2-x1,y2-y1),a=Math.atan2(y2
   // emitter (curved, facing the collector) and collector (thin rod)
   c.fillStyle=metal[1];c.fillRect(cx0-4,yc-th*0.36,9,th*0.72);c.strokeStyle='#05070d';c.lineWidth=1.5;c.strokeRect(cx0-4,yc-th*0.36,9,th*0.72);
   c.fillStyle='#2a3146';c.fillRect(ax-4,yc-th*0.36,9,th*0.72);c.strokeStyle='#8a96b0';c.lineWidth=1.5;c.strokeRect(ax-4,yc-th*0.36,9,th*0.72);
-  text(c,'​'+metal[0]+' emitter',cx0+14,ty+th+32,metal[1],11,'center');text(c,'​collector',ax-4,ty+th+32,MUT,11,'center');
+  text(c,'​'+metal[0]+' emitter ▾',cx0+14,ty+th+32,metal[1],11,'center');st.emit={x:cx0+14-72,y:ty+th+32-13,w:144,h:20};text(c,'​collector',ax-4,ty+th+32,MUT,11,'center');
   // photoelectrons
   st.els.forEach(e=>{const ex=cx0+10+e.x*(ax-cx0-14),ey=ty+th*0.2+e.y*th*0.6,ec=e.dir>0?'120,217,247':'255,158,181';c.fillStyle='rgba('+ec+',.22)';c.beginPath();c.arc(ex,ey,6,0,7);c.fill();c.fillStyle='rgb('+ec+')';c.beginPath();c.arc(ex,ey,2.8,0,7);c.fill();
    /* velocity vector: length proportional to speed, and speed is proportional to sqrt(kinetic energy at this point) */
@@ -1612,13 +1652,13 @@ function wavy(c,x1,y1,x2,y2,col){const L=Math.hypot(x2-x1,y2-y1),a=Math.atan2(y2
   text(c,'​'+(p.V<0?'collector negative: electrons are repelled':p.V>0?'collector positive: electrons are attracted':'no applied voltage'),xs,yB+49,p.V<0?'#ff9eb5':MUT,10,'center');
   // graph
   const gx=nar?46:lw+40,gy=nar?by+60:24,gw=nar?W-46-24:W-lw-40-24,gh=nar?Hh-gy-40:Hh-70;
-  const {X,Y}=frame(c,gx,gy,gw,gh,0,30,-5,7,'','​f (×10¹⁴ Hz)');
+  const {X,Y}=frame(c,gx,gy,gw,gh,0,30,-5,7,'','​f (×10¹⁴ Hz)');st.pg={gx,gy,gw,gh,W,H:Hh};text(c,'click the graph to take a reading',gx+8,gy+14,MUT,10);
   for(let k=0;k<=30;k+=5)text(c,'\u200b'+k,X(k),gy+gh+13,MUT,10,'center');
   const yq=st.yq||'ev';
   [-4,-2,0,2,4,6].forEach(v=>{const y=Y(v);line(c,gx-4,y,gx,y,AX,1);text(c,yq==='j'?(v*1.602).toFixed(1):String(v),gx-7,y+4,MUT,10,'right')});
-  text(c,yq==='j'?'E_k(max) (×10\u207b\u00b9\u2079 J)':yq==='v'?'V_s (V)':'E_k(max) (eV)',gx+4,gy-8,INK,11);
+  text(c,yq==='j'?'E_k(max) (×10\u207b\u00b9\u2079 J) \u25be':yq==='v'?'V_s (V) \u25be':'E_k(max) (eV) \u25be',gx+4,gy-8,INK,11);st.yBox={x:gx-2,y:gy-22,w:190,h:20};
   c.fillStyle='rgba(255,255,255,.04)';const v0=X(CL/750e-9/1e14),v1=X(CL/380e-9/1e14);c.fillRect(v0,gy,v1-v0,gh);text(c,'​visible',(v0+v1)/2,gy+gh-10,MUT,9,'center');
-  {const fc=p.phi*QE/H/1e14;c.save();c.strokeStyle=CYN;c.lineWidth=3;c.globalAlpha=0.9;c.beginPath();c.moveTo(X(0),Y(0));c.lineTo(X(fc),Y(0));c.stroke();c.restore();
+  {const fc=p.phi*QE/H/1e14;c.save();c.strokeStyle=RED;c.lineWidth=3;c.globalAlpha=0.9;c.beginPath();c.moveTo(X(0),Y(0));c.lineTo(X(fc),Y(0));c.stroke();c.restore();
    text(c,(st.yq==='v'?'V_s = 0 V':'E_k = 0')+' for λ > '+fx(H*CL/(p.phi*QE)*1e9,0)+' nm (no emission)',X(0)+8,Y(0)+17,CYN,10);}
   ['2.1','4.3','5.6'].forEach(k=>{const phiM=+k;if(phiM===p.phi)return;const f0m=phiM*QE/H,m=METALS[k];c.save();c.globalAlpha=0.6;c.strokeStyle=m[1];c.lineWidth=1.6;c.setLineDash([]);c.beginPath();c.moveTo(X(f0m/1e14),Y(0));for(let fq=f0m;fq<=30e14;fq+=0.1e14){const K=H*fq/QE-phiM;if(K>7)break;c.lineTo(X(fq/1e14),Y(Math.max(K,-5)))}c.stroke();c.restore();const fK=(1.5+phiM)*QE/H/1e14;if(fK<30)text(c,m[0],X(fK)+5,Y(1.5)-6,m[1],10)});
   const mine=st.pts.filter(q=>q.phi===p.phi&&!q.zero);
