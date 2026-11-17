@@ -5,6 +5,12 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.18 · 18 November 2026 (Year 12 Waves: four draggable labs, Key Terms and My progress)
+- Year 12 Waves, four new simulations: wavefront refraction (drag the incoming ray to change the angle; slider for shallow-water speed), pulses at fixed ends, free ends and boundaries between ropes (click to send, drag the boundary), standing waves on a string with a draggable length and a travelling-waves view, and a dispersion prism (drag the white beam).
+- Key Terms tab with 50 terms in three groups, and a filter.
+- My progress tab: save, load and share your self-ratings, scores and exam notes as a code, the same as the other Year 12 pages.
+- The existing wave, mirror and lens labs are unchanged.
+
 ## v1.17 · 18 November 2026 (Year 12 Electricity: six simulations, Key Terms and My progress)
 - Year 12 Electricity, six new simulations: field lines (drag a test charge through the field), Millikan floating charge (drag the top plate and the drop), V–I graphs for a resistor, filament lamp and diode, voltage divider (drag the share bar, add a load), fields around currents (drag the compass, reverse the current) and a loop moving through a field.
 - The new labs can be driven by clicking and dragging on the canvas as well as with the sliders.

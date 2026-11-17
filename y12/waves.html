@@ -482,6 +482,22 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 .static-math mjx-container{margin:0!important;max-width:100%;overflow:visible!important}
 .static-math mjx-container[jax="SVG"]>svg{max-width:100%;height:auto}
 
+/* ============ KEY TERMS + MY PROGRESS ============ */
+.kt-filter{width:100%;max-width:440px;padding:10px 13px;border-radius:10px;border:1px solid var(--line);background:var(--tile);color:var(--ink);font:inherit;margin:4px 0 6px}
+.kt-group{margin:18px 0 6px}.kt-group>h3{margin:0 0 10px}
+.kt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-bottom:10px}
+.kt-term h4{margin:0 0 6px;font-size:1rem;color:var(--accent)}.kt-term p{margin:0;font-size:.95rem;line-height:1.5}
+.kt-term[hidden],.kt-group[hidden]{display:none}
+.sum-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.rt-box{display:flex;flex-direction:column;gap:8px}.rt-box>p{margin:0}.rt-box>h3{margin:10px 0 0}
+.write{display:block;width:100%;box-sizing:border-box;padding:9px 11px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink);font:inherit;font-size:14px;line-height:1.45;resize:vertical}
+.report{white-space:pre-wrap;font:13px/1.5 var(--mono);background:var(--field);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0;max-height:320px;overflow:auto;color:var(--ink)}
+.code{font:12.5px/1.4 var(--mono);word-break:break-all}
+.share{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px}
+.share label{display:grid;gap:4px;font-size:13px;font-weight:600}
+.share input{min-height:42px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink);font:inherit;font-weight:400;min-width:0}
+a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;box-sizing:border-box}
+a.btn.off{opacity:.5}
 /* ============ EQUATIONS · one system (KaTeX) ============ */
 .eq,.eq-block{font-family:var(--sans)}
 .eq .katex,.eq-block .katex{font-size:1.04em}
@@ -1108,6 +1124,84 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
+<section class="pane hidden" data-mod="map" data-view="terms" data-title="Key terms: definitions for every waves and light topic">
+  <div class="pane-head"><h2>Key terms</h2><span class="badge teal">DEFINITIONS</span></div>
+  <p class="lede">50 terms in three groups, in the order we teach them. Type in the box to filter. In an exam, a definition should say what the quantity <b>is</b> and, where it helps, give its unit.</p>
+  <input class="kt-filter" id="ktFilter" type="search" placeholder="Filter the terms… (e.g. refraction)" aria-label="Filter the key terms" autocomplete="off">
+  <p class="small" id="ktCount" aria-live="polite"></p>
+  <div class="kt-group"><h3>Waves and their properties</h3><div class="kt-grid"><div class="card kt-term"><h4>Wave</h4><p>A disturbance that carries energy from one place to another without carrying matter with it.</p></div><div class="card kt-term"><h4>Medium</h4><p>The material a wave travels through. Light and radio waves need no medium.</p></div><div class="card kt-term"><h4>Transverse wave</h4><p>A wave in which the particles move at right angles to the direction the wave travels, as in ripples or a rope.</p></div><div class="card kt-term"><h4>Longitudinal wave</h4><p>A wave in which the particles move back and forth along the direction the wave travels, as in sound.</p></div><div class="card kt-term"><h4>Crest and trough</h4><p>The highest and lowest points of a transverse wave, measured from the rest position.</p></div><div class="card kt-term"><h4>Compression and rarefaction</h4><p>The regions of a longitudinal wave where particles are squeezed together (compressions) and spread apart (rarefactions).</p></div><div class="card kt-term"><h4>Amplitude</h4><p>The largest displacement of a particle from its rest position.</p></div><div class="card kt-term"><h4>Wavelength (λ)</h4><p>The length of one complete cycle, measured from one crest to the next, or from one compression to the next.</p></div><div class="card kt-term"><h4>Frequency (f)</h4><p>The number of complete waves passing a point each second. Measured in hertz (Hz).</p></div><div class="card kt-term"><h4>Period (T)</h4><p>The time for one complete wave to pass a point: \(T = \frac{1}{f}\).</p></div><div class="card kt-term"><h4>Wave speed (v)</h4><p>How far a wave travels each second: \(v = f\lambda\). Measured in m s⁻¹.</p></div><div class="card kt-term"><h4>Wavefront</h4><p>A line (or surface) joining points on a wave that are at the same stage of their motion.</p></div><div class="card kt-term"><h4>Phase</h4><p>Where a point on a wave is in its cycle, often measured as an angle or a fraction of a cycle.</p></div><div class="card kt-term"><h4>In phase</h4><p>Two waves whose crests and troughs line up exactly, at the same place and time.</p></div><div class="card kt-term"><h4>Out of phase</h4><p>Two waves that are not lined up. Half a cycle out of phase means a crest of one lines up with a trough of the other.</p></div><div class="card kt-term"><h4>Pulse</h4><p>A single disturbance in a wave, rather than a continuous train of waves.</p></div></div><button type="button" class="btn sm" data-go="wave:intro">Open Waves →</button></div>
+  <div class="kt-group"><h3>Wave behaviour</h3><div class="kt-grid"><div class="card kt-term"><h4>Reflection (waves)</h4><p>A wave bounces back when it meets a barrier. The angle of incidence equals the angle of reflection.</p></div><div class="card kt-term"><h4>Refraction (waves)</h4><p>A change in direction, and in speed and wavelength, when a wave enters a medium where its speed is different. Frequency is unchanged.</p></div><div class="card kt-term"><h4>Diffraction</h4><p>The spreading of a wave when it passes through a gap or round the edge of an obstacle. Gaps about one wavelength wide spread the wave the most.</p></div><div class="card kt-term"><h4>Superposition</h4><p>When two or more waves overlap, the displacement at any point is the sum of their individual displacements.</p></div><div class="card kt-term"><h4>Constructive interference</h4><p>Superposition of waves in phase, which adds their amplitudes to make a larger wave.</p></div><div class="card kt-term"><h4>Destructive interference</h4><p>Superposition of waves out of phase, which partly or completely cancels them.</p></div><div class="card kt-term"><h4>Path difference</h4><p>How much further one wave has travelled than another to reach the same point. It is a whole number of wavelengths for constructive interference and a half-number for destructive interference.</p></div><div class="card kt-term"><h4>Antinodal line</h4><p>A line where waves always interfere constructively, so the wave there has its largest swing.</p></div><div class="card kt-term"><h4>Nodal line</h4><p>A line where waves always interfere destructively, so there is no net disturbance.</p></div><div class="card kt-term"><h4>Standing wave</h4><p>A pattern made by two identical waves moving in opposite directions. It has fixed nodes and antinodes and does not appear to move forward.</p></div><div class="card kt-term"><h4>Node</h4><p>A point on a standing wave with zero amplitude, made by destructive interference.</p></div><div class="card kt-term"><h4>Antinode</h4><p>A point on a standing wave with maximum amplitude, made by constructive interference.</p></div><div class="card kt-term"><h4>Fixed end</h4><p>An end of a rope or string that cannot move. A pulse reflects from it upside down.</p></div><div class="card kt-term"><h4>Free end</h4><p>An end that can move freely. A pulse reflects from it the right way up.</p></div><div class="card kt-term"><h4>Harmonic</h4><p>A standing wave pattern on a string fixed at both ends, with frequency \(f_{n} = \frac{nv}{2L}\) where n is a whole number.</p></div></div><button type="button" class="btn sm" data-go="wave:interfere">Open Interference →</button></div>
+  <div class="kt-group"><h3>Light</h3><div class="kt-grid"><div class="card kt-term"><h4>Electromagnetic radiation</h4><p>Transverse waves of energy that need no medium and travel at the speed of light. Radio, microwaves, infrared, visible light, ultraviolet, X-rays and gamma rays are all electromagnetic.</p></div><div class="card kt-term"><h4>Speed of light (c)</h4><p>About \(3.0\times10^{8}\,\mathrm{m\,s^{-1}}\) in a vacuum or air. Light slows down in a denser medium.</p></div><div class="card kt-term"><h4>Principal axis</h4><p>The straight line through the centre of a lens or mirror, usually drawn horizontally.</p></div><div class="card kt-term"><h4>Focal point</h4><p>The point on the principal axis where parallel rays meet (converge) after reflecting from a concave mirror or refracting through a converging lens.</p></div><div class="card kt-term"><h4>Focal length (f)</h4><p>The distance from the centre of a lens or mirror to its focal point.</p></div><div class="card kt-term"><h4>Centre of curvature</h4><p>The centre of the sphere that the curved surface of a mirror or lens forms part of. It lies at a distance of 2f.</p></div><div class="card kt-term"><h4>Converging</h4><p>A mirror or lens that brings parallel rays together at a focal point.</p></div><div class="card kt-term"><h4>Diverging</h4><p>A mirror or lens that spreads parallel rays apart, so they appear to come from a focal point behind it.</p></div><div class="card kt-term"><h4>Real image</h4><p>An image formed where light rays actually meet. It can be projected onto a screen.</p></div><div class="card kt-term"><h4>Virtual image</h4><p>An image formed where light rays only appear to come from. It cannot be projected, and ray diagrams show it with dashed lines.</p></div><div class="card kt-term"><h4>Upright and inverted</h4><p>An upright image has the same orientation as the object; an inverted image is turned upside down.</p></div><div class="card kt-term"><h4>Enlarged and diminished</h4><p>An enlarged image is taller than the object; a diminished image is shorter.</p></div><div class="card kt-term"><h4>Magnification</h4><p>How many times taller an image is than its object: \(M = \frac{h_{i}}{h_{o}}\).</p></div><div class="card kt-term"><h4>Lateral inversion</h4><p>A left-to-right reversal of an image, as in a plane mirror. It is why "AMBULANCE" is printed reversed on the front of an ambulance.</p></div><div class="card kt-term"><h4>Refractive index (n)</h4><p>A number showing how much a medium slows light: \(n = \frac{c}{v}\). Higher n means light travels more slowly.</p></div><div class="card kt-term"><h4>Apparent depth</h4><p>A pool looks shallower than it is, because the light from the bottom bends away from the normal as it leaves the water.</p></div><div class="card kt-term"><h4>Critical angle</h4><p>The angle of incidence in the denser medium for which the refracted ray travels along the boundary (refraction angle 90°).</p></div><div class="card kt-term"><h4>Total internal reflection (TIR)</h4><p>All the light is reflected back into a denser medium when the angle of incidence is larger than the critical angle. It only happens when light travels from a denser into a less dense medium.</p></div><div class="card kt-term"><h4>Dispersion</h4><p>The splitting of white light into its colours, because each colour has a slightly different refractive index.</p></div></div><button type="button" class="btn sm" data-go="refr:snell">Open Light →</button></div>
+</section>
+
+<section class="pane hidden" data-mod="map" data-view="progress" data-title="My progress: save it or share it with a teacher">
+  <div class="pane-head"><h2>My progress: save it or share it</h2><span class="badge teal">MY PROGRESS</span></div>
+  <p class="lede">Your self-ratings, quiz best scores and rearranging progress are kept on this device. Save a progress code to move them to another device, or send a summary to your teacher.</p>
+  <div class="rt-box" id="progressBox"></div>
+</section>
+
+<section class="pane hidden" data-mod="wave" data-view="refract" data-title="Wavefront refraction lab: water waves slowing in shallow water">
+  <div class="pane-head"><h2>Wavefront refraction lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Water waves slow down in shallower water. Their frequency stays the same, so their wavelength shrinks, and the wavefronts bend. Drag the ● along the incoming ray to change the angle, or use the sliders.</p>
+  
+  <div class="screen"><canvas id="rfCanvas" width="900" height="420" aria-label="Water wavefronts crossing from deep water into shallow water, with the incoming and refracted rays"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Angle of incidence, θ₁</span><output id="rfAOut"></output></span><input type="range" id="rfA" min="-60" max="60" step="1" value="30"></label><label class="ctrl"><span class="row"><span>Shallow-water speed, v₂ (as a share of v₁)</span><output id="rfVOut"></output></span><input type="range" id="rfV" min="30" max="100" step="5" value="60"></label><label class="ctrl"><span class="row"><span>Frequency, f</span><output id="rfFOut"></output></span><input type="range" id="rfF" min="1" max="3" step="1" value="2"></label>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm"><span>Angle in deep water, θ₁</span><b id="rfT1">–</b></div><div class="tm hl"><span>Angle in shallow water, θ₂</span><b id="rfT2">–</b></div><div class="tm"><span>Wavelength in deep water</span><b id="rfL1">–</b></div><div class="tm"><span>Wavelength in shallow water</span><b id="rfL2">–</b></div><div class="tm"><span>Speed in shallow water</span><b id="rfV2">–</b></div></div>
+      <p class="note" id="rfNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><p class="eq-block">\(v = f\lambda\)  and  \(\frac{\sin\theta_1}{\sin\theta_2} = \frac{v_1}{v_2}\)</p>
+<ul><li>Frequency is set by the source, so it is the same on both sides of the boundary.</li><li>Slower waves in shallow water have a shorter wavelength.</li><li>A wave entering shallower water bends towards the normal; one entering deeper water bends away from it.</li></ul>
+<p class="small">Tsunamis slow down in shallow coastal water, so their wavelength shrinks and their height grows.</p></div>
+</section>
+
+<section class="pane hidden" data-mod="wave" data-view="pulses" data-title="Pulses lab: reflection and transmission at fixed, free and changing boundaries">
+  <div class="pane-head"><h2>Pulses lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Send a pulse along a rope. Choose what happens at the end, or put a boundary between a thin rope and a thicker one. Click the rope to send a pulse. Drag the boundary (or the start point) to move it.</p>
+  <div class="seg" role="group" aria-label="Boundary"><button type="button" data-pu="fixed" aria-pressed="true">Fixed end</button><button type="button" data-pu="free" aria-pressed="false">Free end</button><button type="button" data-pu="bnd" aria-pressed="false">Boundary between ropes</button></div>
+  <div class="screen"><canvas id="puCanvas" width="900" height="420" aria-label="A pulse travelling along a rope, reflecting from an end or a boundary"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Speed in the right-hand rope (relative to the left)</span><output id="puROut"></output></span><input type="range" id="puR" min="30" max="200" step="10" value="50"></label><label class="ctrl"><span class="row"><span>Pulse height</span><output id="puAOut"></output></span><input type="range" id="puA" min="0.4" max="1.0" step="0.1" value="0.8"></label><div class="btns"><button type="button" class="btn go" id="puGo">SEND PULSE</button><button type="button" class="btn" id="puReset">Reset</button></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Phase change on reflection</span><b id="puPh">–</b></div><div class="tm"><span>Reflected amplitude (ratio)</span><b id="puRef">–</b></div><div class="tm"><span>Transmitted amplitude (ratio)</span><b id="puTra">–</b></div><div class="tm"><span>Speed on the right</span><b id="puSp">–</b></div></div>
+      <p class="note" id="puNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><ul><li><b>Fixed end:</b> the end pushes back, so the reflected pulse is inverted (180° out of phase, or half a wavelength).</li><li><b>Free end:</b> the reflected pulse is the same way up, in phase with the incident pulse.</li><li><b>Into a denser (slower) rope:</b> the reflection is inverted, like a fixed end. The transmitted pulse is spatially shorter.</li><li><b>Into a less dense (faster) rope:</b> the reflection is in phase, like a free end.</li></ul>
+<p class="small">At any boundary the frequency of the wave stays the same. Only the speed and wavelength change.</p></div>
+</section>
+
+<section class="pane hidden" data-mod="wave" data-view="standing" data-title="Standing waves lab: harmonics on a string fixed at both ends">
+  <div class="pane-head"><h2>Standing waves lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Waves reflect from both ends of a string and interfere. Only some lengths and frequencies give a standing wave. Choose a harmonic, then drag the end ● to change the length of the string.</p>
+  <div class="seg" role="group" aria-label="Harmonic"><button type="button" data-sw="1" aria-pressed="false">n = 1</button><button type="button" data-sw="2" aria-pressed="true">n = 2</button><button type="button" data-sw="3" aria-pressed="false">n = 3</button><button type="button" data-sw="4" aria-pressed="false">n = 4</button><button type="button" data-sw="5" aria-pressed="false">n = 5</button></div>
+  <div class="screen"><canvas id="swCanvas" width="900" height="420" aria-label="A string fixed at both ends vibrating in a standing wave pattern with nodes and antinodes"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Length of the string, L</span><output id="swLOut"></output></span><input type="range" id="swL" min="60" max="200" step="5" value="120"></label><div class="btns"><button type="button" class="btn" id="swTrav">Show the two travelling waves</button></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Frequency, \(f_{n}\)</span><b id="swF">–</b></div><div class="tm"><span>Wavelength, \(\lambda = \frac{2L}{n}\)</span><b id="swLam">–</b></div><div class="tm"><span>Nodes and antinodes</span><b id="swNodes">–</b></div></div>
+      <p class="note" id="swNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><p class="eq-block">\(f_{n} = \frac{n\,v}{2L}\)</p>
+<ul><li>Nodes are points that never move. Antinodes swing with the largest amplitude.</li><li>Both ends are nodes, so the string holds a whole number of half-wavelengths.</li><li>A standing wave is made from two identical waves travelling in opposite directions.</li></ul>
+<p class="small">Stringed instruments are tuned by changing the length, tension or mass of the string so that its harmonics match the notes they should play.</p></div>
+</section>
+
 <section class="pane hidden" data-mod="wave" data-view="check" data-title="Waves quick check">
   <div class="pane-head"><h2>Phase 1.4 · Quick check: waves</h2><span class="badge red">QUICK CHECK</span></div>
   <p class="lede">Eight questions, instant feedback. Have a calculator ready.</p>
@@ -1406,6 +1500,26 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
+<section class="pane hidden" data-mod="refr" data-view="dispersion" data-title="Dispersion prism lab: white light split into colours">
+  <div class="pane-head"><h2>Dispersion prism lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">White light is a mix of colours. In glass each colour has a slightly different refractive index, so the colours bend by different amounts and separate. Drag the ● at the start of the white beam, or use the slider.</p>
+  
+  <div class="screen"><canvas id="dpCanvas" width="900" height="420" aria-label="A white light beam entering a glass prism and splitting into a spectrum of colours"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Angle of incidence, θ</span><output id="dpAOut"></output></span><input type="range" id="dpA" min="10" max="70" step="1" value="45"></label>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm"><span>Deviation of red light</span><b id="dpRed">–</b></div><div class="tm hl"><span>Deviation of violet light</span><b id="dpViolet">–</b></div><div class="tm"><span>Spread between red and violet</span><b id="dpSpread">–</b></div></div>
+      <p class="note" id="dpNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><ul><li>Refractive index depends on the colour (wavelength): n is largest for violet and smallest for red.</li><li>Light bends at both faces of the prism, so the total deviation depends on the angle of incidence.</li><li>Dispersion only happens in a medium where the speed depends on the wavelength.</li></ul>
+<p class="small">Rainbows are dispersion too: raindrops split white sunlight in the same way as a prism.</p></div>
+</section>
+
 <section class="pane hidden" data-mod="refr" data-view="check" data-title="Refraction quick check">
   <div class="pane-head"><h2>Phase 3.4 · Quick check: refraction</h2><span class="badge red">QUICK CHECK</span></div>
   <p class="lede">Eight questions, instant feedback. Have a calculator ready, in degree mode.</p>
@@ -1577,10 +1691,10 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
-  map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["rearrange", "Rearranging formulae"], ["challenge", "Mixed challenge"]] },
-  wave: { title: "WAVES", name: "Waves", views: [["intro", "Foundations"], ["machine", "Wave machine"], ["ripple", "Ripple tank"], ["interfere", "Explaining interference"], ["check", "Quick check"], ["problems", "Problems"]] },
+  map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["terms", "Key terms"], ["rearrange", "Rearranging formulae"], ["challenge", "Mixed challenge"], ["progress", "My progress"]] },
+  wave: { title: "WAVES", name: "Waves", views: [["intro", "Foundations"], ["machine", "Wave machine"], ["ripple", "Ripple tank"], ["interfere", "Explaining interference"], ["refract", "Wavefront refraction lab"], ["pulses", "Pulses lab"], ["standing", "Standing waves lab"], ["check", "Quick check"], ["problems", "Problems"]] },
   mirror: { title: "REFLECTION OF LIGHT", name: "Reflection of light", views: [["intro", "Foundations"], ["bench", "Mirror lab"], ["check", "Quick check"], ["problems", "Problems"]] },
-  refr: { title: "REFRACTION", name: "Refraction", views: [["intro", "Foundations"], ["snell", "Snell's law lab"], ["lens", "Lens lab"], ["check", "Quick check"], ["problems", "Problems"]] },
+  refr: { title: "REFRACTION", name: "Refraction", views: [["intro", "Foundations"], ["snell", "Snell's law lab"], ["lens", "Lens lab"], ["dispersion", "Dispersion prism lab"], ["check", "Quick check"], ["problems", "Problems"]] },
 };
 const SCOPE = {
   wave: [
@@ -1612,6 +1726,10 @@ const TOTAL = Object.values(SCOPE).reduce((a, g) => a + g.length, 0);
 const ratings = store.get("ratings", {});
 const TIP_CHECK = "Got one wrong? Read the explanation, then reopen the matching lab before trying a new set.";
 const TIPS = {
+  "wave:refract": "Write \\(v = f\\lambda\\) for each region. Frequency is the same on both sides, so the wavelength ratio equals the speed ratio.",
+  "wave:pulses": "Say what the reflected pulse looks like (inverted or not) and why, using the boundary type (fixed, free, denser or less dense).",
+  "wave:standing": "Nodes are \\(\\frac{\\lambda}{2}\\) apart. For n harmonics on a string fixed at both ends, \\(\\lambda = \\frac{2L}{n}\\).",
+  "refr:dispersion": "Dispersion means the refractive index depends on the colour. Violet bends most, red least.",
   "wave:intro": "In explanations, say what is set by the source (frequency) and what is set by the medium (speed). Then use \\(v = f\\lambda\\) to link them.",
   "wave:machine": "Wavelength is one whole cycle: crest to crest. If a diagram shows 2½ waves across 5.0 m, then \\(\\lambda = \\frac{5.0}{2.5} = 2.0\\,\\mathrm{m}\\).",
   "wave:ripple": "For interference, always work out the path difference and divide by the wavelength. A whole number means antinode (loud, bright, big ripples); a half-number means node.",
@@ -2822,6 +2940,285 @@ opticalBench({ prefix: "lb", key: "refr:lens", first: "cv", kinds: { cv: { mirro
   });
 })();
 
+
+/* ====================================================== NEW WAVES LABS (v1.18) ===== */
+/* shared: click and drag on a canvas. hit(x,y) names what is under the pointer, move() drags it, up() fires on release (moved = false means a click) */
+function dragOn(cv, hit, move, up) {
+  let k = null, moved = false, sx = 0, sy = 0;
+  const pos = (e) => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+  cv.addEventListener("pointerdown", (e) => { const [x, y] = pos(e); k = hit(x, y); if (!k) return; moved = false; sx = x; sy = y; try { cv.setPointerCapture(e.pointerId); } catch (er) {} e.preventDefault(); });
+  cv.addEventListener("pointermove", (e) => { const [x, y] = pos(e); if (!k) { cv.style.cursor = hit(x, y) ? "pointer" : ""; return; } if (Math.hypot(x - sx, y - sy) > 4) moved = true; if (moved) move(k, x, y); });
+  cv.addEventListener("pointerup", (e) => { if (!k) return; const kk = k; k = null; const [x, y] = pos(e); if (up) up(kk, moved, x, y); });
+  cv.addEventListener("pointercancel", () => { k = null; });
+  cv.addEventListener("touchstart", (e) => { const t = e.touches[0], r = cv.getBoundingClientRect(); if (t && hit(t.clientX - r.left, t.clientY - r.top)) e.preventDefault(); }, { passive: false });
+}
+const setRange = (el, v) => { v = clamp(v, +el.min, +el.max); if (+el.value !== v) { el.value = v; el.dispatchEvent(new Event("input")); } };
+function grip(ctx, x, y, col) { ctx.save(); ctx.fillStyle = C.panel; ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(x, y, 8, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fill(); ctx.restore(); }
+
+/* ====================================================== W1 · WAVEFRONT REFRACTION LAB ===== */
+(() => {
+  const cv = $("rfCanvas"), sim = { dirty: true, anim: true }; sims["wave:refract"] = sim;
+  const aEl = bindRange("rfA", "rfAOut", (v) => v + "°"), vEl = bindRange("rfV", "rfVOut", (v) => (v / 100).toFixed(2) + " × v₁"), fEl = bindRange("rfF", "rfFOut", (v) => v + " Hz");
+  const V1 = 0.4; let geo = null;
+  [aEl, vEl, fEl].forEach((e) => e.addEventListener("input", () => { sim.dirty = true; }));
+  dragOn(cv, (x, y) => geo && Math.hypot(x - geo.hx, y - geo.hy) < 22 ? "ray" : null,
+    (k, x, y) => { const wx = x - geo.ox, wy = geo.oy - y; setRange(aEl, Math.round(clamp(Math.atan2(-wx, wy) * 180 / Math.PI, -60, 60))); }, null);
+  sim.frame = () => {
+    const th1 = +aEl.value * Math.PI / 180, v2 = +vEl.value / 100 * V1, f = +fEl.value;
+    const s2 = Math.sin(th1) * v2 / V1, th2 = Math.asin(clamp(s2, -1, 1));
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 0.95) : Math.max(380, Math.round(w * 0.44))));
+    clear(ctx, w, h);
+    const ox = w * 0.5, oy = h * 0.5, diag = Math.hypot(w, h) * 1.2;
+    const k = h * 0.5 / 0.4, l1 = V1 / f, l2 = v2 / f, sp1 = l1 * k, sp2 = l2 * k;
+    const d1 = [Math.sin(th1), Math.cos(th1)], d2 = [Math.sin(th2), Math.cos(th2)];
+    // regions: deep water above the boundary, shallow water below
+    ctx.fillStyle = C.tile; ctx.fillRect(0, 0, w, oy); ctx.fillStyle = C.asoft; ctx.fillRect(0, oy, w, h - oy);
+    const crests = (d, sp, col) => { const nr = [d[1], -d[0]], m = Math.ceil(diag / sp) + 1; ctx.strokeStyle = col; ctx.lineWidth = 2.2; ctx.beginPath();
+      for (let i = -m; i <= m; i++) { const s = i * sp, cx = ox + s * d[0], cy = oy + s * d[1]; ctx.moveTo(cx - nr[0] * diag, cy - nr[1] * diag); ctx.lineTo(cx + nr[0] * diag, cy + nr[1] * diag); } ctx.stroke(); };
+    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, w, oy); ctx.clip(); crests(d1, sp1, C.vector); ctx.restore();
+    ctx.save(); ctx.beginPath(); ctx.rect(0, oy, w, h - oy); ctx.clip(); crests(d2, sp2, C.data); ctx.restore();
+    // boundary, normal and rays
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(w, oy); ctx.stroke();
+    ctx.setLineDash([6, 5]); ctx.strokeStyle = C.muted; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(ox, 0); ctx.lineTo(ox, h); ctx.stroke(); ctx.setLineDash([]);
+    const hx = ox - 0.3 * h * Math.sin(th1), hy = oy - 0.3 * h * Math.cos(th1);
+    arrow(ctx, hx, hy, ox + d1[0] * 0.12 * h, oy + d1[1] * 0.12 * h, C.hot, 2.5, 10);
+    if (Math.abs(s2) <= 1) arrow(ctx, ox, oy, ox + d2[0] * 0.3 * h, oy + d2[1] * 0.3 * h, C.hot, 2.5, 10);
+    grip(ctx, hx, hy, C.vector); geo = { ox, oy, hx, hy };
+    text(ctx, "DEEP WATER · speed v₁", 12, 20, C.ink2, 11); text(ctx, "SHALLOW WATER · speed v₂", 12, h - 30, C.ink2, 11);
+    text(ctx, "normal", ox + 6, 16, C.muted, 9);
+    text(ctx, "θ₁ = " + Math.round(th1 * 180 / Math.PI) + "°", ox - 12, oy - 18, C.hot, 12, "right");
+    if (Math.abs(s2) <= 1) text(ctx, "θ₂ = " + Math.round(th2 * 180 / Math.PI) + "°", ox - 12, oy + 30, C.hot, 12, "right");
+    text(ctx, "drag the ● along the incoming ray to change the angle", 12, h - 10, C.muted, 9);
+    $("rfT1").textContent = Math.round(th1 * 180 / Math.PI) + "°"; $("rfT2").textContent = Math.abs(s2) <= 1 ? Math.round(th2 * 180 / Math.PI) + "°" : "–";
+    $("rfL1").textContent = fmt(l1, 3) + " m"; $("rfL2").textContent = fmt(l2, 3) + " m"; $("rfV2").textContent = fmt(v2, 2) + " m s⁻¹";
+    $("rfNote").textContent = v2 < V1
+      ? `The frequency is the same in both regions (the source sets it). The speed drops in shallow water, so the wavelength drops too, since \\(v = f\\lambda\\). The wave bends towards the normal. Check the ratio: \\(\\frac{\\sin\\theta_1}{\\sin\\theta_2} = \\frac{v_1}{v_2}\\).`
+      : "The shallow speed equals the deep speed, so the wave does not change direction at all.";
+  };
+})();
+
+/* ====================================================== W2 · PULSES LAB ===== */
+(() => {
+  const cv = $("puCanvas"), sim = { dirty: true, anim: true, t: 0, run: false }; sims["wave:pulses"] = sim;
+  const rEl = bindRange("puR", "puROut", (v) => (v / 100).toFixed(2) + " × v₁"), aEl = bindRange("puA", "puAOut", (v) => (+v).toFixed(1));
+  let mode = "fixed", geo = null, bxF = 0.5, x0F = 0.12;
+  const mB = [...document.querySelectorAll("[data-pu]")];
+  mB.forEach((b) => b.addEventListener("click", () => { mode = b.dataset.pu; setPressed(mB, b); sim.run = false; sim.t = 0; sim.dirty = true; }));
+  $("puGo").addEventListener("click", () => { sim.run = true; sim.t = 0; });
+  $("puReset").addEventListener("click", () => { sim.run = false; sim.t = 0; sim.dirty = true; });
+  [rEl, aEl].forEach((e) => e.addEventListener("input", () => { sim.dirty = true; }));
+  dragOn(cv, (x, y) => {
+    if (!geo) return null;
+    if (mode === "bnd" && Math.abs(x - geo.xb) < 16) return "bnd";
+    if (mode !== "bnd" && Math.hypot(x - geo.sx, y - geo.yc) < 20) return "src";
+    return "any";
+  }, (k, x) => { if (!geo) return; if (k === "bnd") bxF = clamp(x / geo.w, 0.25, 0.75); if (k === "src") x0F = clamp(x / geo.w, 0.04, 0.45); sim.dirty = true; },
+  (k, moved) => { if (!moved && k === "any") { sim.run = true; sim.t = 0; } });
+  sim.frame = (dt) => {
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 0.7) : Math.max(320, Math.round(w * 0.36))));
+    clear(ctx, w, h);
+    const yc = h * 0.5, xs = w * 0.04, xw = w * 0.94, vL = 0.3 * w, ratio = +rEl.value / 100, vR = mode === "bnd" ? vL * ratio : vL;
+    const A = +aEl.value * h * 0.2, W = w * 0.09, r = (vR - vL) / (vR + vL), tr = 2 * vR / (vL + vR);
+    const bump = (u) => (Math.abs(u) < 1 ? 0.5 * (1 + Math.cos(Math.PI * u)) : 0);
+    const sx = x0F * w, xb = bxF * w, tb = mode === "bnd" ? (xb - sx) / vL : 0;
+    const Tend = mode === "bnd" ? tb + (xw - xb) / vR + 0.4 : (2 * xw - sx) / vL + 0.4;
+    if (sim.run) { sim.t += dt; if (sim.t > Tend) { sim.t = Tend; sim.run = false; } }
+    const t = sim.t, sgn = mode === "free" ? 1 : -1;
+    const yAt = (x) => {
+      if (mode !== "bnd") { const xc = sx + vL * t, xr = 2 * xw - xc; return A * (bump((x - xc) / W) + sgn * bump((x - xr) / W)); }
+      if (x < xb) { let y = A * bump((x - (sx + vL * t)) / W); if (t > tb) y += A * r * bump((x - (xb - vL * (t - tb))) / W); return y; }
+      if (t > tb) return A * tr * bump((x - (xb + vR * (t - tb))) / (W * vR / vL));
+      return 0;
+    };
+    // rope: thin on the left, thicker and slower on the right in boundary mode
+    const lw2 = clamp(3 * Math.pow(vL / vR, 0.7), 1.5, 12);
+    const path = (a, b, lw, col) => { ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineJoin = "round"; ctx.beginPath(); let first = true;
+      for (let x = a; x <= b; x += 2) { const px = x, py = yc - yAt(x); if (first) { ctx.moveTo(px, py); first = false; } else ctx.lineTo(px, py); } ctx.stroke(); };
+    ctx.setLineDash([]);
+    if (mode === "bnd") { path(xs, xb, 3, C.ink); path(xb, xw, lw2, C.ink2); ctx.setLineDash([5, 5]); ctx.strokeStyle = C.hot; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(xb, 10); ctx.lineTo(xb, h - 10); ctx.stroke(); ctx.setLineDash([]); grip(ctx, xb, yc - h * 0.3, C.hot); geo = { w, yc, sx, xb }; }
+    else { path(xs, xw, 3, C.ink); ctx.fillStyle = C.line; if (mode === "fixed") { ctx.fillRect(xw, yc - 40, 8, 80); } else { ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(xw + 4, yc, 6, 0, 7); ctx.stroke(); } grip(ctx, sx, yc, C.vector); geo = { w, yc, sx, xb: -99 }; }
+    // readouts
+    const inv = mode === "fixed" ? true : mode === "free" ? false : r < 0;
+    text(ctx, mode === "bnd" ? "thin rope · speed v₁" : "rope", xs, 18, C.ink2, 11);
+    if (mode === "bnd") text(ctx, "thick rope · speed " + ratio.toFixed(2) + " v₁", xw, 18, C.ink2, 11, "right");
+    text(ctx, sim.run ? "pulse travelling…" : "click the rope to send a pulse · drag ● to move the start", 12, h - 10, C.muted, 9);
+    $("puPh").textContent = Math.abs(r) < 1e-6 && mode === "bnd" ? "none" : inv ? "inverted (½λ)" : "in phase";
+    $("puRef").textContent = mode === "bnd" ? fmt(r, 2) : "1.00";
+    $("puTra").textContent = mode === "bnd" ? fmt(tr, 2) : "–";
+    $("puSp").textContent = mode === "bnd" ? fmt(ratio, 2) + " × v₁" : "same as v₁";
+    $("puNote").textContent = mode === "bnd"
+      ? (r < 0 ? "Going into a denser (slower) rope, the reflected pulse is inverted, like a fixed end. The reflected pulse has a smaller amplitude than the incident pulse, and the transmitted pulse is spatially shorter because it moves slower. Its frequency is unchanged." : r > 0 ? "Going into a less dense (faster) rope, the reflected pulse keeps its shape, like a free end. Its speed and wavelength rise in the faster rope." : "Matched ropes: nothing is reflected.")
+      : (mode === "fixed" ? "A fixed end pushes back on the pulse, so the reflected pulse is inverted, 180° out of phase. Its speed, wavelength and frequency do not change." : "A free end reflects the pulse without a phase change, so the reflected pulse is in phase with the incident pulse.");
+  };
+})();
+
+/* ====================================================== W3 · STANDING WAVES LAB ===== */
+(() => {
+  const cv = $("swCanvas"), sim = { dirty: true, anim: true, t: 0 }; sims["wave:standing"] = sim;
+  const lEl = bindRange("swL", "swLOut", (v) => (v / 100).toFixed(2) + " m");
+  const V = 6; let n = 2, trav = false, geo = null;
+  const nB = [...document.querySelectorAll("[data-sw]")];
+  nB.forEach((b) => b.addEventListener("click", () => { n = +b.dataset.sw; setPressed(nB, b); sim.dirty = true; }));
+  $("swTrav").addEventListener("click", () => { trav = !trav; $("swTrav").setAttribute("aria-pressed", String(trav)); sim.dirty = true; });
+  lEl.addEventListener("input", () => { sim.dirty = true; });
+  dragOn(cv, (x, y) => geo && Math.hypot(x - geo.xe, y - geo.yc) < 22 ? "end" : null,
+    (k, x) => { if (geo) setRange(lEl, Math.round(clamp((x - geo.x0) / geo.sc, 0.6, 2.0) * 100)); }, null);
+  sim.frame = (dt) => {
+    sim.t += dt;
+    const L = +lEl.value / 100, f = n * V / (2 * L), lam = 2 * L / n;
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 0.7) : Math.max(300, Math.round(w * 0.3))));
+    clear(ctx, w, h);
+    const x0 = w * 0.08, sc = w * 0.84 / 2.0, yc = h * 0.5, Amp = h * 0.22, xe = x0 + L * sc;
+    geo = { x0, sc, yc, xe };
+    ctx.fillStyle = C.line; ctx.fillRect(x0 - 12, yc - 44, 6, 88); ctx.fillRect(xe + 6, yc - 44, 6, 88);
+    const kk = n * Math.PI / L, om = 2 * Math.PI * f, cs = Math.cos(om * sim.t);
+    // envelope
+    ctx.setLineDash([4, 5]); ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.beginPath();
+    for (let i = 0; i <= 240; i++) { const X = L * i / 240, px = x0 + X * sc, e = Amp * Math.sin(kk * X); i ? ctx.lineTo(px, yc - e) : ctx.moveTo(px, yc - e); }
+    for (let i = 240; i >= 0; i--) { const X = L * i / 240, px = x0 + X * sc, e = Amp * Math.sin(kk * X); ctx.lineTo(px, yc + e); }
+    ctx.stroke(); ctx.setLineDash([]);
+    if (trav) { // two travelling waves that interfere to make the standing wave
+      const tw = (fn, col) => { ctx.strokeStyle = col; ctx.lineWidth = 1.4; ctx.globalAlpha = 0.6; ctx.beginPath(); for (let i = 0; i <= 240; i++) { const X = L * i / 240, px = x0 + X * sc; const yv = fn(X); i ? ctx.lineTo(px, yc - yv) : ctx.moveTo(px, yc - yv); } ctx.stroke(); ctx.globalAlpha = 1; };
+      tw((X) => (Amp / 2) * Math.sin(om * sim.t - kk * X), C.vector); tw((X) => -(Amp / 2) * Math.sin(om * sim.t + kk * X), C.data);
+    }
+    // the standing wave itself
+    ctx.strokeStyle = C.hot; ctx.lineWidth = 3; ctx.beginPath();
+    for (let i = 0; i <= 240; i++) { const X = L * i / 240, px = x0 + X * sc, py = yc + Amp * cs * Math.sin(kk * X); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+    ctx.stroke();
+    // nodes and antinodes
+    for (let m = 0; m <= n; m++) { const X = m * L / n, px = x0 + X * sc; ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(px, yc, 4, 0, 7); ctx.fill(); }
+    for (let m = 0; m < n; m++) { const X = (m + 0.5) * L / n, px = x0 + X * sc; text(ctx, "A", px, yc - Amp - 8, C.hot, 11, "center"); }
+    text(ctx, "nodes ● stay still · antinodes A have the largest swing", 12, h - 10, C.muted, 9);
+    grip(ctx, xe, yc, C.vector);
+    text(ctx, "drag the end ● to change the length", xe, yc + Amp + 26, C.muted, 9, "center");
+    $("swF").textContent = fmt(f, 3) + " Hz"; $("swLam").textContent = fmt(lam, 3) + " m"; $("swNodes").textContent = (n + 1) + " nodes, " + n + " antinodes";
+    $("swNote").textContent = `Only certain frequencies make a standing wave: \\(f_{n} = \\frac{n\\,v}{2L}\\). Here \\(v = ${V}\\,\\mathrm{m\\,s^{-1}}\\) and the harmonic is n = ${n}. The wavelength is \\(\\lambda = \\frac{2L}{n}\\), so the string always fits a whole number of half-wavelengths between its fixed ends. Nodes are spaced \\(\\frac{\\lambda}{2}\\) apart.`;
+  };
+})();
+
+/* ====================================================== W4 · DISPERSION PRISM LAB ===== */
+(() => {
+  const cv = $("dpCanvas"), sim = { dirty: true, anim: false }; sims["refr:dispersion"] = sim;
+  const aEl = bindRange("dpA", "dpAOut", (v) => v + "°");
+  const COL = [["red", "#e0313b", 1.510], ["orange", "#f08a24", 1.513], ["yellow", "#f4d03f", 1.516], ["green", "#2db35a", 1.520], ["blue", "#2d7ff0", 1.527], ["violet", "#8a3ffc", 1.535]];
+  const norm = (v) => { const m = Math.hypot(v[0], v[1]); return [v[0] / m, v[1] / m]; };
+  const rot = (v, a) => [v[0] * Math.cos(a) - v[1] * Math.sin(a), v[0] * Math.sin(a) + v[1] * Math.cos(a)];
+  // vector form of Snell's law; n points towards the incident side, eta = n1 / n2
+  const refr = (d, n, eta) => { const c = -(d[0] * n[0] + d[1] * n[1]), k = 1 - eta * eta * (1 - c * c); if (k < 0) return null; const s = eta * c - Math.sqrt(k); return [eta * d[0] + s * n[0], eta * d[1] + s * n[1]]; };
+  let geo = null; [aEl].forEach((e) => e.addEventListener("input", () => { sim.dirty = true; }));
+  dragOn(cv, (x, y) => geo && Math.hypot(x - geo.sx, y - geo.sy) < 24 ? "start" : null,
+    (k, x, y) => { const wv = [x - geo.M1[0], y - geo.M1[1]]; const th = Math.atan2(-(wv[0] * geo.t[0] + wv[1] * geo.t[1]), wv[0] * geo.n1[0] + wv[1] * geo.n1[1]) * 180 / Math.PI; setRange(aEl, Math.round(clamp(th, 10, 70))); }, null);
+  sim.frame = () => {
+    const th = +aEl.value * Math.PI / 180;
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 0.95) : Math.max(380, Math.round(w * 0.44))));
+    clear(ctx, w, h);
+    const S = Math.min(w * 0.42, h * 0.95 / 0.866), hp = S * 0.866, cx = w * 0.5, cy = h * 0.5;
+    const V1 = [cx - S / 2, cy + hp / 2], V2 = [cx + S / 2, cy + hp / 2], V3 = [cx, cy - hp / 2];
+    const M1 = [(V1[0] + V3[0]) / 2, (V1[1] + V3[1]) / 2], M2 = [(V2[0] + V3[0]) / 2, (V2[1] + V3[1]) / 2];
+    const n1 = [-0.866, -0.5], n2 = [0.866, -0.5], t1 = norm([V3[0] - V1[0], V3[1] - V1[1]]);
+    const inward = [-n1[0], -n1[1]];
+    const d0 = rot(inward, -th), L0 = 0.4 * S;
+    const P0 = [M1[0] - d0[0] * L0, M1[1] - d0[1] * L0];
+    // prism
+    ctx.fillStyle = C.tile; ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(V1[0], V1[1]); ctx.lineTo(V2[0], V2[1]); ctx.lineTo(V3[0], V3[1]); ctx.closePath(); ctx.fill(); ctx.stroke();
+    // white incident beam
+    arrow(ctx, P0[0], P0[1], M1[0], M1[1], C.ink2, 3, 10);
+    grip(ctx, P0[0], P0[1], C.vector);
+    const res = [];
+    COL.forEach(([name, col, n]) => {
+      const d1 = refr(d0, n1, 1 / n);
+      if (!d1) return;
+      // intersect the inside ray with face 2
+      const s = ((M2[0] - M1[0]) * n2[0] + (M2[1] - M1[1]) * n2[1]) / (d1[0] * n2[0] + d1[1] * n2[1]);
+      const P2 = [M1[0] + s * d1[0], M1[1] + s * d1[1]];
+      const d2 = refr(d1, [-n2[0], -n2[1]], n);
+      ctx.strokeStyle = col; ctx.lineWidth = 2.2; ctx.globalAlpha = 0.95; ctx.beginPath(); ctx.moveTo(M1[0], M1[1]); ctx.lineTo(P2[0], P2[1]); ctx.stroke();
+      if (d2) { const L = 0.5 * S; ctx.beginPath(); ctx.moveTo(P2[0], P2[1]); ctx.lineTo(P2[0] + d2[0] * L, P2[1] + d2[1] * L); ctx.stroke();
+        const dev = Math.acos(clamp(d0[0] * d2[0] + d0[1] * d2[1], -1, 1)) * 180 / Math.PI; res.push([name, dev]); }
+      else res.push([name, null]);
+      ctx.globalAlpha = 1;
+    });
+    text(ctx, "white light", P0[0] - 8, P0[1] - 10, C.ink2, 10, "right");
+    geo = { M1, n1, t: t1, sx: P0[0], sy: P0[1] };
+    const red = res.find((r) => r[0] === "red"), vio = res.find((r) => r[0] === "violet");
+    text(ctx, "drag ● to change the angle of incidence", 12, h - 10, C.muted, 9);
+    $("dpRed").textContent = red && red[1] !== null ? fmt(red[1], 3) + "°" : "–";
+    $("dpViolet").textContent = vio && vio[1] !== null ? fmt(vio[1], 3) + "°" : "–";
+    $("dpSpread").textContent = red && vio && red[1] !== null && vio[1] !== null ? fmt(Math.abs(vio[1] - red[1]), 2) + "°" : "–";
+    const tir = res.filter((r) => r[1] === null).length;
+    $("dpNote").textContent = (tir
+      ? `At this angle the light is totally internally reflected at the second face for ${tir} colour(s): no light leaves that face. Try a smaller angle. `
+      : "") + "Each colour has a slightly different refractive index in glass, so each colour bends by a different amount (dispersion). Violet has the highest n, so it bends the most. Deviation is the angle between the incident and emerging rays, and each face bends the light.";
+  };
+})();
+
+/* ====================================================== MY PROGRESS: save, load, share with a teacher ===== */
+(() => {
+  const pv = $("progressBox"); if (!pv) return;
+  const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+  const btn = (cls, t, fn) => { const b = el("button", cls); b.type = "button"; if (t != null) b.textContent = t; if (fn) b.addEventListener("click", fn); return b; };
+  const say = (box, cls, html) => { box.hidden = false; box.className = "verdict " + cls; box.innerHTML = html; };
+  const allItems = () => Object.keys(SCOPE).flatMap((mod) => SCOPE[mod].map((it, i) => ({ r: ratings[mod + "." + i], text: it[0] })));
+  const PRE = "y12waves-", KEYS = (k) => /^(ratings|rr-done|best-[a-z]+|ex-[a-z0-9-]+|exm-[a-z0-9-]+)$/.test(k);
+  const QUIZ = [["mixed", "Mixed challenge", 10]].concat(Object.keys(SCOPE).map((m) => [m, MODS[m].name + " quick check", 8]));
+  const plain = (t) => (typeof plainTeX === "function" ? plainTeX(t) : t);
+  function snapshot() {
+    let conf = 0, get = 0, not = 0; const all = allItems(), weak = [];
+    all.forEach((x) => { if (x.r === 2) conf++; else if (x.r === 1) { get++; weak.push("Getting there: " + plain(x.text)); } else if (x.r === 0) { not++; weak.unshift("Not yet: " + plain(x.text)); } });
+    return { conf, get, not, total: all.length, weak, quiz: QUIZ.map((q) => [q[1], store.get("best-" + q[0], null), q[2]]), rr: Object.keys(store.get("rr-done", {})).length };
+  }
+  function report(name) {
+    const s = snapshot(), L = [];
+    L.push("Year 12 Physics · Waves and light (AS91170) revision progress"); L.push("Student: " + (name || "(no name given)")); L.push("Date: " + new Date().toLocaleDateString("en-NZ", { day: "numeric", month: "long", year: "numeric" })); L.push("");
+    L.push("SELF-RATINGS (course map, " + s.total + " statements)"); L.push("Confident " + s.conf + " · Getting there " + s.get + " · Not yet " + s.not + " · Not rated " + (s.total - s.conf - s.get - s.not));
+    s.weak.slice(0, 6).forEach((w) => L.push("- " + w)); L.push("");
+    L.push("QUIZ BEST SCORES"); s.quiz.forEach((q) => L.push("- " + q[0] + ": " + (q[1] === null ? "not tried" : q[1] + "/" + q[2]))); L.push("");
+    L.push("REARRANGING FORMULAE"); L.push("- Formulae rearranged correctly: " + s.rr); L.push("");
+    L.push("Note: these results are self-rated by the student in the Physics@Rosmini Waves lab."); return L.join("\n");
+  }
+  const enc = (o) => "W12." + btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  const dec = (t) => { t = String(t).trim().replace(/\s+/g, ""); if (!t.startsWith("W12.")) throw 0; const o = JSON.parse(decodeURIComponent(escape(atob(t.slice(4).replace(/-/g, "+").replace(/_/g, "/"))))); if (!o || typeof o !== "object" || Array.isArray(o)) throw 0; return o; };
+  const collect = () => { const o = {}; try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k.startsWith(PRE) && KEYS(k.slice(PRE.length))) o[k.slice(PRE.length)] = JSON.parse(localStorage.getItem(k)); } } catch (e) {} return o; };
+  function renderProgress() {
+    const s = snapshot(); pv.replaceChildren();
+    const g = el("div", "telemetry"); [["Confident", s.conf + " of " + s.total], ["Getting there / Not yet", s.get + " / " + s.not], ["Best mixed challenge", s.quiz[0][1] === null ? "not tried" : s.quiz[0][1] + "/10"], ["Formulae rearranged", String(s.rr)]].forEach((f) => g.appendChild(el("div", "tm", "<span>" + f[0] + "</span><b>" + f[1] + "</b>"))); pv.appendChild(g);
+    const pre = el("pre", "report"); pre.textContent = report(store.get("me", {}).name || ""); pv.appendChild(pre);
+    pv.appendChild(el("h3", null, "Save or load my progress"));
+    pv.appendChild(el("p", "note", "Your progress is kept automatically on this device. To carry it to another device, save a progress code here and load it there. There are no accounts and nothing is stored on a server."));
+    const row = el("div", "sum-tools"), code = el("textarea", "write code"); code.rows = 3; code.placeholder = "Your progress code appears here. To load, paste a code here."; code.setAttribute("aria-label", "Progress code");
+    const msg = el("div"); msg.hidden = true; msg.setAttribute("aria-live", "polite");
+    row.appendChild(btn("btn sm", "Save: make my code", () => { code.value = enc(collect()); code.select(); let ok = false; try { ok = document.execCommand("copy"); } catch (e) {} if (navigator.clipboard) navigator.clipboard.writeText(code.value).catch(() => {}); say(msg, "ok", "<strong>Code ready" + (ok ? " and copied" : "") + ".</strong> Paste it somewhere you can reach from your other device (an email to yourself, or a Google Doc), or download it as a file."); }));
+    row.appendChild(btn("btn sm", "Download as a file", () => { const a = el("a"); a.href = URL.createObjectURL(new Blob([enc(collect())], { type: "text/plain" })); a.download = "waves-progress.txt"; document.body.appendChild(a); a.click(); a.remove(); say(msg, "ok", "<strong>Saved</strong> as electricity-progress.txt in your downloads."); }));
+    const load = (t) => { let o; try { o = dec(t); } catch (e) { say(msg, "bad", "<strong>That is not a valid progress code.</strong> Copy the whole code, starting with W12."); return; }
+      say(msg, "info", "<strong>Load this progress?</strong> It will replace the progress saved on this device. "); msg.appendChild(btn("btn sm", "Yes, load it", () => { try { Object.keys(collect()).forEach((k) => localStorage.removeItem(PRE + k)); Object.keys(o).forEach((k) => { if (KEYS(k)) localStorage.setItem(PRE + k, JSON.stringify(o[k])); }); } catch (e) {} location.reload(); })); };
+    row.appendChild(btn("btn sm", "Load the code in the box", () => load(code.value)));
+    const file = el("input"); file.type = "file"; file.accept = ".txt,text/plain"; file.hidden = true; file.addEventListener("change", () => { const f = file.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => { code.value = String(rd.result); load(code.value); }; rd.readAsText(f); });
+    row.appendChild(btn("btn sm", "Load from a file", () => file.click())); row.appendChild(file);
+    pv.append(row, code, msg);
+    pv.appendChild(el("h3", null, "Share my results with my teacher"));
+    pv.appendChild(el("p", "note", "Type your name and your teacher's email address. The button opens an email with your results already written. Check it, then press <b>Send</b>. Nothing is sent until you send it yourself, and this website does not collect your name or the address."));
+    const me = store.get("me", {}), form = el("div", "share");
+    const fld = (lab, type, val, ph) => { const l = el("label"); l.append(lab); const i = el("input"); i.type = type; i.value = val || ""; i.placeholder = ph; i.autocomplete = type === "email" ? "off" : "name"; l.appendChild(i); form.appendChild(l); return i; };
+    const nm = fld("Your name", "text", me.name, "First and last name"), em = fld("Teacher's email address", "email", me.teacher, "teacher@school.nz"); pv.appendChild(form);
+    const links = el("div", "sum-tools"); const mk = (t) => { const a = el("a", "btn sm"); a.textContent = t; a.target = "_blank"; a.rel = "noopener"; a.setAttribute("role", "button"); links.appendChild(a); return a; };
+    const gm = mk("Open in Gmail"), ml = mk("Open in my email app"), smsg = el("div"); smsg.hidden = true; smsg.setAttribute("aria-live", "polite"); let warned = false;
+    links.appendChild(btn("btn sm", "Copy the report", () => { const t = report(nm.value.trim()), ta = el("textarea"); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (e) {} ta.remove(); if (navigator.clipboard) navigator.clipboard.writeText(t).then(() => {}, () => {}); warned = false; say(smsg, "ok", "<strong>Report copied.</strong> Paste it into an email or Google Classroom."); }));
+    const upd = () => { const name = nm.value.trim(), to = em.value.trim(), ok = /^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/.test(to); store.set("me", { name, teacher: to }); pre.textContent = report(name);
+      const su = "Waves revision progress" + (name ? " · " + name : ""), body = report(name);
+      if (ok && warned) { smsg.hidden = true; warned = false; } [gm, ml].forEach((a) => { a.classList.toggle("off", !ok); a.setAttribute("aria-disabled", String(!ok)); });
+      if (ok) { gm.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(to) + "&su=" + encodeURIComponent(su) + "&body=" + encodeURIComponent(body); ml.href = "mailto:" + encodeURIComponent(to).replace(/%40/g, "@") + "?subject=" + encodeURIComponent(su) + "&body=" + encodeURIComponent(body.replace(/\n/g, "\r\n")); } else { gm.removeAttribute("href"); ml.removeAttribute("href"); } };
+    [gm, ml].forEach((a) => a.addEventListener("click", (e) => { if (!a.hasAttribute("href")) { e.preventDefault(); warned = true; say(smsg, "bad", "<strong>Enter your teacher's email address first.</strong> For example name@school.nz"); } else { warned = false; say(smsg, "ok", "<strong>Your email is ready.</strong> Check it, then press Send. If nothing opened, use Copy the report and paste it into an email."); } }));
+    nm.addEventListener("input", upd); em.addEventListener("input", upd); upd(); pv.append(links, smsg);
+  }
+  renderProgress();
+  const psec = document.querySelector('section[data-mod="map"][data-view="progress"]');
+  new MutationObserver(() => { if (!psec.classList.contains("hidden")) renderProgress(); }).observe(psec, { attributes: true, attributeFilter: ["class"] });
+})();
+
+/* key terms filter */
+(() => { const f = $("ktFilter"); if (!f) return; const terms = [...document.querySelectorAll(".kt-term")], groups = [...document.querySelectorAll(".kt-group")];
+  const run = () => { const q = f.value.trim().toLowerCase(); let n = 0; terms.forEach((t) => { const ok = !q || t.textContent.toLowerCase().includes(q); t.hidden = !ok; if (ok) n++; }); groups.forEach((g) => { g.hidden = ![...g.querySelectorAll(".kt-term")].some((t) => !t.hidden); }); $("ktCount").textContent = q ? n + " of " + terms.length + " terms match" : terms.length + " terms"; };
+  f.addEventListener("input", run); run(); })();
 
 /* ====================================================== LOOP & START ===== */
 let last = null;
