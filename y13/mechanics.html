@@ -1343,12 +1343,12 @@ body.light-mode[data-topic="osc"]{--topic:#68409a;--topic-contrast:#fff}
 </section>
 
 <section class="pane hidden" data-section="osc" data-view="shm">
-<div class="section-identity"><strong>4.2 · SHM lab</strong><p>A mass on a spring or a pendulum, with its reference circle, graphs and energy.</p></div>
+<div class="section-identity"><strong>4.2 · SHM lab</strong><p>See where the displacement curve comes from: the oscillator, its shadow, the reference circle and the graph, all in line.</p></div>
 <h2>SHM lab</h2>
-<p class="sub">The oscillator (left) is linked to its reference circle: the rotating point's shadow matches the displacement. The graphs plot \(x\), \(v\) and \(a\) against time, and the bars show the energy. Add damping to see the amplitude decay.</p>
+<p class="sub">A lamp projects the motion. For the <strong>spring</strong>, the mass, the point on the reference circle and the dot drawing the \(x\)–\(t\) graph always stay at the same height. For the <strong>pendulum</strong>, the bob, its shadow on the floor, the point on the circle and the pen on the paper always stay in a vertical line. The displacement curve is simply that shadow, spread out along a time axis. Use <strong>slow motion</strong> to follow it.</p>
 <div class="nx-lab">
 <div class="sim"><canvas id="shmCanvas" aria-label="Mass on a spring or pendulum beside its reference circle, with displacement, velocity and acceleration graphs and energy bars"></canvas></div>
-<div class="legend"><span style="--key:#c5a2ff">Displacement, \(x\)</span><span style="--key:#ffd76a">Velocity, \(v\)</span><span style="--key:#ff8a7a">Acceleration, \(a\)</span><span style="--key:#78d9f7">\(E_{k}\)</span><span style="--key:#8fd694">\(E_{p}\)</span></div>
+<div class="legend"><span style="--key:#ffd76a">Projection line and point on the circle</span><span style="--key:#c5a2ff">Displacement, \(x\)</span><span style="--key:#ffd76a">Velocity, \(v\)</span><span style="--key:#ff8a7a">Acceleration, \(a\)</span><span style="--key:#78d9f7">Kinetic energy, \(E_{k}\)</span><span style="--key:#5fd39a">Potential energy, \(E_{p}\)</span></div>
 <div class="nx-ctlbar">
 <div class="nx-bar-inputs">
 <h3>Controls</h3>
@@ -1359,12 +1359,20 @@ body.light-mode[data-topic="osc"]{--topic:#68409a;--topic-contrast:#fff}
 <div class="control"><label for="shmA">Amplitude, \(A\) <output id="shmAOut">0.10 m</output></label><input id="shmA" max="0.2" min="0.02" step="0.01" type="range" value="0.1"/></div>
 <div class="control"><label for="shmB">Damping <output id="shmBOut">none</output></label><input id="shmB" max="1" min="0" step="0.05" type="range" value="0"/></div>
 <div class="btn-row"><button class="tool-btn" id="shmPlay" type="button">Pause</button><button class="tool-btn secondary" id="shmReset" type="button">Release again</button><button class="tool-btn secondary" id="shmSlow" type="button">Slow motion: off</button></div>
+<label class="check-row"><input checked id="shmLink" type="checkbox"/> Show the lamp and projection line</label>
+<label class="check-row"><input checked id="shmVA" type="checkbox"/> Show velocity and acceleration graphs</label>
 </div>
 <div class="nx-bar-info"><div class="readout" id="shmReadout">…</div></div>
 </div>
 </div>
 <h3>Look for these ideas</h3>
 <ul class="nx-list">
+<li><strong>Where the curve comes from:</strong> the point on the reference circle moves round at a steady rate, one turn per period. Its shadow (its height for the spring, its sideways position for the pendulum) moves exactly like the oscillator. Plot that shadow against time and you get the displacement curve, \(x = A\cos\omega t\).</li>
+<li>The shadow moves fastest through the middle and slows to a stop at each end, even though the point on the circle never changes speed. That is why the curve is steep where it crosses the axis and flat at the peaks.</li>
+<li>One trip round the circle is one complete wave on the graph. A quarter turn (\(\pi/2\) rad) takes the oscillator from an extreme to equilibrium.</li>
+<li>The dotted lines mark \(+A\) and \(-A\): the radius of the circle is the amplitude of the oscillation and the height of the curve.</li>
+<li><strong>Energy against position:</strong> \(E_{p} = \tfrac{1}{2}kx^{2}\) is a parabola, zero at equilibrium and largest at ±\(A\). \(E_{k}\) is the same parabola upside down. The two dots slide along their curves as the oscillator moves, and always add up to the total mechanical energy line. With damping, that line and the \(E_{k}\) curve sink.</li>
+<li><strong>Energy against time:</strong> \(E_{k}\) and \(E_{p}\) rise and fall <em>twice</em> in every oscillation, always adding to the same total. \(E_{p}\) peaks whenever \(x\) is at +\(A\) or −\(A\); \(E_{k}\) peaks whenever \(x\) crosses zero. Read down the dashed time line to compare all the graphs at the same instant.</li>
 <li>At the extremes: \(v = 0\), \(|a|\) is a maximum and all the energy is potential. At equilibrium: \(|v|\) is a maximum, \(a = 0\) and all the energy is kinetic.</li>
 <li>\(a\) is always opposite to \(x\): the graphs are mirror images. \(v\) is a quarter of a cycle (π/2) ahead of \(x\).</li>
 <li>Change the amplitude: the period stays the same. That is the signature of SHM.</li>
@@ -2058,36 +2066,117 @@ function bar(c,x,y,w,h,frac,col,label,val){c.fillStyle='#141c30';c.fillRect(x,y,
 
 /* ============ 4.2 SHM LAB ============ */
 (()=>{
- const cv=$('shmCanvas');const st={t:0,playing:true,slow:false,hist:[]};
+ const cv=$('shmCanvas');const st={t:0,playing:true,slow:false,hist:[],page:0};
  const P=()=>{const mode=$('shmMode').value,m=num('shmM'),k=num('shmK'),l=num('shmL'),A=num('shmA'),b=num('shmB');const w=mode==='spring'?Math.sqrt(k/m):Math.sqrt(G0/l);const kk=mode==='spring'?k:m*G0/l;const gam=b*0.35*w;return{mode,m,k:kk,l,A,w,gam,wd:Math.sqrt(Math.max(w*w-gam*gam,1e-6))}};
  function state(p,t){const e=Math.exp(-p.gam*t),x=p.A*e*Math.cos(p.wd*t),v=p.A*e*(-p.gam*Math.cos(p.wd*t)-p.wd*Math.sin(p.wd*t));return{x,v,a:-p.w*p.w*x-2*p.gam*v}}
  function ui(){const md=$('shmMode').value;$('shmKWrap').classList.toggle('hidden',md!=='spring');$('shmLWrap').classList.toggle('hidden',md==='spring');
   setOut('shmK',num('shmK')+' N m⁻¹');setOut('shmM',fx(num('shmM'),2)+' kg');setOut('shmL',fx(num('shmL'),2)+' m');setOut('shmA',fx(num('shmA'),2)+' m');const b=num('shmB');setOut('shmB',b===0?'none':b<0.35?'light':b<0.7?'medium':'heavy')}
- function reset(){st.t=0;st.hist=[]}
+ function reset(){st.t=0;st.hist=[];st.page=0}
  ['shmMode','shmK','shmM','shmL','shmA','shmB'].forEach(id=>$(id).addEventListener('input',()=>{ui();reset()}));
  $('shmPlay').onclick=()=>{st.playing=!st.playing;$('shmPlay').textContent=st.playing?'Pause':'Play'};$('shmReset').onclick=reset;
  $('shmSlow').onclick=()=>{st.slow=!st.slow;$('shmSlow').textContent='Slow motion: '+(st.slow?'on':'off')};
- const sim={enter(){ui()},step(dt){if(!st.playing)return;const p=P();st.t+=dt*(st.slow?0.25:1);const s=state(p,st.t);st.hist.push([st.t,s.x,s.v,s.a]);const T=2*Math.PI/p.w;while(st.hist.length&&st.hist[0][0]<st.t-2.5*T)st.hist.shift()},
- draw(){const {c,W,H}=fit(cv,420,640);clear(c,W,H);const p=P();const nar=W<640;const s0=state(p,st.t);const T=2*Math.PI/p.w;
-  const colW=nar?W/2:W*0.2,midY=nar?150:H*0.42,sc=(nar?100:Math.min(110,H*0.25))/0.2;
-  // oscillator
-  const ox=colW/2;
-  if(p.mode==='spring'){const top=20,eqY=midY,my=eqY+s0.x*sc;const coils=14;c.strokeStyle='#9aa6bd';c.lineWidth=2;c.beginPath();c.moveTo(ox,top);for(let i=0;i<=coils;i++){const yy=top+12+(my-22-top-12)*i/coils;c.lineTo(ox+(i%2?12:-12)*(i>0&&i<coils?1:0),yy)}c.lineTo(ox,my-20);c.stroke();
-   line(c,ox-40,top,ox+40,top,'#6c7894',4);c.fillStyle=VIO;c.fillRect(ox-20,my-20,40,40);line(c,ox-46,eqY,ox+46,eqY,'#4a5878',1,[4,4]);text(c,'\u200bequilibrium',ox+44,eqY-4,MUT,10,'right')}
-  else{const pv=20,Lp=Math.min(midY+60,H*0.6);const th=s0.x/p.l;const bx=ox+Math.sin(th)*Lp*0.9,by=pv+Math.cos(th)*Lp*0.9;line(c,ox-40,pv,ox+40,pv,'#6c7894',4);line(c,ox,pv,bx,by,'#9aa6bd',2);line(c,ox,pv,ox,pv+Lp*0.95,'#4a5878',1,[4,4]);c.fillStyle=VIO;c.beginPath();c.arc(bx,by,14,0,7);c.fill();text(c,'\u200b'+fx(th*180/Math.PI,1)+'°',ox+8,pv+28,MUT,10)}
-  // reference circle (x drawn vertically, down positive like the spring)
-  const rcx=nar?W*0.75:colW+W*0.12,rr=p.A*sc*Math.exp(-p.gam*st.t);const ph=p.wd*st.t;
-  c.strokeStyle='#3a4560';c.lineWidth=1.5;c.beginPath();c.arc(rcx,midY,p.A*sc,0,7);c.stroke();if(p.gam>0){c.strokeStyle='#5a4a80';c.beginPath();c.arc(rcx,midY,rr,0,7);c.stroke()}
-  const qx=rcx+rr*Math.sin(ph),qy=midY+rr*Math.cos(ph);line(c,rcx,midY,qx,qy,'#c5a2ff',1.5);c.fillStyle=YEL;c.beginPath();c.arc(qx,qy,5,0,7);c.fill();
-  if(p.mode==='spring')line(c,qx,qy,ox+24,midY+s0.x*sc,'rgba(255,215,106,.5)',1,[3,4]);
-  text(c,'\u200breference circle',rcx,midY-p.A*sc-10,MUT,10,'center');text(c,'\u200bphase ωt = '+fx((ph%(2*Math.PI)),2)+' rad',rcx,midY+p.A*sc+18,MUT,10,'center');
-  // energy bars
-  const Etot=0.5*p.k*p.A*p.A,Ek=0.5*p.m*s0.v*s0.v,Ep=0.5*p.k*s0.x*s0.x;const eby=nar?H*0.38:H-150,ebh=nar?60:110,ebx=nar?20:20;
-  bar(c,ebx,eby,26,ebh,Ek/Etot,CYN,'E_k');bar(c,ebx+40,eby,26,ebh,Ep/Etot,GRN,'E_p');bar(c,ebx+80,eby,26,ebh,(Ek+Ep)/Etot,'#9aa6bd','total');
-  // graphs
-  const gx=nar?40:colW+W*0.26,gw=W-gx-16,gy0=nar?H*0.54:20,gh=((nar?H*0.5:H-40)-24)/3;const t1=st.t,t0=t1-2.5*T;
-  [[1,'x (m)',p.A,VIO],[2,'v (m s⁻¹)',p.A*p.w,YEL],[3,'a (m s⁻²)',p.A*p.w*p.w,RED]].forEach(([k,lab,mx,col],j)=>{const y=gy0+j*(gh+12);const m=mx*1.1;const {X,Y}=frame(c,gx,y,gw,gh,t0,t1,-m,m,'\u200b'+lab,j===2?'\u200btime':'',v=>fx(v,2));path(c,st.hist.map(q=>[q[0],q[k]]),X,Y,col,2.2)});
-  setRO('shmReadout',(p.mode==='spring'?'\\(T = 2\\pi\\sqrt{m/k}\\)':'\\(T = 2\\pi\\sqrt{l/g}\\)')+' = <b>'+fx(T,3)+' s</b>; \\(f\\) = '+fx(1/T,3)+' Hz; \\(\\omega\\) = '+fx(p.w,2)+' rad s⁻¹.<br>\\(v_{\\text{max}} = A\\omega\\) = '+fx(p.A*p.w,3)+' m s⁻¹; \\(a_{\\text{max}} = A\\omega^{2}\\) = '+fx(p.A*p.w*p.w,3)+' m s⁻².<br>Now: \\(x\\) = '+fx(s0.x,3)+' m, \\(v\\) = '+fx(s0.v,3)+' m s⁻¹, \\(a\\) = '+fx(s0.a,3)+' m s⁻².<br>Energy: \\(E_{k}\\) '+fx(Ek,4)+' J + \\(E_{p}\\) '+fx(Ep,4)+' J = '+fx(Ek+Ep,4)+' J'+(p.gam>0?' (falling: damping turns it into heat)':' (constant)')+'.'+(p.mode==='pend'&&p.A/p.l>0.26?'<br><b>Note:</b> this swing is more than 15°, so a real pendulum would be slightly slower than the SHM formula predicts.':''))}};
+ const PAGE=3; // each page of the graphs shows three periods
+ const LINK='rgba(255,215,106,.75)',GUIDE='#3a4868';
+ function lamp(c,x,y,dir){c.fillStyle=YEL;c.beginPath();c.arc(x,y,6,0,7);c.fill();c.strokeStyle='rgba(255,215,106,.6)';c.lineWidth=1.5;
+  for(let i=-1;i<=1;i++){const a=dir+i*0.45;c.beginPath();c.moveTo(x+Math.cos(a)*10,y+Math.sin(a)*10);c.lineTo(x+Math.cos(a)*17,y+Math.sin(a)*17);c.stroke()}}
+ function dot(c,x,y,col,r){c.fillStyle=col;c.beginPath();c.arc(x,y,r||5,0,7);c.fill();c.strokeStyle='#0b1020';c.lineWidth=1.5;c.stroke()}
+ // conventional graph of one quantity against time, with a dot at the present moment
+ function tGraph(c,x,y,w,h,t0,t1,m,lab,col,k,now,val,xlab){const {X,Y}=frame(c,x,y,w,h,t0,t1,-m,m,'\u200b'+lab,xlab?'\u200btime':'',v=>fx(v,2));path(c,st.hist.map(q=>[q[0],q[k]]),X,Y,col,2.2);const dx=X(now),dy=Y(val);line(c,dx,y,dx,y+h,'#33405e',1,[3,4]);dot(c,dx,dy,col,5);const L=dx>x+w-70;text(c,'\u200b'+fx(val,2)+' '+(lab.match(/\((.*)\)/)||['',''])[1],dx+(L?-9:9),dy+(val>=0?-8:15),col,11,L?'right':'left');return{X,Y}}
+ // energy against time on the same time axis: kinetic, potential and total
+ function eGraph(c,x,y,w,h,t0,t1,p,now,Ek,Ep,xlab){const Et=0.5*p.k*p.A*p.A;const {X,Y}=frame(c,x,y,w,h,t0,t1,0,Et*1.4,'\u200benergy (J)',xlab?'\u200btime':'',v=>fx(v,3));
+  path(c,st.hist.map(q=>[q[0],0.5*p.m*q[2]*q[2]+0.5*p.k*q[1]*q[1]]),X,Y,'#9aa6bd',1.6);path(c,st.hist.map(q=>[q[0],0.5*p.k*q[1]*q[1]]),X,Y,GRN,2.2);path(c,st.hist.map(q=>[q[0],0.5*p.m*q[2]*q[2]]),X,Y,CYN,2.2);
+  const dx=X(now);line(c,dx,y,dx,y+h,'#33405e',1,[3,4]);dot(c,dx,Y(Ep),GRN,4.5);dot(c,dx,Y(Ek),CYN,4.5);const L=dx>x+w-70;
+  text(c,'E_k',dx+(L?-9:9),Y(Ek)+(Ek>=Ep?-7:14),CYN,11,L?'right':'left');text(c,'E_p',dx+(L?-9:9),Y(Ep)+(Ep>Ek?-7:14),GRN,11,L?'right':'left');text(c,'\u200btotal mechanical energy',x+w-4,Y(Et)-5,'#c8d0e0',10,'right')}
+ // energy against position: potential energy parabola, kinetic energy upside-down parabola, total line
+ function exGraph(c,x,y,w,h,p,s0,Ek,Ep){const Et=0.5*p.k*p.A*p.A,En=Ek+Ep,cx=x+w/2,base=y+h-18,hw=w/2-10,top=y+30;
+  const X=q=>cx+q/p.A*hw,Y=E=>base-E/Et*(base-top-8);
+  line(c,x,base,x+w,base,AX,1.3);line(c,cx,y+4,cx,base,'#4a5878',1,[4,4]);
+  text(c,'\u200benergy',cx+5,y+12,MUT,10);text(c,'\u200bposition x',cx,y+h-3,MUT,10,'center');text(c,'−A',X(-p.A),base+13,MUT,10,'center');text(c,'+A',X(p.A),base+13,MUT,10,'center');
+  const U=[],K=[];const An=Math.sqrt(2*En/p.k);for(let i=-40;i<=40;i++){const q=p.A*i/40;U.push([q,0.5*p.k*q*q]);if(Math.abs(q)<=An+1e-9)K.push([q,En-0.5*p.k*q*q])}
+  line(c,X(-p.A),Y(Et),X(p.A),Y(Et),'#56657f',1,[3,4]);line(c,X(-An),Y(En),X(An),Y(En),'#9aa6bd',1.6);text(c,'\u200btotal mechanical energy',cx,Y(En)-6,'#c8d0e0',10,'center');
+  path(c,U,X,Y,GRN,2.2);path(c,K,X,Y,CYN,2.2);
+  const qx=X(s0.x);line(c,qx,Y(En),qx,base,LINK,1.2,[3,4]);dot(c,qx,Y(Ep),GRN,5);dot(c,qx,Y(Ek),CYN,5);dot(c,qx,base,VIO,4);
+  const L=s0.x>0;text(c,'E_k',qx+(L?-9:9),Y(Ek)+4,CYN,11,L?'right':'left');text(c,'E_p',qx+(L?-9:9),Y(Ep)+4,GRN,11,L?'right':'left')}
+ const sim={enter(){ui()},step(dt){if(!st.playing)return;const p=P();st.t+=dt*(st.slow?0.25:1);const T=2*Math.PI/p.w;const pg=Math.floor(st.t/(PAGE*T));if(pg!==st.page){st.page=pg;st.hist=[]}
+  const s=state(p,st.t);st.hist.push([st.t,s.x,s.v,s.a])},
+ draw(){const p=P();const pend=p.mode==='pend';const va=$('shmVA').checked,link=$('shmLink').checked;const {c,W,H}=fit(cv,pend?580:(va?584:420),pend?780:(va?790:470));clear(c,W,H);const nar=W<640;
+  const s0=state(p,st.t);const T=2*Math.PI/p.w;const t0=st.page*PAGE*T,t1=t0+PAGE*T;
+  const env=Math.exp(-p.gam*st.t),ph=p.wd*st.t;
+  const Etot=0.5*p.k*p.A*p.A,Ek=0.5*p.m*s0.v*s0.v,Ep=0.5*p.k*s0.x*s0.x;
+  const bars=(x,y,h)=>{bar(c,x,y,26,h,Ek/Etot,CYN,'E_k');bar(c,x+40,y,26,h,Ep/Etot,GRN,'E_p');bar(c,x+80,y,26,h,(Ek+Ep)/Etot,'#9aa6bd','total')};
+  if(!pend){
+   /* ---- mass on a spring: displacement is vertical, so everything lines up horizontally ---- */
+   const sc=Math.min(500,W*0.155/0.2),Rm=0.2*sc,midY=nar?90:140,mm=0.25*sc;
+   const ox=nar?40:Math.max(56,W*0.075),rcx=ox+(nar?30:54)+Rm+10,gx=rcx+Rm+(nar?34:50),gw=W-gx-(nar?10:16);
+   const my=midY-s0.x*sc;
+   // the x-t graph, drawn to the same scale as the motion
+   const G=frame(c,gx,midY-mm,gw,2*mm,t0,t1,-0.25,0.25,'\u200bx (m)','\u200btime',v=>fx(v,2));
+   // amplitude guide lines run from the oscillator, through the circle, across the graph
+   [1,-1].forEach(sg=>{const yy=midY-sg*p.A*sc;line(c,ox-24,yy,gx+gw,yy,GUIDE,1,[2,5]);text(c,sg>0?'+A':'−A',gx+gw-4,yy+(sg>0?-5:13),MUT,11,'right')});
+   line(c,ox-24,midY,gx,midY,'#4a5878',1,[4,4]);text(c,'\u200bequilibrium',gx+8,midY+13,MUT,9);
+   path(c,st.hist.map(q=>[q[0],q[1]]),G.X,G.Y,VIO,2.4);
+   // spring and mass
+   const top=8;line(c,ox-30,top,ox+30,top,'#6c7894',4);const coils=12;c.strokeStyle='#9aa6bd';c.lineWidth=2;c.beginPath();c.moveTo(ox,top);
+   for(let i=0;i<=coils;i++){const yy=top+6+(my-18-top-12)*i/coils;c.lineTo(ox+(i>0&&i<coils?(i%2?10:-10):0),yy)}c.lineTo(ox,my-16);c.stroke();
+   c.fillStyle=VIO;c.fillRect(ox-17,my-16,34,32);
+   // reference circle: the point goes round at steady speed; its height is the displacement
+   c.strokeStyle='#3a4560';c.lineWidth=1.5;c.beginPath();c.arc(rcx,midY,p.A*sc,0,7);c.stroke();
+   if(p.gam>0){c.strokeStyle='#5a4a80';c.beginPath();c.arc(rcx,midY,p.A*sc*env,0,7);c.stroke()}
+   const rr=p.A*sc*env,qx=rcx-rr*Math.sin(ph),qy=midY-rr*Math.cos(ph);
+   line(c,rcx,midY,qx,qy,VIO,1.6);line(c,rcx,midY-Rm-4,rcx,midY+Rm+4,'#26324d',1);
+   text(c,'\u200breference circle',rcx,midY+Rm+(nar?16:20),MUT,10,'center');
+   const dx=G.X(st.t);
+   if(link){lamp(c,ox-34,my,0);line(c,ox+17,my,dx,my,LINK,1.4,[5,4])}
+   line(c,dx,midY-mm,dx,midY+mm,'#33405e',1,[3,4]);dot(c,qx,qy,YEL,5);dot(c,gx,my,YEL,3.5);dot(c,dx,my,VIO,5.5);{const L=dx>gx+gw-70;text(c,'\u200bx = '+fx(s0.x,3)+' m',dx+(L?-10:10),my+(s0.x>=0?-9:16),VIO,11,L?'right':'left')}
+   if(!nar){text(c,'\u200bThe mass, the point on the circle and the graph are always at the same height.',gx+gw/2,midY+mm+17,MUT,10,'center')}
+   // lower part: energy bars, then velocity and acceleration graphs on the same time axis
+   const by=nar?222:322,bh=nar?52:96;bars(nar?20:22,by,bh);if(nar)exGraph(c,146,196,W-156,112,p,s0,Ek,Ep);else exGraph(c,150,300,gx-150-40,va?230:110,p,s0,Ek,Ep);
+   {const vx=nar?46:gx,vw=nar?W-62:gw,vh=nar?112:70,gap=nar?46:22;let vy=nar?318:308;
+    if(va){tGraph(c,vx,vy,vw,vh,t0,t1,p.A*p.w*1.1,'v (m s⁻¹)',YEL,2,st.t,s0.v,false);vy+=vh+gap;
+     tGraph(c,vx,vy,vw,vh,t0,t1,p.A*p.w*p.w*1.1,'a (m s⁻²)',RED,3,st.t,s0.a,false);vy+=vh+gap}
+    eGraph(c,vx,vy,vw,vh,t0,t1,p,st.t,Ek,Ep,true)}
+  }else{
+   /* ---- pendulum: displacement is horizontal, so everything lines up vertically ---- */
+   const colW=nar?190:W*0.38,px=colW/2+(nar?4:10),pv=26;
+   const Lp=150,R=400*p.A;
+   const hx=(s0.x/p.A)*R,th=Math.asin(Math.max(-1,Math.min(1,hx/Lp))),bx=px+hx,by=pv+Math.cos(th)*Lp;
+   const floorY=pv+150+28,cyc=floorY+24+80,py0=cyc+80+26,pH=(nar?H-150:H)-py0-18;
+   // the paper: displacement across, time running down
+   panel(c,px-84,py0,168,pH);const Yt=t=>py0+(t-t0)/(t1-t0)*pH,Xd=x=>px+(x/p.A)*R;
+   [1,-1].forEach(sg=>{line(c,px+sg*R,floorY-6,px+sg*R,py0+pH,GUIDE,1,[2,5]);text(c,sg>0?'+A':'−A',px+sg*R+(sg>0?4:-4),py0+pH-4,MUT,11,sg>0?'left':'right')});
+   line(c,px,pv,px,py0+pH,'#4a5878',1,[4,4]);
+   if(st.hist.length>1){c.strokeStyle=VIO;c.lineWidth=2.4;c.beginPath();st.hist.forEach((q,i)=>i?c.lineTo(Xd(q[1]),Yt(q[0])):c.moveTo(Xd(q[1]),Yt(q[0])));c.stroke()}
+   text(c,'\u200btime ↓',px+88,py0+14,MUT,10);text(c,'\u200bx',px+88,py0+pH-4,MUT,10);
+   // pendulum, lamp and shadow
+   line(c,px-40,pv,px+40,pv,'#6c7894',4);line(c,px,pv,bx,by,'#9aa6bd',2);
+   line(c,px-colW/2+14,floorY,px+colW/2-14,floorY,'#6c7894',3);text(c,'\u200bfloor',px+colW/2-16,floorY-5,MUT,9,'right');
+   if(link)lamp(c,bx,9,Math.PI/2);
+   c.fillStyle='rgba(0,0,0,.75)';c.beginPath();c.ellipse(bx,floorY+1,13,4,0,0,7);c.fill();c.strokeStyle=YEL;c.lineWidth=1;c.stroke();
+   text(c,'\u200bshadow',px-colW/2+16,floorY-5,YEL,9);
+   // reference circle: the point goes round at steady speed; its sideways position is the displacement
+   c.strokeStyle='#3a4560';c.lineWidth=1.5;c.beginPath();c.arc(px,cyc,R,0,7);c.stroke();
+   if(p.gam>0){c.strokeStyle='#5a4a80';c.beginPath();c.arc(px,cyc,R*env,0,7);c.stroke()}
+   const qx=px+R*env*Math.cos(ph),qy=cyc+R*env*Math.sin(ph);line(c,px,cyc,qx,qy,VIO,1.6);line(c,px-84,cyc,px+84,cyc,'#26324d',1);
+   text(c,'\u200breference circle',px-colW/2+16,floorY+18,MUT,9);
+   const dy=Yt(st.t);
+   if(link)line(c,bx,by+13,bx,dy,LINK,1.4,[5,4]);
+   c.fillStyle=VIO;c.beginPath();c.arc(bx,by,13,0,7);c.fill();text(c,'\u200b'+fx((s0.x/p.l)*180/Math.PI,1)+'°',px+8,pv+30,MUT,10);
+   dot(c,qx,qy,YEL,5);dot(c,bx,dy,VIO,5.5);text(c,'\u200bx = '+fx(s0.x,3)+' m',px+88,dy+4,VIO,11);if(!nar)text(c,'\u200bSideways swing drawn larger than life',px,H-4,MUT,9,'center');
+   // right-hand side: the same trace turned on its side, plus v and a
+   const rx=nar?colW+8:colW+20;
+   if(nar){const gx=rx+34,gw=W-gx-8,gh=va?92:150;let y=20;
+    tGraph(c,gx,y,gw,gh,t0,t1,p.A*1.1,'x (m)',VIO,1,st.t,s0.x,false);y+=gh+26;
+    if(va){tGraph(c,gx,y,gw,gh,t0,t1,p.A*p.w*1.1,'v (m s⁻¹)',YEL,2,st.t,s0.v,false);y+=gh+26;tGraph(c,gx,y,gw,gh,t0,t1,p.A*p.w*p.w*1.1,'a (m s⁻²)',RED,3,st.t,s0.a,false);y+=gh+26}
+    eGraph(c,gx,y,gw,gh,t0,t1,p,st.t,Ek,Ep,true);
+    bars(20,H-96,52);exGraph(c,146,H-136,W-156,124,p,s0,Ek,Ep)}
+   else{line(c,colW+6,16,colW+6,H-16,'#26324d',1);bars(rx+6,54,110);text(c,'\u200bEnergy',rx+59,30,INK,12,'center');exGraph(c,rx-2,230,160,230,p,s0,Ek,Ep);
+    const gx=rx+170,gw=W-gx-16,gh=va?(H-40-66-14)/4:200;let y=20;
+    tGraph(c,gx,y,gw,gh,t0,t1,p.A*1.1,'x (m)',VIO,1,st.t,s0.x,false);y+=gh+22;
+    if(va){tGraph(c,gx,y,gw,gh,t0,t1,p.A*p.w*1.1,'v (m s⁻¹)',YEL,2,st.t,s0.v,false);y+=gh+22;tGraph(c,gx,y,gw,gh,t0,t1,p.A*p.w*p.w*1.1,'a (m s⁻²)',RED,3,st.t,s0.a,false);y+=gh+22}
+    eGraph(c,gx,y,gw,gh,t0,t1,p,st.t,Ek,Ep,true);
+    text(c,'\u200bThe x graph is the trace on the paper, turned so that time runs across.',rx+6,H-10,MUT,9)}
+  }
+  setRO('shmReadout',(p.mode==='spring'?'\\(T = 2\\pi\\sqrt{m/k}\\)':'\\(T = 2\\pi\\sqrt{l/g}\\)')+' = <b>'+fx(T,3)+' s</b>; \\(f\\) = '+fx(1/T,3)+' Hz; \\(\\omega\\) = '+fx(p.w,2)+' rad s⁻¹.<br>\\(v_{\\text{max}} = A\\omega\\) = '+fx(p.A*p.w,3)+' m s⁻¹; \\(a_{\\text{max}} = A\\omega^{2}\\) = '+fx(p.A*p.w*p.w,3)+' m s⁻².<br>Now: phase \\(\\omega t\\) = '+fx(ph%(2*Math.PI),2)+' rad; \\(x = A\\cos\\omega t\\) = '+fx(s0.x,3)+' m, \\(v\\) = '+fx(s0.v,3)+' m s⁻¹, \\(a\\) = '+fx(s0.a,3)+' m s⁻².<br>Energy: \\(E_{k}\\) '+fx(Ek,4)+' J + \\(E_{p}\\) '+fx(Ep,4)+' J = '+fx(Ek+Ep,4)+' J'+(p.gam>0?' (falling: damping turns it into heat)':' (constant)')+'.'+(p.mode==='pend'&&p.A/p.l>0.26?'<br><b>Note:</b> this swing is more than 15°, so a real pendulum would be slightly slower than the SHM formula predicts.':''))}};
  sims['osc:shm']=sim;
 })();
 
