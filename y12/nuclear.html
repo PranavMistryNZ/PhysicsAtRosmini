@@ -482,6 +482,22 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 .static-math mjx-container{margin:0!important;max-width:100%;overflow:visible!important}
 .static-math mjx-container[jax="SVG"]>svg{max-width:100%;height:auto}
 
+/* ============ KEY TERMS + MY PROGRESS ============ */
+.kt-filter{width:100%;max-width:440px;padding:10px 13px;border-radius:10px;border:1px solid var(--line);background:var(--tile);color:var(--ink);font:inherit;margin:4px 0 6px}
+.kt-group{margin:18px 0 6px}.kt-group>h3{margin:0 0 10px}
+.kt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-bottom:10px}
+.kt-term h4{margin:0 0 6px;font-size:1rem;color:var(--accent)}.kt-term p{margin:0;font-size:.95rem;line-height:1.5}
+.kt-term[hidden],.kt-group[hidden]{display:none}
+.sum-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.rt-box{display:flex;flex-direction:column;gap:8px}.rt-box>p{margin:0}.rt-box>h3{margin:10px 0 0}
+.write{display:block;width:100%;box-sizing:border-box;padding:9px 11px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink);font:inherit;font-size:14px;line-height:1.45;resize:vertical}
+.report{white-space:pre-wrap;font:13px/1.5 var(--mono);background:var(--field);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0;max-height:320px;overflow:auto;color:var(--ink)}
+.code{font:12.5px/1.4 var(--mono);word-break:break-all}
+.share{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px}
+.share label{display:grid;gap:4px;font-size:13px;font-weight:600}
+.share input{min-height:42px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink);font:inherit;font-weight:400;min-width:0}
+a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;box-sizing:border-box}
+a.btn.off{opacity:.5}
 /* ============ EQUATIONS · one system (KaTeX) ============ */
 .eq,.eq-block{font-family:var(--sans)}
 .eq .katex,.eq-block .katex{font-size:1.04em}
@@ -562,6 +578,22 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 </section>
 
 <!-- ======================================================= 00 COURSE MAP -->
+<section class="pane hidden" data-mod="map" data-view="terms" data-title="Key terms: definitions for every atomic and nuclear physics topic">
+  <div class="pane-head"><h2>Key terms</h2><span class="badge teal">DEFINITIONS</span></div>
+  <p class="lede">25 terms in three groups. Type in the box to filter. In an exam, a definition should say what the quantity <b>is</b> and, where it helps, give its unit.</p>
+  <input class="kt-filter" id="ktFilter" type="search" placeholder="Filter the terms… (e.g. half-life)" aria-label="Filter the key terms" autocomplete="off">
+  <p class="small" id="ktCount" aria-live="polite"></p>
+  <div class="kt-group"><h3>Atoms and nuclei</h3><div class="kt-grid"><div class="card kt-term"><h4>Nucleus</h4><p>The dense centre of an atom, made of protons and neutrons, holding nearly all of its mass.</p></div><div class="card kt-term"><h4>Proton</h4><p>A positively charged particle in the nucleus. The number of protons (Z) decides which element an atom is.</p></div><div class="card kt-term"><h4>Neutron</h4><p>A particle with no charge found in the nucleus. Neutrons add mass and help hold the nucleus together.</p></div><div class="card kt-term"><h4>Electron</h4><p>A negatively charged particle that moves around the nucleus.</p></div><div class="card kt-term"><h4>Atomic number (Z)</h4><p>The number of protons in a nucleus. It defines the element.</p></div><div class="card kt-term"><h4>Mass number (A)</h4><p>The total number of protons and neutrons in a nucleus. For an element with several isotopes it is a weighted average.</p></div><div class="card kt-term"><h4>Nuclide</h4><p>A specific nucleus, described by its Z and A (for example carbon-14).</p></div><div class="card kt-term"><h4>Isotope</h4><p>Atoms of the same element (same Z) with different numbers of neutrons, so different mass numbers.</p></div><div class="card kt-term"><h4>Rest mass</h4><p>The mass an object has when it is not moving. Rest masses are used in E = mc² calculations.</p></div><div class="card kt-term"><h4>Mass defect (Δm)</h4><p>The difference between the total mass of the separate nucleons and the mass of the nucleus they form, or the mass lost in a reaction.</p></div><div class="card kt-term"><h4>Binding energy</h4><p>The energy needed to split a nucleus into its separate nucleons. The mass defect is equivalent to this energy.</p></div></div><button type="button" class="btn sm" data-go="atom:isotopes">Open the isotope builder →</button></div>
+  <div class="kt-group"><h3>Radioactivity</h3><div class="kt-grid"><div class="card kt-term"><h4>Alpha particle</h4><p>A helium-4 nucleus (2 protons and 2 neutrons) emitted from a heavy nucleus. Positively charged.</p></div><div class="card kt-term"><h4>Beta particle</h4><p>An electron emitted from a nucleus during beta decay. Negatively charged.</p></div><div class="card kt-term"><h4>Gamma ray</h4><p>High-energy electromagnetic radiation with no mass or charge, emitted from a nucleus.</p></div><div class="card kt-term"><h4>Penetrating ability</h4><p>How far a type of radiation can travel into or through a material. Alpha is least penetrating, beta is middle, gamma is most.</p></div><div class="card kt-term"><h4>Ionisation</h4><p>A process that removes electrons from atoms, leaving them positively charged ions.</p></div><div class="card kt-term"><h4>Parent nuclide</h4><p>The nucleus that undergoes a nuclear change, such as radioactive decay.</p></div><div class="card kt-term"><h4>Daughter nuclide</h4><p>The nucleus that is produced by the nuclear change.</p></div><div class="card kt-term"><h4>Half-life (τ)</h4><p>The average time for half the nuclei in a sample to decay. Each half-life, the count halves.</p></div></div><button type="button" class="btn sm" data-go="radio:graph">Open the half-life graph →</button></div>
+  <div class="kt-group"><h3>Nuclear reactions and power</h3><div class="kt-grid"><div class="card kt-term"><h4>Fission</h4><p>A reaction in which a large nucleus splits into smaller nuclei, releasing energy.</p></div><div class="card kt-term"><h4>Fusion</h4><p>A reaction in which small nuclei join to form a larger nucleus, releasing energy.</p></div><div class="card kt-term"><h4>Chain reaction</h4><p>A process where each nuclear reaction triggers further reactions, so the rate can grow quickly.</p></div><div class="card kt-term"><h4>Nuclear reactor</h4><p>The part of a nuclear power station that contains and controls the fission reactions.</p></div><div class="card kt-term"><h4>Control rod</h4><p>A rod that absorbs neutrons, moved in and out to control how many neutrons can cause fission.</p></div><div class="card kt-term"><h4>Moderator</h4><p>A material that slows the fast neutrons from fission so they can cause more fission.</p></div></div><button type="button" class="btn sm" data-go="energy:bind">Open the binding energy lab →</button></div>
+</section>
+
+<section class="pane hidden" data-mod="map" data-view="progress" data-title="My progress: save it or share it">
+  <div class="pane-head"><h2>My progress: save it or share it</h2><span class="badge teal">MY PROGRESS</span></div>
+  <p class="lede">Your self-ratings, quiz best scores and exam notes are kept on this device. Save a progress code to move them to another device, or send a summary to your teacher.</p>
+  <div class="rt-box" id="progressBox"></div>
+</section>
+
 <section class="pane hidden" data-mod="map" data-view="scope" data-title="Course map">
   <div class="pane-head"><h2>Phase 0.2 · Course map: what AS91172 covers</h2><span class="badge teal">START HERE</span></div>
   <p class="lede">This is the whole standard on one page. Rate yourself on each "I can…" statement, then press <b>Go</b> to jump to the place in this lab that teaches it. Ticking an item in the checklist at the bottom of a topic marks that statement as Confident. Your ratings are saved on this device.</p>
@@ -790,6 +822,25 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
+<section class="pane hidden" data-mod="atom" data-view="isotopes" data-title="Isotope builder: drag on the chart of nuclides to build nuclei">
+  <div class="pane-head"><h2>Isotope builder</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Every nucleus is set by its protons (Z) and neutrons (N). Drag the ● anywhere on the chart of nuclides, or use the sliders, to build an isotope and read its notation.</p>
+  
+  <div class="screen"><canvas id="isoCanvas" width="900" height="420" aria-label="A chart of nuclides with protons up the side and neutrons across, with a draggable marker"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Protons, Z</span><output id="isoZOut"></output></span><input type="range" id="isoZ" min="1" max="20" step="1" value="6"></label><label class="ctrl"><span class="row"><span>Neutrons, N</span><output id="isoNOut"></output></span><input type="range" id="isoN" min="0" max="30" step="1" value="6"></label>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Nuclide</span><b id="isoNuc">–</b></div><div class="tm"><span>Notation</span><b id="isoNot">–</b></div><div class="tm"><span>Element</span><b id="isoElem">–</b></div><div class="tm"><span>Stability guide</span><b id="isoBand">–</b></div></div>
+      <p class="note" id="isoNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><ul><li>Isotopes have the same Z but a different N, so they are the same element with different mass numbers.</li><li>The mass number \(A = Z + N\) is a weighted average when an element has several stable isotopes.</li><li>Light stable nuclei sit close to \(N = Z\). The band here is a rough guide only.</li></ul></div>
+</section>
+
 <section class="pane hidden" data-mod="atom" data-view="check" data-title="Atomic structure quick check">
   <div class="pane-head"><h2>Phase 1.3 · Quick check: atomic structure</h2><span class="badge red">QUICK CHECK</span></div>
   <p class="lede">Eight questions, instant feedback.</p>
@@ -973,6 +1024,27 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
+<section class="pane hidden" data-mod="radio" data-view="graph" data-title="Half-life graph reader: count, time and half-lives on the decay curve">
+  <div class="pane-head"><h2>Half-life graph reader</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">The count of a radioactive sample halves every half-life. Drag along the time axis (or press Play) to read the count at any time, and see how many half-lives have passed.</p>
+  
+  <div class="screen"><canvas id="hgCanvas" width="900" height="420" aria-label="A decay curve of count against time with a draggable marker"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Starting count, N₀</span><output id="hgNOut"></output></span><input type="range" id="hgN" min="50" max="1000" step="50" value="800"></label><label class="ctrl"><span class="row"><span>Half-life, τ</span><output id="hgTOut"></output></span><input type="range" id="hgT" min="1" max="12" step="1" value="4"></label><div class="btns"><button type="button" class="btn go" id="hgPlay">Play</button><button type="button" class="btn" id="hgReset">Reset</button></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Time</span><b id="hgT2">–</b></div><div class="tm"><span>Half-lives elapsed, n</span><b id="hgHL">–</b></div><div class="tm"><span>Count remaining, N</span><b id="hgN2">–</b></div><div class="tm"><span>Share left</span><b id="hgFrac">–</b></div></div>
+      <p class="note" id="hgNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><p class="eq-block">\(N = N_{0}\left(\tfrac{1}{2}\right)^{n}, \quad n = \frac{t}{\tau}\)</p>
+<ul><li>Half-life is the time for half of the nuclei to decay, whatever the starting amount.</li><li>Use the number of half-lives, \(n\), rather than the time, when you have a whole number of half-lives.</li></ul>
+<p class="small">Carbon-14 has a half-life of 5 730 years, which is why it can date old organic material.</p></div>
+</section>
+
 <section class="pane hidden" data-mod="radio" data-view="check" data-title="Radioactivity quick check">
   <div class="pane-head"><h2>Phase 2.5 · Quick check: radioactivity</h2><span class="badge red">QUICK CHECK</span></div>
   <p class="lede">Eight questions, instant feedback.</p>
@@ -1129,6 +1201,47 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     </div>
     <div class="card"><span class="label">Working</span><div class="explain" id="ecOut" style="display:flex;flex-direction:column;gap:6px"></div></div>
   </div>
+</section>
+
+<section class="pane hidden" data-mod="energy" data-view="bind" data-title="Binding energy lab: why fusion and fission release energy">
+  <div class="pane-head"><h2>Binding energy lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Light nuclei release energy when they fuse, and heavy nuclei release energy when they split. Both move the nucleons towards the most tightly bound nuclei near iron. Drag the probe on the curve, or choose a reaction.</p>
+  <div class="seg" role="group" aria-label="Reaction"><button type="button" data-bind="fus" aria-pressed="true">Fusion: D + T → He-4 + n</button><button type="button" data-bind="fis" aria-pressed="false">Fission: U-235 + n → Ba-141 + Kr-92 + 3n</button></div>
+  <div class="screen"><canvas id="beCanvas" width="900" height="420" aria-label="Binding energy per nucleon against mass number, with reactant and product markers"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Probe: mass number, A</span><output id="beAOut"></output></span><input type="range" id="beA" min="1" max="240" step="1" value="56"></label>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm"><span>Probe</span><b id="beProbe">–</b></div><div class="tm hl"><span>Energy released</span><b id="beE">–</b></div><div class="tm"><span>Mass lost, Δm</span><b id="beDm">–</b></div><div class="tm"><span>Reaction</span><b id="beRx">–</b></div></div>
+      <p class="note" id="beNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><p class="eq-block">\(E = \Delta m\,c^{2}\)</p>
+<ul><li>Binding energy per nucleon is the energy needed to split a nucleus, shared over its nucleons.</li><li>A reaction releases energy when the products are more tightly bound than the reactants.</li><li>The masses for the reaction energies come from the sciPAD worked examples.</li></ul>
+<p class="small">Fusion needs very high temperatures to overcome the repulsion between nuclei, so it is hard to control.</p></div>
+</section>
+
+<section class="pane hidden" data-mod="energy" data-view="station" data-title="Power station lab: click each part to see what it does">
+  <div class="pane-head"><h2>Power station lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">A nuclear power station turns fission heat into electricity. Click a part of the station to see its job, then set the electrical output and efficiency to see how much uranium is used.</p>
+  
+  <div class="screen"><canvas id="psCanvas" width="900" height="420" aria-label="Diagram of a nuclear power station with clickable reactor, steam generator, turbine, generator, condenser and cooling tower"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Electrical output wanted, Pₑ</span><output id="psPeOut"></output></span><input type="range" id="psPe" min="5" max="30" step="1" value="30"></label><label class="ctrl"><span class="row"><span>Efficiency, η</span><output id="psEtaOut"></output></span><input type="range" id="psEta" min="30" max="100" step="1" value="100"></label><div class="card"><div class="label">Selected part</div><h3 id="psPick"></h3><p id="psPickNote"></p></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Thermal output needed</span><b id="psPth">–</b></div><div class="tm"><span>Reactions per second</span><b id="psRate">–</b></div><div class="tm"><span>U-235 used per day</span><b id="psMass">–</b></div></div>
+      <p class="note" id="psNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><ul><li>Energy per fission reaction is about \(3.20\times10^{-11}\,\mathrm{J}\), so the reaction count is \(\frac{E}{E_{\text{reaction}}}\).</li><li>Efficiency below 100% means more thermal energy and more fuel are needed for the same electrical output.</li></ul>
+<p class="small">The control rods and moderator sit inside the reactor. Click them to see their roles.</p></div>
 </section>
 
 <section class="pane hidden" data-mod="energy" data-view="check" data-title="Nuclear energy quick check">
@@ -1302,10 +1415,10 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
-  map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["scope", "Course map"], ["skills", "Assessment skills"], ["formulas", "Formula & data sheet"], ["challenge", "Mixed challenge"]] },
-  atom: { title: "ATOMIC STRUCTURE", name: "Atomic structure", views: [["intro", "Foundations"], ["foil", "Gold foil lab"], ["check", "Quick check"], ["problems", "Problems"]] },
-  radio: { title: "RADIOACTIVITY", name: "Radioactivity", views: [["intro", "Foundations"], ["pen", "Radiation lab"], ["equations", "Decay equations"], ["halflife", "Half-life lab"], ["check", "Quick check"], ["problems", "Problems"]] },
-  energy: { title: "NUCLEAR ENERGY", name: "Nuclear energy", views: [["intro", "Foundations"], ["chain", "Chain reaction lab"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
+  map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["scope", "Course map"], ["skills", "Assessment skills"], ["formulas", "Formula & data sheet"], ["terms", "Key terms"], ["challenge", "Mixed challenge"], ["progress", "My progress"]] },
+  atom: { title: "ATOMIC STRUCTURE", name: "Atomic structure", views: [["intro", "Foundations"], ["foil", "Gold foil lab"], ["isotopes", "Isotope builder"], ["check", "Quick check"], ["problems", "Problems"]] },
+  radio: { title: "RADIOACTIVITY", name: "Radioactivity", views: [["intro", "Foundations"], ["pen", "Radiation lab"], ["equations", "Decay equations"], ["halflife", "Half-life lab"], ["graph", "Half-life graph reader"], ["check", "Quick check"], ["problems", "Problems"]] },
+  energy: { title: "NUCLEAR ENERGY", name: "Nuclear energy", views: [["intro", "Foundations"], ["chain", "Chain reaction lab"], ["clinic", "Clinic"], ["bind", "Binding energy lab"], ["station", "Power station lab"], ["check", "Quick check"], ["problems", "Problems"]] },
 };
 const SCOPE = {
   atom: [
@@ -1334,6 +1447,10 @@ const TOTAL = Object.values(SCOPE).reduce((a, g) => a + g.length, 0);
 const ratings = store.get("ratings", {});
 const TIP_CHECK = "Got one wrong? Read the explanation, then reopen the matching lab before trying a new set.";
 const TIPS = {
+  "atom:isotopes": "Isotopes share Z. Write the notation \\(^{A}_{Z}\\mathrm{X}\\) and say which of N or Z differs between them.",
+  "radio:graph": "Use \\(n = \\frac{t}{\\tau}\\) first, then \\(N = N_{0}(\\tfrac{1}{2})^{n}\\). Show the number of half-lives in your working.",
+  "energy:bind": "A reaction releases energy when the products are more tightly bound per nucleon than the reactants. Say that, then give \\(\\Delta m c^{2}\\).",
+  "energy:station": "Efficiency below 100% means more thermal energy, and so more fuel, for the same electrical output.",
   "atom:intro": "Write the gold foil results as observation → conclusion pairs. Merit answers explain why each conclusion follows.",
   "atom:foil": "A bounce-back needs a head-on collision with something both positive and much more massive than an alpha particle: say both.",
   "atom:problems": "Excellence answers connect the experiment to the model: what Thomson's model predicts, what was seen, and why only a tiny nucleus explains it.",
@@ -2213,6 +2330,304 @@ const num = (s) => { s = String(s).trim().replace(/\s/g, "").replace(/×10\^?/g,
   ["ecB", "ecA", "ecR"].forEach((id) => $(id).addEventListener("input", calc)); calc();
 })();
 
+
+/* ====================================================== NEW WAVES LABS (v1.18) ===== */
+/* shared: click and drag on a canvas. hit(x,y) names what is under the pointer, move() drags it, up() fires on release (moved = false means a click) */
+function dragOn(cv, hit, move, up) {
+  let k = null, moved = false, sx = 0, sy = 0;
+  const pos = (e) => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+  cv.addEventListener("pointerdown", (e) => { const [x, y] = pos(e); k = hit(x, y); if (!k) return; moved = false; sx = x; sy = y; try { cv.setPointerCapture(e.pointerId); } catch (er) {} e.preventDefault(); });
+  cv.addEventListener("pointermove", (e) => { const [x, y] = pos(e); if (!k) { cv.style.cursor = hit(x, y) ? "pointer" : ""; return; } if (Math.hypot(x - sx, y - sy) > 4) moved = true; if (moved) move(k, x, y); });
+  cv.addEventListener("pointerup", (e) => { if (!k) return; const kk = k; k = null; const [x, y] = pos(e); if (up) up(kk, moved, x, y); });
+  cv.addEventListener("pointercancel", () => { k = null; });
+  cv.addEventListener("touchstart", (e) => { const t = e.touches[0], r = cv.getBoundingClientRect(); if (t && hit(t.clientX - r.left, t.clientY - r.top)) e.preventDefault(); }, { passive: false });
+}
+const setRange = (el, v) => { v = clamp(v, +el.min, +el.max); if (+el.value !== v) { el.value = v; el.dispatchEvent(new Event("input")); } };
+function grip(ctx, x, y, col) { ctx.save(); ctx.fillStyle = C.panel; ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(x, y, 8, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fill(); ctx.restore(); }
+
+/* ====================================================== N1 · ISOTOPE BUILDER (drag on the chart of nuclides) ===== */
+(() => {
+  const cv = $("isoCanvas"), sim = { dirty: true, anim: false }; sims["atom:isotopes"] = sim;
+  const EL = ["", "hydrogen", "helium", "lithium", "beryllium", "boron", "carbon", "nitrogen", "oxygen", "fluorine", "neon", "sodium", "magnesium", "aluminium", "silicon", "phosphorus", "sulfur", "chlorine", "argon", "potassium", "calcium"];
+  const SYM = ["", "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca"];
+  const NZ = 30, ZZ = 20; let Z = 6, N = 6, geo = null;
+  const sl = [["isoZ", "isoZOut", (v) => v], ["isoN", "isoNOut", (v) => v]].map(([i, o, f]) => bindRange(i, o, f));
+  const [zEl, nEl] = sl;
+  [zEl, nEl].forEach((e) => e.addEventListener("input", () => { Z = +zEl.value; N = +nEl.value; sim.dirty = true; }));
+  Z = +zEl.value; N = +nEl.value;
+  const cell = (x, y) => { if (!geo) return null; const n = Math.round((x - geo.x0) / geo.cw - 0.5), z = Math.round((geo.y1 - y) / geo.ch - 0.5); return [clamp(n, 0, NZ), clamp(z, 1, ZZ)]; };
+  dragOn(cv, (x, y) => (geo && x >= geo.x0 && x <= geo.x1 && y >= geo.y0 && y <= geo.y1 ? "grid" : null),
+    (k, x, y) => { const p = cell(x, y); if (!p) return; setRange(nEl, p[0]); setRange(zEl, p[1]); }, (k, moved, x, y) => { const p = cell(x, y); if (p) { setRange(nEl, p[0]); setRange(zEl, p[1]); } });
+  sim.frame = () => {
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 0.95) : Math.max(360, Math.round(w * 0.6))));
+    clear(ctx, w, h);
+    const x0 = 54, y1 = h - 34, x1 = w - 14, y0 = 14;
+    const cw = (x1 - x0) / (NZ + 1), ch = (y1 - y0) / (ZZ + 1);
+    geo = { x0, x1, y0, y1, cw, ch };
+    // cells: shade the band where N is equal to Z or one more
+    for (let z = 1; z <= ZZ; z++) for (let n = 0; n <= NZ; n++) {
+      const band = n - z === 0 || n - z === 1 || (z === 1 && n === 0);
+      ctx.fillStyle = band ? C.asoft : C.grid; ctx.fillRect(x0 + n * cw + 1, y1 - (z + 1) * ch + 1, cw - 2, ch - 2);
+    }
+    // axes
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y1); ctx.lineTo(x1, y1); ctx.stroke();
+    for (let n = 0; n <= NZ; n += 5) text(ctx, String(n), x0 + (n + 0.5) * cw, y1 + 16, C.muted, 10, "center");
+    for (let z = 0; z <= ZZ; z += 5) if (z) text(ctx, String(z), x0 - 8, y1 - (z + 0.5) * ch + 4, C.muted, 10, "right");
+    text(ctx, "neutrons, N →", x1, y1 + 30, C.muted, 10, "right");
+    text(ctx, "protons, Z ↑", x0 - 40, y0 + 4, C.muted, 10);
+    text(ctx, "shaded = N ≈ Z (light, stable-looking)", x0 + 6, y0 + 16, C.ink2, 10);
+    // current nucleus
+    const cx = x0 + (N + 0.5) * cw, cy = y1 - (Z + 0.5) * ch;
+    grip(ctx, cx, cy, C.hot);
+    // readouts
+    const A = Z + N, sym = SYM[Z] || "?", name = (EL[Z] || "") + "-" + A;
+    const diff = N - Z;
+    const light = Z <= 20;
+    const bandOk = light && (Z === 1 ? N <= 1 : Math.abs(diff) <= 1);
+    $("isoNuc").textContent = (N === 0 && Z === 1 ? "hydrogen-1" : name);
+    $("isoNot").textContent = `${A} (mass) · ${Z} (atomic)`;
+    $("isoElem").textContent = Z === 0 ? "–" : (EL[Z] ? EL[Z] : "–");
+    $("isoBand").textContent = bandOk ? "in or near the stable band" : "outside the band: likely radioactive";
+    $("isoNote").textContent = `This is \\(^{${A}}_{${Z}}\\mathrm{${sym}}\\): \\(${Z}\\) protons and \\(${N}\\) neutrons. ${N === Z ? "Protons and neutrons are equal in number." : `N − Z = ${diff}.`} Isotopes are the same element (same Z) with a different N. The band is a rough guide only for light nuclei: real stability depends on the balance of forces inside the nucleus.`;
+  };
+})();
+
+/* ====================================================== N2 · HALF-LIFE GRAPH READER ===== */
+(() => {
+  const cv = $("hgCanvas"), sim = { dirty: true, anim: true, t: 0, run: false }; sims["radio:graph"] = sim;
+  const n0El = bindRange("hgN", "hgNOut", (v) => v), tauEl = bindRange("hgT", "hgTOut", (v) => v + " h");
+  let geo = null, tPick = null;
+  [n0El, tauEl].forEach((e) => e.addEventListener("input", () => { sim.dirty = true; }));
+  $("hgPlay").addEventListener("click", () => { if (sim.t >= 5 * +tauEl.value - 0.01) sim.t = 0; sim.run = !sim.run; $("hgPlay").textContent = sim.run ? "Pause" : "Play"; $("hgPlay").setAttribute("aria-pressed", String(sim.run)); });
+  $("hgReset").addEventListener("click", () => { sim.run = false; sim.t = 0; $("hgPlay").textContent = "Play"; sim.dirty = true; });
+  const tAt = (x) => clamp((x - geo.x0) / (geo.x1 - geo.x0), 0, 1) * 5 * +tauEl.value;
+  dragOn(cv, (x, y) => (geo && x >= geo.x0 && x <= geo.x1 ? "t" : null),
+    (k, x) => { sim.t = tAt(x); sim.run = false; $("hgPlay").textContent = "Play"; sim.dirty = true; }, null);
+  sim.frame = (dt) => {
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 0.95) : Math.max(360, Math.round(w * 0.6))));
+    clear(ctx, w, h);
+    const N0 = +n0El.value, tau = +tauEl.value, tMax = 5 * tau;
+    const x0 = 56, x1 = w - 18, y0 = 18, y1 = h - 40;
+    geo = { x0, x1, y0, y1 };
+    if (sim.run) { sim.t += dt * tau * 0.6; if (sim.t >= tMax) { sim.t = tMax; sim.run = false; $("hgPlay").textContent = "Play"; } }
+    const X = (t) => x0 + (t / tMax) * (x1 - x0), Y = (n) => y1 - (n / N0) * (y1 - y0);
+    // grid of half-lives
+    ctx.strokeStyle = C.grid; ctx.lineWidth = 1; ctx.beginPath();
+    for (let k = 1; k <= 5; k++) { const px = X(k * tau); ctx.moveTo(px, y0); ctx.lineTo(px, y1); }
+    for (let k = 1; k <= 4; k++) { const py = Y(N0 / Math.pow(2, k)); ctx.moveTo(x0, py); ctx.lineTo(x1, py); }
+    ctx.stroke();
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y1); ctx.lineTo(x1, y1); ctx.stroke();
+    for (let k = 1; k <= 5; k++) text(ctx, k + "τ", X(k * tau), y1 + 16, C.muted, 10, "center");
+    text(ctx, "time (h)", x1, y1 + 30, C.muted, 10, "right");
+    text(ctx, String(N0), x0 - 6, Y(N0) + 4, C.muted, 10, "right");
+    // curve
+    ctx.strokeStyle = C.data; ctx.lineWidth = 2.6; ctx.beginPath();
+    for (let i = 0; i <= 200; i++) { const t = tMax * i / 200, px = X(t), py = Y(N0 * Math.pow(0.5, t / tau)); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+    ctx.stroke();
+    // marker
+    const t = sim.t, n = N0 * Math.pow(0.5, t / tau);
+    ctx.setLineDash([5, 5]); ctx.strokeStyle = C.hot; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(X(t), y1); ctx.lineTo(X(t), Y(n)); ctx.lineTo(x0, Y(n)); ctx.stroke(); ctx.setLineDash([]);
+    grip(ctx, X(t), Y(n), C.hot);
+    text(ctx, "drag along the time axis or press Play", x0 + 8, y0 + 14, C.muted, 10);
+    $("hgT2").textContent = fmt(t, 3) + " h";
+    $("hgHL").textContent = fmt(t / tau, 3);
+    $("hgN2").textContent = fmt(n, 3);
+    $("hgFrac").textContent = Math.round(100 * n / N0) + "%";
+    $("hgNote").textContent = `Each half-life, \\(\\tau\\), the count halves: \\(N = N_{0}\\left(\\tfrac{1}{2}\\right)^{n}\\) where \\(n = \\frac{t}{\\tau}\\). Half-life is an average, so the curve is smooth for a large sample but a small sample would show random jumps.`;
+  };
+})();
+
+/* ====================================================== N3 · BINDING ENERGY LAB (fusion and fission) ===== */
+(() => {
+  const cv = $("beCanvas"), sim = { dirty: true, anim: false }; sims["energy:bind"] = sim;
+  const bindEl = bindRange("beA", "beAOut", (v) => v);
+  // approximate binding energy per nucleon (MeV) at a few mass numbers, joined by straight lines
+  const PTS = [[1, 0], [2, 1.11], [3, 2.83], [4, 7.07], [6, 5.33], [7, 5.61], [12, 7.68], [16, 7.98], [20, 8.03], [40, 8.55], [56, 8.79], [62, 8.80], [90, 8.70], [120, 8.50], [140, 8.30], [190, 7.95], [208, 7.87], [235, 7.59], [240, 7.56]];
+  const be = (A) => { for (let i = 1; i < PTS.length; i++) if (A <= PTS[i][0]) { const [a0, b0] = PTS[i - 1], [a1, b1] = PTS[i]; return b0 + (b1 - b0) * (A - a0) / (a1 - a0); } return PTS[PTS.length - 1][1]; };
+  let mode = "fus", geo = null;
+  const mB = [...document.querySelectorAll("[data-bind]")];
+  mB.forEach((b) => b.addEventListener("click", () => { mode = b.dataset.bind; setPressed(mB, b); sim.dirty = true; }));
+  const aOf = (x) => clamp(1 + (x - geo.x0) / (geo.x1 - geo.x0) * 239, 1, 240);
+  dragOn(cv, (x, y) => (geo && x >= geo.x0 && x <= geo.x1 ? "probe" : null),
+    (k, x) => { setRange(bindEl, Math.round(aOf(x))); sim.dirty = true; }, null);
+  sim.frame = () => {
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 0.95) : Math.max(380, Math.round(w * 0.6))));
+    clear(ctx, w, h);
+    const x0 = 58, x1 = w - 16, y0 = 20, y1 = h - 40, yMax = 9.5, yMin = 0;
+    geo = { x0, x1, y0, y1 };
+    const X = (A) => x0 + (A - 1) / 239 * (x1 - x0), Y = (e) => y1 - (e - yMin) / (yMax - yMin) * (y1 - y0);
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y1); ctx.lineTo(x1, y1); ctx.stroke();
+    for (let e = 2; e <= 8; e += 2) text(ctx, String(e), x0 - 6, Y(e) + 4, C.muted, 10, "right");
+    for (let A = 40; A <= 240; A += 40) text(ctx, String(A), X(A), y1 + 16, C.muted, 10, "center");
+    text(ctx, "mass number, A", x1, y1 + 30, C.muted, 10, "right");
+    text(ctx, "binding energy per nucleon (MeV)", x0 + 6, y0 + 12, C.muted, 10);
+    // curve
+    ctx.strokeStyle = C.data; ctx.lineWidth = 2.6; ctx.beginPath();
+    for (let A = 1; A <= 240; A += 1) { const px = X(A), py = Y(be(A)); A === 1 ? ctx.moveTo(px, py) : ctx.lineTo(px, py); }
+    ctx.stroke();
+    const reactants = mode === "fus" ? [[2, "H-2"], [3, "H-3"]] : [[235, "U-235"]];
+    const products = mode === "fus" ? [[4, "He-4"]] : [[141, "Ba-141"], [92, "Kr-92"]];
+    const place = (lst, col) => lst.forEach(([A, lab]) => { const px = X(A), py = Y(be(A)); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(px, py, 6, 0, 7); ctx.fill(); text(ctx, lab, px + 8, py - 8, col, 11); });
+    place(reactants, C.hot); place(products, C.ok);
+    // probe
+    const A = +bindEl.value, pa = be(A), px = X(A), py = Y(pa);
+    grip(ctx, px, py, C.vector);
+    text(ctx, "A = " + A, px, y1 - 8, C.vector, 10, "center");
+    // readouts: sciPAD worked masses (kg)
+    let dm, E, lab;
+    if (mode === "fus") { dm = (3.3431 + 5.0066 - 6.6465 - 1.6747) * 1e-27; lab = "D + T → He-4 + n"; }
+    else { dm = (390.2480 + 1.6747 - 233.9616 - 152.5794 - 3 * 1.6747) * 1e-27; lab = "U-235 + n → Ba-141 + Kr-92 + 3n"; }
+    E = dm * 9e16;
+    $("beProbe").textContent = `A = ${A}: ${fmt(pa, 3)} MeV per nucleon`;
+    $("beE").textContent = `${fmt(E, 3)} J  (${fmt(E / 1.602e-13, 3)} MeV)`;
+    $("beDm").textContent = `${fmt(dm, 3)} kg`;
+    $("beRx").textContent = lab;
+    $("beNote").textContent = mode === "fus"
+      ? "Light nuclei gain binding energy per nucleon when they join, so the products are more tightly bound than the reactants. The mass lost, \\(\\Delta m\\), is released as energy: \\(E = \\Delta m c^{2}\\). Fusion needs a very high temperature and pressure to overcome the repulsion between the positive nuclei."
+      : "A heavy nucleus like U-235 is less tightly bound per nucleon than the medium-mass fragments. When it splits, each product is more tightly bound, so the mass lost, \\(\\Delta m\\), is released as energy. The energy per reaction is far larger than in fusion of a single pair. Drag the probe along the curve: the most tightly bound nuclei sit near iron (A ≈ 56).";
+  };
+})();
+
+/* ====================================================== N4 · POWER STATION LAB (click the parts) ===== */
+(() => {
+  const cv = $("psCanvas"), sim = { dirty: true, anim: false }; sims["energy:station"] = sim;
+  const peEl = bindRange("psPe", "psPeOut", (v) => (v / 10).toFixed(1) + " GW"), etaEl = bindRange("psEta", "psEtaOut", (v) => v + " %");
+  const PARTS = [
+    ["reactor", "Nuclear reactor", "Where the fission chain reactions happen and release heat. The fuel is usually uranium-235, and the reactor vessel holds the fuel, coolant and moderator."],
+    ["rods", "Control rods", "Rods that absorb neutrons without undergoing fission. Moving them in or out controls how many neutrons are available to cause further fission."],
+    ["mod", "Moderator", "A substance such as graphite or water that slows the fast neutrons from fission so that they can cause more fission reactions."],
+    ["steam", "Steam generator", "Uses the heat from the reactor to turn water into high-pressure steam. The steam expands in volume and drives the turbine."],
+    ["turbine", "Turbine", "Captures some of the kinetic energy of the expanding steam, so the blades spin."],
+    ["gen", "Electrical generator", "Converts the kinetic energy of the spinning turbine into electrical energy."],
+    ["cond", "Condenser", "Lets heat escape from the steam so it condenses back into liquid water, which is pumped back to the reactor."],
+    ["tower", "Cooling tower", "Lets the waste heat in the cooling water escape before the water is discharged into the environment."],
+  ];
+  let sel = "reactor", geo = {};
+  const rects = () => ({
+    reactor: [0.04, 0.22, 0.2, 0.6], rods: [0.162, 0.226, 0.026, 0.27], mod: [0.048, 0.34, 0.184, 0.084], steam: [0.3, 0.26, 0.12, 0.34], turbine: [0.5, 0.36, 0.1, 0.16], gen: [0.66, 0.34, 0.1, 0.2],
+    cond: [0.5, 0.64, 0.1, 0.14], tower: [0.84, 0.14, 0.12, 0.7],
+  });
+  dragOn(cv, (x, y) => { const hit = hitPart(x, y); return hit ? hit : null; }, () => {}, (k, moved) => { if (k && !moved) { sel = k; sim.dirty = true; $("psPick").textContent = PARTS.find((p) => p[0] === k)[1]; $("psPickNote").textContent = PARTS.find((p) => p[0] === k)[2]; } });
+  const hitPart = (x, y) => {
+    if (!geo.w) return null;
+    const R = rects(), order = ["rods", "mod", "reactor", "steam", "turbine", "gen", "cond", "tower"];
+    for (const k of order) {
+      const r = R[k]; if (!r) continue;
+      const x0 = r[0] * geo.w, y0 = r[1] * geo.h, x1 = x0 + r[2] * geo.w, y1 = y0 + r[3] * geo.h;
+      if (x >= x0 && x <= x1 && y >= y0 && y <= y1) return k;
+    }
+    return null;
+  };
+  sim.frame = () => {
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 0.95) : Math.max(420, Math.round(w * 0.6))));
+    clear(ctx, w, h); geo = { w, h };
+    const R = rects(), P = (fr, fy) => [fr * w, fy * h];
+    const box = (k, col) => { const r = R[k]; ctx.fillStyle = C.tile; ctx.strokeStyle = sel === k ? C.hot : C.ink2; ctx.lineWidth = sel === k ? 3 : 1.6; const x = r[0] * w, y = r[1] * h, bw = r[2] * w, bh = r[3] * h; rrect(ctx, x, y, bw, bh, 8); ctx.fill(); ctx.stroke(); return [x, y, bw, bh]; };
+    // pipes
+    ctx.strokeStyle = C.vector; ctx.lineWidth = 3; ctx.beginPath();
+    const rR = R.reactor, sG = R.steam, tb = R.turbine, gn = R.gen, cd = R.cond, tw = R.tower;
+    ctx.moveTo((rR[0] + rR[2]) * w, (rR[1] + 0.2) * h); ctx.lineTo(sG[0] * w, (sG[1] + 0.12) * h);
+    ctx.moveTo((sG[0] + sG[2]) * w, (sG[1] + 0.1) * h); ctx.lineTo(tb[0] * w, (tb[1] + 0.08) * h);
+    ctx.moveTo((tb[0] + tb[2]) * w, (tb[1] + 0.08) * h); ctx.lineTo(gn[0] * w, (gn[1] + 0.1) * h);
+    ctx.moveTo((tb[0] + tb[2] / 2) * w, (tb[1] + tb[3]) * h); ctx.lineTo((cd[0] + cd[2] / 2) * w, cd[1] * h);
+    ctx.moveTo((cd[0] + cd[2] / 2) * w, (cd[1] + cd[3]) * h); ctx.lineTo((rR[0] + rR[2] / 2) * w, (rR[1] + rR[3]) * h);
+    ctx.stroke();
+    // cooling water loop
+    ctx.strokeStyle = C.data; ctx.lineWidth = 2; ctx.setLineDash([6, 5]); ctx.beginPath(); ctx.moveTo((cd[0] + cd[2]) * w, (cd[1] + cd[3] * 0.5) * h); ctx.lineTo(tw[0] * w, (tw[1] + tw[3] * 0.5) * h); ctx.stroke(); ctx.setLineDash([]);
+    // reactor vessel and internals
+    const rb = box("reactor", C.tile);
+    ctx.fillStyle = C.hot; ctx.globalAlpha = 0.35; ctx.fillRect(rb[0] + rb[2] * 0.35, rb[1] + rb[3] * 0.62, rb[2] * 0.3, rb[3] * 0.2); ctx.globalAlpha = 1;
+    text(ctx, "fuel", rb[0] + rb[2] * 0.5, rb[1] + rb[3] * 0.72, C.ink2, 9, "center");
+    ctx.fillStyle = C.data; ctx.globalAlpha = 0.25; ctx.fillRect(rb[0] + 8, rb[1] + rb[3] * 0.2, rb[2] - 16, rb[3] * 0.14); ctx.globalAlpha = 1;
+    text(ctx, "moderator", rb[0] + rb[2] / 2, rb[1] + rb[3] * 0.3, C.ink2, 9, "center");
+    ctx.fillStyle = sel === "rods" ? C.hot : C.ink2; ctx.fillRect(rb[0] + rb[2] * 0.7 - 4, rb[1] + 6, 8, rb[3] * 0.45);
+    text(ctx, "rods", rb[0] + rb[2] * 0.7 + 8, rb[1] + 18, C.ink2, 9);
+    box("steam", C.tile); text(ctx, "steam gen.", (sG[0] + sG[2] / 2) * w, (sG[1] + sG[3] / 2) * h, C.ink2, 10, "center");
+    box("turbine", C.tile); text(ctx, "turbine", (tb[0] + tb[2] / 2) * w, (tb[1] + tb[3] / 2) * h + 4, C.ink2, 10, "center");
+    ctx.strokeStyle = sel === "gen" ? C.hot : C.ink2; ctx.lineWidth = sel === "gen" ? 3 : 1.6; ctx.beginPath(); ctx.arc((gn[0] + gn[2] / 2) * w, (gn[1] + gn[3] / 2) * h, Math.min(gn[2] * w, gn[3] * h) / 2, 0, 7); ctx.stroke();
+    text(ctx, "generator", (gn[0] + gn[2] / 2) * w, (gn[1] + gn[3] / 2) * h + 4, C.ink2, 10, "center");
+    box("cond", C.tile); text(ctx, "condenser", (cd[0] + cd[2] / 2) * w, (cd[1] + cd[3] / 2) * h + 4, C.ink2, 10, "center");
+    box("tower", C.tile); text(ctx, "cooling tower", (tw[0] + tw[2] / 2) * w, (tw[1] + tw[3]) * h + 18, C.ink2, 10, "center");
+    text(ctx, "click a part to see what it does", 12, h - 10, C.muted, 10);
+    // readouts from the sciPAD relationships
+    const Pe = +peEl.value / 10 * 1e9, eta = +etaEl.value / 100, Pth = Pe / eta;
+    const E1 = 3.20e-11, perDay = Pth * 86400, nReact = perDay / E1, mU = nReact * 390.3e-27;
+    $("psPth").textContent = fmt(Pth / 1e9, 3) + " GW";
+    $("psRate").textContent = (nReact / 86400 * 1).toExponential(2) + " reactions/s";
+    $("psMass").textContent = fmt(mU, 3) + " kg U-235 per day";
+    $("psNote").textContent = `Energy per fission reaction: \\(3.20\\times10^{-11}\\,\\mathrm{J}\\). Energy per day \\(= P\\,t\\), then the number of reactions is \\(\\frac{E}{E_{\\text{reaction}}}\\), and the mass used is that number times the mass of one U-235 nucleus. With efficiency \\(\\eta\\), the reactor must make \\(P_{\\text{th}} = \\frac{P_{\\text{e}}}{\\eta}\\), so more fuel is needed. At 100% the answer is about 3.16 kg per day for 3 GW.`;
+    $("psPick").textContent = (PARTS.find((p) => p[0] === sel) || PARTS[0])[1];
+    $("psPickNote").textContent = (PARTS.find((p) => p[0] === sel) || PARTS[0])[2];
+  };
+})();
+
+/* ====================================================== MY PROGRESS: save, load, share with a teacher ===== */
+(() => {
+  const pv = $("progressBox"); if (!pv) return;
+  const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+  const btn = (cls, t, fn) => { const b = el("button", cls); b.type = "button"; if (t != null) b.textContent = t; if (fn) b.addEventListener("click", fn); return b; };
+  const say = (box, cls, html) => { box.hidden = false; box.className = "verdict " + cls; box.innerHTML = html; };
+  const allItems = () => Object.keys(SCOPE).flatMap((mod) => SCOPE[mod].map((it, i) => ({ r: ratings[mod + "." + i], text: it[0] })));
+  const PRE = "y12nuc-", KEYS = (k) => /^(ratings|rr-done|best-[a-z]+|ex-[a-z0-9-]+|exm-[a-z0-9-]+)$/.test(k);
+  const QUIZ = [["mixed", "Mixed challenge", 10]].concat(Object.keys(SCOPE).map((m) => [m, MODS[m].name + " quick check", 8]));
+  const plain = (t) => (typeof plainTeX === "function" ? plainTeX(t) : t);
+  function snapshot() {
+    let conf = 0, get = 0, not = 0; const all = allItems(), weak = [];
+    all.forEach((x) => { if (x.r === 2) conf++; else if (x.r === 1) { get++; weak.push("Getting there: " + plain(x.text)); } else if (x.r === 0) { not++; weak.unshift("Not yet: " + plain(x.text)); } });
+    return { conf, get, not, total: all.length, weak, quiz: QUIZ.map((q) => [q[1], store.get("best-" + q[0], null), q[2]]), rr: Object.keys(store.get("rr-done", {})).length };
+  }
+  function report(name) {
+    const s = snapshot(), L = [];
+    L.push("Year 12 Physics · Atomic and nuclear physics (AS91169) revision progress"); L.push("Student: " + (name || "(no name given)")); L.push("Date: " + new Date().toLocaleDateString("en-NZ", { day: "numeric", month: "long", year: "numeric" })); L.push("");
+    L.push("SELF-RATINGS (course map, " + s.total + " statements)"); L.push("Confident " + s.conf + " · Getting there " + s.get + " · Not yet " + s.not + " · Not rated " + (s.total - s.conf - s.get - s.not));
+    s.weak.slice(0, 6).forEach((w) => L.push("- " + w)); L.push("");
+    L.push("QUIZ BEST SCORES"); s.quiz.forEach((q) => L.push("- " + q[0] + ": " + (q[1] === null ? "not tried" : q[1] + "/" + q[2]))); L.push("");
+    L.push("REARRANGING FORMULAE"); L.push("- Formulae rearranged correctly: " + s.rr); L.push("");
+    L.push("Note: these results are self-rated by the student in the Physics@Rosmini Nuclear lab."); return L.join("\n");
+  }
+  const enc = (o) => "N12." + btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  const dec = (t) => { t = String(t).trim().replace(/\s+/g, ""); if (!t.startsWith("N12.")) throw 0; const o = JSON.parse(decodeURIComponent(escape(atob(t.slice(4).replace(/-/g, "+").replace(/_/g, "/"))))); if (!o || typeof o !== "object" || Array.isArray(o)) throw 0; return o; };
+  const collect = () => { const o = {}; try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k.startsWith(PRE) && KEYS(k.slice(PRE.length))) o[k.slice(PRE.length)] = JSON.parse(localStorage.getItem(k)); } } catch (e) {} return o; };
+  function renderProgress() {
+    const s = snapshot(); pv.replaceChildren();
+    const g = el("div", "telemetry"); [["Confident", s.conf + " of " + s.total], ["Getting there / Not yet", s.get + " / " + s.not], ["Best mixed challenge", s.quiz[0][1] === null ? "not tried" : s.quiz[0][1] + "/10"], ["Formulae rearranged", String(s.rr)]].forEach((f) => g.appendChild(el("div", "tm", "<span>" + f[0] + "</span><b>" + f[1] + "</b>"))); pv.appendChild(g);
+    const pre = el("pre", "report"); pre.textContent = report(store.get("me", {}).name || ""); pv.appendChild(pre);
+    pv.appendChild(el("h3", null, "Save or load my progress"));
+    pv.appendChild(el("p", "note", "Your progress is kept automatically on this device. To carry it to another device, save a progress code here and load it there. There are no accounts and nothing is stored on a server."));
+    const row = el("div", "sum-tools"), code = el("textarea", "write code"); code.rows = 3; code.placeholder = "Your progress code appears here. To load, paste a code here."; code.setAttribute("aria-label", "Progress code");
+    const msg = el("div"); msg.hidden = true; msg.setAttribute("aria-live", "polite");
+    row.appendChild(btn("btn sm", "Save: make my code", () => { code.value = enc(collect()); code.select(); let ok = false; try { ok = document.execCommand("copy"); } catch (e) {} if (navigator.clipboard) navigator.clipboard.writeText(code.value).catch(() => {}); say(msg, "ok", "<strong>Code ready" + (ok ? " and copied" : "") + ".</strong> Paste it somewhere you can reach from your other device (an email to yourself, or a Google Doc), or download it as a file."); }));
+    row.appendChild(btn("btn sm", "Download as a file", () => { const a = el("a"); a.href = URL.createObjectURL(new Blob([enc(collect())], { type: "text/plain" })); a.download = "nuclear-progress.txt"; document.body.appendChild(a); a.click(); a.remove(); say(msg, "ok", "<strong>Saved</strong> as electricity-progress.txt in your downloads."); }));
+    const load = (t) => { let o; try { o = dec(t); } catch (e) { say(msg, "bad", "<strong>That is not a valid progress code.</strong> Copy the whole code, starting with N12."); return; }
+      say(msg, "info", "<strong>Load this progress?</strong> It will replace the progress saved on this device. "); msg.appendChild(btn("btn sm", "Yes, load it", () => { try { Object.keys(collect()).forEach((k) => localStorage.removeItem(PRE + k)); Object.keys(o).forEach((k) => { if (KEYS(k)) localStorage.setItem(PRE + k, JSON.stringify(o[k])); }); } catch (e) {} location.reload(); })); };
+    row.appendChild(btn("btn sm", "Load the code in the box", () => load(code.value)));
+    const file = el("input"); file.type = "file"; file.accept = ".txt,text/plain"; file.hidden = true; file.addEventListener("change", () => { const f = file.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => { code.value = String(rd.result); load(code.value); }; rd.readAsText(f); });
+    row.appendChild(btn("btn sm", "Load from a file", () => file.click())); row.appendChild(file);
+    pv.append(row, code, msg);
+    pv.appendChild(el("h3", null, "Share my results with my teacher"));
+    pv.appendChild(el("p", "note", "Type your name and your teacher's email address. The button opens an email with your results already written. Check it, then press <b>Send</b>. Nothing is sent until you send it yourself, and this website does not collect your name or the address."));
+    const me = store.get("me", {}), form = el("div", "share");
+    const fld = (lab, type, val, ph) => { const l = el("label"); l.append(lab); const i = el("input"); i.type = type; i.value = val || ""; i.placeholder = ph; i.autocomplete = type === "email" ? "off" : "name"; l.appendChild(i); form.appendChild(l); return i; };
+    const nm = fld("Your name", "text", me.name, "First and last name"), em = fld("Teacher's email address", "email", me.teacher, "teacher@school.nz"); pv.appendChild(form);
+    const links = el("div", "sum-tools"); const mk = (t) => { const a = el("a", "btn sm"); a.textContent = t; a.target = "_blank"; a.rel = "noopener"; a.setAttribute("role", "button"); links.appendChild(a); return a; };
+    const gm = mk("Open in Gmail"), ml = mk("Open in my email app"), smsg = el("div"); smsg.hidden = true; smsg.setAttribute("aria-live", "polite"); let warned = false;
+    links.appendChild(btn("btn sm", "Copy the report", () => { const t = report(nm.value.trim()), ta = el("textarea"); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (e) {} ta.remove(); if (navigator.clipboard) navigator.clipboard.writeText(t).then(() => {}, () => {}); warned = false; say(smsg, "ok", "<strong>Report copied.</strong> Paste it into an email or Google Classroom."); }));
+    const upd = () => { const name = nm.value.trim(), to = em.value.trim(), ok = /^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/.test(to); store.set("me", { name, teacher: to }); pre.textContent = report(name);
+      const su = "Nuclear revision progress" + (name ? " · " + name : ""), body = report(name);
+      if (ok && warned) { smsg.hidden = true; warned = false; } [gm, ml].forEach((a) => { a.classList.toggle("off", !ok); a.setAttribute("aria-disabled", String(!ok)); });
+      if (ok) { gm.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(to) + "&su=" + encodeURIComponent(su) + "&body=" + encodeURIComponent(body); ml.href = "mailto:" + encodeURIComponent(to).replace(/%40/g, "@") + "?subject=" + encodeURIComponent(su) + "&body=" + encodeURIComponent(body.replace(/\n/g, "\r\n")); } else { gm.removeAttribute("href"); ml.removeAttribute("href"); } };
+    [gm, ml].forEach((a) => a.addEventListener("click", (e) => { if (!a.hasAttribute("href")) { e.preventDefault(); warned = true; say(smsg, "bad", "<strong>Enter your teacher's email address first.</strong> For example name@school.nz"); } else { warned = false; say(smsg, "ok", "<strong>Your email is ready.</strong> Check it, then press Send. If nothing opened, use Copy the report and paste it into an email."); } }));
+    nm.addEventListener("input", upd); em.addEventListener("input", upd); upd(); pv.append(links, smsg);
+  }
+  renderProgress();
+  const psec = document.querySelector('section[data-mod="map"][data-view="progress"]');
+  new MutationObserver(() => { if (!psec.classList.contains("hidden")) renderProgress(); }).observe(psec, { attributes: true, attributeFilter: ["class"] });
+})();
+
+/* key terms filter */
+(() => { const f = $("ktFilter"); if (!f) return; const terms = [...document.querySelectorAll(".kt-term")], groups = [...document.querySelectorAll(".kt-group")];
+  const run = () => { const q = f.value.trim().toLowerCase(); let n = 0; terms.forEach((t) => { const ok = !q || t.textContent.toLowerCase().includes(q); t.hidden = !ok; if (ok) n++; }); groups.forEach((g) => { g.hidden = ![...g.querySelectorAll(".kt-term")].some((t) => !t.hidden); }); $("ktCount").textContent = q ? n + " of " + terms.length + " terms match" : terms.length + " terms"; };
+  f.addEventListener("input", run); run(); })();
 
 /* ====================================================== LOOP & START ===== */
 let last = null;

@@ -5,6 +5,12 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.19 · 18 November 2026 (Year 12 Nuclear physics: four interactive labs, Key Terms and My progress)
+- Year 12 Nuclear physics, four new simulations: an isotope builder (drag on a chart of nuclides), a half-life graph reader, a binding energy lab for fusion and fission, and a power station lab where each part can be clicked.
+- Key Terms tab with 25 terms in three groups, and a filter.
+- My progress tab: save, load and share your self-ratings, scores and exam notes as a code, the same as the other Year 12 pages.
+- The existing gold foil, radiation, decay equation, half-life, chain reaction and clinic labs are unchanged.
+
 ## v1.18 · 18 November 2026 (Year 12 Waves: four draggable labs, Key Terms and My progress)
 - Year 12 Waves, four new simulations: wavefront refraction (drag the incoming ray to change the angle; slider for shallow-water speed), pulses at fixed ends, free ends and boundaries between ropes (click to send, drag the boundary), standing waves on a string with a draggable length and a travelling-waves view, and a dispersion prism (drag the white beam).
 - Key Terms tab with 50 terms in three groups, and a filter.
