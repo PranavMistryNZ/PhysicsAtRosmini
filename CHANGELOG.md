@@ -5,6 +5,12 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.17 · 18 November 2026 (Year 12 Electricity: six simulations, Key Terms and My progress)
+- Year 12 Electricity, six new simulations: field lines (drag a test charge through the field), Millikan floating charge (drag the top plate and the drop), V–I graphs for a resistor, filament lamp and diode, voltage divider (drag the share bar, add a load), fields around currents (drag the compass, reverse the current) and a loop moving through a field.
+- The new labs can be driven by clicking and dragging on the canvas as well as with the sliders.
+- Key Terms tab with 50 terms in four groups, and a filter.
+- My progress tab: save, load and share your self-ratings and scores as a code, the same as Year 12 Mechanics.
+
 ## v1.16 · 17 November 2026 (Year 12 Mechanics: five new simulations and a Key Terms tab)
 - Year 12 Mechanics, five new simulations: Newton's 2nd law (push a box, net force, moving grid), Ramp
   (components of weight on a slope), Stopping distance (thinking and braking distance as areas under a

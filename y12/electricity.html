@@ -482,6 +482,21 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 .static-math mjx-container{margin:0!important;max-width:100%;overflow:visible!important}
 .static-math mjx-container[jax="SVG"]>svg{max-width:100%;height:auto}
 
+/* ============ KEY TERMS + MY PROGRESS ============ */
+.kt-filter{width:100%;max-width:440px;padding:10px 13px;border-radius:10px;border:1px solid var(--line);background:var(--tile);color:var(--ink);font:inherit;margin:4px 0 6px}
+.kt-group{margin:18px 0 6px}.kt-group>h3{margin:0 0 10px}
+.kt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-bottom:10px}
+.kt-term h4{margin:0 0 6px;font-size:1rem;color:var(--accent)}.kt-term p{margin:0;font-size:.95rem;line-height:1.5}
+.sum-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.rt-box{display:flex;flex-direction:column;gap:8px}.rt-box>p{margin:0}.rt-box>h3{margin:10px 0 0}
+.write{display:block;width:100%;box-sizing:border-box;padding:9px 11px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink);font:inherit;font-size:14px;line-height:1.45;resize:vertical}
+.report{white-space:pre-wrap;font:13px/1.5 var(--mono);background:var(--field);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0;max-height:320px;overflow:auto;color:var(--ink)}
+.code{font:12.5px/1.4 var(--mono);word-break:break-all}
+.share{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px}
+.share label{display:grid;gap:4px;font-size:13px;font-weight:600}
+.share input{min-height:42px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink);font:inherit;font-weight:400;min-width:0}
+a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;box-sizing:border-box}
+a.btn.off{opacity:.5}
 /* ============ EQUATIONS · one system (KaTeX) ============ */
 .eq,.eq-block{font-family:var(--sans)}
 .eq .katex,.eq-block .katex{font-size:1.04em}
@@ -823,6 +838,143 @@ table.data td:first-child,table.data th:first-child{text-align:left}
       <p class="note">Double the separation at the same voltage: the field and the force halve, but the charge is pushed twice as far, so it gains the same energy (qV) and reaches the same speed.</p>
     </div>
   </div>
+</section>
+
+<section class="pane hidden" data-mod="map" data-view="terms" data-title="Key terms: definitions for every electricity and electromagnetism topic">
+  <div class="pane-head"><h2>Phase 0.0 · Key terms</h2><span class="badge teal">DEFINITIONS</span></div>
+  <p class="lede">50 terms in four groups, in the order we teach them. Type in the box to filter. In an exam, a definition should say what the quantity <b>is</b> and, where it helps, give its unit.</p>
+  <input class="kt-filter" id="ktFilter" type="search" placeholder="Filter the terms… (e.g. voltage)" aria-label="Filter the key terms" autocomplete="off">
+  <p class="small" id="ktCount" aria-live="polite"></p>
+  <div class="kt-group"><h3>Electric fields</h3><div class="kt-grid"><div class="card kt-term"><h4>Charge</h4><p>A property of matter that causes electric forces. It is positive or negative and is measured in coulombs (C).</p></div><div class="card kt-term"><h4>Coulomb (C)</h4><p>The unit of charge. One coulomb is the charge on about \(6.25\times10^{18}\) electrons.</p></div><div class="card kt-term"><h4>Electron</h4><p>A negatively charged particle outside the nucleus, with charge \(-1.6\times10^{-19}\,\mathrm{C}\) and a very small mass. Objects become charged by gaining or losing electrons.</p></div><div class="card kt-term"><h4>Proton</h4><p>A positively charged particle in the nucleus, with charge \(+1.6\times10^{-19}\,\mathrm{C}\) and about 1800 times the mass of an electron.</p></div><div class="card kt-term"><h4>Like and unlike charges</h4><p>Like charges (+ + or − −) repel each other; unlike charges (+ −) attract.</p></div><div class="card kt-term"><h4>Electric field</h4><p>The region around a charged object where another charge feels a force. Its direction is the direction of the force on a positive charge.</p></div><div class="card kt-term"><h4>Electric field lines</h4><p>Lines drawn to show a field: arrows point away from positive and towards negative, and closer lines mean a stronger field.</p></div><div class="card kt-term"><h4>Electric field strength (E)</h4><p>The force per coulomb on a charge in the field: \(E = \frac{F}{q}\). Between parallel plates \(E = \frac{V}{d}\). Units: N C⁻¹ or V m⁻¹.</p></div><div class="card kt-term"><h4>Uniform field</h4><p>A field with the same strength and direction everywhere, such as between parallel plates. Its field lines are parallel and evenly spaced.</p></div><div class="card kt-term"><h4>Parallel plates</h4><p>Two flat metal plates facing each other with a voltage between them, giving a uniform electric field in the gap.</p></div><div class="card kt-term"><h4>Electric (electrostatic) force</h4><p>The force on a charge in an electric field: \(F = Eq\). On a positive charge it acts along the field; on a negative charge it acts against it.</p></div><div class="card kt-term"><h4>Electric potential energy</h4><p>The energy a charge has because of its position in an electric field. Moving a distance d along a uniform field changes it by \(\Delta E_{p} = Eqd\).</p></div><div class="card kt-term"><h4>Voltage between plates</h4><p>The energy change per coulomb for a charge moving from one plate to the other: \(V = \frac{\Delta E}{q}\).</p></div><div class="card kt-term"><h4>Cathode ray tube</h4><p>A vacuum tube in which electrons from a hot negative electrode (the cathode) are accelerated towards a positive electrode (the anode) by an electric field.</p></div><div class="card kt-term"><h4>Millikan's experiment</h4><p>An experiment that balanced the weight of charged oil drops against an electric force (\(Eq = mg\)) to measure the charge on an electron.</p></div></div><button type="button" class="btn sm" data-go="field:intro">Open Electric fields →</button></div>
+  <div class="kt-group"><h3>DC electricity</h3><div class="kt-grid"><div class="card kt-term"><h4>Current (I)</h4><p>The rate of flow of charge: \(I = \frac{q}{t}\). Measured in amperes (A); one ampere is one coulomb per second.</p></div><div class="card kt-term"><h4>Conventional current</h4><p>Current drawn flowing from the positive terminal to the negative terminal, opposite to the direction the electrons actually move.</p></div><div class="card kt-term"><h4>Voltage (V)</h4><p>The energy transferred per coulomb of charge: \(V = \frac{\Delta E}{q}\). Measured in volts (V); one volt is one joule per coulomb. Also called potential difference.</p></div><div class="card kt-term"><h4>Resistance (R)</h4><p>How strongly a component opposes current: \(R = \frac{V}{I}\). Measured in ohms (Ω).</p></div><div class="card kt-term"><h4>Ohm's law</h4><p>For a conductor at constant temperature, the current is proportional to the voltage across it: \(V = IR\) with R constant.</p></div><div class="card kt-term"><h4>Ohmic conductor</h4><p>A component whose resistance stays constant, giving a straight V–I graph through the origin (a resistor at constant temperature).</p></div><div class="card kt-term"><h4>Non-ohmic conductor</h4><p>A component whose resistance changes as the current or voltage changes, giving a curved V–I graph (a filament lamp, a diode).</p></div><div class="card kt-term"><h4>Diode</h4><p>A component that lets current through in one direction only.</p></div><div class="card kt-term"><h4>Series circuit</h4><p>Components connected one after another in a single loop. The current is the same in each; the voltages add up to the supply voltage; \(R_{T} = R_{1} + R_{2} + \dots\)</p></div><div class="card kt-term"><h4>Parallel circuit</h4><p>Components connected on separate branches. The voltage is the same across each branch; the branch currents add up to the supply current; \(\frac{1}{R_{T}} = \frac{1}{R_{1}} + \frac{1}{R_{2}} + \dots\)</p></div><div class="card kt-term"><h4>Combination circuit</h4><p>A circuit with some components in series and some in parallel. Simplify the parallel groups first.</p></div><div class="card kt-term"><h4>Voltage divider</h4><p>Two or more resistors in series that share the supply voltage in proportion to their resistances.</p></div><div class="card kt-term"><h4>Power (P)</h4><p>The rate at which energy is transferred: \(P = VI = \frac{\Delta E}{t}\). Measured in watts (W).</p></div><div class="card kt-term"><h4>Lamp brightness</h4><p>How bright a lamp is depends on its power, \(P = VI\): more power means more energy changed to light each second.</p></div><div class="card kt-term"><h4>Ammeter</h4><p>A meter that measures current. It is connected in series and has a very low resistance.</p></div><div class="card kt-term"><h4>Voltmeter</h4><p>A meter that measures voltage. It is connected in parallel across a component and has a very high resistance.</p></div><div class="card kt-term"><h4>Short circuit</h4><p>A very low resistance path that lets current bypass a component. That component gets no current and the total current becomes large.</p></div></div><button type="button" class="btn sm" data-go="dc:intro">Open DC electricity →</button></div>
+  <div class="kt-group"><h3>Magnetism</h3><div class="kt-grid"><div class="card kt-term"><h4>Magnetic field</h4><p>The region around a magnet or a current where a magnetic material, a moving charge or a current feels a force. Field lines run from N to S outside a magnet.</p></div><div class="card kt-term"><h4>Magnetic field strength (B)</h4><p>How strong a magnetic field is, measured in tesla (T).</p></div><div class="card kt-term"><h4>Tesla (T)</h4><p>The unit of magnetic field strength. A 1 T field gives a force of 1 N on each metre of wire carrying 1 A at right angles to it.</p></div><div class="card kt-term"><h4>Right-hand grip rule (wire)</h4><p>Point your right thumb along the conventional current; your fingers curl in the direction of the magnetic field around the wire.</p></div><div class="card kt-term"><h4>Solenoid</h4><p>A coil of wire. With a current in it, its field is like a bar magnet's, with a uniform field inside.</p></div><div class="card kt-term"><h4>Right-hand grip rule (solenoid)</h4><p>Curl your right fingers in the direction of the current around the coil; your thumb points to the N pole.</p></div><div class="card kt-term"><h4>Electromagnet</h4><p>A solenoid, usually with a soft-iron core, that is a magnet only while current flows. It is stronger with more current, more turns or an iron core.</p></div><div class="card kt-term"><h4>Motor effect</h4><p>The force on a current-carrying wire in a magnetic field. It is the reason electric motors turn.</p></div><div class="card kt-term"><h4>Force on a wire</h4><p>\(F = BIL\) for a wire of length L at right angles to the field. The force is zero if the wire is parallel to the field.</p></div><div class="card kt-term"><h4>Force on a moving charge</h4><p>\(F = Bqv\) for a charge moving at right angles to the field. The force is at right angles to the velocity, so the path curves.</p></div><div class="card kt-term"><h4>Right-hand slap rule</h4><p>Fingers along the field, thumb along the conventional current (or the velocity of a positive charge): the palm pushes in the direction of the force. Reverse it for a negative charge.</p></div><div class="card kt-term"><h4>Perpendicular</h4><p>At right angles (90°). \(F = BIL\), \(F = Bqv\) and \(V = BvL\) use the parts of the motion or current that are perpendicular to the field.</p></div></div><button type="button" class="btn sm" data-go="mag:intro">Open Magnetism →</button></div>
+  <div class="kt-group"><h3>Electromagnetic induction</h3><div class="kt-grid"><div class="card kt-term"><h4>Electromagnetic induction</h4><p>Producing a voltage across a conductor by moving it across magnetic field lines, or by changing the field through a coil.</p></div><div class="card kt-term"><h4>Induced voltage</h4><p>The voltage produced by induction. For a straight conductor of length L moving at speed v at right angles to a field B: \(V = BvL\).</p></div><div class="card kt-term"><h4>Induced current</h4><p>The current that flows when an induced voltage is connected in a complete circuit: \(I = \frac{V}{R}\).</p></div><div class="card kt-term"><h4>Lenz's law</h4><p>An induced current flows in the direction that opposes the change causing it. A moving conductor feels a force opposing its motion.</p></div><div class="card kt-term"><h4>Generator</h4><p>A device that turns kinetic energy into electrical energy by rotating a coil in a magnetic field (or a magnet near a coil).</p></div><div class="card kt-term"><h4>Energy in induction</h4><p>Work must be done to move the conductor against the opposing magnetic force. That work is transformed into electrical energy, then heat in the circuit.</p></div></div><button type="button" class="btn sm" data-go="induct:intro">Open Induction →</button></div>
+</section>
+
+<section class="pane hidden" data-mod="map" data-view="progress" data-title="My progress: save it or share it with a teacher">
+  <div class="pane-head"><h2>Phase 0.0 · My progress: save it or share it</h2><span class="badge teal">MY PROGRESS</span></div>
+  <p class="lede">Your self-ratings, quiz best scores and rearranging progress are kept on this device. Save a progress code to move them to another device, or send a summary to your teacher.</p>
+  <div class="rt-box" id="progressBox"></div>
+</section>
+
+<section class="pane hidden" data-mod="field" data-view="lines" data-title="Field lines lab: electric fields around point charges">
+  <div class="pane-head"><h2>Phase 0.0 · Field lines lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Electric field lines show the direction a <b>positive</b> charge would be pushed. Drag the charges around, click one to change its sign, and move the small test charge to see the force on it.</p>
+  <div class="seg" role="group" aria-label="Charges"><button type="button" data-flset="dipole" aria-pressed="true">+ and −</button><button type="button" data-flset="pos2" aria-pressed="false">+ and +</button><button type="button" data-flset="neg2" aria-pressed="false">− and −</button><button type="button" data-flset="pos1" aria-pressed="false">One +</button><button type="button" data-flset="neg1" aria-pressed="false">One −</button></div>
+  <div class="screen"><canvas id="flCanvas" width="900" height="420" aria-label="Electric field lines around one or two point charges, with a test charge and the force on it"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <p class="small" style="margin:0 0 8px">Test charge</p><div class="seg" role="group" aria-label="Test charge"><button type="button" data-fltest="1" aria-pressed="true">Positive test charge</button><button type="button" data-fltest="-1" aria-pressed="false">Negative test charge</button></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Force on the test charge</span><b id="flF">–</b></div><div class="tm"><span>Field direction</span><b id="flDir">–</b></div><div class="tm"><span>Field strength</span><b id="flStr">–</b></div></div>
+      <p class="note" id="flNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><ul><li>Field lines start on positive charges and end on negative charges. They never cross.</li><li>The arrows show the direction of the force on a <b>positive</b> charge. A negative charge (such as an electron) feels a force in the <b>opposite</b> direction.</li><li>Lines close together mean a strong field; lines far apart mean a weak field.</li><li>Like charges repel: the lines bend away from each other and there is a point of zero field between them. Unlike charges attract: the lines run from one to the other.</li><li>Between parallel plates the lines are straight, parallel and evenly spaced: a <b>uniform</b> field.</li></ul></div>
+</section>
+
+<section class="pane hidden" data-mod="field" data-view="millikan" data-title="Floating charge lab: balancing weight with an electric force (Millikan's experiment)">
+  <div class="pane-head"><h2>Phase 0.0 · Floating charge lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">A tiny charged oil drop sits between two plates. Its weight pulls it down and the electric force pushes it up. Change the voltage until the drop hangs still: then the two forces are equal. This is how Millikan measured the charge on an electron.</p>
+  
+  <div class="screen"><canvas id="mkCanvas" width="900" height="420" aria-label="A charged oil drop between two horizontal charged plates with its weight and electric force arrows"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Voltage across the plates</span><output id="mkVOut"></output></span><input type="range" id="mkV" min="0" max="2000" step="2" value="300"></label><label class="ctrl"><span class="row"><span>Plate separation, d</span><output id="mkDOut"></output></span><input type="range" id="mkD" min="5" max="20" step="1" value="10"></label><label class="ctrl"><span class="row"><span>Extra electrons on the drop</span><output id="mkNOut"></output></span><input type="range" id="mkN" min="1" max="10" step="1" value="5"></label><label class="ctrl"><span class="row"><span>Mass of the drop</span><output id="mkMOut"></output></span><input type="range" id="mkM" min="1" max="3" step="0.1" value="1.6"></label><div class="btns"><button type="button" class="btn go" id="mkMyst">Mystery drop</button><button type="button" class="btn hidden" id="mkShow">Reveal</button><button type="button" class="btn" id="mkReset">Reset</button></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Field, \(E = \frac{V}{d}\)</span><b id="mkE">–</b></div><div class="tm"><span>Electric force, \(Eq\)</span><b id="mkFE">–</b></div><div class="tm"><span>Weight, \(mg\)</span><b id="mkW">–</b></div><div class="tm"><span>Charge on the drop</span><b id="mkQ">–</b></div></div>
+      <p class="note" id="mkNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><p>The drop hangs still when the forces on it are balanced:</p><p class="eq-block">\(Eq = mg \quad\Rightarrow\quad \frac{V}{d}\,q = mg\)</p>
+<ul><li>The drop carries extra electrons, so it is negative. The top plate must be positive to pull it upwards.</li><li>If the electric force is bigger than the weight the drop rises; if it is smaller the drop falls.</li><li>A bigger gap at the same voltage means a weaker field (\(E = \frac{V}{d}\)), so you need more voltage to balance.</li><li>Every charge Millikan found was a whole-number multiple of \(1.6\times10^{-19}\,\mathrm{C}\): the charge on one electron.</li></ul>
+<p class="small">Press <b>Mystery drop</b>, balance it, and work out how many extra electrons it carries.</p></div>
+</section>
+
+<section class="pane hidden" data-mod="dc" data-view="vi" data-title="V–I graphs lab: ohmic and non-ohmic conductors">
+  <div class="pane-head"><h2>Phase 0.0 · V–I graphs lab: ohmic and non-ohmic</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Change the voltage across a component and record the current. A straight line through the origin means the component is <b>ohmic</b>. Try the resistor, then the filament lamp and the diode.</p>
+  <div class="seg" role="group" aria-label="Component"><button type="button" data-vic="res" aria-pressed="true">Resistor</button><button type="button" data-vic="lamp" aria-pressed="false">Filament lamp</button><button type="button" data-vic="diode" aria-pressed="false">Diode</button></div>
+  <div class="screen"><canvas id="viCanvas" width="900" height="420" aria-label="A circuit with an ammeter and voltmeter, and a graph of voltage against current for the chosen component"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Voltage across the component</span><output id="viVOut"></output></span><input type="range" id="viV" min="-4" max="12" step="0.1" value="6"></label><div id="viRWrap"><label class="ctrl"><span class="row"><span>Resistance of the resistor</span><output id="viROut"></output></span><input type="range" id="viR" min="5" max="50" step="5" value="20"></label></div><div class="btns"><button type="button" class="btn go" id="viRec">RECORD READING</button><button type="button" class="btn" id="viClr">Clear points</button><button type="button" class="btn" id="viCurve" aria-pressed="false">Show the full curve</button></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm"><span>Voltage</span><b id="viVr">–</b></div><div class="tm"><span>Current</span><b id="viI">–</b></div><div class="tm hl"><span>Resistance, \(\frac{V}{I}\)</span><b id="viRr">–</b></div><div class="tm"><span>Power, \(VI\)</span><b id="viP">–</b></div></div>
+      <p class="note" id="viNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><ul><li><b>Ohmic conductor</b> (a resistor at constant temperature): V is proportional to I, so the graph is a straight line through the origin and R is constant. This is Ohm's law, \(V = IR\).</li><li><b>Filament lamp</b>: non-ohmic. The filament heats up as the current rises, and a hotter filament has a larger resistance.</li><li><b>Diode</b>: non-ohmic. It conducts in one direction only, once the voltage passes about 0.6 V.</li><li>For any component, the resistance at one point is \(R = \frac{V}{I}\) using the values <b>at that point</b>.</li></ul>
+<p class="small">Here V is on the vertical axis, so a steeper line means a larger resistance. If a graph has I on the vertical axis instead, a steeper line means a smaller resistance.</p></div>
+</section>
+
+<section class="pane hidden" data-mod="dc" data-view="divider" data-title="Voltage divider lab: sharing the supply voltage between series resistors">
+  <div class="pane-head"><h2>Phase 0.0 · Voltage divider lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Two resistors in series share the supply voltage. The bigger resistor takes the bigger share. Drag the handle on the bar, or use the sliders, then connect a load across R₂ and see what happens to the output.</p>
+  <div class="seg" role="group" aria-label="Load"><button type="button" data-vdl="0" aria-pressed="true">No load</button><button type="button" data-vdl="1000" aria-pressed="false">Load 1000 Ω</button><button type="button" data-vdl="200" aria-pressed="false">Load 200 Ω</button></div>
+  <div class="screen"><canvas id="vdCanvas" width="900" height="420" aria-label="Two resistors in series across a supply, with a bar showing how the supply voltage is shared"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Supply voltage</span><output id="vdVsOut"></output></span><input type="range" id="vdVs" min="3" max="12" step="1" value="12"></label><label class="ctrl"><span class="row"><span>R₁ (top)</span><output id="vdR1Out"></output></span><input type="range" id="vdR1" min="100" max="1000" step="50" value="600"></label><label class="ctrl"><span class="row"><span>R₂ (bottom)</span><output id="vdR2Out"></output></span><input type="range" id="vdR2" min="100" max="1000" step="50" value="300"></label>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Output voltage (across R₂)</span><b id="vdVo">–</b></div><div class="tm"><span>Voltage across R₁</span><b id="vdV1">–</b></div><div class="tm"><span>Current from the supply</span><b id="vdI">–</b></div><div class="tm"><span>Total resistance</span><b id="vdRt">–</b></div></div>
+      <p class="note" id="vdNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><p class="eq-block">\(V_{\text{out}} = \frac{R_{2}}{R_{1}+R_{2}}\times V_{s}\)</p>
+<ul><li>The current is the same in both resistors, so \(V = IR\) gives the larger voltage to the larger resistance.</li><li>The two voltages always add up to the supply voltage.</li><li>Equal resistors share the voltage equally.</li><li>Connecting a load across R₂ makes a parallel pair with a <b>smaller</b> resistance, so the output voltage drops. A load with a small resistance pulls it down the most.</li></ul>
+<p class="small">Sensors use this idea: swap R₂ for a thermistor or light-dependent resistor and the output voltage changes with temperature or light.</p></div>
+</section>
+
+<section class="pane hidden" data-mod="mag" data-view="fields" data-title="Fields around currents lab: straight wire, solenoid, grip rule, electromagnets">
+  <div class="pane-head"><h2>Phase 0.0 · Fields around currents lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">A current always has a magnetic field around it. Look along a straight wire (end-on), or at a solenoid from the side. Drag the compass to map the field, and click the wire or coil to reverse the current.</p>
+  <div class="seg" role="group" aria-label="Shape"><button type="button" data-mcm="wire" aria-pressed="true">Straight wire (end view)</button><button type="button" data-mcm="sol" aria-pressed="false">Solenoid (side view)</button></div>
+  <div class="screen"><canvas id="mcCanvas" width="900" height="420" aria-label="Magnetic field lines around a current-carrying wire or a solenoid, with a movable compass"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Current (negative = reversed)</span><output id="mcIOut"></output></span><input type="range" id="mcI" min="-5" max="5" step="0.5" value="3"></label><div id="mcSol" class="hidden"><label class="ctrl"><span class="row"><span>Number of turns</span><output id="mcNOut"></output></span><input type="range" id="mcN" min="5" max="40" step="1" value="20"></label><div class="seg" role="group" aria-label="Core"><button type="button" data-mcc="1" aria-pressed="true">Air core</button><button type="button" data-mcc="200" aria-pressed="false">Iron core</button></div></div><div class="btns"><button type="button" class="btn" id="mcFlip">Reverse the current</button></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Field direction</span><b id="mcDir">–</b></div><div class="tm"><span>Field strength</span><b id="mcStr">–</b></div></div>
+      <p class="note" id="mcNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><ul><li><b>Straight wire:</b> the field lines are circles around the wire. Right-hand grip rule: thumb along the conventional current, fingers curl in the direction of the field. ⊙ means current towards you; ⊗ means away from you.</li><li>The field is strongest close to the wire and gets weaker further away. A bigger current gives a stronger field.</li><li><b>Solenoid:</b> the fields of all the turns add up to make a field like a bar magnet's. Grip rule for solenoids: fingers curl with the current around the coil, thumb points to the N pole.</li><li>An <b>electromagnet</b> is stronger with more current, more turns, or a soft-iron core. Reversing the current swaps the poles; switching it off removes the field.</li><li>A compass needle lines up with the field: its N end points along the field line.</li></ul></div>
+</section>
+
+<section class="pane hidden" data-mod="induct" data-view="loop" data-title="Loop through a field lab: induced voltage when a loop enters and leaves a magnetic field">
+  <div class="pane-head"><h2>Phase 0.0 · Loop through a field lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Pull a wire loop through a region of magnetic field. A voltage is induced only while one side of the loop is cutting field lines: on the way in and on the way out. Drag the loop yourself, fast or slow, or press Move.</p>
+  <div class="seg" role="group" aria-label="Field direction"><button type="button" data-lpd="in" aria-pressed="true">Field into the page ⊗</button><button type="button" data-lpd="out" aria-pressed="false">Field out of the page ⊙</button></div>
+  <div class="screen"><canvas id="lpCanvas" width="900" height="420" aria-label="A rectangular wire loop moving through a region of magnetic field, with a graph of induced voltage against time"></canvas><div class="hud" id="lpHud">OUTSIDE</div></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Field strength, B</span><output id="lpBOut"></output></span><input type="range" id="lpB" min="0.1" max="1" step="0.05" value="0.5"></label><label class="ctrl"><span class="row"><span>Speed when you press Move, v</span><output id="lpVOut"></output></span><input type="range" id="lpV" min="0.05" max="0.3" step="0.01" value="0.12"></label><label class="ctrl"><span class="row"><span>Height of the loop in the field, L</span><output id="lpLOut"></output></span><input type="range" id="lpL" min="0.05" max="0.2" step="0.01" value="0.12"></label><div class="btns"><button type="button" class="btn go" id="lpGo">MOVE</button><button type="button" class="btn" id="lpReset">Reset</button></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Induced voltage, \(BvL\)</span><b id="lpE">–</b></div><div class="tm"><span>Induced current (2 Ω loop)</span><b id="lpI">–</b></div><div class="tm"><span>Magnetic force on the loop</span><b id="lpF">–</b></div><div class="tm"><span>Where is the loop?</span><b id="lpSt">–</b></div></div>
+      <p class="note" id="lpNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><p class="eq-block">\(V = BvL\)</p>
+<ul><li><b>Entering:</b> the leading side cuts field lines, a voltage is induced, and current flows around the loop.</li><li><b>Fully inside:</b> both sides cut field lines equally, their voltages cancel, and there is no current.</li><li><b>Leaving:</b> only the trailing side is cutting field lines, so the voltage and the current are reversed.</li><li>The induced current always feels a force that <b>opposes the motion</b> (Lenz's law). Work done against this force becomes electrical energy.</li><li>Move faster, use a stronger field or a taller loop, and the induced voltage is bigger. Stop moving and it is zero.</li></ul></div>
 </section>
 
 <section class="pane hidden" data-mod="field" data-view="check" data-title="Electric fields quick check">
@@ -1363,11 +1515,11 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
-  map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["rearrange", "Rearranging formulae"], ["challenge", "Mixed challenge"]] },
-  field: { title: "ELECTRIC FIELDS", name: "Electric fields", views: [["intro", "Foundations"], ["plates", "Parallel plates"], ["check", "Quick check"], ["problems", "Problems"]] },
-  dc: { title: "DC ELECTRICITY", name: "DC electricity", views: [["intro", "Foundations"], ["circuit", "Circuit lab"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
-  mag: { title: "MAGNETISM", name: "Magnetism", views: [["intro", "Foundations"], ["force", "Magnetic force lab"], ["check", "Quick check"], ["problems", "Problems"]] },
-  induct: { title: "ELECTROMAGNETIC INDUCTION", name: "Electromagnetic induction", views: [["intro", "Foundations"], ["rails", "Sliding rod lab"], ["check", "Quick check"], ["problems", "Problems"]] },
+  map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["scope", "Course map"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["terms", "Key terms"], ["rearrange", "Rearranging formulae"], ["challenge", "Mixed challenge"], ["progress", "My progress"]] },
+  field: { title: "ELECTRIC FIELDS", name: "Electric fields", views: [["intro", "Foundations"], ["lines", "Field lines"], ["plates", "Parallel plates"], ["millikan", "Floating charge"], ["check", "Quick check"], ["problems", "Problems"]] },
+  dc: { title: "DC ELECTRICITY", name: "DC electricity", views: [["intro", "Foundations"], ["circuit", "Circuit lab"], ["vi", "V–I graphs"], ["divider", "Voltage divider"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
+  mag: { title: "MAGNETISM", name: "Magnetism", views: [["intro", "Foundations"], ["fields", "Fields around currents"], ["force", "Magnetic force lab"], ["check", "Quick check"], ["problems", "Problems"]] },
+  induct: { title: "ELECTROMAGNETIC INDUCTION", name: "Electromagnetic induction", views: [["intro", "Foundations"], ["rails", "Sliding rod lab"], ["loop", "Loop through a field"], ["check", "Quick check"], ["problems", "Problems"]] },
 };
 const SCOPE = {
   field: [
@@ -1402,6 +1554,12 @@ const ratings = store.get("ratings", {});
 const TIP_CHECK = "Got one wrong? Read the explanation, then reopen the matching lab before trying a new set.";
 const TIPS = {
   "field:intro": "Field lines point the way a positive charge is pushed. For an electron, say clearly that the force is opposite to the field.",
+  "field:lines": "When you draw field lines, add arrows (away from +, towards −), never let lines cross, and draw them closer together where the field is stronger.",
+  "field:millikan": "For a charge held still, write 'forces are balanced, so Eq = mg' before substituting. Then replace E with V/d if you are given the voltage.",
+  "dc:vi": "To show a component is non-ohmic, calculate R = V/I at two different points and show the values are different.",
+  "dc:divider": "Find the total resistance, then the current, then use V = IR for the resistor you are asked about. Check that the voltages add up to the supply.",
+  "mag:fields": "Name the rule you used (right-hand grip rule) and say what the thumb and fingers represent.",
+  "induct:loop": "Say which part of the loop is cutting field lines. No voltage is induced when the loop is fully inside a uniform field.",
   "field:plates": "Convert the plate separation to metres before using \\(E = \\frac{V}{d}\\). 5.0 mm is \\(5.0 \\times 10^{-3}\\,\\mathrm{m}\\).",
   "field:problems": "For speed questions, link the two energies in words first: 'electric potential energy lost = kinetic energy gained', then substitute.",
   "dc:intro": "Say what stays the same: current in series, voltage across parallel branches. It's the first step of most explanations.",
@@ -2317,6 +2475,371 @@ const sci = (x, d = 3) => tn(fmt(x, d));
   upd();
 })();
 
+
+/* ====================================================== NEW LABS (v1.17) ===== */
+/* shared: click and drag on a canvas. hit(x,y) names what is under the pointer, move() drags it, up() fires on release (moved = false means a click) */
+function dragOn(cv, hit, move, up) {
+  let k = null, moved = false, sx = 0, sy = 0;
+  const pos = (e) => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+  cv.addEventListener("pointerdown", (e) => { const [x, y] = pos(e); k = hit(x, y); if (!k) return; moved = false; sx = x; sy = y; try { cv.setPointerCapture(e.pointerId); } catch (er) {} e.preventDefault(); });
+  cv.addEventListener("pointermove", (e) => { const [x, y] = pos(e); if (!k) { cv.style.cursor = hit(x, y) ? "pointer" : ""; return; } if (Math.hypot(x - sx, y - sy) > 4) moved = true; if (moved) move(k, x, y); });
+  cv.addEventListener("pointerup", (e) => { if (!k) return; const kk = k; k = null; const [x, y] = pos(e); if (up) up(kk, moved, x, y); });
+  cv.addEventListener("pointercancel", () => { k = null; });
+  cv.addEventListener("touchstart", (e) => { const t = e.touches[0], r = cv.getBoundingClientRect(); if (t && hit(t.clientX - r.left, t.clientY - r.top)) e.preventDefault(); }, { passive: false });
+}
+const setRange = (el, v) => { v = clamp(v, +el.min, +el.max); if (+el.value !== v) { el.value = v; el.dispatchEvent(new Event("input")); } };
+function grip(ctx, x, y, col) { ctx.save(); ctx.fillStyle = C.panel; ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(x, y, 8, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fill(); ctx.restore(); }
+const tq = (s) => tn(s).replace(/,/g, "{,}");
+function chargeDot(ctx, x, y, q, r = 15) { ctx.save(); ctx.fillStyle = q > 0 ? C.vector : C.data; ctx.strokeStyle = C.panel; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); ctx.stroke(); ctx.strokeStyle = "#fff"; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(x - r * 0.45, y); ctx.lineTo(x + r * 0.45, y); if (q > 0) { ctx.moveTo(x, y - r * 0.45); ctx.lineTo(x, y + r * 0.45); } ctx.stroke(); ctx.restore(); }
+/* trace field lines for a set of point sources [{x,y,q}] */
+function traceLines(ctx, src, w, h, col, perCharge = 12, mask, pad = 60) {
+  const E = (x, y) => { let ex = 0, ey = 0; src.forEach((c) => { const dx = x - c.x, dy = y - c.y, r2 = dx * dx + dy * dy, r = Math.sqrt(r2) + 1e-6; ex += c.q * dx / (r2 * r); ey += c.q * dy / (r2 * r); }); return [ex, ey]; };
+  const pos = src.filter((c) => c.q > 0), starts = pos.length ? pos : src, dir = pos.length ? 1 : -1;
+  ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = 1.6; ctx.lineJoin = "round";
+  starts.forEach((c) => {
+    for (let i = 0; i < perCharge; i++) {
+      const a = (i + 0.5) / perCharge * Math.PI * 2; if (mask && !mask(c, a)) continue;
+      let x = c.x + Math.cos(a) * 16, y = c.y + Math.sin(a) * 16; const pts = [[x, y]];
+      for (let s = 0; s < (pad > 60 ? 4000 : 900); s++) {
+        const [ex, ey] = E(x, y), m = Math.hypot(ex, ey); if (m < 1e-12) break;
+        x += dir * ex / m * 4; y += dir * ey / m * 4; pts.push([x, y]);
+        if (x < -pad || x > w + pad || y < -pad || y > h + pad) break;
+        if (src.some((o) => o !== c && Math.hypot(x - o.x, y - o.y) < 15)) break;
+      }
+      ctx.beginPath(); pts.forEach((p, j) => (j ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]))); ctx.stroke();
+      for (let j = 14; j < pts.length - 6; j += 60) { const p = pts[j], q = pts[j + 2], L = Math.hypot(q[0] - p[0], q[1] - p[1]) || 1; chevron(ctx, p[0], p[1], dir * (q[0] - p[0]) / L, dir * (q[1] - p[1]) / L, 7); }
+    }
+  });
+  ctx.restore();
+  return E;
+}
+
+/* ====================================================== 1.x · FIELD LINES LAB ===== */
+(() => {
+  const cv = $("flCanvas"), sim = { dirty: true, anim: false }; sims["field:lines"] = sim;
+  const SETS = { dipole: [[0.32, 0.5, 1], [0.68, 0.5, -1]], pos2: [[0.32, 0.5, 1], [0.68, 0.5, 1]], neg2: [[0.32, 0.5, -1], [0.68, 0.5, -1]], pos1: [[0.5, 0.5, 1]], neg1: [[0.5, 0.5, -1]] };
+  let ch = SETS.dipole.map((c) => c.slice()), test = [0.5, 0.2], tq0 = 1, W = 1, H = 1;
+  const setB = [...document.querySelectorAll("[data-flset]")], tB = [...document.querySelectorAll("[data-fltest]")];
+  setB.forEach((b) => b.addEventListener("click", () => { ch = SETS[b.dataset.flset].map((c) => c.slice()); setPressed(setB, b); sim.dirty = true; }));
+  tB.forEach((b) => b.addEventListener("click", () => { tq0 = +b.dataset.fltest; setPressed(tB, b); sim.dirty = true; }));
+  dragOn(cv, (x, y) => { if (Math.hypot(x - test[0] * W, y - test[1] * H) < 20) return "t"; const i = ch.findIndex((c) => Math.hypot(x - c[0] * W, y - c[1] * H) < 22); return i < 0 ? null : "c" + i; },
+    (k, x, y) => { const p = k === "t" ? test : ch[+k.slice(1)]; p[0] = clamp(x / W, 0.04, 0.96); p[1] = clamp(y / H, 0.08, 0.92); sim.dirty = true; },
+    (k, moved) => { if (!moved && k !== "t") { const c = ch[+k.slice(1)]; c[2] = -c[2]; setPressed(setB, null); sim.dirty = true; } });
+  sim.frame = () => {
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 0.95) : Math.max(380, Math.round(w * 0.46)))); clear(ctx, w, h); W = w; H = h;
+    const src = ch.map((c) => ({ x: c[0] * w, y: c[1] * h, q: c[2] }));
+    const E = traceLines(ctx, src, w, h, C.accent, w < 640 ? 10 : 14);
+    src.forEach((c) => chargeDot(ctx, c.x, c.y, c.q));
+    const tx = test[0] * w, ty = test[1] * h, [ex, ey] = E(tx, ty), m = Math.hypot(ex, ey) || 1e-9, L = clamp(22 + Math.log10(m * 1e5 + 1) * 26, 22, 100);
+    arrow(ctx, tx, ty, tx + tq0 * ex / m * L, ty + tq0 * ey / m * L, C.hot, 3.5, 11);
+    ctx.fillStyle = tq0 > 0 ? C.vector : C.data; ctx.strokeStyle = C.ink; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(tx, ty, 7, 0, 7); ctx.fill(); ctx.stroke();
+    text(ctx, tq0 > 0 ? "+ test charge" : "− test charge", tx + 12, ty + 18, C.ink2, 10); text(ctx, "F", tx + tq0 * ex / m * L + 6, ty + tq0 * ey / m * L - 4, C.hot, 12);
+    text(ctx, "drag the charges and the test charge · click a charge to change its sign", 12, h - 10, C.muted, 9);
+    const ang = Math.round(((Math.atan2(-ey, ex) * 180 / Math.PI) + 360) % 360), rel = m * 1e4;
+    $("flDir").textContent = ang + "° (anticlockwise from →)"; $("flStr").textContent = fmt(rel, 2) + " (relative)"; $("flF").textContent = tq0 > 0 ? "along the field" : "opposite to the field";
+    const near = src.reduce((a, c) => (Math.hypot(tx - c.x, ty - c.y) < Math.hypot(tx - a.x, ty - a.y) ? c : a), src[0]);
+    $("flNote").textContent = `The field arrows point away from positive charges and towards negative charges. Where the lines are close together the field is strong: move the test charge closer to a charge and the force arrow grows. A ${tq0 > 0 ? "positive" : "negative"} test charge is pushed ${tq0 > 0 ? "along" : "against"} the field line through it, so here it is ${(near.q * tq0 > 0) ? "repelled from" : "attracted to"} the nearest charge.`;
+  };
+})();
+
+/* ====================================================== 1.x · MILLIKAN LAB ===== */
+(() => {
+  const cv = $("mkCanvas"), sim = { dirty: true, anim: true }; sims["field:millikan"] = sim;
+  const vEl = bindRange("mkV", "mkVOut", (v) => v + " V"), dEl = bindRange("mkD", "mkDOut", (v) => v + " mm"), nEl = bindRange("mkN", "mkNOut", (v) => v), mEl = bindRange("mkM", "mkMOut", (v) => (+v).toFixed(1) + " × 10⁻¹⁵ kg");
+  const S = { y: 0.5, mystery: false, shown: true }; let geo = null;
+  const P = () => { const V = +vEl.value, d = +dEl.value / 1000, n = +nEl.value, m = +mEl.value * 1e-15, q = n * QE, E = V / d, FE = E * q, Wt = m * 9.8; return { V, d, n, m, q, E, FE, Wt, net: FE - Wt, Vb: Wt * d / q }; };
+  $("mkMyst").addEventListener("click", () => { S.mystery = true; S.shown = false; nEl.value = 1 + Math.floor(Math.random() * 10); nEl.dispatchEvent(new Event("input")); nEl.disabled = true; S.y = 0.5; $("mkShow").classList.remove("hidden"); });
+  $("mkShow").addEventListener("click", () => { S.shown = true; });
+  $("mkReset").addEventListener("click", () => { S.mystery = false; S.shown = true; nEl.disabled = false; S.y = 0.5; $("mkShow").classList.add("hidden"); });
+  dragOn(cv, (x, y) => !geo ? null : Math.abs(y - geo.top) < 16 && Math.abs(x - geo.cx) < geo.pw / 2 ? "plate" : Math.hypot(x - geo.cx, y - geo.dy) < 22 ? "drop" : null,
+    (k, x, y) => { if (k === "plate") setRange(dEl, Math.round((geo.bot - y) / geo.pm)); else S.y = clamp((geo.bot - y) / (geo.bot - geo.top), 0.06, 0.94); },
+    null);
+  sim.frame = (dt) => {
+    const p = P(), ratio = p.FE / p.Wt, bal = Math.abs(ratio - 1) < 0.012;
+    if (!bal) S.y = clamp(S.y + clamp((ratio - 1) * 0.35, -0.9, 0.9) * dt, 0.05, 0.95);
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 0.95) : Math.max(380, Math.round(w * 0.44)))); clear(ctx, w, h); const narrow = w < 640;
+    const pm = (h - 120) / 20, bot = h / 2 + 4 + (+dEl.value) * pm / 2, top = bot - (+dEl.value) * pm, cx = narrow ? w * 0.42 : w * 0.36, pw = narrow ? w * 0.6 : w * 0.46;
+    ctx.fillStyle = C.vector; ctx.fillRect(cx - pw / 2, top - 8, pw, 8); ctx.fillStyle = C.data; ctx.fillRect(cx - pw / 2, bot, pw, 8);
+    text(ctx, "+ + + + + + +   +" + p.V + " V", cx - pw / 2, top - 14, C.vector, 11); text(ctx, "− − − − − − −   0 V", cx - pw / 2, bot + 22, C.data, 11);
+    const nl = narrow ? 5 : 8; ctx.globalAlpha = 0.45; for (let i = 0; i < nl; i++) { const x = cx - pw / 2 + (i + 0.5) * pw / nl; arrow(ctx, x, top + 4, x, bot - 4, C.accent, 1.3, 7); } ctx.globalAlpha = 1;
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cx + pw / 2 + 14, top); ctx.lineTo(cx + pw / 2 + 14, bot); ctx.stroke(); text(ctx, "d = " + dEl.value + " mm", cx + pw / 2 + 20, (top + bot) / 2 + 4, C.ink2, 10);
+    const dy = bot - S.y * (bot - top); geo = { top: top - 4, bot, pm, cx, pw, dy }; grip(ctx, cx + pw / 2 - 12, top - 4, C.vector);
+    const ks = Math.min(60, (bot - top) * 0.42) / Math.max(p.Wt, p.FE, 1e-20);
+    arrow(ctx, cx, dy, cx, dy + p.Wt * ks, C.third, 3.5, 10); if (p.FE > 0) arrow(ctx, cx, dy, cx, dy - p.FE * ks, C.ok, 3.5, 10);
+    ctx.fillStyle = C.ink; ctx.strokeStyle = C.panel; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(cx, dy, 8, 0, 7); ctx.fill(); ctx.stroke();
+    const wy = clamp(dy + p.Wt * ks, top + 14, bot - 6), ey = clamp(dy - p.FE * ks + 8, top + 26, bot - 6); text(ctx, "weight mg", cx + 10, wy, C.third, 11); if (p.FE > 0) text(ctx, "electric force Eq", cx + 10, ey, C.ok, 11);
+    text(ctx, bal ? "BALANCED: THE DROP HANGS STILL" : ratio > 1 ? "RISING: electric force > weight" : "FALLING: weight > electric force", 12, 22, bal ? C.ok : C.hot, 12);
+    text(ctx, "drag the top plate ● to change the gap · drag the drop to move it", 12, h - 10, C.muted, 9);
+    const hide = S.mystery && !S.shown;
+    $("mkE").textContent = fmt(p.E) + " V m⁻¹"; $("mkFE").textContent = hide ? "?" : fmt(p.FE) + " N"; $("mkW").textContent = fmt(p.Wt) + " N"; $("mkQ").textContent = hide ? "?" : fmt(p.q) + " C (" + p.n + " e)";
+    if (hide) $("mkNOut").textContent = "?";
+    else if (S.mystery) $("mkNOut").textContent = p.n;
+    $("mkNote").textContent = hide
+      ? (bal ? `Balanced at ${p.V} V. Now calculate the charge: \\(q = \\frac{mgd}{V}\\), then divide by \\(1.6\\times10^{-19}\\,\\mathrm{C}\\) to find the number of extra electrons. Press Reveal to check.` : "Mystery drop: adjust the voltage until the drop hangs still. Then the electric force equals the weight, and you can calculate the charge.")
+      : `Balanced when \\(Eq = mg\\), so \\(\\frac{V}{d}q = mg\\) and \\(V = \\frac{mgd}{q} = ${tq(fmt(p.Vb))}\\,\\mathrm{V}\\) for this drop. Now: \\(E = \\frac{V}{d} = ${tq(fmt(p.E))}\\,\\mathrm{V\\,m^{-1}}\\), \\(F = Eq = ${tq(fmt(p.FE))}\\,\\mathrm{N}\\), weight \\(mg = ${tq(fmt(p.Wt))}\\,\\mathrm{N}\\).`;
+  };
+})();
+
+/* ====================================================== 2.x · V–I GRAPHS LAB ===== */
+(() => {
+  const cv = $("viCanvas"), sim = { dirty: true, anim: false }; sims["dc:vi"] = sim;
+  const vEl = bindRange("viV", "viVOut", (v) => (+v).toFixed(1) + " V"), rEl = bindRange("viR", "viROut", (v) => v + " Ω");
+  let comp = "res", curve = false, geo = null; const pts = { res: [], lamp: [], diode: [] };
+  const cB = [...document.querySelectorAll("[data-vic]")];
+  const I = (V) => comp === "res" ? V / +rEl.value : comp === "lamp" ? Math.sign(V) * 0.6 * Math.pow(Math.abs(V) / 12, 0.55) : V > 0.6 ? (V - 0.6) * 1.5 : 0;
+  cB.forEach((b) => b.addEventListener("click", () => { comp = b.dataset.vic; setPressed(cB, b); vEl.max = comp === "diode" ? 1.4 : 12; if (+vEl.value > +vEl.max) vEl.value = vEl.max; vEl.dispatchEvent(new Event("input")); $("viRWrap").classList.toggle("hidden", comp !== "res"); sim.dirty = true; }));
+  [vEl, rEl].forEach((e) => e.addEventListener("input", () => { sim.dirty = true; })); rEl.addEventListener("input", () => { pts.res = []; });
+  const rec = () => { const V = +vEl.value; pts[comp].push([I(V), V]); sim.dirty = true; };
+  $("viRec").addEventListener("click", rec); $("viClr").addEventListener("click", () => { pts[comp] = []; sim.dirty = true; });
+  const cu = $("viCurve"); cu.addEventListener("click", () => { curve = !curve; cu.setAttribute("aria-pressed", String(curve)); sim.dirty = true; });
+  dragOn(cv, (x, y) => geo && x > geo.gx0 - 10 && x < geo.gx1 + 10 && y > geo.gy0 - 10 && y < geo.gy1 + 10 ? "g" : null,
+    (k, x, y) => setRange(vEl, Math.round(geo.Vof(y) * 10) / 10), (k, moved) => { if (!moved) rec(); });
+  sim.frame = () => {
+    const V = +vEl.value, i = I(V), R = Math.abs(i) > 1e-9 ? V / i : Infinity, Pw = V * i;
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.5) : Math.max(380, Math.round(w * 0.46)))); clear(ctx, w, h); const narrow = w < 640;
+    // circuit
+    const cw = narrow ? w - 40 : w * 0.34, cx0 = 20, cy0 = 44, cx1 = cx0 + cw, cy1 = narrow ? h * 0.3 : h - 70, mx = (cx0 + cx1) / 2;
+    ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.strokeRect(cx0 + 20, cy0, cw - 40, cy1 - cy0);
+    const blank = (x, y, ww, hh) => { ctx.fillStyle = C.canvas; ctx.fillRect(x - ww / 2, y - hh / 2, ww, hh); };
+    blank(mx, cy1, 40, 24); ctx.strokeStyle = C.ink; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(mx - 6, cy1 - 14); ctx.lineTo(mx - 6, cy1 + 14); ctx.stroke(); ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(mx + 6, cy1 - 7); ctx.lineTo(mx + 6, cy1 + 7); ctx.stroke();
+    text(ctx, "supply " + V.toFixed(1) + " V", mx, cy1 + 30, C.ink2, 10, "center");
+    const meter = (x, y, l, val, col) => { ctx.fillStyle = C.panel; ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, 15, 0, 7); ctx.fill(); ctx.stroke(); text(ctx, l, x, y + 5, col, 13, "center"); text(ctx, val, x, y - 21, col, 10, "center"); };
+    meter(cx0 + 20, (cy0 + cy1) / 2, "A", fmt(i, 3) + " A", C.data);
+    blank(mx, cy0, 64, 30);
+    if (comp === "res") { ctx.fillStyle = C.panel; ctx.strokeStyle = C.ink; ctx.lineWidth = 2; ctx.fillRect(mx - 28, cy0 - 9, 56, 18); ctx.strokeRect(mx - 28, cy0 - 9, 56, 18); }
+    else if (comp === "lamp") { const g = clamp(Math.abs(Pw) / 7.2, 0, 1); if (g > 0.02) { ctx.fillStyle = `rgba(255,200,60,${0.15 + 0.6 * g})`; ctx.beginPath(); ctx.arc(mx, cy0, 16 + 14 * g, 0, 7); ctx.fill(); } ctx.fillStyle = C.panel; ctx.strokeStyle = C.ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(mx, cy0, 14, 0, 7); ctx.fill(); ctx.stroke(); ctx.beginPath(); ctx.moveTo(mx - 10, cy0 - 10); ctx.lineTo(mx + 10, cy0 + 10); ctx.moveTo(mx + 10, cy0 - 10); ctx.lineTo(mx - 10, cy0 + 10); ctx.stroke(); ctx.strokeStyle = C.ink2; ctx.beginPath(); ctx.moveTo(mx - 32, cy0); ctx.lineTo(mx - 14, cy0); ctx.moveTo(mx + 14, cy0); ctx.lineTo(mx + 32, cy0); ctx.stroke(); }
+    else { ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(mx - 32, cy0); ctx.lineTo(mx + 32, cy0); ctx.stroke(); ctx.fillStyle = C.ink; ctx.beginPath(); ctx.moveTo(mx + 10, cy0 - 12); ctx.lineTo(mx - 10, cy0); ctx.lineTo(mx + 10, cy0 + 12); ctx.closePath(); ctx.fill(); ctx.strokeStyle = C.ink; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(mx - 10, cy0 - 12); ctx.lineTo(mx - 10, cy0 + 12); ctx.stroke(); }
+    text(ctx, { res: "resistor", lamp: "filament lamp", diode: "diode" }[comp], mx, cy0 + 30, C.ink2, 10, "center");
+    ctx.strokeStyle = C.hot; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(mx - 44, cy0); ctx.lineTo(mx - 44, cy0 - 26); ctx.lineTo(mx + 44, cy0 - 26); ctx.lineTo(mx + 44, cy0); ctx.stroke(); meter(mx, cy0 - 26, "V", "", C.hot); text(ctx, V.toFixed(1) + " V", mx + 22, cy0 - 30, C.hot, 10);
+    if (Math.abs(i) > 0.002) { const d = i > 0 ? 1 : -1; arrow(ctx, cx1 - 20, (cy0 + cy1) / 2 + d * 16, cx1 - 20, (cy0 + cy1) / 2 - d * 16, C.data, 2.5, 9); text(ctx, "I", cx1 - 12, (cy0 + cy1) / 2 + 4, C.data, 12); }
+    else if (comp === "diode" && V < 0.6) text(ctx, "no current", cx1 - 26, (cy0 + cy1) / 2 + 4, C.muted, 10, "right");
+    // graph: V (up) against I (across), so the gradient is the resistance
+    const gx0 = narrow ? 52 : cx1 + 70, gx1 = w - 18, gy0 = narrow ? cy1 + 70 : 34, gy1 = h - 46;
+    const Vmax = comp === "diode" ? 1.5 : 12, Vmin = -4, save = comp, Imax = Math.max(0.05, I(Vmax)) * 1.12, Imin = Math.min(-0.12 * Imax, I(Vmin) * 1.12);
+    const X = (a) => gx0 + (a - Imin) / (Imax - Imin) * (gx1 - gx0), Y = (v) => gy1 - (v - Vmin) / (Vmax - Vmin) * (gy1 - gy0);
+    ctx.fillStyle = C.tile; ctx.fillRect(gx0, gy0, gx1 - gx0, gy1 - gy0); ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(gx0, gy0, gx1 - gx0, gy1 - gy0);
+    const vs = niceStep(Vmax - Vmin, 6), is = niceStep(Imax - Imin, 6); ctx.strokeStyle = C.grid; ctx.beginPath();
+    for (let v = Math.ceil(Vmin / vs) * vs; v <= Vmax; v += vs) { ctx.moveTo(gx0, Y(v)); ctx.lineTo(gx1, Y(v)); text(ctx, fx(v, vs < 1 ? 1 : 0), gx0 - 5, Y(v) + 3, C.muted, 9, "right"); }
+    for (let a = Math.ceil(Imin / is) * is; a <= Imax; a += is) { ctx.moveTo(X(a), gy0); ctx.lineTo(X(a), gy1); text(ctx, fx(a, 2), X(a), gy1 + 13, C.muted, 9, "center"); }
+    ctx.stroke(); ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(X(0), gy0); ctx.lineTo(X(0), gy1); ctx.moveTo(gx0, Y(0)); ctx.lineTo(gx1, Y(0)); ctx.stroke();
+    text(ctx, "V (V)", gx0, gy0 - 6, C.ink2, 10); text(ctx, "I (A) →", gx1, gy1 + 28, C.ink2, 10, "right");
+    if (curve) { ctx.strokeStyle = C.accent; ctx.globalAlpha = 0.5; ctx.lineWidth = 2; ctx.beginPath(); for (let k = 0; k <= 160; k++) { const v = Vmin + (Vmax - Vmin) * k / 160; k ? ctx.lineTo(X(I(v)), Y(v)) : ctx.moveTo(X(I(v)), Y(v)); } ctx.stroke(); ctx.globalAlpha = 1; }
+    pts[comp].forEach((p) => { ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X(p[0]) - 4, Y(p[1]) - 4); ctx.lineTo(X(p[0]) + 4, Y(p[1]) + 4); ctx.moveTo(X(p[0]) + 4, Y(p[1]) - 4); ctx.lineTo(X(p[0]) - 4, Y(p[1]) + 4); ctx.stroke(); });
+    if (Math.abs(i) > 1e-6 && comp !== "diode") { ctx.strokeStyle = C.muted; ctx.setLineDash([4, 4]); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(i), Y(V)); ctx.stroke(); ctx.setLineDash([]); }
+    grip(ctx, X(i), Y(V), C.hot);
+    text(ctx, "drag up and down on the graph to change the voltage · click to record a reading", gx0, h - 10, C.muted, 9);
+    geo = { gx0, gx1, gy0, gy1, Vof: (y) => Vmin + (gy1 - y) / (gy1 - gy0) * (Vmax - Vmin) };
+    $("viVr").textContent = V.toFixed(1) + " V"; $("viI").textContent = fmt(i, 3) + " A"; $("viRr").textContent = isFinite(R) ? fmt(R, 3) + " Ω" : "very large"; $("viP").textContent = fmt(Pw, 3) + " W";
+    $("viNote").textContent = { res: "Ohmic conductor: the graph is a straight line through the origin, so V is proportional to I and the resistance \\(R = \\frac{V}{I}\\) is the same at every point. The gradient of this graph is the resistance.",
+      lamp: "Non-ohmic: the graph curves. As the current increases the filament gets hotter and its resistance increases, so each extra volt gives less extra current. Calculate \\(R = \\frac{V}{I}\\) at two points to show it. Do not use the gradient of the curve.",
+      diode: "Non-ohmic: a diode lets current through in one direction only. Below about 0.6 V, and for any reverse voltage, there is almost no current (very large resistance). Above it, the current rises steeply (small resistance)." }[save];
+  };
+})();
+
+/* ====================================================== 2.x · VOLTAGE DIVIDER LAB ===== */
+(() => {
+  const cv = $("vdCanvas"), sim = { dirty: true, anim: false }; sims["dc:divider"] = sim;
+  const sEl = bindRange("vdVs", "vdVsOut", (v) => v + " V"), aEl = bindRange("vdR1", "vdR1Out", (v) => v + " Ω"), bEl = bindRange("vdR2", "vdR2Out", (v) => v + " Ω");
+  let load = 0, geo = null; const lB = [...document.querySelectorAll("[data-vdl]")];
+  lB.forEach((b) => b.addEventListener("click", () => { load = +b.dataset.vdl; setPressed(lB, b); sim.dirty = true; }));
+  [sEl, aEl, bEl].forEach((e) => e.addEventListener("input", () => { sim.dirty = true; }));
+  dragOn(cv, (x, y) => geo && Math.abs(x - geo.bx) < 46 && Math.abs(y - geo.sy) < 20 ? "tap" : null,
+    (k, x, y) => { const tot = +aEl.value + +bEl.value, f = clamp((geo.y1 - y) / (geo.y1 - geo.y0), 0.05, 0.95), r2 = clamp(Math.round(f * tot / 50) * 50, 100, 1000); setRange(bEl, r2); setRange(aEl, clamp(tot - r2, 100, 1000)); }, null);
+  sim.frame = () => {
+    const Vs = +sEl.value, R1 = +aEl.value, R2 = +bEl.value, Rb = load ? R2 * load / (R2 + load) : R2, I = Vs / (R1 + Rb), Vo = I * Rb, V1 = Vs - Vo;
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.1) : Math.max(380, Math.round(w * 0.44)))); clear(ctx, w, h); const narrow = w < 640;
+    const x0 = narrow ? 52 : w * 0.1, x1 = narrow ? w * 0.42 : w * 0.34, yT = 50, yB = h - 60, yM = (yT + yB) / 2;
+    ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x0, yM - 14); ctx.lineTo(x0, yT); ctx.lineTo(x1, yT); ctx.lineTo(x1, yB); ctx.lineTo(x0, yB); ctx.lineTo(x0, yM + 14); ctx.stroke();
+    ctx.strokeStyle = C.ink; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x0 - 14, yM - 6); ctx.lineTo(x0 + 14, yM - 6); ctx.stroke(); ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(x0 - 7, yM + 6); ctx.lineTo(x0 + 7, yM + 6); ctx.stroke();
+    text(ctx, Vs + " V", x0 - 18, yM + 4, C.ink2, 11, "right");
+    const res = (y, lab, val, v, col) => { ctx.fillStyle = C.panel; ctx.strokeStyle = C.ink; ctx.lineWidth = 2; ctx.fillRect(x1 - 10, y - 26, 20, 52); ctx.strokeRect(x1 - 10, y - 26, 20, 52); text(ctx, lab + " = " + val + " Ω", x1 - 16, y - 2, C.ink2, 10, "right"); text(ctx, fmt(v, 3) + " V", x1 - 16, y + 12, col, 11, "right"); };
+    const ya = yT + (yM - yT) / 2, yb = yM + (yB - yM) / 2; res(ya, "R₁", R1, V1, C.third); res(yb, "R₂", R2, Vo, C.hot);
+    const ox = x1 + (narrow ? 40 : 70); ctx.strokeStyle = C.hot; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x1, yM); ctx.lineTo(ox, yM); ctx.moveTo(x1, yB); ctx.lineTo(ox, yB); ctx.stroke();
+    [yM, yB].forEach((y) => { ctx.fillStyle = C.hot; ctx.beginPath(); ctx.arc(ox, y, 4, 0, 7); ctx.fill(); });
+    text(ctx, "V out", ox + 8, (yM + yB) / 2 - 4, C.hot, 11); text(ctx, fmt(Vo, 3) + " V", ox + 8, (yM + yB) / 2 + 12, C.hot, 13);
+    if (load) { const lx = ox - 22; ctx.fillStyle = C.panel; ctx.strokeStyle = C.data; ctx.lineWidth = 2; ctx.fillRect(lx - 8, (yM + yB) / 2 - 20, 16, 40); ctx.strokeRect(lx - 8, (yM + yB) / 2 - 20, 16, 40); ctx.beginPath(); ctx.moveTo(lx, yM); ctx.lineTo(lx, (yM + yB) / 2 - 20); ctx.moveTo(lx, (yM + yB) / 2 + 20); ctx.lineTo(lx, yB); ctx.stroke(); text(ctx, "load", lx, yB + 14, C.data, 9, "center"); }
+    arrow(ctx, (x0 + x1) / 2 - 16, yT - 10, (x0 + x1) / 2 + 16, yT - 10, C.data, 2.5, 8); text(ctx, "I = " + fmt(I * 1000, 3) + " mA", (x0 + x1) / 2, yT - 18, C.data, 10, "center");
+    // voltage ladder: a bar that shares the supply voltage between the two resistors
+    const bx = narrow ? w * 0.82 : w * 0.66, bw = narrow ? 44 : 70, y0 = yT, y1 = yB, sy = y1 - (Vo / Vs) * (y1 - y0);
+    ctx.fillStyle = C.third; ctx.globalAlpha = 0.75; ctx.fillRect(bx - bw / 2, y0, bw, sy - y0); ctx.fillStyle = C.hot; ctx.fillRect(bx - bw / 2, sy, bw, y1 - sy); ctx.globalAlpha = 1; ctx.strokeStyle = C.ink2; ctx.lineWidth = 1.5; ctx.strokeRect(bx - bw / 2, y0, bw, y1 - y0);
+    text(ctx, Vs + " V", bx + bw / 2 + 8, y0 + 4, C.ink2, 10); text(ctx, "0 V", bx + bw / 2 + 8, y1 + 4, C.ink2, 10);
+    if (!narrow) { text(ctx, "across R₁: " + fmt(V1, 3) + " V", bx + bw / 2 + 8, (y0 + sy) / 2 + 4, C.third, 11); text(ctx, "across R₂: " + fmt(Vo, 3) + " V", bx + bw / 2 + 8, (sy + y1) / 2 + 4, C.hot, 11); }
+    text(ctx, "SHARE OF SUPPLY", clamp(bx, 50, w - 50), y0 - 14, C.muted, 9, "center");
+    grip(ctx, bx, sy, C.ink); geo = { bx, sy, y0, y1 };
+    text(ctx, "drag ● to change how the resistance is shared", 12, h - 14, C.muted, 9);
+    $("vdVo").textContent = fmt(Vo, 3) + " V"; $("vdV1").textContent = fmt(V1, 3) + " V"; $("vdI").textContent = fmt(I * 1000, 3) + " mA"; $("vdRt").textContent = fmt(R1 + Rb, 3) + " Ω";
+    $("vdNote").textContent = load
+      ? `The load (${load} Ω) is in parallel with R₂, so that pair has a smaller resistance: \\(R_{p} = ${tq(fmt(Rb, 3))}\\,\\Omega\\). It now takes a smaller share of the supply: \\(V_{\\text{out}} = ${tq(fmt(Vo, 3))}\\,\\mathrm{V}\\), lower than the ${fmt(Vs * R2 / (R1 + R2), 3)} V with no load.`
+      : `Series resistors share the supply voltage in proportion to their resistance: \\(V_{\\text{out}} = \\frac{R_{2}}{R_{1}+R_{2}}\\times V_{s} = \\frac{${R2}}{${R1 + R2}}\\times ${Vs} = ${tq(fmt(Vo, 3))}\\,\\mathrm{V}\\). The same current, \\(I = \\frac{V_{s}}{R_{1}+R_{2}} = ${tq(fmt(I * 1000, 3))}\\,\\mathrm{mA}\\), flows through both.`;
+  };
+})();
+
+/* ====================================================== 3.x · FIELDS AROUND CURRENTS LAB ===== */
+(() => {
+  const cv = $("mcCanvas"), sim = { dirty: true, anim: false }; sims["mag:fields"] = sim;
+  const iEl = bindRange("mcI", "mcIOut", (v) => (+v).toFixed(1) + " A"), nEl = bindRange("mcN", "mcNOut", (v) => v + " turns");
+  let mode = "wire", core = 1, comp = [0.72, 0.3], W = 1, H = 1, geo = null;
+  const mB = [...document.querySelectorAll("[data-mcm]")], cB = [...document.querySelectorAll("[data-mcc]")];
+  mB.forEach((b) => b.addEventListener("click", () => { mode = b.dataset.mcm; setPressed(mB, b); $("mcSol").classList.toggle("hidden", mode !== "sol"); sim.dirty = true; }));
+  cB.forEach((b) => b.addEventListener("click", () => { core = +b.dataset.mcc; setPressed(cB, b); sim.dirty = true; }));
+  [iEl, nEl].forEach((e) => e.addEventListener("input", () => { sim.dirty = true; }));
+  $("mcFlip").addEventListener("click", () => setRange(iEl, -(+iEl.value)));
+  dragOn(cv, (x, y) => Math.hypot(x - comp[0] * W, y - comp[1] * H) < 26 ? "c" : geo && geo.hit(x, y) ? "w" : null,
+    (k, x, y) => { if (k === "c") { comp = [clamp(x / W, 0.04, 0.96), clamp(y / H, 0.08, 0.92)]; sim.dirty = true; } },
+    (k, moved) => { if (k === "w" && !moved) setRange(iEl, -(+iEl.value)); });
+  function compass(ctx, x, y, ux, uy) { ctx.save(); ctx.fillStyle = C.panel; ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, 18, 0, 7); ctx.fill(); ctx.stroke(); const px = -uy, py = ux; ctx.fillStyle = C.vector; ctx.beginPath(); ctx.moveTo(x + ux * 15, y + uy * 15); ctx.lineTo(x + px * 5, y + py * 5); ctx.lineTo(x - px * 5, y - py * 5); ctx.closePath(); ctx.fill(); ctx.fillStyle = C.muted; ctx.beginPath(); ctx.moveTo(x - ux * 15, y - uy * 15); ctx.lineTo(x + px * 5, y + py * 5); ctx.lineTo(x - px * 5, y - py * 5); ctx.closePath(); ctx.fill(); ctx.restore(); }
+  sim.frame = () => {
+    const I = +iEl.value, N = +nEl.value;
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 0.95) : Math.max(380, Math.round(w * 0.46)))); clear(ctx, w, h); W = w; H = h;
+    const cx = w / 2, cy = h / 2, kx = comp[0] * w, ky = comp[1] * h; let ux = 1, uy = 0, note, dirTxt, strTxt;
+    if (mode === "wire") {
+      const out = I > 0, s = out ? 1 : -1; // out of the page: anticlockwise
+      if (I !== 0) [26, 46, 72, 104, 142, 188, 244].forEach((r, j) => { ctx.strokeStyle = C.accent; ctx.globalAlpha = clamp(0.25 + Math.abs(I) / 5 * 0.75 - j * 0.07, 0.12, 1); ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.stroke(); [0.4, 2.5, 4.6].forEach((a) => { const x = cx + r * Math.cos(a), y = cy + r * Math.sin(a); chevron(ctx, x, y, s * Math.sin(a), -s * Math.cos(a), 7); }); ctx.globalAlpha = 1; });
+      ctx.fillStyle = C.panel; ctx.strokeStyle = C.hot; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(cx, cy, 14, 0, 7); ctx.fill(); ctx.stroke();
+      if (I !== 0) { if (out) { ctx.fillStyle = C.hot; ctx.beginPath(); ctx.arc(cx, cy, 4, 0, 7); ctx.fill(); } else { ctx.beginPath(); ctx.moveTo(cx - 7, cy - 7); ctx.lineTo(cx + 7, cy + 7); ctx.moveTo(cx + 7, cy - 7); ctx.lineTo(cx - 7, cy + 7); ctx.stroke(); } }
+      ctx.fillStyle = C.canvas; ctx.globalAlpha = 0.85; ctx.fillRect(cx - 84, h - 44, 168, 16); ctx.globalAlpha = 1; text(ctx, I === 0 ? "no current" : out ? "current out of the page ⊙" : "current into the page ⊗", cx, h - 32, C.hot, 10, "center");
+      const dx = kx - cx, dy = ky - cy, r = Math.hypot(dx, dy) || 1; ux = s * dy / r; uy = -s * dx / r; if (I === 0) { ux = 0; uy = -1; }
+      const B = 2e-7 * Math.abs(I) / (r / 1000);
+      geo = { hit: (x, y) => Math.hypot(x - cx, y - cy) < 20 };
+      dirTxt = I === 0 ? "no field" : out ? "anticlockwise" : "clockwise"; strTxt = fmt(B * 1e6, 3) + " µT at " + fmt(r, 3) + " mm";
+      note = I === 0 ? "No current, so no magnetic field around the wire. The compass just points north." : `Right-hand grip rule: point your right thumb along the current (${out ? "out of the page, towards you" : "into the page, away from you"}) and your fingers curl the way the field goes: ${dirTxt}. The circles are drawn further apart away from the wire because the field gets weaker with distance. Move the compass further out to check.`;
+    } else {
+      const L = Math.min(w * 0.42, 360), hh = Math.min(h * 0.16, 56), xl = cx - L / 2, xr = cx + L / 2, s = I > 0 ? 1 : -1; // I > 0: front of each turn carries current upwards, so N is on the left
+      const src = [{ x: xl, y: cy, q: s }, { x: xr, y: cy, q: -s }];
+      if (I !== 0) { ctx.globalAlpha = clamp(0.3 + Math.abs(I) * N / 200 * 0.7 * (core > 1 ? 3 : 1), 0.25, 1); traceLines(ctx, src, w, h, C.accent, 14, (c, a) => Math.cos(a) * (c.x < cx ? -1 : 1) > 0.05, 2500); ctx.globalAlpha = 1; }
+      ctx.fillStyle = core > 1 ? C.muted : C.canvas; ctx.fillRect(xl, cy - hh, L, 2 * hh); ctx.strokeStyle = C.ink2; ctx.lineWidth = 1; ctx.strokeRect(xl, cy - hh, L, 2 * hh);
+      if (I !== 0) [-0.5, 0, 0.5].forEach((f) => arrow(ctx, s > 0 ? xr - 8 : xl + 8, cy + f * hh, s > 0 ? xl + 8 : xr - 8, cy + f * hh, C.accent, 1.6, 8));
+      const nt = Math.min(N, 26); for (let k = 0; k < nt; k++) { const x = xl + (k + 0.5) * L / nt; ctx.strokeStyle = C.hot; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(x - 3, cy + hh + 5); ctx.lineTo(x + 3, cy - hh - 5); ctx.stroke(); }
+      if (I !== 0) { const ax = xl + L * 0.5; arrow(ctx, ax + 20, cy + s * (hh + 26), ax + 20, cy - s * (hh + 26), C.hot, 2.5, 9); text(ctx, "current on the front of the coil", ax + 28, cy + hh + 24, C.hot, 9); }
+      if (I !== 0) { text(ctx, s > 0 ? "N" : "S", xl - 22, cy + 7, s > 0 ? C.vector : C.data, 20, "center", SANS); text(ctx, s > 0 ? "S" : "N", xr + 22, cy + 7, s > 0 ? C.data : C.vector, 20, "center", SANS); }
+      const inside = kx > xl && kx < xr && Math.abs(ky - cy) < hh;
+      if (inside) { ux = -s; uy = 0; } else { let ex = 0, ey = 0; src.forEach((c) => { const dx = kx - c.x, dy = ky - c.y, r = Math.hypot(dx, dy) + 1e-6; ex += c.q * dx / (r * r * r); ey += c.q * dy / (r * r * r); }); const m = Math.hypot(ex, ey) || 1; ux = ex / m; uy = ey / m; }
+      if (I === 0) { ux = 0; uy = -1; }
+      geo = { hit: (x, y) => x > xl && x < xr && Math.abs(y - cy) < hh + 8 };
+      const rel = Math.abs(I) * N * (core > 1 ? 200 : 1);
+      dirTxt = I === 0 ? "no field" : "N pole on the " + (s > 0 ? "left" : "right"); strTxt = I === 0 ? "0" : fmt(rel / 20, 3) + " × (1 A, 20 turns, air)";
+      note = I === 0 ? "No current, so the coil is not a magnet." : `A solenoid's field looks like a bar magnet's: out of the N end, round the outside and back into the S end, with a strong uniform field inside. Grip rule for solenoids: curl your right fingers the way the current goes round the coil and your thumb points to the N pole (${s > 0 ? "left" : "right"}). The electromagnet gets stronger with more current, more turns, or an iron core.`;
+    }
+    compass(ctx, kx, ky, ux, uy); text(ctx, "compass", kx, ky + 32, C.ink2, 9, "center");
+    text(ctx, "drag the compass · click the " + (mode === "wire" ? "wire" : "coil") + " to reverse the current", 12, h - 10, C.muted, 9);
+    $("mcDir").textContent = dirTxt; $("mcStr").textContent = strTxt; $("mcNote").textContent = note;
+  };
+})();
+
+/* ====================================================== 4.x · LOOP THROUGH A FIELD LAB ===== */
+(() => {
+  const cv = $("lpCanvas"), sim = { dirty: true, anim: true }; sims["induct:loop"] = sim;
+  const bEl = bindRange("lpB", "lpBOut", (v) => (+v).toFixed(2) + " T"), vEl = bindRange("lpV", "lpVOut", (v) => (+v).toFixed(2) + " m s⁻¹"), lEl = bindRange("lpL", "lpLOut", (v) => (+v).toFixed(2) + " m");
+  const WL = 0.12, F0 = 0.33, F1 = 0.67, XM = 1.0 - WL, RES = 2, TW = 10;
+  const S = { x: 0.02, v: 0, run: false, t: 0, hist: [], drag: false, lastX: 0.02 }; let into = true, geo = null;
+  const dB = [...document.querySelectorAll("[data-lpd]")]; dB.forEach((b) => b.addEventListener("click", () => { into = b.dataset.lpd === "in"; setPressed(dB, b); }));
+  $("lpGo").addEventListener("click", () => { S.x = 0.02; S.run = true; S.t = 0; S.hist = []; });
+  $("lpReset").addEventListener("click", () => { S.x = 0.02; S.run = false; S.v = 0; S.t = 0; S.hist = []; });
+  dragOn(cv, (x, y) => geo && x > geo.lx - 8 && x < geo.lx + geo.lw + 8 && y > geo.ly - 8 && y < geo.ly + geo.lh + 8 ? "loop" : null,
+    (k, x) => { S.run = false; S.drag = true; S.x = clamp(x / geo.sc - WL / 2, 0, XM); }, () => { S.drag = false; });
+  sim.frame = (dt) => {
+    const B = +bEl.value, L = +lEl.value;
+    if (S.run) { S.v = +vEl.value; S.x += S.v * dt; if (S.x >= XM) { S.x = XM; S.run = false; } }
+    else if (dt > 0) { const inst = (S.x - S.lastX) / dt; S.v = S.drag ? S.v * 0.6 + inst * 0.4 : 0; }
+    S.lastX = S.x;
+    const inF = (p) => p > F0 && p < F1, lead = inF(S.x + WL) ? 1 : 0, trail = inF(S.x) ? 1 : 0, emf = B * L * S.v * (lead - trail), cur = emf / RES, F = B * Math.abs(cur) * L;
+    const acw = (emf > 0) === into; // field into the page, flux increasing: anticlockwise current
+    if (S.run || S.drag || S.hist.length) { S.t += dt; S.hist.push([S.t, emf * 1000]); while (S.hist.length && S.hist[0][0] < S.t - TW) S.hist.shift(); }
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.2) : Math.max(400, Math.round(w * 0.5)))); clear(ctx, w, h); const narrow = w < 640;
+    const sc = w / 1.0, sh = narrow ? h * 0.5 : h * 0.56, cy = sh / 2 + 10, fx0 = F0 * sc, fx1 = F1 * sc;
+    ctx.fillStyle = C.tile; ctx.fillRect(fx0, 30, fx1 - fx0, sh - 40); fieldSymbols(ctx, fx0, 52, fx1, sh - 10, into, narrow ? 26 : 34, C.accent);
+    text(ctx, "FIELD " + (into ? "INTO THE PAGE ⊗" : "OUT OF THE PAGE ⊙"), (fx0 + fx1) / 2, 44, C.accent, 10, "center");
+    const lx = S.x * sc, lw = WL * sc, lh = L * sc * (narrow ? 0.9 : 1), ly = cy - lh / 2; geo = { lx, lw, ly, lh, sc };
+    ctx.strokeStyle = C.hot; ctx.lineWidth = 4; ctx.strokeRect(lx, ly, lw, lh);
+    if (Math.abs(emf) > 1e-6) { const d = acw ? 1 : -1, m = 9; // anticlockwise on screen: up the right side, left along the top
+      arrow(ctx, lx + lw + m, cy + d * 14, lx + lw + m, cy - d * 14, C.data, 2.5, 8); arrow(ctx, lx - m, cy - d * 14, lx - m, cy + d * 14, C.data, 2.5, 8);
+      arrow(ctx, lx + lw / 2 + d * 14, ly - m, lx + lw / 2 - d * 14, ly - m, C.data, 2.5, 8); arrow(ctx, lx + lw / 2 - d * 14, ly + lh + m, lx + lw / 2 + d * 14, ly + lh + m, C.data, 2.5, 8);
+      const fd = -Math.sign(S.v); arrow(ctx, lx + lw / 2, cy, lx + lw / 2 + fd * clamp(F * 4000, 18, 70), cy, C.vector, 3.5, 10); text(ctx, "F opposes the motion", lx + lw / 2, cy + 18, C.vector, 9, "center"); }
+    if (Math.abs(S.v) > 0.005) { arrow(ctx, lx + lw / 2, ly - 26, lx + lw / 2 + Math.sign(S.v) * clamp(Math.abs(S.v) * 160, 14, 80), ly - 26, C.third, 2.5, 9); text(ctx, "v", lx + lw / 2, ly - 32, C.third, 11, "center"); }
+    text(ctx, "drag the loop through the field, or press Move", 12, sh + 6, C.muted, 9);
+    const state = lead && !trail ? "ENTERING" : !lead && trail ? "LEAVING" : lead && trail ? "FULLY INSIDE" : "OUTSIDE";
+    // voltage-time graph
+    const gx0 = 56, gx1 = w - 16, gy0 = sh + 30, gy1 = h - 22, vm = Math.max(5, B * L * Math.max(+vEl.value, ...S.hist.map((q) => Math.abs(q[1]) / 1000 / (B * L || 1))) * 1000 * 1.2), t0 = Math.max(0, S.t - TW);
+    const X = (t) => gx0 + (t - t0) / TW * (gx1 - gx0), Y = (v) => (gy0 + gy1) / 2 - clamp(v / vm, -1, 1) * (gy1 - gy0) / 2;
+    ctx.fillStyle = C.tile; ctx.fillRect(gx0, gy0, gx1 - gx0, gy1 - gy0); ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(gx0, gy0, gx1 - gx0, gy1 - gy0); ctx.strokeStyle = C.axis; ctx.beginPath(); ctx.moveTo(gx0, Y(0)); ctx.lineTo(gx1, Y(0)); ctx.stroke();
+    text(ctx, "induced voltage (mV)", gx0, gy0 - 5, C.ink2, 10); text(ctx, "+" + fmt(vm, 2), gx0 - 4, gy0 + 8, C.muted, 9, "right"); text(ctx, "−" + fmt(vm, 2), gx0 - 4, gy1, C.muted, 9, "right"); text(ctx, "0", gx0 - 4, Y(0) + 3, C.muted, 9, "right"); text(ctx, "time →", gx1, gy1 + 14, C.muted, 10, "right");
+    ctx.strokeStyle = C.hot; ctx.lineWidth = 2.5; ctx.beginPath(); S.hist.forEach((q, i) => (i ? ctx.lineTo(X(q[0]), Y(q[1])) : ctx.moveTo(X(q[0]), Y(q[1])))); ctx.stroke();
+    $("lpE").textContent = fmt(Math.abs(emf) * 1000, 3) + " mV"; $("lpI").textContent = Math.abs(emf) < 1e-6 ? "0 mA" : fmt(Math.abs(cur) * 1000, 3) + " mA " + (acw ? "anticlockwise" : "clockwise"); $("lpF").textContent = Math.abs(emf) < 1e-6 ? "0 N" : fmt(F, 2) + " N, against the motion"; $("lpSt").textContent = state;
+    $("lpHud").textContent = state;
+    $("lpNote").textContent = state === "ENTERING" || state === "LEAVING"
+      ? `Only one vertical side of the loop is cutting field lines, so \\(V = BvL = ${B.toFixed(2)}\\times ${tq(fmt(Math.abs(S.v), 2))}\\times ${L.toFixed(2)} = ${tq(fmt(Math.abs(emf) * 1000, 3))}\\,\\mathrm{mV}\\). The loop is a complete circuit, so a current flows (${acw ? "anticlockwise" : "clockwise"}). That current feels a force \\(F = BIL\\) which opposes the motion: you must do work to keep the loop moving, and that work becomes electrical energy.`
+      : state === "FULLY INSIDE" ? "Both vertical sides are cutting field lines. Each has the same induced voltage, but they push current in opposite directions round the loop, so they cancel: no net voltage, no current and no force. (The amount of field through the loop is not changing.)"
+      : "The loop is outside the field. No field lines are being cut, so there is no induced voltage.";
+  };
+})();
+
+/* ====================================================== MY PROGRESS: save, load, share with a teacher ===== */
+(() => {
+  const pv = $("progressBox"); if (!pv) return;
+  const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+  const btn = (cls, t, fn) => { const b = el("button", cls); b.type = "button"; if (t != null) b.textContent = t; if (fn) b.addEventListener("click", fn); return b; };
+  const say = (box, cls, html) => { box.hidden = false; box.className = "verdict " + cls; box.innerHTML = html; };
+  const allItems = () => Object.keys(SCOPE).flatMap((mod) => SCOPE[mod].map((it, i) => ({ r: ratings[mod + "." + i], text: it[0] })));
+  const PRE = "y12elec-", KEYS = (k) => /^(ratings|rr-done|best-[a-z]+)$/.test(k);
+  const QUIZ = [["mixed", "Mixed challenge", 10]].concat(Object.keys(SCOPE).map((m) => [m, MODS[m].name + " quick check", 8]));
+  const plain = (t) => (typeof plainTeX === "function" ? plainTeX(t) : t);
+  function snapshot() {
+    let conf = 0, get = 0, not = 0; const all = allItems(), weak = [];
+    all.forEach((x) => { if (x.r === 2) conf++; else if (x.r === 1) { get++; weak.push("Getting there: " + plain(x.text)); } else if (x.r === 0) { not++; weak.unshift("Not yet: " + plain(x.text)); } });
+    return { conf, get, not, total: all.length, weak, quiz: QUIZ.map((q) => [q[1], store.get("best-" + q[0], null), q[2]]), rr: Object.keys(store.get("rr-done", {})).length };
+  }
+  function report(name) {
+    const s = snapshot(), L = [];
+    L.push("Year 12 Physics · Electricity and electromagnetism (AS91173) revision progress"); L.push("Student: " + (name || "(no name given)")); L.push("Date: " + new Date().toLocaleDateString("en-NZ", { day: "numeric", month: "long", year: "numeric" })); L.push("");
+    L.push("SELF-RATINGS (course map, " + s.total + " statements)"); L.push("Confident " + s.conf + " · Getting there " + s.get + " · Not yet " + s.not + " · Not rated " + (s.total - s.conf - s.get - s.not));
+    s.weak.slice(0, 6).forEach((w) => L.push("- " + w)); L.push("");
+    L.push("QUIZ BEST SCORES"); s.quiz.forEach((q) => L.push("- " + q[0] + ": " + (q[1] === null ? "not tried" : q[1] + "/" + q[2]))); L.push("");
+    L.push("REARRANGING FORMULAE"); L.push("- Formulae rearranged correctly: " + s.rr); L.push("");
+    L.push("Note: these results are self-rated by the student in the Physics@Rosmini Electricity lab."); return L.join("\n");
+  }
+  const enc = (o) => "E12." + btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  const dec = (t) => { t = String(t).trim().replace(/\s+/g, ""); if (!t.startsWith("E12.")) throw 0; const o = JSON.parse(decodeURIComponent(escape(atob(t.slice(4).replace(/-/g, "+").replace(/_/g, "/"))))); if (!o || typeof o !== "object" || Array.isArray(o)) throw 0; return o; };
+  const collect = () => { const o = {}; try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k.startsWith(PRE) && KEYS(k.slice(PRE.length))) o[k.slice(PRE.length)] = JSON.parse(localStorage.getItem(k)); } } catch (e) {} return o; };
+  function renderProgress() {
+    const s = snapshot(); pv.replaceChildren();
+    const g = el("div", "telemetry"); [["Confident", s.conf + " of " + s.total], ["Getting there / Not yet", s.get + " / " + s.not], ["Best mixed challenge", s.quiz[0][1] === null ? "not tried" : s.quiz[0][1] + "/10"], ["Formulae rearranged", String(s.rr)]].forEach((f) => g.appendChild(el("div", "tm", "<span>" + f[0] + "</span><b>" + f[1] + "</b>"))); pv.appendChild(g);
+    const pre = el("pre", "report"); pre.textContent = report(store.get("me", {}).name || ""); pv.appendChild(pre);
+    pv.appendChild(el("h3", null, "Save or load my progress"));
+    pv.appendChild(el("p", "note", "Your progress is kept automatically on this device. To carry it to another device, save a progress code here and load it there. There are no accounts and nothing is stored on a server."));
+    const row = el("div", "sum-tools"), code = el("textarea", "write code"); code.rows = 3; code.placeholder = "Your progress code appears here. To load, paste a code here."; code.setAttribute("aria-label", "Progress code");
+    const msg = el("div"); msg.hidden = true; msg.setAttribute("aria-live", "polite");
+    row.appendChild(btn("btn sm", "Save: make my code", () => { code.value = enc(collect()); code.select(); let ok = false; try { ok = document.execCommand("copy"); } catch (e) {} if (navigator.clipboard) navigator.clipboard.writeText(code.value).catch(() => {}); say(msg, "ok", "<strong>Code ready" + (ok ? " and copied" : "") + ".</strong> Paste it somewhere you can reach from your other device (an email to yourself, or a Google Doc), or download it as a file."); }));
+    row.appendChild(btn("btn sm", "Download as a file", () => { const a = el("a"); a.href = URL.createObjectURL(new Blob([enc(collect())], { type: "text/plain" })); a.download = "electricity-progress.txt"; document.body.appendChild(a); a.click(); a.remove(); say(msg, "ok", "<strong>Saved</strong> as electricity-progress.txt in your downloads."); }));
+    const load = (t) => { let o; try { o = dec(t); } catch (e) { say(msg, "bad", "<strong>That is not a valid progress code.</strong> Copy the whole code, starting with E12."); return; }
+      say(msg, "info", "<strong>Load this progress?</strong> It will replace the progress saved on this device. "); msg.appendChild(btn("btn sm", "Yes, load it", () => { try { Object.keys(collect()).forEach((k) => localStorage.removeItem(PRE + k)); Object.keys(o).forEach((k) => { if (KEYS(k)) localStorage.setItem(PRE + k, JSON.stringify(o[k])); }); } catch (e) {} location.reload(); })); };
+    row.appendChild(btn("btn sm", "Load the code in the box", () => load(code.value)));
+    const file = el("input"); file.type = "file"; file.accept = ".txt,text/plain"; file.hidden = true; file.addEventListener("change", () => { const f = file.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => { code.value = String(rd.result); load(code.value); }; rd.readAsText(f); });
+    row.appendChild(btn("btn sm", "Load from a file", () => file.click())); row.appendChild(file);
+    pv.append(row, code, msg);
+    pv.appendChild(el("h3", null, "Share my results with my teacher"));
+    pv.appendChild(el("p", "note", "Type your name and your teacher's email address. The button opens an email with your results already written. Check it, then press <b>Send</b>. Nothing is sent until you send it yourself, and this website does not collect your name or the address."));
+    const me = store.get("me", {}), form = el("div", "share");
+    const fld = (lab, type, val, ph) => { const l = el("label"); l.append(lab); const i = el("input"); i.type = type; i.value = val || ""; i.placeholder = ph; i.autocomplete = type === "email" ? "off" : "name"; l.appendChild(i); form.appendChild(l); return i; };
+    const nm = fld("Your name", "text", me.name, "First and last name"), em = fld("Teacher's email address", "email", me.teacher, "teacher@school.nz"); pv.appendChild(form);
+    const links = el("div", "sum-tools"); const mk = (t) => { const a = el("a", "btn sm"); a.textContent = t; a.target = "_blank"; a.rel = "noopener"; a.setAttribute("role", "button"); links.appendChild(a); return a; };
+    const gm = mk("Open in Gmail"), ml = mk("Open in my email app"), smsg = el("div"); smsg.hidden = true; smsg.setAttribute("aria-live", "polite"); let warned = false;
+    links.appendChild(btn("btn sm", "Copy the report", () => { const t = report(nm.value.trim()), ta = el("textarea"); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (e) {} ta.remove(); if (navigator.clipboard) navigator.clipboard.writeText(t).then(() => {}, () => {}); warned = false; say(smsg, "ok", "<strong>Report copied.</strong> Paste it into an email or Google Classroom."); }));
+    const upd = () => { const name = nm.value.trim(), to = em.value.trim(), ok = /^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/.test(to); store.set("me", { name, teacher: to }); pre.textContent = report(name);
+      const su = "Electricity revision progress" + (name ? " · " + name : ""), body = report(name);
+      if (ok && warned) { smsg.hidden = true; warned = false; } [gm, ml].forEach((a) => { a.classList.toggle("off", !ok); a.setAttribute("aria-disabled", String(!ok)); });
+      if (ok) { gm.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(to) + "&su=" + encodeURIComponent(su) + "&body=" + encodeURIComponent(body); ml.href = "mailto:" + encodeURIComponent(to).replace(/%40/g, "@") + "?subject=" + encodeURIComponent(su) + "&body=" + encodeURIComponent(body.replace(/\n/g, "\r\n")); } else { gm.removeAttribute("href"); ml.removeAttribute("href"); } };
+    [gm, ml].forEach((a) => a.addEventListener("click", (e) => { if (!a.hasAttribute("href")) { e.preventDefault(); warned = true; say(smsg, "bad", "<strong>Enter your teacher's email address first.</strong> For example name@school.nz"); } else { warned = false; say(smsg, "ok", "<strong>Your email is ready.</strong> Check it, then press Send. If nothing opened, use Copy the report and paste it into an email."); } }));
+    nm.addEventListener("input", upd); em.addEventListener("input", upd); upd(); pv.append(links, smsg);
+  }
+  renderProgress();
+  const psec = document.querySelector('section[data-mod="map"][data-view="progress"]');
+  new MutationObserver(() => { if (!psec.classList.contains("hidden")) renderProgress(); }).observe(psec, { attributes: true, attributeFilter: ["class"] });
+})();
+
+/* key terms filter */
+(() => { const f = $("ktFilter"); if (!f) return; const terms = [...document.querySelectorAll(".kt-term")], groups = [...document.querySelectorAll(".kt-group")];
+  const run = () => { const q = f.value.trim().toLowerCase(); let n = 0; terms.forEach((t) => { const ok = !q || t.textContent.toLowerCase().includes(q); t.classList.toggle("hidden", !ok); if (ok) n++; }); groups.forEach((g) => g.classList.toggle("hidden", !g.querySelector(".kt-term:not(.hidden)"))); $("ktCount").textContent = q ? n + " of " + terms.length + " terms match" : ""; };
+  f.addEventListener("input", run); })();
 
 /* ====================================================== LOOP & START ===== */
 let last = null;
