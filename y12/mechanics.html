@@ -572,6 +572,11 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 .static-math mjx-container{margin:0!important;max-width:100%;overflow:visible!important}
 .static-math mjx-container[jax="SVG"]>svg{max-width:100%;height:auto}
 
+/* ============ KEY TERMS ============ */
+.kt-filter{width:100%;max-width:440px;padding:10px 13px;border-radius:10px;border:1px solid var(--line);background:var(--tile);color:var(--ink);font:inherit;margin:4px 0 6px}
+.kt-group{margin:18px 0 6px}.kt-group>h3{margin:0 0 10px}
+.kt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-bottom:10px}
+.kt-term h4{margin:0 0 6px;font-size:1rem;color:var(--accent)}.kt-term p{margin:0;font-size:.95rem;line-height:1.5}
 /* ============ EQUATIONS · one system (KaTeX) ============ */
 .eq,.eq-block{font-family:var(--sans)}
 .eq .katex,.eq-block .katex{font-size:1.04em}
@@ -2332,6 +2337,134 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
+<section class="pane hidden" data-mod="map" data-view="terms" data-title="Key terms: definitions for every mechanics topic">
+  <div class="pane-head"><h2>Phase 0.0 · Key terms</h2><span class="badge teal">DEFINITIONS</span></div>
+  <p class="lede">68 terms in six groups, in the order we teach them. Type in the box to filter. In an exam, a definition should say what the quantity <b>is</b> and, where it helps, give its unit and whether it is a vector.</p>
+  <input class="kt-filter" id="ktFilter" type="search" placeholder="Filter the terms… (e.g. torque)" aria-label="Filter the key terms" autocomplete="off">
+  <p class="small" id="ktCount" aria-live="polite"></p>
+  <div class="kt-group"><h3>Motion</h3><div class="kt-grid"><div class="card kt-term"><h4>Distance</h4><p>How far something has travelled along its path, whatever the direction. A scalar, in metres (m).</p></div><div class="card kt-term"><h4>Displacement</h4><p>The straight-line change in position from the start point to the end point, with its direction. A vector, in metres (m).</p></div><div class="card kt-term"><h4>Speed</h4><p>How quickly distance is covered: distance ÷ time. A scalar, in m s⁻¹.</p></div><div class="card kt-term"><h4>Velocity</h4><p>Speed in a stated direction: \(v = \frac{\Delta d}{\Delta t}\). A vector, so it can be positive or negative once you choose a positive direction.</p></div><div class="card kt-term"><h4>Acceleration</h4><p>The rate at which velocity changes: \(a = \frac{\Delta v}{\Delta t}\), in m s⁻². A vector. Negative acceleration can mean slowing down or speeding up in the negative direction.</p></div><div class="card kt-term"><h4>Average velocity</h4><p>Total displacement ÷ total time. It can differ from the velocity at any one instant.</p></div><div class="card kt-term"><h4>Instantaneous velocity</h4><p>The velocity at one moment: the gradient of the displacement–time graph at that time.</p></div><div class="card kt-term"><h4>Kinematic equations</h4><p>The four equations linking \(d\), \(v_i\), \(v_f\), \(a\) and \(t\). They only apply when the acceleration is constant.</p></div><div class="card kt-term"><h4>Gradient of a graph</h4><p>Rise ÷ run. On a d–t graph the gradient is velocity; on a v–t graph it is acceleration.</p></div><div class="card kt-term"><h4>Area under a graph</h4><p>On a v–t graph the area is the displacement; on a force–time graph it is the impulse; on a force–extension graph it is the energy stored.</p></div><div class="card kt-term"><h4>Free fall</h4><p>Motion with gravity as the only force. Near the Earth the acceleration is 9.8 m s⁻² downwards, whatever the mass.</p></div><div class="card kt-term"><h4>Terminal velocity</h4><p>The steady velocity reached when air resistance has grown to equal the weight, so the net force is zero.</p></div><div class="card kt-term"><h4>Thinking distance</h4><p>The distance travelled at constant speed during the driver's reaction time: \(d = vt\).</p></div><div class="card kt-term"><h4>Braking distance</h4><p>The distance travelled while the brakes slow the vehicle to rest: \(d = \frac{v^{2}}{2a}\).</p></div></div><button type="button" class="btn sm" data-go="launch:intro">Open Motion →</button></div>
+  <div class="kt-group"><h3>Vectors and projectiles</h3><div class="kt-grid"><div class="card kt-term"><h4>Scalar</h4><p>A quantity with size only, such as distance, speed, mass, time or energy.</p></div><div class="card kt-term"><h4>Vector</h4><p>A quantity with size and direction, such as displacement, velocity, acceleration, force or momentum.</p></div><div class="card kt-term"><h4>Vector addition</h4><p>Finding the single vector (the resultant) that has the same effect as two or more vectors. Draw them tip to tail; the resultant goes from the first tail to the last tip.</p></div><div class="card kt-term"><h4>Vector subtraction</h4><p>Used to find a change, such as \(\Delta v = v_{f} - v_{i}\). Add the final vector to the reverse of the initial vector.</p></div><div class="card kt-term"><h4>Resultant</h4><p>The single vector that results from adding vectors together.</p></div><div class="card kt-term"><h4>Components</h4><p>Two perpendicular vectors (usually horizontal and vertical) that add to give the original vector: \(F_{x} = F\cos\theta\), \(F_{y} = F\sin\theta\).</p></div><div class="card kt-term"><h4>Relative velocity</h4><p>The velocity of an object as measured from another moving object or medium, found by vector addition (a boat in a current, a plane in a crosswind).</p></div><div class="card kt-term"><h4>Projectile motion</h4><p>Motion of an object moving through the air with gravity as the only force. The horizontal velocity is constant and the vertical velocity changes by 9.8 m s⁻¹ every second, giving a parabolic path.</p></div><div class="card kt-term"><h4>Range</h4><p>The horizontal distance a projectile travels before landing.</p></div></div><button type="button" class="btn sm" data-go="vec:intro">Open Vectors →</button></div>
+  <div class="kt-group"><h3>Forces, torque and springs</h3><div class="kt-grid"><div class="card kt-term"><h4>Force</h4><p>A push, pull or twist on an object. A vector, measured in newtons (N).</p></div><div class="card kt-term"><h4>Net force</h4><p>The single force left over when all the forces on an object are added as vectors. Also called the resultant or unbalanced force. \(F_{\text{net}} = ma\).</p></div><div class="card kt-term"><h4>Newton's first law</h4><p>An object stays at rest, or keeps moving at constant velocity, unless a net force acts on it.</p></div><div class="card kt-term"><h4>Newton's second law</h4><p>A net force makes an object accelerate in the direction of that force: \(F_{\text{net}} = ma\).</p></div><div class="card kt-term"><h4>Newton's third law</h4><p>When A pushes on B, B pushes back on A with a force of the same size in the opposite direction. The two forces act on different objects.</p></div><div class="card kt-term"><h4>Mass</h4><p>The amount of matter in an object, in kg. It measures how hard the object is to accelerate and is the same everywhere.</p></div><div class="card kt-term"><h4>Weight</h4><p>The force of gravity on a mass: \(F_{g} = mg\), in newtons. It acts downwards from the centre of mass.</p></div><div class="card kt-term"><h4>Support (normal) force</h4><p>The force a surface exerts on an object resting on it, at right angles to the surface.</p></div><div class="card kt-term"><h4>Friction</h4><p>A force that opposes sliding between two surfaces. Drag is friction from a fluid such as air or water.</p></div><div class="card kt-term"><h4>Free-body diagram</h4><p>A sketch of one object showing every force acting on it as a labelled arrow.</p></div><div class="card kt-term"><h4>Equilibrium</h4><p>Balanced forces <b>and</b> balanced torques: the net force is zero and the clockwise torques equal the anticlockwise torques.</p></div><div class="card kt-term"><h4>Torque</h4><p>The turning effect of a force about a pivot: \(\tau = Fd\), where d is the perpendicular distance from the pivot to the force. Unit: N m. Also called a moment.</p></div><div class="card kt-term"><h4>Pivot (fulcrum)</h4><p>The point a beam or lever turns about. A force acting through the pivot has no torque.</p></div><div class="card kt-term"><h4>Sum of torques</h4><p>For a beam in equilibrium, total clockwise torque = total anticlockwise torque about any point.</p></div><div class="card kt-term"><h4>Centre of mass</h4><p>The point where all the mass of an object can be treated as acting. The weight arrow is drawn from here. For a uniform beam it is the middle.</p></div><div class="card kt-term"><h4>Two-support problem</h4><p>A beam held up at two places, such as a bridge or scaffold plank. Take torques about one support to find the force at the other.</p></div><div class="card kt-term"><h4>Hooke's law</h4><p>The force from a spring is proportional to its extension or compression: \(F = -kx\).</p></div><div class="card kt-term"><h4>Spring constant (k)</h4><p>The stiffness of a spring, in N m⁻¹: the force needed per metre of extension. The gradient of a force–extension graph.</p></div><div class="card kt-term"><h4>Extension (x)</h4><p>How much longer (or shorter) the spring is than its natural length, in metres.</p></div><div class="card kt-term"><h4>Restoring force</h4><p>The force a stretched or compressed spring exerts back towards its natural length. The minus sign in \(F = -kx\) shows this direction.</p></div></div><button type="button" class="btn sm" data-go="thrust:intro">Open Forces →</button></div>
+  <div class="kt-group"><h3>Circular motion</h3><div class="kt-grid"><div class="card kt-term"><h4>Circular motion</h4><p>Motion in a circle. At Level 2 the speed is constant, but the velocity keeps changing because its direction changes.</p></div><div class="card kt-term"><h4>Centripetal acceleration</h4><p>The acceleration towards the centre of the circle: \(a_{c} = \frac{v^{2}}{r}\).</p></div><div class="card kt-term"><h4>Centripetal force</h4><p>The net force towards the centre that keeps an object moving in a circle: \(F_{c} = \frac{mv^{2}}{r}\). It is provided by a real force such as tension, friction or gravity.</p></div><div class="card kt-term"><h4>Period (T)</h4><p>The time for one complete revolution, in seconds. \(v = \frac{2\pi r}{T}\).</p></div><div class="card kt-term"><h4>Frequency (f)</h4><p>The number of revolutions each second, in hertz: \(f = \frac{1}{T}\).</p></div><div class="card kt-term"><h4>Tangent</h4><p>The straight line touching the circle at one point. The velocity is along the tangent, and an object travels along it if the centripetal force is removed.</p></div></div><button type="button" class="btn sm" data-go="orbit:intro">Open Circular motion →</button></div>
+  <div class="kt-group"><h3>Momentum and impulse</h3><div class="kt-grid"><div class="card kt-term"><h4>Momentum</h4><p>Mass × velocity: \(p = mv\), in kg m s⁻¹. A vector in the same direction as the velocity.</p></div><div class="card kt-term"><h4>Change in momentum</h4><p>Final momentum minus initial momentum: \(\Delta p = p_{f} - p_{i}\). Signs matter, especially for a rebound.</p></div><div class="card kt-term"><h4>Impulse</h4><p>The change in momentum produced by a force acting for a time: \(\Delta p = F\Delta t\). Unit: N s, the same as kg m s⁻¹.</p></div><div class="card kt-term"><h4>Conservation of momentum</h4><p>If no external force acts, the total momentum before a collision or explosion equals the total momentum afterwards.</p></div><div class="card kt-term"><h4>External force</h4><p>A force on the system from something outside it, such as friction from the road.</p></div><div class="card kt-term"><h4>Isolated system</h4><p>A group of objects with no external net force acting, so its total momentum stays constant.</p></div><div class="card kt-term"><h4>Elastic collision</h4><p>A collision in which the total kinetic energy is the same before and after.</p></div><div class="card kt-term"><h4>Inelastic collision</h4><p>A collision in which some kinetic energy is transformed into heat, sound or deformation. Momentum is still conserved.</p></div><div class="card kt-term"><h4>Crumple zone</h4><p>Part of a car designed to collapse in a crash. It lengthens the collision time, so the force is smaller for the same change in momentum. Airbags, helmets and seatbelts work the same way.</p></div></div><button type="button" class="btn sm" data-go="dock:intro">Open Momentum →</button></div>
+  <div class="kt-group"><h3>Work, energy and power</h3><div class="kt-grid"><div class="card kt-term"><h4>Work</h4><p>The energy transferred when a force moves an object in the direction of the force: \(W = Fd\), in joules.</p></div><div class="card kt-term"><h4>Joule (J)</h4><p>The unit of work and energy. One joule is one newton acting through one metre.</p></div><div class="card kt-term"><h4>Kinetic energy</h4><p>The energy of a moving object: \(E_{k} = \tfrac{1}{2}mv^{2}\).</p></div><div class="card kt-term"><h4>Gravitational potential energy</h4><p>The energy an object gains when it is raised: \(\Delta E_{p} = mg\Delta h\).</p></div><div class="card kt-term"><h4>Elastic potential energy</h4><p>The energy stored in a stretched or compressed spring: \(E_{p} = \tfrac{1}{2}kx^{2}\), the area under the force–extension graph.</p></div><div class="card kt-term"><h4>Conservation of energy</h4><p>Energy cannot be created or destroyed, only transformed from one form to another or transferred between objects.</p></div><div class="card kt-term"><h4>Power</h4><p>The rate at which work is done or energy is transformed: \(P = \frac{W}{t}\).</p></div><div class="card kt-term"><h4>Watt (W)</h4><p>The unit of power. One watt is one joule per second.</p></div><div class="card kt-term"><h4>Efficiency</h4><p>Useful energy out ÷ total energy in, often given as a percentage.</p></div><div class="card kt-term"><h4>Wasted energy</h4><p>Energy transformed into forms that are not useful, usually heat and sound caused by friction.</p></div></div><button type="button" class="btn sm" data-go="fuel:intro">Open Energy →</button></div>
+</section>
+
+<section class="pane hidden" data-mod="thrust" data-view="newton" data-title="Newton's second law lab: net force and acceleration">
+  <div class="pane-head"><h2>Phase 0.0 · Newton's second law lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Push a box across a floor. The <b>net force</b> is the push minus the friction, and only the net force decides the acceleration. Change the push, the mass and the surface, then press Push and read the graphs.</p>
+  <div class="seg" role="group" aria-label="Surface"><button type="button" data-nsurf="ice" aria-pressed="false">Ice</button><button type="button" data-nsurf="wood" aria-pressed="true">Wood</button><button type="button" data-nsurf="carpet" aria-pressed="false">Carpet</button></div>
+  <div class="screen"><canvas id="nwCanvas" width="900" height="460" aria-label="A box pushed along a floor with its force arrows, and graphs of velocity and acceleration against time"></canvas><div class="hud" id="nwHud">READY</div></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Push force</span><output id="nwFOut"></output></span><input type="range" id="nwF" min="0" max="80" step="1" value="30"></label><label class="ctrl"><span class="row"><span>Mass of the box</span><output id="nwMOut"></output></span><input type="range" id="nwM" min="1" max="20" step="1" value="4"></label>
+      <div class="btns"><button class="btn go" type="button" id="nwGo">PUSH</button><button class="btn" type="button" id="nwReset">Reset</button></div>
+      
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Net force</span><b id="nwNet">–</b></div><div class="tm"><span>Acceleration</span><b id="nwA">–</b></div><div class="tm"><span>Friction</span><b id="nwFr">–</b></div><div class="tm"><span>Speed</span><b id="nwV">–</b></div></div>
+      <p class="note" id="nwNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><p>Newton's second law: <span class="eq">\(F_{\text{net}} = ma\)</span>. Add up every force along the line of motion first, with directions, and only then divide by the mass.</p>
+<ul><li><b>Double the net force</b> (same mass): the acceleration doubles, so the v–t graph is twice as steep.</li><li><b>Double the mass</b> (same net force): the acceleration halves.</li><li><b>Balanced forces</b> (net force zero): no acceleration. The box stays still, or keeps its constant velocity (Newton's first law).</li><li>The weight and the support force are equal and opposite here, so they cancel and do not affect the horizontal motion.</li></ul>
+<p class="small">Try it: set the push below the friction limit on carpet and the box will not move at all. Friction only grows as large as it needs to.</p></div>
+</section>
+
+<section class="pane hidden" data-mod="thrust" data-view="ramp" data-title="Ramp lab: components of weight on a slope">
+  <div class="pane-head"><h2>Phase 0.0 · Ramp lab: force components on a slope</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">On a slope, the weight still acts straight down, but it helps to split it into two <b>components</b>: one along the slope (which makes the block slide) and one into the slope (which the surface pushes back against).</p>
+  
+  <div class="screen"><canvas id="rpCanvas" width="900" height="460" aria-label="A block on a ramp with weight, support force, friction and the two components of the weight"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Angle of the slope</span><output id="rpAOut"></output></span><input type="range" id="rpA" min="0" max="60" step="1" value="30"></label><label class="ctrl"><span class="row"><span>Mass</span><output id="rpMOut"></output></span><input type="range" id="rpM" min="1" max="10" step="1" value="4"></label><label class="ctrl"><span class="row"><span>Friction coefficient, μ</span><output id="rpMuOut"></output></span><input type="range" id="rpMu" min="0" max="0.8" step="0.05" value="0.2"></label>
+      <div class="btns"><button class="btn go" type="button" id="rpGo">RELEASE</button><button class="btn" type="button" id="rpReset">Reset</button><button class="btn" type="button" id="rpComp" aria-pressed="true">Show components</button></div>
+      
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Net force down slope</span><b id="rpNet">–</b></div><div class="tm"><span>Acceleration</span><b id="rpAcc">–</b></div><div class="tm"><span>Along slope, mg sin θ</span><b id="rpPar">–</b></div><div class="tm"><span>Into slope, mg cos θ</span><b id="rpPerp">–</b></div><div class="tm"><span>Friction</span><b id="rpFr">–</b></div></div>
+      <p class="note" id="rpNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><p>Resolve the weight into two perpendicular components:</p>
+<p class="eq-block">\(F_{\parallel} = mg\sin\theta \qquad F_{\perp} = mg\cos\theta\)</p>
+<ul><li>Perpendicular to the slope nothing accelerates, so the support (normal) force equals <span class="eq">\(mg\cos\theta\)</span>. It is <b>less</b> than the weight.</li><li>Along the slope, the net force is <span class="eq">\(mg\sin\theta\)</span> minus friction.</li><li>A steeper slope makes <span class="eq">\(\sin\theta\)</span> bigger and <span class="eq">\(\cos\theta\)</span> smaller: more force down the slope and less support force.</li><li>With no friction, <span class="eq">\(a = g\sin\theta\)</span>. The mass cancels, so every block slides with the same acceleration.</li></ul></div>
+</section>
+
+<section class="pane hidden" data-mod="launch" data-view="stopping" data-title="Stopping distance lab: thinking distance and braking distance">
+  <div class="pane-head"><h2>Phase 0.0 · Stopping distance lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">A driver sees a hazard. During the <b>reaction time</b> the car carries on at constant speed; only then do the brakes slow it down. Stopping distance = thinking distance + braking distance. Both are areas under the velocity–time graph.</p>
+  <div class="seg" role="group" aria-label="Road"><button type="button" data-road="dry" aria-pressed="true">Dry road</button><button type="button" data-road="wet" aria-pressed="false">Wet road</button><button type="button" data-road="icy" aria-pressed="false">Icy road</button></div>
+  <div class="screen"><canvas id="spdCanvas" width="900" height="460" aria-label="A car approaching an obstacle with thinking and braking zones marked, and a velocity time graph with the two areas shaded"></canvas><div class="hud" id="spdHud">READY</div></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Speed</span><output id="spdVOut"></output></span><input type="range" id="spdV" min="20" max="120" step="5" value="50"></label><label class="ctrl"><span class="row"><span>Reaction time</span><output id="spdROut"></output></span><input type="range" id="spdR" min="0.2" max="2.5" step="0.1" value="0.8"></label><label class="ctrl"><span class="row"><span>Distance to the obstacle</span><output id="spdGOut"></output></span><input type="range" id="spdG" min="10" max="160" step="5" value="40"></label>
+      <div class="btns"><button class="btn go" type="button" id="spdGo">HAZARD!</button><button class="btn" type="button" id="spdReset">Reset</button></div>
+      <div class="seg" role="group" aria-label="Driver"><button type="button" data-react="0.7">Alert 0.7 s</button><button type="button" data-react="1.5">Tired 1.5 s</button><button type="button" data-react="2.5">On a phone 2.5 s</button></div><div class="verdict ok" id="spdVerdict" aria-live="polite"></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Stopping distance</span><b id="spdS">–</b></div><div class="tm"><span>Thinking distance</span><b id="spdT">–</b></div><div class="tm"><span>Braking distance</span><b id="spdB">–</b></div><div class="tm"><span>Time to stop</span><b id="spdTT">–</b></div></div>
+      <p class="note" id="spdNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><p><b>Thinking distance</b>: constant velocity, so <span class="eq">\(d = vt\)</span>. It is proportional to the speed.</p>
+<p><b>Braking distance</b>: constant deceleration to rest. From <span class="eq">\(v_{f}^{2} = v_{i}^{2} + 2ad\)</span> with \(v_{f} = 0\): <span class="eq">\(d = \frac{v_{i}^{2}}{2a}\)</span> (using the size of the deceleration). It is proportional to the speed <b>squared</b>.</p>
+<ul><li>Convert km/h to m s⁻¹ first: divide by 3.6.</li><li>A wet or icy road gives a smaller deceleration, so a longer braking distance. The thinking distance does not change.</li><li>Tiredness, alcohol or a phone lengthen the reaction time, so a longer thinking distance. The braking distance does not change.</li></ul>
+<p class="small">Decelerations used: dry 8.0, wet 5.0, icy 2.0 m s⁻².</p></div>
+</section>
+
+<section class="pane hidden" data-mod="fuel" data-view="power" data-title="Work and power lab: lifting a load with a motor">
+  <div class="pane-head"><h2>Phase 0.0 · Work and power lab</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">A motor lifts a load. The <b>work done</b> on the load depends only on its weight and the height. The <b>power</b> decides how quickly that work is done. No motor is perfect, so some of the energy supplied is wasted as heat and sound.</p>
+  
+  <div class="screen"><canvas id="pwCanvas" width="900" height="460" aria-label="A motor lifting a load on a rope, with bars for energy supplied, gained and wasted, and an energy against time graph"></canvas><div class="hud" id="pwHud">READY</div></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Mass of the load</span><output id="pwMOut"></output></span><input type="range" id="pwM" min="10" max="200" step="10" value="50"></label><label class="ctrl"><span class="row"><span>Height lifted</span><output id="pwHOut"></output></span><input type="range" id="pwH" min="1" max="10" step="1" value="5"></label><label class="ctrl"><span class="row"><span>Power supplied to the motor</span><output id="pwPOut"></output></span><input type="range" id="pwP" min="100" max="2000" step="50" value="500"></label><label class="ctrl"><span class="row"><span>Efficiency of the motor</span><output id="pwEOut"></output></span><input type="range" id="pwE" min="20" max="100" step="5" value="60"></label>
+      <div class="btns"><button class="btn go" type="button" id="pwGo">LIFT</button><button class="btn" type="button" id="pwReset">Reset</button></div>
+      
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Work done on the load</span><b id="pwW">–</b></div><div class="tm"><span>Useful power</span><b id="pwPo">–</b></div><div class="tm"><span>Time taken</span><b id="pwTt">–</b></div><div class="tm"><span>Energy wasted</span><b id="pwWs">–</b></div></div>
+      <p class="note" id="pwNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><p class="eq-block">\(W = Fd \qquad P = \frac{W}{t} \qquad \text{efficiency} = \frac{\text{useful energy out}}{\text{total energy in}}\)</p>
+<ul><li>Lifting at a steady speed needs a force equal to the weight, so <span class="eq">\(W = mgh\)</span>. This is also the gravitational potential energy the load gains.</li><li>Doubling the power halves the time, but the work done is the same.</li><li>On an energy–time graph, the <b>gradient is the power</b>. One watt is one joule per second.</li><li>Wasted energy is not destroyed: it is transformed into heat and sound in the motor and pulley.</li></ul></div>
+</section>
+
+<section class="pane hidden" data-mod="fuel" data-view="launcher" data-title="Spring launcher lab: elastic potential energy">
+  <div class="pane-head"><h2>Phase 0.0 · Spring launcher lab: elastic potential energy</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">A compressed spring stores <b>elastic potential energy</b>. Release it and the energy becomes kinetic energy of the ball, then gravitational potential energy as the ball climbs the ramp. Watch the four energy bars: their total never changes.</p>
+  <div class="seg" role="group" aria-label="Surface"><button type="button" data-sfr="smooth" aria-pressed="true">Smooth (no friction)</button><button type="button" data-sfr="rough" aria-pressed="false">Rough (friction)</button></div>
+  <div class="screen"><canvas id="slCanvas" width="900" height="460" aria-label="A ball launched by a compressed spring along a floor and up a ramp, with energy bars and an energy time graph"></canvas><div class="hud" id="slHud">READY</div></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Spring constant, k</span><output id="slKOut"></output></span><input type="range" id="slK" min="40" max="200" step="10" value="120"></label><label class="ctrl"><span class="row"><span>Compression, x</span><output id="slXOut"></output></span><input type="range" id="slX" min="0.05" max="0.25" step="0.01" value="0.15"></label><label class="ctrl"><span class="row"><span>Mass of the ball</span><output id="slMOut"></output></span><input type="range" id="slM" min="0.2" max="1.0" step="0.05" value="0.3"></label>
+      <div class="btns"><button class="btn go" type="button" id="slGo">FIRE</button><button class="btn" type="button" id="slReset">Reset</button></div>
+      
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Energy stored, ½kx²</span><b id="slE">–</b></div><div class="tm"><span>Launch speed (no friction)</span><b id="slV">–</b></div><div class="tm"><span>Predicted height (no friction)</span><b id="slH">–</b></div><div class="tm"><span>Highest point reached</span><b id="slHm">–</b></div></div>
+      <p class="note" id="slNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><p class="eq-block">\(E_{p}(\text{spring}) = \tfrac{1}{2}kx^{2} \;\rightarrow\; E_{k} = \tfrac{1}{2}mv^{2} \;\rightarrow\; E_{p}(\text{gravity}) = mgh\)</p>
+<ul><li><b>Double the compression</b>: the stored energy is four times as large (\(x^{2}\)), so the ball rises four times as high.</li><li><b>Double the spring constant</b>: the stored energy doubles.</li><li><b>A heavier ball</b> gets the same energy, so it leaves more slowly and rises less high.</li><li>On the rough surface, friction transforms some energy into heat. The total is still conserved, but less is left to become height.</li></ul>
+<p class="small">\(\tfrac{1}{2}kx^{2}\) is the area under the spring's force–extension graph.</p></div>
+</section>
+
 <!-- ======================================================= 02 BRIDGES & SEESAWS -->
 <section class="pane hidden" data-mod="thrust" data-view="bridges" data-title="Bridges and seesaws: torque in equilibrium">
   <div class="pane-head"><h2>Phase 2.5 · Bridges &amp; seesaws</h2><span class="badge">SIMULATION</span></div>
@@ -3121,14 +3254,14 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
-  map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["rearrange", "Rearranging formulae"], ["numbers", "Numbers & units"], ["challenge", "Mixed challenge"], ["explain", "Answer practice"], ["exam", "Exam set"], ["progress", "My progress"]] },
-  launch: { title: "MOTION", name: "Motion", views: [["intro", "Foundations"], ["graphs", "Graphs"], ["vertical", "Vertical motion"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
+  map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["terms", "Key terms"], ["rearrange", "Rearranging formulae"], ["numbers", "Numbers & units"], ["challenge", "Mixed challenge"], ["explain", "Answer practice"], ["exam", "Exam set"], ["progress", "My progress"]] },
+  launch: { title: "MOTION", name: "Motion", views: [["intro", "Foundations"], ["graphs", "Graphs"], ["vertical", "Vertical motion"], ["stopping", "Stopping distance"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
   vec: { title: "VECTORS & RELATIVE MOTION", name: "Vectors & relative motion", views: [["intro", "Foundations"], ["lab", "Vector lab"], ["relvel", "Relative velocity"], ["check", "Quick check"]] },
-  thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "Foundations"], ["vectors", "Vectors"], ["lift", "Lift"], ["torque", "Torque"], ["bridges", "Bridges & seesaws"], ["springs", "Springs"], ["practicals", "Practicals"], ["check", "Quick check"], ["problems", "Problems"]] },
+  thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "Foundations"], ["newton", "Newton's 2nd law"], ["vectors", "Vectors"], ["ramp", "Ramp"], ["lift", "Lift"], ["torque", "Torque"], ["bridges", "Bridges & seesaws"], ["springs", "Springs"], ["practicals", "Practicals"], ["check", "Quick check"], ["problems", "Problems"]] },
   dock: { title: "MOMENTUM & IMPULSE", name: "Momentum & impulse", views: [["intro", "Foundations"], ["collide", "Collisions"], ["impulse", "Impulse"], ["check", "Quick check"], ["problems", "Problems"]] },
   proj: { title: "PROJECTILE MOTION", name: "Projectile motion", views: [["intro", "Foundations"], ["lab", "Projectile lab"], ["check", "Quick check"], ["problems", "Problems"]] },
   orbit: { title: "CIRCULAR MOTION", name: "Circular motion", views: [["intro", "Foundations"], ["lab", "Centripetal force"], ["derive", "Derivation"], ["practical", "Practical"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
-  fuel: { title: "WORK, ENERGY & POWER", name: "Work, energy & power", views: [["intro", "Foundations"], ["lab", "Energy track"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
+  fuel: { title: "WORK, ENERGY & POWER", name: "Work, energy & power", views: [["intro", "Foundations"], ["lab", "Energy track"], ["launcher", "Spring launcher"], ["power", "Work & power"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
 };
 const SCOPE = {
   launch: [
@@ -3191,6 +3324,11 @@ const TIPS = {
   "vec:lab": "Every vector answer needs a direction as well as a size and a unit: \"5.0 m at 53° north of east\", not just \"5.0 m\".",
   "map:numbers": "Convert to SI units (m, kg, s) before substituting. Most lost marks in calculations come from g instead of kg or cm instead of m.",
   "vec:relvel": "Draw the vector triangle first. The crossing time uses only the velocity component straight across; the drift uses only the sideways component.",
+  "thrust:newton": "Find the net force first, with directions, and write \\(F_{\\text{net}} = ma\\). Never put a single force into the equation when other forces act along the same line.",
+  "thrust:ramp": "On a slope, resolve the weight: \\(mg\\sin\\theta\\) acts down the slope and \\(mg\\cos\\theta\\) acts into it. Label both components on your diagram.",
+  "launch:stopping": "Convert km/h to m s⁻¹ (divide by 3.6) before using any equation, and treat the reaction time and the braking as two separate stages.",
+  "fuel:power": "Power questions are two steps: find the work or energy in joules, then divide by the time in seconds.",
+  "fuel:launcher": "Write the energy conservation statement first: elastic potential energy stored = kinetic energy gained (+ heat if there is friction).",
   "thrust:lift": "Draw the free-body diagram, choose up as positive, then write \\(F_{\\text{net}} = ma\\): \\(F_{N} - mg = ma\\). Never write the weight as changing.",
   "thrust:bridges": "Take torques about one support to find the other support force, then use 'forces up = forces down' to find the first.",
   "thrust:practicals": "When a graph is a curve, say what you would plot to get a straight line, and what the gradient represents.",
@@ -4761,9 +4899,9 @@ function scatter(cv, pts, opt) {
     ctx.strokeStyle = C.ink2; ctx.lineWidth = 1.5; if (trip !== "snap" || S.t < 0.8) { ctx.beginPath(); ctx.moveTo(carX + carW / 2, shTop); ctx.lineTo(carX + carW / 2, carY); ctx.stroke(); }
     ctx.fillStyle = C.panel; ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; rrect(ctx, carX, carY, carW, carH, 4); ctx.fill(); ctx.stroke();
     // person + scales
-    const px = carX + carW / 2, feet = carY + carH - 12;
-    ctx.fillStyle = C.ink2; ctx.fillRect(px - 20, feet, 40, 8);
-    ctx.fillStyle = C.panel; ctx.fillRect(px - 12, feet + 1, 24, 6); text(ctx, fmt(scale, 3), px, feet + 7, C.hot, 7, "center");
+    const px = carX + carW / 2, feet = carY + carH - 22;
+    ctx.fillStyle = C.ink2; rrect(ctx, px - 36, feet, 72, 19, 4); ctx.fill();
+    ctx.fillStyle = C.panel; ctx.fillRect(px - 31, feet + 3, 62, 13); text(ctx, fmt(scale, 3) + " kg", px, feet + 13.5, C.hot, 11, "center");
     ctx.strokeStyle = C.ink; ctx.lineWidth = 3; ctx.lineCap = "round"; ctx.beginPath();
     ctx.arc(px, feet - 58, 7, 0, 7); ctx.moveTo(px, feet - 51); ctx.lineTo(px, feet - 24); ctx.moveTo(px, feet - 24); ctx.lineTo(px - 7, feet); ctx.moveTo(px, feet - 24); ctx.lineTo(px + 7, feet); ctx.moveTo(px - 10, feet - 44); ctx.lineTo(px + 10, feet - 44); ctx.stroke();
     if (Math.abs(st.v) > 0.05) arrow(ctx, carX - 8, carY + carH / 2, carX - 8, carY + carH / 2 - Math.sign(st.v) * Math.min(40, Math.abs(st.v) * 6), C.data, 2.5, 8);
@@ -6543,6 +6681,357 @@ const RR = (() => {
     row.appendChild(out); (d.querySelector(".ans-body") || d).appendChild(row);
   });
 })();
+
+/* ====================================================== NEW LABS (v1.16) ===== */
+/* shared: TeX-safe number (thousands comma kept tight) and a small time-series plot */
+const tq = (s) => tn(s).replace(/,/g, "{,}");
+function gplot(ctx, x0, y0, x1, y1, o) {
+  const X = (t) => x0 + (t / o.T) * (x1 - x0), Y = (v) => y1 - ((v - o.lo) / (o.hi - o.lo)) * (y1 - y0);
+  ctx.save(); ctx.fillStyle = C.tile; ctx.fillRect(x0, y0, x1 - x0, y1 - y0); ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(x0, y0, x1 - x0, y1 - y0);
+  const st = niceStep(o.hi - o.lo, 4);
+  ctx.strokeStyle = C.grid; ctx.beginPath();
+  for (let v = Math.ceil(o.lo / st) * st; v <= o.hi + 1e-9; v += st) { const yy = Math.round(Y(v)) + 0.5; ctx.moveTo(x0, yy); ctx.lineTo(x1, yy); }
+  ctx.stroke();
+  if (o.lo < 0 && o.hi > 0) { ctx.strokeStyle = C.axis; ctx.beginPath(); ctx.moveTo(x0, Y(0)); ctx.lineTo(x1, Y(0)); ctx.stroke(); }
+  text(ctx, o.label, x0, y0 - 5, C.ink2, 10);
+  text(ctx, fmt(o.hi, 2), x0 - 4, y0 + 8, C.muted, 9, "right"); text(ctx, fmt(o.lo, 2), x0 - 4, y1, C.muted, 9, "right");
+  ctx.beginPath(); ctx.rect(x0, y0, x1 - x0, y1 - y0); ctx.clip();
+  (o.series || [o]).forEach((s) => {
+    ctx.strokeStyle = s.col; ctx.lineWidth = 2.5; ctx.lineJoin = "round"; ctx.beginPath();
+    s.pts.forEach((p, i) => { const yy = Y(clamp(p[1], o.lo, o.hi)); i ? ctx.lineTo(X(p[0]), yy) : ctx.moveTo(X(p[0]), yy); }); ctx.stroke();
+  });
+  ctx.restore();
+  return { X, Y };
+}
+
+/* shared: click and drag on a canvas. hit(x,y) names what is under the pointer, move() drags it, up() fires on release (moved = false means a click) */
+function dragOn(cv, hit, move, up) {
+  let k = null, moved = false, sx = 0, sy = 0;
+  const pos = (e) => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+  cv.addEventListener("pointerdown", (e) => { const [x, y] = pos(e); k = hit(x, y); if (!k) return; moved = false; sx = x; sy = y; try { cv.setPointerCapture(e.pointerId); } catch (er) {} e.preventDefault(); });
+  cv.addEventListener("pointermove", (e) => { const [x, y] = pos(e); if (!k) { cv.style.cursor = hit(x, y) ? "pointer" : ""; return; } if (Math.hypot(x - sx, y - sy) > 4) moved = true; if (moved) move(k, x, y); });
+  cv.addEventListener("pointerup", () => { if (!k) return; const kk = k; k = null; if (up) up(kk, moved); });
+  cv.addEventListener("pointercancel", () => { k = null; });
+  cv.addEventListener("touchstart", (e) => { const t = e.touches[0], r = cv.getBoundingClientRect(); if (t && hit(t.clientX - r.left, t.clientY - r.top)) e.preventDefault(); }, { passive: false });
+}
+const setRange = (el, v) => { v = clamp(v, +el.min, +el.max); if (+el.value !== v) { el.value = v; el.dispatchEvent(new Event("input")); } };
+function grip(ctx, x, y, col) { ctx.save(); ctx.fillStyle = C.panel; ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(x, y, 8, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fill(); ctx.restore(); }
+
+/* ====================================================== 2.x · NEWTON'S SECOND LAW LAB ===== */
+(() => {
+  const cv = $("nwCanvas"), sim = { dirty: true, anim: false }; sims["thrust:newton"] = sim;
+  const MU = { ice: 0.03, wood: 0.25, carpet: 0.5 }; let surf = "wood";
+  const S = { t: 0, x: 0, v: 0, run: false, hist: [], f: 0, net: 0, a: 0 }, T = 12;
+  const mEl = bindRange("nwM", "nwMOut", (v) => v + " kg"), fEl = bindRange("nwF", "nwFOut", (v) => v + " N");
+  const btns = [...document.querySelectorAll("[data-nsurf]")];
+  const P = () => { const m = +mEl.value, F = +fEl.value, mu = MU[surf]; return { m, F, mu, fmax: mu * m * G }; };
+  function forces(v) { const { F, fmax } = P(); const f = v <= 1e-9 && F <= fmax ? F : fmax; return { f, net: F - f }; }
+  function reset() { Object.assign(S, { t: 0, x: 0, v: 0, run: false, hist: [] }); sim.anim = false; sim.dirty = true; }
+  btns.forEach((b) => b.addEventListener("click", () => { surf = b.dataset.nsurf; setPressed(btns, b); reset(); }));
+  [mEl, fEl].forEach((e) => e.addEventListener("input", () => { if (!S.run) reset(); sim.dirty = true; }));
+  $("nwGo").addEventListener("click", () => { reset(); S.run = true; sim.anim = true; });
+  $("nwReset").addEventListener("click", reset);
+  let geo = null;
+  dragOn(cv, (x, y) => !geo ? null : Math.hypot(x - geo.tip, y - geo.cy) < 24 ? "push" : Math.abs(x - geo.cx) < geo.bw / 2 && Math.abs(y - geo.cy) < geo.bh / 2 ? "box" : null,
+    (k, x) => { if (k === "push" || k === "box") setRange(fEl, Math.round((x - geo.cx - geo.bw / 2 - 6) / geo.ks)); },
+    (k, moved) => { if (k === "box" && !moved) { if (S.run) reset(); else $("nwGo").click(); } });
+  sim.frame = (dt) => {
+    const { m, F, mu, fmax } = P();
+    if (S.run) {
+      const n = 8, h = dt / n;
+      for (let i = 0; i < n; i++) { const fo = forces(S.v); const a = fo.net / m; S.v = Math.max(0, S.v + a * h); if (S.v === 0 && a < 0) S.v = 0; S.x += S.v * h; }
+      S.t += dt; const fo = forces(S.v); S.f = fo.f; S.net = fo.net; S.a = S.v <= 1e-9 && F <= fmax ? 0 : fo.net / m;
+      S.hist.push([S.t, S.v, S.a]); if (S.t >= T) { S.run = false; sim.anim = false; }
+    } else if (S.t === 0) { const fo = forces(0); S.f = fo.f; S.net = fo.net; S.a = fo.net > 0 ? fo.net / m : 0; }
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.4) : Math.max(400, Math.round(w * 0.5))));
+    clear(ctx, w, h); const narrow = w < 640;
+    const sh = narrow ? h * 0.5 : h * 0.58, floor = sh - 96, bw = 56 + m * 3, bh = 40 + m * 2.2, bx = w * (narrow ? 0.42 : 0.36);
+    // floor with scrolling 1 m marks
+    const pm = 46; ctx.fillStyle = C.tile; ctx.fillRect(0, floor, w, 62);
+    // background grid, fixed to the ground, so it slides past as the box moves (1 square = 1 m)
+    const off = bx - S.x * pm; ctx.strokeStyle = C.grid; ctx.lineWidth = 1; ctx.beginPath();
+    for (let yy = floor - pm; yy > 0; yy -= pm) { ctx.moveTo(0, Math.round(yy) + 0.5); ctx.lineTo(w, Math.round(yy) + 0.5); }
+    const k0 = Math.floor(-off / pm) - 1, k1 = Math.ceil((w - off) / pm) + 1;
+    for (let k = k0; k <= k1; k++) { const xx = Math.round(off + k * pm) + 0.5; ctx.moveTo(xx, 0); ctx.lineTo(xx, floor); }
+    ctx.stroke();
+    ctx.strokeStyle = C.line;
+    for (let k = k0; k <= k1; k++) { const xx = off + k * pm; ctx.beginPath(); ctx.moveTo(xx, floor); ctx.lineTo(xx, floor + (k % 2 ? 6 : 10)); ctx.stroke(); if (k >= 0 && k % 2 === 0 && Math.abs(xx - bx) > 34) text(ctx, k + " m", xx, floor + 22, C.muted, 9, "center"); }
+    if (off > -10 && off < w + 10) { ctx.strokeStyle = C.ok; ctx.lineWidth = 2; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(off, 40); ctx.lineTo(off, floor); ctx.stroke(); ctx.setLineDash([]); text(ctx, "START", off + 5, 50, C.ok, 10); }
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, floor); ctx.lineTo(w, floor); ctx.stroke();
+    text(ctx, "distance " + fmt(S.x, 3) + " m", 10, floor + 54, C.muted, 10);
+    text(ctx, { ice: "ICE", wood: "WOOD", carpet: "CARPET" }[surf] + " · μ = " + mu, w - 10, floor + 54, C.muted, 10, "right");
+    // the box
+    ctx.fillStyle = C.panel; ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; rrect(ctx, bx - bw / 2, floor - bh, bw, bh, 4); ctx.fill(); ctx.stroke();
+    text(ctx, m + " kg", bx - bw / 2 + 6, floor - 7, C.ink2, 11);
+    // free-body diagram arrows from the centre of the box
+    const cx = bx, cy = floor - bh / 2, ks = narrow ? 1.0 : 1.5, vl = 22 + m * 1.6;
+    if (F > 0) { arrow(ctx, cx, cy, cx + bw / 2 + F * ks + 6, cy, C.data, 3.5, 11); text(ctx, "push " + F + " N", cx + bw / 2 + F * ks + 14, cy + 4, C.data, 11); }
+    if (S.f > 0.05) { arrow(ctx, cx, cy, cx - bw / 2 - S.f * ks - 6, cy, C.vector, 3.5, 11); text(ctx, narrow ? "f " + fmt(S.f, 3) + " N" : "friction " + fmt(S.f, 3) + " N", cx - bw / 2 - S.f * ks - 14, cy + 4, C.vector, 11, "right"); }
+    arrow(ctx, cx, cy, cx, cy + bh / 2 + vl, C.accent, 3, 10); text(ctx, "weight " + fmt(m * G, 3) + " N", cx, cy + bh / 2 + vl + 14, C.accent, 10, "center");
+    arrow(ctx, cx, cy, cx, cy - bh / 2 - vl, C.ok, 3, 10); text(ctx, "support " + fmt(m * G, 3) + " N", cx, cy - bh / 2 - vl - 6, C.ok, 10, "center");
+    ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(cx, cy, 4, 0, 7); ctx.fill();
+    geo = { cx, cy, bw, bh, ks, tip: cx + bw / 2 + F * ks + 6 }; grip(ctx, geo.tip, cy, C.data);
+    text(ctx, "drag the arrow tip to change the push · click the box to start or stop", w - 10, floor + 40, C.muted, 9, "right");
+    // net force arrow under the track
+    const ny = floor + 84; text(ctx, "NET FORCE", 10, ny - 10, C.muted, 10);
+    if (Math.abs(S.net) > 0.05) { resultant(ctx, 10, ny + 6, 10 + S.net * ks + 4, ny + 6, C.hot, 4, 11); text(ctx, fmt(S.net, 3) + " N →", 22 + S.net * ks, ny + 10, C.hot, 11); }
+    else text(ctx, "0 N: balanced, no acceleration", 10, ny + 10, C.ok, 11);
+    if (S.v > 0.05) { const vy = 30; arrow(ctx, w - 150, vy, w - 150 + Math.min(130, S.v * 6), vy, C.third, 2.5, 9); text(ctx, "v = " + fmt(S.v, 3) + " m s⁻¹", w - 150, vy - 8, C.third, 10); }
+    // graphs
+    const gy = sh + 34, gh = narrow ? (h - gy - 56) / 2 : h - gy - 24, vmax = Math.max(2, ...S.hist.map((p) => p[1] * 1.15)), amax = Math.max(1, F / m * 1.2);
+    if (narrow) { gplot(ctx, 46, gy, w - 14, gy + gh, { T, lo: 0, hi: vmax, label: "v (m s⁻¹)", series: [{ col: C.data, pts: S.hist.map((p) => [p[0], p[1]]) }] }); gplot(ctx, 46, gy + gh + 30, w - 14, gy + 2 * gh + 30, { T, lo: 0, hi: amax, label: "a (m s⁻²)", series: [{ col: C.hot, pts: S.hist.map((p) => [p[0], p[2]]) }] }); }
+    else { const mid = w / 2; gplot(ctx, 46, gy, mid - 14, gy + gh, { T, lo: 0, hi: vmax, label: "v (m s⁻¹)", series: [{ col: C.data, pts: S.hist.map((p) => [p[0], p[1]]) }] }); gplot(ctx, mid + 40, gy, w - 14, gy + gh, { T, lo: 0, hi: amax, label: "a (m s⁻²)", series: [{ col: C.hot, pts: S.hist.map((p) => [p[0], p[2]]) }] }); }
+    text(ctx, "t (0 to 12 s) →", w - 14, h - 6, C.muted, 10, "right");
+    $("nwNet").textContent = fmt(S.net, 3) + " N"; $("nwA").textContent = fmt(S.a, 3) + " m s⁻²"; $("nwV").textContent = fmt(S.v, 3) + " m s⁻¹"; $("nwFr").textContent = fmt(S.f, 3) + " N";
+    let n;
+    if (F <= fmax && S.v <= 1e-9) n = `The push (${F} N) is no bigger than the most friction the surface can give (\\(\\mu mg = ${fmt(fmax, 3)}\\) N). Friction matches the push exactly, so \\(F_{\\text{net}} = 0\\) and the box does not move.`;
+    else n = `\\(F_{\\text{net}} = F - f = ${F} - ${tq(fmt(S.f, 3))} = ${tq(fmt(S.net, 3))}\\,\\mathrm{N}\\), so \\(a = \\frac{F_{\\text{net}}}{m} = \\frac{${tq(fmt(S.net, 3))}}{${m}} = ${tq(fmt(S.net / m, 3))}\\,\\mathrm{m\\,s^{-2}}\\). Constant net force means constant acceleration.`;
+    $("nwNote").textContent = n; $("nwHud").textContent = S.run ? "PUSHING · t = " + S.t.toFixed(1) + " s" : S.t >= T ? "FINISHED" : "READY";
+  };
+})();
+
+/* ====================================================== 2.x · RAMP LAB ===== */
+(() => {
+  const cv = $("rpCanvas"), sim = { dirty: true, anim: false }; sims["thrust:ramp"] = sim;
+  const aEl = bindRange("rpA", "rpAOut", (v) => v + "°"), mEl = bindRange("rpM", "rpMOut", (v) => v + " kg"), uEl = bindRange("rpMu", "rpMuOut", (v) => (+v).toFixed(2));
+  const S = { s: 0, v: 0, run: false, showC: true }, L = 3;
+  const cB = $("rpComp");
+  function reset() { S.s = 0; S.v = 0; S.run = false; sim.anim = false; sim.dirty = true; }
+  [aEl, mEl, uEl].forEach((e) => e.addEventListener("input", reset));
+  cB.addEventListener("click", () => { S.showC = !S.showC; cB.setAttribute("aria-pressed", String(S.showC)); sim.dirty = true; });
+  $("rpGo").addEventListener("click", () => { reset(); S.run = true; sim.anim = true; });
+  $("rpReset").addEventListener("click", reset);
+  let geo = null;
+  dragOn(cv, (x, y) => !geo ? null : Math.hypot(x - geo.x0, y - geo.y0) < 26 ? "top" : Math.hypot(x - geo.px, y - geo.py) < 30 ? "block" : null,
+    (k, x, y) => { if (k === "top") setRange(aEl, Math.round(Math.atan2(geo.y1 - y, geo.x1 - x) * 180 / Math.PI)); },
+    (k, moved) => { if (k === "block" && !moved) { if (S.run || S.s > 0) reset(); else $("rpGo").click(); } });
+  sim.frame = (dt) => {
+    const m = +mEl.value, th = (+aEl.value) * Math.PI / 180, mu = +uEl.value, W = m * G, par = W * Math.sin(th), perp = W * Math.cos(th), fmaxF = mu * perp;
+    const slides = par > fmaxF + 1e-9, fr = slides ? fmaxF : par, net = par - fr, a = net / m;
+    if (S.run) { if (slides) { S.v += a * dt; S.s += S.v * dt; if (S.s >= L) { S.s = L; S.run = false; sim.anim = false; } } else { S.run = false; sim.anim = false; } }
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.0) : Math.max(380, Math.round(w * 0.46))));
+    clear(ctx, w, h);
+    const Lp = Math.min(w * (w < 640 ? 0.8 : 0.5) / Math.max(Math.cos(th), 0.5), (h * 0.5) / Math.max(Math.sin(th), 0.25)), ux = 24, topY = h * 0.18 + (Lp * Math.sin(th) < h * 0.5 ? 0 : 0);
+    const dx = Math.cos(th), dy = Math.sin(th), x0 = Math.max(44, w * 0.1), y0 = h - 110 - Lp * dy, x1 = x0 + Lp * dx, y1 = y0 + Lp * dy;
+    // ramp body
+    ctx.fillStyle = C.tile; ctx.strokeStyle = C.axis; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.lineTo(x0, y1); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.strokeStyle = C.line; ctx.beginPath(); ctx.moveTo(x0 - 10, y1); ctx.lineTo(x1 + 30, y1); ctx.stroke();
+    // angle arc
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(x1, y1, 34, Math.PI, Math.PI + th); ctx.stroke(); text(ctx, "θ = " + aEl.value + "°", x1 - 96, y1 - 7, C.ink2, 11);
+    // block on the surface
+    const nx = Math.sin(th), ny = -Math.cos(th), bs = 40, sp = (0.14 + 0.5 * S.s / L) * Lp, px = x0 + dx * sp + nx * bs / 2, py = y0 + dy * sp + ny * bs / 2;
+    ctx.save(); ctx.translate(px, py); ctx.rotate(th); ctx.fillStyle = C.panel; ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.fillRect(-bs / 2, -bs / 2, bs, bs); ctx.strokeRect(-bs / 2, -bs / 2, bs, bs); ctx.restore();
+    geo = { x0, y0, x1, y1, px, py }; grip(ctx, x0, y0, C.hot);
+    text(ctx, "drag the top corner ● to tilt the ramp · click the block to release it", 14, h - 10, C.muted, 9);
+    // forces: all drawn to the same scale (weight is always 100 px)
+    const ks = 100 / W;
+    arrow(ctx, px, py, px, py + W * ks, C.accent, 3.5, 11); text(ctx, "mg " + fmt(W, 3) + " N", px + 6, py + W * ks + 14, C.accent, 11);
+    arrow(ctx, px, py, px + nx * perp * ks, py + ny * perp * ks, C.ok, 3.5, 11); text(ctx, "N " + fmt(perp, 3) + " N", px + nx * perp * ks + 6, py + ny * perp * ks - 4, C.ok, 11);
+    if (fr > 0.05) { arrow(ctx, px, py, px - dx * fr * ks, py - dy * fr * ks, C.vector, 3.5, 11); { const lx = px - dx * fr * ks - 6, ok = lx > 120; text(ctx, "friction " + fmt(fr, 3) + " N", ok ? lx : 4, py - dy * fr * ks - 22, C.vector, 11, ok ? "right" : "left"); } }
+    if (S.showC) {
+      arrow(ctx, px, py, px + dx * par * ks, py + dy * par * ks, C.accent, 2.5, 9, [6, 4]); text(ctx, "mg sin θ", px + dx * par * ks + 6, py + dy * par * ks + 4, C.accent, 10);
+      arrow(ctx, px, py, px - nx * perp * ks, py - ny * perp * ks, C.accent, 2.5, 9, [6, 4]); { const lx = px - nx * perp * ks - 8, ok = lx > 60; text(ctx, "mg cos θ", ok ? lx : px - nx * perp * ks + 10, py - ny * perp * ks + (ok ? 4 : 16), C.accent, 10, ok ? "right" : "left"); }
+    }
+    if (w >= 640) { // the weight and its two components as a right-angled triangle
+      const tx = w * 0.8, ty = h * 0.2, kk = Math.min(1.6, (h * 0.55) / 100) * ks;
+      text(ctx, "COMPONENTS OF THE WEIGHT", tx - 90, ty - 14, C.muted, 10);
+      const ax = tx + dx * par * kk, ay = ty + dy * par * kk;
+      arrow(ctx, tx, ty, ax, ay, C.accent, 2.5, 9, [6, 4]); arrow(ctx, ax, ay, tx, ty + W * kk, C.accent, 2.5, 9, [6, 4]); arrow(ctx, tx, ty, tx, ty + W * kk, C.accent, 3.5, 11);
+      text(ctx, "mg sin θ = " + fmt(par, 3) + " N", ax + 8, ay - 4, C.accent, 10); text(ctx, "mg cos θ = " + fmt(perp, 3) + " N", (ax + tx) / 2 + 12, (ay + ty + W * kk) / 2 + 12, C.accent, 10); text(ctx, "mg = " + fmt(W, 3) + " N", tx - 8, ty + W * kk / 2, C.accent, 10, "right");
+      ctx.strokeStyle = C.muted; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(tx, ty + W * kk, 26, -Math.PI / 2, -Math.PI / 2 + th); ctx.stroke(); text(ctx, "θ", tx + 8, ty + W * kk - 32, C.ink2, 11);
+    }
+    text(ctx, slides ? "SLIDING · v = " + fmt(S.v, 3) + " m s⁻¹" : "STAYS PUT: friction can hold it", 14, 22, slides ? C.hot : C.ok, 12);
+    $("rpPar").textContent = fmt(par, 3) + " N"; $("rpPerp").textContent = fmt(perp, 3) + " N"; $("rpFr").textContent = fmt(fr, 3) + " N"; $("rpNet").textContent = fmt(net, 3) + " N"; $("rpAcc").textContent = fmt(a, 3) + " m s⁻²";
+    $("rpNote").textContent = slides
+      ? `Along the slope: \\(F_{\\text{net}} = mg\\sin\\theta - \\mu mg\\cos\\theta = ${tq(fmt(par, 3))} - ${tq(fmt(fr, 3))} = ${tq(fmt(net, 3))}\\,\\mathrm{N}\\), so \\(a = ${tq(fmt(a, 3))}\\,\\mathrm{m\\,s^{-2}}\\) down the slope. Perpendicular to the slope the forces balance: \\(N = mg\\cos\\theta\\).`
+      : `The part of the weight pulling it down the slope (${fmt(par, 3)} N) is smaller than the most friction available (\\(\\mu N = ${fmt(fmaxF, 3)}\\) N), so friction equals ${fmt(par, 3)} N and the net force is zero. Increase the angle or lower μ until it slides.`;
+  };
+})();
+
+/* ====================================================== 1.x · STOPPING DISTANCE LAB ===== */
+(() => {
+  const cv = $("spdCanvas"), sim = { dirty: true, anim: false }; sims["launch:stopping"] = sim;
+  const ROAD = { dry: 8.0, wet: 5.0, icy: 2.0 }; let road = "dry";
+  const vEl = bindRange("spdV", "spdVOut", (v) => v + " km/h"), rEl = bindRange("spdR", "spdROut", (v) => (+v).toFixed(1) + " s"), gEl = bindRange("spdG", "spdGOut", (v) => v + " m");
+  const rb = [...document.querySelectorAll("[data-road]")], pb = [...document.querySelectorAll("[data-react]")];
+  const S = { t: 0, run: false };
+  function calc() {
+    const v = +vEl.value / 3.6, tr = +rEl.value, a = ROAD[road], gap = +gEl.value, dT = v * tr, dB = v * v / (2 * a), tB = v / a;
+    return { v, tr, a, gap, dT, dB, dS: dT + dB, tS: tr + tB, tB };
+  }
+  function pos(c, t) { // distance travelled at time t
+    if (t <= c.tr) return c.v * t; const u = Math.min(t - c.tr, c.tB); return c.dT + c.v * u - 0.5 * c.a * u * u;
+  }
+  function vel(c, t) { return t <= c.tr ? c.v : Math.max(0, c.v - c.a * (t - c.tr)); }
+  function reset() { S.t = 0; S.run = false; sim.anim = false; sim.dirty = true; }
+  rb.forEach((b) => b.addEventListener("click", () => { road = b.dataset.road; setPressed(rb, b); reset(); }));
+  pb.forEach((b) => b.addEventListener("click", () => { rEl.value = b.dataset.react; rEl.dispatchEvent(new Event("input")); reset(); }));
+  [vEl, rEl, gEl].forEach((e) => e.addEventListener("input", reset));
+  $("spdGo").addEventListener("click", () => { reset(); S.run = true; sim.anim = true; });
+  $("spdReset").addEventListener("click", reset);
+  let geo = null;
+  dragOn(cv, (x, y) => !geo || Math.abs(y - geo.ly) > 40 ? null : Math.abs(x - geo.gx) < 20 ? "gap" : x > geo.carX - geo.cw - 8 && x < geo.carX + 8 ? "car" : null,
+    (k, x) => { if (k === "gap") setRange(gEl, Math.round(((x - geo.lx0) / (geo.lx1 - geo.lx0)) * geo.roadW / 5) * 5); },
+    (k, moved) => { if (k === "car" && !moved) { if (S.run || S.t > 0) reset(); else $("spdGo").click(); } });
+  sim.frame = (dt) => {
+    const c = calc(); if (S.run) { S.t += dt; if (S.t >= c.tS + 0.5) { S.t = c.tS + 0.5; S.run = false; sim.anim = false; } }
+    const hitAt = c.gap < c.dS, vHit = !hitAt ? 0 : c.gap <= c.dT ? c.v : Math.sqrt(Math.max(0, c.v * c.v - 2 * c.a * (c.gap - c.dT)));
+    const d = Math.min(pos(c, S.t), hitAt ? c.gap : 1e9), crashed = hitAt && pos(c, S.t) >= c.gap && S.t > 0;
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.15) : Math.max(380, Math.round(w * 0.46))));
+    clear(ctx, w, h); const narrow = w < 640;
+    const roadW = Math.max(160, c.dS * 1.15, c.gap * 1.1), lx0 = 56, lx1 = w - 20, X = (m) => lx0 + (m / roadW) * (lx1 - lx0), ly = narrow ? 92 : 100;
+    ctx.fillStyle = C.tile; ctx.fillRect(lx0 - 44, ly - 24, lx1 - lx0 + 44, 48); ctx.strokeStyle = C.line; ctx.setLineDash([10, 10]); ctx.beginPath(); ctx.moveTo(lx0 - 44, ly); ctx.lineTo(lx1, ly); ctx.stroke(); ctx.setLineDash([]);
+    const st = niceStep(roadW, 8); for (let m = 0; m <= roadW; m += st) { ctx.strokeStyle = C.axis; ctx.beginPath(); ctx.moveTo(X(m), ly + 24); ctx.lineTo(X(m), ly + 30); ctx.stroke(); text(ctx, m + " m", X(m), ly + 42, C.muted, 9, "center"); }
+    // zones: thinking and braking
+    ctx.fillStyle = "rgba(255,170,60,.22)"; ctx.fillRect(X(0), ly - 24, X(c.dT) - X(0), 48); ctx.fillStyle = "rgba(255,90,90,.2)"; ctx.fillRect(X(c.dT), ly - 24, X(c.dS) - X(c.dT), 48);
+    text(ctx, "thinking " + fmt(c.dT, 3) + " m", X(0), ly - 44, C.accent, 10); text(ctx, "braking " + fmt(c.dB, 3) + " m", X(c.dT), ly - 30, C.vector, 10);
+    // obstacle
+    ctx.fillStyle = C.bad; ctx.fillRect(X(c.gap) - 4, ly - 20, 8, 40); text(ctx, "obstacle", X(c.gap), ly + 62, C.bad, 10, "center");
+    // car
+    const carX = X(d), cw = 34; ctx.fillStyle = C.panel; ctx.strokeStyle = crashed ? C.bad : C.ink2; ctx.lineWidth = 2; rrect(ctx, carX - cw, ly - 12, cw, 24, 5); ctx.fill(); ctx.stroke();
+    if (S.t > c.tr && vel(c, S.t) > 0.01) { ctx.fillStyle = C.bad; ctx.fillRect(carX - cw - 2, ly - 8, 3, 16); }
+    geo = { lx0, lx1, roadW, ly, gx: X(c.gap), carX, cw }; grip(ctx, X(c.gap), ly - 26, C.bad);
+    text(ctx, "drag the obstacle · click the car to start", lx1, ly - 44, C.muted, 9, "right");
+    // graph: v-t with shaded areas
+    const gy = ly + 84, gh = h - gy - 40, gx0 = 56, gx1 = w - 16, T = Math.max(c.tS * 1.12, 2), vm = c.v * 1.15, X2 = (t) => gx0 + (t / T) * (gx1 - gx0), Y2 = (v) => gy + gh - (v / vm) * gh;
+    ctx.fillStyle = C.tile; ctx.fillRect(gx0, gy, gx1 - gx0, gh); ctx.strokeStyle = C.line; ctx.strokeRect(gx0, gy, gx1 - gx0, gh);
+    ctx.fillStyle = "rgba(255,170,60,.3)"; ctx.fillRect(X2(0), Y2(c.v), X2(c.tr) - X2(0), Y2(0) - Y2(c.v));
+    ctx.fillStyle = "rgba(255,90,90,.28)"; ctx.beginPath(); ctx.moveTo(X2(c.tr), Y2(c.v)); ctx.lineTo(X2(c.tS), Y2(0)); ctx.lineTo(X2(c.tr), Y2(0)); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = C.data; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(X2(0), Y2(c.v)); ctx.lineTo(X2(c.tr), Y2(c.v)); ctx.lineTo(X2(c.tS), Y2(0)); ctx.stroke();
+    text(ctx, "v (m s⁻¹)", gx0, gy - 5, C.ink2, 10); text(ctx, fmt(c.v, 3), gx0 - 4, Y2(c.v) + 4, C.muted, 9, "right"); text(ctx, "0", gx0 - 4, Y2(0) + 4, C.muted, 9, "right");
+    text(ctx, "area = thinking distance", X2(c.tr / 2), Y2(c.v / 2), C.accent, 10, "center"); if (X2(c.tS) - X2(c.tr) > 120) text(ctx, "area = braking distance", X2(c.tr) + (X2(c.tS) - X2(c.tr)) * 0.38, Y2(0) - 10, C.vector, 10, "center");
+    text(ctx, "t (s) →", gx1, gy + gh + 28, C.muted, 10, "right"); text(ctx, fmt(c.tr, 2) + " s", X2(c.tr), gy + gh + 14, C.accent, 9, "center"); text(ctx, fmt(c.tS, 3) + " s", X2(c.tS), gy + gh + 14, C.vector, 9, "center");
+    if (S.t > 0) { const tt = Math.min(S.t, c.tS); ctx.strokeStyle = C.ink2; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(X2(tt), gy); ctx.lineTo(X2(tt), gy + gh); ctx.stroke(); ctx.setLineDash([]); ctx.fillStyle = C.hot; ctx.beginPath(); ctx.arc(X2(tt), Y2(vel(c, tt)), 5, 0, 7); ctx.fill(); }
+    $("spdT").textContent = fmt(c.dT, 3) + " m"; $("spdB").textContent = fmt(c.dB, 3) + " m"; $("spdS").textContent = fmt(c.dS, 3) + " m"; $("spdTT").textContent = fmt(c.tS, 3) + " s";
+    const half = (c.v / 2) * (c.v / 2) / (2 * c.a);
+    $("spdNote").textContent = `\\(d_{\\text{thinking}} = vt_{r} = ${tq(fmt(c.v, 3))}\\times ${tq(fmt(c.tr, 2))} = ${tq(fmt(c.dT, 3))}\\,\\mathrm{m}\\). Braking: \\(v_{f}^{2} = v_{i}^{2} + 2ad\\) with \\(v_{f}=0\\) gives \\(d = \\frac{v^{2}}{2a} = \\frac{${tq(fmt(c.v, 3))}^{2}}{2\\times ${c.a}} = ${tq(fmt(c.dB, 3))}\\,\\mathrm{m}\\). At half this speed the braking distance would only be ${fmt(half, 3)} m: doubling the speed multiplies the braking distance by 4, but the thinking distance only by 2.`;
+    const verdict = $("spdVerdict"); verdict.className = "verdict " + (hitAt ? "bad" : "ok");
+    verdict.textContent = hitAt ? `The car cannot stop in ${c.gap} m. It hits the obstacle at ${fmt(vHit * 3.6, 3)} km/h (${fmt(vHit, 3)} m s⁻¹).` : `Stops ${fmt(c.gap - c.dS, 3)} m before the obstacle.`;
+    $("spdHud").textContent = S.run ? (S.t < c.tr ? "REACTING · t = " + S.t.toFixed(1) + " s" : "BRAKING · v = " + fmt(vel(c, S.t) * 3.6, 3) + " km/h") : crashed ? "CRASH" : S.t > 0 ? "STOPPED" : "READY";
+  };
+})();
+
+/* ====================================================== 5.x · WORK AND POWER LAB ===== */
+(() => {
+  const cv = $("pwCanvas"), sim = { dirty: true, anim: false }; sims["fuel:power"] = sim;
+  const mEl = bindRange("pwM", "pwMOut", (v) => v + " kg"), hEl = bindRange("pwH", "pwHOut", (v) => v + " m"), pEl = bindRange("pwP", "pwPOut", (v) => v + " W"), eEl = bindRange("pwE", "pwEOut", (v) => v + " %");
+  const S = { t: 0, run: false };
+  const calc = () => { const m = +mEl.value, H = +hEl.value, P = +pEl.value, eff = +eEl.value / 100, W = m * G * H, Po = P * eff, t = W / Po; return { m, H, P, eff, W, Po, t, Ein: P * t, waste: P * t - W }; };
+  function reset() { S.t = 0; S.run = false; sim.anim = false; sim.dirty = true; }
+  [mEl, hEl, pEl, eEl].forEach((e) => e.addEventListener("input", reset));
+  $("pwGo").addEventListener("click", () => { reset(); S.run = true; sim.anim = true; });
+  $("pwReset").addEventListener("click", reset);
+  let geo = null;
+  dragOn(cv, (x, y) => !geo ? null : Math.hypot(x - geo.hx, y - geo.hy) < 24 ? "h" : Math.abs(x - geo.lx) < geo.lw / 2 + 8 && y > geo.ly - 8 && y < geo.ly + 32 ? "load" : null,
+    (k, x, y) => { if (k === "h") setRange(hEl, Math.round((geo.ground - 24 - y) / geo.px)); },
+    (k, moved) => { if (k === "load" && !moved) { if (S.run || S.t > 0) reset(); else $("pwGo").click(); } });
+  sim.frame = (dt) => {
+    const c = calc(), lapse = Math.max(1, c.t / 10); if (S.run) { S.t += dt * lapse; if (S.t >= c.t) { S.t = c.t; S.run = false; sim.anim = false; } }
+    const f = S.t / c.t, { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.8) : Math.max(380, Math.round(w * 0.46))));
+    clear(ctx, w, h); const narrow = w < 640;
+    // crane and load
+    const cx = narrow ? w * 0.2 : w * 0.12, top = 48, ground = narrow ? h * 0.36 : h - 34, px = (ground - top - 50) / 10;
+    ctx.fillStyle = C.tile; ctx.fillRect(10, ground, narrow ? w * 0.4 : w * 0.3, 20);
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(cx, ground); ctx.lineTo(cx, top); ctx.lineTo(cx + 60, top); ctx.stroke();
+    ctx.fillStyle = C.panel; ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; rrect(ctx, cx + 48, top - 2, 24, 18, 3); ctx.fill(); ctx.stroke(); text(ctx, "M", cx + 60, top + 11, C.hot, 10, "center");
+    const ly = ground - 24 - c.H * px * f; ctx.strokeStyle = C.ink2; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(cx + 60, top + 16); ctx.lineTo(cx + 60, ly); ctx.stroke();
+    const lw = 24 + c.m * 0.12; ctx.fillStyle = C.panel; ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.fillRect(cx + 60 - lw / 2, ly, lw, 24); ctx.strokeRect(cx + 60 - lw / 2, ly, lw, 24); text(ctx, c.m + " kg", cx + 60, ly + 16, C.ink, 10, "center");
+    ctx.strokeStyle = C.accent; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(cx + 100, ground - 24); ctx.lineTo(cx + 100, ground - 24 - c.H * px); ctx.stroke(); ctx.setLineDash([]); text(ctx, "h = " + c.H + " m", cx + 106, ground - 30, C.accent, 10);
+    arrow(ctx, cx + 60, ly - 6, cx + 60, ly - 6 - 44, C.data, 3, 10); text(ctx, "F = " + fmt(c.m * G, 3) + " N", cx + 52, ly - 30, C.data, 10, "right");
+    geo = { hx: cx + 100, hy: ground - 24 - c.H * px, ground, px, lx: cx + 60, ly, lw }; grip(ctx, geo.hx, geo.hy, C.accent);
+    text(ctx, "drag ● to set the height · click the load to lift", 12, ground + 14, C.muted, 9);
+    // energy bars (input, useful gain, wasted)
+    const bx = narrow ? 16 : w * 0.34, by = narrow ? ground + 40 : 34, bwid = narrow ? w - 32 : w * 0.3, bh = narrow ? 120 : h * 0.42, Emax = c.Ein * 1.05;
+    const bars = [["energy supplied", c.Ein * f, C.hot], ["gravitational Ep gained", c.W * f, C.ok], ["wasted (heat, sound)", c.waste * f, C.vector]];
+    bars.forEach(([lab, val, col], i) => { const yy = by + i * (bh / 3), hh = bh / 3 - 12; ctx.fillStyle = C.tile; ctx.fillRect(bx, yy, bwid, hh); ctx.fillStyle = col; ctx.fillRect(bx, yy, bwid * val / Emax, hh); ctx.strokeStyle = C.line; ctx.strokeRect(bx, yy, bwid, hh); text(ctx, lab, bx, yy - 3, C.ink2, 10); text(ctx, fmt(val, 3) + " J", bx + bwid - 4, yy + hh - 5, C.ink, 10, "right"); });
+    // energy-time graph
+    const gx0 = narrow ? 50 : w * 0.34 + w * 0.3 + 52, gx1 = w - 14, gy0 = narrow ? by + bh + 34 : 34, gy1 = narrow ? h - 22 : h - 34, T = c.t, Ym = c.Ein * 1.05;
+    ctx.fillStyle = C.tile; ctx.fillRect(gx0, gy0, gx1 - gx0, gy1 - gy0); ctx.strokeStyle = C.line; ctx.strokeRect(gx0, gy0, gx1 - gx0, gy1 - gy0);
+    const GX = (t) => gx0 + (t / T) * (gx1 - gx0), GY = (e) => gy1 - (e / Ym) * (gy1 - gy0);
+    ctx.strokeStyle = C.hot; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(GX(0), GY(0)); ctx.lineTo(GX(T), GY(c.Ein)); ctx.stroke();
+    ctx.strokeStyle = C.ok; ctx.beginPath(); ctx.moveTo(GX(0), GY(0)); ctx.lineTo(GX(T), GY(c.W)); ctx.stroke();
+    text(ctx, "energy (J) against time", gx0, gy0 - 5, C.ink2, 10); text(ctx, "supplied: gradient = " + fmt(c.P, 3) + " W", gx0 + 8, gy0 + 16, C.hot, 10); text(ctx, "useful: gradient = " + fmt(c.Po, 3) + " W", gx1 - 6, gy1 - 8, C.ok, 10, "right");
+    ctx.setLineDash([4, 4]); ctx.strokeStyle = C.vector; ctx.beginPath(); ctx.moveTo(GX(T), GY(c.W)); ctx.lineTo(GX(T), GY(c.Ein)); ctx.stroke(); ctx.setLineDash([]);
+    if (S.t > 0) { ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(GX(S.t), GY(c.Ein * f), 4, 0, 7); ctx.fill(); ctx.beginPath(); ctx.arc(GX(S.t), GY(c.W * f), 4, 0, 7); ctx.fill(); }
+    text(ctx, "t = " + fmt(T, 3) + " s", gx1, gy1 + 14, C.muted, 10, "right");
+    $("pwW").textContent = fmt(c.W, 3) + " J"; $("pwPo").textContent = fmt(c.Po, 3) + " W"; $("pwTt").textContent = fmt(c.t, 3) + " s"; $("pwWs").textContent = fmt(c.waste, 3) + " J";
+    $("pwNote").textContent = `Work done on the load \\(W = Fd = mgh = ${c.m}\\times 9.8\\times ${c.H} = ${tq(fmt(c.W, 3))}\\,\\mathrm{J}\\). Only ${Math.round(c.eff * 100)}% of the ${c.P} W input becomes useful power: \\(P_{\\text{out}} = ${tq(fmt(c.Po, 3))}\\,\\mathrm{W}\\), so \\(t = \\frac{W}{P} = ${tq(fmt(c.t, 3))}\\,\\mathrm{s}\\). The rest, ${tq(fmt(c.waste, 3))} J, is transformed into heat and sound.` + (lapse > 1 ? ` (Animation sped up ×${fmt(lapse, 2)}.)` : "");
+    $("pwHud").textContent = S.run ? "LIFTING · t = " + fmt(S.t, 3) + " s" : S.t > 0 ? "DONE" : "READY";
+  };
+})();
+
+/* ====================================================== 5.x · SPRING LAUNCHER LAB ===== */
+(() => {
+  const cv = $("slCanvas"), sim = { dirty: true, anim: false }; sims["fuel:launcher"] = sim;
+  const kEl = bindRange("slK", "slKOut", (v) => v + " N m⁻¹"), xEl = bindRange("slX", "slXOut", (v) => (+v).toFixed(2) + " m"), mEl = bindRange("slM", "slMOut", (v) => (+v).toFixed(2) + " kg");
+  const fb = [...document.querySelectorAll("[data-sfr]")]; let rough = false;
+  const TH = 35 * Math.PI / 180, LF = 1.2, RL = 40, TMAX = 14;
+  const S = { t: 0, s: 0, v: 0, heat: 0, run: false, hist: [], hmax: 0 };
+  const P = () => ({ k: +kEl.value, x: +xEl.value, m: +mEl.value, mu: rough ? 0.12 : 0 });
+  function reset() { const { x } = P(); Object.assign(S, { t: 0, s: -x, v: 0, heat: 0, run: false, hist: [], hmax: 0 }); sim.anim = false; sim.dirty = true; }
+  fb.forEach((b) => b.addEventListener("click", () => { rough = b.dataset.sfr === "rough"; setPressed(fb, b); reset(); }));
+  [kEl, xEl, mEl].forEach((e) => e.addEventListener("input", reset));
+  $("slGo").addEventListener("click", () => { reset(); S.run = true; sim.anim = true; });
+  $("slReset").addEventListener("click", reset);
+  let geo = null;
+  dragOn(cv, (x, y) => geo && Math.hypot(x - geo.bx, y - geo.by) < geo.rad + 16 ? "ball" : null,
+    (k, x) => { if (S.run || S.t > 0) reset(); setRange(xEl, Math.round(((geo.x0 - x + geo.grab) / geo.sc) * 100) / 100); },
+    () => { if (S.run) reset(); else $("slGo").click(); });
+  const hOf = (s) => (s <= LF ? 0 : (s - LF) * Math.sin(TH));
+  function energies(p) { const c = S.s < 0 ? -S.s : 0; return { Es: 0.5 * p.k * c * c, Ek: 0.5 * p.m * S.v * S.v, Eg: p.m * G * hOf(S.s), Q: S.heat }; }
+  sim.frame = (dt) => {
+    const p = P();
+    if (S.run) {
+      const n = 40, h = dt / n;
+      for (let i = 0; i < n; i++) {
+        const onR = S.s > LF, sgn = S.v > 1e-9 ? 1 : S.v < -1e-9 ? -1 : 0, nf = onR ? Math.cos(TH) : 1; let a = 0;
+        if (S.s < 0) a += p.k * (-S.s) / p.m; if (onR) a -= G * Math.sin(TH);
+        const fr = p.mu * G * nf; let ds;
+        if (sgn !== 0) { a -= sgn * fr; S.v += a * h; if (sgn !== 0 && Math.sign(S.v) !== sgn && Math.abs(S.v) < fr * h * 2) S.v = 0; }
+        else { const drive = a; if (Math.abs(drive) > fr) S.v += (drive - Math.sign(drive) * fr) * h; }
+        ds = S.v * h; S.s += ds; S.heat += p.m * fr * Math.abs(ds); S.hmax = Math.max(S.hmax, hOf(S.s));
+        if (S.s > LF + RL) { S.s = LF + RL; S.v = 0; }
+      }
+      S.t += dt; const e = energies(p); S.hist.push([S.t, e.Es, e.Ek, e.Eg, e.Q]); if (S.t >= TMAX) { S.run = false; sim.anim = false; }
+    }
+    const E0 = 0.5 * p.k * p.x * p.x, hPred = E0 / (p.m * G), vPred = Math.sqrt(2 * E0 / p.m);
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.35) : Math.max(400, Math.round(w * 0.5)))); clear(ctx, w, h); const narrow = w < 640;
+    // scene
+    const sh = narrow ? h * 0.46 : h * 0.55, wallX = 18, Hv = Math.max(0.45, hPred * 1.25), ext = 0.3 + LF + Hv / Math.tan(TH) + 0.1, sc = Math.min((w - 36) / ext, (sh - 56) / Hv), fl = sh - 14, wx = (m) => wallX + (m + 0.3) * sc, RD = (w - wx(LF)) / (sc * Math.cos(TH));
+    const pt = (s) => s <= LF ? [wx(s), fl] : [wx(LF + (s - LF) * Math.cos(TH)), fl - (s - LF) * Math.sin(TH) * sc];
+    ctx.fillStyle = C.tile; ctx.beginPath(); ctx.moveTo(wx(-0.3), fl); ctx.lineTo(wx(LF), fl); ctx.lineTo(pt(LF + RD)[0], pt(LF + RD)[1]); ctx.lineTo(pt(LF + RD)[0], fl + 12); ctx.lineTo(wx(-0.3), fl + 12); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = rough ? C.vector : C.axis; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(wx(-0.3), fl); ctx.lineTo(wx(LF), fl); ctx.lineTo(pt(LF + RD)[0], pt(LF + RD)[1]); ctx.stroke();
+    ctx.fillStyle = C.ink2; ctx.fillRect(wallX - 6, fl - 40, 6, 40);
+    const [bx, by] = pt(S.s), rad = 9 + p.m * 8, ang = S.s <= LF ? 0 : -TH, nx = S.s <= LF ? 0 : -Math.sin(TH), ny = S.s <= LF ? -1 : -Math.cos(TH);
+    // spring from wall to ball (compressed only when s < 0)
+    const sx0 = wallX, sx1 = bx - rad, coils = 12; ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(sx0, fl - rad);
+    if (S.s < 0 || !S.run && S.t === 0) { for (let i = 1; i <= coils; i++) ctx.lineTo(sx0 + (sx1 - sx0) * i / coils, fl - rad + (i % 2 ? -8 : 8) * (i < coils ? 1 : 0)); ctx.stroke(); }
+    else { ctx.lineTo(wx(0) - rad, fl - rad); ctx.stroke(); }
+    ctx.fillStyle = C.hot; ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(bx + nx * rad, by + ny * rad, rad, 0, 7); ctx.fill(); ctx.stroke();
+    geo = { x0: wx(0), sc, bx: bx + nx * rad, by: by + ny * rad, rad, grab: 0 };
+    if (!S.run && S.t === 0) text(ctx, "drag the ball back to compress the spring, then let go", wx(-0.3), fl - 52, C.muted, 9);
+    ctx.strokeStyle = C.accent; ctx.setLineDash([4, 4]); const hy = fl - S.hmax * sc; ctx.beginPath(); ctx.moveTo(wx(LF), hy); ctx.lineTo(w - 10, hy); ctx.stroke(); ctx.setLineDash([]);
+    if (S.hmax > 0.005) text(ctx, "highest point " + fmt(S.hmax, 3) + " m", w - 12, hy - 5, C.accent, 10, "right");
+    text(ctx, rough ? "ROUGH FLOOR AND RAMP (friction)" : "SMOOTH (no friction)", w - 12, 18, rough ? C.vector : C.ok, 11, "right");
+    ctx.strokeStyle = C.ink2; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(wx(0.2), fl + 22); ctx.lineTo(wx(0.7), fl + 22); ctx.stroke(); text(ctx, "0.5 m", wx(0.45), fl + 36, C.muted, 9, "center");
+    // energy bars and graph
+    const e = energies(p), Emax = E0 * 1.02, gy = sh + 56;
+    const labs = [["spring Ep", e.Es, C.third], ["kinetic Ek", e.Ek, C.data], ["gravitational Ep", e.Eg, C.ok], ["heat (friction)", e.Q, C.vector]];
+    const bw = narrow ? w - 32 : w * 0.34, bx0 = 16, bhh = (h - gy - 12) / 4;
+    labs.forEach(([lab, val, col], i) => { const yy = gy + i * bhh, hh = bhh - 14; ctx.fillStyle = C.tile; ctx.fillRect(bx0, yy, bw, hh); ctx.fillStyle = col; ctx.fillRect(bx0, yy, bw * clamp(val / Emax, 0, 1), hh); ctx.strokeStyle = C.line; ctx.strokeRect(bx0, yy, bw, hh); text(ctx, lab, bx0, yy - 3, C.ink2, 10); text(ctx, fmt(val, 3) + " J", bx0 + bw - 4, yy + hh - 4, C.ink, 10, "right"); });
+    if (!narrow) { const gx0 = bx0 + bw + 50, gx1 = w - 14; gplot(ctx, gx0, gy, gx1, h - 24, { T: TMAX, lo: 0, hi: Emax, label: "energy (J) against time", series: [{ col: C.third, pts: S.hist.map((q) => [q[0], q[1]]) }, { col: C.data, pts: S.hist.map((q) => [q[0], q[2]]) }, { col: C.ok, pts: S.hist.map((q) => [q[0], q[3]]) }, { col: C.vector, pts: S.hist.map((q) => [q[0], q[4]]) }] }); text(ctx, "t (0 to 14 s) →", gx1, h - 8, C.muted, 10, "right"); }
+    $("slE").textContent = fmt(E0, 3) + " J"; $("slV").textContent = fmt(vPred, 3) + " m s⁻¹"; $("slH").textContent = fmt(hPred, 3) + " m"; $("slHm").textContent = S.t > 0 ? fmt(S.hmax, 3) + " m" : "–";
+    $("slNote").textContent = `Stored energy \\(E_{p} = \\tfrac{1}{2}kx^{2} = \\tfrac{1}{2}\\times ${p.k}\\times ${p.x.toFixed(2)}^{2} = ${tq(fmt(E0, 3))}\\,\\mathrm{J}\\). With no friction, all of it becomes kinetic energy \\(\\tfrac{1}{2}mv^{2}\\), so \\(v = ${tq(fmt(vPred, 3))}\\,\\mathrm{m\\,s^{-1}}\\), and then gravitational energy \\(mgh\\): \\(h = \\frac{E_{p}}{mg} = ${tq(fmt(hPred, 3))}\\,\\mathrm{m}\\).` + (rough ? " With friction, some energy is transformed into heat on the way, so the ball does not rise as high." : " The total of the four bars never changes: that is conservation of energy.");
+    $("slHud").textContent = S.run ? "RUNNING · t = " + S.t.toFixed(1) + " s" : S.t > 0 ? "FINISHED" : "COMPRESSED · READY";
+  };
+  reset();
+})();
+
+/* key terms filter */
+(() => { const f = $("ktFilter"); if (!f) return; const terms = [...document.querySelectorAll(".kt-term")], groups = [...document.querySelectorAll(".kt-group")];
+  const run = () => { const q = f.value.trim().toLowerCase(); let n = 0; terms.forEach((t) => { const ok = !q || t.textContent.toLowerCase().includes(q); t.classList.toggle("hidden", !ok); if (ok) n++; }); groups.forEach((g) => g.classList.toggle("hidden", !g.querySelector(".kt-term:not(.hidden)"))); $("ktCount").textContent = q ? n + " of " + terms.length + " terms match" : ""; };
+  f.addEventListener("input", run); })();
 
 /* ====================================================== LOOP & START ===== */
 let last = null;

@@ -5,6 +5,15 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.16 · 17 November 2026 (Year 12 Mechanics: five new simulations and a Key Terms tab)
+- Year 12 Mechanics, five new simulations: Newton's 2nd law (push a box, net force, moving grid), Ramp
+  (components of weight on a slope), Stopping distance (thinking and braking distance as areas under a
+  v-t graph), Spring launcher (elastic potential energy) and Work & power (motor lifting a load, efficiency).
+- The new labs can be driven by clicking and dragging on the canvas as well as with the sliders.
+- New Key Terms tab in Summary & course map: 68 definitions in six groups, with a filter box.
+- Lift lab: the reading on the scales is larger and shows its unit.
+- Year 13 Waves 2.2: fixed the node/antinode readout that kept repeating.
+
 ## v1.15 · 17 November 2026 (Year 13 Mechanics: SHM projection, resonance and damping)
 - Year 13 Mechanics 4.2 SHM: the displacement curve is now built from the motion itself, with a projection line,
   a reference circle, live x, v and a graphs, aligned energy-time graphs and an energy-position diagram.
