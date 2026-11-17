@@ -5,6 +5,26 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.14 · 17 November 2026 (Year 13 Mechanics: six new simulations; key terms on every Year 13 page)
+- Year 13 Mechanics, six new simulations: 1.6 Centre of Mass (drag the masses), 2.8 Conical
+  Pendulum, 2.9 Rises & Dips, 3.8 Roundabout Lab (L = mvr), 4.7 Spring Combinations and
+  4.8 Resonance Lab.
+- Year 13 Mechanics, new topic panels: finding the centre of mass; explosions and recoil; the
+  conical pendulum; rises and dips; linear and rotational quantities side by side; angular
+  momentum of an object moving in a straight line; spring combinations; forced oscillations and
+  resonance; phasors.
+- New Key Terms tab, with a filter box, on all four Year 13 pages: Mechanics (79 terms), Waves (63),
+  Electrical (85) and Modern Physics (52).
+- Year 13 Waves, new panels: phase in degrees, diffraction and gap size, nodal and antinodal
+  lines, what changes an interference pattern, highest order and overlapping spectra, square gaps
+  and woven fabric, wave speed on strings and in pipes, and six Doppler extensions (apparent
+  wavelength, observer to the side, circular motion, Doppler with beats, sonic boom, red shift).
+- Year 13 Electrical, new panels: combination circuits, mutual inductance and instantaneous AC
+  values.
+- Year 13 Modern Physics, new panels: wave-particle duality, alpha, beta and gamma radiation, and
+  average mass per nucleon; Brackett and Pfund series added. Also includes the 3D electron
+  clouds, quarks and photocell lab updates uploaded on 16 November.
+
 ## v1.13 · 13 November 2026 (Year 12 Mechanics: livelier simulations)
 - Collisions: trolleys with wheels that turn as they roll, a fading trail, a flash and sparks at
   impact, and one joined arrow once the trolleys latch together.
