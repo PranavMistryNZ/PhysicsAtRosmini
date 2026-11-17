@@ -5,6 +5,17 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.15 · 17 November 2026 (Year 13 Mechanics: SHM projection, resonance and damping)
+- Year 13 Mechanics 4.2 SHM: the displacement curve is now built from the motion itself, with a projection line,
+  a reference circle, live x, v and a graphs, aligned energy-time graphs and an energy-position diagram.
+  The moving mass and bob carry a yellow position dot, a fading trail and a direction arrow.
+- 4.8 Resonance Lab reworked: click or drag the resonance curve, a damping slider, a motor-driven support and
+  light/heavy damping comparison curves.
+- New 4.9 Damping Lab: light, heavy, critical and over-damping, with an envelope toggle, period marks, a
+  comparison view and a six-step drawing coach.
+- New 4.1.10 panel: definitions of damping types and how to draw them. Key Terms gains light damping,
+  heavy damping, critical damping, over-damping and envelope (84 terms).
+
 ## v1.14 · 17 November 2026 (Year 13 Mechanics: six new simulations; key terms on every Year 13 page)
 - Year 13 Mechanics, six new simulations: 1.6 Centre of Mass (drag the masses), 2.8 Conical
   Pendulum, 2.9 Rises & Dips, 3.8 Roundabout Lab (L = mvr), 4.7 Spring Combinations and
