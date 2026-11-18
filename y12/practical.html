@@ -482,6 +482,22 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 .static-math mjx-container{margin:0!important;max-width:100%;overflow:visible!important}
 .static-math mjx-container[jax="SVG"]>svg{max-width:100%;height:auto}
 
+/* ============ KEY TERMS + MY PROGRESS ============ */
+.kt-filter{width:100%;max-width:440px;padding:10px 13px;border-radius:10px;border:1px solid var(--line);background:var(--tile);color:var(--ink);font:inherit;margin:4px 0 6px}
+.kt-group{margin:18px 0 6px}.kt-group>h3{margin:0 0 10px}
+.kt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-bottom:10px}
+.kt-term h4{margin:0 0 6px;font-size:1rem;color:var(--accent)}.kt-term p{margin:0;font-size:.95rem;line-height:1.5}
+.kt-term[hidden],.kt-group[hidden]{display:none}
+.sum-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.rt-box{display:flex;flex-direction:column;gap:8px}.rt-box>p{margin:0}.rt-box>h3{margin:10px 0 0}
+.write{display:block;width:100%;box-sizing:border-box;padding:9px 11px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink);font:inherit;font-size:14px;line-height:1.45;resize:vertical}
+.report{white-space:pre-wrap;font:13px/1.5 var(--mono);background:var(--field);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0;max-height:320px;overflow:auto;color:var(--ink)}
+.code{font:12.5px/1.4 var(--mono);word-break:break-all}
+.share{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px}
+.share label{display:grid;gap:4px;font-size:13px;font-weight:600}
+.share input{min-height:42px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink);font:inherit;font-weight:400;min-width:0}
+a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;box-sizing:border-box}
+a.btn.off{opacity:.5}
 /* ============ EQUATIONS · one system (KaTeX) ============ */
 .eq,.eq-block{font-family:var(--sans)}
 .eq .katex,.eq-block .katex{font-size:1.04em}
@@ -614,6 +630,21 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     <li><a href="https://www2.nzqa.govt.nz/ncea/subjects/past-exams-and-exemplars/physics/as-91168/" target="_blank" rel="noopener">NZQA annotated exemplars for AS91168 ↗</a></li>
     <li><a href="https://www2.nzqa.govt.nz/ncea/subjects/select-subject/physics/clarifications/as-91168/" target="_blank" rel="noopener">NZQA clarifications for AS91168 ↗</a></li>
   </ul>
+</section>
+
+<section class="pane hidden" data-mod="map" data-view="terms" data-title="Key terms: definitions for non-linear data and linearising">
+  <div class="pane-head"><h2>Key terms</h2><span class="badge teal">DEFINITIONS</span></div>
+  <p class="lede">14 terms in two groups. Type in the box to filter. In an exam, a definition should say what the quantity <b>is</b> and, where it helps, give its unit or the transform it needs.</p>
+  <input class="kt-filter" id="ktFilter" type="search" placeholder="Filter the terms… (e.g. outlier)" aria-label="Filter the key terms" autocomplete="off">
+  <p class="small" id="ktCount" aria-live="polite"></p>
+  <div class="kt-group"><h3>Relationships and linearising</h3><div class="kt-grid"><div class="card kt-term"><h4>Independent variable</h4><p>The variable you change on purpose. It goes on the x-axis.</p></div><div class="card kt-term"><h4>Dependent variable</h4><p>The variable you measure as a result of the change. It goes on the y-axis.</p></div><div class="card kt-term"><h4>Theoretical relationship</h4><p>The physics idea the experiment is built on, usually written as an equation linking the two variables.</p></div><div class="card kt-term"><h4>Inverse relationship (y ∝ 1/x)</h4><p>A curve that drops steeply and then flattens. Plotting y against 1/x gives a straight line through the origin.</p></div><div class="card kt-term"><h4>Inverse-squared relationship (y ∝ 1/x²)</h4><p>Like the inverse curve but steeper. Plotting y against 1/x² gives a straight line.</p></div><div class="card kt-term"><h4>Squared relationship (y ∝ x²)</h4><p>A curve that rises and steepens, like a parabola. Plotting y against x² gives a straight line.</p></div><div class="card kt-term"><h4>Square-root relationship (y ∝ √x)</h4><p>A curve that rises steeply and then flattens. Plotting y against √x gives a straight line.</p></div><div class="card kt-term"><h4>Linearising (transforming)</h4><p>Processing the x-values so that a plot of y against the new values is a straight line, so a gradient can be found.</p></div></div><button type="button" class="btn sm" data-go="nonlin:experiment">Open Run the experiment →</button></div>
+  <div class="kt-group"><h3>Analysing the data</h3><div class="kt-grid"><div class="card kt-term"><h4>Line of best fit</h4><p>The straight line that passes as close as possible to all the plotted points, with about the same number on each side.</p></div><div class="card kt-term"><h4>Gradient</h4><p>On a straight-line graph, the change in y divided by the change in x. Only meaningful on a linearised graph.</p></div><div class="card kt-term"><h4>Outlier</h4><p>A data point that does not follow the trend of the rest of the data. It should be checked, and only removed with a reason.</p></div><div class="card kt-term"><h4>Lower limit of data</h4><p>The smallest value of the independent variable that gives valid measurements of the dependent variable.</p></div><div class="card kt-term"><h4>Upper limit of data</h4><p>The largest value of the independent variable that gives valid measurements of the dependent variable.</p></div><div class="card kt-term"><h4>Coefficient of determination (r²)</h4><p>A number between 0 and 1 that shows how closely the points lie on the line. A value near 1 means a close fit, but it does not prove the relationship is linear.</p></div></div><button type="button" class="btn sm" data-go="nonlin:range">Open the range trap →</button></div>
+</section>
+
+<section class="pane hidden" data-mod="map" data-view="progress" data-title="My progress: save it or share it">
+  <div class="pane-head"><h2>My progress: save it or share it</h2><span class="badge teal">MY PROGRESS</span></div>
+  <p class="lede">Your self-ratings, quiz best scores and shape-matcher score are kept on this device. Save a progress code to move them to another device, or send a summary to your teacher.</p>
+  <div class="rt-box" id="progressBox"></div>
 </section>
 
 <section class="pane hidden" data-mod="map" data-view="challenge" data-title="Mixed challenge">
@@ -986,6 +1017,63 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   </div>
 </section>
 
+<section class="pane hidden" data-mod="nonlin" data-view="experiment" data-title="Run the experiment: raw graph, transformed graph and line of best fit">
+  <div class="pane-head"><h2>Run the experiment</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Each experiment gives noisy readings of a non-linear relationship. Click the left graph to take a reading (or take six at once). Click a reading to exclude it as an outlier. Then pick the transform that makes the right-hand graph a straight line.</p>
+  <div class="seg" role="group" aria-label="Experiment"><button type="button" data-exp="light" aria-pressed="true">Light and distance</button><button type="button" data-exp="pend" aria-pressed="false">Pendulum length</button><button type="button" data-exp="brake" aria-pressed="false">Braking distance</button><button type="button" data-exp="current" aria-pressed="false">Current and resistance</button></div>
+  <div class="screen"><canvas id="exCanvas" width="900" height="420" aria-label="Two graphs: raw data on the left, the transformed data with a line of best fit on the right"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <div class="seg" role="group" aria-label="Transform the x-values"><button type="button" data-tf="x" aria-pressed="true">x</button><button type="button" data-tf="x2" aria-pressed="false">x²</button><button type="button" data-tf="sqrt" aria-pressed="false">√x</button><button type="button" data-tf="inv" aria-pressed="false">1/x</button><button type="button" data-tf="inv2" aria-pressed="false">1/x²</button></div><div class="btns"><button type="button" class="btn go" id="exTake">Take 6 readings</button><button type="button" class="btn" id="exUndo">Undo last</button><button type="button" class="btn" id="exAll">Include all</button><button type="button" class="btn" id="exClear">Clear</button></div><p class="note" id="exVerdict"></p><div id="exMeaningT" class="small"></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm"><span>Readings used</span><b id="exN">–</b></div><div class="tm hl"><span>Transform chosen</span><b id="exTF">–</b></div><div class="tm"><span>r² (straightness)</span><b id="exR2">–</b></div><div class="tm"><span>Gradient of the line</span><b id="exGrad">–</b></div></div>
+      <p class="note" id="exNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><ol><li>Plot the raw data and name the shape.</li><li>Choose the transform that matches the shape. The transformed graph should be a straight line.</li><li>Only use the gradient of the <b>transformed</b> graph. The raw graph is a curve, so its gradient has no meaning.</li><li>Exclude an outlier only if you have a reason, and say so in your write-up.</li></ol></div>
+</section>
+
+<section class="pane hidden" data-mod="nonlin" data-view="shapes" data-title="Shape matcher: match each graph to its relationship">
+  <div class="pane-head"><h2>Shape matcher</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Each graph shows a relationship between two variables. Work out which of the five it is from its shape alone, then check the linearising rule. Do not guess: think about the shape first.</p>
+  
+  <div class="screen"><canvas id="shCanvas" width="900" height="420" aria-label="A curve of y against x with data points, to be matched to one of five relationships"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <div id="shOpts" class="btns"></div><div class="btns"><button type="button" class="btn go" id="shNext">New graph</button></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>Score</span><b id="shScore">–</b></div></div>
+      <p class="note" id="shFeed"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><ul><li>Straight line: y ∝ x.</li><li>Upward curve, steepening: y ∝ x². Square the x-values.</li><li>Steep rise that flattens: y ∝ √x. Take the square root of x.</li><li>Steep drop that flattens: y ∝ 1/x. Take the inverse of x.</li><li>Steeper drop: y ∝ 1/x². Take the inverse of x squared.</li></ul></div>
+</section>
+
+<section class="pane hidden" data-mod="nonlin" data-view="range" data-title="Range trap: a short range can look straight">
+  <div class="pane-head"><h2>Range trap</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">The true relationship here is curved. Set the lower and upper limits of the data you use, then see how straight the line of best fit looks. Narrow ranges can hide the curve.</p>
+  
+  <div class="screen"><canvas id="rgCanvas" width="900" height="420" aria-label="A curved relationship with a chosen range highlighted and a line of best fit over that range"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <label class="ctrl"><span class="row"><span>Lower limit of data</span><output id="rgAOut"></output></span><input type="range" id="rgA" min="0" max="90" step="5" value="20"></label><label class="ctrl"><span class="row"><span>Upper limit of data</span><output id="rgBOut"></output></span><input type="range" id="rgB" min="10" max="100" step="5" value="80"></label>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>r² over this range</span><b id="rgR2">–</b></div><div class="tm"><span>Gradient of the line</span><b id="rgGrad">–</b></div><div class="tm"><span>Range used</span><b id="rgSpan">–</b></div></div>
+      <p class="note" id="rgNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><ul><li>The lower and upper limits are the smallest and largest values of the independent variable that give valid measurements.</li><li>A high r² over a narrow range does not show that the relationship is linear.</li><li>Use the whole valid range when you choose the transform.</li></ul></div>
+</section>
+
 <section class="pane hidden" data-mod="nonlin" data-view="problems" data-title="Non-linear data practice questions with worked answers">
   <div class="pane-head"><h2>Phase 3.3 · Non-linear data practice</h2><span class="badge red">PRACTICE</span></div>
   <p class="lede">For each one: (a) plot the raw graph; (b) state the relationship; (c) transform the data and plot a straight-line graph; (d) find the gradient with its unit; (e) write the equation; (f) find the physical quantity.</p>
@@ -1311,10 +1399,10 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
-  map: { title: "STEP BY STEP & THE STANDARD", name: "Step by step & the standard", views: [["summary", "Step by step"], ["scope", "Course map"], ["standard", "Standard & mark sheet"], ["rearrange", "Rearranging formulae"], ["challenge", "Mixed challenge"]] },
+  map: { title: "STEP BY STEP & THE STANDARD", name: "Step by step & the standard", views: [["summary", "Step by step"], ["scope", "Course map"], ["standard", "Standard & mark sheet"], ["rearrange", "Rearranging formulae"], ["challenge", "Mixed challenge"], ["terms", "Key terms"], ["progress", "My progress"]] },
   err: { title: "VARIABLES & UNCERTAINTIES", name: "Variables & uncertainties", views: [["intro", "Foundations"], ["check", "Quick check"]] },
   lin: { title: "LINEAR DATA", name: "Linear data", views: [["intro", "Foundations"], ["plotter", "Graph plotter"], ["problems", "Practice"], ["snell", "Snell's law experiment"]] },
-  nonlin: { title: "NON-LINEAR DATA", name: "Non-linear data", views: [["trolley", "Rolling trolley experiment"], ["linearise", "Linearising"], ["problems", "Practice"], ["writeup", "Writing it up"], ["check", "Quick check"]] },
+  nonlin: { title: "NON-LINEAR DATA", name: "Non-linear data", views: [["trolley", "Rolling trolley experiment"], ["linearise", "Linearising"], ["shapes", "Shape matcher"], ["experiment", "Run the experiment"], ["range", "Range trap"], ["problems", "Practice"], ["writeup", "Writing it up"], ["check", "Quick check"]] },
   hw: { title: "HOMEWORK & REVISION", name: "Homework & revision", views: [["light", "Homework 1"], ["bung", "Homework 2"], ["revision", "Revision tasks"], ["excel", "Excellence skills"], ["pole", "Pole vaulter task"]] },
 };
 const SCOPE = {
@@ -1348,6 +1436,9 @@ const TOTAL = Object.values(SCOPE).reduce((a, g) => a + g.length, 0);
 const ratings = store.get("ratings", {});
 const TIP_CHECK = "Got one wrong? Read the explanation, then reopen the matching section before trying a new set.";
 const TIPS = {
+  "nonlin:experiment": "Name the shape first, then the transform. Plot the chosen transform on the x-axis and check r². The gradient is only valid on the straight line.",
+  "nonlin:shapes": "Shape first: a curve that rises and steepens is y ∝ x²; one that rises and flattens is y ∝ √x; one that falls and flattens is y ∝ 1/x.",
+  "nonlin:range": "A narrow range can look straight. Use the whole valid range before deciding the relationship, and state the limits of your data.",
   "err:intro": "Each accuracy technique needs three parts: what you did, why it was needed for this measurement, and how it improved accuracy.",
   "lin:intro": "Draw the gradient triangle on the line of best fit, as big as you can. Never use two data points.",
   "lin:plotter": "The plotter checks your work. You still need your own hand-drawn graphs, with titles, labels and units, in your report.",
@@ -1379,7 +1470,7 @@ function go(mod, view, scroll) {
   const tabs = $("tabs"); tabs.replaceChildren();
   MODS[mod].views.forEach(([id, label]) => {
     const b = document.createElement("button");
-    b.type = "button"; b.className = "tab" + (id === "check" || id === "challenge" ? " check" : ""); b.textContent = phaseRef(mod, id) + " " + label;
+    b.type = "button"; b.className = "tab" + (id === "check" ? " check" : ""); b.textContent = phaseRef(mod, id) + " " + label;
     b.setAttribute("role", "tab"); b.setAttribute("aria-selected", String(id === view));
     b.addEventListener("click", () => go(mod, id));
     tabs.appendChild(b);
@@ -2235,6 +2326,273 @@ const PLOT = (() => {
   render();
 })();
 
+
+/* ====================================================== NL · NON-LINEAR LABS (AS91168) ===== */
+/* shared: click and drag on a canvas. hit(x,y) names what is under the pointer; up(k, moved, x, y) fires on release (moved false = a click) */
+function dragOn(cv, hit, move, up) {
+  let k = null, moved = false, sx = 0, sy = 0;
+  const pos = (e) => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+  cv.addEventListener("pointerdown", (e) => { const [x, y] = pos(e); k = hit(x, y); if (!k) return; moved = false; sx = x; sy = y; try { cv.setPointerCapture(e.pointerId); } catch (er) {} e.preventDefault(); });
+  cv.addEventListener("pointermove", (e) => { const [x, y] = pos(e); if (!k) { cv.style.cursor = hit(x, y) ? "pointer" : ""; return; } if (Math.hypot(x - sx, y - sy) > 4) moved = true; if (moved && move) move(k, x, y); });
+  cv.addEventListener("pointerup", (e) => { if (!k) return; const kk = k; k = null; const [x, y] = pos(e); if (up) up(kk, moved, x, y); });
+  cv.addEventListener("pointercancel", () => { k = null; });
+}
+const setRange = (el, v) => { v = clamp(v, +el.min, +el.max); if (+el.value !== v) { el.value = v; el.dispatchEvent(new Event("input")); } };
+function grip(ctx, x, y, col) { ctx.save(); ctx.fillStyle = C.panel; ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(x, y, 8, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fill(); ctx.restore(); }
+
+/* transforms used to linearise: the x-values become T(x) */
+const TF = {
+  x: { sym: "x", f: (x) => x, lab: (s) => s },
+  x2: { sym: "x²", f: (x) => x * x, lab: (s) => s + "²" },
+  sqrt: { sym: "√x", f: (x) => Math.sqrt(x), lab: (s) => "√" + s },
+  inv: { sym: "1/x", f: (x) => 1 / x, lab: (s) => "1/" + s },
+  inv2: { sym: "1/x²", f: (x) => 1 / (x * x), lab: (s) => "1/" + s + "²" },
+};
+/* simulated experiments: law = true relationship, pct = random error as a share of each reading */
+const EXPS = {
+  light: { name: "Light intensity and distance", xn: "d", xu: "m", yn: "I", yu: "W m⁻²", law: (d) => 8 / (d * d), pct: 0.04, dom: [0.5, 3.0], step: 0.1, good: "inv2", ymaxX: 0.5,
+    meaning: (m) => `The gradient is the lamp's constant: \\(k \\approx ${m.toFixed(1)}\\) in \\(I = \\frac{k}{d^{2}}\\). Students often report the gradient of the raw graph instead, which is meaningless for a curve.`, },
+  pend: { name: "Pendulum period and length", xn: "L", xu: "m", yn: "T", yu: "s", law: (L) => 2 * Math.PI * Math.sqrt(L / 9.8), pct: 0.02, dom: [0.1, 1.2], step: 0.05, good: "sqrt",
+    meaning: (m) => `The gradient is \\(\\frac{2\\pi}{\\sqrt{g}}\\), so \\(g = \\left(\\frac{2\\pi}{m}\\right)^{2} \\approx ${((2 * Math.PI / m) ** 2).toFixed(1)}\\,\\mathrm{m\\,s^{-2}}\\).` },
+  brake: { name: "Braking distance and speed", xn: "v", xu: "m s⁻¹", yn: "d", yu: "m", law: (v) => (v * v) / 10, pct: 0.03, dom: [2, 20], step: 0.5, good: "x2",
+    meaning: (m) => `The gradient is \\(\\frac{1}{2a}\\), so \\(a = \\frac{1}{2m} \\approx ${(1 / (2 * m)).toFixed(1)}\\,\\mathrm{m\\,s^{-2}}\\) (the deceleration).` },
+  current: { name: "Current and resistance (fixed voltage)", xn: "R", xu: "Ω", yn: "I", yu: "A", law: (R) => 6 / R, pct: 0.03, dom: [1, 12], step: 0.5, good: "inv",
+    meaning: (m) => `The gradient is the supply voltage: \\(V = \\) gradient \\(\\approx ${m.toFixed(2)}\\,\\mathrm{V}\\), from \\(I = \\frac{V}{R}\\).` },
+};
+/* renders the \\( … \\) maths inside text that is written at run time */
+const mathHTML = (str) => String(str).replace(/\\\((.+?)\\\)/g, (m, t) => katexHTML(t));
+/* repeatable "random" error for each reading */
+const rnd = (s) => { const v = Math.sin(s * 12.9898 + 78.233) * 43758.5453; return (v - Math.floor(v)) * 2 - 1; };
+const reading = (E, x, seed) => E.law(x) * (1 + E.pct * rnd(seed));
+
+/* ====================================================== NL1 · RUN THE EXPERIMENT (raw graph, transform, line of best fit, outliers) ===== */
+(() => {
+  const cv = $("exCanvas"), sim = { dirty: true, anim: false }; sims["nonlin:experiment"] = sim;
+  let ex = "light", tf = "x", pts = [], seed = 1;
+  const eB = [...document.querySelectorAll("[data-exp]")], tB = [...document.querySelectorAll("[data-tf]")];
+  const reset = () => { pts = []; seed = 1; sim.dirty = true; };
+  eB.forEach((b) => b.addEventListener("click", () => { ex = b.dataset.exp; setPressed(eB, b); reset(); tf = "x"; setPressed(tB, tB[0]); }));
+  tB.forEach((b) => b.addEventListener("click", () => { tf = b.dataset.tf; setPressed(tB, b); sim.dirty = true; }));
+  $("exTake").addEventListener("click", () => { const E = EXPS[ex]; for (let i = 0; i < 6; i++) { const x = +(E.dom[0] + (E.dom[1] - E.dom[0]) * i / 5).toFixed(2); const xr = E.step ? Math.round(x / E.step) * E.step : x; pts.push({ x: +xr.toFixed(2), y: reading(E, xr, seed++), inc: true }); } sim.dirty = true; });
+  $("exUndo").addEventListener("click", () => { pts.pop(); sim.dirty = true; });
+  $("exAll").addEventListener("click", () => { pts.forEach((p) => (p.inc = true)); sim.dirty = true; });
+  $("exClear").addEventListener("click", reset);
+  // layout of the two panels (raw on the left, transformed on the right)
+  let geo = null;
+  const rawXY = (p) => [geo.L.x0 + (p.x / geo.L.xmax) * (geo.L.x1 - geo.L.x0), geo.L.y1 - (p.y / geo.L.ymax) * (geo.L.y1 - geo.L.y0)];
+  const dataXY = (p) => { const X = TF[tf].f(p.x); return [geo.R.x0 + (X / geo.R.xmax) * (geo.R.x1 - geo.R.x0), geo.R.y1 - (p.y / geo.R.ymax) * (geo.R.y1 - geo.R.y0)]; };
+  dragOn(cv, (x, y) => {
+    if (!geo) return null;
+    for (let i = pts.length - 1; i >= 0; i--) { const [px, py] = rawXY(pts[i]); if (Math.hypot(x - px, y - py) < 12) return "pt" + i; }
+    if (x >= geo.L.x0 && x <= geo.L.x1 && y >= geo.L.y0 && y <= geo.L.y1) return "add";
+    return null;
+  }, null, (k, moved, x) => {
+    if (!geo) return;
+    if (k.startsWith("pt")) { const i = +k.slice(2); pts[i].inc = !pts[i].inc; sim.dirty = true; return; }
+    if (k === "add") { const E = EXPS[ex]; const xv = ((x - geo.L.x0) / (geo.L.x1 - geo.L.x0)) * geo.L.xmax; const xr = clamp(Math.round(xv / E.step) * E.step, E.dom[0], E.dom[1]); pts.push({ x: +xr.toFixed(2), y: reading(E, xr, seed++), inc: true }); sim.dirty = true; }
+  });
+  sim.frame = () => {
+    const E = EXPS[ex];
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.5) : Math.max(360, Math.round(w * 0.5))));
+    clear(ctx, w, h);
+    const yMaxRaw = E.law(E.dom[0]) * 1.12, xMaxRaw = E.dom[1] * 1.04;
+    const T = TF[tf], xs = [E.dom[0], E.dom[1]].map(T.f);
+    const xMaxT = Math.max(...xs) * 1.08;
+    let L, R;
+    if (w < 640) {
+      const split = Math.round(h / 2) + 4;
+      L = { x0: 46, x1: w - 14, y0: 26, y1: split - 34 };
+      R = { x0: 46, x1: w - 14, y0: split + 26, y1: h - 34 };
+    } else {
+      const mid = w / 2;
+      L = { x0: 46, x1: mid - 18, y0: 26, y1: h - 36 };
+      R = { x0: mid + 40, x1: w - 14, y0: 26, y1: h - 36 };
+    }
+    L.xmax = xMaxRaw; L.ymax = yMaxRaw; R.xmax = xMaxT; R.ymax = yMaxRaw;
+    geo = { L, R };
+    const panel = (g, title, xl) => {
+      ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(g.x0, g.y0); ctx.lineTo(g.x0, g.y1); ctx.lineTo(g.x1, g.y1); ctx.stroke();
+      text(ctx, title, g.x0, g.y0 - 10, C.ink2, 11);
+      text(ctx, xl, g.x1, g.y1 + 24, C.muted, 10, "right");
+    };
+    panel(geo.L, "1 · RAW: " + E.yn + " (" + E.yu + ") against " + E.xn + " (" + E.xu + ")", E.xn + " (" + E.xu + ")");
+    panel(geo.R, "2 · TRANSFORMED: " + E.yn + " against " + T.lab(E.xn), T.lab(E.xn));
+    // raw: the true curve as a faint guide
+    ctx.strokeStyle = C.grid; ctx.lineWidth = 1.5; ctx.setLineDash([5, 5]); ctx.beginPath();
+    for (let i = 0; i <= 120; i++) { const x = E.dom[0] + (E.dom[1] - E.dom[0]) * i / 120; const px = geo.L.x0 + (x / xMaxRaw) * (geo.L.x1 - geo.L.x0), py = geo.L.y1 - (E.law(x) / yMaxRaw) * (geo.L.y1 - geo.L.y0); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+    ctx.stroke(); ctx.setLineDash([]);
+    // fit on the included points, in the transformed space
+    const inc = pts.filter((p) => p.inc);
+    let m = null, c = null, r2 = null;
+    if (inc.length >= 2) {
+      const X = inc.map((p) => T.f(p.x)), Y = inc.map((p) => p.y), n = inc.length;
+      const mx = X.reduce((a, b) => a + b, 0) / n, my = Y.reduce((a, b) => a + b, 0) / n;
+      let sxy = 0, sxx = 0, syy = 0; for (let i = 0; i < n; i++) { sxy += (X[i] - mx) * (Y[i] - my); sxx += (X[i] - mx) ** 2; syy += (Y[i] - my) ** 2; }
+      m = sxy / sxx; c = my - m * mx; r2 = syy > 0 ? (sxy * sxy) / (sxx * syy) : 1;
+      const yAt = (X0) => m * X0 + c;
+      ctx.save(); ctx.beginPath(); ctx.rect(geo.R.x0, geo.R.y0, geo.R.x1 - geo.R.x0, geo.R.y1 - geo.R.y0); ctx.clip();
+      ctx.strokeStyle = C.hot; ctx.lineWidth = 2.2; ctx.beginPath();
+      const a = 0, b = xMaxT;
+      ctx.moveTo(geo.R.x0 + (a / geo.R.xmax) * (geo.R.x1 - geo.R.x0), geo.R.y1 - (yAt(a) / geo.R.ymax) * (geo.R.y1 - geo.R.y0));
+      ctx.lineTo(geo.R.x0 + (b / geo.R.xmax) * (geo.R.x1 - geo.R.x0), geo.R.y1 - (yAt(b) / geo.R.ymax) * (geo.R.y1 - geo.R.y0));
+      ctx.stroke();
+      ctx.restore();
+    }
+    // points: filled = included, hollow = excluded (outlier test)
+    pts.forEach((p) => {
+      const [px, py] = rawXY(p); ctx.beginPath(); ctx.arc(px, py, 6, 0, 7); ctx.fillStyle = p.inc ? C.data : C.canvas; ctx.fill(); ctx.strokeStyle = C.data; ctx.lineWidth = 2; ctx.stroke();
+      if (pts.length && !p.inc) text(ctx, "✕", px + 9, py + 4, C.bad, 11);
+      if (inc.length >= 2 && p.inc) { const [qx, qy] = dataXY(p); ctx.beginPath(); ctx.arc(qx, qy, 5, 0, 7); ctx.fillStyle = C.data; ctx.fill(); }
+    });
+    if (!pts.length) text(ctx, "click the left graph to take a reading", geo.L.x0 + 8, geo.L.y0 + 30, C.muted, 11);
+    // readouts
+    $("exN").textContent = inc.length + " of " + pts.length + " included";
+    $("exTF").textContent = T.sym === undefined ? "" : (tf === E.good ? T.sym + " (choice)" : T.sym);
+    $("exR2").textContent = r2 === null ? "–" : fmt(r2, 4);
+    $("exGrad").textContent = m === null ? "–" : fmt(m, 3) + " " + E.yu + " per " + T.lab(E.xu);
+    const ok = r2 !== null && r2 >= 0.995 && pts.length >= 4;
+    $("exVerdict").textContent = m === null ? "Take at least two readings." : ok && tf === E.good
+      ? "Straight line: this transform works. The gradient now means something."
+      : ok ? "Straight enough, but the theory and the transform do not match: check the shape again."
+      : "Still curved: try a different transform.";
+    $("exMeaningT").innerHTML = ok && tf === E.good ? mathHTML(E.meaning(m)) : "";
+    $("exNote").textContent = E.name + ": the true law is shown as a dashed curve on the raw graph. Choose the transform you think linearises the data, then check the straight line. Exclude a point that is clearly an outlier, and watch how the gradient changes.";
+  };
+})();
+
+/* ====================================================== NL2 · SHAPE MATCHER (raw curve, choose the relationship) ===== */
+(() => {
+  const cv = $("shCanvas"), sim = { dirty: true, anim: false }; sims["nonlin:shapes"] = sim;
+  const KINDS = [["x", "straight line: y ∝ x"], ["x2", "y ∝ x²"], ["sqrt", "y ∝ √x"], ["inv", "y ∝ 1/x"], ["inv2", "y ∝ 1/x²"]];
+  let kind = "x2", answered = false, score = 0, rounds = 0, seed = 3;
+  const bB = $("shOpts");
+  const draw = () => {
+    bB.innerHTML = KINDS.map(([k, l]) => `<button type="button" class="btn" data-shape="${k}">${l}</button>`).join("");
+    bB.querySelectorAll("[data-shape]").forEach((b) => b.addEventListener("click", () => { if (answered) return; answered = true; rounds++; const right = b.dataset.shape === kind; if (right) score++; $("shScore").textContent = score + " of " + rounds + " correct"; $("shFeed").innerHTML = right ? `<b>Correct.</b> ${explain()}` : `Not quite. The graph is ${KINDS.find((z) => z[0] === kind)[1]}. ${explain()}`; sim.dirty = true; }));
+  };
+  const explain = () => ({ x: "A straight raw graph already shows the relationship.", x2: "Squaring the x-values gives a straight line. The graph curves upwards.", sqrt: "Taking the square root of the x-values gives a straight line. The graph rises steeply, then flattens.", inv: "Plotting 1/x gives a straight line. The graph drops steeply, then flattens.", inv2: "Plotting 1/x² gives a straight line, which is steeper than 1/x." })[kind];
+  $("shNext").addEventListener("click", () => { kind = KINDS[Math.floor(Math.random() * KINDS.length)][0]; answered = false; $("shFeed").textContent = "Choose the relationship that matches the shape."; draw(); sim.dirty = true; });
+  draw(); $("shFeed").textContent = "Choose the relationship that matches the shape.";
+  sim.frame = () => {
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 0.95) : Math.max(320, Math.round(w * 0.5))));
+    clear(ctx, w, h);
+    const x0 = 46, x1 = w - 18, y0 = 16, y1 = h - 34, xLo = 1, xHi = 10;
+    const f = (x) => ({ x: x, x2: x * x, sqrt: Math.sqrt(x), inv: 1 / x, inv2: 1 / (x * x) })[kind];
+    const yMax = f(xLo) * 1.12 > 10 ? 10 : Math.max(f(xLo), f(xHi)) * 1.15;
+    const X = (x) => x0 + ((x - xLo) / (xHi - xLo)) * (x1 - x0), Y = (v) => y1 - (Math.min(v, yMax) / yMax) * (y1 - y0);
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y1); ctx.lineTo(x1, y1); ctx.stroke();
+    text(ctx, "x (independent variable)", x1, y1 + 26, C.muted, 10, "right");
+    text(ctx, "y (dependent variable)", x0 + 6, y0 + 12, C.muted, 10);
+    const samp = [1, 1.6, 2.3, 3, 4, 5, 6.2, 7.5, 8.6, 10];
+    ctx.strokeStyle = C.data; ctx.lineWidth = 2.4; ctx.beginPath();
+    for (let i = 0; i <= 160; i++) { const xv = xLo + (xHi - xLo) * i / 160; const px = X(xv), py = Y(f(xv)); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+    ctx.stroke();
+    samp.forEach((xv) => { ctx.beginPath(); ctx.arc(X(xv), Y(f(xv) * (1 + 0.03 * rnd(seed + xv * 7))), 4.5, 0, 7); ctx.fillStyle = C.data; ctx.fill(); });
+    text(ctx, answered ? "shape: " + KINDS.find((z) => z[0] === kind)[1] : "which relationship matches this graph?", x0 + 10, y0 + 30, answered ? C.hot : C.muted, 11);
+  };
+})();
+
+/* ====================================================== NL3 · RANGE TRAP (short data can look straight) ===== */
+(() => {
+  const cv = $("rgCanvas"), sim = { dirty: true, anim: false }; sims["nonlin:range"] = sim;
+  const aEl = bindRange("rgA", "rgAOut", (v) => (v / 10).toFixed(1) + " m"), bEl = bindRange("rgB", "rgBOut", (v) => (v / 10).toFixed(1) + " m");
+  [aEl, bEl].forEach((e) => e.addEventListener("input", () => { if (+bEl.value <= +aEl.value + 5) setRange(bEl, +aEl.value + 5); sim.dirty = true; }));
+  sim.frame = () => {
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 0.95) : Math.max(340, Math.round(w * 0.5))));
+    clear(ctx, w, h);
+    const x0 = 46, x1 = w - 18, y0 = 16, y1 = h - 34, xMax = 10, yMax = 55;
+    const X = (x) => x0 + (x / xMax) * (x1 - x0), Y = (y) => y1 - (y / yMax) * (y1 - y0);
+    ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y1); ctx.lineTo(x1, y1); ctx.stroke();
+    text(ctx, "x (m)", x1, y1 + 26, C.muted, 10, "right"); text(ctx, "y (J)", x0 + 6, y0 + 12, C.muted, 10);
+    // true law is y = 0.5 x²
+    const a = +aEl.value / 10, b = +bEl.value / 10;
+    const data = []; for (let x = 0; x <= xMax + 1e-9; x += 0.5) data.push([x, 0.5 * x * x]);
+    ctx.fillStyle = C.grid; ctx.fillRect(X(a), y0, X(b) - X(a), y1 - y0);
+    ctx.strokeStyle = C.grid; ctx.lineWidth = 1.5; ctx.setLineDash([5, 5]); ctx.beginPath(); for (let i = 0; i <= 120; i++) { const x = xMax * i / 120; i ? ctx.lineTo(X(x), Y(0.5 * x * x)) : ctx.moveTo(X(x), Y(0.5 * x * x)); } ctx.stroke(); ctx.setLineDash([]);
+    const inR = data.filter(([x]) => x >= a - 1e-9 && x <= b + 1e-9);
+    // least-squares line on the chosen range only
+    const n = inR.length, mx = inR.reduce((s, p) => s + p[0], 0) / n, my = inR.reduce((s, p) => s + p[1], 0) / n;
+    let sxy = 0, sxx = 0, syy = 0; inR.forEach(([x, y]) => { sxy += (x - mx) * (y - my); sxx += (x - mx) ** 2; syy += (y - my) ** 2; });
+    const m = sxy / sxx, c = my - m * mx, r2 = (sxy * sxy) / (sxx * syy);
+    ctx.strokeStyle = C.hot; ctx.lineWidth = 2.4; ctx.beginPath(); ctx.moveTo(X(a), Y(m * a + c)); ctx.lineTo(X(b), Y(m * b + c)); ctx.stroke();
+    data.forEach(([x, y]) => { ctx.beginPath(); ctx.arc(X(x), Y(y), 4, 0, 7); ctx.fillStyle = (x >= a && x <= b) ? C.data : C.line; ctx.fill(); });
+    const trueGrad = (a + b) / 2;
+    $("rgR2").textContent = fmt(r2, 4);
+    $("rgGrad").textContent = fmt(m, 3) + " J m⁻¹";
+    $("rgSpan").textContent = (b - a).toFixed(1) + " m wide";
+    $("rgNote").innerHTML = mathHTML((r2 > 0.99
+      ? `Over this range r² = ${fmt(r2, 3)}, so the line looks very good. But the true law is \\(E = \\tfrac{1}{2}x^{2}\\), which curves. A short range can look linear even when the whole relationship is not. Widen the range to see the curve.`
+      : `Over this range the curve is clearly visible. Use a wide range, so the curve is obvious, and check the shape before fitting a line.`) + ` The dashed line is the true curve. Its gradient varies across the range (the local gradient at the middle here is about ${trueGrad.toFixed(1)}).`);
+  };
+})();
+
+/* ====================================================== MY PROGRESS: save, load, share with a teacher ===== */
+(() => {
+  const pv = $("progressBox"); if (!pv) return;
+  const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+  const btn = (cls, t, fn) => { const b = el("button", cls); b.type = "button"; if (t != null) b.textContent = t; if (fn) b.addEventListener("click", fn); return b; };
+  const say = (box, cls, html) => { box.hidden = false; box.className = "verdict " + cls; box.innerHTML = html; };
+  const allItems = () => Object.keys(SCOPE).flatMap((mod) => SCOPE[mod].map((it, i) => ({ r: ratings[mod + "." + i], text: it[0] })));
+  const PRE = "y12prac-", KEYS = (k) => /^(ratings|rr-done|best-[a-z]+|ex-[a-z0-9-]+|exm-[a-z0-9-]+)$/.test(k);
+  const QUIZ = [["mixed", "Mixed challenge", 10]].concat(Object.keys(SCOPE).map((m) => [m, MODS[m].name + " quick check", 8]));
+  const plain = (t) => (typeof plainTeX === "function" ? plainTeX(t) : t);
+  function snapshot() {
+    let conf = 0, get = 0, not = 0; const all = allItems(), weak = [];
+    all.forEach((x) => { if (x.r === 2) conf++; else if (x.r === 1) { get++; weak.push("Getting there: " + plain(x.text)); } else if (x.r === 0) { not++; weak.unshift("Not yet: " + plain(x.text)); } });
+    return { conf, get, not, total: all.length, weak, quiz: QUIZ.map((q) => [q[1], store.get("best-" + q[0], null), q[2]]), rr: Object.keys(store.get("rr-done", {})).length };
+  }
+  function report(name) {
+    const s = snapshot(), L = [];
+    L.push("Year 12 Physics · Non-linear data (AS91168) revision progress"); L.push("Student: " + (name || "(no name given)")); L.push("Date: " + new Date().toLocaleDateString("en-NZ", { day: "numeric", month: "long", year: "numeric" })); L.push("");
+    L.push("SELF-RATINGS (course map, " + s.total + " statements)"); L.push("Confident " + s.conf + " · Getting there " + s.get + " · Not yet " + s.not + " · Not rated " + (s.total - s.conf - s.get - s.not));
+    s.weak.slice(0, 6).forEach((w) => L.push("- " + w)); L.push("");
+    L.push("QUIZ BEST SCORES"); s.quiz.forEach((q) => L.push("- " + q[0] + ": " + (q[1] === null ? "not tried" : q[1] + "/" + q[2]))); L.push("");
+    L.push("REARRANGING FORMULAE"); L.push("- Formulae rearranged correctly: " + s.rr); L.push("");
+    L.push("Note: these results are self-rated by the student in the Physics@Rosmini Practical lab."); return L.join("\n");
+  }
+  const enc = (o) => "P12." + btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  const dec = (t) => { t = String(t).trim().replace(/\s+/g, ""); if (!t.startsWith("P12.")) throw 0; const o = JSON.parse(decodeURIComponent(escape(atob(t.slice(4).replace(/-/g, "+").replace(/_/g, "/"))))); if (!o || typeof o !== "object" || Array.isArray(o)) throw 0; return o; };
+  const collect = () => { const o = {}; try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k.startsWith(PRE) && KEYS(k.slice(PRE.length))) o[k.slice(PRE.length)] = JSON.parse(localStorage.getItem(k)); } } catch (e) {} return o; };
+  function renderProgress() {
+    const s = snapshot(); pv.replaceChildren();
+    const g = el("div", "telemetry"); [["Confident", s.conf + " of " + s.total], ["Getting there / Not yet", s.get + " / " + s.not], ["Best mixed challenge", s.quiz[0][1] === null ? "not tried" : s.quiz[0][1] + "/10"], ["Formulae rearranged", String(s.rr)]].forEach((f) => g.appendChild(el("div", "tm", "<span>" + f[0] + "</span><b>" + f[1] + "</b>"))); pv.appendChild(g);
+    const pre = el("pre", "report"); pre.textContent = report(store.get("me", {}).name || ""); pv.appendChild(pre);
+    pv.appendChild(el("h3", null, "Save or load my progress"));
+    pv.appendChild(el("p", "note", "Your progress is kept automatically on this device. To carry it to another device, save a progress code here and load it there. There are no accounts and nothing is stored on a server."));
+    const row = el("div", "sum-tools"), code = el("textarea", "write code"); code.rows = 3; code.placeholder = "Your progress code appears here. To load, paste a code here."; code.setAttribute("aria-label", "Progress code");
+    const msg = el("div"); msg.hidden = true; msg.setAttribute("aria-live", "polite");
+    row.appendChild(btn("btn sm", "Save: make my code", () => { code.value = enc(collect()); code.select(); let ok = false; try { ok = document.execCommand("copy"); } catch (e) {} if (navigator.clipboard) navigator.clipboard.writeText(code.value).catch(() => {}); say(msg, "ok", "<strong>Code ready" + (ok ? " and copied" : "") + ".</strong> Paste it somewhere you can reach from your other device (an email to yourself, or a Google Doc), or download it as a file."); }));
+    row.appendChild(btn("btn sm", "Download as a file", () => { const a = el("a"); a.href = URL.createObjectURL(new Blob([enc(collect())], { type: "text/plain" })); a.download = "practical-progress.txt"; document.body.appendChild(a); a.click(); a.remove(); say(msg, "ok", "<strong>Saved</strong> as electricity-progress.txt in your downloads."); }));
+    const load = (t) => { let o; try { o = dec(t); } catch (e) { say(msg, "bad", "<strong>That is not a valid progress code.</strong> Copy the whole code, starting with P12."); return; }
+      say(msg, "info", "<strong>Load this progress?</strong> It will replace the progress saved on this device. "); msg.appendChild(btn("btn sm", "Yes, load it", () => { try { Object.keys(collect()).forEach((k) => localStorage.removeItem(PRE + k)); Object.keys(o).forEach((k) => { if (KEYS(k)) localStorage.setItem(PRE + k, JSON.stringify(o[k])); }); } catch (e) {} location.reload(); })); };
+    row.appendChild(btn("btn sm", "Load the code in the box", () => load(code.value)));
+    const file = el("input"); file.type = "file"; file.accept = ".txt,text/plain"; file.hidden = true; file.addEventListener("change", () => { const f = file.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => { code.value = String(rd.result); load(code.value); }; rd.readAsText(f); });
+    row.appendChild(btn("btn sm", "Load from a file", () => file.click())); row.appendChild(file);
+    pv.append(row, code, msg);
+    pv.appendChild(el("h3", null, "Share my results with my teacher"));
+    pv.appendChild(el("p", "note", "Type your name and your teacher's email address. The button opens an email with your results already written. Check it, then press <b>Send</b>. Nothing is sent until you send it yourself, and this website does not collect your name or the address."));
+    const me = store.get("me", {}), form = el("div", "share");
+    const fld = (lab, type, val, ph) => { const l = el("label"); l.append(lab); const i = el("input"); i.type = type; i.value = val || ""; i.placeholder = ph; i.autocomplete = type === "email" ? "off" : "name"; l.appendChild(i); form.appendChild(l); return i; };
+    const nm = fld("Your name", "text", me.name, "First and last name"), em = fld("Teacher's email address", "email", me.teacher, "teacher@school.nz"); pv.appendChild(form);
+    const links = el("div", "sum-tools"); const mk = (t) => { const a = el("a", "btn sm"); a.textContent = t; a.target = "_blank"; a.rel = "noopener"; a.setAttribute("role", "button"); links.appendChild(a); return a; };
+    const gm = mk("Open in Gmail"), ml = mk("Open in my email app"), smsg = el("div"); smsg.hidden = true; smsg.setAttribute("aria-live", "polite"); let warned = false;
+    links.appendChild(btn("btn sm", "Copy the report", () => { const t = report(nm.value.trim()), ta = el("textarea"); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (e) {} ta.remove(); if (navigator.clipboard) navigator.clipboard.writeText(t).then(() => {}, () => {}); warned = false; say(smsg, "ok", "<strong>Report copied.</strong> Paste it into an email or Google Classroom."); }));
+    const upd = () => { const name = nm.value.trim(), to = em.value.trim(), ok = /^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/.test(to); store.set("me", { name, teacher: to }); pre.textContent = report(name);
+      const su = "Practical revision progress" + (name ? " · " + name : ""), body = report(name);
+      if (ok && warned) { smsg.hidden = true; warned = false; } [gm, ml].forEach((a) => { a.classList.toggle("off", !ok); a.setAttribute("aria-disabled", String(!ok)); });
+      if (ok) { gm.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(to) + "&su=" + encodeURIComponent(su) + "&body=" + encodeURIComponent(body); ml.href = "mailto:" + encodeURIComponent(to).replace(/%40/g, "@") + "?subject=" + encodeURIComponent(su) + "&body=" + encodeURIComponent(body.replace(/\n/g, "\r\n")); } else { gm.removeAttribute("href"); ml.removeAttribute("href"); } };
+    [gm, ml].forEach((a) => a.addEventListener("click", (e) => { if (!a.hasAttribute("href")) { e.preventDefault(); warned = true; say(smsg, "bad", "<strong>Enter your teacher's email address first.</strong> For example name@school.nz"); } else { warned = false; say(smsg, "ok", "<strong>Your email is ready.</strong> Check it, then press Send. If nothing opened, use Copy the report and paste it into an email."); } }));
+    nm.addEventListener("input", upd); em.addEventListener("input", upd); upd(); pv.append(links, smsg);
+  }
+  renderProgress();
+  const psec = document.querySelector('section[data-mod="map"][data-view="progress"]');
+  new MutationObserver(() => { if (!psec.classList.contains("hidden")) renderProgress(); }).observe(psec, { attributes: true, attributeFilter: ["class"] });
+})();
+
+/* key terms filter */
+(() => { const f = $("ktFilter"); if (!f) return; const terms = [...document.querySelectorAll(".kt-term")], groups = [...document.querySelectorAll(".kt-group")];
+  const run = () => { const q = f.value.trim().toLowerCase(); let n = 0; terms.forEach((t) => { const ok = !q || t.textContent.toLowerCase().includes(q); t.hidden = !ok; if (ok) n++; }); groups.forEach((g) => { g.hidden = ![...g.querySelectorAll(".kt-term")].some((t) => !t.hidden); }); $("ktCount").textContent = q ? n + " of " + terms.length + " terms match" : terms.length + " terms"; };
+  f.addEventListener("input", run); run(); })();
 
 /* ====================================================== LOOP & START ===== */
 let last = null;
