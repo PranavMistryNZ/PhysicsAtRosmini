@@ -5,6 +5,10 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.21 · 18 November 2026 (Year 12 Non-linear data: Graph practice lab, and tab styling)
+- Year 12 Non-linear data: a Graph practice lab built from the real class data sets (distance and time, pendulum, spring, power and current, wave speed, Ohm's law). Students choose the transform, read the gradient, find the unknown, and can open the worked steps.
+- Quick check tabs (e.g. 3.9) and the Mixed challenge tab now use the same tab style as the rest.
+
 ## v1.20 · 18 November 2026 (Year 12 Non-linear data: three experiment labs, Key Terms and My progress)
 - Year 12 Non-linear data, three new simulations: Run the experiment (four experiments with readings, outlier exclusion, a choice of transform, a line of best fit and r²), a Shape matcher, and a Range trap showing how a short range can look straight.
 - Key Terms tab with 14 terms in two groups, and a filter.

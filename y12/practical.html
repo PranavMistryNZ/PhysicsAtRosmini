@@ -40,7 +40,6 @@ document.documentElement.setAttribute('data-theme',t)})();
   --ink:#111827; --ink-2:#3f4859; --muted:#5a6476;
   --accent:#1d4ed8; --accent-fill:#1d4ed8; --on-accent:#ffffff; --accent-soft:rgba(29,78,216,.08); --accent-glow:rgba(29,78,216,.35);
   --hot:#1d4ed8; --on-hot:#ffffff;
-  --check-line:#1d4ed8;
   --data:#0b6f8a; --vector:#c2410c; --vector-soft:rgba(194,65,12,.45); --third:#6d28d9; --pj-gravity:#db2777;
   --ok:#15803d; --ok-soft:rgba(21,128,61,.10); --bad:#c8102e; --bad-soft:rgba(200,16,46,.08);
   --tip-bg:#fff8ec; --tip-line:#d08a1e; --tip-ink:#8a4b00;
@@ -58,7 +57,6 @@ document.documentElement.setAttribute('data-theme',t)})();
   --ink:#e6edf7; --ink-2:#a9b7cf; --muted:#8b9bb8;
   --accent:#ff4d58; --accent-fill:#e5232f; --on-accent:#ffffff; --accent-soft:rgba(229,35,47,.12); --accent-glow:rgba(229,35,47,.55);
   --hot:#e5232f; --on-hot:#ffffff;
-  --check-line:#ff4d58;
   --data:#5ee3ff; --vector:#ffb547; --vector-soft:rgba(255,181,71,.5); --third:#c4a5ff; --pj-gravity:#ff7eb3;
   --ok:#4ade80; --ok-soft:rgba(74,222,128,.10); --bad:#ff6b74; --bad-soft:rgba(255,107,116,.10);
   --tip-bg:rgba(255,181,71,.06); --tip-line:#ffb547; --tip-ink:#ffb547;
@@ -130,7 +128,6 @@ sub,sup{font-size:.72em;line-height:0}
 .tabs{display:flex;flex-wrap:wrap;gap:8px}
 .tab{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid var(--line);background:var(--panel-solid);color:var(--ink-2);font-family:var(--mono);font-size:13px;cursor:pointer}
 .tab:hover{border-color:var(--accent);color:var(--ink)}
-.tab.check{border-color:var(--check-line);color:var(--check-line);background:transparent}
 .tab[aria-selected="true"]{border-color:var(--accent);background:var(--accent-fill);color:var(--on-accent);font-weight:600;box-shadow:0 0 22px -8px var(--accent-glow)}
 
 /* search */
@@ -1074,6 +1071,25 @@ a.btn.off{opacity:.5}
   <div class="card tint"><span class="label">The physics</span><ul><li>The lower and upper limits are the smallest and largest values of the independent variable that give valid measurements.</li><li>A high r² over a narrow range does not show that the relationship is linear.</li><li>Use the whole valid range when you choose the transform.</li></ul></div>
 </section>
 
+<section class="pane hidden" data-mod="nonlin" data-view="graphs" data-title="Graph practice: real class data, linearise and find the unknown">
+  <div class="pane-head"><h2>Graph practice: linearise, find the gradient, solve for the unknown</h2><span class="badge">SIMULATION</span></div>
+  <p class="lede">Each case is a real class data set. Choose the transform that makes graph 2 a straight line, read the gradient from that line, then use the equation to find the unknown. The 13 steps from the graph practice sheet are the same here.</p>
+  
+  <div class="screen"><canvas id="grCanvas" width="900" height="420" aria-label="Raw data on graph 1 and transformed data with a line of best fit on graph 2"></canvas></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="label">Settings</div>
+      <div class="seg" role="group" aria-label="Case"><button type="button" data-gc="fall" aria-pressed="true">Distance and time</button><button type="button" data-gc="pend" aria-pressed="false">Pendulum</button><button type="button" data-gc="spring" aria-pressed="false">Spring</button><button type="button" data-gc="power" aria-pressed="false">Power and current</button><button type="button" data-gc="wave" aria-pressed="false">Wave speed</button><button type="button" data-gc="ohm" aria-pressed="false">Ohm's law</button></div><div class="seg" role="group" aria-label="Transform the x-values"><button type="button" data-gt="x" aria-pressed="true">x</button><button type="button" data-gt="x2" aria-pressed="false">x²</button><button type="button" data-gt="sqrt" aria-pressed="false">√x</button><button type="button" data-gt="inv" aria-pressed="false">1/x</button><button type="button" data-gt="inv2" aria-pressed="false">1/x²</button></div><label class="ctrl"><span class="row"><span>Gradient of your straight line (with units left off)</span></span><input type="number" id="grIn" step="any" placeholder="e.g. 0.00177" aria-label="gradient of your straight line"></label><div class="btns"><button type="button" class="btn go" id="grCheckG">Check gradient</button></div><label class="ctrl"><span class="row"><span id="grAnsLab">Answer</span></span><input type="number" id="grAns" step="any" aria-label="your answer for the unknown"></label><div class="btns"><button type="button" class="btn go" id="grCheckA">Check answer</button><button type="button" class="btn" id="grReveal">Show worked steps</button></div><p class="note" id="grMsg" aria-live="polite"></p><div id="grWork" class="small"></div>
+    </div>
+    <div class="card">
+      <div class="label">Readings</div>
+      <div class="telemetry"><div class="tm hl"><span>r² of the line</span><b id="grR2">–</b></div><div class="tm"><span>Line of best fit</span><b id="grFit">–</b></div><div class="tm"><span>Transform in use</span><b id="grTF">–</b></div></div>
+      <p class="note" id="grNote"></p>
+    </div>
+  </div>
+  <div class="card tint"><span class="label">The physics</span><ol><li>Write the equation in the form \(y = mx + c\), and identify \(y\), \(x\) and the gradient \(m\) (Steps 4–5).</li><li>Choose the transform that makes a straight line. The gradient is only valid on that line (Steps 6–9).</li><li>Read the gradient with its units from the straight line (Step 12).</li><li>Use the gradient to find the unknown quantity (Step 13). Each case here has its own formula.</li></ol><p class="small">Each data set has real measurement scatter, so the line will not pass exactly through every point.</p></div>
+</section>
+
 <section class="pane hidden" data-mod="nonlin" data-view="problems" data-title="Non-linear data practice questions with worked answers">
   <div class="pane-head"><h2>Phase 3.3 · Non-linear data practice</h2><span class="badge red">PRACTICE</span></div>
   <p class="lede">For each one: (a) plot the raw graph; (b) state the relationship; (c) transform the data and plot a straight-line graph; (d) find the gradient with its unit; (e) write the equation; (f) find the physical quantity.</p>
@@ -1402,7 +1418,7 @@ const MODS = {
   map: { title: "STEP BY STEP & THE STANDARD", name: "Step by step & the standard", views: [["summary", "Step by step"], ["scope", "Course map"], ["standard", "Standard & mark sheet"], ["rearrange", "Rearranging formulae"], ["challenge", "Mixed challenge"], ["terms", "Key terms"], ["progress", "My progress"]] },
   err: { title: "VARIABLES & UNCERTAINTIES", name: "Variables & uncertainties", views: [["intro", "Foundations"], ["check", "Quick check"]] },
   lin: { title: "LINEAR DATA", name: "Linear data", views: [["intro", "Foundations"], ["plotter", "Graph plotter"], ["problems", "Practice"], ["snell", "Snell's law experiment"]] },
-  nonlin: { title: "NON-LINEAR DATA", name: "Non-linear data", views: [["trolley", "Rolling trolley experiment"], ["linearise", "Linearising"], ["shapes", "Shape matcher"], ["experiment", "Run the experiment"], ["range", "Range trap"], ["problems", "Practice"], ["writeup", "Writing it up"], ["check", "Quick check"]] },
+  nonlin: { title: "NON-LINEAR DATA", name: "Non-linear data", views: [["trolley", "Rolling trolley experiment"], ["linearise", "Linearising"], ["shapes", "Shape matcher"], ["experiment", "Run the experiment"], ["range", "Range trap"], ["graphs", "Graph practice"], ["problems", "Practice"], ["writeup", "Writing it up"], ["check", "Quick check"]] },
   hw: { title: "HOMEWORK & REVISION", name: "Homework & revision", views: [["light", "Homework 1"], ["bung", "Homework 2"], ["revision", "Revision tasks"], ["excel", "Excellence skills"], ["pole", "Pole vaulter task"]] },
 };
 const SCOPE = {
@@ -1436,6 +1452,7 @@ const TOTAL = Object.values(SCOPE).reduce((a, g) => a + g.length, 0);
 const ratings = store.get("ratings", {});
 const TIP_CHECK = "Got one wrong? Read the explanation, then reopen the matching section before trying a new set.";
 const TIPS = {
+  "nonlin:graphs": "Work the 13 steps in order: write the equation, choose the transform that gives a straight line, read the gradient with its units, then solve for the unknown.",
   "nonlin:experiment": "Name the shape first, then the transform. Plot the chosen transform on the x-axis and check r². The gradient is only valid on the straight line.",
   "nonlin:shapes": "Shape first: a curve that rises and steepens is y ∝ x²; one that rises and flattens is y ∝ √x; one that falls and flattens is y ∝ 1/x.",
   "nonlin:range": "A narrow range can look straight. Use the whole valid range before deciding the relationship, and state the limits of your data.",
@@ -1470,7 +1487,7 @@ function go(mod, view, scroll) {
   const tabs = $("tabs"); tabs.replaceChildren();
   MODS[mod].views.forEach(([id, label]) => {
     const b = document.createElement("button");
-    b.type = "button"; b.className = "tab" + (id === "check" ? " check" : ""); b.textContent = phaseRef(mod, id) + " " + label;
+    b.type = "button"; b.className = "tab"; b.textContent = phaseRef(mod, id) + " " + label;
     b.setAttribute("role", "tab"); b.setAttribute("aria-selected", String(id === view));
     b.addEventListener("click", () => go(mod, id));
     tabs.appendChild(b);
@@ -2593,6 +2610,103 @@ const reading = (E, x, seed) => E.law(x) * (1 + E.pct * rnd(seed));
 (() => { const f = $("ktFilter"); if (!f) return; const terms = [...document.querySelectorAll(".kt-term")], groups = [...document.querySelectorAll(".kt-group")];
   const run = () => { const q = f.value.trim().toLowerCase(); let n = 0; terms.forEach((t) => { const ok = !q || t.textContent.toLowerCase().includes(q); t.hidden = !ok; if (ok) n++; }); groups.forEach((g) => { g.hidden = ![...g.querySelectorAll(".kt-term")].some((t) => !t.hidden); }); $("ktCount").textContent = q ? n + " of " + terms.length + " terms match" : terms.length + " terms"; };
   f.addEventListener("input", run); run(); })();
+
+/* ====================================================== NL4 · GRAPH PRACTICE (class data sets, linearise, gradient, unknown) ===== */
+/* Data are the real class sets from "PHY2.1 Graph Practice v1". TF (transforms) comes from the non-linear labs above. */
+(() => {
+  const cv = $("grCanvas"), sim = { dirty: true, anim: false }; sims["nonlin:graphs"] = sim;
+  const sci = (x) => { const [m, e] = Math.abs(x).toExponential(2).split("e"); return `${x < 0 ? "-" : ""}${m} \\times 10^{${+e}}`; };
+  const GC = {
+    fall: { name: "Distance and time: d = ½at²", xn: "t", xu: "s", yn: "d", yu: "m", xs: [2, 4, 6, 8, 10, 12], ys: [0.007, 0.028, 0.062, 0.112, 0.176, 0.254], good: "x2",
+      ansLab: "Acceleration a (m s⁻²)", ansF: (g) => 2 * g, ansTxt: "Use a = 2 × gradient (the gradient is ½a).",
+      work: (g) => `Step 4: \\(y = mx + c\\) with \\(y = d\\) and \\(x = t^{2}\\), so the gradient is \\(m = \\tfrac{1}{2}a\\). Step 12: \\(m = ${sci(g)}\\,\\mathrm{m\\,s^{-2}}\\). Step 13: \\(a = 2 \\times ${sci(g)} = ${sci(2 * g)}\\,\\mathrm{m\\,s^{-2}}\\).` },
+    pend: { name: "Pendulum: T = 2π√(L/g)", xn: "L", xu: "m", yn: "T", yu: "s", xs: [0.1, 0.6, 1.1, 1.6, 2.1, 2.6, 3.1], ys: [0.63, 1.55, 2.1, 2.54, 2.91, 3.23, 3.53], good: "sqrt",
+      ansLab: "Gravitational field strength g (m s⁻²)", ansF: (g) => (2 * Math.PI / g) ** 2, ansTxt: "Use g = (2π / gradient)².",
+      work: (g) => `Step 4: \\(y = T\\), \\(x = \\sqrt{L}\\), so the gradient is \\(m = 2\\pi/\\sqrt{g}\\). Step 12: \\(m = ${g.toFixed(3)}\\,\\mathrm{s\\,m^{-1/2}}\\). Step 13: \\(g = \\left(\\dfrac{2\\pi}{${g.toFixed(3)}}\\right)^{2} = ${((2 * Math.PI / g) ** 2).toFixed(2)}\\,\\mathrm{m\\,s^{-2}}\\).` },
+    spring: { name: "Spring: T = 2π√(m/k)", xn: "m", xu: "kg", yn: "T", yu: "s", xs: [0.1, 0.2, 0.65, 0.95, 1.5, 2.5, 4.5], ys: [0.08, 0.12, 0.21, 0.25, 0.32, 0.41, 0.55], good: "sqrt",
+      ansLab: "Spring constant k (N m⁻¹)", ansF: (g) => (2 * Math.PI / g) ** 2, ansTxt: "Use k = (2π / gradient)².",
+      work: (g) => `Step 4: \\(y = T\\), \\(x = \\sqrt{m}\\), so the gradient is \\(m = 2\\pi/\\sqrt{k}\\). Step 12: \\(m = ${g.toFixed(3)}\\,\\mathrm{s\\,kg^{-1/2}}\\). Step 13: \\(k = \\left(\\dfrac{2\\pi}{${g.toFixed(3)}}\\right)^{2} = ${((2 * Math.PI / g) ** 2).toFixed(0)}\\,\\mathrm{N\\,m^{-1}}\\).` },
+    power: { name: "Current and power: P = I²R", xn: "I", xu: "A", yn: "P", yu: "W", xs: [2, 4, 6, 8, 10, 12], ys: [250, 1000, 2000, 4000, 6500, 9000], good: "x2",
+      ansLab: "Resistance R (Ω)", ansF: (g) => g, ansTxt: "The gradient is the resistance R.",
+      work: (g) => `Step 4: \\(y = P\\), \\(x = I^{2}\\), so the gradient is \\(m = R\\). Step 12: \\(m = ${g.toFixed(1)}\\,\\Omega\\). Step 13: \\(R = ${g.toFixed(1)}\\,\\Omega\\).` },
+    wave: { name: "Wavelength and frequency: v = fλ", xn: "λ", xu: "m", yn: "f", yu: "Hz", xs: [1.5, 2, 3, 4.5, 5, 6], ys: [220, 170, 110, 74, 66, 55], good: "inv",
+      ansLab: "Wave speed v (m s⁻¹)", ansF: (g) => g, ansTxt: "The gradient is the wave speed v.",
+      work: (g) => `Step 4: \\(y = f\\), \\(x = 1/\\lambda\\), so the gradient is \\(m = v\\). Step 12: \\(m = ${g.toFixed(0)}\\,\\mathrm{m\\,s^{-1}}\\). Step 13: \\(v = ${g.toFixed(0)}\\,\\mathrm{m\\,s^{-1}}\\).` },
+    ohm: { name: "Resistance and current: V = IR", xn: "R", xu: "Ω", yn: "I", yu: "A", xs: [20, 60, 100, 140, 180, 220, 260], ys: [0.6, 0.2, 0.12, 0.086, 0.068, 0.055, 0.046], good: "inv",
+      ansLab: "Supply voltage V (V)", ansF: (g) => g, ansTxt: "The gradient is the supply voltage V.",
+      work: (g) => `Step 4: \\(y = I\\), \\(x = 1/R\\), so the gradient is \\(m = V\\). Step 12: \\(m = ${g.toFixed(2)}\\,\\mathrm{V}\\). Step 13: \\(V = ${g.toFixed(2)}\\,\\mathrm{V}\\).` },
+  };
+  const fitLine = (G, T) => {
+    const X = G.xs.map(T.f), Y = G.ys, n = X.length;
+    const mx = X.reduce((a, b) => a + b, 0) / n, my = Y.reduce((a, b) => a + b, 0) / n;
+    let sxy = 0, sxx = 0, syy = 0;
+    for (let i = 0; i < n; i++) { sxy += (X[i] - mx) * (Y[i] - my); sxx += (X[i] - mx) ** 2; syy += (Y[i] - my) ** 2; }
+    const m = sxy / sxx, c = my - m * mx;
+    return { m, c, r2: syy > 0 ? (sxy * sxy) / (sxx * syy) : 1 };
+  };
+  const expG = (G) => fitLine(G, TF[G.good]).m;
+
+  let cs = "fall", tf = "x";
+  const cB = [...document.querySelectorAll("[data-gc]")], tB = [...document.querySelectorAll("[data-gt]")];
+  const showCase = () => { const G = GC[cs]; $("grAnsLab").textContent = G.ansLab; $("grIn").value = ""; $("grAns").value = ""; $("grMsg").textContent = ""; $("grWork").innerHTML = ""; };
+  cB.forEach((b) => b.addEventListener("click", () => { cs = b.dataset.gc; setPressed(cB, b); tf = "x"; setPressed(tB, tB[0]); showCase(); sim.dirty = true; }));
+  tB.forEach((b) => b.addEventListener("click", () => { tf = b.dataset.gt; setPressed(tB, b); $("grMsg").textContent = ""; sim.dirty = true; }));
+
+  $("grCheckG").addEventListener("click", () => {
+    const G = GC[cs], GT = expG(G), v = parseFloat($("grIn").value);
+    if (!isFinite(v)) { $("grMsg").textContent = "Type the gradient from your straight line first."; return; }
+    if (tf !== G.good) { $("grMsg").textContent = "That gradient comes from a curve. Choose the transform that makes graph 2 straight, then read the gradient."; return; }
+    const ok = Math.abs(v - GT) / Math.abs(GT) <= 0.05;
+    $("grMsg").textContent = ok
+      ? "Gradient accepted (within 5% of the line of best fit). Now use it to find the unknown."
+      : "Not within 5% of the line of best fit. The gradient is the change in y ÷ the change in the transformed x, read from the straight line on graph 2 (with units).";
+  });
+  $("grCheckA").addEventListener("click", () => {
+    const G = GC[cs], typed = parseFloat($("grIn").value), base = isFinite(typed) ? typed : expG(G);
+    const target = G.ansF(base), v = parseFloat($("grAns").value);
+    if (!isFinite(v)) { $("grMsg").textContent = "Type your answer first."; return; }
+    const ok = Math.abs(v - target) / Math.abs(target) <= 0.02;
+    $("grMsg").textContent = ok ? "Correct (within 2%). Check the unit on your answer."
+      : "Not quite. " + G.ansTxt + (isFinite(typed) ? " Use the gradient you typed." : " Type your gradient first to use it here.");
+  });
+  $("grReveal").addEventListener("click", () => { const G = GC[cs]; $("grWork").innerHTML = mathHTML(G.work(expG(G))); });
+
+  sim.frame = () => {
+    const G = GC[cs], T = TF[tf], F = fitLine(G, T);
+    const { ctx, w, h } = fit(cv, (w) => (w < 640 ? Math.round(w * 1.5) : Math.max(360, Math.round(w * 0.5))));
+    clear(ctx, w, h);
+    let L, R;
+    if (w < 640) { const split = Math.round(h / 2) + 4; L = { x0: 50, x1: w - 14, y0: 26, y1: split - 34 }; R = { x0: 50, x1: w - 14, y0: split + 26, y1: h - 34 }; }
+    else { const mid = w / 2; L = { x0: 50, x1: mid - 18, y0: 26, y1: h - 36 }; R = { x0: mid + 40, x1: w - 14, y0: 26, y1: h - 36 }; }
+    const yMax = Math.max(...G.ys) * 1.12, xMaxL = Math.max(...G.xs) * 1.1, xMaxR = Math.max(...G.xs.map(T.f)) * 1.1;
+    const PX = (g, x, xm) => g.x0 + (x / xm) * (g.x1 - g.x0), PY = (g, y) => g.y1 - (y / yMax) * (g.y1 - g.y0);
+    const panel = (g, title, xl) => {
+      ctx.strokeStyle = C.axis; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(g.x0, g.y0); ctx.lineTo(g.x0, g.y1); ctx.lineTo(g.x1, g.y1); ctx.stroke();
+      text(ctx, title, g.x0, g.y0 - 10, C.ink2, 11);
+      text(ctx, xl, g.x1, g.y1 + 24, C.muted, 10, "right");
+    };
+    panel(L, "1 · RAW: " + G.yn + " (" + G.yu + ") against " + G.xn + " (" + G.xu + ")", G.xn + " (" + G.xu + ")");
+    panel(R, "2 · TRANSFORMED: " + G.yn + " against " + T.lab(G.xn), T.lab(G.xn));
+    // line of best fit on the transformed graph, clipped to its panel
+    ctx.save(); ctx.beginPath(); ctx.rect(R.x0, R.y0, R.x1 - R.x0, R.y1 - R.y0); ctx.clip();
+    ctx.strokeStyle = C.hot; ctx.lineWidth = 2.2; ctx.beginPath();
+    ctx.moveTo(PX(R, 0, xMaxR), PY(R, F.c)); ctx.lineTo(PX(R, xMaxR, xMaxR), PY(R, F.m * xMaxR + F.c)); ctx.stroke();
+    ctx.restore();
+    G.xs.forEach((x, i) => {
+      const y = G.ys[i];
+      ctx.beginPath(); ctx.arc(PX(L, x, xMaxL), PY(L, y), 6, 0, 7); ctx.fillStyle = C.data; ctx.fill();
+      ctx.beginPath(); ctx.arc(PX(R, T.f(x), xMaxR), PY(R, y), 6, 0, 7); ctx.fillStyle = C.data; ctx.fill();
+    });
+    $("grR2").textContent = F.r2.toFixed(4);
+    $("grFit").textContent = G.yn + " = " + F.m.toPrecision(3) + " × " + T.lab(G.xn) + (F.c < 0 ? " − " : " + ") + Math.abs(F.c).toPrecision(2);
+    $("grTF").textContent = T.lab(G.xn);
+    const straight = F.r2 >= 0.995;
+    $("grNote").textContent = G.name + ". " + (straight && tf === G.good
+      ? "Straight line: this transform linearises the data, so the gradient of this line is the quantity you need. Read it from graph 2."
+      : straight ? "Straight enough, but this transform does not match the equation. Try another."
+      : "Still curved: try another transform. A transform that linearises the data gives r² close to 1.");
+  };
+})();
 
 /* ====================================================== LOOP & START ===== */
 let last = null;
