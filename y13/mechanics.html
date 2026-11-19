@@ -414,6 +414,14 @@ body.light-mode[data-topic="osc"]{--topic:#68409a;--topic-contrast:#fff}
 #comCanvas{cursor:grab;touch-action:none}
 #resCanvas{touch-action:pan-y}
 @media(max-width:700px){.nx-term-group .nx-grid2{grid-template-columns:minmax(0,1fr)}}
+
+/* ---- 4.2 SHM lab: 3D phasor spiral view ---- */
+.ph-views{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 8px}
+.ph-views .tool-btn{min-height:34px;padding:5px 12px;font-size:13px;flex:0 0 auto}
+.ph-views .tool-btn[aria-pressed="true"]{background:var(--topic);color:var(--topic-contrast);box-shadow:none}
+.ph-hint{margin-left:auto;font-size:12px;color:var(--muted)}
+.ph-sim canvas{height:clamp(330px,46vw,540px);cursor:move}
+@media (max-width:700px){.ph-hint{margin-left:0;flex-basis:100%}}
 </style></head>
 <body data-topic="map"><div class="shell">
 <header class="topbar"><div class="topcurve" aria-hidden="true"></div><div class="titlebar"><div><div class="eyebrow">Science learning systems · Physics level 3</div><h1 id="topicTitle">COURSE MAP</h1></div><div><div class="index">AS91524 · 6 CREDITS<br/>EXTERNAL EXAM<br/>INTERACTIVE LAB</div><div class="hdr-tools"><a class="home-btn" href="../index.html"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg><span>Home</span></a><div aria-label="Page colour theme" class="theme-switch-wrap"><span class="theme-label-dark">Dark</span><label class="theme-switch" title="Switch between dark and light mode"><input aria-label="Use light mode" id="themeToggle" type="checkbox"/><span class="theme-slider"></span></label><span class="theme-label-light">Light</span></div></div></div></div></header>
@@ -461,7 +469,7 @@ body.light-mode[data-topic="osc"]{--topic:#68409a;--topic-contrast:#fff}
 <li><b>01 Translational motion</b> (ESA chapter 7) · 1.1 → 1.2, then check yourself in 1.3</li>
 <li><b>02 Circular motion &amp; gravity</b> (ESA chapter 8) · 2.1 → 2.2 → 2.3 → 2.4, then 2.5</li>
 <li><b>03 Rotating systems</b> (ESA chapter 9) · 3.1 → 3.2 → 3.3 → 3.4, then 3.5. Compare each rotational equation with its linear twin.</li>
-<li><b>04 Oscillating systems</b> (ESA chapter 10) · 4.1 → 4.2 → 4.3, then 4.4</li>
+<li><b>04 Oscillating systems</b> (ESA chapter 10) · 4.1 → 4.2 → 4.3, then 4.4. In 4.2, switch to the 3D phasor spiral to see the reference circle stretched along a time axis.</li>
 <li><b>Applications</b> · the last tab in each section shows where the ideas are used. Exam questions are often set in contexts like these.</li>
 <li><b>Exam practice</b> · 0.2 Exam Skills, then the Problems tab in each section. Keep 0.3 Formula Sheet open beside you.</li>
 </ol>
@@ -1361,6 +1369,8 @@ body.light-mode[data-topic="osc"]{--topic:#68409a;--topic-contrast:#fff}
 <div class="section-identity"><strong>4.2 · SHM lab</strong><p>See where the displacement curve comes from: the oscillator, its shadow, the reference circle and the graph, all in line.</p></div>
 <h2>SHM lab</h2>
 <p class="sub">The motion is projected across to the graph. For the <strong>spring</strong>, the mass, the point on the reference circle and the dot drawing the \(x\)–\(t\) graph always stay at the same height. For the <strong>pendulum</strong>, the bob, its shadow on the floor, the point on the circle and the pen on the paper always stay in a vertical line. The displacement curve is simply that position, spread out along a time axis. The yellow dot marks the centre of the moving object right now, the fading trail shows where it has just been, and the arrow shows which way it is moving. Use <strong>slow motion</strong> to follow it.</p>
+<div class="ph-views shm-mode" role="group" aria-label="Choose the view"><button class="tool-btn secondary" data-shm-mode="2d" type="button" aria-pressed="true">Reference circle and graphs</button><button class="tool-btn secondary" data-shm-mode="3d" type="button" aria-pressed="false">3D phasor spiral</button><span class="ph-hint">Two ways of seeing the same motion · mass, k and A carry across</span></div>
+<div id="shm2d">
 <div class="nx-lab">
 <div class="sim"><canvas id="shmCanvas" aria-label="Mass on a spring or pendulum beside its reference circle, with displacement, velocity and acceleration graphs and energy bars"></canvas></div>
 <div class="legend"><span style="--key:#ffd76a">Projection line and point on the circle</span><span style="--key:#c5a2ff">Displacement, \(x\)</span><span style="--key:#ffd76a">Velocity, \(v\)</span><span style="--key:#ff8a7a">Acceleration, \(a\)</span><span style="--key:#78d9f7">Kinetic energy, \(E_{k}\)</span><span style="--key:#5fd39a">Potential energy, \(E_{p}\)</span></div>
@@ -1394,6 +1404,39 @@ body.light-mode[data-topic="osc"]{--topic:#68409a;--topic-contrast:#fff}
 <li>Add damping: the amplitude decays and the energy bars shrink, but the period hardly changes.</li>
 <li>Pendulum mode: change the length and watch the period change; the mass doesn't matter.</li>
 </ul>
+</div>
+<div id="shm3d" class="hidden">
+<p class="sub">The orange arrow is the displacement phasor. Its length is the amplitude \(A\) and it turns once every period. The mass on its spring stays in one place at the start of the time axis, and the dashed line shows that it is always at the same height as the tip of the phasor. The velocity phasor (green) is a quarter turn ahead and the acceleration phasor (red) is half a turn ahead. Each arrow is drawn to its own scale. Switch to <strong>Circle view</strong> and drag the tip of the orange arrow to set the phase.</p>
+<div class="nx-lab">
+<div class="ph-views" data-scene="phm"><button class="tool-btn secondary" data-view="circle" type="button">Circle view</button><button class="tool-btn secondary" data-view="side" type="button">SHM graph view</button><button class="tool-btn secondary" data-view="3d" type="button" aria-pressed="true">3D view</button><span class="ph-hint">Drag to turn · in circle view drag the orange tip</span></div>
+<div class="sim ph-sim"><canvas id="phmCanvas" aria-label="Displacement, velocity and acceleration phasors with a mass on a spring and the spirals they trace along a time axis"></canvas></div>
+<div class="legend"><span style="--key:#f0a24a">Displacement \(x\)</span><span style="--key:#5fd39a">Velocity \(v\)</span><span style="--key:#ff8a7a">Acceleration \(a\)</span><span style="--key:#c5a2ff">Mass on a spring</span></div>
+<div class="nx-ctlbar">
+<div class="nx-bar-inputs">
+<h3>Controls</h3>
+<div class="control"><label for="phmStart">Start position</label><select id="phmStart"><option value="sin">Equilibrium, moving up: x = A sin ωt</option><option value="cos">Released from +A: x = A cos ωt</option></select></div>
+<div class="control"><label for="phmM">Mass, \(m\) <output id="phmMOut">0.50 kg</output></label><input id="phmM" max="2" min="0.1" step="0.05" type="range" value="0.5"/></div>
+<div class="control"><label for="phmK">Spring constant, \(k\) <output id="phmKOut">20 N m⁻¹</output></label><input id="phmK" max="60" min="5" step="1" type="range" value="20"/></div>
+<div class="control"><label for="phmA">Amplitude, \(A\) <output id="phmAOut">0.10 m</output></label><input id="phmA" max="0.2" min="0.02" step="0.01" type="range" value="0.1"/></div>
+<div class="btn-row"><button class="tool-btn" id="phmPlay" type="button">Pause</button><button class="tool-btn secondary" id="phmReset" type="button">Start again</button><button class="tool-btn secondary" id="phmSlow" type="button" aria-pressed="false">Slow motion: off</button></div>
+<label class="check-row"><input id="phmShowV" type="checkbox"/> Velocity phasor and spiral</label>
+<label class="check-row"><input id="phmShowA" type="checkbox"/> Acceleration phasor and spiral</label>
+<label class="check-row"><input checked id="phmShowMass" type="checkbox"/> Mass on a spring</label>
+<label class="check-row"><input id="phmShadows" type="checkbox"/> Shadows on the wall</label>
+<label class="check-row"><input checked id="phmGrid" type="checkbox"/> Grid</label>
+</div>
+<div class="nx-bar-info"><div class="readout" id="phmReadout">…</div></div>
+</div>
+</div>
+<h3>Look for these ideas</h3>
+<ul class="nx-list">
+<li><strong>Circle view is the reference circle.</strong> The phasor turns through \(\omega t\) radians: \(\omega = 2\pi f\) radians every second. The height of its tip is \(x\). A quarter turn (\(\pi/2\) rad) takes a quarter of a period.</li>
+<li><strong>SHM graph view</strong> shows the same spiral side-on: the displacement–time graph. The mass sits beside the graph, and the dashed line runs across at its height to the point being drawn right now, so you can see the graph is just the height of the mass plotted against time.</li>
+<li>The <strong>velocity phasor leads by 90°</strong>: when \(x\) is zero (passing equilibrium), \(v\) is at its maximum. The <strong>acceleration phasor leads by 180°</strong>: it always points opposite to the displacement, which is \(a = -\omega^{2}x\).</li>
+<li>In the side view the three curves are the \(x\)–\(t\), \(v\)–\(t\) and \(a\)–\(t\) graphs. Each peak of \(v\) comes a quarter of a period before the next peak of \(x\).</li>
+<li>Change \(m\) or \(k\): the phasor turns faster or slower (\(\omega = \sqrt{k/m}\)), so the turns of the spiral get closer together or further apart on the time axis. Changing \(A\) changes the readings but not the period.</li>
+</ul>
+</div>
 </section>
 
 <section class="pane hidden" data-section="osc" data-view="period">
@@ -1565,12 +1608,16 @@ body.light-mode[data-topic="osc"]{--topic:#68409a;--topic-contrast:#fff}
 </div>
 </div>
 <h3>Drawing coach: sketch a damped oscillation in six steps</h3>
-<p class="sub">Work through the steps with <strong>Next</strong>. The newest part of the drawing is shown in yellow. Copy each step onto paper as you go.</p>
+<p class="sub">Choose light or critical damping and how the oscillator starts, then work through the steps with <strong>Next</strong>. The newest part of the drawing is shown in yellow. Copy each step onto paper as you go.</p>
 <div class="nx-lab">
 <div class="sim"><canvas id="dmpDraw" aria-label="A step by step construction of a damped oscillation graph: axes, period marks, envelope, key points and the final curve"></canvas></div>
 <div class="nx-ctlbar">
 <div class="nx-bar-inputs">
 <h3 id="dmpStepNo">Step 1 of 6</h3>
+<div class="control"><label for="dmpCoachKind">Damping</label><select id="dmpCoachKind"><option value="light">Light damping: oscillates and dies away</option><option value="crit">Critical damping: back to equilibrium in about one period</option></select></div>
+<div class="control dmp-given"><label for="dmpCoachN">Given: amplitude after <output id="dmpCoachNOut">4 periods</output></label><input id="dmpCoachN" max="5" min="1" step="1" type="range" value="4"/></div>
+<div class="control dmp-given"><label for="dmpCoachF">has fallen to <output id="dmpCoachFOut">0.20A</output></label><input id="dmpCoachF" max="0.9" min="0.05" step="0.05" type="range" value="0.2"/></div>
+<div class="control"><label for="dmpCoachStart">How it starts</label><select id="dmpCoachStart"><option value="cos">Released from rest at +A (cosine)</option><option value="sin">Pushed from equilibrium (sine)</option><option value="push" disabled>From +A, pushed towards equilibrium (critical only)</option></select></div>
 <div class="btn-row"><button class="tool-btn secondary" id="dmpBack" type="button">◀ Back</button><button class="tool-btn" id="dmpNext" type="button">Next ▶</button></div>
 </div>
 <div class="nx-bar-info"><div class="readout" id="dmpStepText">…</div></div>
@@ -1581,6 +1628,7 @@ body.light-mode[data-topic="osc"]{--topic:#68409a;--topic-contrast:#fff}
 <li><strong>Light damping:</strong> the system oscillates many times while the amplitude slowly dies away. The period barely changes.</li><li><strong>Heavy damping:</strong> still oscillating, but the amplitude falls quickly and only a few swings are visible.</li><li><strong>Critical damping:</strong> no oscillation. The system returns to equilibrium in the shortest possible time, about one period, without overshooting.</li><li><strong>Over-damping:</strong> no oscillation either, but the return to equilibrium is slower than with critical damping.</li><li>Tick <strong>Show the envelope</strong>: the peaks of a damped oscillation all touch the same exponential decay curve, because the amplitude falls by the same fraction every period.</li><li>Tick <strong>Show period marks</strong>: the peaks stay equally spaced in time, however small they get.</li><li>Tick <strong>Compare all damping levels</strong> to see every case on the same axes. Critical damping is the curve that reaches zero first without crossing it.</li><li>In every damped case the energy removed from the oscillator ends up as heat in the damper.</li>
 </ul>
 </section>
+
 
 
 </main></div></div>
@@ -2562,34 +2610,82 @@ function bar(c,x,y,w,h,frac,col,label,val){c.fillStyle='#141c30';c.fillRect(x,y,
  function reset(){st.t=0;st.run=true;$('dmpPlay').textContent='Pause'}
  ['dmpT','dmpA','dmpKind'].forEach(id=>$(id).addEventListener('input',()=>{ui();reset()}));
  $('dmpPlay').onclick=()=>{st.run=!st.run;$('dmpPlay').textContent=st.run?'Pause':'Play'};$('dmpReset').onclick=reset;
- const STEPS=[
-  ['Draw and label the axes','Displacement goes up the page and time goes across. Mark the starting amplitude <b>+A</b> on the displacement axis and <b>−A</b> below it. The oscillator is released from +A, so the curve will start there.'],
-  ['Mark the periods on the time axis','Mark <b>T, 2T, 3T…</b> at <b>equal spacing</b>. Damping makes the swings smaller, but the period stays the same. Marking half-periods as well makes the next steps easier.'],
-  ['Draw the envelope','From +A, draw a smooth <b>exponential decay</b> curve: steep at first, then flattening towards the time axis without ever touching it. Draw its mirror image from −A. The amplitude falls by the <b>same fraction</b> every period (here, each peak is 65% of the one before).'],
-  ['Mark where the curve touches and crosses','Peaks sit <b>on the top envelope</b> at 0, T, 2T… Troughs sit <b>on the bottom envelope</b> at ½T, 1½T… The curve crosses the time axis halfway between: at ¼T, ¾T, 1¼T…'],
-  ['Draw the cosine curve inside the envelope','Join the points with a smooth curve. It must touch the envelope at each peak and trough and <b>never go outside it</b>. Start flat at +A (a cosine shape), because the oscillator is released from rest. If it started from equilibrium with a push, draw a sine shape starting at zero instead.'],
-  ['Critical damping: a different shape','With critical damping there is <b>no oscillation</b>. Start flat at +A, fall smoothly, and level off onto the time axis in about <b>one period</b>, without crossing it. This is the <b>fastest</b> possible return to equilibrium. An over-damped curve has the same shape but takes longer.']];
- function setStep(n){st.step=Math.max(1,Math.min(STEPS.length,n));$('dmpStepNo').textContent='Step '+st.step+' of '+STEPS.length+' · '+STEPS[st.step-1][0];$('dmpStepText').innerHTML=STEPS[st.step-1][1];$('dmpBack').disabled=st.step===1;$('dmpNext').disabled=st.step===STEPS.length}
- $('dmpBack').onclick=()=>setStep(st.step-1);$('dmpNext').onclick=()=>setStep(st.step+1);
- function coach(){const {c,W,H}=fit(cv2,330,330);clear(c,W,H);const n=st.step,nar=W<560;
-  const x0=nar?48:70,x1=W-(nar?16:30),ym=H/2-6,Ap=H*0.36,NPc=5,r=0.65;const X=t=>x0+t/NPc*(x1-x0),Y=v=>ym-v*Ap;const g=-Math.log(r);
+ const coachEnv=()=>{const N=+$('dmpCoachN').value,F=+$('dmpCoachF').value;return {N,F,r:Math.pow(F,1/N)}};
+ const isPush=()=>isCrit()&&$('dmpCoachStart').value==='push',isSin=()=>$('dmpCoachStart').value==='sin',isCrit=()=>$('dmpCoachKind').value==='crit';
+ const W0=2*Math.PI; /* one period = one time unit on the coach drawing */
+ /* critical damping, as a fraction of A: released from +A, or pushed from equilibrium with the same top speed as the undamped Aω */
+ const critX=(t,sn)=>sn==='push'?(1-W0*t)*Math.exp(-W0*t):sn?W0*t*Math.exp(-W0*t):(1+W0*t)*Math.exp(-W0*t);
+ function steps(){const sn=isSin(),cr=isCrit(),pu=isPush(),{N,F,r}=coachEnv();
+  const s1=['Draw and label the axes','Displacement goes up the page and time goes across. Mark <b>+A</b> and <b>−A</b> on the displacement axis. '+(pu?'The oscillator starts at +A but is already moving <b>towards</b> equilibrium, so the curve starts at +A sloping steeply down.':sn?'The oscillator is pushed from equilibrium, so the curve will start at <b>zero</b>, moving upwards.':'The oscillator is released from rest at +A, so the curve will start there.')];
+  if(!cr)return [s1,
+   ['Mark the periods on the time axis','Mark <b>T, 2T, 3T…</b> at <b>equal spacing</b>. Damping makes the swings smaller, but the period stays the same. Marking half-periods as well makes the next steps easier.'],
+   ['Draw the envelope','The question gives the decay: the amplitude falls to <b>'+F.toFixed(2)+'A after '+N+' period'+(N>1?'s':'')+'</b>. Mark that point first: at <b>'+(N>1?N:'')+'T</b>, a height of '+F.toFixed(2)+'A above the axis (and the same distance below). Then draw a smooth <b>exponential decay</b> from +A through the point: steep at first, flattening towards the axis without ever touching it. Draw its mirror image from −A. The amplitude falls by the <b>same fraction</b> every period: '+F.toFixed(2)+(N>1?'<sup>1/'+N+'</sup>':'')+' = <b>'+r.toFixed(2)+'</b>, so each peak is '+Math.round(r*100)+'% of the one before.'+(sn?' The envelope still starts at ±A at time zero, even though the curve itself starts at zero.':'')],
+   sn?['Mark where the curve touches and crosses','The curve crosses the time axis at <b>0, ½T, T, 1½T…</b> Peaks sit <b>on the top envelope</b> at ¼T, 1¼T, 2¼T… Troughs sit <b>on the bottom envelope</b> at ¾T, 1¾T…']
+     :['Mark where the curve touches and crosses','Peaks sit <b>on the top envelope</b> at 0, T, 2T… Troughs sit <b>on the bottom envelope</b> at ½T, 1½T… The curve crosses the time axis halfway between: at ¼T, ¾T, 1¼T…'],
+   sn?['Draw the sine curve inside the envelope','Join the points with a smooth curve. It must touch the envelope at each peak and trough and <b>never go outside it</b>. Start at zero going upwards (a sine shape), steepest as it crosses the axis, because the oscillator starts at equilibrium moving at its fastest.']
+     :['Draw the cosine curve inside the envelope','Join the points with a smooth curve. It must touch the envelope at each peak and trough and <b>never go outside it</b>. Start flat at +A (a cosine shape), because the oscillator is released from rest.'],
+   ['Check your sketch','Check four things. The curve crosses the axis at <b>evenly spaced</b> times: damping does not change the period. Every peak and trough <b>touches the envelope</b>. Each peak is <b>'+Math.round(r*100)+'%</b> of the one before. The curve <b>never goes outside</b> the envelope. '+(sn?'It starts at zero, steepest there.':'It starts flat at +A.')]];
+  return [s1,
+   ['Mark the periods on the time axis','Mark <b>T, 2T, 3T…</b> at equal spacing. Here T is the period the system <b>would have without damping</b>. It sets the time scale: critical damping brings the system back to equilibrium in about <b>one period</b>.'],
+   ['Draw the envelope','Critical damping removes the energy so quickly that the amplitude falls to almost <b>zero within about one period</b>. From +A, draw a dashed envelope that falls steeply and is almost on the axis by <b>T</b>. Draw its mirror image from −A. Compare it with light damping, where the envelope takes many periods to die away.'],
+   pu?['Mark the key points','Start at <b>+A</b>, sloping <b>steeply down</b> (it was pushed towards equilibrium). It crosses the axis early, at about <b>0.16T</b>, dips to a small minimum of about <b>−0.14A</b> at about 0.32T, then is back at equilibrium by about <b>T</b>.']
+   :sn?['Mark the key points','Start at <b>zero</b>, where the curve is <b>steepest</b> (it was given a push). It rises to a small maximum, about <b>0.37A</b>, at roughly <b>0.16T</b>, well inside the envelope. By <b>T</b> it is back at equilibrium, and it <b>never crosses</b> the axis.']
+     :['Mark the key points','Start at <b>+A</b>, where the curve is <b>flat</b> (released from rest). About a quarter of a period later it is roughly halfway down, <b>0.5A</b>. By <b>T</b> it is back at equilibrium, and it <b>never crosses</b> the axis.'],
+   pu?['Draw the curve inside the envelope','Join the points with a smooth curve: a steep fall through the axis, <b>one small dip</b> below it, then level onto the axis by about T. Critical damping can overshoot equilibrium <b>once at most</b> (only when it starts moving towards equilibrium), but it never oscillates.']
+   :sn?['Draw the curve inside the envelope','Join the points with one smooth hump: up from zero, over the small maximum, then down and levelling onto the axis by about T. There is <b>no oscillation</b>: it never goes below the axis.']
+     :['Draw the curve inside the envelope','Join the points with a smooth curve: flat at +A, steepest part in the first quarter period, then levelling onto the axis by about T. Released from +A, the curve follows the envelope all the way down. There is <b>no oscillation</b>: it never crosses the axis.'],
+   ['Compare with other damping','Critical damping is the <b>fastest return</b> to equilibrium'+(pu?', overshooting once at most.':' without crossing it.')+' <b>Over-damping</b> also never crosses, but is slower to get back. <b>Light damping</b> gets to the axis sooner but overshoots and keeps oscillating.']]}
+ let STEPS=steps();
+ function setStep(n){STEPS=steps();st.step=Math.max(1,Math.min(STEPS.length,n));const S1=STEPS[st.step-1];$('dmpStepNo').textContent='Step '+st.step+' of '+STEPS.length+' · '+S1[0];$('dmpStepText').innerHTML=S1[1];$('dmpBack').disabled=st.step===1;$('dmpNext').disabled=st.step===STEPS.length}
+ function coachUi(){const cr=isCrit(),N=+$('dmpCoachN').value;{const o=$('dmpCoachStart').querySelector('[value=push]');o.disabled=!cr;if(!cr&&$('dmpCoachStart').value==='push')$('dmpCoachStart').value='cos'}document.querySelectorAll('.dmp-given').forEach(e=>e.classList.toggle('hidden',cr));$('dmpCoachNOut').textContent=N+' period'+(N>1?'s':'');$('dmpCoachFOut').textContent=(+$('dmpCoachF').value).toFixed(2)+'A';setStep(st.step);coach()}
+ ['dmpCoachN','dmpCoachF'].forEach(id=>$(id).addEventListener('input',coachUi));['dmpCoachStart','dmpCoachKind'].forEach(id=>$(id).addEventListener('change',coachUi));
+ $('dmpBack').onclick=()=>{setStep(st.step-1);coach()};$('dmpNext').onclick=()=>{setStep(st.step+1);coach()};
+ function coach(){const {c,W,H}=fit(cv2,330,330);clear(c,W,H);const n=st.step,nar=W<560,sn=isSin(),cr=isCrit();
+  const x0=nar?48:70,x1=W-(nar?16:30),ym=H/2-6,Ap=H*0.36,NPc=5,CE=coachEnv(),r=CE.r;const X=t=>x0+t/NPc*(x1-x0),Y=v=>ym-v*Ap;const g=-Math.log(r);
+  const env=cr?(t=>critX(t,false)):(t=>Math.exp(-g*t));
+  const pu=isPush(),cm=pu?'push':sn;const curve=cr?(t=>critX(t,cm)):(t=>Math.exp(-g*t)*(sn?Math.sin(W0*t):Math.cos(W0*t)));
+  const dot=(t,v,rad,col)=>{c.fillStyle=col;c.beginPath();c.arc(X(t),Y(v),rad,0,7);c.fill()};
   // 1 axes
-  line(c,x0,ym,x1,ym,AX,1.6);line(c,x0,Y(1.12),x0,Y(-1.12),AX,1.6);text(c,'\u200bdisplacement',x0+6,Y(1.12)+4,MUT,11);text(c,'\u200btime',x1,ym+(n>=2?30:16),MUT,11,'right');
+  line(c,x0,ym,x1,ym,AX,1.6);line(c,x0,Y(1.12),x0,Y(-1.12),AX,1.6);text(c,'​displacement',x0+6,Y(1.12)+4,MUT,11);text(c,'​time',x1,ym+(n>=2?30:16),MUT,11,'right');
   [1,-1].forEach(sg=>{line(c,x0-6,Y(sg),x0+6,Y(sg),INK,1.6);text(c,sg>0?'+A':'−A',x0-10,Y(sg),n===1?YEL:INK,13,'right','middle')});
   // 2 periods
   if(n>=2)for(let k=1;k<=NPc*2;k++){const big=k%2===0;line(c,X(k/2),ym-(big?7:4),X(k/2),ym+(big?7:4),n===2?YEL:'#8a96b0',big?1.8:1.1);if(big)text(c,(k/2===1?'':k/2)+'T',X(k/2),ym+19,n===2?YEL:INK,12,'center')}
   // 3 envelope
-  if(n>=3&&n<6){[1,-1].forEach(sg=>{const pts=[];for(let t=0;t<=NPc;t+=0.05)pts.push([t,sg*Math.exp(-g*t)]);c.setLineDash([7,5]);path(c,pts,X,Y,n===3?YEL:ORG,n===3?2.4:1.7);c.setLineDash([])});
-   if(n===3)text(c,'\u200benvelope: exponential decay',X(1.6),Y(Math.exp(-g*1.6))-10,YEL,11)}
-  // 4 points
-  if(n>=4&&n<6)for(let k=0;k<=NPc*4;k++){const t=k/4,m=k%4;const v=m===0?Math.exp(-g*t):m===2?-Math.exp(-g*t):0;c.fillStyle=n===4?YEL:'#c8d0e0';c.beginPath();c.arc(X(t),Y(v),n===4?4.5:3,0,7);c.fill()}
-  // 5 curve
-  if(n===5){const pts=[];for(let t=0;t<=NPc;t+=0.01)pts.push([t,Math.exp(-g*t)*Math.cos(2*Math.PI*t)]);path(c,pts,X,Y,VIO,2.8)}
-  // 6 critical and over-damped
-  if(n===6){const w0=2*Math.PI;const lightPts=[],cr=[],ov=[];for(let t=0;t<=NPc;t+=0.01){lightPts.push([t,Math.exp(-g*t)*Math.cos(w0*t)]);cr.push([t,xOf(1,w0,1,t)]);ov.push([t,xOf(2.5,w0,1,t)])}
-   path(c,lightPts,X,Y,'#4a4370',1.6);c.setLineDash([6,5]);path(c,ov,X,Y,RED,2);c.setLineDash([]);path(c,cr,X,Y,GRN,3);
-   text(c,'\u200bcritical damping',X(0.42),Y(0.62),GRN,12);text(c,'\u200bover-damped (slower)',X(1.45),Y(0.3),RED,11);text(c,'\u200blight damping, for comparison',X(2.6),Y(-0.62),'#8f86c9',11);
-   line(c,X(1),Y(0.9),X(1),ym,GRN,1,[3,4]);text(c,'\u200bback at equilibrium by about one period',X(1)+6,Y(0.92),GRN,10)}}
+  if(n>=3){const ec=n===3?YEL:ORG,ew=n===3?2.4:1.7;
+   if(cr&&n===3){const lp=[];for(let t=0;t<=NPc;t+=0.05)lp.push([t,Math.exp(-0.43*t)]);c.globalAlpha=0.45;c.setLineDash([3,5]);path(c,lp,X,Y,'#8f86c9',1.3);path(c,lp.map(p=>[p[0],-p[1]]),X,Y,'#8f86c9',1.3);c.setLineDash([]);c.globalAlpha=1;text(c,'​light damping envelope, for comparison',X(2.3),Y(Math.exp(-0.43*2.3))-10,'#8f86c9',10)}
+   if(n<6||!cr){[1,-1].forEach(sg=>{const pts=[];for(let t=0;t<=NPc;t+=0.02)pts.push([t,sg*env(t)]);c.setLineDash([7,5]);path(c,pts,X,Y,n===6?'rgba(240,166,106,.55)':ec,ew);c.setLineDash([])})}
+   if(!cr&&n<6){if(n===3){const te=Math.abs(CE.N-1.6)<1.1?CE.N+1.3:1.6;text(c,'​envelope: exponential decay',X(te),Y(Math.exp(-g*te))-10,YEL,11)}
+    const col=n===3?YEL:'#c8d0e0',tx=X(CE.N),ty=Y(CE.F);line(c,x0,ty,tx,ty,col,1,[2,4]);line(c,tx,ty,tx,ym,col,1,[2,4]);[1,-1].forEach(sg=>dot(CE.N,sg*CE.F,n===3?5.5:3.5,col));
+    line(c,x0-5,ty,x0+5,ty,col,1.6);text(c,CE.F.toFixed(2)+'A',x0-10,ty,col,11,'right','middle');if(n===3)text(c,'​'+CE.F.toFixed(2)+'A after '+(CE.N>1?CE.N:'')+'T',tx+8,ty-12,YEL,11)}
+   if(cr&&n<6){const col=n===3?YEL:'#c8d0e0';line(c,X(1),Y(1),X(1),ym,col,1,[3,4]);text(c,'​amplitude almost zero by T',X(1)+6,Y(0.55),col,11)}}
+  // 4 key points
+  if(n>=4&&n<6){const pc=n===4?YEL:'#c8d0e0',pr=n===4?4.5:3;
+   if(!cr){for(let k=0;k<=NPc*4;k++){const t=k/4,m=(k+(sn?3:0))%4;dot(t,m===0?Math.exp(-g*t):m===2?-Math.exp(-g*t):0,pr,pc)}}
+   else{const tick=(t,v,slope,len)=>{const dx=len/Math.hypot(1,slope),dy=slope*dx;c.strokeStyle=pc;c.lineWidth=2;c.beginPath();c.moveTo(X(t)-dx,Y(v)+dy);c.lineTo(X(t)+dx,Y(v)-dy);c.stroke()};
+    const k=(x1-x0)/NPc/Ap;
+    if(pu){dot(0,1,pr,pc);tick(0,1,-2*W0/k,16);dot(1/W0,0,pr,pc);dot(2/W0,critX(2/W0,'push'),pr,pc);if(n===4)text(c,'​one small dip ≈ −0.14A',X(2/W0)+8,Y(critX(2/W0,'push'))+14,YEL,11)}
+    else if(sn){dot(0,0,pr,pc);tick(0,0,W0/k,16);const tm=1/W0;dot(tm,critX(tm,true),pr,pc);if(n===4)text(c,'​small maximum ≈ 0.37A at ≈ 0.16T',X(tm)+8,Y(critX(tm,true))-12,YEL,11)}
+    else{dot(0,1,pr,pc);tick(0,1,0,16);let th=0.267;dot(th,critX(th,false),pr,pc);if(n===4)text(c,'​≈ 0.5A at ≈ ¼T',X(th)+8,Y(0.5)-8,YEL,11)}
+    dot(1,critX(1,cm),pr,pc);if(n===4)text(c,'​back at equilibrium by T',X(1)+8,ym-12,YEL,11)}}
+  // 5 curve (kept on for the light-damping check in step 6)
+  if(n===5||(n===6&&!cr)){const pts=[];for(let t=0;t<=NPc;t+=0.005)pts.push([t,curve(t)]);path(c,pts,X,Y,VIO,2.8)}
+  // 6 light damping: check the sketch
+  if(n===6&&!cr){const pk=[];for(let k=0;k<NPc*2;k++){const t=sn?k/2+0.25:k/2,v=(k%2?-1:1)*Math.exp(-g*t);pk.push([t,v])}
+   pk.forEach(p=>dot(p[0],p[1],4,YEL));for(let k=0;k+2<pk.length&&k<4;k+=2){const a=pk[k],b=pk[k+2];text(c,'​×'+r.toFixed(2)+' of the last peak',X(b[0])+8,Y(b[1])-14,YEL,11)}
+   const z0=sn?0:0.25,yb=Y(-1.02);for(let k=0;k<3;k++){const ta=z0+k/2,tb=ta+0.5;line(c,X(ta),yb,X(tb),yb,GRN,1.4);line(c,X(ta),yb-4,X(ta),yb+4,GRN,1.4);line(c,X(tb),yb-4,X(tb),yb+4,GRN,1.4);line(c,X(ta),ym,X(ta),yb,GRN,1,[2,4])}line(c,X(z0+1.5),ym,X(z0+1.5),yb,GRN,1,[2,4]);
+   text(c,'​equal gaps between crossings: the period does not change',X(z0+1.6),yb,GRN,11,'left','middle')}
+  // 6 critical damping: compare
+  if(n===6&&cr){const zo=2.5,so=W0*Math.sqrt(zo*zo-1);const lightPts=[],crp=[],ov=[];
+   const r1=-(zo*W0-so),r2=-(zo*W0+so),c1=(-2*W0-r2)/(r1-r2),gl=0.43,wd=Math.sqrt(W0*W0-gl*gl);
+   for(let t=0;t<=NPc;t+=0.01){
+    lightPts.push([t,Math.exp(-gl*t)*(sn&&!pu?Math.sin(W0*t):Math.cos(W0*t))]);
+    crp.push([t,critX(t,cm)]);
+    ov.push([t,pu?c1*Math.exp(r1*t)+(1-c1)*Math.exp(r2*t):sn?W0/(2*so)*(Math.exp(-(zo*W0-so)*t)-Math.exp(-(zo*W0+so)*t)):xOf(zo,W0,1,t)])}
+   path(c,lightPts,X,Y,'#4a4370',1.6);c.setLineDash([6,5]);path(c,ov,X,Y,RED,2);c.setLineDash([]);path(c,crp,X,Y,GRN,3);
+   if(pu){text(c,'​critical damping: one small overshoot',X(0.36),Y(-0.3),GRN,12);text(c,'​over-damped (slower)',X(1.45),Y(0.3),RED,11)}
+   else if(sn){text(c,'​critical damping',X(0.3),Y(0.5),GRN,12);text(c,'​over-damped (rises less, returns slower)',X(1.2),Y(0.22),RED,11)}
+   else{text(c,'​critical damping',X(0.42),Y(0.62),GRN,12);text(c,'​over-damped (slower)',X(1.45),Y(0.3),RED,11)}
+   text(c,'​light damping (overshoots)',X(2.6),Y(-0.62),'#8f86c9',11);line(c,X(1),Y(0.9),X(1),ym,GRN,1,[3,4]);text(c,'​critical: back by about T',X(1)+6,Y(0.92),GRN,10)}}
  const sim={enter(){ui();setStep(st.step)},step(dt){if(!st.run)return;const p=P();st.t+=dt;if(st.t>=NP*p.T){st.t=NP*p.T;st.run=false;$('dmpPlay').textContent='Play'}},
  draw(){const {c,W,H}=fit(cv,400,520);clear(c,W,H);const p=P(),nar=W<640;const z=Z[p.kind],w0=2*Math.PI/p.T,g=z*w0;
   const env=$('dmpEnv').checked,marks=$('dmpMarks').checked,cmp=$('dmpCmp').checked;
@@ -2644,6 +2740,149 @@ function bar(c,x,y,w,h,frac,col,label,val){c.fillStyle='#141c30';c.fillRect(x,y,
     count.textContent=q?(shown?shown+' of '+cards.length+' terms match.':'No terms match. Try a shorter word.'):'';
   }
   box.addEventListener('input',apply);
+})();
+</script>
+<script>
+/* ===== 4.2 SHM lab, 3D phasor spiral view (shared engine with the Phasor lab) ===== */
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const TAU=Math.PI*2,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),mod=(a,n)=>((a%n)+n)%n;
+/* ---------- colours ---------- */
+function C(){return false?{ /* dark canvas in both themes, like the lab's other simulations */
+ bg:'#f8fafd',grid:'rgba(60,80,120,.16)',plane:'rgba(40,90,160,.05)',axis:'#4b5870',ink:'#18202c',muted:'#5c6a80',
+ spiral:'#c86a00',dot:'#2f55d4',sel:'#8a5d00',q:'#00799c',wallC:'#1d8a55',floorC:'#a8407c',circ:'rgba(40,60,100,.25)',
+ y:'#c86a00',v:'#1d8a55',a:'#c0392b',mass:'#6a3fb5',res:'#18202c',i:'#5c6a80',vr:'#c86a00',vl:'#00799c',vc:'#c2416e',s2:'#00799c'}:{
+ bg:'#070b17',grid:'rgba(140,160,210,.14)',plane:'rgba(120,150,220,.05)',axis:'#8c97b3',ink:'#e8edf6',muted:'#9aa6c0',
+ spiral:'#f0a24a',dot:'#6f8cff',sel:'#ffd76a',q:'#78d9f7',wallC:'#5fd39a',floorC:'#d99ac6',circ:'rgba(160,180,230,.25)',
+ y:'#f0a24a',v:'#5fd39a',a:'#ff8a7a',mass:'#c5a2ff',res:'#f3edf5',i:'#9aa6c0',vr:'#f0a24a',vl:'#78d9f7',vc:'#ff9eb5',s2:'#78d9f7'}}
+
+/* ---------- the 3D engine ---------- */
+const VIEWS={circle:{yaw:0,pitch:0},side:{yaw:Math.PI/2,pitch:0},'3d':{yaw:0.85,pitch:0.36}};
+function Scene(cv,key){
+ const S={cv,ctx:cv.getContext('2d'),yaw:VIEWS['3d'].yaw,pitch:VIEWS['3d'].pitch,goal:null,view:'3d',s:0,ox:0,oy:0,W:0,H:0,onPick:null,onGrab:null,onGrabMove:null,onView:null};
+ const bar=document.querySelector('.ph-views[data-scene="'+key+'"]');S.btns=bar?[...bar.querySelectorAll('[data-view]')]:[];
+ S.setView=n=>{S.goal=VIEWS[n];S.view=n;S.btns.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===n)));if(S.onView)S.onView(n)};
+ S.btns.forEach(b=>b.addEventListener('click',()=>S.setView(b.dataset.view)));
+ S.isCircle=()=>Math.abs(S.yaw)<0.25&&Math.abs(S.pitch)<0.25;
+ const loc=e=>{const r=cv.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top}};
+ let mode=null,lx=0,ly=0,moved=0;cv.style.touchAction='pan-y';
+ cv.addEventListener('pointerdown',e=>{const p=loc(e);moved=0;lx=e.clientX;ly=e.clientY;mode=(S.onGrab&&S.onGrab(p))?'grab':'orbit';try{cv.setPointerCapture(e.pointerId)}catch(_){}});
+ cv.addEventListener('pointermove',e=>{const p=loc(e);
+  if(mode==='grab'){S.onGrabMove(p);return}
+  if(mode==='orbit'){const dx=e.clientX-lx,dy=e.clientY-ly;lx=e.clientX;ly=e.clientY;moved+=Math.abs(dx)+Math.abs(dy);
+   if(moved>4){S.yaw=clamp(S.yaw+dx*0.009,-Math.PI,Math.PI);S.pitch=clamp(S.pitch+dy*0.009,-Math.PI/2,Math.PI/2);S.goal=null;if(S.view!=='free'){S.view='free';S.btns.forEach(b=>b.setAttribute('aria-pressed','false'))}}return}
+  cv.style.cursor=(S.onGrab&&S.onGrab(p,true))?'grab':(S.onPick&&S.onPick(p,true))?'pointer':'move'});
+ const end=e=>{if(mode==='orbit'){if(moved<5){if(S.onPick)S.onPick(loc(e))}else{let best=null,bd=0.35;for(const n in VIEWS){const v=VIEWS[n],d=Math.abs(v.yaw-S.yaw)+Math.abs(v.pitch-S.pitch);if(d<bd){bd=d;best=n}}if(best)S.setView(best)}}mode=null};
+ cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',()=>mode=null);
+ S.begin=box=>{const r=cv.getBoundingClientRect();if(r.width<10)return false;const dpr=Math.min(window.devicePixelRatio||1,2);
+  const W=Math.round(r.width),H=Math.round(r.height);if(cv.width!==Math.round(W*dpr)||cv.height!==Math.round(H*dpr)){cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr)}
+  S.W=W;S.H=H;const c=S.ctx;c.setTransform(dpr,0,0,dpr,0,0);
+  if(S.goal){const g=S.goal,k=0.16;S.yaw+=(g.yaw-S.yaw)*k;S.pitch+=(g.pitch-S.pitch)*k;if(Math.abs(g.yaw-S.yaw)<0.002&&Math.abs(g.pitch-S.pitch)<0.002){S.yaw=g.yaw;S.pitch=g.pitch;S.goal=null}}
+  S.cy=Math.cos(S.yaw);S.sy=Math.sin(S.yaw);S.cp=Math.cos(S.pitch);S.sp=Math.sin(S.pitch);S.av=clamp(Math.max(Math.abs(S.sy),Math.abs(S.sp))*3-0.2,0,1);S.side=clamp(1-(Math.abs(S.yaw-Math.PI/2)+Math.abs(S.pitch))*5,0,1);
+  let x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;
+  for(const X of [box.x0,box.x1])for(const Y of [box.y0,box.y1])for(const Z of [box.z0,box.z1]){const xx=X*S.cy+Z*S.sy,z1=-X*S.sy+Z*S.cy,yy=Y*S.cp-z1*S.sp;x0=Math.min(x0,xx);x1=Math.max(x1,xx);y0=Math.min(y0,yy);y1=Math.max(y1,yy)}
+  const pad=26,padR=Math.min(88,W*0.12),ts=Math.min((W-pad-padR)/Math.max(x1-x0,1e-3),(H-2*pad)/Math.max(y1-y0,1e-3),H*0.34);
+  const tox=(W-padR+pad)/2-(x0+x1)/2*ts,toy=H/2+(y0+y1)/2*ts;
+  if(!S.s){S.s=ts;S.ox=tox;S.oy=toy}else{const k=0.2;S.s+=(ts-S.s)*k;S.ox+=(tox-S.ox)*k;S.oy+=(toy-S.oy)*k}
+  S.col=C();c.fillStyle=S.col.bg;c.fillRect(0,0,W,H);return true};
+ S.P=(X,Y,Z)=>{const x1=X*S.cy+Z*S.sy,z1=-X*S.sy+Z*S.cy;return [S.ox+x1*S.s,S.oy-(Y*S.cp-z1*S.sp)*S.s,Y*S.sp+z1*S.cp]};
+ S.path=(pts,color,w,o)=>{if(pts.length<2)return;const c=S.ctx;o=o||{};c.save();c.globalAlpha=o.alpha??1;c.strokeStyle=color;c.lineWidth=w||2;c.lineJoin='round';c.lineCap='round';if(o.dash)c.setLineDash(o.dash);
+  c.beginPath();pts.forEach((p,i)=>{const q=S.P(p[0],p[1],p[2]);i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1])});if(o.close)c.closePath();if(o.fill){c.fillStyle=o.fill;c.fill()}c.stroke();c.restore()};
+ S.arrow=(a,b,color,w,o)=>{const c=S.ctx,p=S.P(...a),q=S.P(...b),dx=q[0]-p[0],dy=q[1]-p[1],L=Math.hypot(dx,dy);o=o||{};c.save();c.globalAlpha=o.alpha??1;c.strokeStyle=c.fillStyle=color;c.lineWidth=w||3;c.lineCap='round';
+  const h=Math.min(11+w,L*0.45),ux=dx/(L||1),uy=dy/(L||1);c.beginPath();c.moveTo(p[0],p[1]);c.lineTo(q[0]-ux*h*0.7,q[1]-uy*h*0.7);c.stroke();
+  if(L>4){c.beginPath();c.moveTo(q[0],q[1]);c.lineTo(q[0]-ux*h-uy*h*0.45,q[1]-uy*h+ux*h*0.45);c.lineTo(q[0]-ux*h+uy*h*0.45,q[1]-uy*h-ux*h*0.45);c.closePath();c.fill()}c.restore();return q};
+ S.dot=(p,r,color,o)=>{const c=S.ctx,q=S.P(...p);o=o||{};c.save();c.globalAlpha=o.alpha??1;c.fillStyle=color;c.beginPath();c.arc(q[0],q[1],r,0,TAU);c.fill();if(o.ring){c.lineWidth=2;c.strokeStyle=o.ring;c.stroke()}c.restore();return q};
+ S.box=(cx,cy,cz,h,color)=>{const c=S.ctx,V=[];for(const dx of [-1,1])for(const dy of [-1,1])for(const dz of [-1,1])V.push(S.P(cx+dx*h,cy+dy*h,cz+dz*h));
+  const F=[[0,1,3,2,'x',-1],[4,5,7,6,'x',1],[0,1,5,4,'y',-1],[2,3,7,6,'y',1],[0,2,6,4,'z',-1],[1,3,7,5,'z',1]];
+  F.map(f=>({f,d:(V[f[0]][2]+V[f[1]][2]+V[f[2]][2]+V[f[3]][2])/4})).sort((a,b)=>a.d-b.d).forEach(({f})=>{c.beginPath();[0,1,2,3].forEach((k,i)=>{const q=V[f[k]];i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1])});c.closePath();c.fillStyle=color;c.fill();
+   const shade=f[4]==='y'?(f[5]>0?'rgba(255,255,255,.28)':'rgba(0,0,0,.35)'):f[4]==='x'?'rgba(0,0,0,.18)':'rgba(255,255,255,.08)';c.fillStyle=shade;c.fill();c.strokeStyle='rgba(0,0,0,.35)';c.lineWidth=1;c.stroke()})};
+ S.circle=(z,r,color,w,o)=>{const pts=[];for(let i=0;i<=72;i++){const t=i/72*TAU;pts.push([r*Math.cos(t),r*Math.sin(t),z])}S.path(pts,color,w||1,o)};
+ S.text=(p,str,color,o)=>{const c=S.ctx,q=S.P(...p);o=o||{};c.save();c.globalAlpha=o.alpha??1;c.fillStyle=color;const size=o.size||13;c.font=(o.bold===false?'':'700 ')+size+'px Arial';c.textAlign=o.align||'left';c.textBaseline='middle';
+  const [base,sub]=String(str).split('_');const x=q[0]+(o.dx||0),y=q[1]+(o.dy||0);c.fillText(base,x,y);if(sub){const w=c.measureText(base).width*(c.textAlign==='center'?0.5:c.textAlign==='right'?0:1);c.font=(o.bold===false?'':'700 ')+Math.round(size*0.72)+'px Arial';c.textAlign='left';c.fillText(sub,x+w+1,y+size*0.3)}c.restore()};
+ /* the wall (X = ±w, shows y against the axis) and floor (Y = ±w) on the far side from the viewer */
+ S.planes=(z0,z1,w,show,opt)=>{opt=opt||{};const wx=(S.sy*S.cp>=0?1:-1)*w,fy=(S.sp>=0?-1:1)*w,aw=clamp(Math.abs(S.sy*S.cp)*2.2,0,1),af=clamp(Math.abs(S.sp)*2.2,0,1),ab=clamp(Math.abs(S.cy*S.cp)*2.2-0.5,0,1),zb=S.cy*S.cp>=0?z0:z1;
+  const col=S.col,zs=opt.zs||[],ys=opt.ys||[-w*0.66,w*0.66],gl=(a,b,al,wd)=>S.path([a,b],col.grid,wd||1,{alpha:al});
+  if(show||opt.grid){
+   if(aw>0.02){S.path([[wx,-w,z0],[wx,w,z0],[wx,w,z1],[wx,-w,z1]],col.grid,1,{close:true,fill:col.plane,alpha:aw});zs.forEach(z=>gl([wx,-w,z],[wx,w,z],aw*0.75));ys.forEach(y=>gl([wx,y,z0],[wx,y,z1],aw*0.75));gl([wx,0,z0],[wx,0,z1],aw,1.3)}
+   if(af>0.02){S.path([[-w,fy,z0],[w,fy,z0],[w,fy,z1],[-w,fy,z1]],col.grid,1,{close:true,fill:col.plane,alpha:af});zs.forEach(z=>gl([-w,fy,z],[w,fy,z],af*0.75));ys.forEach(x=>gl([x,fy,z0],[x,fy,z1],af*0.75));gl([0,fy,z0],[0,fy,z1],af,1.3)}
+   if(opt.grid&&ab>0.02){S.path([[-w,-w,zb],[w,-w,zb],[w,w,zb],[-w,w,zb]],col.grid,1,{close:true,fill:col.plane,alpha:ab});ys.forEach(v=>{gl([v,-w,zb],[v,w,zb],ab*0.75);gl([-w,v,zb],[w,v,zb],ab*0.75)});gl([0,-w,zb],[0,w,zb],ab,1.3);gl([-w,0,zb],[w,0,zb],ab,1.3)}}
+  return {wx,fy,aw:show?aw:0,af:show?af:0}};
+ S.axes=(z0,z1,label,R)=>{const col=S.col;S.arrow([0,0,z0],[0,0,z1],col.axis,1.6);{const q=S.P(0,0,z1);S.ctx.font='12px Arial';const lw=S.ctx.measureText(label).width;if(q[0]+8+lw<S.W-4)S.text([0,0,z1],label,col.muted,{alpha:S.av,dx:8,dy:0,size:12,bold:false});else S.text([0,0,z1],label,col.muted,{alpha:S.av,dx:-2,dy:-13,size:12,bold:false,align:'right'})}
+  S.path([[0,-R,z0],[0,R,z0]],col.axis,1.2,{alpha:0.8});S.text([0,R,z0],S.ylab||'y',col.muted,{dx:6,size:13});
+  S.path([[-R,0,z0],[R,0,z0]],col.axis,1,{alpha:0.45})};
+ return S;
+}
+const scenes={},RD={},RNG=(a,b,st)=>{const o=[];for(let v=a;v<=b+1e-9;v+=st)o.push(v);return o};
+const bindOut=(id,fmt,cb)=>{const el=$(id),out=$(id+'Out');const f=()=>{if(out)out.textContent=fmt(+el.value);if(cb)cb()};el.addEventListener('input',f);f();return ()=>+el.value};
+const playBtn=(id,st)=>{const b=$(id);b.addEventListener('click',()=>{st.play=!st.play;b.textContent=st.play?'Pause':'Play'});return v=>{st.play=v;b.textContent=v?'Pause':'Play'}};
+const deg=r=>Math.round(mod(r*180/Math.PI,360));
+
+/* =====================================================================
+   2.1  SHM phasors: y, v and a, with a mass on a spring
+   ===================================================================== */
+(function(){
+ const S=scenes.mech=Scene($('phmCanvas'),'phm');S.ylab='x';const st={t:0,play:true,slow:false};
+ const M=bindOut('phmM',v=>v.toFixed(2)+' kg'),K=bindOut('phmK',v=>v+' N m⁻¹'),AA=bindOut('phmA',v=>v.toFixed(2)+' m');
+ const setPlay=playBtn('phmPlay',st);$('phmReset').addEventListener('click',()=>{st.t=0});$('phmStart').addEventListener('change',()=>{st.t=0});
+ $('phmSlow').addEventListener('click',e=>{st.slow=!st.slow;e.target.textContent='Slow motion: '+(st.slow?'on':'off');e.target.setAttribute('aria-pressed',String(st.slow))});
+ const WIN=4,LS=1.4;let tipScr=null,axScr=null;
+ S.onGrab=(p,test)=>{if(!S.isCircle()||!tipScr)return false;const hit=Math.hypot(p.x-tipScr[0],p.y-tipScr[1])<18;if(hit&&!test)setPlay(false);return hit};
+ S.onGrabMove=p=>{const om=Math.sqrt(K()/M()),T=TAU/om,ph0=$('phmStart').value==='cos'?Math.PI/2:0;
+  const ang=Math.atan2(-(p.y-axScr[1]),p.x-axScr[0]),cyc=Math.floor(st.t/T)*T;let t=cyc+mod(ang-ph0,TAU)/om;if(t>=WIN)t-=T;st.t=Math.max(0,t)};
+ st.draw=S.draw0=dt=>{if(st.play)st.t+=dt*(st.slow?0.25:1);if(st.t>=WIN)st.t=0;
+  const m=M(),k=K(),A=AA(),om=Math.sqrt(k/m),T=TAU/om,ph0=$('phmStart').value==='cos'?Math.PI/2:0,col=C(),showM=$('phmShowMass').checked;
+  const z0=-WIN*LS/2,z1=WIN*LS/2,wp=1.45;
+  if(!S.begin({x0:-wp,x1:showM?2.5:wp,y0:-wp,y1:showM?2.1:wp,z0:showM?z0-2.5:z0-0.35,z1:z1+0.55}))return;
+  const tt=st.t,zc=z0+tt*LS,th=om*tt+ph0,pl=S.planes(z0,z1+0.3,wp,$('phmShadows').checked,{grid:$('phmGrid').checked,zs:RNG(0,WIN,0.5).map(t=>z0+t*LS),ys:[-1,-0.5,0.5,1]});
+  const list=[{r:1,off:0,c:col.y,lab:'x',on:true},{r:0.78,off:Math.PI/2,c:col.v,lab:'v',on:$('phmShowV').checked},{r:0.58,off:Math.PI,c:col.a,lab:'a',on:$('phmShowA').checked}];
+  const spiral=q=>{const pts=[],n=Math.max(2,Math.ceil(tt/T*90));for(let i=0;i<=n;i++){const u=i/n*tt,a=om*u+ph0+q.off;pts.push([q.r*Math.cos(a),q.r*Math.sin(a),z0+u*LS])}return pts};
+  const sps=list.map(q=>q.on?spiral(q):null);
+  if(pl.aw)list.forEach((q,i)=>{if(q.on)S.path(sps[i].map(p=>[pl.wx,p[1],p[2]]),q.c,i?1.6:2.2,{alpha:pl.aw*(i?0.75:1)})});
+  S.axes(z0,z1+0.55,'time, t (s)',1.3);
+  for(let s=1;s<=WIN;s++){const z=z0+s*LS;S.path([[0,-0.07,z],[0,0.07,z]],col.axis,1.4);S.text([0,0,z],s+' s',col.muted,{alpha:S.av,dy:15,align:'center',size:11,bold:false})}
+  if(T<WIN){S.path([[0,-1.18,z0],[0,-1.18,z0+T*LS]],col.y,1.5,{alpha:0.7*S.av});S.text([0,-1.18,z0+T*LS/2],'T',col.y,{alpha:S.av,dy:12,align:'center',size:12})}
+  S.circle(zc,1,col.circ,1.4);
+  list.forEach((q,i)=>{if(q.on)S.path(sps[i],q.c,i?1.8:2.6,{alpha:i?0.8:1})});
+  const tips=list.map(q=>[q.r*Math.cos(th+q.off),q.r*Math.sin(th+q.off),zc]);
+  if(showM){const mx=1.9,zm=z0-2.0,top=1.85,my=tips[0][1],hb=0.17,c=S.ctx;
+   /* scale beside the oscillator: equilibrium, +A and -A */
+   const rx=mx+0.5,rz=zm-0.4;S.path([[rx,-1.1,rz],[rx,1.1,rz]],col.muted,1.4);
+   [[1,'+A'],[0,'0'],[-1,'−A']].forEach(([v,lab])=>{S.path([[rx-0.07,v,rz],[rx+0.07,v,rz]],col.muted,1.4);S.text([rx,v,rz],lab,col.muted,{dx:9,size:12})});
+   S.path([[mx-0.45,0,zm],[rx,0,rz]],col.muted,1,{dash:[3,4],alpha:0.7});
+   if(S.side>0.02)[1,-1].forEach(v=>S.path([[rx,v,rz],[0,v,z0-0.3],[0,v,z1+0.3]],col.y,1,{dash:[2,5],alpha:0.55*S.side}));
+   /* ceiling plate, coiled spring, solid mass */
+   S.box(mx,top+0.04,zm,0.04,col.muted);S.path([[mx-0.3,top,zm-0.3],[mx+0.3,top,zm-0.3],[mx+0.3,top,zm+0.3],[mx-0.3,top,zm+0.3]],col.muted,1.5,{close:true,fill:col.muted,alpha:0.55});
+   const yb=my+hb,coil=[],turns=11,rc=0.11,n=turns*24;coil.push([mx,top,zm]);
+   for(let i=0;i<=n;i++){const u=i/n,y=top-0.06-(top-0.12-yb)*u,a=u*turns*TAU;coil.push([mx+rc*Math.cos(a),y,zm+rc*Math.sin(a)])}coil.push([mx,yb,zm]);
+   S.path(coil,col.muted,1.8);S.box(mx,my,zm,hb,col.mass);
+   /* the link: same height as the tip of the displacement phasor */
+   S.path([[mx,my,zm],tips[0]],col.y,1.4,{dash:[5,4]});S.dot([mx+hb+0.01,my,zm],3,col.y)}
+  list.forEach((q,i)=>{if(!q.on)return;S.arrow([0,0,zc],tips[i],q.c,i?2.4:3.2);S.text(tips[i],q.lab,q.c,{dx:8,dy:-8,size:14})});
+  if(pl.aw)S.dot([pl.wx,tips[0][1],zc],4,col.y,{alpha:pl.aw});
+  S.dot(tips[0],6,col.y);tipScr=S.P(...tips[0]);axScr=S.P(0,0,zc);
+  const y=A*Math.sin(th),v=A*om*Math.cos(th),a=-A*om*om*Math.sin(th),cs=$('phmStart').value==='cos';
+  RD.phmReadout='<strong class="big">\\(T = 2\\pi\\sqrt{m/k}\\) = '+T.toFixed(2)+' s</strong><br/>\\(\\omega = \\sqrt{k/m}\\) = '+om.toFixed(2)+' rad s⁻¹ · \\(f\\) = '+(1/T).toFixed(2)+' Hz<br/>'+
+   'Phase angle: '+mod(om*tt,TAU).toFixed(2)+' rad ('+deg(om*tt)+'°) since \\(t = 0\\)<br/>'+
+   (cs?'\\(x = A\\cos\\omega t\\) = ':'\\(x = A\\sin\\omega t\\) = ')+'<strong>'+(y*100).toFixed(1)+' cm</strong><br/>'+
+   (cs?'\\(v = -A\\omega\\sin\\omega t\\) = ':'\\(v = A\\omega\\cos\\omega t\\) = ')+'<strong>'+v.toFixed(3)+' m s⁻¹</strong><br/>'+
+   (cs?'\\(a = -A\\omega^{2}\\cos\\omega t\\) = ':'\\(a = -A\\omega^{2}\\sin\\omega t\\) = ')+'<strong>'+a.toFixed(2)+' m s⁻²</strong><br/>'+
+   '\\(v_{\\text{max}} = A\\omega\\) = '+(A*om).toFixed(3)+' m s⁻¹ · \\(a_{\\text{max}} = A\\omega^{2}\\) = '+(A*om*om).toFixed(2)+' m s⁻²'};
+})();
+
+
+let on=false,last=performance.now(),tick=0;
+let view='',mode='2d';const upd=()=>{on=view==='osc:shm'&&mode==='3d';last=performance.now()};
+window.addEventListener('emag-view',e=>{view=e.detail;upd()});
+const copy=(from,to)=>{const a=$(from),b=$(to);if(!a||!b)return;b.value=a.value;b.dispatchEvent(new Event('input',{bubbles:true}))};
+document.querySelectorAll('[data-shm-mode]').forEach(btn=>btn.addEventListener('click',()=>{const m=btn.dataset.shmMode;if(m===mode)return;
+ if(m==='3d'){copy('shmK','phmK');copy('shmM','phmM');copy('shmA','phmA')}else{copy('phmK','shmK');copy('phmM','shmM');copy('phmA','shmA')}
+ mode=m;document.querySelectorAll('[data-shm-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.shmMode===m)));$('shm2d').classList.toggle('hidden',m!=='2d');$('shm3d').classList.toggle('hidden',m!=='3d');
+ if(m==='3d'&&$('shmMode')&&$('shmMode').value==='pend'){$('shmMode').value='spring';$('shmMode').dispatchEvent(new Event('change',{bubbles:true}))}
+ upd();window.dispatchEvent(new Event('resize'))}));
+function frame(now){const dt=Math.min(0.05,(now-last)/1000);last=now;
+ if(on&&!document.hidden){scenes.mech.draw0(dt);tick++;if(tick%15===1){const el=$('phmReadout');if(el&&RD.phmReadout!=null&&el.__last!==RD.phmReadout){el.innerHTML=RD.phmReadout;el.__last=RD.phmReadout}}}
+ requestAnimationFrame(frame)}
+view=(location.hash||'').slice(1).replace('-',':');upd();requestAnimationFrame(frame);
 })();
 </script>
 </body></html>

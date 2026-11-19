@@ -5,6 +5,10 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.22 · 19 November 2026 (Year 13 Mechanics: 3D phasor spiral in the SHM lab, and a better drawing coach)
+- 4.2 SHM Lab has a new 3D phasor spiral view beside the reference circle and graphs, with mass, k and A carried across. The reference circle is stretched along a time axis into a spiral. Circle, graph and 3D views (snapping exactly into place), velocity and acceleration phasors, and a 3D spring and mass fixed beside the graph with ±A guide lines and a grid. Drag the phasor tip in circle view to set the phase.
+- 4.9 Damping Lab drawing coach: choose light or critical damping, and how the oscillator starts (released from +A, pushed from equilibrium, or, for critical damping, pushed towards equilibrium so it overshoots once). Step 3 uses given data (amplitude after a number of periods) to draw the envelope; light damping ends with a "check your sketch" step, critical damping with a comparison of damping levels.
+
 ## v1.21 · 18 November 2026 (Year 12 Non-linear data: Graph practice lab, and tab styling)
 - Year 12 Non-linear data: a Graph practice lab built from the real class data sets (distance and time, pendulum, spring, power and current, wave speed, Ohm's law). Students choose the transform, read the gradient, find the unknown, and can open the worked steps.
 - Quick check tabs (e.g. 3.9) and the Mixed challenge tab now use the same tab style as the rest.
