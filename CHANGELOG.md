@@ -5,6 +5,9 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.23 · 23 November 2026 (Feedback button on every page)
+- A Feedback button in the bottom-right corner of every page opens a short form for comments, errors and feature requests. It is temporary and will be removed when the site is finished.
+
 ## v1.22 · 19 November 2026 (Year 13 Mechanics: 3D phasor spiral in the SHM lab, and a better drawing coach)
 - 4.2 SHM Lab has a new 3D phasor spiral view beside the reference circle and graphs, with mass, k and A carried across. The reference circle is stretched along a time axis into a spiral. Circle, graph and 3D views (snapping exactly into place), velocity and acceleration phasors, and a 3D spring and mass fixed beside the graph with ±A guide lines and a grid. Drag the phasor tip in circle view to set the phase.
 - 4.9 Damping Lab drawing coach: choose light or critical damping, and how the oscillator starts (released from +A, pushed from equilibrium, or, for critical damping, pushed towards equilibrium so it overshoots once). Step 3 uses given data (amplitude after a number of periods) to draw the envelope; light damping ends with a "check your sketch" step, critical damping with a comparison of damping levels.
