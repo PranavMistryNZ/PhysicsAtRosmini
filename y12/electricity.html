@@ -1529,11 +1529,11 @@ const SCOPE = {
     ["Use balanced forces (\\(Eq = mg\\)) for a charged particle held still", "Floating charge", "field:problems"],
   ],
   dc: [
-    ["Use \\(\mathrm{I} = \\frac{q}{t}\\) and \\(V = \\frac{\\Delta E}{q}\\), including the number of electrons", "Charge & energy", "dc:intro"],
-    ["Use \\(V = \mathrm{I}R\\), and describe ohmic and non-ohmic V–I graphs", "Ohm's law", "dc:intro"],
+    ["Use \\(\\mathrm{I} = \\frac{q}{t}\\) and \\(V = \\frac{\\Delta E}{q}\\), including the number of electrons", "Charge & energy", "dc:intro"],
+    ["Use \\(V = \\mathrm{I}R\\), and describe ohmic and non-ohmic V–I graphs", "Ohm's law", "dc:intro"],
     ["Find the total resistance, currents and voltages in series and parallel circuits", "Circuit lab", "dc:circuit"],
     ["Solve combination circuits step by step", "Combination circuits", "dc:clinic"],
-    ["Calculate power and energy with \\(P = \mathrm{I}V\\) and \\(P = \\frac{\\Delta E}{t}\\), and link power to brightness", "Power", "dc:circuit"],
+    ["Calculate power and energy with \\(P = \\mathrm{I}V\\) and \\(P = \\frac{\\Delta E}{t}\\), and link power to brightness", "Power", "dc:circuit"],
     ["Explain how adding or removing a branch changes the currents and the brightness", "Changing circuits", "dc:clinic"],
   ],
   mag: [
@@ -1544,7 +1544,7 @@ const SCOPE = {
   ],
   induct: [
     ["Explain why a voltage is induced across a conductor moving through a magnetic field", "Induced voltage", "induct:intro"],
-    ["Use \\(V = BvL\\) and \\(\mathrm{I} = \\frac{V}{R}\\) for a moving rod", "Sliding rod", "induct:rails"],
+    ["Use \\(V = BvL\\) and \\(\\mathrm{I} = \\frac{V}{R}\\) for a moving rod", "Sliding rod", "induct:rails"],
     ["Use Lenz's law to find the direction of the induced current and the opposing force", "Lenz's law", "induct:rails"],
     ["Explain the energy changes when a rod is pushed through a field, or a magnet into a coil", "Energy", "induct:intro"],
   ],
@@ -1571,7 +1571,7 @@ const TIPS = {
   "mag:problems": "For circular motion in a field, link: force at 90° to velocity → no work → constant speed → constant-size centripetal force → circle.",
   "induct:intro": "Always explain an induced current with Lenz's law and energy: the current opposes the motion, so work must be done.",
   "induct:rails": "Find the direction of the current with the slap rule (thumb = velocity), then check the force on the rod opposes the motion.",
-  "induct:problems": "Show that the mechanical power \\(Fv\\) equals the electrical power \\(V\mathrm{I}\\). It's the cleanest way to prove energy is conserved.",
+  "induct:problems": "Show that the mechanical power \\(Fv\\) equals the electrical power \\(V\\mathrm{I}\\). It's the cleanest way to prove energy is conserved.",
 };
 
 /* ====================================================== NAVIGATION ===== */
@@ -1777,13 +1777,13 @@ const Q = {
     ["An electron is accelerated from rest through 100 V. The energy it gains is…", ["100 J", "1.6 × 10⁻¹⁷ J", "1.6 × 10⁻²¹ J", "6.25 × 10²⁰ J"], 1, "Across the whole gap \\(Eqd = qV = 1.60 \\times 10^{-19} \\times 100 = 1.6 \\times 10^{-17}\\,\\mathrm{J}\\)."],
   ],
   dc: [
-    ["A current of 0.25 A flows for 2.0 minutes. The charge that flows is…", ["0.5 C", "30 C", "8.0 C", "480 C"], 1, "\\(q = \mathrm{I}t = 0.25 \\times 120 = 30\\,\\mathrm{C}\\). Convert minutes to seconds."],
+    ["A current of 0.25 A flows for 2.0 minutes. The charge that flows is…", ["0.5 C", "30 C", "8.0 C", "480 C"], 1, "\\(q = \\mathrm{I}t = 0.25 \\times 120 = 30\\,\\mathrm{C}\\). Convert minutes to seconds."],
     ["A 6.0 V battery moves 20 C of charge. The energy it transfers is…", ["3.3 J", "26 J", "120 J", "0.30 J"], 2, "\\(\\Delta E = qV = 20 \\times 6.0 = 120\\,\\mathrm{J}\\)."],
-    ["A resistor has 9.0 V across it and 0.30 A through it. Its resistance is…", ["2.7 Ω", "30 Ω", "0.033 Ω", "9.3 Ω"], 1, "\\(R = \\frac{V}{\mathrm{I}} = \\frac{9.0}{0.30} = 30\\,\\Omega\\)."],
+    ["A resistor has 9.0 V across it and 0.30 A through it. Its resistance is…", ["2.7 Ω", "30 Ω", "0.033 Ω", "9.3 Ω"], 1, "\\(R = \\frac{V}{\\mathrm{I}} = \\frac{9.0}{0.30} = 30\\,\\Omega\\)."],
     ["Resistors of 4.0 Ω and 12 Ω are connected in parallel. The total resistance is…", ["16 Ω", "8.0 Ω", "3.0 Ω", "0.33 Ω"], 2, "\\(\\frac{1}{R_{T}} = \\frac{1}{4.0} + \\frac{1}{12} = \\frac{1}{3.0}\\), so \\(R_{T} = 3.0\\,\\Omega\\), less than the smaller resistor."],
     ["In a series circuit, which is the same for every component?", ["Voltage", "Current", "Power", "Resistance"], 1, "There's only one path, so the same current flows through everything."],
     ["How should a voltmeter be connected?", ["In series with the component", "In parallel across the component", "Across the battery only", "Either way"], 1, "A voltmeter compares two points, so it goes across (in parallel with) the component."],
-    ["A 60 W lamp runs on 240 V. The current through it is…", ["4.0 A", "0.25 A", "14 400 A", "180 A"], 1, "\\(\mathrm{I} = \\frac{P}{V} = \\frac{60}{240} = 0.25\\,\\mathrm{A}\\)."],
+    ["A 60 W lamp runs on 240 V. The current through it is…", ["4.0 A", "0.25 A", "14 400 A", "180 A"], 1, "\\(\\mathrm{I} = \\frac{P}{V} = \\frac{60}{240} = 0.25\\,\\mathrm{A}\\)."],
     ["Another lamp is added in parallel to a lamp across a battery. The current from the battery…", ["decreases", "stays the same", "increases", "drops to zero"], 2, "An extra branch lowers the total resistance, so the supply current goes up. The first lamp is unchanged."],
     ["As a filament lamp gets hotter, its resistance…", ["decreases", "stays constant", "increases", "becomes zero"], 2, "Hotter metal atoms vibrate more and get in the way of the electrons more, so the resistance rises: a non-ohmic component."],
     ["A 2.0 kW kettle runs for 3.0 minutes. The energy it uses is…", ["6.0 kJ", "360 kJ", "6.0 J", "667 J"], 1, "\\(\\Delta E = Pt = 2000 \\times 180 = 3.6 \\times 10^{5}\\,\\mathrm{J}\\)."],
@@ -1809,7 +1809,7 @@ const Q = {
     ["Where does the voltage across a moving rod come from?", ["Friction with the rails", "The magnetic force Bqv on its free charges, along the rod", "The resistor", "Gravity"], 1, "The free charges move with the rod across the field, so each feels F = Bqv along the rod and they gather at one end."],
     ["A moving rod in a complete circuit carries an induced current. The magnetic force on the rod…", ["helps it move", "opposes its motion", "is zero", "points into the page"], 1, "Lenz's law: the induced current makes a force that opposes the change that caused it."],
     ["Why must the induced current oppose the motion?", ["Charge is conserved", "Energy is conserved", "The resistor is too big", "The field is uniform"], 1, "If it helped the motion, the rod would speed up by itself and make energy from nothing."],
-    ["A rod moving on rails induces 0.60 V in a 3.0 Ω circuit. The current is…", ["1.8 A", "0.20 A", "5.0 A", "3.6 A"], 1, "\\(\mathrm{I} = \\frac{V}{R} = \\frac{0.60}{3.0} = 0.20\\,\\mathrm{A}\\)."],
+    ["A rod moving on rails induces 0.60 V in a 3.0 Ω circuit. The current is…", ["1.8 A", "0.20 A", "5.0 A", "3.6 A"], 1, "\\(\\mathrm{I} = \\frac{V}{R} = \\frac{0.60}{3.0} = 0.20\\,\\mathrm{A}\\)."],
     ["A magnet is held still inside a coil. The meter connected to the coil reads…", ["a steady current", "zero", "an alternating current", "the maximum"], 1, "A voltage is only induced while something changes: the magnet must move relative to the coil."],
     ["Which change does NOT increase the induced voltage across a moving rod?", ["Moving it faster", "Using a stronger field", "Using a longer rod in the field", "Using a rod with a higher resistance"], 3, "\\(V = BvL\\): resistance doesn't appear. A higher resistance only reduces the current."],
     ["A rod is pushed at constant speed with an induced current flowing. The work done by the push becomes…", ["kinetic energy of the rod", "electrical energy, then heat in the resistor", "magnetic energy stored forever", "nothing; it's lost"], 1, "At constant speed the kinetic energy doesn't change, so all the work becomes electrical energy, which the resistor turns into heat."],
@@ -2341,9 +2341,9 @@ const sci = (x, d = 3) => tn(fmt(x, d));
     out.innerHTML = [
       `<b>1 · Parallel part.</b> \\(\\frac{1}{R_{\\parallel}} = \\frac{1}{${R2}} + \\frac{1}{${R3}} = ${f(1 / Rp)}\\), so \\(R_{\\parallel} = ${f(Rp)}\\,\\Omega\\)`,
       `<b>2 · Total.</b> \\(R_{T} = ${R1} + ${f(Rp)} = ${f(RT)}\\,\\Omega\\)`,
-      `<b>3 · Supply current.</b> \\(\mathrm{I} = \\frac{${V}}{${f(RT)}} = ${f(I)}\\,\\mathrm{A}\\), which all flows through \\(R_{1}\\)`,
+      `<b>3 · Supply current.</b> \\(\\mathrm{I} = \\frac{${V}}{${f(RT)}} = ${f(I)}\\,\\mathrm{A}\\), which all flows through \\(R_{1}\\)`,
       `<b>4 · Share the voltage.</b> \\(V_{1} = ${f(I)} \\times ${R1} = ${f(V1)}\\,\\mathrm{V}\\); the parallel pair gets \\(${V} - ${f(V1)} = ${f(Vp)}\\,\\mathrm{V}\\)`,
-      `<b>5 · Split the current.</b> \\(\mathrm{I}_{2} = \\frac{${f(Vp)}}{${R2}} = ${f(I2)}\\,\\mathrm{A}\\), \\(\mathrm{I}_{3} = \\frac{${f(Vp)}}{${R3}} = ${f(I3)}\\,\\mathrm{A}\\). Check: \\(${f(I2)} + ${f(I3)} = ${f(I2 + I3)}\\,\\mathrm{A}\\) ✓`,
+      `<b>5 · Split the current.</b> \\(\\mathrm{I}_{2} = \\frac{${f(Vp)}}{${R2}} = ${f(I2)}\\,\\mathrm{A}\\), \\(\\mathrm{I}_{3} = \\frac{${f(Vp)}}{${R3}} = ${f(I3)}\\,\\mathrm{A}\\). Check: \\(${f(I2)} + ${f(I3)} = ${f(I2 + I3)}\\,\\mathrm{A}\\) ✓`,
       `<b>Powers.</b> \\(P_{1} = ${f(I * V1)}\\,\\mathrm{W}\\), \\(P_{2} = ${f(I2 * Vp)}\\,\\mathrm{W}\\), \\(P_{3} = ${f(I3 * Vp)}\\,\\mathrm{W}\\); total \\(${f(V * I)}\\,\\mathrm{W}\\)`,
     ].map((s) => `<p style="margin:0">${s}</p>`).join("");
   }
@@ -2630,8 +2630,8 @@ function traceLines(ctx, src, w, h, col, perCharge = 12, mask, pad = 60) {
     text(ctx, "drag up and down on the graph to change the voltage · click to record a reading", gx0, h - 10, C.muted, 9);
     geo = { gx0, gx1, gy0, gy1, Vof: (y) => Vmin + (gy1 - y) / (gy1 - gy0) * (Vmax - Vmin) };
     $("viVr").textContent = V.toFixed(1) + " V"; $("viI").textContent = fmt(i, 3) + " A"; $("viRr").textContent = isFinite(R) ? fmt(R, 3) + " Ω" : "very large"; $("viP").textContent = fmt(Pw, 3) + " W";
-    $("viNote").textContent = { res: "Ohmic conductor: the graph is a straight line through the origin, so V is proportional to I and the resistance \\(R = \\frac{V}{\mathrm{I}}\\) is the same at every point. The gradient of this graph is the resistance.",
-      lamp: "Non-ohmic: the graph curves. As the current increases the filament gets hotter and its resistance increases, so each extra volt gives less extra current. Calculate \\(R = \\frac{V}{\mathrm{I}}\\) at two points to show it. Do not use the gradient of the curve.",
+    $("viNote").textContent = { res: "Ohmic conductor: the graph is a straight line through the origin, so V is proportional to I and the resistance \\(R = \\frac{V}{\\mathrm{I}}\\) is the same at every point. The gradient of this graph is the resistance.",
+      lamp: "Non-ohmic: the graph curves. As the current increases the filament gets hotter and its resistance increases, so each extra volt gives less extra current. Calculate \\(R = \\frac{V}{\\mathrm{I}}\\) at two points to show it. Do not use the gradient of the curve.",
       diode: "Non-ohmic: a diode lets current through in one direction only. Below about 0.6 V, and for any reverse voltage, there is almost no current (very large resistance). Above it, the current rises steeply (small resistance)." }[save];
   };
 })();
@@ -2670,7 +2670,7 @@ function traceLines(ctx, src, w, h, col, perCharge = 12, mask, pad = 60) {
     $("vdVo").textContent = fmt(Vo, 3) + " V"; $("vdV1").textContent = fmt(V1, 3) + " V"; $("vdI").textContent = fmt(I * 1000, 3) + " mA"; $("vdRt").textContent = fmt(R1 + Rb, 3) + " Ω";
     $("vdNote").textContent = load
       ? `The load (${load} Ω) is in parallel with R₂, so that pair has a smaller resistance: \\(R_{p} = ${tq(fmt(Rb, 3))}\\,\\Omega\\). It now takes a smaller share of the supply: \\(V_{\\text{out}} = ${tq(fmt(Vo, 3))}\\,\\mathrm{V}\\), lower than the ${fmt(Vs * R2 / (R1 + R2), 3)} V with no load.`
-      : `Series resistors share the supply voltage in proportion to their resistance: \\(V_{\\text{out}} = \\frac{R_{2}}{R_{1}+R_{2}}\\times V_{s} = \\frac{${R2}}{${R1 + R2}}\\times ${Vs} = ${tq(fmt(Vo, 3))}\\,\\mathrm{V}\\). The same current, \\(\mathrm{I} = \\frac{V_{s}}{R_{1}+R_{2}} = ${tq(fmt(I * 1000, 3))}\\,\\mathrm{mA}\\), flows through both.`;
+      : `Series resistors share the supply voltage in proportion to their resistance: \\(V_{\\text{out}} = \\frac{R_{2}}{R_{1}+R_{2}}\\times V_{s} = \\frac{${R2}}{${R1 + R2}}\\times ${Vs} = ${tq(fmt(Vo, 3))}\\,\\mathrm{V}\\). The same current, \\(\\mathrm{I} = \\frac{V_{s}}{R_{1}+R_{2}} = ${tq(fmt(I * 1000, 3))}\\,\\mathrm{mA}\\), flows through both.`;
   };
 })();
 

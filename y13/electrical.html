@@ -2322,14 +2322,14 @@ document.addEventListener('click',e=>{const t=e.target.closest('[data-go]');if(!
 const scope=[
  {g:'01 · Resistors in DC circuits',c:'#8fd694',items:[
   ['Distinguish emf from potential difference and terminal voltage','dc:intro'],
-  ['Use \\(\\varepsilon = V + \mathrm{I}r\\) and explain why terminal voltage falls as current rises','dc:battery'],
+  ['Use \\(\\varepsilon = V + \\mathrm{I}r\\) and explain why terminal voltage falls as current rises','dc:battery'],
   ['Find emf and internal resistance from a \\(V\\)–I graph','dc:battery'],
   ['Apply Kirchhoff\'s junction and loop rules to find currents','dc:kirchhoff']]},
  {g:'02 · Capacitors in DC circuits',c:'#ff9eb5',items:[
   ['Use \\(Q = CV\\) and \\(C = \\varepsilon _{0}\\varepsilon _{r}A/d\\), and explain the effect of a dielectric','cap:plates'],
   ['Calculate the energy stored, \\(E = \\tfrac{1}{2}QV\\), as the area under a \\(V\\)–Q graph','cap:plates'],
   ['Combine capacitors in series and parallel and find the charge and voltage on each','cap:combine'],
-  ['Explain charging and discharging, and sketch \\(V\\)–t and \\(\mathrm{I}\\)–t graphs','cap:rc'],
+  ['Explain charging and discharging, and sketch \\(V\\)–t and \\(\\mathrm{I}\\)–t graphs','cap:rc'],
   ['Calculate and use the time constant \\(\\tau = RC\\)','cap:rc']]},
  {g:'03 · Inductors in DC: flux & Faraday',c:'#f0a66a',items:[
   ['Define magnetic flux density and magnetic flux, and use \\(\\Phi = BA\\)','ind:flux'],
@@ -2342,7 +2342,7 @@ const scope=[
   ['Explain how the turns, area, length and an iron core affect the inductance of a coil','ind:coil'],
   ['Calculate \\(\\tau = L/R\\), including the inductor\'s internal resistance','ind:lr'],
   ['Sketch and interpret current–time and voltage–time graphs for an LR circuit','ind:lr'],
-  ['Calculate the energy stored in an inductor, \\(E = \\tfrac{1}{2}L\mathrm{I}^{2}\\)','ind:lr'],
+  ['Calculate the energy stored in an inductor, \\(E = \\tfrac{1}{2}L\\mathrm{I}^{2}\\)','ind:lr'],
   ['Compare the behaviour of inductors and capacitors in DC circuits','ind:intro']]},
  {g:'03 · Inductors in DC: transformers',c:'#c5a2ff',items:[
   ['Explain how a transformer works, and why it needs AC','ind:tx'],
@@ -2350,7 +2350,7 @@ const scope=[
   ['Describe transformer energy losses and why power is transmitted at high voltage','ind:grid']]},
  {g:'04 · AC circuits',c:'#ff8a7a',items:[
   ['Compare energy dissipation in a resistor for DC and AC; use peak and rms values','ac:rms'],
-  ['Describe the phase relationship of \\(V\\) and \\(\mathrm{I}\\) for \\(R\\), \\(C\\) and \\(L\\)','ac:phase'],
+  ['Describe the phase relationship of \\(V\\) and \\(\\mathrm{I}\\) for \\(R\\), \\(C\\) and \\(L\\)','ac:phase'],
   ['Calculate reactance and explain how it depends on frequency','ac:phase'],
   ['Draw phasor diagrams and calculate impedance for series LR, CR and LCR circuits','ac:lcr'],
   ['Explain resonance in an LCR circuit and calculate the resonant frequency','ac:lcr']]}];
@@ -2392,18 +2392,18 @@ $('siteSearch').addEventListener('input',()=>{if(!$('siteSearch').value)runSearc
 const QUIZ={
 dc:[
  ['emf is best described as…',['the voltage across the terminals','the energy given to each coulomb by the source','the current the battery can supply','the energy lost in the internal resistance'],1,'emf = energy converted into electrical energy per coulomb, \\(\\varepsilon = \\Delta E/Q\\).'],
- ['A battery has \\(\\varepsilon = 6.0 \\,\\mathrm{V}\\) and \\(r\\) = 2.0 Ω. It supplies 0.50 A. The terminal voltage is…',['6.0 V','7.0 V','5.0 V','1.0 V'],2,'\\(V = \\varepsilon - \mathrm{I}r = 6.0 - 0.50 \\times 2.0 = 5.0 \\,\\mathrm{V}\\).'],
- ['A high-resistance voltmeter is connected alone across a battery. It reads…',['zero','the emf','half the emf','\\(\mathrm{I}r\\)'],1,'Almost no current flows, so the lost volts \\(\mathrm{I}r \\approx 0\\) and \\(V \\approx \\varepsilon\\).'],
- ['On a graph of terminal voltage against current for a battery, the gradient is…',['the emf','the internal resistance','minus the internal resistance','the load resistance'],2,'\\(V = -r\mathrm{I} + \\varepsilon\\), so the gradient is −\\(r\\) and the intercept is \\(\\varepsilon\\).'],
- ['A second lamp is connected in parallel with a lamp across a battery with internal resistance. The terminal voltage…',['rises','falls','stays the same','drops to zero'],1,'Total resistance falls, current rises, \\(\mathrm{I}r\\) rises, so \\(V = \\varepsilon - \mathrm{I}r\\) falls.'],
+ ['A battery has \\(\\varepsilon = 6.0 \\,\\mathrm{V}\\) and \\(r\\) = 2.0 Ω. It supplies 0.50 A. The terminal voltage is…',['6.0 V','7.0 V','5.0 V','1.0 V'],2,'\\(V = \\varepsilon - \\mathrm{I}r = 6.0 - 0.50 \\times 2.0 = 5.0 \\,\\mathrm{V}\\).'],
+ ['A high-resistance voltmeter is connected alone across a battery. It reads…',['zero','the emf','half the emf','\\(\\mathrm{I}r\\)'],1,'Almost no current flows, so the lost volts \\(\\mathrm{I}r \\approx 0\\) and \\(V \\approx \\varepsilon\\).'],
+ ['On a graph of terminal voltage against current for a battery, the gradient is…',['the emf','the internal resistance','minus the internal resistance','the load resistance'],2,'\\(V = -r\\mathrm{I} + \\varepsilon\\), so the gradient is −\\(r\\) and the intercept is \\(\\varepsilon\\).'],
+ ['A second lamp is connected in parallel with a lamp across a battery with internal resistance. The terminal voltage…',['rises','falls','stays the same','drops to zero'],1,'Total resistance falls, current rises, \\(\\mathrm{I}r\\) rises, so \\(V = \\varepsilon - \\mathrm{I}r\\) falls.'],
  ['Kirchhoff\'s junction rule is a consequence of conservation of…',['energy','charge','momentum','power'],1,'Charge cannot build up at a junction, so current in = current out.'],
  ['Kirchhoff\'s loop rule is a consequence of conservation of…',['energy','charge','current','resistance'],0,'A charge going round a closed loop returns to the same potential, so energy gained from emfs equals energy lost in resistors.'],
- ['A 2.0 Ω and an 8.0 Ω resistor are in parallel. Which statement is correct?',['All the current takes the 2.0 Ω path','Both carry the same current','The 2.0 Ω carries four times the current of the 8.0 Ω','The 8.0 Ω carries more current'],2,'Same pd across both: \\(\mathrm{I} = V/R\\), so the 2.0 Ω carries 4× the current. Current is shared, not all taken by the "least resistance" path.']],
+ ['A 2.0 Ω and an 8.0 Ω resistor are in parallel. Which statement is correct?',['All the current takes the 2.0 Ω path','Both carry the same current','The 2.0 Ω carries four times the current of the 8.0 Ω','The 8.0 Ω carries more current'],2,'Same pd across both: \\(\\mathrm{I} = V/R\\), so the 2.0 Ω carries 4× the current. Current is shared, not all taken by the "least resistance" path.']],
 cap:[
  ['A 47 µF capacitor is charged to 12 V. The charge stored is…',['5.6 × 10⁻⁴ C','3.9 × 10⁻⁶ C','2.6 × 10⁵ C','47 C'],0,'\\(Q = CV = 47 \\times 10^{-6} \\times 12 = 5.6 \\times 10^{-4} \\,\\mathrm{C}\\).'],
  ['The gap between parallel plates is halved. The capacitance…',['halves','doubles','quadruples','is unchanged'],1,'\\(C = \\varepsilon _{0}\\varepsilon _{r}A/d\\), so halving \\(d\\) doubles \\(C\\).'],
  ['A dielectric increases capacitance because…',['it conducts charge between the plates','its polarised molecules reduce the field, so V is lower for the same Q','it increases the plate area','it reduces the charge on the plates'],1,'The polarisation opposes the field; lower \\(V\\) for the same \\(Q\\) means larger \\(C = Q/V\\).'],
- ['The energy stored in a capacitor is represented by…',['the gradient of a V–Q graph','the area under a V–Q graph','Q × V','the area under an \\(\mathrm{I}\\)–t graph'],1,'\\(E = \\tfrac{1}{2}QV\\), the triangular area under the \\(V\\)–Q graph. (The area under \\(\mathrm{I}\\)–t is the charge.)'],
+ ['The energy stored in a capacitor is represented by…',['the gradient of a V–Q graph','the area under a V–Q graph','Q × V','the area under an \\(\\mathrm{I}\\)–t graph'],1,'\\(E = \\tfrac{1}{2}QV\\), the triangular area under the \\(V\\)–Q graph. (The area under \\(\\mathrm{I}\\)–t is the charge.)'],
  ['\\(R\\) = 10 kΩ and \\(C\\) = 100 µF. The time constant is…',['1.0 s','0.10 s','10 s','1000 s'],0,'\\(\\tau = RC = 10 \\times 10^{3} \\times 100 \\times 10^{-6} = 1.0 \\,\\mathrm{s}\\).'],
  ['At the instant charging starts, the voltage across the resistor is…',['zero','equal to the emf','half the emf','63% of the emf'],1,'\\(V_{C} = 0\\), so by the loop rule all the emf is across \\(R\\) and the current is at its maximum, \\(\\varepsilon /R\\).'],
  ['During discharge, the current through the resistor…',['flows in the same direction as when charging','is zero','flows in the opposite direction to the charging current','increases'],2,'Charge flows back off the plates, so the current reverses and decays.'],
@@ -2413,11 +2413,11 @@ cap:[
 ac:[
  ['NZ mains is 230 V rms. The peak voltage is…',['163 V','230 V','325 V','21 V'],2,'\\(V_{\\text{max}} = \\sqrt{2} \\times 230 = 325 \\,\\mathrm{V}\\). (√(2 × 230) = 21 V is the common mistake.)'],
  ['The rms value of an AC current is…',['its average value','the DC current that gives the same heating effect','its peak value','half its peak value'],1,'rms is defined by the heating effect: the equivalent steady current.'],
- ['In a capacitor connected to AC…',['current and voltage are in phase','the current leads the voltage by 90°','the voltage leads the current by 90°','they are 180° out of phase'],1,'CIVIL: in a capacitor, \\(\mathrm{I}\\) leads \\(V\\).'],
+ ['In a capacitor connected to AC…',['current and voltage are in phase','the current leads the voltage by 90°','the voltage leads the current by 90°','they are 180° out of phase'],1,'CIVIL: in a capacitor, \\(\\mathrm{I}\\) leads \\(V\\).'],
  ['The frequency of the supply to an inductor is doubled. Its reactance…',['halves','doubles','is unchanged','quadruples'],1,'\\(X_{L} = \\omega L = 2\\pi fL\\) is proportional to \\(f\\).'],
- ['The frequency of the supply to a capacitor is increased. The current…',['decreases','increases','is unchanged','becomes zero'],1,'\\(X_{C} = 1/\\omega C\\) falls, so \\(\mathrm{I} = V/X_{C}\\) rises.'],
+ ['The frequency of the supply to a capacitor is increased. The current…',['decreases','increases','is unchanged','becomes zero'],1,'\\(X_{C} = 1/\\omega C\\) falls, so \\(\\mathrm{I} = V/X_{C}\\) rises.'],
  ['\\(R\\) = 30 Ω and \\(X_{L} = 40\\) Ω are in series. The impedance is…',['70 Ω','10 Ω','50 Ω','1200 Ω'],2,'\\(Z = \\sqrt{30^{2} + 40^{2}} = 50\\) Ω. Phasors add as vectors, not as ordinary numbers.'],
- ['At resonance in a series LCR circuit…',['the impedance is a maximum','\\(X_{L} = X_{C}\\) and the current is a maximum','the current is zero','\\(V_{L} = 0\\)'],1,'The reactances cancel, \\(Z = R\\) (minimum), so \\(\mathrm{I}\\) is a maximum.'],
+ ['At resonance in a series LCR circuit…',['the impedance is a maximum','\\(X_{L} = X_{C}\\) and the current is a maximum','the current is zero','\\(V_{L} = 0\\)'],1,'The reactances cancel, \\(Z = R\\) (minimum), so \\(\\mathrm{I}\\) is a maximum.'],
  ['\\(L\\) = 0.10 H and \\(C\\) = 10 µF. The resonant frequency is closest to…',['16 Hz','159 Hz','1000 Hz','1590 Hz'],1,'\\(f_{0} = 1/(2\\pi \\sqrt{0.10 \\times 10 \\times 10^{-6}}) = 1/(2\\pi \\times 10^{-3}) \\approx 159 \\,\\mathrm{Hz}\\).']],
 
 flux:[
@@ -2430,22 +2430,22 @@ flux:[
  ['On a smooth \\(\\Phi\\)–\\(t\\) graph, the flux is at its maximum value. At that instant the emf is…',['at its maximum','zero','equal to \\(N \\times \\Phi _{\\text{max}}\\)','negative'],1,'At a peak the gradient is zero, so \\(\\Delta \\Phi /\\Delta t = 0\\) and \\(\\varepsilon = 0\\).'],
  ['A magnet falls through a coil. The second emf pulse is taller than the first because the magnet…',['is further from the coil','has its poles reversed','is moving faster, so the flux changes more quickly','has lost some magnetism'],2,'The magnet accelerates, so the same flux change happens in less time: larger \\(\\Delta \\Phi /\\Delta t\\).']],
 ind:[
- ['Where is the energy stored in an inductor carrying a current?',['in the wire of the coil','in the magnetic field of the coil','in the moving charges','in the resistance'],1,'Work done against the back emf while the current rises builds up the magnetic field, which stores \\(\\tfrac{1}{2}L\mathrm{I}^{2}\\).'],
- ['A steady current flows through an inductor. The energy stored in it…',['keeps increasing','stays at \\(\\tfrac{1}{2}L\mathrm{I}^{2}\\)','is zero, because there is no back emf','has all turned into heat'],1,'With a steady current the field is steady, so the stored energy stays at \\(\\tfrac{1}{2}L\mathrm{I}^{2}\\). No back emf just means no <em>more</em> energy is going in.'],
- ['At the instant the switch is closed in an LR circuit, the current is…',['maximum','zero, and changing most rapidly','zero, and not changing','half its maximum'],1,'\\(\mathrm{I}\\) = 0 at \\(t\\) = 0, but \\(\\Delta \mathrm{I}/\\Delta t\\) is greatest, so the back emf equals the supply emf.'],
+ ['Where is the energy stored in an inductor carrying a current?',['in the wire of the coil','in the magnetic field of the coil','in the moving charges','in the resistance'],1,'Work done against the back emf while the current rises builds up the magnetic field, which stores \\(\\tfrac{1}{2}L\\mathrm{I}^{2}\\).'],
+ ['A steady current flows through an inductor. The energy stored in it…',['keeps increasing','stays at \\(\\tfrac{1}{2}L\\mathrm{I}^{2}\\)','is zero, because there is no back emf','has all turned into heat'],1,'With a steady current the field is steady, so the stored energy stays at \\(\\tfrac{1}{2}L\\mathrm{I}^{2}\\). No back emf just means no <em>more</em> energy is going in.'],
+ ['At the instant the switch is closed in an LR circuit, the current is…',['maximum','zero, and changing most rapidly','zero, and not changing','half its maximum'],1,'\\(\\mathrm{I}\\) = 0 at \\(t\\) = 0, but \\(\\Delta \\mathrm{I}/\\Delta t\\) is greatest, so the back emf equals the supply emf.'],
  ['\\(L\\) = 0.50 H and the total resistance is 10 Ω. The time constant is…',['5.0 s','0.050 s','20 s','2.5 s'],1,'\\(\\tau = L/R = 0.50/10 = 0.050 \\,\\mathrm{s}\\).'],
  ['After one time constant of switching on, the current is…',['37% of maximum','50% of maximum','63% of maximum','100% of maximum'],2,'Growth reaches 1 − e⁻¹ ≈ 63% of the maximum after one \\(\\tau\\).'],
  ['An iron core is pushed into the inductor. What happens?',['\\(\\tau\\) increases; final current unchanged','\\(\\tau\\) decreases; final current increases','\\(\\tau\\) unchanged; final current decreases','both increase'],0,'Iron increases \\(L\\), so \\(\\tau = L/R\\) increases. The final current \\(\\varepsilon /R\\) depends only on resistance.'],
- ['The current in an inductor doubles. The energy stored…',['doubles','quadruples','halves','is unchanged'],1,'\\(E = \\tfrac{1}{2}L\mathrm{I}^{2}\\), so doubling \\(\mathrm{I}\\) gives four times the energy.'],
- ['A spark jumps across a switch when an inductive circuit is opened because…',['the battery voltage is very high','charge builds up on the switch','the current falls very quickly, so \\(\\Delta \mathrm{I}/\\Delta t\\) and the back emf are very large','the inductor discharges like a capacitor'],2,'A rapid fall in current gives a huge rate of change of flux and a huge back emf, which ionises the air.'],
- ['A steady current of 0.40 A flows through a real inductor with \\(r\\) = 8.0 Ω. The voltage across its terminals is…',['0 V','3.2 V','20 V','It depends on L'],1,'With a steady current there is no back emf; only \\(V = \mathrm{I}r = 0.40 \\times 8.0 = 3.2 \\,\\mathrm{V}\\) remains.'],
+ ['The current in an inductor doubles. The energy stored…',['doubles','quadruples','halves','is unchanged'],1,'\\(E = \\tfrac{1}{2}L\\mathrm{I}^{2}\\), so doubling \\(\\mathrm{I}\\) gives four times the energy.'],
+ ['A spark jumps across a switch when an inductive circuit is opened because…',['the battery voltage is very high','charge builds up on the switch','the current falls very quickly, so \\(\\Delta \\mathrm{I}/\\Delta t\\) and the back emf are very large','the inductor discharges like a capacitor'],2,'A rapid fall in current gives a huge rate of change of flux and a huge back emf, which ionises the air.'],
+ ['A steady current of 0.40 A flows through a real inductor with \\(r\\) = 8.0 Ω. The voltage across its terminals is…',['0 V','3.2 V','20 V','It depends on L'],1,'With a steady current there is no back emf; only \\(V = \\mathrm{I}r = 0.40 \\times 8.0 = 3.2 \\,\\mathrm{V}\\) remains.'],
  ['Which component opposes changes in current?',['A capacitor','A resistor','An inductor','A diode'],2,'An inductor. A capacitor stores charge and opposes changes in voltage; the examiners report this mix-up often.']],
 tx:[
  ['Np = 500, Ns = 100, Vp = 230 V. The secondary voltage is…',['1150 V','46 V','230 V','4.6 V'],1,'Vs = Vp × Ns/Np = 230 × 100/500 = 46 V.'],
- ['In an ideal step-up transformer, the secondary current is…',['larger than the primary current','smaller than the primary current','equal to the primary current','zero'],1,'Power in = power out, so if \\(V\\) goes up, \\(\mathrm{I}\\) goes down by the same factor.'],
+ ['In an ideal step-up transformer, the secondary current is…',['larger than the primary current','smaller than the primary current','equal to the primary current','zero'],1,'Power in = power out, so if \\(V\\) goes up, \\(\\mathrm{I}\\) goes down by the same factor.'],
  ['A transformer\'s primary is connected to a steady DC supply. The steady secondary voltage is…',['the same as with AC','zero','larger than with AC','equal to the supply voltage'],1,'Constant current means constant flux, so no emf is induced (except briefly at switch-on and switch-off).'],
  ['Transformer cores are laminated to reduce…',['flux leakage','eddy currents','the turns ratio','the frequency'],1,'Thin insulated layers break up eddy current paths in the core, reducing heating.'],
- ['Power is transmitted at high voltage mainly because…',['it travels faster','the current is smaller, so \\(\mathrm{I}^{2}R\\) losses are much smaller','high voltage is safer','the wires need less insulation'],1,'For the same power, a higher voltage means a lower current, and the loss depends on \\(\mathrm{I}^{2}\\).'],
+ ['Power is transmitted at high voltage mainly because…',['it travels faster','the current is smaller, so \\(\\mathrm{I}^{2}R\\) losses are much smaller','high voltage is safer','the wires need less insulation'],1,'For the same power, a higher voltage means a lower current, and the loss depends on \\(\\mathrm{I}^{2}\\).'],
  ['Ns/Np = 0.10 and the secondary current is 3.0 A. For an ideal transformer, the primary current is…',['30 A','3.0 A','0.30 A','0.030 A'],2,'Ip/Is = Ns/Np = 0.10, so Ip = 0.30 A.'],
  ['Why is the core made of soft iron?',['It is a good electrical conductor','It concentrates the flux and is easily magnetised and demagnetised','It is cheap and heavy','It increases the resistance of the coils'],1,'Soft iron links the flux strongly between the coils and wastes little energy each cycle.'],
  ['The primary is supplied at 50 Hz. The secondary output frequency is…',['50 Hz','50 × Ns/Np Hz','100 Hz','0 Hz'],0,'The secondary emf follows the changing flux, which changes at the supply frequency.']]};
@@ -2766,16 +2766,16 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   const back=st.pos==='A'?p.E-i*(p.R+p.r):st.pos==='B'?-i*(p.R+p.r):0;
   [['lrA','A'],['lrB','B'],['lrOpen','none']].forEach(([id,ps])=>{const b=$(id);const on=String(st.pos===ps&&(ps!=='none'||st.started));if(b.getAttribute('aria-pressed')!==on)b.setAttribute('aria-pressed',on)});
   {const t=(lab,val,sub)=>'<div><span>'+lab+'</span><b>'+val+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div>';
-   window.EM.set($('lrReadout'),t('Time constant','\\(\\tau = L/(R + r)\\) = '+eng(T,'s',3),'\\(\mathrm{I}_{\\text{max}} = \\varepsilon /(R + r)\\) = '+eng(Im,'A',3))+
+   window.EM.set($('lrReadout'),t('Time constant','\\(\\tau = L/(R + r)\\) = '+eng(T,'s',3),'\\(\\mathrm{I}_{\\text{max}} = \\varepsilon /(R + r)\\) = '+eng(Im,'A',3))+
     t('Time since switching','\\(t\\) = '+eng(st.t,'s',3),(st.t/T).toFixed(2)+'\\(\\tau\\)')+
-    t('Current','\\(\mathrm{I}\\) = '+eng(i,'A',3),'\\(V_{R} = \mathrm{I}R\\) = '+eng(vr,'V',3))+
+    t('Current','\\(\\mathrm{I}\\) = '+eng(i,'A',3),'\\(V_{R} = \\mathrm{I}R\\) = '+eng(vr,'V',3))+
     t('Inductor','\\(V_{L}\\) = '+eng(vl,'V',3),'back emf = '+eng(back,'V',3))+
-    t('Energy stored','\\(\\tfrac{1}{2}L\mathrm{I}^{2}\\) = '+eng(0.5*p.L*i*i,'J',3),'\\(\\Delta \mathrm{I}/\\Delta t\\) = '+eng(back/p.L,'A s⁻¹',3)))}
+    t('Energy stored','\\(\\tfrac{1}{2}L\\mathrm{I}^{2}\\) = '+eng(0.5*p.L*i*i,'J',3),'\\(\\Delta \\mathrm{I}/\\Delta t\\) = '+eng(back/p.L,'A s⁻¹',3)))}
   {const tn=st.pos==='none'?-1:Math.round(st.t/T);let rows='';for(let k=0;k<=5;k++){const e=Math.exp(-k);const pc=v=>(Math.round(v*1000)/10)+'%';
     rows+='<tr'+(k===tn&&st.pos!=='none'?' class="now"':'')+'><td><b>'+(k?k+'τ':'0')+'</b> <small>'+eng(k*T,'s',2)+'</small></td><td><small>'+e.toFixed(3)+' ('+pc(e)+')</small></td><td class="g-chg">'+eng(Im*(1-e),'A',3)+'</td><td class="g-chg">'+eng(p.E*e,'V',3)+'</td><td class="g-dis">'+eng(Im*e,'A',3)+'</td><td class="g-dis">'+eng(p.E*e,'V',3)+'</td></tr>'}
    const tb=$('lrTab');if(tb&&tb._h!==rows){tb.innerHTML=rows;tb._h=rows}}
   let note;if(st.pos==='none')note=st.started?'Switch open: no complete circuit, so no current and no flux.':'The circuit is open: no current, no flux, nothing stored.';
-  else if(st.pos==='A')note=st.t<0.05*T?'Just switched on: \\(\mathrm{I}\\) ≈ 0 but changing fastest, so the back emf \\(\\approx \\varepsilon\\) and \\(V_{R} \\approx 0\\).':st.t>4.9*T?'Steady: no change in current, so no back emf. \\(V_{L} = \mathrm{I}r\\) = '+eng(i*p.r,'V',3)+'.':'Current rising: \\(\\varepsilon = \mathrm{I}(R + r) + L\\Delta \mathrm{I}/\\Delta t\\). As \\(\mathrm{I}\\) grows, the back emf falls.';
+  else if(st.pos==='A')note=st.t<0.05*T?'Just switched on: \\(\\mathrm{I}\\) ≈ 0 but changing fastest, so the back emf \\(\\approx \\varepsilon\\) and \\(V_{R} \\approx 0\\).':st.t>4.9*T?'Steady: no change in current, so no back emf. \\(V_{L} = \\mathrm{I}r\\) = '+eng(i*p.r,'V',3)+'.':'Current rising: \\(\\varepsilon = \\mathrm{I}(R + r) + L\\Delta \\mathrm{I}/\\Delta t\\). As \\(\\mathrm{I}\\) grows, the back emf falls.';
   else note=st.t>4.9*T?'Current has decayed; the stored energy has become heat in R and r.':'Battery removed. The collapsing flux induces an emf that keeps the current flowing the <em>same way</em>, so \\(V_{L}\\) has reversed sign.';
   window.EM.set($('lrNote'),note);
  };
@@ -2826,10 +2826,10 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   // explanation line: changes only when the state changes, so it can be read
   const state=!L.started?'start':A?(f<0.99?'A-rise':'A-steady'):Bp?(f>0.01?'B-fall':'B-done'):'open';
   if(state!==lastState){lastState=state;window.EM.set($('lrZoomNote'),{start:'Press <strong>A · on</strong> to connect the battery.',
-   'A-rise':'<strong>Switching on:</strong> the current is rising, so the flux is growing and the coil induces a back emf that opposes the rise. As \\(\mathrm{I}\\) grows, more of \\(\\varepsilon\\) goes to \\(\mathrm{I}(R + r)\\), so the back emf shrinks and the rise slows down.',
-   'A-steady':'<strong>Steady:</strong> the current has stopped changing, so the flux is constant and there is no back emf. All of \\(\\varepsilon\\) drives the current through \\(R + r\\): \\(\mathrm{I} = \\varepsilon /(R + r)\\).',
+   'A-rise':'<strong>Switching on:</strong> the current is rising, so the flux is growing and the coil induces a back emf that opposes the rise. As \\(\\mathrm{I}\\) grows, more of \\(\\varepsilon\\) goes to \\(\\mathrm{I}(R + r)\\), so the back emf shrinks and the rise slows down.',
+   'A-steady':'<strong>Steady:</strong> the current has stopped changing, so the flux is constant and there is no back emf. All of \\(\\varepsilon\\) drives the current through \\(R + r\\): \\(\\mathrm{I} = \\varepsilon /(R + r)\\).',
    'B-fall':'<strong>Switching off:</strong> the battery is gone, so the current starts to fall and the flux collapses. The induced emf opposes the fall, so it keeps the current flowing the same way while it dies away.',
-   'B-done':'<strong>Finished:</strong> the current and the flux have gone; the stored energy \\(\\tfrac{1}{2}L\mathrm{I}^{2}\\) has become heat in \\(R\\) and \\(r\\).',
+   'B-done':'<strong>Finished:</strong> the current and the flux have gone; the stored energy \\(\\tfrac{1}{2}L\\mathrm{I}^{2}\\) has become heat in \\(R\\) and \\(r\\).',
    open:'<strong>Switch open:</strong> no complete circuit, so no current and no flux.'}[state])}
  }
  const s0=lr.step,d0=lr.draw;lr.step=dt=>s0(dt);lr.draw=()=>{d0();draw()};
@@ -2901,12 +2901,12 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   if(st.state==='opened'&&!p.diode&&!nrw)text(c,'\u200b'+(lit?'starts at '+eng(st.Iopen,'A',2)+', gone in a flash':'too little voltage to light it'),nx-20,ny+48,MUT,10,'right');
   if(p.diode){const dx=xs[2];const iD=st.state==='opened'?st.I:0;text(c,'I_diode = '+eng(iD,'A',3),dx-16,nrw?ny+50:ny,iD>1e-6?'#ffd76a':MUT,nrw?11:12,'right','middle')}
   const Ion=p.E/p.r,emf=p.L*Ion/p.dt;
-  window.EM.set($('offReadout'),'Steady current \\(\mathrm{I} = \\varepsilon /r\\) = <strong>'+eng(Ion,'A',3)+'</strong><br/>Energy stored \\(\\tfrac{1}{2}L\mathrm{I}^{2}\\) = '+eng(0.5*p.L*Ion*Ion,'J',3)+'<br/>Collapse time \\(\\Delta t\\) = '+eng(p.dt,'s',2)+'<br/>Back emf \\(\\approx L\mathrm{I}/\\Delta t\\) = <strong class="big">'+(p.diode?'≈ 0.7 V (diode clamps it)':eng(st.state==='opened'?st.emf:emf,'V',3))+'</strong>');
+  window.EM.set($('offReadout'),'Steady current \\(\\mathrm{I} = \\varepsilon /r\\) = <strong>'+eng(Ion,'A',3)+'</strong><br/>Energy stored \\(\\tfrac{1}{2}L\\mathrm{I}^{2}\\) = '+eng(0.5*p.L*Ion*Ion,'J',3)+'<br/>Collapse time \\(\\Delta t\\) = '+eng(p.dt,'s',2)+'<br/>Back emf \\(\\approx L\\mathrm{I}/\\Delta t\\) = <strong class="big">'+(p.diode?'≈ 0.7 V (diode clamps it)':eng(st.state==='opened'?st.emf:emf,'V',3))+'</strong>');
   let note;
   if(st.state==='open')note='Close the switch to build up a current and store energy in the coil\'s magnetic field.';
   else if(st.state==='closed')note='Switch closed. The neon has only '+p.E.toFixed(1)+' V across it, far below about 80 V, so it stays dark. Now open the switch.';
   else if(p.diode)note='The diode gives the current a path, so it decays gradually (\\(\\tau = L/r\\) = '+eng(p.L/p.r,'s',2)+'). The coil\'s voltage is limited to about 0.7 V: no flash, no spark.';
-  else note=st.emf>=80?'The current collapsed in '+eng(p.dt,'s',2)+', so \\(\\Delta \mathrm{I}/\\Delta t\\) was huge. The back emf (≈ '+eng(st.emf,'V',3)+') lit the neon'+(st.emf>300?' and made a spark at the switch':'')+'.':'The current collapsed slowly enough that the back emf (≈ '+eng(st.emf,'V',3)+') stayed below about 80 V, so the neon did not light. Make \\(\\Delta t\\) smaller or \\(L\\) bigger.';
+  else note=st.emf>=80?'The current collapsed in '+eng(p.dt,'s',2)+', so \\(\\Delta \\mathrm{I}/\\Delta t\\) was huge. The back emf (≈ '+eng(st.emf,'V',3)+') lit the neon'+(st.emf>300?' and made a spark at the switch':'')+'.':'The current collapsed slowly enough that the back emf (≈ '+eng(st.emf,'V',3)+') stayed below about 80 V, so the neon did not light. Make \\(\\Delta t\\) smaller or \\(L\\) bigger.';
   window.EM.set($('offNote'),note);
  };
  const upd=()=>{const p=P();$('offEOut').textContent=p.E.toFixed(1)+' V';$('offLOut').textContent=p.L.toFixed(1)+' H';$('offrOut').textContent=p.r+' Ω';$('offTOut').textContent=eng(p.dt,'s',2)};
@@ -3021,11 +3021,11 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   const tile=(lab,val,sub)=>'<div><span>'+lab+'</span><b>'+val+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div>';
   if(p.ac){window.EM.set($('txReadout'),tile('Type',step,'turns ratio \\(N_{s}/N_{p}\\) = '+(p.Ns/p.Np).toPrecision(3))+
     tile('Secondary voltage','\\(V_{s}\\) = '+eng(k2.Vs,'V',3),'rms · peak '+eng(Math.SQRT2*k2.Vs,'V',3)+' · \\(V_{p}N_{s}/N_{p}\\)')+
-    tile('Secondary current','\\(\mathrm{I}_{s}\\) = '+eng(k2.Is,'A',3),'\\(\mathrm{I}_{s} = V_{s}/R\\)')+
-    tile('Primary current','\\(\mathrm{I}_{p}\\) = '+eng(k2.Ip,'A',3),'\\(\mathrm{I}_{p} = P_{\\text{in}}/V_{p}\\)')+
+    tile('Secondary current','\\(\\mathrm{I}_{s}\\) = '+eng(k2.Is,'A',3),'\\(\\mathrm{I}_{s} = V_{s}/R\\)')+
+    tile('Primary current','\\(\\mathrm{I}_{p}\\) = '+eng(k2.Ip,'A',3),'\\(\\mathrm{I}_{p} = P_{\\text{in}}/V_{p}\\)')+
     tile('Power','\\(P_{\\text{out}}\\) = '+eng(k2.Pout,'W',3),'\\(P_{\\text{in}}\\) = '+eng(k2.Pin,'W',3)+' · lost '+eng(k2.Pin-k2.Pout,'W',3)));
-   window.EM.set($('txNote'),p.eff<1?'Real transformer: the primary supplies the output power <em>plus</em> '+eng(k2.Pin-k2.Pout,'W',3)+' lost as heat in the windings and core.':'Ideal: \\(V_{p}\mathrm{I}_{p} = V_{s}\mathrm{I}_{s}\\). '+(p.Ns>p.Np?'Voltage stepped up ×'+(p.Ns/p.Np).toPrecision(3)+', so current stepped down by the same factor.':p.Ns<p.Np?'Voltage stepped down ÷'+(p.Np/p.Ns).toPrecision(3)+', so current stepped up by the same factor.':'Same voltage and current on both sides; the two circuits are joined only by the magnetic flux.'))}
-  else{window.EM.set($('txReadout'),tile('Supply','DC','steady current, steady flux')+tile('Secondary voltage','\\(V_{s}\\) = 0 V','once the flux is steady')+tile('Switch-on pulse',st.dcOn?eng(p.Vp*p.Ns/p.Np,'V',3):'–','only while the flux grows')+tile('Secondary current','\\(\mathrm{I}_{s}\\) = 0 A','')+tile('Primary current','large','limited only by the coil\'s resistance'));
+   window.EM.set($('txNote'),p.eff<1?'Real transformer: the primary supplies the output power <em>plus</em> '+eng(k2.Pin-k2.Pout,'W',3)+' lost as heat in the windings and core.':'Ideal: \\(V_{p}\\mathrm{I}_{p} = V_{s}\\mathrm{I}_{s}\\). '+(p.Ns>p.Np?'Voltage stepped up ×'+(p.Ns/p.Np).toPrecision(3)+', so current stepped down by the same factor.':p.Ns<p.Np?'Voltage stepped down ÷'+(p.Np/p.Ns).toPrecision(3)+', so current stepped up by the same factor.':'Same voltage and current on both sides; the two circuits are joined only by the magnetic flux.'))}
+  else{window.EM.set($('txReadout'),tile('Supply','DC','steady current, steady flux')+tile('Secondary voltage','\\(V_{s}\\) = 0 V','once the flux is steady')+tile('Switch-on pulse',st.dcOn?eng(p.Vp*p.Ns/p.Np,'V',3):'–','only while the flux grows')+tile('Secondary current','\\(\\mathrm{I}_{s}\\) = 0 A','')+tile('Primary current','large','limited only by the coil\'s resistance'));
    window.EM.set($('txNote'),'Constant current → constant flux → \\(\\Delta \\Phi /\\Delta t = 0\\) → no induced emf. The primary current is limited only by the coil\'s resistance, so a transformer left on DC can overheat.')}
  };
  const upd=()=>{const p=P();$('txVpOut').textContent=p.Vp+' V';$('txNpOut').textContent=p.Np;$('txNsOut').textContent=p.Ns;$('txRLOut').textContent=p.RL+' Ω';$('txEffOut').textContent=Math.round(p.eff*100)+'%';$('txDCRow').classList.toggle('hidden',p.ac)};
@@ -3048,7 +3048,7 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
    text(c,pc>100?'>100%':pc<0.1?pc.toFixed(3)+'%':pc<10?pc.toFixed(2)+'%':pc.toFixed(0)+'%',x+bw*(i+0.5),y+h-bh-6,sel?VIO:INK,11,'center');
    text(c,(v/1e3)+' kV',x+bw*(i+0.5),y+h+16,sel?VIO:MUT,12,'center')});
   const I=p.P/p.V,loss=I*I*p.R;
-  window.EM.set($('gridReadout'),'At '+(p.V/1e3)+' kV: \\(\mathrm{I} = P/V\\) = <strong>'+eng(I,'A',3)+'</strong><br/>Loss = \\(\mathrm{I}^{2}R\\) = <strong class="big">'+eng(loss,'W',3)+'</strong> ('+(100*loss/p.P).toPrecision(3)+'% of the power sent)<br/>'+(loss<p.P?'Delivered: '+eng(p.P-loss,'W',3):'The line cannot deliver this power at this voltage.')+'<br/><span class="small">Each step up in voltage by a factor \\(k\\) cuts the loss by \\(k^{2}\\).</span>')};
+  window.EM.set($('gridReadout'),'At '+(p.V/1e3)+' kV: \\(\\mathrm{I} = P/V\\) = <strong>'+eng(I,'A',3)+'</strong><br/>Loss = \\(\\mathrm{I}^{2}R\\) = <strong class="big">'+eng(loss,'W',3)+'</strong> ('+(100*loss/p.P).toPrecision(3)+'% of the power sent)<br/>'+(loss<p.P?'Delivered: '+eng(p.P-loss,'W',3):'The line cannot deliver this power at this voltage.')+'<br/><span class="small">Each step up in voltage by a factor \\(k\\) cuts the loss by \\(k^{2}\\).</span>')};
  const upd=()=>{$('gridPOut').textContent=$('gridP').value+' MW';$('gridROut').textContent=(+$('gridR').value).toFixed(1)+' Ω';draw()};
  ['gridP','gridR','gridV'].forEach(id=>$(id).addEventListener('input',upd));$('gridV').addEventListener('change',upd);upd();
  sims['ind:grid']={draw,enter:draw};
@@ -3131,7 +3131,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   const g1=frame(c,gx,gy,gw,gh,0,tEnd,0,phMax,'Φ',null,v=>eng(v,'Wb',2));path(c,st.hist.map(h=>[h[0],h[1]]),g1.X,g1.Y,BLU,2.4);
   const g2=frame(c,gx,gy+gh+20,gw,gh,0,tEnd,-eMax,eMax,'ε','time',v=>eng(v,'V',2));path(c,st.hist.map(h=>[h[0],h[2]]),g2.X,g2.Y,ORG,2.4);
   const ph=s.ov<=0?'outside the field':(s.inR&&!s.inL)?'entering the field':(!s.inR&&s.inL)?'leaving the field':(s.inR&&s.inL)?'fully inside the field':'covering the whole field';
-  window.EM.set($('loopReadout'),'Loop is <strong>'+ph+'</strong><br/>\\(\\Phi\\) = '+eng(s.phi,'Wb',3)+'<br/>\\(\\varepsilon\\) = '+eng(Math.abs(s.eps),'V',3)+(Math.abs(s.eps)>0?' (BvL = '+eng(p.B*p.v*p.L,'V',3)+')':'')+'<br/>Current \\(\mathrm{I} = \\varepsilon /R\\) = <strong>'+eng(Math.abs(s.I),'A',3)+'</strong><br/>Braking force \\(F = BiL\\) = '+eng(s.F,'N',3));
+  window.EM.set($('loopReadout'),'Loop is <strong>'+ph+'</strong><br/>\\(\\Phi\\) = '+eng(s.phi,'Wb',3)+'<br/>\\(\\varepsilon\\) = '+eng(Math.abs(s.eps),'V',3)+(Math.abs(s.eps)>0?' (BvL = '+eng(p.B*p.v*p.L,'V',3)+')':'')+'<br/>Current \\(\\mathrm{I} = \\varepsilon /R\\) = <strong>'+eng(Math.abs(s.I),'A',3)+'</strong><br/>Braking force \\(F = BiL\\) = '+eng(s.F,'N',3));
   window.EM.set($('loopNote'),Math.abs(s.eps)<1e-12?(s.ov>0?'Flux is constant: no emf, no current, no braking force.':'No flux, no change: nothing induced.'):(s.dphi>0?'Flux into the page is <strong>increasing</strong>, so the induced current is anticlockwise: its field points out of the page, opposing the increase (Lenz).':'Flux into the page is <strong>decreasing</strong>, so the induced current is clockwise: its field points into the page, opposing the decrease (Lenz).'));
  };
  st.enter=reset;
@@ -3212,8 +3212,8 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
     text(c,'emf (V when I = 0)',gx+gw-6,ye-6,GRN,11,'right')}
    else if(st.mystery)text(c,'ε = ?',gx-10,g.Y(Vmx/2),GRN,12,'right','middle')}
   c.strokeStyle=INK;c.lineWidth=2;c.beginPath();c.arc(g.X(I),g.Y(V),6,0,7);c.stroke();
-  const cmpHead=cmpTxt?'<br/><b>Same emf (\\(\\varepsilon\\)), different \\(r\\), at \\(\mathrm{I}\\) = '+I.toFixed(2)+' A:</b>'+cmpTxt.replace(/(<br\/><span style="color:#ff8a7a">)/,'<br/><span style="color:#e9edf8">●</span> your battery, \\(r\\) = '+p.r.toFixed(1)+' Ω: \\(V\\) = '+V.toFixed(2)+' V$1'):'';
-  window.EM.set($('batReadout'),'Current \\(\mathrm{I}\\) = <strong>'+I.toFixed(3)+' A</strong> · terminal voltage \\(V\\) = <strong>'+V.toFixed(2)+' V</strong><br/>'+(st.mystery?'Lost volts \\(\mathrm{I}r\\) = ? (find \\(r\\) first)':'Lost volts \\(\mathrm{I}r\\) = '+lost.toFixed(2)+' V (\\(\\varepsilon\\) = '+p.E.toFixed(1)+' V = \\(V + \mathrm{I}r\\) ✓)')+'<br/>Power to load \\(V\mathrm{I}\\) = '+eng(V*I,'W',3)+(st.mystery?'':' · wasted in battery \\(\mathrm{I}^{2}r\\) = '+eng(I*I*p.r,'W',3))+cmpHead);
+  const cmpHead=cmpTxt?'<br/><b>Same emf (\\(\\varepsilon\\)), different \\(r\\), at \\(\\mathrm{I}\\) = '+I.toFixed(2)+' A:</b>'+cmpTxt.replace(/(<br\/><span style="color:#ff8a7a">)/,'<br/><span style="color:#e9edf8">●</span> your battery, \\(r\\) = '+p.r.toFixed(1)+' Ω: \\(V\\) = '+V.toFixed(2)+' V$1'):'';
+  window.EM.set($('batReadout'),'Current \\(\\mathrm{I}\\) = <strong>'+I.toFixed(3)+' A</strong> · terminal voltage \\(V\\) = <strong>'+V.toFixed(2)+' V</strong><br/>'+(st.mystery?'Lost volts \\(\\mathrm{I}r\\) = ? (find \\(r\\) first)':'Lost volts \\(\\mathrm{I}r\\) = '+lost.toFixed(2)+' V (\\(\\varepsilon\\) = '+p.E.toFixed(1)+' V = \\(V + \\mathrm{I}r\\) ✓)')+'<br/>Power to load \\(V\\mathrm{I}\\) = '+eng(V*I,'W',3)+(st.mystery?'':' · wasted in battery \\(\\mathrm{I}^{2}r\\) = '+eng(I*I*p.r,'W',3))+cmpHead);
   window.EM.set($('batFit'),f?'Best-fit line through '+st.pts.length+' points:<br/>intercept → <strong>\\(\\varepsilon \\approx\\) '+f.b.toFixed(2)+' V</strong> · gradient → <strong>\\(r\\) ≈ '+(-f.m).toFixed(2)+' Ω</strong>'+(st.mystery?'<br/>Press <em>Reveal answer</em> to check.':''):'Recorded points: '+st.pts.length+'. Record at least 3 readings at different loads to fit a line.');
  };
  st.enter=()=>st.draw();
@@ -3243,7 +3243,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   const num=t.map((q,i)=>(q.s<0?(i?' − ':'−'):(i?' + ':''))+g(q.v)).join('');const sum=t.reduce((a,q)=>a+q.s*q.v,0);
   const ins=[0,1,2].filter(k=>!arrowUp(k)).map(k=>'\\(\\mathrm{I}_'+(k+1)+'\\)'),outs=[0,1,2].filter(k=>arrowUp(k)).map(k=>'\\(\\mathrm{I}_'+(k+1)+'\\)');
   const lst=a=>a.length<3?a.join(' and '):a.slice(0,-1).join(', ')+' and '+a[a.length-1];
-  const words=ins.length===3?'\\(\mathrm{I}_1\\), \\(\mathrm{I}_2\\) and \\(\mathrm{I}_3\\) all arrive, so at least one of them must come out negative':outs.length===3?'\\(\mathrm{I}_1\\), \\(\mathrm{I}_2\\) and \\(\mathrm{I}_3\\) all leave, so at least one of them must come out negative':lst(ins)+(ins.length>1?' arrive':' arrives')+'; '+lst(outs)+(outs.length>1?' leave':' leaves');
+  const words=ins.length===3?'\\(\\mathrm{I}_1\\), \\(\\mathrm{I}_2\\) and \\(\\mathrm{I}_3\\) all arrive, so at least one of them must come out negative':outs.length===3?'\\(\\mathrm{I}_1\\), \\(\\mathrm{I}_2\\) and \\(\\mathrm{I}_3\\) all leave, so at least one of them must come out negative':lst(ins)+(ins.length>1?' arrive':' arrives')+'; '+lst(outs)+(outs.length>1?' leave':' leaves');
   return{tex,num,sum,words}}
  function loop(which,p,v){const cw=(which==='L'?st.L:st.R)>0;
   // steps in walking order from Y: [kind, index, walking up?]
@@ -3288,13 +3288,13 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   const negTxt=negs.length?' '+negs.map(k=>'\\(\\mathrm{I}_'+(k+1)+'\\)').join(' and ')+(negs.length>1?' are':' is')+' negative: '+(negs.length>1?'those currents really flow':'that current really flows')+' against '+(negs.length>1?'their arrows':'its arrow')+'. The sign tells you the true direction.':' All three currents are positive, so every arrow points the way the current really flows.';
   const charge=(s.I2>1e-6?' Cell 2 is being charged: current really flows down into its + terminal.':'')+(s.I1<-1e-6?' Cell 1 is being charged: current really flows down into its + terminal.':'');
   const row=(name,cls,rule,tex,num,sum)=>'<tr><th>'+(cls?'<b class="'+cls+'">'+name+'</b>':'<b>'+name+'</b>')+'<span>'+rule+'</span></th><td class="rq">\\('+tex.replace(' = 0','')+'\\)</td><td class="rn">= '+num+' = '+f(sum)+' ✓</td></tr>';
-  window.EM.set($('kirReadout'),'<table class="rtab"><tr><th><b>Your currents</b><span>signed values</span></th><td colspan="2">\\(\mathrm{I}_1\\) = <strong>'+f(v[0])+' A</strong> &nbsp;·&nbsp; \\(\mathrm{I}_2\\) = <strong>'+f(v[1])+' A</strong> &nbsp;·&nbsp; \\(\mathrm{I}_3\\) = <strong>'+f(v[2])+' A</strong></td></tr>'+
-   row('Junction Y','','\\(\\Sigma \mathrm{I} = 0\\), in +, out −',J.tex,J.num,J.sum)+
+  window.EM.set($('kirReadout'),'<table class="rtab"><tr><th><b>Your currents</b><span>signed values</span></th><td colspan="2">\\(\\mathrm{I}_1\\) = <strong>'+f(v[0])+' A</strong> &nbsp;·&nbsp; \\(\\mathrm{I}_2\\) = <strong>'+f(v[1])+' A</strong> &nbsp;·&nbsp; \\(\\mathrm{I}_3\\) = <strong>'+f(v[2])+' A</strong></td></tr>'+
+   row('Junction Y','','\\(\\Sigma \\mathrm{I} = 0\\), in +, out −',J.tex,J.num,J.sum)+
    row('Left loop','loopL','\\(\\Sigma V = 0\\), '+(Lp.cw?'clockwise':'anticlockwise'),Lp.tex,Lp.num,Lp.sum)+
    row('Right loop','loopR','\\(\\Sigma V = 0\\), '+(Rp.cw?'clockwise':'anticlockwise'),Rp.tex,Rp.num,Rp.sum)+
    '</table>'+(charge?'<p class="rnote">'+charge.trim()+'</p>':''));
   // the method table follows the same choices
-  window.EM.set($('kmJt'),'<span class="mnum">3</span><b>Junction Y: \\(\\Sigma \mathrm{I} = 0\\).</b> Count currents arriving at Y as + and leaving as −. With your arrows, '+J.words+'.');
+  window.EM.set($('kmJt'),'<span class="mnum">3</span><b>Junction Y: \\(\\Sigma \\mathrm{I} = 0\\).</b> Count currents arriving at Y as + and leaving as −. With your arrows, '+J.words+'.');
   window.EM.set($('kmJe'),'\\['+J.tex+'\\]');
   window.EM.set($('kmLt'),'<span class="mnum">4</span><b class="loopL">Left loop: \\(\\Sigma V = 0\\), '+(Lp.cw?'clockwise':'anticlockwise')+'.</b> '+Lp.words);
   window.EM.set($('kmLe'),'\\['+Lp.tex+'\\]');
@@ -3489,10 +3489,10 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   if(L*p.i<=st.nAx)dot(c,g.X(p.i),g.Y(L*p.i),5,YEL);
   const tile=(lab,val,sub)=>'<div><span>'+lab+'</span><b>'+val+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div>';
   window.EM.set($('icReadout'),tile('Inductance','\\(L\\) = '+eng(L,'H',3),p.f>0?'×'+(L/L0).toFixed(0)+' the air-core value':'air core')+
-   tile('Flux linkage','\\(N\\Phi = L\mathrm{I}\\) = '+eng(L*p.i,'Wb',3),'at \\(\mathrm{I}\\) = '+p.i.toFixed(1)+' A')+
+   tile('Flux linkage','\\(N\\Phi = L\\mathrm{I}\\) = '+eng(L*p.i,'Wb',3),'at \\(\\mathrm{I}\\) = '+p.i.toFixed(1)+' A')+
    tile('Field inside','\\(B\\) = '+eng(Bv,'T',3),'\\(\\mu _{r}\\) (effective) = '+mue.toFixed(mue<10?2:0))+
-   tile('Energy stored','\\(\\tfrac{1}{2}L\mathrm{I}^{2}\\) = '+eng(0.5*L*p.i*p.i,'J',3),'')+
-   tile('Back emf','\\(L\\Delta \mathrm{I}/\\Delta t\\) = '+eng(L*10,'V',3),'if \\(\mathrm{I}\\) changes at 10 A s⁻¹'));
+   tile('Energy stored','\\(\\tfrac{1}{2}L\\mathrm{I}^{2}\\) = '+eng(0.5*L*p.i*p.i,'J',3),'')+
+   tile('Back emf','\\(L\\Delta \\mathrm{I}/\\Delta t\\) = '+eng(L*10,'V',3),'if \\(\\mathrm{I}\\) changes at 10 A s⁻¹'));
  }
  const upd=()=>{const p=P();$('icInsOut').textContent=Math.round(p.f*100)+' %';$('icNOut').textContent=p.N;$('icAOut').textContent=(p.A*1e4).toFixed(1)+' cm²';$('icLOut').textContent=Math.round(p.l*100)+' cm';$('icIOut').textContent=p.i.toFixed(1)+' A';draw()};
  bindOut(['icIns','icN','icA','icL','icI'],upd);$('icCore').addEventListener('change',upd);
@@ -3560,13 +3560,13 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
    window.EM.set($('rcReadout'),t('Time constant','\\(\\tau = RC\\) = '+eng(T,'s',3),'max current \\(\\varepsilon /R\\) = '+eng(Im,'A',3))+
     t('Time since switching','\\(t\\) = '+eng(st.t,'s',3),(st.t/T).toFixed(2)+'\\(\\tau\\)')+
     t('Capacitor','\\(V_{C}\\) = '+eng(vc,'V',3),'\\(Q = CV_{C}\\) = '+eng(p.C*vc,'C',3))+
-    t('Resistor','\\(V_{R}\\) = '+eng(vr,'V',3),'\\(\mathrm{I}\\) = '+eng(i,'A',3))+
+    t('Resistor','\\(V_{R}\\) = '+eng(vr,'V',3),'\\(\\mathrm{I}\\) = '+eng(i,'A',3))+
     t('Energy stored','\\(\\tfrac{1}{2}CV_{C}^{2}\\) = '+eng(0.5*p.C*vc*vc,'J',3),''))}
   {const tn=st.pos==='none'?-1:Math.round(st.t/T);let rows='';for(let k=0;k<=5;k++){const e=Math.exp(-k);
     const pc=v=>(Math.round(v*1000)/10)+'%';rows+='<tr'+(k===tn&&st.pos!=='none'?' class="now"':'')+'><td><b>'+(k?k+'τ':'0')+'</b> <small>'+eng(k*T,'s',2)+'</small></td><td><small>'+e.toFixed(3)+' ('+pc(e)+')</small></td><td class="g-chg">'+eng(p.E*(1-e),'V',3)+'</td><td class="g-chg">'+eng(Im*e,'A',3)+'</td><td class="g-dis">'+eng(p.E*e,'V',3)+'</td><td class="g-dis">−'+eng(Im*e,'A',3)+'</td></tr>'}
    const tb=$('rcTab');if(tb&&tb._h!==rows){tb.innerHTML=rows;tb._h=rows}}
   let note;if(st.pos==='none')note=vc>1e-6?'Switch open: the capacitor holds its charge.':'Uncharged capacitor, no current.';
-  else if(st.pos==='A')note=st.t<0.05*T?'Just switched on: \\(V_{C} \\approx 0\\), so all of \\(\\varepsilon\\) is across \\(R\\) and the current is at its maximum.':st.t>4.9*T?'Fully charged: \\(V_{C} = \\varepsilon\\), \\(V_{R} = 0\\), no current.':'Charging: \\(V_{C} + V_{R} = \\varepsilon\\) at every instant. As \\(V_{C}\\) rises, \\(V_{R}\\) and \\(\mathrm{I}\\) fall.';
+  else if(st.pos==='A')note=st.t<0.05*T?'Just switched on: \\(V_{C} \\approx 0\\), so all of \\(\\varepsilon\\) is across \\(R\\) and the current is at its maximum.':st.t>4.9*T?'Fully charged: \\(V_{C} = \\varepsilon\\), \\(V_{R} = 0\\), no current.':'Charging: \\(V_{C} + V_{R} = \\varepsilon\\) at every instant. As \\(V_{C}\\) rises, \\(V_{R}\\) and \\(\\mathrm{I}\\) fall.';
   else note=st.t>4.9*T?'Discharged: the stored energy has become heat in R.':'Discharging: the current has <strong>reversed</strong> and decays with \\(V_{C}\\).';
   window.EM.set($('rcNote'),note);
  };
@@ -3631,7 +3631,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   const Im=L.E/L.R;
   window.EM.set($('capZoomNote'),!L.started?'Press <strong>Charge (A)</strong> to start.':
    A?(f>0.995?'<strong>Charged:</strong> \\(V_{C} = \\varepsilon\\). The repulsion from the charge on the plate now balances the push from the supply, so \\(V_{R} = \\varepsilon - V_{C} = 0\\) and the current has stopped.':
-     '<strong>Charging:</strong> push from the supply \\(\\varepsilon\\) = '+L.E+' V, opposed by \\(V_{C}\\) = '+L.vc.toFixed(2)+' V. Net \\(V_{R} = \\varepsilon - V_{C}\\) = '+(L.E-L.vc).toFixed(2)+' V, so \\(\mathrm{I} = V_{R}/R\\) = '+eng(L.i,'A',3)+'. More charge on the plate means more repulsion, so the current keeps falling.'):
+     '<strong>Charging:</strong> push from the supply \\(\\varepsilon\\) = '+L.E+' V, opposed by \\(V_{C}\\) = '+L.vc.toFixed(2)+' V. Net \\(V_{R} = \\varepsilon - V_{C}\\) = '+(L.E-L.vc).toFixed(2)+' V, so \\(\\mathrm{I} = V_{R}/R\\) = '+eng(L.i,'A',3)+'. More charge on the plate means more repulsion, so the current keeps falling.'):
    Bp?'<strong>Discharging:</strong> with the supply gone, nothing pushes electrons on. The repulsion from the charge on the plate drives them back off it, round through \\(R\\), so the current reverses and dies away as the charge (and \\(V_{C}\\)) falls.':
    '<strong>Switch open:</strong> no complete circuit, so no current. The charge stays on the plates and \\(V_{C}\\) = '+L.vc.toFixed(2)+' V stays.');
  };
@@ -3690,7 +3690,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   const lamp=(x,y,fr,lab)=>{const r=26;const g=c.createRadialGradient(x,y,3,x,y,r*2.4);g.addColorStop(0,'rgba(255,225,140,'+(0.15+0.85*fr)+')');g.addColorStop(1,'rgba(255,200,100,0)');c.fillStyle=g;c.beginPath();c.arc(x,y,r*2.4,0,7);c.fill();
    c.strokeStyle='#c9ced9';c.lineWidth=2;c.beginPath();c.arc(x,y,r,0,7);c.stroke();text(c,lab,x,y+r+18,MUT,11,'center')};
   if(narrow){lamp(W*0.3,52,pi/Pm,'AC lamp');lamp(W*0.7,52,0.5,'DC at V_rms')}else{lamp(lw/2,H*0.28,pi/Pm,'AC lamp');lamp(lw/2,H*0.68,0.5,'DC lamp at V_rms')}
-  window.EM.set($('rmsReadout'),'\\(V_{\\text{rms}}\\) = '+p.V+' V → \\(V_{\\text{max}} = \\sqrt{2}\\) × '+p.V+' = <strong>'+Vm.toFixed(0)+' V</strong><br/><span class="small">Not √(2 × '+p.V+') = '+Math.sqrt(2*p.V).toFixed(1)+' V ✗</span><br/>\\(\mathrm{I}_{\\text{rms}} = V_{\\text{rms}}/R\\) = '+eng(p.V/p.R,'A',3)+' · \\(\mathrm{I}_{\\text{max}}\\) = '+eng(Vm/p.R,'A',3)+'<br/>Average power = \\(V_{\\text{rms}}^{2}/R\\) = <strong>'+eng(Pav,'W',3)+'</strong> · peak power = '+eng(Pm,'W',3));
+  window.EM.set($('rmsReadout'),'\\(V_{\\text{rms}}\\) = '+p.V+' V → \\(V_{\\text{max}} = \\sqrt{2}\\) × '+p.V+' = <strong>'+Vm.toFixed(0)+' V</strong><br/><span class="small">Not √(2 × '+p.V+') = '+Math.sqrt(2*p.V).toFixed(1)+' V ✗</span><br/>\\(\\mathrm{I}_{\\text{rms}} = V_{\\text{rms}}/R\\) = '+eng(p.V/p.R,'A',3)+' · \\(\\mathrm{I}_{\\text{max}}\\) = '+eng(Vm/p.R,'A',3)+'<br/>Average power = \\(V_{\\text{rms}}^{2}/R\\) = <strong>'+eng(Pav,'W',3)+'</strong> · peak power = '+eng(Pm,'W',3));
  };
  const upd=()=>{$('rmsVOut').textContent=$('rmsV').value+' V';$('rmsROut').textContent=$('rmsR').value+' Ω'};bindOut(['rmsV','rmsR'],upd);
  $('rmsPlay').onclick=()=>{st.playing=!st.playing;$('rmsPlay').textContent=st.playing?'Pause':'Play'};
@@ -3742,8 +3742,8 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   {const tile=(lab,val,sub)=>'<div><span>'+lab+'</span><b>'+val+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div>';
    window.EM.set($('phReadout'),tile('Frequency','\\(f\\) = '+eng(p.f,'Hz',3),'\\(\\omega = 2\\pi f\\) = '+eng(2*Math.PI*p.f,'rad s⁻¹',3))+
     tile(p.comp==='R'?'Resistance':p.comp==='C'?'Capacitive reactance':'Inductive reactance',(p.comp==='R'?'\\(R\\)':p.comp==='C'?'\\(X_{C}\\)':'\\(X_{L}\\)')+' = '+eng(x,'Ω',3),p.comp==='R'?'the same at every frequency':p.comp==='C'?'\\(X_{C} = 1/(2\\pi fC)\\)':'\\(X_{L} = 2\\pi fL\\)')+
-    tile('Current','\\(\mathrm{I}_{\\text{rms}}\\) = '+eng(I,'A',3),'\\(\mathrm{I}_{\\text{rms}} = V_{\\text{rms}}/X\\) = 10 V / '+eng(x,'Ω',3))+
-    tile('Phase',p.comp==='R'?'in phase':p.comp==='C'?'\\(\mathrm{I}\\) leads \\(V\\) by 90°':'\\(V\\) leads \\(\mathrm{I}\\) by 90°',p.comp==='R'?'peaks together':'a quarter of a cycle'));
+    tile('Current','\\(\\mathrm{I}_{\\text{rms}}\\) = '+eng(I,'A',3),'\\(\\mathrm{I}_{\\text{rms}} = V_{\\text{rms}}/X\\) = 10 V / '+eng(x,'Ω',3))+
+    tile('Phase',p.comp==='R'?'in phase':p.comp==='C'?'\\(\\mathrm{I}\\) leads \\(V\\) by 90°':'\\(V\\) leads \\(\\mathrm{I}\\) by 90°',p.comp==='R'?'peaks together':'a quarter of a cycle'));
    window.EM.set($('phNote'),p.comp==='R'?'Resistance does not depend on frequency, so the current stays the same.':p.comp==='C'?'Higher \\(f\\) → the capacitor charges and discharges more often → more current flows → smaller \\(X_{C}\\).':'Higher \\(f\\) → the current has to change faster → bigger back emf → less current → larger \\(X_{L}\\).')}
  };
  const upd=()=>{$('phFOut').textContent=eng(Math.pow(10,+$('phF').value),'Hz',3)};bindOut(['phF'],upd);$('phComp').addEventListener('change',()=>st.draw());
@@ -3781,9 +3781,9 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
    window.EM.set($('lcrReadout'),tile('Frequency','\\(f\\) = '+'<span style="white-space:nowrap">'+eng(p.f,'Hz',3)+'</span>','\\(f_{0} = \\dfrac{1}{2\\pi \\sqrt{LC}}\\) = '+'<span style="white-space:nowrap">'+eng(f0,'Hz',3)+'</span>')+
     tile('Reactances','\\(X_{L} = 2\\pi fL\\) = '+'<span style="white-space:nowrap">'+eng(k.XL,'Ω',3)+'</span>','\\(X_{C} = \\dfrac{1}{2\\pi fC}\\) = '+'<span style="white-space:nowrap">'+eng(k.XC,'Ω',3)+'</span>')+
     tile('Impedance','\\(Z\\) = '+'<span style="white-space:nowrap">'+eng(k.Z,'Ω',3)+'</span>','\\(Z = \\sqrt{R^{2} + (X_{L} - X_{C})^{2}}\\)')+
-    tile('Current','\\(\mathrm{I}\\) = '+'<span style="white-space:nowrap">'+eng(k.I,'A',3)+'</span>'+' rms','\\(\mathrm{I} = V/Z\\) = 10 V / '+'<span style="white-space:nowrap">'+eng(k.Z,'Ω',3)+'</span>')+
-    tile('Voltages','\\(V_{R} = \mathrm{I}R\\) = '+'<span style="white-space:nowrap">'+k.VR.toFixed(2)+' V'+'</span>','\\(V_{L} = \mathrm{I}X_{L}\\) = '+k.VL.toFixed(2)+' V<br/>\\(V_{C} = \mathrm{I}X_{C}\\) = '+'<span style="white-space:nowrap">'+k.VC.toFixed(2)+' V'+'</span>'))}
-  const r=k.XL/k.XC;window.EM.set($('lcrNote'),Math.abs(Math.log(r))<0.03?'<strong>At resonance:</strong> \\(X_{L} = X_{C}\\), so \\(Z = R\\) and the current is a maximum. \\(V\\) and \\(\mathrm{I}\\) are in phase.':r<1?'<strong>Below resonance:</strong> \\(X_{C}\\) &gt; \\(X_{L}\\), so the circuit is capacitive and the current <strong>leads</strong> the supply voltage by '+Math.abs(k.phi*180/Math.PI).toFixed(0)+'°.':'<strong>Above resonance:</strong> \\(X_{L}\\) &gt; \\(X_{C}\\), so the circuit is inductive and the current <strong>lags</strong> the supply voltage by '+Math.abs(k.phi*180/Math.PI).toFixed(0)+'°.');
+    tile('Current','\\(\\mathrm{I}\\) = '+'<span style="white-space:nowrap">'+eng(k.I,'A',3)+'</span>'+' rms','\\(\\mathrm{I} = V/Z\\) = 10 V / '+'<span style="white-space:nowrap">'+eng(k.Z,'Ω',3)+'</span>')+
+    tile('Voltages','\\(V_{R} = \\mathrm{I}R\\) = '+'<span style="white-space:nowrap">'+k.VR.toFixed(2)+' V'+'</span>','\\(V_{L} = \\mathrm{I}X_{L}\\) = '+k.VL.toFixed(2)+' V<br/>\\(V_{C} = \\mathrm{I}X_{C}\\) = '+'<span style="white-space:nowrap">'+k.VC.toFixed(2)+' V'+'</span>'))}
+  const r=k.XL/k.XC;window.EM.set($('lcrNote'),Math.abs(Math.log(r))<0.03?'<strong>At resonance:</strong> \\(X_{L} = X_{C}\\), so \\(Z = R\\) and the current is a maximum. \\(V\\) and \\(\\mathrm{I}\\) are in phase.':r<1?'<strong>Below resonance:</strong> \\(X_{C}\\) &gt; \\(X_{L}\\), so the circuit is capacitive and the current <strong>leads</strong> the supply voltage by '+Math.abs(k.phi*180/Math.PI).toFixed(0)+'°.':'<strong>Above resonance:</strong> \\(X_{L}\\) &gt; \\(X_{C}\\), so the circuit is inductive and the current <strong>lags</strong> the supply voltage by '+Math.abs(k.phi*180/Math.PI).toFixed(0)+'°.');
   geo={gx,gw,y0:gy,y1:gy+2*gh+28};
  }
  const upd=()=>{const p=P();$('lcrROut').textContent=p.R+' Ω';$('lcrLOut').textContent=Math.round(p.L*1e3)+' mH';$('lcrCOut').textContent=Math.round(p.C*1e6)+' µF';$('lcrFOut').textContent=eng(p.f,'Hz',3);draw();drawAdd();dTxt()};
@@ -3842,11 +3842,11 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   const a=Zm?p.R:k.VR,bL=Zm?k.XL:k.VL,bC=Zm?k.XC:k.VC,net=bL-bC,res=Math.hypot(a,net);const f=v=>Zm?eng(v,'Ω',3):v.toFixed(2)+' V';
   const R=Zm?'R':'V_{R}',L=Zm?'X_{L}':'V_{L}',C=Zm?'X_{C}':'V_{C}',T=Zm?'Z':'V';const phi=Math.atan2(net,a)*180/Math.PI;
   const t=[,
-   Zm?'<strong>Step 1.</strong> Draw the current \\(\mathrm{I}\\) horizontally as the reference. The resistance \\(R\\) = '+f(a)+' goes along \\(\mathrm{I}\\), because the voltage across a resistor is <strong>always in phase with the current</strong>.'
-     :'<strong>Step 1.</strong> Draw the current \\(\mathrm{I}\\) horizontally as the reference: in a series circuit it is the same in every component. \\(V_{R} = \mathrm{I}R\\) = '+f(a)+' goes along \\(\mathrm{I}\\), because the voltage across a resistor is <strong>always in phase with the current</strong>.',
-   '<strong>Step 2.</strong> \\('+L+'\\) = '+f(bL)+' points straight <strong>up</strong> (the inductor voltage leads \\(\mathrm{I}\\) by 90°). \\('+C+'\\) = '+f(bC)+' points straight <strong>down</strong> (the capacitor voltage lags \\(\mathrm{I}\\) by 90°). They are 180° apart.',
+   Zm?'<strong>Step 1.</strong> Draw the current \\(\\mathrm{I}\\) horizontally as the reference. The resistance \\(R\\) = '+f(a)+' goes along \\(\\mathrm{I}\\), because the voltage across a resistor is <strong>always in phase with the current</strong>.'
+     :'<strong>Step 1.</strong> Draw the current \\(\\mathrm{I}\\) horizontally as the reference: in a series circuit it is the same in every component. \\(V_{R} = \\mathrm{I}R\\) = '+f(a)+' goes along \\(\\mathrm{I}\\), because the voltage across a resistor is <strong>always in phase with the current</strong>.',
+   '<strong>Step 2.</strong> \\('+L+'\\) = '+f(bL)+' points straight <strong>up</strong> (the inductor voltage leads \\(\\mathrm{I}\\) by 90°). \\('+C+'\\) = '+f(bC)+' points straight <strong>down</strong> (the capacitor voltage lags \\(\\mathrm{I}\\) by 90°). They are 180° apart.',
    '<strong>Step 3.</strong> Add the vectors <strong>nose to tail</strong>. Start with \\('+(ad.order!=='C'?L:C)+'\\) = '+f(ad.order!=='C'?bL:bC)+', put the tail of \\('+R+'\\) on its nose, then end with \\('+(ad.order!=='C'?C:L)+'\\) = '+f(ad.order!=='C'?bC:bL)+'. Going up '+f(bL)+' and down '+f(bC)+' leaves a net vertical part of \\('+L+' - '+C+'\\) = '+f(net)+'. The order does not matter: you always reach the same end point.',
-   '<strong>Step 4.</strong> The resultant goes from the <strong>first tail to the last nose</strong>. It is the hypotenuse of a right-angled triangle: \\('+T+' = \\sqrt{'+R+'^{2} + ('+L+' - '+C+')^{2}}\\) = <strong>'+f(res)+'</strong>, and \\(\\tan\\varphi = \\dfrac{'+L+' - '+C+'}{'+R+'}\\), so \\(\\varphi\\) = '+Math.abs(phi).toFixed(0)+'° ('+(Math.abs(phi)<1?'in phase with \\(\mathrm{I}\\)':phi>0?'\\(\mathrm{I}\\) lags':'\\(\mathrm{I}\\) leads')+').'+(Zm?' The impedance triangle is the voltage triangle divided by \\(\mathrm{I}\\), so it has the same shape and the same \\(\\varphi\\).':' Simply adding the sizes gives '+(a+bL+bC).toFixed(2)+' V, not 10 V, because the voltages peak at different times.')];
+   '<strong>Step 4.</strong> The resultant goes from the <strong>first tail to the last nose</strong>. It is the hypotenuse of a right-angled triangle: \\('+T+' = \\sqrt{'+R+'^{2} + ('+L+' - '+C+')^{2}}\\) = <strong>'+f(res)+'</strong>, and \\(\\tan\\varphi = \\dfrac{'+L+' - '+C+'}{'+R+'}\\), so \\(\\varphi\\) = '+Math.abs(phi).toFixed(0)+'° ('+(Math.abs(phi)<1?'in phase with \\(\\mathrm{I}\\)':phi>0?'\\(\\mathrm{I}\\) lags':'\\(\\mathrm{I}\\) leads')+').'+(Zm?' The impedance triangle is the voltage triangle divided by \\(\\mathrm{I}\\), so it has the same shape and the same \\(\\varphi\\).':' Simply adding the sizes gives '+(a+bL+bC).toFixed(2)+' V, not 10 V, because the voltages peak at different times.')];
   window.EM.set($('lcrAddText'),t[ad.step]);
   document.querySelectorAll('.lcrStep').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.step===ad.step)));
   $('lcrAddMode').value=ad.mode}
