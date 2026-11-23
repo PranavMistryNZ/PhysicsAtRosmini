@@ -2752,7 +2752,7 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   const fi=v=>eng(v,'A',2),fv=v=>eng(v,'V',2);
   // voltage on top, current underneath (the same order as the RC lab)
   const g2=frame(c,gx,gy,gw,gh,0,tMax,-Vmx,Vmx,'voltage',null,fv);
-  const g1=frame(c,gx,gy+gh+26,gw,gh,0,tMax,0,Imx,'current i','time',fi);
+  const g1=frame(c,gx,gy+gh+26,gw,gh,0,tMax,0,Imx,'current I','time',fi);
   {const t0=Math.max(0,st.abs-tMax);for(let k=1;k<=6;k++){const tk=st.tS+k*T;if(st.started&&tk>=t0&&tk<=t0+tMax){const xx=g1.X(tk-t0);line(c,xx,gy,xx,gy+gh,GRID,1);line(c,xx,gy+gh+26,xx,gy+2*gh+26,GRID,1);text(c,k+'τ',xx,gy+2*gh+40,MUT,10,'center')}}}
   if(st.started){const t0=Math.max(0,st.abs-tMax);const X1=t=>g1.X(t-t0),X2=t=>g2.X(t-t0);const vis=st.hist.filter(h=>h[0]>=t0);
    st.ev.forEach(([te,ps])=>{if(te<t0)return;const xx=X1(te);line(c,xx,gy,xx,gy+2*gh+26,'rgba(255,255,255,.22)',1,[2,4]);text(c,ps==='none'?'open':ps,xx+4,gy+gh+20,MUT,10)});
@@ -2807,7 +2807,7 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   text(c,'​field inside the coil (flux ∝ current)',cx,cy+rad+18,'#8fd694',11,'center');
   // current and induced-emf arrows along the top of the coil
   const ya=cy-rad-26,K=len*0.42;
-  if(f>0.01){line(c,cx-K*f/2,ya,cx+K*f/2,ya,CYN,3);arrowHead(c,cx+K*f/2,ya,0,CYN,8);text(c,'​current i',narrow?cx+K/2+8:cx-K/2-8,ya+4,CYN,11,narrow?'left':'right')}
+  if(f>0.01){line(c,cx-K*f/2,ya,cx+K*f/2,ya,CYN,3);arrowHead(c,cx+K*f/2,ya,0,CYN,8);text(c,'​current I',narrow?cx+K/2+8:cx-K/2-8,ya+4,CYN,11,narrow?'left':'right')}
   const eb=back/L.E;if(Math.abs(eb)>0.02&&(A||Bp)){const yb=ya-22,dir=A?-1:1;line(c,cx-dir*K*Math.abs(eb)/2,yb,cx+dir*K*Math.abs(eb)/2,yb,PNK,3);arrowHead(c,cx+dir*K*Math.abs(eb)/2,yb,dir>0?0:Math.PI,PNK,8);
    text(c,'​'+(A?'back emf (opposes the rise)':'induced emf (keeps it going)'),narrow?cx:cx-K/2-8,narrow?yb-10:yb+4,PNK,11,narrow?'center':'right')}
   text(c,'​'+(A?(f<0.99?'flux growing':'flux steady'):Bp?(f>0.01?'flux collapsing':'flux gone'):'no current, no flux'),cx,narrow?14:cy-rad-62,INK,12,'center');
@@ -2816,11 +2816,11 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   text(c,'​'+(A?'how the supply emf ε is shared':Bp?'with the battery removed, the coil is the source':'how the supply emf ε is shared'),bx,by-14,INK,12,'left');
   c.strokeStyle='#5d6b88';c.lineWidth=1.2;c.strokeRect(bx,by,bw,bh);
   if(A){const wR=bw*Math.max(0,Math.min(1,i*(L.R+L.r)/L.E)),wB=bw-wR;c.fillStyle='rgba(240,166,106,.85)';c.fillRect(bx,by,wR,bh);c.fillStyle='rgba(217,154,198,.85)';c.fillRect(bx+wR,by,wB,bh);
-   text(c,'​i(R + r) = '+(i*(L.R+L.r)).toFixed(2)+' V',bx,by+bh+16,ORG,11,'left');text(c,'​back emf = '+back.toFixed(2)+' V',bx+bw,by+bh+16,PNK,11,'right');
+   text(c,'​I(R + r) = '+(i*(L.R+L.r)).toFixed(2)+' V',bx,by+bh+16,ORG,11,'left');text(c,'​back emf = '+back.toFixed(2)+' V',bx+bw,by+bh+16,PNK,11,'right');
    text(c,'​drives the current through the resistance',bx,by+bh+32,MUT,10,'left');text(c,'​slows the change',bx+bw,by+bh+32,MUT,10,'right');
    text(c,'​ε = '+L.E+' V',bx+bw,by-14,INK,12,'right')}
   else if(Bp){const wB=bw*Math.max(0,Math.min(1,back/L.E));c.fillStyle='rgba(217,154,198,.85)';c.fillRect(bx,by,wB,bh);
-   text(c,'​induced emf = i(R + r) = '+back.toFixed(2)+' V',bx,by+bh+16,PNK,11,'left');text(c,'​it falls as the current dies away',bx,by+bh+32,MUT,10,'left')}
+   text(c,'​induced emf = I(R + r) = '+back.toFixed(2)+' V',bx,by+bh+16,PNK,11,'left');text(c,'​it falls as the current dies away',bx,by+bh+32,MUT,10,'left')}
   else text(c,'​switch open: no current',bx+bw/2,by+bh/2+4,MUT,12,'center');
   [['lrZA','A'],['lrZB','B'],['lrZC','none']].forEach(([id,ps])=>{const b=$(id);const on=String(L.pos===ps&&(ps!=='none'||L.started));if(b.getAttribute('aria-pressed')!==on)b.setAttribute('aria-pressed',on)});
   // explanation line: changes only when the state changes, so it can be read
@@ -2895,11 +2895,11 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
   // current through the lamp: only while the back emf is big enough to light it (no diode)
   const lit=st.state==='opened'&&!p.diode&&st.emf>=80;const iLamp=lit&&st.flash>0?st.Iopen*Math.max(0,st.flash/0.6):0;
   // with no diode, the coil's current can only flow on through the lamp, so the two are the same current
-  const iCoil=st.state==='opened'&&!p.diode?iLamp:st.I;text(c,'i_coil = '+eng(iCoil,'A',3),cx1-24,T0+18,'#ffd76a',12,'right');
-  const lcol=iLamp>1e-6?'#ffd76a':MUT;if(!(nrw&&p.diode))text(c,'i_lamp = '+eng(iLamp,'A',3),nrw?nx-8:nx-20,ny+30,lcol,nrw?11:12,'right');
+  const iCoil=st.state==='opened'&&!p.diode?iLamp:st.I;text(c,'I_coil = '+eng(iCoil,'A',3),cx1-24,T0+18,'#ffd76a',12,'right');
+  const lcol=iLamp>1e-6?'#ffd76a':MUT;if(!(nrw&&p.diode))text(c,'I_lamp = '+eng(iLamp,'A',3),nrw?nx-8:nx-20,ny+30,lcol,nrw?11:12,'right');
   if(iLamp>1e-6){c.fillStyle='#ffd76a';c.beginPath();c.moveTo(nx,ny-34);c.lineTo(nx-6,ny-24);c.lineTo(nx+6,ny-24);c.closePath();c.fill()}
   if(st.state==='opened'&&!p.diode&&!nrw)text(c,'\u200b'+(lit?'starts at '+eng(st.Iopen,'A',2)+', gone in a flash':'too little voltage to light it'),nx-20,ny+48,MUT,10,'right');
-  if(p.diode){const dx=xs[2];const iD=st.state==='opened'?st.I:0;text(c,'i_diode = '+eng(iD,'A',3),dx-16,nrw?ny+50:ny,iD>1e-6?'#ffd76a':MUT,nrw?11:12,'right','middle')}
+  if(p.diode){const dx=xs[2];const iD=st.state==='opened'?st.I:0;text(c,'I_diode = '+eng(iD,'A',3),dx-16,nrw?ny+50:ny,iD>1e-6?'#ffd76a':MUT,nrw?11:12,'right','middle')}
   const Ion=p.E/p.r,emf=p.L*Ion/p.dt;
   window.EM.set($('offReadout'),'Steady current \\(\mathrm{I} = \\varepsilon /r\\) = <strong>'+eng(Ion,'A',3)+'</strong><br/>Energy stored \\(\\tfrac{1}{2}Li^{2}\\) = '+eng(0.5*p.L*Ion*Ion,'J',3)+'<br/>Collapse time \\(\\Delta t\\) = '+eng(p.dt,'s',2)+'<br/>Back emf \\(\\approx Li/\\Delta t\\) = <strong class="big">'+(p.diode?'≈ 0.7 V (diode clamps it)':eng(st.state==='opened'?st.emf:emf,'V',3))+'</strong>');
   let note;
@@ -2996,7 +2996,7 @@ window.EMS={sims,frame,path,line,clear,C:{BG,GRID,AX,INK,MUT,ORG,CYN,BLU,PNK,VIO
    if(narrow){text(c,'V_s = '+(p.ac?eng(k2.Vs,'V',3):'0 V'),aw-6,ah-22,CYN,12,'right')}else{text(c,'V_s = '+(p.ac?eng(k2.Vs,'V',3):'0 V'),bx+22,by-6,CYN,12,'left');text(c,'​load '+p.RL+' Ω',bx+22,by+10,MUT,10,'left')}st.outA=[(a[0]+bx)/2,a[1]]}
   // current arrows on the leads (they reverse every half cycle on AC)
   if(p.ac){const sgn=Math.sin(st.ph)>=0?1:-1,a1=Math.abs(Math.sin(st.ph));const ch=(x,y,dir,col,lab)=>{c.save();c.globalAlpha=0.3+0.7*a1;c.fillStyle=col;c.beginPath();c.moveTo(x+dir*9,y);c.lineTo(x-dir*7,y-7);c.lineTo(x-dir*7,y+7);c.closePath();c.fill();c.restore();text(c,lab,x,y-12,col,12,'center')};
-   ch(st.inA[0],st.inA[1],sgn,'#ff7a7a','i_p');ch(st.outA[0],st.outA[1],-sgn,'#ff7a7a','i_s')}
+   ch(st.inA[0],st.inA[1],sgn,'#ff7a7a','I_p');ch(st.outA[0],st.outA[1],-sgn,'#ff7a7a','I_s')}
   // labels
   {const pc=Pj(-0.05,Hc+0.12,Dc*0.5),sc=Pj(Wc-0.1,Hc+0.12,0),np=Pj(tC/2,-0.08,Dc+0.25),ns=Pj(Wc+0.12,sY0-0.22,Dc*0.5);
    text(c,'​primary circuit',pc[0],pc[1],ORG,12,'center');text(c,'​secondary circuit',sc[0]+10,sc[1],CYN,12,'center');
@@ -3478,7 +3478,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   line(c,x0,cy+rad+22,x1,cy+rad+22,MUT,1);line(c,x0,cy+rad+17,x0,cy+rad+27,MUT,1);line(c,x1,cy+rad+17,x1,cy+rad+27,MUT,1);text(c,'l = '+Math.round(p.l*100)+' cm',cx,cy+rad+38,MUT,11,'center');
   // graph: flux linkage against current, gradient L
   const gx=narrow?62:sw+56,gy=narrow?sh+44:58,gw=W-gx-18,gh=narrow?H-sh-80:H-98;st.nAx=NAX;
-  text(c,'NΦ = L i   (gradient = L)',gx+gw/2,gy-28,INK,14,'center');const mH=v=>(v*1e3).toPrecision(3)+' mH';text(c,'L = '+mH(L)+(p.f>0?'   (air core: '+mH(L0)+')':''),gx+gw/2,gy-9,CYN,12,'center');
+  text(c,'NΦ = L I   (gradient = L)',gx+gw/2,gy-28,INK,14,'center');const mH=v=>(v*1e3).toPrecision(3)+' mH';text(c,'L = '+mH(L)+(p.f>0?'   (air core: '+mH(L0)+')':''),gx+gw/2,gy-9,CYN,12,'center');
   const g=frame(c,gx,gy,gw,gh,0,2,0,st.nAx,'NΦ',null,v=>eng(v,'Wb',2));
   text(c,'0',gx,gy+gh+13,MUT,10,'center');text(c,'2 A',gx+gw,gy+gh+13,MUT,10,'right');text(c,'​current ',gx+gw/2-4,gy+gh+13,MUT,10,'right');text(c,'I',gx+gw/2-4,gy+gh+13,MUT,10,'left');
   const end=Lx=>{const ii=Math.min(2,st.nAx/Lx);return[ii,ii*Lx]};
@@ -3626,7 +3626,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   // flow labels
   const thr=0.025*L.E/L.R;const dir=L.i>thr?'left':L.i<-thr?'right':'none';
   text(c,dir==='none'?'​no flow':'​electron flow '+(dir==='left'?'←':'→'),cx,pb+24,EL,12,'center');
-  text(c,dir==='none'?'':'​conventional current i '+(dir==='left'?'→':'←'),cx,pb+42,MUT,11,'center');
+  text(c,dir==='none'?'':'​conventional current I '+(dir==='left'?'→':'←'),cx,pb+42,MUT,11,'center');
   text(c,'​no charge crosses the gap',cx,pt-28,MUT,10,'center');
   const Im=L.E/L.R;
   window.EM.set($('capZoomNote'),!L.started?'Press <strong>Charge (A)</strong> to start.':
@@ -3709,7 +3709,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   const th=st.th,Vpk=Math.SQRT2*Vr,Ipk=Math.SQRT2*I,Imx=nice(Ipk*1.12),Vmx=nice(Vpk*1.12);
   text(c,'​'+{R:'Resistor (100 Ω) connected',C:'Capacitor (10 µF) connected',L:'Inductor (0.20 H) connected'}[p.comp],W/2,16,{R:GRN,C:ROSE,L:BLU}[p.comp],13,'center');
   const r0=34,gap=26,rowH=(top-r0-gap-28)/2,pr=Math.min(rowH*0.42,narrow?W*0.13:W*0.075),pcx=pr+(narrow?12:26),wx=pcx+pr+(narrow?44:60),ww=W-wx-14;
-  const rows=[{y:r0,col:CORAL,lab:'V',ph:0,mx:Vmx,pk:Vpk,unit:'V',other:CYN,oph:phi,name:'voltage V'},{y:r0+rowH+gap,col:CYN,lab:'I',ph:phi,mx:Imx,pk:Ipk,unit:'A',other:CORAL,oph:0,name:'current i'}];
+  const rows=[{y:r0,col:CORAL,lab:'V',ph:0,mx:Vmx,pk:Vpk,unit:'V',other:CYN,oph:phi,name:'voltage V'},{y:r0+rowH+gap,col:CYN,lab:'I',ph:phi,mx:Imx,pk:Ipk,unit:'A',other:CORAL,oph:0,name:'current I'}];
   const thm=((th%(2*Math.PI))+2*Math.PI)%(2*Math.PI);
   const peaks=(off)=>{const out=[];for(let n=-3;n<=3;n++){const u=(thm+off-Math.PI/2-2*Math.PI*n)/(1.5*2*Math.PI);if(u>0.03&&u<0.92)out.push(u)}return out};
   const G=rows.map(R1=>{const cy=R1.y+rowH/2;
@@ -3725,14 +3725,14 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
    return{g,R1}});
   text(c,'​phasors',pcx,top-12,MUT,10,'center');
   if(!narrow){text(c,'← now',wx+4,r0-6,MUT,10);text(c,'earlier →',wx+ww,r0-6,MUT,10,'right')}
-  text(c,p.comp==='R'?'V and i in phase':p.comp==='C'?'i leads V by 90°':'V leads i by 90°',wx+ww/2,top-12,INK,12,'center');
+  text(c,p.comp==='R'?'V and I in phase':p.comp==='C'?'I leads V by 90°':'V leads I by 90°',wx+ww/2,top-12,INK,12,'center');
   // peaks: a guide line through the leading peak and both graphs, with labels that move with the waves
   {const [gv,gi]=G;const vP=peaks(0),iP=peaks(phi);
    const mark=(gg,u,amp,col,lab,bold)=>{const x=gg.g.X(u),y=gg.g.Y(amp);dot(c,x,y,4,col);text(c,'​'+lab,x,y-9,col,bold?12:10,'center')};
    const guide=u=>{const x=gv.g.X(u);line(c,x,r0,x,r0+2*rowH+gap,'rgba(255,255,255,.18)',1,[3,4])};
    if(p.comp==='R'){vP.forEach(u=>{guide(u);mark(gv,u,Vpk,CORAL,'in phase',true);mark(gi,u,Ipk,CYN,'in phase',true)})}
-   else if(p.comp==='C'){iP.forEach(u=>{guide(u);mark(gi,u,Ipk,CYN,'i leads',true)});vP.forEach(u=>mark(gv,u,Vpk,CORAL,'V peak',false))}
-   else{vP.forEach(u=>{guide(u);mark(gv,u,Vpk,CORAL,'V leads',true)});iP.forEach(u=>mark(gi,u,Ipk,CYN,'i peak',false))}}
+   else if(p.comp==='C'){iP.forEach(u=>{guide(u);mark(gi,u,Ipk,CYN,'I leads',true)});vP.forEach(u=>mark(gv,u,Vpk,CORAL,'V peak',false))}
+   else{vP.forEach(u=>{guide(u);mark(gv,u,Vpk,CORAL,'V leads',true)});iP.forEach(u=>mark(gi,u,Ipk,CYN,'I peak',false))}}
   // reactance vs f
   const gx=60,gy=top+12,gw=W-gx-16,gh=H-top-44;const g=logFrame(c,gx,gy,gw,gh,10,1e4,1,1e5,'opposition to current (Ω)','frequency',true);
   [['R',GRN],['C',ROSE],['L',BLU]].forEach(([cm,col])=>{const pts=[];for(let e=1;e<=4.0001;e+=0.02){const f=Math.pow(10,e);pts.push([g.X(f),g.Y(X(cm,f))])}c.strokeStyle=col;c.globalAlpha=cm===p.comp?1:0.3;c.lineWidth=cm===p.comp?3:1.8;c.beginPath();pts.forEach((q,i)=>i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1]));c.stroke();c.globalAlpha=1});
@@ -3764,12 +3764,12 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   arrow(c,ox,oy,ox+k.VR*s,oy,GRN,3.5);arrow(c,ox,oy,ox,oy-k.VL*s,CYN,3);arrow(c,ox,oy,ox,oy+k.VC*s,ROSE,3);
   line(c,ox+k.VR*s,oy,ox+k.VR*s,oy-(k.VL-k.VC)*s,'rgba(255,255,255,.35)',1.5,[4,4]);arrow(c,ox,oy,ox+k.VR*s,oy-(k.VL-k.VC)*s,INK,3.5);
   if(k.VR*s>90)text(c,'V_R '+k.VR.toFixed(1)+' V',ox+k.VR*s/2,oy+(k.VL>=k.VC?18:-10),GRN,11,'center');else text(c,'V_R '+k.VR.toFixed(1)+' V',ox+Math.max(k.VR*s+14,72),oy+(k.VL>=k.VC?16:-8),GRN,11);text(c,'V_L '+k.VL.toFixed(1)+' V',ox+6,oy-k.VL*s-6,CYN,11);text(c,'V_C '+k.VC.toFixed(1)+' V',ox+6,oy+k.VC*s+14,ROSE,11);
-  {const tx=ox+k.VR*s,ty=oy-(k.VL-k.VC)*s,tc=k.VL>=k.VC?oy-k.VL*s:oy+k.VC*s,near=Math.abs(ty-tc)<24;text(c,'V = 10 V',near?Math.max(tx+10,ox+86):tx+8,ty+(near?4:(k.VL>=k.VC?-12:18)),INK,11)}text(c,'i →',pw-30,oy-6,YEL,11,'right');
+  {const tx=ox+k.VR*s,ty=oy-(k.VL-k.VC)*s,tc=k.VL>=k.VC?oy-k.VL*s:oy+k.VC*s,near=Math.abs(ty-tc)<24;text(c,'V = 10 V',near?Math.max(tx+10,ox+86):tx+8,ty+(near?4:(k.VL>=k.VC?-12:18)),INK,11)}text(c,'I →',pw-30,oy-6,YEL,11,'right');
   if(Math.abs(k.phi)>0.02){c.strokeStyle=YEL;c.lineWidth=1.5;c.beginPath();c.arc(ox,oy,26,0,-k.phi,k.phi>0);c.stroke();const bs=-k.phi/2;text(c,'φ',ox+38*Math.cos(bs),oy+38*Math.sin(bs)+4,YEL,12,'center')}
-  {const dg=Math.abs(k.phi*180/Math.PI).toFixed(0);text(c,Math.abs(k.phi)<=0.02?'φ = 0°: i in phase with V':'φ = '+dg+'°: i '+(k.phi>0?'lags':'leads')+' V',pw-10,ph-12,YEL,12,'right')}
+  {const dg=Math.abs(k.phi*180/Math.PI).toFixed(0);text(c,Math.abs(k.phi)<=0.02?'φ = 0°: I in phase with V':'φ = '+dg+'°: I '+(k.phi>0?'lags':'leads')+' V',pw-10,ph-12,YEL,12,'right')}
   // graphs
   const gx=narrow?60:pw+58,gw=W-gx-16,gy=narrow?ph+10:22,gh=(H-gy-50)/2;
-  const Imax=nice(Vs/p.R*1.05);const g1=logFrame(c,gx,gy,gw,gh,10,3162,0,Imax,'current i = V/Z (A)',null,false);for(let i=0;i<=4;i++)text(c,(Imax*i/4).toPrecision(2),gx-4,gy+gh-gh*i/4,MUT,10,'right','middle');
+  const Imax=nice(Vs/p.R*1.05);const g1=logFrame(c,gx,gy,gw,gh,10,3162,0,Imax,'current I = V/Z (A)',null,false);for(let i=0;i<=4;i++)text(c,(Imax*i/4).toPrecision(2),gx-4,gy+gh-gh*i/4,MUT,10,'right','middle');
   const pts=[];for(let e=1;e<=3.5001;e+=0.005){const f=Math.pow(10,e);pts.push([g1.X(f),g1.Y(calc(p,f).I)])}c.strokeStyle=YEL;c.lineWidth=2.5;c.beginPath();pts.forEach((q,i)=>i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1]));c.stroke();
   if(f0>=10&&f0<=3162){line(c,g1.X(f0),gy,g1.X(f0),gy+gh,'rgba(255,255,255,.35)',1,[4,4]);text(c,'f₀',g1.X(f0)+4,gy+12,INK,11)}
   dot(c,g1.X(p.f),g1.Y(k.I),7,CORAL);c.strokeStyle='#fff';c.lineWidth=1.5;c.beginPath();c.arc(g1.X(p.f),g1.Y(k.I),7,0,2*Math.PI);c.stroke();line(c,g1.X(p.f),g1.Y(k.I),g1.X(p.f),gy+gh,'rgba(255,138,122,.5)',1,[3,3]);text(c,'drag to change f',gx+gw-4,gy+12,MUT,10,'right');
@@ -3808,14 +3808,14 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
   const s=Math.min((W-ox-(narrow?150:260))/Math.max(a,1e-9),(H-70)/Math.max(up+dn,1e-9));
   const oy=34+up*s,tx=ox+a*s,ey=oy-net*s;
   line(c,ox-20,oy,W-20,oy,AX,1);line(c,ox,14,ox,H-14,AX,1);
-  arrow(c,ox,oy,W-26,oy,'rgba(255,215,106,.55)',1.5);text(c,narrow?'i (reference)':'i  (reference: the same everywhere in series)',W-26,oy+16,YEL,11,'right');
+  arrow(c,ox,oy,W-26,oy,'rgba(255,215,106,.55)',1.5);text(c,narrow?'I (reference)':'I  (reference: the same everywhere in series)',W-26,oy+16,YEL,11,'right');
   const lab=(t,x,y,col,al)=>text(c,t,x,y,col,12,al||'left');
   const fadeL='rgba(120,217,247,.3)',fadeC='rgba(255,158,181,.3)',fadeR='rgba(143,214,148,.35)';
   if(early){
    arrow(c,ox,oy,tx,oy,GRN,4);if(a*s>110)lab(nR+' = '+fmt(a),ox+a*s/2,oy+18,GRN,'center');else lab(nR+' = '+fmt(a),tx+6,oy+18,GRN);
-   if(ad.step===1)lab(Zm?'R is drawn along i':'in phase with i',a*s>110?ox+a*s/2:tx+6,oy+34,GRN,a*s>110?'center':'left');
+   if(ad.step===1)lab(Zm?'R is drawn along I':'in phase with I',a*s>110?ox+a*s/2:tx+6,oy+34,GRN,a*s>110?'center':'left');
    if(ad.step===2){arrow(c,ox,oy,ox,oy-bL*s,CYN,3);arrow(c,ox,oy,ox,oy+bC*s,ROSE,3);
-    lab(nL+' = '+fmt(bL),ox-8,oy-bL*s+4,CYN,'right');lab('leads i by 90°',ox-8,oy-bL*s+20,CYN,'right');lab(nC+' = '+fmt(bC),ox-8,oy+bC*s-12,ROSE,'right');lab('lags i by 90°',ox-8,oy+bC*s+4,ROSE,'right')}
+    lab(nL+' = '+fmt(bL),ox-8,oy-bL*s+4,CYN,'right');lab('leads I by 90°',ox-8,oy-bL*s+20,CYN,'right');lab(nC+' = '+fmt(bC),ox-8,oy+bC*s-12,ROSE,'right');lab('lags I by 90°',ox-8,oy+bC*s+4,ROSE,'right')}
    return}
   // nose-to-tail: vertical (L or C), then R, then the other vertical
   const v1=Lf?bL:-bC,v2=Lf?-bC:bL,y1=oy-v1*s;
@@ -3928,7 +3928,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
        ['X','The current flows through the iron core from the primary coil to the secondary coil.','No current passes through the core between the coils. The coils are linked only by the changing magnetic flux.'],
        ['X','DC has a frequency that is too high for the transformer to respond to.','Steady DC does not change at all. The problem is that the flux is constant.']]},
    {title:'High-voltage transmission',q:'Power stations step the voltage up to 220 kV before sending electrical power along transmission lines. Explain why this reduces the energy wasted in the lines.',
-    s:[['C','The lines have resistance, so power is dissipated as heat in them: P = i²R.'],
+    s:[['C','The lines have resistance, so power is dissipated as heat in them: P = I²R.'],
        ['C','The power sent along the line is P = VI, so the same power can be sent as a high voltage with a low current, or a low voltage with a high current.'],
        ['E','A step-up transformer increases the voltage, so for the same power the current in the lines is much smaller.'],
        ['E','The power lost in the lines depends on the current squared, so a small reduction in current gives a large reduction in the loss.'],
@@ -3937,7 +3937,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
        ['X','A higher voltage makes the electrons travel faster, so they spend less time in the wires losing energy.','The loss depends on the current in the line (P = i²R), not on how long charges spend in the wire.'],
        ['X','Stepping up the voltage increases the power, so the losses are a smaller fraction.','A transformer cannot increase power. Power out is at most equal to power in.']]},
    {title:'Spark at a switch',q:'A coil with a large inductance carries a steady current from a 12 V battery. When the switch is opened, a spark jumps across the switch contacts. Explain why.',
-    s:[['C','An inductor produces an induced emf whenever the current through it changes: ε = −L Δi/Δt.'],
+    s:[['C','An inductor produces an induced emf whenever the current through it changes: ε = −L ΔI/Δt.'],
        ['C','By Lenz\'s law this emf acts in the direction that opposes the change in current.'],
        ['E','Opening the switch makes the current fall to zero in a very short time, so the rate of change of current is very large.'],
        ['E','The flux through the coil collapses quickly, so the induced emf is very large, much greater than 12 V.'],
@@ -3980,7 +3980,7 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
    {q:'An inductor and a resistor are connected in series to a battery. Describe the voltage across the inductor a long time after the switch is closed.',a:['The current has reached a steady value.','The inductor now has its maximum voltage across it, because the current through it is a maximum.','The current is limited only by the resistance in the circuit.'],bad:1,fix:'In the steady state the current is not changing, so the back emf is <b>zero</b>. An ideal inductor then has no voltage across it. The voltage is a maximum at the instant the switch is closed.'},
    {q:'An ideal transformer steps 240 V up to 2400 V. Describe the power output.',a:['The secondary coil has 10 times as many turns as the primary coil.','The voltage is 10 times bigger, so the power out is 10 times bigger than the power in.','The secondary current is smaller than the primary current.'],bad:1,fix:'A transformer cannot create power. For an ideal transformer <b>power out = power in</b>, so the current is 10 times smaller.'},
    {q:'The mains supply is 240 V rms. Find the peak voltage.',a:['The rms voltage is the DC voltage that gives the same heating effect.','V_max = V_rms / √2','So the peak voltage is 170 V.'],bad:1,fix:'The peak is bigger than the rms value: V<sub>max</sub> = √2 × V<sub>rms</sub> = <b>339 V</b>.'},
-   {q:'The frequency of an AC supply connected to a capacitor is increased. Describe the effect on the current.',a:['The reactance of a capacitor is X_C = 1/ωC.','So when the frequency increases, the reactance of the capacitor increases.','The current changes because i = V/X_C.'],bad:1,fix:'X<sub>C</sub> = 1/ωC, so a higher frequency gives a <b>smaller</b> reactance and a larger current. It is the inductor whose reactance rises with frequency.'},
+   {q:'The frequency of an AC supply connected to a capacitor is increased. Describe the effect on the current.',a:['The reactance of a capacitor is X_C = 1/ωC.','So when the frequency increases, the reactance of the capacitor increases.','The current changes because I = V/X_C.'],bad:1,fix:'X<sub>C</sub> = 1/ωC, so a higher frequency gives a <b>smaller</b> reactance and a larger current. It is the inductor whose reactance rises with frequency.'},
    {q:'Describe a series LCR circuit at resonance.',a:['At resonance the reactances are equal: X_L = X_C.','The impedance of the circuit is a maximum.','The supply voltage is in phase with the current.'],bad:1,fix:'V<sub>L</sub> and V<sub>C</sub> cancel, so the impedance is a <b>minimum</b> (Z = R) and the current is a maximum.'},
   ];
   const sb=$('nxSpot');let order=[],si=0,sScore=0,sDone=0;
@@ -4005,12 +4005,12 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
     pts:[['A','(a) 2.0 A and 10.4 V'],['A','(b) Mentions internal resistance or lost volts'],['A','(c) Parallel resistance 2.6 Ω'],
          ['M','(b) Energy per coulomb is dissipated in the internal resistance, so V = ε − Ir'],['M','(c) New current 3.5 A and terminal voltage 9.2 V'],['M','(c) Terminal voltage falls because the larger current gives larger lost volts'],
          ['E','(c) Complete answer including the power: total rises from 20.8 W to 32 W, while each heater gets less (16 W)']]},
-   {t:'dc',name:'Two batteries and Kirchhoff',ctx:'Battery A (emf 12.0 V, in series with a 2.0 Ω resistor) and battery B (emf 6.0 V, in series with a 4.0 Ω resistor) are connected in parallel with each other across an 8.0 Ω resistor. The positive terminals of both batteries are joined to the top of the 8.0 Ω resistor. Call the current up through battery A i₁, the current up through battery B i₂, and the current down through the 8.0 Ω resistor i₃.',
-    parts:[['Write the junction equation for the top junction, and state the conservation law it expresses.','i₁ + i₂ = i₃. Charge is conserved: the charge arriving at the junction each second equals the charge leaving.'],
-           ['Write a loop equation for each battery loop (each loop includes the 8.0 Ω resistor), and state the conservation law the loop rule expresses.','Loop A: 12.0 − 2.0i₁ − 8.0i₃ = 0. Loop B: 6.0 − 4.0i₂ − 8.0i₃ = 0. Energy is conserved: around a closed loop the energy gained per coulomb equals the energy lost per coulomb.'],
-           ['Solve the equations to find the three currents, and explain what your answer for i₂ shows.','Substituting i₁ = (12.0 − 8.0i₃)/2.0 and i₂ = (6.0 − 8.0i₃)/4.0 into the junction equation gives i₃ = <b>1.07 A</b>, so the voltage across the 8.0 Ω resistor is 8.6 V. Then i₁ = <b>1.71 A</b> and i₂ = <b>−0.64 A</b>. The negative sign means the current in battery B is opposite to the direction assumed: it flows down through B, into its positive terminal. The voltage across the branch (8.6 V) is greater than B\'s emf (6.0 V), so battery A is driving current backwards through B and charging it.']],
-    pts:[['A','(a) i₁ + i₂ = i₃ and conservation of charge'],['A','(b) One correct loop equation'],['A','(b) States the loop rule expresses conservation of energy'],
-         ['M','(b) Both loop equations correct, with consistent signs'],['M','(c) i₃ = 1.07 A (or 8.6 V across the resistor)'],['M','(c) i₁ = 1.71 A and i₂ = −0.64 A'],
+   {t:'dc',name:'Two batteries and Kirchhoff',ctx:'Battery A (emf 12.0 V, in series with a 2.0 Ω resistor) and battery B (emf 6.0 V, in series with a 4.0 Ω resistor) are connected in parallel with each other across an 8.0 Ω resistor. The positive terminals of both batteries are joined to the top of the 8.0 Ω resistor. Call the current up through battery A I₁, the current up through battery B I₂, and the current down through the 8.0 Ω resistor I₃.',
+    parts:[['Write the junction equation for the top junction, and state the conservation law it expresses.','I₁ + I₂ = I₃. Charge is conserved: the charge arriving at the junction each second equals the charge leaving.'],
+           ['Write a loop equation for each battery loop (each loop includes the 8.0 Ω resistor), and state the conservation law the loop rule expresses.','Loop A: 12.0 − 2.0I₁ − 8.0I₃ = 0. Loop B: 6.0 − 4.0I₂ − 8.0I₃ = 0. Energy is conserved: around a closed loop the energy gained per coulomb equals the energy lost per coulomb.'],
+           ['Solve the equations to find the three currents, and explain what your answer for I₂ shows.','Substituting I₁ = (12.0 − 8.0I₃)/2.0 and I₂ = (6.0 − 8.0I₃)/4.0 into the junction equation gives I₃ = <b>1.07 A</b>, so the voltage across the 8.0 Ω resistor is 8.6 V. Then I₁ = <b>1.71 A</b> and I₂ = <b>−0.64 A</b>. The negative sign means the current in battery B is opposite to the direction assumed: it flows down through B, into its positive terminal. The voltage across the branch (8.6 V) is greater than B\'s emf (6.0 V), so battery A is driving current backwards through B and charging it.']],
+    pts:[['A','(a) I₁ + I₂ = I₃ and conservation of charge'],['A','(b) One correct loop equation'],['A','(b) States the loop rule expresses conservation of energy'],
+         ['M','(b) Both loop equations correct, with consistent signs'],['M','(c) I₃ = 1.07 A (or 8.6 V across the resistor)'],['M','(c) I₁ = 1.71 A and I₂ = −0.64 A'],
          ['E','(c) Interprets the negative sign: current flows backwards through B because 8.6 V is greater than its 6.0 V emf, so B is being charged']]},
    {t:'cap',name:'Charging a capacitor',ctx:'A 470 µF capacitor is charged from a 9.0 V battery through a 2.2 kΩ resistor. The capacitor is uncharged when the switch is closed.',
     parts:[['Calculate the time constant of the circuit.','τ = RC = 2200 × 470 × 10⁻⁶ = <b>1.0 s</b>.'],
@@ -4036,30 +4036,30 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
    {t:'ind',name:'Inductor in a DC circuit',ctx:'An inductor of inductance 0.40 H and internal resistance 4.0 Ω is connected in series with a 16 Ω resistor, a switch and a 12 V battery.',
     parts:[['Calculate the time constant of the circuit.','τ = L/R, using the total resistance: 0.40/(16 + 4.0) = <b>0.020 s</b>.'],
            ['Calculate the steady current, and the energy stored in the inductor when the current is steady.','i = V/R = 12/20 = <b>0.60 A</b>. E = ½Li² = ½ × 0.40 × 0.60² = <b>0.072 J</b>.'],
-           ['Explain why the current does not reach its steady value as soon as the switch is closed, and why a spark may be seen at the switch when it is opened again.','When the switch is closed the current starts to rise, so the flux through the coil is changing. This induces a back emf that opposes the increase (Lenz), so the current rises gradually; as the rate of change falls the back emf falls, until the current is steady at 0.60 A. When the switch is opened the current falls to zero in a very short time, so Δi/Δt is very large and ε = −L Δi/Δt is very large, much more than 12 V. This emf tries to keep the current flowing, so a large voltage appears across the switch gap, the air conducts and a spark jumps, releasing the 0.072 J stored in the magnetic field.']],
+           ['Explain why the current does not reach its steady value as soon as the switch is closed, and why a spark may be seen at the switch when it is opened again.','When the switch is closed the current starts to rise, so the flux through the coil is changing. This induces a back emf that opposes the increase (Lenz), so the current rises gradually; as the rate of change falls the back emf falls, until the current is steady at 0.60 A. When the switch is opened the current falls to zero in a very short time, so ΔI/Δt is very large and ε = −L ΔI/Δt is very large, much more than 12 V. This emf tries to keep the current flowing, so a large voltage appears across the switch gap, the air conducts and a spark jumps, releasing the 0.072 J stored in the magnetic field.']],
     pts:[['A','(a) τ = 0.020 s, using the total resistance of 20 Ω'],['A','(b) 0.60 A'],['A','(c) Mentions back emf or induced emf'],
          ['M','(b) 0.072 J'],['M','(c) Rising current gives a changing flux, so a back emf opposes the increase'],['M','(c) Opening the switch gives a very large rate of change of current, so a very large emf'],
          ['E','(c) Complete answer for both: gradual rise and the spark, with the emf trying to keep the current flowing and the stored energy released']]},
    {t:'ind',name:'Transformer and lamp',ctx:'A transformer is used to run a 12 V, 36 W lamp from a 240 V AC supply. The primary coil has 2000 turns.',
     parts:[['Calculate the number of turns on the secondary coil.','N<sub>s</sub> = N<sub>p</sub> × V<sub>s</sub>/V<sub>p</sub> = 2000 × 12/240 = <b>100 turns</b>.'],
-           ['Assuming the transformer is ideal, calculate the current in the primary coil.','Power in = power out: i<sub>p</sub> = 36/240 = <b>0.15 A</b>.'],
+           ['Assuming the transformer is ideal, calculate the current in the primary coil.','Power in = power out: I<sub>p</sub> = 36/240 = <b>0.15 A</b>.'],
            ['Explain why the transformer would not light the lamp if it were connected to a 240 V DC supply, and why the input power of a real transformer is more than 36 W.','An emf is induced in the secondary only while the flux through it is changing. AC in the primary gives a continuously changing flux in the core, which links the secondary and induces an emf in every turn. A steady DC current gives a constant flux, so no emf is induced and the lamp does not light. In a real transformer some energy is wasted: the changing flux induces eddy currents in the iron core, which heat it (reduced by laminating the core); the coils have resistance, so there is i²R heating; and not all the flux links the secondary. The efficiency is below 100%, so the input power must be more than 36 W.']],
     pts:[['A','(a) 100 turns'],['A','(b) 0.15 A'],['A','(c) States that a changing flux (or changing current) is needed'],
          ['M','(b) Uses power in = power out'],['M','(c) AC gives a changing flux in the core, which induces an emf in the secondary; DC gives a constant flux, so no emf'],['M','(c) Names one loss: eddy currents in the core, or resistance heating of the coils'],
          ['E','(c) Complete answer for both parts, with at least two losses explained and linked to efficiency below 100%']]},
    {t:'ac',name:'Heater on the mains',ctx:'A 60 Ω heater is connected to a 240 V rms, 50 Hz AC supply.',
     parts:[['Calculate the peak voltage of the supply.','V<sub>max</sub> = √2 × V<sub>rms</sub> = 1.414 × 240 = <b>339 V</b>.'],
-           ['Calculate the average power dissipated in the heater.','P = V<sub>rms</sub>²/R = 240²/60 = <b>960 W</b> (i<sub>rms</sub> = 4.0 A).'],
+           ['Calculate the average power dissipated in the heater.','P = V<sub>rms</sub>²/R = 240²/60 = <b>960 W</b> (I<sub>rms</sub> = 4.0 A).'],
            ['Explain why AC voltages are quoted as rms values, and not as peak or average values.','The average of an alternating voltage over a whole cycle is zero, because it is positive for half the cycle and negative for the other half, so the average is no use. The power dissipated in a resistor depends on V² (P = V²/R), which is always positive, so energy is dissipated in both halves of the cycle. The rms value is the steady DC voltage that would dissipate energy in a resistor at the same average rate, so it can be used directly in P = VI. The peak value is reached only for an instant: the peak power is 339²/60 = 1920 W, twice the average.']],
     pts:[['A','(a) 339 V'],['A','(b) 960 W'],['A','(c) States the average of an AC voltage is zero'],
-         ['M','(c) rms is the DC value that gives the same heating effect (same average power)'],['M','(c) Power depends on V², so it is positive in both halves of the cycle'],['M','(b) or (c) i_rms = 4.0 A, or peak power 1920 W'],
+         ['M','(c) rms is the DC value that gives the same heating effect (same average power)'],['M','(c) Power depends on V², so it is positive in both halves of the cycle'],['M','(b) or (c) I_rms = 4.0 A, or peak power 1920 W'],
          ['E','(c) Complete, linked explanation of why neither the average nor the peak is useful, and what rms represents']]},
    {t:'ac',name:'Series LCR circuit',ctx:'A 30 Ω resistor, a 0.20 H inductor and a 100 µF capacitor are connected in series to a 12 V rms, 50 Hz AC supply.',
     parts:[['Calculate the reactance of the inductor and of the capacitor.','ω = 2πf = 314 rad s⁻¹. X<sub>L</sub> = ωL = 314 × 0.20 = <b>62.8 Ω</b>. X<sub>C</sub> = 1/ωC = 1/(314 × 100 × 10⁻⁶) = <b>31.8 Ω</b>.'],
-           ['Calculate the impedance of the circuit and the rms current.','Z = √(R² + (X<sub>L</sub> − X<sub>C</sub>)²) = √(30² + 31.0²) = <b>43 Ω</b>. i = V/Z = 12/43.1 = <b>0.28 A</b>.'],
+           ['Calculate the impedance of the circuit and the rms current.','Z = √(R² + (X<sub>L</sub> − X<sub>C</sub>)²) = √(30² + 31.0²) = <b>43 Ω</b>. I = V/Z = 12/43.1 = <b>0.28 A</b>.'],
            ['The frequency of the supply is lowered until the current is a maximum. Calculate this frequency and explain why the current is a maximum.','This is resonance, when X<sub>L</sub> = X<sub>C</sub>: f₀ = 1/(2π√(LC)) = 1/(2π√(0.20 × 100 × 10⁻⁶)) = <b>36 Hz</b>. The voltages across the inductor and the capacitor are 180° out of phase with each other. At resonance they are equal in size, so they cancel. The impedance is then a minimum, Z = R = 30 Ω, so the current i = V/Z = 12/30 = <b>0.40 A</b> is a maximum, and the supply voltage is in phase with the current.']],
     pts:[['A','(a) X_L = 62.8 Ω'],['A','(a) X_C = 31.8 Ω'],['A','(c) States resonance, or X_L = X_C'],
-         ['M','(b) Z = 43 Ω'],['M','(b) i = 0.28 A'],['M','(c) f₀ = 36 Hz'],
+         ['M','(b) Z = 43 Ω'],['M','(b) I = 0.28 A'],['M','(c) f₀ = 36 Hz'],
          ['E','(c) Explanation: V_L and V_C are 180° out of phase and equal, so they cancel; Z = R is a minimum; the current is 0.40 A']]},
   ];
   const TOPIC={dc:'DC circuits',cap:'Capacitors',ind:'Induction and inductors',ac:'AC circuits'},ORDER=['dc','cap','ind','ac'];
