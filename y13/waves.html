@@ -3297,7 +3297,7 @@ window.addEventListener('resize',draw);tabs('map','scope');requestAnimationFrame
     if(Math.abs(a-near)<tol) verdict=`<b>Whole number of wavelengths (n = ${near})</b>: the waves arrive <b>in phase</b> → constructive interference → <strong>bright fringe</strong>.`;
     else if(Math.abs(a-half)<tol) verdict=`<b>Half-number of wavelengths</b>: the waves arrive <b>180° out of phase</b> → destructive interference → <strong>dark fringe</strong>.`;
     else verdict=`Not a whole or half number of wavelengths: the waves are partly out of phase → brightness ${Math.round(I*100)}% of maximum.`;
-    $('pdRead').innerHTML=`<span class="small"><i>x</i> is measured from the central maximum (n = 0) to P.</span><br>S₁P = ${(L1/LAM).toFixed(2)}λ &nbsp;·&nbsp; S₂P = ${(L2/LAM).toFixed(2)}λ<br>Path difference = <strong>${a.toFixed(2)}λ</strong><br>${verdict}`;
+    $('pdRead').innerHTML=`<span class="small">\\(x\\) is measured from the central maximum (n = 0) to P.</span><br>S₁P = ${(L1/LAM).toFixed(2)}λ &nbsp;·&nbsp; S₂P = ${(L2/LAM).toFixed(2)}λ<br>Path difference = <strong>${a.toFixed(2)}λ</strong><br>${verdict}`;
     $('pdYOut').textContent=Math.abs(yUp)<0.6?'at the centre':(yUp>0?'above centre':'below centre');
     document.querySelectorAll('.pd-snaps .tool-btn').forEach(b=>{const on=Math.abs(a-+b.dataset.pd)<tol;b.classList.toggle('secondary',!on);b.setAttribute('aria-pressed',String(on))});
   }
