@@ -5,6 +5,10 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.23 · 25 November 2026 (Phone layout for every Year 12 and Year 13 lab)
+- On phones (screens up to 700 px wide) the topic buttons stay in a vertical column on the left, that topic's tabs stack in a column beside them, and the content runs full width underneath. Tab labels wrap instead of making the tab row scroll sideways. Wider screens are unchanged.
+- Year 13 Electrical, Mechanics and Modern: the topic buttons no longer squash into thin columns on phones.
+
 ## v1.22 · 19 November 2026 (Year 13 Mechanics: 3D phasor spiral in the SHM lab, and a better drawing coach)
 - 4.2 SHM Lab has a new 3D phasor spiral view beside the reference circle and graphs, with mass, k and A carried across. The reference circle is stretched along a time axis into a spiral. Circle, graph and 3D views (snapping exactly into place), velocity and acceleration phasors, and a 3D spring and mass fixed beside the graph with ±A guide lines and a grid. Drag the phasor tip in circle view to set the phase.
 - 4.9 Damping Lab drawing coach: choose light or critical damping, and how the oscillator starts (released from +A, pushed from equilibrium, or, for critical damping, pushed towards equilibrium so it overshoots once). Step 3 uses given data (amplitude after a number of periods) to draw the envelope; light damping ends with a "check your sketch" step, critical damping with a comparison of damping levels.

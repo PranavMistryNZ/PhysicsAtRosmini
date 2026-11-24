@@ -422,6 +422,19 @@ body.light-mode[data-topic="osc"]{--topic:#68409a;--topic-contrast:#fff}
 .ph-hint{margin-left:auto;font-size:12px;color:var(--muted)}
 .ph-sim canvas{height:clamp(330px,46vw,540px);cursor:move}
 @media (max-width:700px){.ph-hint{margin-left:0;flex-basis:100%}}
+
+/* phones: keep the topic rail vertical, stack this topic's tabs beside it, content full width below */
+@media (max-width:700px){
+ .frame{display:grid!important;grid-template-columns:92px minmax(0,1fr)!important;gap:10px!important;align-items:start}
+ .frame>.rail{grid-column:1;grid-row:1;display:flex!important;flex-direction:column!important;gap:6px!important;grid-template-columns:none!important;width:auto!important;overflow:visible!important}
+ .frame>.rail button{width:100%!important;grid-column:auto!important}
+ .frame>.rail button{flex:0 0 auto!important;min-height:60px;padding:8px 4px!important;font-size:10px!important;border-radius:6px!important}
+ .frame>.rail .fill{display:none}
+ .frame>main.work{display:contents}
+ .frame>main.work>*{grid-column:1/-1;min-width:0}
+ .frame>main.work>.tabs{grid-column:2;grid-row:1;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;overflow:visible!important;gap:6px!important;margin:0!important;padding:0!important}
+ .frame>main.work>.tabs button{flex:0 0 auto!important;width:100%;min-width:0!important;min-height:38px!important;white-space:normal!important;text-align:left;padding:8px 12px!important;font-size:11.5px!important;border-radius:0 14px 14px 0!important;line-height:1.25}
+}
 </style></head>
 <body data-topic="map"><div class="shell">
 <header class="topbar"><div class="topcurve" aria-hidden="true"></div><div class="titlebar"><div><div class="eyebrow">Science learning systems · Physics level 3</div><h1 id="topicTitle">COURSE MAP</h1></div><div><div class="index">AS91524 · 6 CREDITS<br/>EXTERNAL EXAM<br/>INTERACTIVE LAB</div><div class="hdr-tools"><a class="home-btn" href="../index.html"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg><span>Home</span></a><div aria-label="Page colour theme" class="theme-switch-wrap"><span class="theme-label-dark">Dark</span><label class="theme-switch" title="Switch between dark and light mode"><input aria-label="Use light mode" id="themeToggle" type="checkbox"/><span class="theme-slider"></span></label><span class="theme-label-light">Light</span></div></div></div></div></header>

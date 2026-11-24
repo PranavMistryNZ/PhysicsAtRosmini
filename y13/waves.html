@@ -723,6 +723,19 @@ body.light-mode .nx-report,body.light-mode .nx-share input{background:#fff;color
 .nx-term-search{margin:0 0 6px;max-width:520px}.nx-term-group>.action{margin-top:2px}.nx-term[hidden],.nx-term-group[hidden]{display:none}
 .intro-step-body .mini-table,.notes-card .mini-table{font-size:14px}.intro-step-body>ul{padding-left:22px;margin:8px 0 0}.intro-step-body>ul li{margin:6px 0}
 @media(max-width:700px){.nx-term-group .nx-grid2{grid-template-columns:minmax(0,1fr)}}
+
+/* phones: keep the topic rail vertical, stack this topic's tabs beside it, content full width below */
+@media (max-width:700px){
+ .frame{display:grid!important;grid-template-columns:92px minmax(0,1fr)!important;gap:10px!important;align-items:start}
+ .frame>.rail{grid-column:1;grid-row:1;display:flex!important;flex-direction:column!important;gap:6px!important;grid-template-columns:none!important;width:auto!important;overflow:visible!important}
+ .frame>.rail button{width:100%!important;grid-column:auto!important}
+ .frame>.rail button{flex:0 0 auto!important;min-height:60px;padding:8px 4px!important;font-size:10px!important;border-radius:6px!important}
+ .frame>.rail .fill{display:none}
+ .frame>main.work{display:contents}
+ .frame>main.work>*{grid-column:1/-1;min-width:0}
+ .frame>main.work>.tabs{grid-column:2;grid-row:1;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;overflow:visible!important;gap:6px!important;margin:0!important;padding:0!important}
+ .frame>main.work>.tabs button{flex:0 0 auto!important;width:100%;min-width:0!important;min-height:38px!important;white-space:normal!important;text-align:left;padding:8px 12px!important;font-size:11.5px!important;border-radius:0 14px 14px 0!important;line-height:1.25}
+}
 </style>
 <!-- Equations: one shared copy of KaTeX plus the shared renderer and styles (assets/) -->
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
