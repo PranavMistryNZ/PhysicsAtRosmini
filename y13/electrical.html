@@ -555,6 +555,23 @@ body.light-mode .nx-qtag{color:#26324a;border-color:#6b7890}
  .frame>main.work>.tabs{grid-column:2;grid-row:1;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;overflow:visible!important;gap:6px!important;margin:0!important;padding:0!important}
  .frame>main.work>.tabs button{flex:0 0 auto!important;width:100%;min-width:0!important;min-height:38px!important;white-space:normal!important;text-align:left;padding:8px 12px!important;font-size:11.5px!important;border-radius:0 14px 14px 0!important;line-height:1.25}
 }
+
+/* ---- 4.4 LCR: extra views ---- */
+.ph-views{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 8px}
+.ph-views .tool-btn{min-height:34px;padding:5px 12px;font-size:13px;flex:0 0 auto;width:auto}
+.ph-views .tool-btn[aria-pressed="true"]{background:var(--topic);color:var(--topic-contrast,#111);box-shadow:none}
+.ph-hint{margin-left:auto;font-size:12px;color:var(--muted)}
+.ph-sim canvas{height:clamp(330px,46vw,540px);cursor:move}
+.ac-circ{height:250px}
+.ac-diag{height:320px}
+.ac-z{height:140px}
+.ac-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px;align-items:start}
+.ac-sum{margin-top:8px;font-size:14px;line-height:1.9;padding:8px 12px;border-left:4px solid var(--topic);background:rgba(255,255,255,.04);border-radius:0 6px 6px 0}
+body.light-mode .ac-sum{background:#eef2f7}
+.ph-bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:10px 0}
+.ph-bar .tool-btn{width:auto;flex:0 0 auto}
+.ph-bar label{font-size:13px;display:inline-flex;gap:6px;align-items:center}
+@media (max-width:760px){.ac-grid{grid-template-columns:minmax(0,1fr)}.ac-circ{height:270px}.ph-hint{margin-left:0;flex-basis:100%}}
 </style></head>
 <body data-topic="map"><div class="shell">
 <header class="topbar"><div class="topcurve" aria-hidden="true"></div><div class="titlebar"><div><div class="eyebrow">Science learning systems · Physics level 3</div><h1 id="topicTitle">COURSE MAP</h1></div><div><div class="index">AS91526 · 6 CREDITS<br/>EXTERNAL EXAM<br/>INTERACTIVE LAB</div><div class="hdr-tools"><a class="home-btn" href="../index.html"><svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg><span>Home</span></a><div aria-label="Page colour theme" class="theme-switch-wrap"><span class="theme-label-dark">Dark</span><label class="theme-switch" title="Switch between dark and light mode"><input aria-label="Use light mode" id="themeToggle" type="checkbox"/><span class="theme-slider"></span></label><span class="theme-label-light">Light</span></div></div></div></div></header>
@@ -2150,10 +2167,24 @@ body.light-mode .nx-qtag{color:#26324a;border-color:#6b7890}
 <section class="pane hidden" data-section="ac" data-view="lcr">
 <div class="section-identity"><strong>4.4 · LCR resonance</strong><p>Tune a series LCR circuit and watch the phasor diagram and resonance curve.</p></div>
 <h2>Series LCR resonance</h2>
-<p class="sub">A 10 V rms supply drives a resistor, inductor and capacitor in series. Left: the voltage phasor diagram (current along the horizontal). Right: current against frequency (the resonance curve) and the reactances against frequency. Press <strong>Tune to resonance</strong>, then change \(R\) and watch the peak get sharper or flatter.</p>
+<p class="sub">A 10 V rms supply drives a resistor, inductor and capacitor in series. Choose a view. <strong>Resonance curve</strong>: the voltage phasor diagram (current along the horizontal) beside graphs of current and reactance against frequency. <strong>Circuit and phasor diagrams</strong>: the voltage across each component right now, each voltage as a phasor from the origin, and how they combine to give the supply voltage. <strong>3D phasor spiral</strong>: each voltage over time. Press <strong>Tune to resonance</strong>, then change \(R\) and watch the peak get sharper or flatter.</p>
+<div class="ph-views ac-mode" role="group" aria-label="Choose the view"><button class="tool-btn secondary" data-ac-mode="curve" type="button" aria-pressed="true">Resonance curve</button><button class="tool-btn secondary" data-ac-mode="2d" type="button" aria-pressed="false">Circuit and phasor diagrams</button><button class="tool-btn secondary" data-ac-mode="3d" type="button" aria-pressed="false">3D phasor spiral</button><span class="ph-hint">One circuit, three views · the sliders below work in all of them</span></div>
 <div class="nx-lab">
+<div id="lcrCurve">
 <div class="sim"><canvas id="lcrCanvas" height="430" aria-label="Phasor diagram of resistor, inductor and capacitor voltages, beside graphs of current and reactance against frequency"></canvas></div>
 <div class="legend"><span style="--key:#8fd694">\(V_{R} / R\)</span><span style="--key:#78d9f7">\(V_{L} / X_{L}\)</span><span style="--key:#ff9eb5">\(V_{C} / X_{C}\)</span><span style="--key:#e9edf8">Supply \(V\) / \(Z\)</span><span style="--key:#ffd76a">Current</span></div>
+</div>
+<div id="ac2d">
+<div class="sim ac-card"><canvas id="phaCirc" class="ac-circ" aria-label="Series circuit with an AC supply, a resistor, an inductor and a capacitor, with the voltage across each"></canvas></div>
+<div class="ac-grid"><div class="sim ac-card"><canvas id="phaD1" class="ac-diag" aria-label="Phasor diagram with the current and each voltage drawn from the origin"></canvas></div><div class="ac-card"><div class="sim"><canvas id="phaD2" class="ac-diag" aria-label="Phasor diagram combining the voltages from the origin to give the supply voltage"></canvas></div><div class="sim" style="margin-top:8px"><canvas id="phaZ" class="ac-z" aria-label="Impedance triangle"></canvas></div><div class="ac-sum" id="phaSum"></div></div></div>
+<div class="legend"><span style="--key:#8fd694">\(V_{R}\)</span><span style="--key:#78d9f7">\(V_{L}\)</span><span style="--key:#ff9eb5">\(V_{C}\)</span><span style="--key:#e9edf8">Supply \(V_{s}\)</span><span style="--key:#ffd76a">Current \(\mathrm{I}\)</span></div>
+</div>
+<div id="ac3d" class="hidden">
+<div class="ph-views" data-scene="pha"><button class="tool-btn secondary" data-view="circle" type="button">Circle view</button><button class="tool-btn secondary" data-view="side" type="button">Graph view</button><button class="tool-btn secondary" data-view="3d" type="button" aria-pressed="true">3D view</button><span class="ph-hint">Drag to turn</span></div>
+<div class="sim ph-sim"><canvas id="phaCanvas" aria-label="Phasors for the current and the voltages across a resistor, inductor and capacitor, with their spirals along a time axis"></canvas></div>
+<div class="legend"><span style="--key:#8fd694">\(V_{R}\)</span><span style="--key:#78d9f7">\(V_{L}\)</span><span style="--key:#ff9eb5">\(V_{C}\)</span><span style="--key:#e9edf8">Supply \(V_{s}\)</span><span style="--key:#ffd76a">Current \(\mathrm{I}\)</span></div>
+</div>
+<div class="ph-bar hidden" id="phaBar"><button class="tool-btn ac2d-only" id="phaRot" type="button" aria-pressed="false">Rotate the phasors</button><button class="tool-btn ac3d-only hidden" id="phaPlay" type="button">Pause</button><label class="ac3d-only hidden">Phasor diagram <select id="phaShow"><option value="spin">Rotating</option><option value="exam">Exam diagram (stopped, current horizontal)</option></select></label><label class="ac3d-only hidden">Arrangement <select id="phaArr"><option value="origin">All from the origin</option><option value="head">Nose to tail</option></select></label><label class="check-row ac3d-only hidden"><input checked id="phaEach" type="checkbox"/> Spirals for \(V_{R}\), \(V_{L}\) and \(V_{C}\)</label><label class="check-row ac3d-only hidden"><input checked id="phaCur" type="checkbox"/> Current phasor and spiral</label></div>
 <div class="nx-ctlbar kirbar rcbar lcrbar">
 <div class="nx-bar-inputs">
 <h3>Controls</h3>
@@ -4180,6 +4211,210 @@ function bindOut(ids,upd){ids.forEach(id=>$(id).addEventListener('input',upd));u
     count.textContent=q?(shown?shown+' of '+cards.length+' terms match.':'No terms match. Try a shorter word.'):'';
   }
   box.addEventListener('input',apply);
+})();
+</script>
+<script>
+/* ===== 4.4 LCR: circuit and phasor diagrams, and the 3D phasor spiral (shared engine with the Phasor lab) ===== */
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const TAU=Math.PI*2,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),mod=(a,n)=>((a%n)+n)%n;
+/* ---------- colours ---------- */
+function C(){return false?{
+ bg:'#f8fafd',grid:'rgba(60,80,120,.16)',plane:'rgba(40,90,160,.05)',axis:'#4b5870',ink:'#18202c',muted:'#5c6a80',
+ spiral:'#c86a00',dot:'#2f55d4',sel:'#8a5d00',q:'#00799c',wallC:'#1d8a55',floorC:'#a8407c',circ:'rgba(40,60,100,.25)',
+ y:'#c86a00',v:'#1d8a55',a:'#c0392b',mass:'#6a3fb5',res:'#18202c',i:'#1d8a55',vr:'#c86a00',vl:'#00799c',vc:'#c2416e',s2:'#00799c'}:{
+ bg:'#070b17',grid:'rgba(140,160,210,.14)',plane:'rgba(120,150,220,.05)',axis:'#8c97b3',ink:'#e8edf6',muted:'#9aa6c0',
+ spiral:'#f0a24a',dot:'#6f8cff',sel:'#ffd76a',q:'#78d9f7',wallC:'#5fd39a',floorC:'#d99ac6',circ:'rgba(160,180,230,.25)',
+ y:'#f0a24a',v:'#5fd39a',a:'#ff8a7a',mass:'#c5a2ff',res:'#e9edf8',i:'#ffd76a',vr:'#8fd694',vl:'#78d9f7',vc:'#ff9eb5',s2:'#78d9f7'}}
+
+/* ---------- the 3D engine ---------- */
+const VIEWS={circle:{yaw:0,pitch:0},side:{yaw:Math.PI/2,pitch:0},'3d':{yaw:0.85,pitch:0.36}};
+function Scene(cv,key){
+ const S={cv,ctx:cv.getContext('2d'),yaw:VIEWS['3d'].yaw,pitch:VIEWS['3d'].pitch,goal:null,view:'3d',s:0,ox:0,oy:0,W:0,H:0,onPick:null,onGrab:null,onGrabMove:null,onView:null};
+ const bar=document.querySelector('.ph-views[data-scene="'+key+'"]');S.btns=bar?[...bar.querySelectorAll('[data-view]')]:[];
+ S.setView=n=>{S.goal=VIEWS[n];S.view=n;S.btns.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===n)));if(S.onView)S.onView(n)};
+ S.btns.forEach(b=>b.addEventListener('click',()=>S.setView(b.dataset.view)));
+ S.isCircle=()=>Math.abs(S.yaw)<0.25&&Math.abs(S.pitch)<0.25;
+ const loc=e=>{const r=cv.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top}};
+ let mode=null,lx=0,ly=0,moved=0;cv.style.touchAction='pan-y';
+ cv.addEventListener('pointerdown',e=>{const p=loc(e);moved=0;lx=e.clientX;ly=e.clientY;mode=(S.onGrab&&S.onGrab(p))?'grab':'orbit';try{cv.setPointerCapture(e.pointerId)}catch(_){}});
+ cv.addEventListener('pointermove',e=>{const p=loc(e);
+  if(mode==='grab'){S.onGrabMove(p);return}
+  if(mode==='orbit'){const dx=e.clientX-lx,dy=e.clientY-ly;lx=e.clientX;ly=e.clientY;moved+=Math.abs(dx)+Math.abs(dy);
+   if(moved>4){S.yaw=clamp(S.yaw+dx*0.009,-Math.PI,Math.PI);S.pitch=clamp(S.pitch+dy*0.009,-Math.PI/2,Math.PI/2);S.goal=null;if(S.view!=='free'){S.view='free';S.btns.forEach(b=>b.setAttribute('aria-pressed','false'))}}return}
+  cv.style.cursor=(S.onGrab&&S.onGrab(p,true))?'grab':(S.onPick&&S.onPick(p,true))?'pointer':'move'});
+ const end=e=>{if(mode==='orbit'){if(moved<5){if(S.onPick)S.onPick(loc(e))}else{let best=null,bd=0.35;for(const n in VIEWS){const v=VIEWS[n],d=Math.abs(v.yaw-S.yaw)+Math.abs(v.pitch-S.pitch);if(d<bd){bd=d;best=n}}if(best)S.setView(best)}}mode=null};
+ cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',()=>mode=null);
+ S.begin=box=>{const r=cv.getBoundingClientRect();if(r.width<10)return false;const dpr=Math.min(window.devicePixelRatio||1,2);
+  const W=Math.round(r.width),H=Math.round(r.height);if(cv.width!==Math.round(W*dpr)||cv.height!==Math.round(H*dpr)){cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr)}
+  S.W=W;S.H=H;const c=S.ctx;c.setTransform(dpr,0,0,dpr,0,0);
+  if(S.goal){const g=S.goal,k=0.16;S.yaw+=(g.yaw-S.yaw)*k;S.pitch+=(g.pitch-S.pitch)*k;if(Math.abs(g.yaw-S.yaw)<0.002&&Math.abs(g.pitch-S.pitch)<0.002){S.yaw=g.yaw;S.pitch=g.pitch;S.goal=null}}
+  S.cy=Math.cos(S.yaw);S.sy=Math.sin(S.yaw);S.cp=Math.cos(S.pitch);S.sp=Math.sin(S.pitch);S.av=clamp(Math.max(Math.abs(S.sy),Math.abs(S.sp))*3-0.2,0,1);S.side=clamp(1-(Math.abs(S.yaw-Math.PI/2)+Math.abs(S.pitch))*5,0,1);
+  let x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;
+  for(const X of [box.x0,box.x1])for(const Y of [box.y0,box.y1])for(const Z of [box.z0,box.z1]){const xx=X*S.cy+Z*S.sy,z1=-X*S.sy+Z*S.cy,yy=Y*S.cp-z1*S.sp;x0=Math.min(x0,xx);x1=Math.max(x1,xx);y0=Math.min(y0,yy);y1=Math.max(y1,yy)}
+  const pad=26,padR=Math.min(88,W*0.12),ts=Math.min((W-pad-padR)/Math.max(x1-x0,1e-3),(H-2*pad)/Math.max(y1-y0,1e-3),H*0.34);
+  const tox=(W-padR+pad)/2-(x0+x1)/2*ts,toy=H/2+(y0+y1)/2*ts;
+  if(!S.s){S.s=ts;S.ox=tox;S.oy=toy}else{const k=0.2;S.s+=(ts-S.s)*k;S.ox+=(tox-S.ox)*k;S.oy+=(toy-S.oy)*k}
+  S.col=C();c.fillStyle=S.col.bg;c.fillRect(0,0,W,H);return true};
+ S.P=(X,Y,Z)=>{const x1=X*S.cy+Z*S.sy,z1=-X*S.sy+Z*S.cy;return [S.ox+x1*S.s,S.oy-(Y*S.cp-z1*S.sp)*S.s,Y*S.sp+z1*S.cp]};
+ S.path=(pts,color,w,o)=>{if(pts.length<2)return;const c=S.ctx;o=o||{};c.save();c.globalAlpha=o.alpha??1;c.strokeStyle=color;c.lineWidth=w||2;c.lineJoin='round';c.lineCap='round';if(o.dash)c.setLineDash(o.dash);
+  c.beginPath();pts.forEach((p,i)=>{const q=S.P(p[0],p[1],p[2]);i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1])});if(o.close)c.closePath();if(o.fill){c.fillStyle=o.fill;c.fill()}c.stroke();c.restore()};
+ S.arrow=(a,b,color,w,o)=>{const c=S.ctx,p=S.P(...a),q=S.P(...b),dx=q[0]-p[0],dy=q[1]-p[1],L=Math.hypot(dx,dy);o=o||{};c.save();c.globalAlpha=o.alpha??1;c.strokeStyle=c.fillStyle=color;c.lineWidth=w||3;c.lineCap='round';
+  const h=Math.min(11+w,L*0.45),ux=dx/(L||1),uy=dy/(L||1);c.beginPath();c.moveTo(p[0],p[1]);c.lineTo(q[0]-ux*h*0.7,q[1]-uy*h*0.7);c.stroke();
+  if(L>4){c.beginPath();c.moveTo(q[0],q[1]);c.lineTo(q[0]-ux*h-uy*h*0.45,q[1]-uy*h+ux*h*0.45);c.lineTo(q[0]-ux*h+uy*h*0.45,q[1]-uy*h-ux*h*0.45);c.closePath();c.fill()}c.restore();return q};
+ S.dot=(p,r,color,o)=>{const c=S.ctx,q=S.P(...p);o=o||{};c.save();c.globalAlpha=o.alpha??1;c.fillStyle=color;c.beginPath();c.arc(q[0],q[1],r,0,TAU);c.fill();if(o.ring){c.lineWidth=2;c.strokeStyle=o.ring;c.stroke()}c.restore();return q};
+ S.box=(cx,cy,cz,h,color)=>{const c=S.ctx,V=[];for(const dx of [-1,1])for(const dy of [-1,1])for(const dz of [-1,1])V.push(S.P(cx+dx*h,cy+dy*h,cz+dz*h));
+  const F=[[0,1,3,2,'x',-1],[4,5,7,6,'x',1],[0,1,5,4,'y',-1],[2,3,7,6,'y',1],[0,2,6,4,'z',-1],[1,3,7,5,'z',1]];
+  F.map(f=>({f,d:(V[f[0]][2]+V[f[1]][2]+V[f[2]][2]+V[f[3]][2])/4})).sort((a,b)=>a.d-b.d).forEach(({f})=>{c.beginPath();[0,1,2,3].forEach((k,i)=>{const q=V[f[k]];i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1])});c.closePath();c.fillStyle=color;c.fill();
+   const shade=f[4]==='y'?(f[5]>0?'rgba(255,255,255,.28)':'rgba(0,0,0,.35)'):f[4]==='x'?'rgba(0,0,0,.18)':'rgba(255,255,255,.08)';c.fillStyle=shade;c.fill();c.strokeStyle='rgba(0,0,0,.35)';c.lineWidth=1;c.stroke()})};
+ S.circle=(z,r,color,w,o)=>{const pts=[];for(let i=0;i<=72;i++){const t=i/72*TAU;pts.push([r*Math.cos(t),r*Math.sin(t),z])}S.path(pts,color,w||1,o)};
+ S.text=(p,str,color,o)=>{const c=S.ctx,q=S.P(...p);o=o||{};c.save();c.globalAlpha=o.alpha??1;c.fillStyle=color;const size=o.size||13;c.font=(o.bold===false?'':'700 ')+size+'px Arial';c.textAlign=o.align||'left';c.textBaseline='middle';
+  const [base,sub]=String(str).split('_');const x=q[0]+(o.dx||0),y=q[1]+(o.dy||0);c.fillText(base,x,y);if(sub){const w=c.measureText(base).width*(c.textAlign==='center'?0.5:c.textAlign==='right'?0:1);c.font=(o.bold===false?'':'700 ')+Math.round(size*0.72)+'px Arial';c.textAlign='left';c.fillText(sub,x+w+1,y+size*0.3)}c.restore()};
+ /* the wall (X = ±w, shows y against the axis) and floor (Y = ±w) on the far side from the viewer */
+ S.planes=(z0,z1,w,show,opt)=>{opt=opt||{};const wx=(S.sy*S.cp>=0?1:-1)*w,fy=(S.sp>=0?-1:1)*w,aw=clamp(Math.abs(S.sy*S.cp)*2.2,0,1),af=clamp(Math.abs(S.sp)*2.2,0,1),ab=clamp(Math.abs(S.cy*S.cp)*2.2-0.5,0,1),zb=S.cy*S.cp>=0?z0:z1;
+  const col=S.col,zs=opt.zs||[],ys=opt.ys||[-w*0.66,w*0.66],gl=(a,b,al,wd)=>S.path([a,b],col.grid,wd||1,{alpha:al});
+  if(show||opt.grid){
+   if(aw>0.02){S.path([[wx,-w,z0],[wx,w,z0],[wx,w,z1],[wx,-w,z1]],col.grid,1,{close:true,fill:col.plane,alpha:aw});zs.forEach(z=>gl([wx,-w,z],[wx,w,z],aw*0.75));ys.forEach(y=>gl([wx,y,z0],[wx,y,z1],aw*0.75));gl([wx,0,z0],[wx,0,z1],aw,1.3)}
+   if(af>0.02){S.path([[-w,fy,z0],[w,fy,z0],[w,fy,z1],[-w,fy,z1]],col.grid,1,{close:true,fill:col.plane,alpha:af});zs.forEach(z=>gl([-w,fy,z],[w,fy,z],af*0.75));ys.forEach(x=>gl([x,fy,z0],[x,fy,z1],af*0.75));gl([0,fy,z0],[0,fy,z1],af,1.3)}
+   if(opt.grid&&ab>0.02){S.path([[-w,-w,zb],[w,-w,zb],[w,w,zb],[-w,w,zb]],col.grid,1,{close:true,fill:col.plane,alpha:ab});ys.forEach(v=>{gl([v,-w,zb],[v,w,zb],ab*0.75);gl([-w,v,zb],[w,v,zb],ab*0.75)});gl([0,-w,zb],[0,w,zb],ab,1.3);gl([-w,0,zb],[w,0,zb],ab,1.3)}}
+  return {wx,fy,aw:show?aw:0,af:show?af:0}};
+ S.axes=(z0,z1,label,R)=>{const col=S.col;S.arrow([0,0,z0],[0,0,z1],col.axis,1.6);{const q=S.P(0,0,z1);S.ctx.font='12px Arial';const lw=S.ctx.measureText(label).width;if(q[0]+8+lw<S.W-4)S.text([0,0,z1],label,col.muted,{alpha:S.av,dx:8,dy:0,size:12,bold:false});else S.text([0,0,z1],label,col.muted,{alpha:S.av,dx:-2,dy:-13,size:12,bold:false,align:'right'})}
+  S.path([[0,-R,z0],[0,R,z0]],col.axis,1.2,{alpha:0.8});S.text([0,R,z0],'y',col.muted,{dx:6,size:13});
+  S.path([[-R,0,z0],[R,0,z0]],col.axis,1,{alpha:0.45})};
+ return S;
+}
+const scenes={},RD={},RNG=(a,b,st)=>{const o=[];for(let v=a;v<=b+1e-9;v+=st)o.push(v);return o};
+const bindOut=(id,fmt,cb)=>{const el=$(id),out=$(id+'Out');const f=()=>{if(out)out.textContent=fmt(+el.value);if(cb)cb()};el.addEventListener('input',f);f();return ()=>+el.value};
+const playBtn=(id,st)=>{const b=$(id);b.addEventListener('click',()=>{st.play=!st.play;b.textContent=st.play?'Pause':'Play'});return v=>{st.play=v;b.textContent=v?'Pause':'Play'}};
+const deg=r=>Math.round(mod(r*180/Math.PI,360));
+
+/* =====================================================================
+   4.1  AC: series LCR
+   ===================================================================== */
+(function(){
+ const S=scenes.lcr=Scene($('phaCanvas'),'pha');const st={t:0,play:true,vs:0};
+ const R=()=>+$('lcrR').value,L=()=>+$('lcrL').value*1e-3,Cc=()=>+$('lcrC').value,F=()=>Math.pow(10,+$('lcrF').value);
+ playBtn('phaPlay',st);
+ $('phaShow').addEventListener('change',e=>{if(e.target.value==='exam')S.setView('circle')});
+ const FV=0.3,TV=1/FV,TURNS=3,LP=1.8,VS=10;
+ const draw3d=dt=>{if(st.play)st.t+=dt;if(st.t>=TURNS*TV)st.t=0;
+  const r=R(),l=L(),c=Cc()*1e-6,f=F(),om=TAU*f,XL=om*l,XC=1/(om*c),Z=Math.hypot(r,XL-XC),I=VS/Z,VR=I*r,VL=I*XL,VC=I*XC,phi=Math.atan2(XL-XC,r),f0=1/(TAU*Math.sqrt(l*c));
+  const col=C(),exam=$('phaShow').value==='exam',head=$('phaArr').value==='head',each=$('phaEach').checked,cur=$('phaCur').checked;
+  const vmax=Math.max(VS,VR,VL,VC);st.vs=st.vs?st.vs+(1.15/vmax-st.vs)*0.15:1.15/vmax;const k=st.vs;
+  const z0=-TURNS*LP/2,z1=TURNS*LP/2,ext=Math.max(1.3,(head?Math.max(VR*k,Math.hypot(VR*k,VL*k)):Math.max(VL,VC)*k)+0.15),wp=Math.max(1.45,ext);
+  if(!S.begin({x0:-wp,x1:wp,y0:-wp,y1:wp,z0:z0-0.35,z1:z1+0.55}))return;
+  const tt=exam?0:st.t,zc=exam?z0:z0+tt/TV*LP,pl=S.planes(z0,z1+0.3,wp,!exam,{grid:true,zs:RNG(0,TURNS,0.5).map(k=>z0+k*LP),ys:[-1,-0.5,0.5,1].map(v=>v*VS*k)});
+  const vec=(mag,a)=>[mag*Math.cos(a),mag*Math.sin(a)];
+  const at=u=>{const th=TAU*FV*u;return {i:vec(0.55,th),vr:vec(VR*k,th),vl:vec(VL*k,th+Math.PI/2),vc:vec(VC*k,th-Math.PI/2),vs:vec(VS*k,th+phi)}};
+  const items=[['vs',col.res,true],['i',col.i,cur],['vr',col.vr,each],['vl',col.vl,each],['vc',col.vc,each]];
+  if(!exam){const n=Math.max(2,Math.ceil(tt/TV*90)),sp={};items.forEach(([key])=>sp[key]=[]);
+   for(let j=0;j<=n;j++){const u=j/n*tt,q=at(u),z=z0+u/TV*LP;items.forEach(([key])=>sp[key].push([q[key][0],q[key][1],z]))}
+   if(pl.aw)items.forEach(([key,c2,on])=>{if(on)S.path(sp[key].map(p=>[pl.wx,p[1],p[2]]),c2,key==='vs'?2.2:1.4,{alpha:pl.aw*(key==='vs'?1:0.7)})});
+   S.axes(z0,z1+0.55,'time, t (slowed down)',1.3);
+   for(let j=1;j<=TURNS;j++){const z=z0+j*LP;S.path([[0,-0.07,z],[0,0.07,z]],col.axis,1.4);S.text([0,0,z],j===1?'T':j+'T',col.muted,{alpha:S.av,dy:15,align:'center',size:12})}
+   items.forEach(([key,c2,on])=>{if(on)S.path(sp[key],c2,key==='vs'?2.6:1.5,{alpha:key==='vs'?1:0.7})})}
+  else{S.path([[-wp*0.95,0,zc],[wp*0.95,0,zc]],col.axis,1,{alpha:0.6});S.path([[0,-wp*0.95,zc],[0,wp*0.95,zc]],col.axis,1,{alpha:0.6})}
+  const q=at(tt),o=[0,0,zc],P3=v=>[v[0],v[1],zc],add=(a,b)=>[a[0]+b[0],a[1]+b[1]];
+  S.circle(zc,VS*k,col.circ,1.2,{dash:[4,4]});
+  if(cur){S.arrow(o,P3(q.i),col.i,2.2);S.text(P3(q.i),'I',col.i,{dx:6,dy:12,size:14})}
+  let a0=[0,0];const draw=(key,c2,lab)=>{const from=head?a0:[0,0],to=add(from,q[key]);if(Math.hypot(q[key][0],q[key][1])>0.01){S.arrow(P3(from),P3(to),c2,3);S.text(P3(to),lab,c2,{dx:7,dy:-9,size:14})}if(head)a0=to};
+  draw('vr',col.vr,'V_R');draw('vl',col.vl,'V_L');draw('vc',col.vc,'V_C');
+  S.arrow(o,P3(q.vs),col.res,3.6);S.text(P3(q.vs),'V_s',col.res,{dx:8,dy:12,size:15});
+  if(Math.abs(phi)>0.02){const rr=0.32,arc=[];for(let j=0;j<=24;j++){const a=TAU*FV*tt+phi*j/24;arc.push([rr*Math.cos(a),rr*Math.sin(a),zc])}S.path(arc,col.ink,1.5,{alpha:0.85});const am=TAU*FV*tt+phi/2;S.text([0.45*Math.cos(am),0.45*Math.sin(am),zc],'φ',col.ink,{align:'center',size:14})}
+  const lead=Math.abs(phi)<0.01?'in phase with the current: <strong>resonance</strong>':phi>0?'<strong>leads</strong> the current: inductive (\\(X_{L} &gt; X_{C}\\))':'<strong>lags</strong> the current: capacitive (\\(X_{C} &gt; X_{L}\\))';
+  RD._unused='<strong class="big">Supply \\(V_{s}\\) = 12.0 V rms</strong><br/>\\(X_{L} = \\omega L\\) = '+XL.toFixed(1)+' Ω · \\(X_{C} = 1/\\omega C\\) = '+XC.toFixed(1)+' Ω<br/>\\(Z = \\sqrt{R^{2} + (X_{L} - X_{C})^{2}}\\) = <strong>'+Z.toFixed(1)+' Ω</strong><br/>'+
+   '\\(i = V_{s}/Z\\) = <strong>'+(I*1000).toFixed(0)+' mA</strong> rms<br/>\\(V_{R}\\) = '+VR.toFixed(1)+' V · \\(V_{L}\\) = '+VL.toFixed(1)+' V · \\(V_{C}\\) = '+VC.toFixed(1)+' V<br/>'+
+   'Sum of the readings: '+(VR+VL+VC).toFixed(1)+' V (more than 12 V: they add as phasors)<br/>Phase angle \\(\\varphi\\) = '+(phi*180/Math.PI).toFixed(0)+'°: the supply voltage '+lead+'<br/>Resonant frequency \\(f_{0} = 1/2\\pi\\sqrt{LC}\\) = '+f0.toFixed(0)+' Hz'+(f0<10||f0>200?' (outside the slider range)':'')};
+
+ /* ---------- 2D view: circuit + phasor diagrams ---------- */
+ st.mode='2d';st.rot=false;st.t2=0;st.dots=0;st.sumKey='';
+ const fitC=(cv,hFix)=>{const r=cv.getBoundingClientRect();if(r.width<10)return null;const dpr=Math.min(window.devicePixelRatio||1,2),W=Math.round(r.width),H=Math.round(hFix||r.height);
+  if(cv.width!==Math.round(W*dpr)||cv.height!==Math.round(H*dpr)){cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr)}const c=cv.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);return {c,W,H}};
+ const arrow=(c,x1,y1,x2,y2,colr,w,o)=>{o=o||{};const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<1)return;const ux=dx/L,uy=dy/L,h=Math.min(10+w,L*0.4);
+  c.save();c.globalAlpha=o.alpha??1;c.strokeStyle=c.fillStyle=colr;c.lineWidth=w;c.lineCap='round';if(o.dash)c.setLineDash(o.dash);c.beginPath();c.moveTo(x1,y1);c.lineTo(x2-ux*h*0.7,y2-uy*h*0.7);c.stroke();c.setLineDash([]);
+  c.beginPath();c.moveTo(x2,y2);c.lineTo(x2-ux*h-uy*h*0.45,y2-uy*h+ux*h*0.45);c.lineTo(x2-ux*h+uy*h*0.45,y2-uy*h-ux*h*0.45);c.closePath();c.fill();c.restore()};
+ const label=(c,txt,x,y,colr,o)=>{o=o||{};c.save();c.fillStyle=colr;const sz=o.size||13,wt=o.bold===false?'':'700 ',F1=wt+sz+'px Arial',F2=wt+Math.round(sz*0.72)+'px Arial';c.textBaseline=o.base||'middle';
+  const parts=String(txt).split(/_([A-Za-z0-9]+)/);let tot=0;parts.forEach((t,k)=>{c.font=k%2?F2:F1;tot+=c.measureText(t).width+(k%2?1.5:0)});
+  let xx=o.align==='center'?x-tot/2:o.align==='right'?x-tot:x;c.textAlign='left';parts.forEach((t,k)=>{c.font=k%2?F2:F1;c.fillText(t,xx+(k%2?1:0),k%2?y+sz*0.3:y);xx+=c.measureText(t).width+(k%2?1.5:0)});c.restore()};
+ const fmtV=v=>(v>=0?'+':'−')+Math.abs(v).toFixed(1)+' V';
+ function phys(){const r=R(),l=L(),c=Cc()*1e-6,f=F(),om=TAU*f,XL=om*l,XC=1/(om*c),Z=Math.hypot(r,XL-XC),I=VS/Z;return {r,l,c,f,XL,XC,Z,I,VR:I*r,VL:I*XL,VC:I*XC,phi:Math.atan2(XL-XC,r),f0:1/(TAU*Math.sqrt(l*c))}}
+ function readout(p){return;const lead=Math.abs(p.phi)<0.01?'in phase with the current: <strong>resonance</strong>':p.phi>0?'<strong>leads</strong> the current: inductive (\\(X_{L} &gt; X_{C}\\))':'<strong>lags</strong> the current: capacitive (\\(X_{C} &gt; X_{L}\\))';
+  RD._unused='<strong class="big">Supply \\(V_{s}\\) = 12.0 V rms</strong><br/>\\(X_{L} = \\omega L\\) = '+p.XL.toFixed(1)+' Ω · \\(X_{C} = 1/\\omega C\\) = '+p.XC.toFixed(1)+' Ω<br/>\\(Z = \\sqrt{R^{2} + (X_{L} - X_{C})^{2}}\\) = <strong>'+p.Z.toFixed(1)+' Ω</strong><br/>'+
+   '\\(I = V_{s}/Z\\) = <strong>'+(p.I*1000).toFixed(0)+' mA</strong> rms<br/>\\(V_{R}\\) = '+p.VR.toFixed(1)+' V · \\(V_{L}\\) = '+p.VL.toFixed(1)+' V · \\(V_{C}\\) = '+p.VC.toFixed(1)+' V<br/>'+
+   'Sum of the readings: '+(p.VR+p.VL+p.VC).toFixed(1)+' V (more than 12 V: they add as phasors)<br/>Phase angle \\(\\varphi\\) = '+(p.phi*180/Math.PI).toFixed(0)+'°: the supply voltage '+lead+'<br/>Resonant frequency \\(f_{0} = 1/2\\pi\\sqrt{LC}\\) = '+p.f0.toFixed(0)+' Hz'+(p.f0<10||p.f0>200?' (outside the slider range)':'')}
+ function sumBox(p){const key=[p.VR,p.VL,p.VC].map(v=>v.toFixed(1)).join();if(key===st.sumKey)return;st.sumKey=key;const net=p.VL-p.VC,ph=p.phi*180/Math.PI;
+  $('phaSum').innerHTML='\\(V_{L} - V_{C} = '+p.VL.toFixed(1)+' - '+p.VC.toFixed(1)+' = '+net.toFixed(1)+'\\) V<br/>\\(V_{s} = \\sqrt{V_{R}^{2} + (V_{L} - V_{C})^{2}} = \\sqrt{'+p.VR.toFixed(1)+'^{2} + ('+net.toFixed(1)+')^{2}} = '+Math.hypot(p.VR,net).toFixed(1)+'\\) V<br/>\\(\\tan\\varphi = \\dfrac{V_{L} - V_{C}}{V_{R}} = \\dfrac{'+net.toFixed(1)+'}{'+p.VR.toFixed(1)+'}\\), so \\(\\varphi = '+ph.toFixed(0)+'^{\\circ}\\)'}
+ function drawCircuit(p,th){const g=fitC($('phaCirc'));if(!g)return;const {c,W,H}=g,col=C();c.fillStyle=col.bg;c.fillRect(0,0,W,H);
+  const nar=W<520,x0=nar?34:70,x1=W-(nar?18:40),yt=nar?96:92,yb=H-(nar?54:50),ym=(yt+yb)/2,pk=Math.SQRT2;
+  const iI=p.I*pk*Math.sin(th),vR=p.VR*pk*Math.sin(th),vL=p.VL*pk*Math.sin(th+Math.PI/2),vC=p.VC*pk*Math.sin(th-Math.PI/2),vS=VS*pk*Math.sin(th+p.phi);
+  c.strokeStyle=col.axis;c.lineWidth=2.2;c.lineJoin='round';c.beginPath();c.moveTo(x0,ym-20);c.lineTo(x0,yt);c.lineTo(x1,yt);c.lineTo(x1,yb);c.lineTo(x0,yb);c.lineTo(x0,ym+20);c.stroke();
+  /* moving charges: speed follows the current at this instant */
+  const per=2*((x1-x0)+(yb-yt));if(st.rot)st.dots+=iI/(p.I*pk||1)*60*(1/60);const N=Math.round(per/34);
+  const pt=s=>{s=mod(s,per);const a=x1-x0,b=yb-yt;if(s<a)return [x0+s,yt];s-=a;if(s<b)return [x1,yt+s];s-=b;if(s<a)return [x1-s,yb];s-=a;return [x0,yb-s]};
+  c.fillStyle=col.i;for(let k=0;k<N;k++){const q=pt(k*per/N+st.dots*40);if(Math.abs(q[0]-x0)<2&&Math.abs(q[1]-ym)<24)continue;c.globalAlpha=0.7;c.beginPath();c.arc(q[0],q[1],2.6,0,TAU);c.fill()}c.globalAlpha=1;
+  /* supply */
+  c.strokeStyle=col.res;c.lineWidth=2;c.fillStyle=col.bg;c.beginPath();c.arc(x0,ym,20,0,TAU);c.fill();c.stroke();c.beginPath();for(let k=0;k<=24;k++){const x=x0-12+k,y=ym-7*Math.sin(k/24*TAU);k?c.lineTo(x,y):c.moveTo(x,y)}c.stroke();
+  label(c,'V_s',x0+(nar?26:-28),ym-(nar?30:0),col.res,{align:nar?'left':'right',size:14});
+  /* components on the top wire */
+  const comps=[['R',0.22,col.vr,vR,p.VR,'R = '+p.r+' Ω'],['L',0.5,col.vl,vL,p.VL,'L = '+Math.round(p.l*1000)+' mH'],['C',0.78,col.vc,vC,p.VC,'C = '+Math.round(p.c*1e6)+' µF']];
+  comps.forEach(([k,fx,cc,v,rms,val])=>{const x=x0+(x1-x0)*fx,hw=nar?20:26;c.fillStyle=col.bg;c.fillRect(x-hw-2,yt-14,2*hw+4,28);c.strokeStyle=cc;c.lineWidth=2.4;
+   if(k==='R'){c.strokeRect(x-hw,yt-8,2*hw,16);c.beginPath();c.moveTo(x-hw-2,yt);c.lineTo(x-hw,yt);c.moveTo(x+hw,yt);c.lineTo(x+hw+2,yt);c.stroke()}
+   else if(k==='L'){c.beginPath();c.moveTo(x-hw-2,yt);for(let b=0;b<4;b++){const cx=x-hw+(b+0.5)*hw/2;c.arc(cx,yt,hw/4,Math.PI,0)}c.lineTo(x+hw+2,yt);c.stroke()}
+   else{c.beginPath();c.moveTo(x-hw-2,yt);c.lineTo(x-4,yt);c.moveTo(x-4,yt-13);c.lineTo(x-4,yt+13);c.moveTo(x+4,yt-13);c.lineTo(x+4,yt+13);c.moveTo(x+4,yt);c.lineTo(x+hw+2,yt);c.stroke()}
+   label(c,'V_'+k,x,yt-(nar?60:58),cc,{align:'center',size:13});label(c,fmtV(v),x,yt-(nar?42:40),cc,{align:'center',size:nar?13:15});label(c,rms.toFixed(1)+' V rms',x,yt-24,col.muted,{align:'center',size:11,bold:false});
+   label(c,val,x,yt+24,col.muted,{align:'center',size:11,bold:false})});
+  /* current arrow and the sum at this instant */
+  const ax=x0+(x1-x0)*0.5;arrow(c,ax+(iI>=0?-22:22),yb,ax+(iI>=0?22:-22),yb,col.i,2.2,{alpha:Math.abs(iI)>0.002?1:0.35});label(c,'I = '+(iI*1000).toFixed(0)+' mA',ax,yb+18,col.i,{align:'center',size:12});
+  label(c,'At this instant:  V_R + V_L + V_C = '+(vR>=0?'':'−')+Math.abs(vR).toFixed(1)+(vL>=0?' + ':' − ')+Math.abs(vL).toFixed(1)+(vC>=0?' + ':' − ')+Math.abs(vC).toFixed(1)+' = '+(vS).toFixed(1)+' V = V_s',W/2,H-12,col.ink,{align:'center',size:nar?10.5:12.5,bold:false})}
+ function axesCross(c,cx,cy,Rr,col){c.strokeStyle=col.grid;c.lineWidth=1;for(let k=-2;k<=2;k++){c.beginPath();c.moveTo(cx+k*Rr/2,cy-Rr*1.08);c.lineTo(cx+k*Rr/2,cy+Rr*1.08);c.moveTo(cx-Rr*1.08,cy+k*Rr/2);c.lineTo(cx+Rr*1.08,cy+k*Rr/2);c.stroke()}
+  c.strokeStyle=col.axis;c.globalAlpha=0.6;c.beginPath();c.moveTo(cx-Rr*1.1,cy);c.lineTo(cx+Rr*1.1,cy);c.moveTo(cx,cy-Rr*1.1);c.lineTo(cx,cy+Rr*1.1);c.stroke();c.globalAlpha=1}
+ function drawD1(p,th){const g=fitC($('phaD1'));if(!g)return;const {c,W,H}=g,col=C();c.fillStyle=col.bg;c.fillRect(0,0,W,H);const cx=W/2,cy=H/2+8,Rr=Math.min(W,H)*0.36,k=Rr/Math.max(p.VR,p.VL,p.VC,0.01);
+  axesCross(c,cx,cy,Rr,col);label(c,'1 · Each voltage, from the origin',12,16,col.ink,{size:13});
+  const tip=(m,a)=>[cx+m*Math.cos(a),cy-m*Math.sin(a)];
+  const items=[[0.5*Rr,th,col.i,'I',2.2],[p.VR*k,th,col.vr,'V_R',3.4],[p.VL*k,th+Math.PI/2,col.vl,'V_L',3.4],[p.VC*k,th-Math.PI/2,col.vc,'V_C',3.4]];
+  items.forEach(([m,a,cc,lab,w])=>{const q=tip(m,a);arrow(c,cx,cy,q[0],q[1],cc,w);let lq=tip(m+16,a);if(lab==='I'){const pq=tip(m*0.75,a);lq=[pq[0]+15*Math.sin(a),pq[1]+15*Math.cos(a)]}label(c,lab,lq[0],lq[1],cc,{align:'center',size:14})});
+  /* right-angle marks to the current */
+  const sq=(a)=>{const s=11,u=[Math.cos(th),-Math.sin(th)],v=[Math.cos(a),-Math.sin(a)];c.strokeStyle=col.muted;c.lineWidth=1.2;c.beginPath();c.moveTo(cx+u[0]*s,cy+u[1]*s);c.lineTo(cx+u[0]*s+v[0]*s,cy+u[1]*s+v[1]*s);c.lineTo(cx+v[0]*s,cy+v[1]*s);c.stroke()};
+  sq(th+Math.PI/2);sq(th-Math.PI/2);
+  label(c,'V_R in phase with I · V_L 90° ahead · V_C 90° behind',W/2,H-10,col.muted,{align:'center',size:11,bold:false})}
+ function drawD2(p,th){const g=fitC($('phaD2'));if(!g)return;const {c,W,H}=g,col=C();c.fillStyle=col.bg;c.fillRect(0,0,W,H);
+  const net=p.VL-p.VC,md=Math.max(p.VR,p.VL,p.VC,Math.hypot(p.VR,net),0.01);
+  const cx=W/2,cy=H/2+8,Rr=Math.min(W,H)*0.36,k=Rr/md;axesCross(c,cx,cy,Rr,col);label(c,'2 · Adding them: V_s',12,16,col.ink,{size:13});
+  const P=(x,y)=>{const X=x*Math.cos(th)-y*Math.sin(th),Y=x*Math.sin(th)+y*Math.cos(th);return [cx+X*k,cy-Y*k]};
+  const o=P(0,0),r=P(p.VR,0),l=P(0,p.VL),cc=P(0,-p.VC),n=P(0,net),e=P(p.VR,net),nc=net>0?col.vl:col.vc;
+  /* step 1: V_L and V_C from the origin (faint), combined into V_L - V_C */
+  arrow(c,o[0],o[1],l[0],l[1],col.vl,2,{alpha:0.4});arrow(c,o[0],o[1],cc[0],cc[1],col.vc,2,{alpha:0.4});
+  const bey=(t,d,txt,colr,sz)=>{const dx=t[0]-o[0],dy=t[1]-o[1],L=Math.hypot(dx,dy)||1;label(c,txt,t[0]+dx/L*d,t[1]+dy/L*d,colr,{align:'center',size:sz})};
+  bey(l,14,'V_L',col.vl,12);bey(cc,14,'V_C',col.vc,12);
+  /* step 2: V_R from the origin, then complete the rectangle */
+  arrow(c,o[0],o[1],r[0],r[1],col.vr,3.4);if(Math.abs(net)*k>8)bey(r,16,'V_R',col.vr,14);else{const dx=r[0]-o[0],dy=r[1]-o[1],L=Math.hypot(dx,dy)||1;label(c,'V_R',(o[0]+r[0])/2+dy/L*16,(o[1]+r[1])/2-dx/L*16*-1,col.vr,{align:'center',size:14})}
+  if(Math.abs(net)*k>2){arrow(c,o[0],o[1],n[0],n[1],nc,3.6);{const dx=n[0]-o[0],dy=n[1]-o[1],L=Math.hypot(dx,dy)||1,px=-dy/L,py=dx/L,sd=(px*(r[0]-o[0])+py*(r[1]-o[1]))>0?-1:1;label(c,'V_L − V_C',n[0]-dx/L*12+px*sd*38,n[1]-dy/L*12+py*sd*38,nc,{align:'center',size:12})}
+   c.save();c.strokeStyle=col.muted;c.lineWidth=1.3;c.setLineDash([5,4]);c.beginPath();c.moveTo(r[0],r[1]);c.lineTo(e[0],e[1]);c.lineTo(n[0],n[1]);c.stroke();c.restore();
+   const s0=10,u=[Math.cos(th),-Math.sin(th)],v=[-Math.sin(th)*Math.sign(net),-Math.cos(th)*Math.sign(net)];c.strokeStyle=col.muted;c.lineWidth=1.2;c.beginPath();c.moveTo(cx+u[0]*s0,cy+u[1]*s0);c.lineTo(cx+u[0]*s0+v[0]*s0,cy+u[1]*s0+v[1]*s0);c.lineTo(cx+v[0]*s0,cy+v[1]*s0);c.stroke()}
+  /* the result */
+  arrow(c,o[0],o[1],e[0],e[1],col.res,4);{const dx=e[0]-o[0],dy=e[1]-o[1],L=Math.hypot(dx,dy)||1,px=-dy/L,py=dx/L;let sd=(px*(r[0]-o[0])+py*(r[1]-o[1]))>0?-1:1;if(Math.abs(net)*k<=8)sd=(px*0+py*-1)>0?1:-1;
+   label(c,'V_s = '+VS.toFixed(1)+' V',e[0]+dx/L*8+px*sd*20,e[1]+dy/L*8+py*sd*20,col.res,{align:'center',size:13})}
+  if(Math.abs(p.phi)>0.02){c.strokeStyle=col.ink;c.lineWidth=1.4;c.beginPath();const r0=Math.min(30,Math.hypot(r[0]-o[0],r[1]-o[1])*0.45);c.arc(cx,cy,r0,-th,-(th+p.phi),p.phi>0);c.stroke();const am=th+p.phi/2;label(c,'φ',cx+(r0+10)*Math.cos(am),cy-(r0+10)*Math.sin(am),col.ink,{align:'center',size:14})}
+  label(c,'Combine V_L and V_C first, then complete the rectangle with V_R',W/2,H-10,col.muted,{align:'center',size:11,bold:false})}
+ function drawZ(p){const g=fitC($('phaZ'));if(!g)return;const {c,W,H}=g,col=C();c.fillStyle=col.bg;c.fillRect(0,0,W,H);const net=p.XL-p.XC;
+  const md=Math.max(p.r,Math.abs(net),1),k=Math.min((W-150)/Math.max(p.r,1),(H-40)/Math.max(Math.abs(net),1),(W-150)/md);const ox=40,oy=net>=0?H-18:20;
+  const a=[ox+p.r*k,oy],e=[ox+p.r*k,oy-net*k];label(c,'Impedance triangle (each voltage ÷ I)',W-10,net>=0?14:H-10,col.muted,{align:'right',size:11,bold:false});
+  arrow(c,ox,oy,a[0],a[1],col.vr,2.4);if(Math.abs(net)*k>3)label(c,'R = '+p.r+' Ω',(ox+a[0])/2,oy+(net>=0?-10:12),col.vr,{align:'center',size:11});
+  if(Math.abs(net)*k>3){arrow(c,a[0],a[1],e[0],e[1],net>0?col.vl:col.vc,2.4);label(c,'X_L − X_C = '+net.toFixed(0)+' Ω',a[0]+8,(a[1]+e[1])/2,net>0?col.vl:col.vc,{size:11})}
+  arrow(c,ox,oy,e[0],e[1],col.res,2.8);if(Math.abs(net)*k>3)label(c,'Z = '+p.Z.toFixed(0)+' Ω',(ox+e[0])/2-8,(oy+e[1])/2-(net>=0?8:-8),col.res,{align:'right',size:11});else label(c,'Z = R = '+p.Z.toFixed(0)+' Ω (resonance)',(ox+e[0])/2,oy-24,col.res,{align:'center',size:11})}
+ function draw2d(dt){if(st.rot)st.t2+=dt;const th=st.rot?TAU*FV*st.t2:0,p=phys();drawCircuit(p,th);drawD1(p,th);drawD2(p,th);drawZ(p);sumBox(p);readout(p)}
+ const setMode=m=>{st.mode=m;document.querySelectorAll('[data-ac-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.acMode===m)));$('ac2d').classList.toggle('hidden',m!=='2d');$('ac3d').classList.toggle('hidden',m!=='3d');$('lcrCurve').classList.toggle('hidden',m!=='curve');$('phaBar').classList.toggle('hidden',m==='curve');document.querySelectorAll('.ac3d-only').forEach(e=>e.classList.toggle('hidden',m!=='3d'));document.querySelectorAll('.ac2d-only').forEach(e=>e.classList.toggle('hidden',m!=='2d'))};
+ document.querySelectorAll('[data-ac-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.acMode)));
+ $('phaRot').addEventListener('click',e=>{st.rot=!st.rot;e.target.textContent=st.rot?'Stop rotating':'Rotate the phasors';e.target.setAttribute('aria-pressed',String(st.rot));if(!st.rot)st.t2=0});
+ setMode('curve');
+ S.draw0=dt=>{if(st.mode==='2d')draw2d(dt);else if(st.mode==='3d')draw3d(dt)};
+
+})();
+
+let view=(location.hash||'').slice(1).replace('-',':'),last=performance.now();
+window.addEventListener('emag-view',e=>{view=e.detail;last=performance.now()});
+function frame(now){const dt=Math.min(0.05,(now-last)/1000);last=now;if(view==='ac:lcr'&&!document.hidden&&scenes.lcr)scenes.lcr.draw0(dt);requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
 })();
 </script>
 </body></html>

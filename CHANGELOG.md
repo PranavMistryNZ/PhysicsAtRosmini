@@ -5,6 +5,10 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.24 · 25 November 2026 (Year 13 Electrical: circuit and phasor diagrams in 4.4 LCR Resonance)
+- 4.4 LCR Resonance has a switch between three views of the same circuit, all driven by the existing R, L, C and f sliders: the resonance curve (unchanged), circuit and phasor diagrams, and a 3D phasor spiral.
+- Circuit and phasor diagrams: a series circuit showing the voltage across each component at this instant (they add to the supply voltage) and its rms value; diagram 1 with each voltage drawn from the origin; diagram 2 combining V_L and V_C first, then completing the rectangle with V_R to give V_s and φ; an impedance triangle and the worked numbers. Still by default, with a "Rotate the phasors" button.
+
 ## v1.23 · 25 November 2026 (Phone layout for every Year 12 and Year 13 lab)
 - On phones (screens up to 700 px wide) the topic buttons stay in a vertical column on the left, that topic's tabs stack in a column beside them, and the content runs full width underneath. Tab labels wrap instead of making the tab row scroll sideways. Wider screens are unchanged.
 - Year 13 Electrical, Mechanics and Modern: the topic buttons no longer squash into thin columns on phones.
