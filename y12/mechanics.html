@@ -29,6 +29,7 @@ document.documentElement.setAttribute('data-theme',t)})();
 <script src="../assets/katex/katex.min.js"></script>
 <script src="../assets/katex/auto-render.min.js"></script>
 <script src="../assets/equations.js"></script>
+<script defer src="../assets/progress.js"></script>
 <style>
 /* ============ TOKENS · Day ops (light) ============ */
 :root, :root[data-theme="light"]{
@@ -601,6 +602,20 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
 /* use the full width of the screen on computers */
 .shell{max-width:none!important;width:auto}
 </style>
+<style id="theme-switch-style">
+/* sun / moon theme switch (same on every page) */
+.theme-switch-wrap{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important}
+.theme-switch-wrap .theme-ico{display:inline-flex;color:inherit;opacity:.45;transition:opacity .2s}
+.theme-switch-wrap:not(:has(input:checked)) .theme-ico-moon,.theme-switch-wrap:has(input:checked) .theme-ico-sun{opacity:1}
+.theme-switch-wrap .theme-switch{position:relative!important;display:inline-block!important;width:52px!important;height:28px!important;flex:0 0 auto}
+.theme-switch-wrap .theme-switch input{opacity:0;width:0;height:0;position:absolute}
+.theme-switch-wrap .theme-slider{position:absolute!important;inset:0!important;cursor:pointer;background:#2f6bff!important;border:0!important;border-radius:999px!important;transition:background .2s!important}
+.theme-switch-wrap .theme-slider:before{content:""!important;position:absolute!important;width:22px!important;height:22px!important;left:3px!important;top:3px!important;border-radius:50%!important;background:#0f1730!important;box-shadow:0 1px 3px rgba(0,0,0,.35)!important;transform:translateX(24px)!important;transition:transform .2s,background .2s!important}
+.theme-switch-wrap .theme-switch input:checked+.theme-slider{background:#2f6bff!important}
+.theme-switch-wrap .theme-switch input:checked+.theme-slider:before{transform:translateX(0)!important;background:#fff!important}
+.theme-switch-wrap .theme-switch input:focus-visible+.theme-slider{outline:2px solid currentColor!important;outline-offset:2px!important}
+@media (prefers-reduced-motion:reduce){.theme-switch-wrap .theme-slider,.theme-switch-wrap .theme-slider:before{transition:none!important}}
+</style>
 </head>
 <body>
 <div class="shell">
@@ -617,7 +632,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
     <div class="status-line"><span class="status-dot" aria-hidden="true"></span><span id="statusText">0 of 22 checklist items ticked</span></div>
     <div class="status-btns">
       <a class="pill home" href="../index.html" title="Back to the Physics@Rosmini home page"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg>HOME BASE</a>
-      <div class="theme-switch-wrap" aria-label="Page colour theme"><span class="theme-label-dark">Dark</span><label class="theme-switch" title="Switch between dark and light mode"><input type="checkbox" id="themeToggle" aria-label="Use light mode"><span class="theme-slider"></span></label><span class="theme-label-light">Light</span></div>
+      <div class="theme-switch-wrap" aria-label="Page colour theme"><span aria-hidden="true" class="theme-ico theme-ico-sun"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></span><label class="theme-switch" title="Light or dark mode"><input type="checkbox" id="themeToggle" aria-label="Use light mode"><span class="theme-slider"></span></label><span aria-hidden="true" class="theme-ico theme-ico-moon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span></div>
     </div>
   </div>
 </header>
@@ -649,7 +664,7 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <div class="pane-head"><h2>Phase 0.1 · Summary: the essentials of each topic</h2><span class="badge teal">START HERE</span></div>
   <p class="lede">Revise from this page first. It has all of AS91171 in the order we teach it (textbook chapters 8 to 14). Each card gives the key ideas, the equations, a sentence you can use in an explanation and the most common mistake. Press <b>Open</b> to go to that topic.</p>
   <div class="weak" id="weakBox" aria-live="polite"></div>
-  <div class="sum-tools"><button class="btn sm" id="recallToggle" type="button" aria-pressed="false">Cover and recall</button><button class="btn sm" id="printSum" type="button">Print one-page summary</button><button class="btn sm" data-go="map:progress" type="button">Save or share my progress</button><span class="small">Cover the cards, recall each one from memory, then reveal it to check.</span></div>
+  <div class="sum-tools"><button class="btn sm" id="recallToggle" type="button" aria-pressed="false">Cover and recall</button><button class="btn sm" id="printSum" type="button">Print one-page summary</button><a class="btn sm" href="../progress.html" style="text-decoration:none">My progress (whole website)</a><span class="small">Cover the cards, recall each one from memory, then reveal it to check.</span></div>
   <div class="telemetry">
     <div class="tm"><span>Standard</span><b>AS91171 · 2.4</b></div>
     <div class="tm"><span>Credits</span><b>6 · external</b></div>
@@ -893,11 +908,6 @@ footer.foot a{color:var(--link);text-decoration:none;border-bottom:1px solid cur
   <div class="rt-box" id="examBox"></div>
 </section>
 
-<section class="pane hidden" data-mod="map" data-view="progress" data-title="My progress: save it or share it with a teacher">
-  <div class="pane-head"><h2>Phase 0.9 · My progress: save it or share it</h2><span class="badge teal">MY PROGRESS</span></div>
-  <p class="lede">Everything you have rated, scored and marked in this lab, in one place. Save it to carry on from another device, or send it to your teacher.</p>
-  <div class="rt-box" id="progressBox"></div>
-</section>
 
 <!-- ======================================================= 00 REARRANGING FORMULAE -->
 <section class="pane hidden" data-mod="map" data-view="rearrange" data-title="Rearranging formulae: task sheet with instant checking">
@@ -3270,7 +3280,7 @@ function setPressed(group, btn) { group.forEach((b) => b.setAttribute("aria-pres
 
 /* ====================================================== STRUCTURE ===== */
 const MODS = {
-  map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["terms", "Key terms"], ["rearrange", "Rearranging formulae"], ["numbers", "Numbers & units"], ["challenge", "Mixed challenge"], ["explain", "Answer practice"], ["exam", "Exam set"], ["progress", "My progress"]] },
+  map: { title: "SUMMARY & COURSE MAP", name: "Summary & course map", views: [["summary", "Summary"], ["skills", "Exam skills"], ["formulas", "Formula sheet"], ["terms", "Key terms"], ["rearrange", "Rearranging formulae"], ["numbers", "Numbers & units"], ["challenge", "Mixed challenge"], ["explain", "Answer practice"], ["exam", "Exam set"]] },
   launch: { title: "MOTION", name: "Motion", views: [["intro", "Foundations"], ["graphs", "Graphs"], ["vertical", "Vertical motion"], ["stopping", "Stopping distance"], ["clinic", "Clinic"], ["check", "Quick check"], ["problems", "Problems"]] },
   vec: { title: "VECTORS & RELATIVE MOTION", name: "Vectors & relative motion", views: [["intro", "Foundations"], ["lab", "Vector lab"], ["relvel", "Relative velocity"], ["check", "Quick check"]] },
   thrust: { title: "FORCES, TORQUE & SPRINGS", name: "Forces, torque & springs", views: [["intro", "Foundations"], ["newton", "Newton's 2nd law"], ["vectors", "Vectors"], ["ramp", "Ramp"], ["lift", "Lift"], ["torque", "Torque"], ["bridges", "Bridges & seesaws"], ["springs", "Springs"], ["practicals", "Practicals"], ["check", "Quick check"], ["problems", "Problems"]] },
@@ -6646,46 +6656,7 @@ const RR = (() => {
     L.push("EXAM SETS (self-marked)"); if (!s.hist.length) L.push("- none yet"); s.hist.slice(-5).forEach((h) => L.push("- " + h.d + (h.timed ? " timed" : " untimed") + ": " + h.q.map((q, i) => q + " = " + h.g[i]).join("; "))); L.push("");
     L.push("Note: these results are self-rated and self-marked by the student in the Physics@Rosmini Mechanics lab."); return L.join("\n");
   }
-  const enc = (o) => "M12." + btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-  const dec = (t) => { t = String(t).trim().replace(/\s+/g, ""); if (!t.startsWith("M12.")) throw 0; const o = JSON.parse(decodeURIComponent(escape(atob(t.slice(4).replace(/-/g, "+").replace(/_/g, "/"))))); if (!o || typeof o !== "object" || Array.isArray(o)) throw 0; return o; };
-  const collect = () => { const o = {}; try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k.startsWith(PRE) && KEYS(k.slice(PRE.length))) o[k.slice(PRE.length)] = JSON.parse(localStorage.getItem(k)); } } catch (e) {} return o; };
-  const pv = $("progressBox");
-  function renderProgress() {
-    const s = snapshot(); pv.replaceChildren();
-    const g = el("div", "telemetry"); [["Confident", s.conf + " of " + s.total], ["Getting there / Not yet", s.get + " / " + s.not], ["Best mixed challenge", s.quiz[0][1] === null ? "not tried" : s.quiz[0][1] + "/10"], ["Exam sets marked", String(s.hist.length)]].forEach((f) => g.appendChild(el("div", "tm", "<span>" + f[0] + "</span><b>" + f[1] + "</b>"))); pv.appendChild(g);
-    const pre = el("pre", "report"); pre.textContent = report(store.get("me", {}).name || ""); pv.appendChild(pre);
-    /* save and load */
-    pv.appendChild(el("h3", null, "Save or load my progress"));
-    pv.appendChild(el("p", "note", "Your progress is kept automatically on this device. To carry it to another device, save a progress code here and load it there. There are no accounts and nothing is stored on a server."));
-    const row = el("div", "sum-tools"), code = el("textarea", "write code"); code.rows = 3; code.placeholder = "Your progress code appears here. To load, paste a code here."; code.setAttribute("aria-label", "Progress code");
-    const msg = el("div"); msg.hidden = true; msg.setAttribute("aria-live", "polite");
-    row.appendChild(btn("btn sm", "Save: make my code", () => { code.value = enc(collect()); code.select(); let ok = false; try { ok = document.execCommand("copy"); } catch (e) {} if (navigator.clipboard) navigator.clipboard.writeText(code.value).catch(() => {}); say(msg, "ok", "<strong>Code ready" + (ok ? " and copied" : "") + ".</strong> Paste it somewhere you can reach from your other device (an email to yourself, or a Google Doc), or download it as a file."); }));
-    row.appendChild(btn("btn sm", "Download as a file", () => { const a = el("a"); a.href = URL.createObjectURL(new Blob([enc(collect())], { type: "text/plain" })); a.download = "mechanics-progress.txt"; document.body.appendChild(a); a.click(); a.remove(); say(msg, "ok", "<strong>Saved</strong> as mechanics-progress.txt in your downloads."); }));
-    const load = (t) => { let o; try { o = dec(t); } catch (e) { say(msg, "bad", "<strong>That is not a valid progress code.</strong> Copy the whole code, starting with M12."); return; }
-      say(msg, "info", "<strong>Load this progress?</strong> It will replace the progress saved on this device. "); msg.appendChild(btn("btn sm", "Yes, load it", () => { try { Object.keys(collect()).forEach((k) => localStorage.removeItem(PRE + k)); Object.keys(o).forEach((k) => { if (KEYS(k)) localStorage.setItem(PRE + k, JSON.stringify(o[k])); }); } catch (e) {} location.reload(); })); };
-    row.appendChild(btn("btn sm", "Load the code in the box", () => load(code.value)));
-    const file = el("input"); file.type = "file"; file.accept = ".txt,text/plain"; file.hidden = true; file.addEventListener("change", () => { const f = file.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => { code.value = String(rd.result); load(code.value); }; rd.readAsText(f); });
-    row.appendChild(btn("btn sm", "Load from a file", () => file.click())); row.appendChild(file);
-    pv.append(row, code, msg);
-    /* share */
-    pv.appendChild(el("h3", null, "Share my results with my teacher"));
-    pv.appendChild(el("p", "note", "Type your name and your teacher's email address. The button opens an email with your results already written. Check it, then press <b>Send</b>. Nothing is sent until you send it yourself, and this website does not collect your name or the address."));
-    const me = store.get("me", {}), form = el("div", "share");
-    const fld = (lab, type, val, ph) => { const l = el("label"); l.append(lab); const i = el("input"); i.type = type; i.value = val || ""; i.placeholder = ph; i.autocomplete = type === "email" ? "off" : "name"; l.appendChild(i); form.appendChild(l); return i; };
-    const nm = fld("Your name", "text", me.name, "First and last name"), em = fld("Teacher's email address", "email", me.teacher, "teacher@school.nz"); pv.appendChild(form);
-    const links = el("div", "sum-tools"); const mk = (t) => { const a = el("a", "btn sm"); a.textContent = t; a.target = "_blank"; a.rel = "noopener"; a.setAttribute("role", "button"); links.appendChild(a); return a; };
-    const gm = mk("Open in Gmail"), ml = mk("Open in my email app"), smsg = el("div"); smsg.hidden = true; smsg.setAttribute("aria-live", "polite"); let warned = false;
-    links.appendChild(btn("btn sm", "Copy the report", () => { const t = report(nm.value.trim()), ta = el("textarea"); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (e) {} ta.remove(); if (navigator.clipboard) navigator.clipboard.writeText(t).then(() => {}, () => {}); warned = false; say(smsg, "ok", "<strong>Report copied.</strong> Paste it into an email or Google Classroom."); }));
-    const upd = () => { const name = nm.value.trim(), to = em.value.trim(), ok = /^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/.test(to); store.set("me", { name, teacher: to }); pre.textContent = report(name);
-      const su = "Mechanics revision progress" + (name ? " · " + name : ""), body = report(name);
-      if (ok && warned) { smsg.hidden = true; warned = false; } [gm, ml].forEach((a) => { a.classList.toggle("off", !ok); a.setAttribute("aria-disabled", String(!ok)); });
-      if (ok) { gm.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(to) + "&su=" + encodeURIComponent(su) + "&body=" + encodeURIComponent(body); ml.href = "mailto:" + encodeURIComponent(to).replace(/%40/g, "@") + "?subject=" + encodeURIComponent(su) + "&body=" + encodeURIComponent(body.replace(/\n/g, "\r\n")); } else { gm.removeAttribute("href"); ml.removeAttribute("href"); } };
-    [gm, ml].forEach((a) => a.addEventListener("click", (e) => { if (!a.hasAttribute("href")) { e.preventDefault(); warned = true; say(smsg, "bad", "<strong>Enter your teacher's email address first.</strong> For example name@school.nz"); } else { warned = false; say(smsg, "ok", "<strong>Your email is ready.</strong> Check it, then press Send. If nothing opened, use Copy the report and paste it into an email."); } }));
-    nm.addEventListener("input", upd); em.addEventListener("input", upd); upd(); pv.append(links, smsg);
-  }
-  renderProgress();
-  const psec = document.querySelector('section[data-mod="map"][data-view="progress"]');
-  new MutationObserver(() => { if (!psec.classList.contains("hidden")) renderProgress(); }).observe(psec, { attributes: true, attributeFilter: ["class"] });
+  window.SiteLab = { id: "y12mech", snapshot, report };
 
   /* ---------- Problems tabs: write first, then mark each part ---------- */
   document.querySelectorAll('section[data-view="problems"] article.q').forEach((q) => {

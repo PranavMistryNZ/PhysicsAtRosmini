@@ -5,6 +5,15 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.26 · 26 November 2026 (One progress page for the whole website)
+- New **My progress** page (progress.html), linked from the home page and from a My progress button beside Home in every lab. It shows every topic: self-ratings, the 3 weakest statements to revise next, quiz bests, the last self-marked exam set and when each lab was last used.
+- One progress code now carries the whole website to another device. Older single-lab codes (W13., E13., M12. and so on) still load.
+- Send to my teacher: one email (Gmail or the email app) with the report and the code. The student's name is needed first.
+- New **Teacher** page (teacher.html): paste students' emails or codes to build a class table (students × topics), click a student for their full report, filter by year level, and download a CSV. Everything stays in the teacher's browser.
+- Removed the separate "My progress" tabs from Year 13 Waves (0.7) and Electrical (0.6), and from the five Year 12 labs. Key Terms moves up one number in Waves and Electrical. The "Save or share my progress" buttons now open the new page.
+- Year 13 Mechanics and Modern Physics course-map ratings now count towards My progress too.
+- The Dark/Light slider on every page is now a sun and moon switch (sun on the left for light, moon on the right for dark).
+
 ## v1.25 · 26 November 2026 (Labs use the full width of the screen)
 - Every Year 12 and Year 13 lab now fills the whole width of a computer screen, instead of stopping at 1280 px (Year 12) or 1400 px (Year 13). Phones and tablets are unchanged.
 

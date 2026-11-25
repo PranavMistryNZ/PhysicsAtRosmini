@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SY24GC7K0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SY24GC7K0S');
+</script>
+<meta charset="utf-8">
+<script>
+/* Light or dark: follow the browser's setting. A choice made with the slider lasts for this visit only
+   (shared with the labs), so the next visit matches the browser again. */
+(function(){var t=null;try{t=sessionStorage.getItem('physics-theme')}catch(e){}
+if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}
+document.documentElement.setAttribute('data-theme',t)})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teacher: class progress · Physics@Rosmini</title>
+<style>
+:root{
+  --bg:#05060b;--panel:#121526;--panel2:#181c31;--ink:#f3edf5;--muted:#c2bed4;--line:#41445b;
+  --orange:#f0a66a;--yellow:#f0cc6a;--pink:#d99ac6;--lav:#a99be4;--blue:#87bbec;
+  --y12:var(--pink);--y13:var(--lav);--accent:var(--yellow);
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --bg:#f4f1ea;--panel:#ffffff;--panel2:#f7f4ee;--ink:#1d1b2b;--muted:#565366;--line:#d6d1c6;
+  --orange:#c46a22;--yellow:#a87b00;--pink:#a44c86;--lav:#5b49b8;--blue:#2b6ea8;
+}}
+:root[data-theme="light"]{
+  --bg:#f4f1ea;--panel:#ffffff;--panel2:#f7f4ee;--ink:#1d1b2b;--muted:#565366;--line:#d6d1c6;
+  --orange:#c46a22;--yellow:#a87b00;--pink:#a44c86;--lav:#5b49b8;--blue:#2b6ea8;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.frame{display:grid;grid-template-columns:150px minmax(0,1fr);gap:0 12px;max-width:1280px;margin:0 auto;padding:16px}
+
+/* ---------- LCARS rail ---------- */
+.rail{display:flex;flex-direction:column;gap:8px}
+.elbow{height:96px;background:var(--accent);border-radius:46px 0 0 0;position:relative}
+
+.yr{border:0;cursor:pointer;text-align:right;padding:12px 14px;min-height:76px;border-radius:0 20px 20px 0;
+  font-weight:700;letter-spacing:.06em;font-size:13px;color:#0b0c14;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;
+  transition:transform .15s ease, filter .15s ease;filter:saturate(.75) brightness(.9)}
+.yr .num{font-size:22px;letter-spacing:.02em;line-height:1}
+.yr:hover{filter:none;transform:translateX(3px)}
+.yr[aria-pressed="true"]{filter:none;outline:3px solid var(--ink);outline-offset:-6px}
+.yr[data-y="all"]{background:var(--accent)}
+:root[data-theme="light"] .yr{color:#fff}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .yr{color:#fff}}
+.yr[data-y="12"]{background:var(--y12)}.yr[data-y="13"]{background:var(--y13)}
+.rail-fill{flex:1;min-height:40px;background:var(--orange);border-radius:0 0 0 46px;opacity:.85}
+
+/* ---------- main ---------- */
+.main{display:flex;flex-direction:column;gap:12px;min-width:0}
+.topbar{height:18px;background:var(--accent);border-radius:0 9px 9px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:4px 4px 0}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue)}
+h1{margin:4px 0 0;font-size:clamp(28px,4vw,44px);letter-spacing:.08em;text-transform:uppercase}
+.head-right{display:flex;align-items:center;gap:12px}
+.theme-switch-wrap{display:flex;align-items:center;gap:8px;font-size:12px;white-space:nowrap}
+.theme-label-dark,.theme-label-light{font-weight:700}
+.theme-label-dark{color:var(--ink)}.theme-label-light{color:var(--muted)}
+:root[data-theme="light"] .theme-label-dark{color:#59687a}:root[data-theme="light"] .theme-label-light{color:#17212c}
+.theme-switch{position:relative;display:inline-block;width:52px;height:28px;flex:0 0 auto}
+.theme-switch input{opacity:0;width:0;height:0;position:absolute}
+.theme-slider{position:absolute;inset:0;cursor:pointer;background:#343c58;border:1px solid #6b738d;border-radius:999px;transition:.2s}
+.theme-slider:before{content:"";position:absolute;width:20px;height:20px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.theme-switch input:checked + .theme-slider{background:#d6e2f2;border-color:#8a9bb1}
+.theme-switch input:checked + .theme-slider:before{transform:translateX(24px);background:#1d2633}
+.theme-switch input:focus-visible + .theme-slider{outline:2px solid var(--accent);outline-offset:2px}
+.tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.search{flex:1;min-width:200px;position:relative}
+.search input{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px 12px 40px}
+.search input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);opacity:.7}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:8px 13px;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+.notice{background:var(--panel);border:1px solid var(--orange);border-left:6px solid var(--orange);border-radius:10px;padding:10px 14px;font-size:14px}
+.notice code{background:var(--panel2);padding:1px 5px;border-radius:4px}
+
+.band{display:flex;align-items:center;gap:10px;margin:10px 0 2px}
+.band .bar{height:12px;flex:0 0 46px;border-radius:6px;background:var(--c)}
+.band h2{margin:0;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+.band .line{flex:1;height:2px;background:var(--line)}
+.band .count{font-size:12px;color:var(--muted)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{--c:var(--lav);position:relative;display:flex;flex-direction:column;gap:8px;text-decoration:none;background:var(--panel);
+  border:1px solid var(--line);border-left:8px solid var(--c);border-radius:6px 18px 18px 6px;padding:14px 16px 14px 16px;min-height:150px;
+  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+a.card:hover,a.card:focus-visible{transform:translateY(-3px);border-color:var(--c);box-shadow:0 10px 26px -14px var(--c);outline:none}
+.card .code{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--c);font-weight:700}
+.card h3{margin:0;font-size:19px;line-height:1.2}
+.card p{margin:0;font-size:13.5px;color:var(--muted)}
+.card .meta{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.pill{font-size:11.5px;letter-spacing:.04em;border-radius:999px;padding:3px 9px;border:1px solid var(--line);color:var(--muted)}
+.pill.ext{border-color:var(--c);color:var(--c)}
+.go{margin-left:auto;font-weight:700;font-size:13px;color:var(--c)}
+.card.soon{opacity:.55;border-left-style:dashed}
+.card.soon .go{color:var(--muted);font-weight:400}
+.empty{padding:26px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+
+.footer{border-top:9px solid var(--orange);margin-top:17px;padding:12px;text-align:right;color:var(--muted);font-size:11px;letter-spacing:.12em}
+.footer span{display:inline-block;margin-top:6px}
+:root[data-theme="light"] .footer{color:#435160}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .footer{color:#435160}}
+
+/* ---------- phone ---------- */
+@media (max-width:720px){
+  .frame{grid-template-columns:1fr;padding:12px 16px}
+  .rail{flex-direction:row;gap:6px;overflow-x:auto;order:0}
+  .elbow,.rail-fill{display:none}
+  .yr{min-height:52px;min-width:72px;flex:1;border-radius:14px;align-items:center;justify-content:center;text-align:center;padding:8px}
+  .yr .num{font-size:17px}
+  .main{margin-top:10px}
+  .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+
+a.yr{text-decoration:none}
+.yr.here{filter:none;outline:3px solid var(--ink);outline-offset:-6px}
+.yr[data-y="home"]{background:var(--accent)}.yr[data-y="me"]{background:var(--lav)}.yr[data-y="teach"]{background:var(--blue)}
+.lede{margin:0;color:var(--muted);max-width:78ch}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px 18px 18px 6px;border-left:8px solid var(--c,var(--orange));padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.panel h2{margin:0;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--c,var(--orange))}
+.panel p{margin:0}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.field{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);min-width:220px;flex:1}
+.field input,textarea{font:inherit;font-size:15px;color:var(--ink);background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+textarea{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;resize:vertical;word-break:break-all}
+.field input:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+.btn{border:0;cursor:pointer;border-radius:999px;padding:9px 16px;font-weight:700;font-size:13.5px;letter-spacing:.03em;background:var(--accent);color:#0b0c14;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.warn{background:transparent;color:var(--pink);border:1px solid var(--pink)}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+:root[data-theme="light"] .btn:not(.alt):not(.warn){color:#fff}
+.msg{font-size:14px;padding:8px 12px;border-radius:10px;background:var(--panel2);border-left:5px solid var(--blue)}
+.msg.bad{border-left-color:var(--pink)}
+.msg[hidden]{display:none}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.facts div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.facts span{display:block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.facts b{font-size:22px}
+.stack{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--panel2);border:1px solid var(--line)}
+.stack i{display:block;height:100%}
+.stack .c{background:#7fcf8a}.stack .g{background:var(--yellow)}.stack .n{background:var(--pink)}
+.key{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.key i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.card .small{font-size:12.5px;color:var(--muted)}
+.card ul{margin:0;padding-left:18px;font-size:13px}
+.card li{margin:2px 0}
+.card .weak-h{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--c);font-weight:700;margin-top:2px}
+.card.idle{opacity:.7;border-left-style:dashed}
+pre.report{white-space:pre-wrap;word-break:break-word;margin:0;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:12.5px;max-height:340px;overflow:auto}
+details.more summary{cursor:pointer;color:var(--muted);font-size:13px}
+.visually-hidden{position:absolute;left:-9999px}
+/* teacher table */
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table.cls{border-collapse:collapse;width:100%;font-size:13px}
+.cls th,.cls td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.cls thead th{position:sticky;top:0;background:var(--panel2);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.cls thead th.y13{color:var(--y13)}.cls thead th.y12{color:var(--y12)}
+.cls td.cell{min-width:96px}
+.cls td.cell .stack{height:8px;margin-top:4px}
+.cls td.none{color:var(--muted)}
+.cls tbody tr{cursor:pointer}
+.cls tbody tr:hover td,.cls tbody tr.on td{background:var(--panel2)}
+.cls .nm{font-weight:700;white-space:nowrap}
+.cls .sub{display:block;font-size:11.5px;color:var(--muted);font-weight:400}
+.gr{font-size:11.5px;color:var(--muted);display:block;margin-top:2px}
+@media (max-width:720px){.facts b{font-size:18px}}
+@media print{.rail,.no-print,.footer{display:none!important}.frame{display:block}.panel,.card{break-inside:avoid}}
+
+</style>
+<style id="theme-switch-style">
+/* sun / moon theme switch (same on every page) */
+.theme-switch-wrap{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important}
+.theme-switch-wrap .theme-ico{display:inline-flex;color:inherit;opacity:.45;transition:opacity .2s}
+.theme-switch-wrap:not(:has(input:checked)) .theme-ico-moon,.theme-switch-wrap:has(input:checked) .theme-ico-sun{opacity:1}
+.theme-switch-wrap .theme-switch{position:relative!important;display:inline-block!important;width:52px!important;height:28px!important;flex:0 0 auto}
+.theme-switch-wrap .theme-switch input{opacity:0;width:0;height:0;position:absolute}
+.theme-switch-wrap .theme-slider{position:absolute!important;inset:0!important;cursor:pointer;background:#2f6bff!important;border:0!important;border-radius:999px!important;transition:background .2s!important}
+.theme-switch-wrap .theme-slider:before{content:""!important;position:absolute!important;width:22px!important;height:22px!important;left:3px!important;top:3px!important;border-radius:50%!important;background:#0f1730!important;box-shadow:0 1px 3px rgba(0,0,0,.35)!important;transform:translateX(24px)!important;transition:transform .2s,background .2s!important}
+.theme-switch-wrap .theme-switch input:checked+.theme-slider{background:#2f6bff!important}
+.theme-switch-wrap .theme-switch input:checked+.theme-slider:before{transform:translateX(0)!important;background:#fff!important}
+.theme-switch-wrap .theme-switch input:focus-visible+.theme-slider{outline:2px solid currentColor!important;outline-offset:2px!important}
+@media (prefers-reduced-motion:reduce){.theme-switch-wrap .theme-slider,.theme-switch-wrap .theme-slider:before{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="frame">
+  <nav class="rail" aria-label="Pages">
+    <div class="elbow" aria-hidden="true"></div>
+    <a class="yr" data-y="home" href="index.html"><span class="num">⌂</span>HOME</a><a class="yr" data-y="me" href="progress.html"><span class="num">01</span>MY PROGRESS</a><a class="yr here" data-y="teach" href="teacher.html" aria-current=page><span class="num">02</span>TEACHER</a>
+    <div class="rail-fill" aria-hidden="true"></div>
+  </nav>
+  <main class="main">
+    <div class="topbar" aria-hidden="true"></div>
+    <div class="head">
+      <div>
+        <div class="eyebrow">For teachers</div>
+        <h1>Class progress</h1>
+      </div>
+      <div class="head-right">
+        <div aria-label="Page colour theme" class="theme-switch-wrap"><span aria-hidden="true" class="theme-ico theme-ico-sun"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></span><label class="theme-switch" title="Light or dark mode"><input aria-label="Use light mode" id="themeToggle" type="checkbox"/><span class="theme-slider"></span></label><span aria-hidden="true" class="theme-ico theme-ico-moon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span></div>
+      </div>
+    </div>
+
+    <p class="lede">Paste the emails (or just the progress codes) your students send from their <b>My progress</b> page. Each student becomes a row in the class table. Everything stays in this browser on this computer: nothing is uploaded.</p>
+
+    <div class="panel no-print" style="--c:var(--blue)">
+      <h2>Add students</h2>
+      <label class="visually-hidden" for="paste">Paste emails or codes</label>
+      <textarea id="paste" rows="5" placeholder="Paste one or many student emails or progress codes here. Anything else in the text is ignored."></textarea>
+      <div class="row">
+        <button class="btn" id="add" type="button">Add to the class table</button>
+        <label class="btn alt" style="cursor:pointer">Add from files<input id="files" type="file" accept=".txt,.eml,text/plain" multiple hidden></label>
+      </div>
+      <p class="msg" id="addMsg" hidden aria-live="polite"></p>
+    </div>
+
+    <div class="panel" style="--c:var(--lav)">
+      <div class="row" style="justify-content:space-between">
+        <h2 id="clsH">Class table</h2>
+        <div class="row no-print">
+          <div class="chips" role="group" aria-label="Year level"><button class="chip" data-y="13" aria-pressed="true" type="button">Year 13</button><button class="chip" data-y="12" aria-pressed="false" type="button">Year 12</button><button class="chip" data-y="all" aria-pressed="false" type="button">Both</button></div>
+          <button class="btn alt" id="csv" type="button">Download CSV</button>
+          <button class="btn warn" id="clear" type="button">Clear the table</button>
+        </div>
+      </div>
+      <div class="key"><span><i style="background:#7fcf8a"></i>Confident</span><span><i style="background:var(--yellow)"></i>Getting there</span><span><i style="background:var(--pink)"></i>Not yet</span><span>Each cell: statements rated confident, then the last self-marked exam set. Click a student for their full report.</span></div>
+      <div class="tablewrap"><table class="cls" id="cls"></table></div>
+      <div id="detail"></div>
+    </div>
+
+    <footer class="footer">PHYSICS · ROSMINI COLLEGE   |   LCARS-INSPIRED CLASSROOM PROTOTYPE<br/><span>Contact: Pranav Mistry · Rosmini College · pmistry [at] rosmini.school.nz</span></footer>
+  </main>
+</div>
+<script src="assets/progress.js"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+// theme: follow the browser's light/dark setting; the slider overrides it for this visit only
+(function(){
+  const t = $("themeToggle"), root = document.documentElement;
+  const sync = () => { t.checked = root.dataset.theme === "light"; };
+  sync();
+  t.addEventListener("change", () => {
+    root.dataset.theme = t.checked ? "light" : "dark";
+    try { sessionStorage.setItem("physics-theme", root.dataset.theme); } catch (e) {}
+  });
+  const os = window.matchMedia ? matchMedia("(prefers-color-scheme: light)") : null;
+  if (os) {
+    const follow = () => { try { sessionStorage.removeItem("physics-theme"); } catch (e) {} root.dataset.theme = os.matches ? "light" : "dark"; sync(); };
+    os.addEventListener ? os.addEventListener("change", follow) : os.addListener(follow);
+  }
+  try { localStorage.removeItem("hub-theme"); } catch (e) {}
+})();
+
+
+
+const P = window.SiteProgress, KEY = "teacher-class";
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const say = (html, bad) => { const m = $("addMsg"); m.hidden = false; m.classList.toggle("bad", !!bad); m.innerHTML = html; };
+let cls = P.get(KEY, []), year = "13", open = null;
+const save = () => P.set(KEY, cls);
+const stack = (m) => { const t = Math.max(1, m.total), pc = (x) => (100 * x / t).toFixed(1) + "%"; return `<div class="stack"><i class="c" style="width:${pc(m.conf)}"></i><i class="g" style="width:${pc(m.get)}"></i><i class="n" style="width:${pc(m.not)}"></i></div>`; };
+const lastExam = (m) => m.exams && m.exams.length ? m.exams[m.exams.length - 1] : null;
+const examShort = (e) => e.g.map((g) => g === "Excellence" ? "E" : g === "Merit" ? "M" : g === "Achieved" ? "A" : "N").join(" ");
+
+async function addText(t) {
+  const codes = P.findCodes(t); if (!codes.length) { say("<strong>No progress codes found.</strong> Paste the whole email, or the code that starts with PR1.", true); return; }
+  let added = 0, updated = 0, old = 0, bad = 0;
+  for (const c of codes) {
+    let o; try { o = await P.decode(c); } catch (e) { bad++; continue; }
+    if (o.old) { old++; continue; }
+    const name = (o.n || "").trim() || "Unnamed student";
+    const rec = { name, d: o.d || "", s: o.s }, i = cls.findIndex((r) => r.name.toLowerCase() === name.toLowerCase());
+    if (i < 0) { cls.push(rec); added++; } else if ((rec.d || "") >= (cls[i].d || "")) { cls[i] = rec; updated++; }
+  }
+  cls.sort((a, b) => a.name.localeCompare(b.name)); save(); render();
+  const bits = []; if (added) bits.push(added + " added"); if (updated) bits.push(updated + " updated");
+  if (old) bits.push(old + " older single-lab code" + (old > 1 ? "s" : "") + " skipped (ask the student to send again from My progress)");
+  if (bad) bits.push(bad + " could not be read (cut short?)");
+  say("<strong>" + (bits.join(" · ") || "Nothing new") + ".</strong>", !added && !updated);
+  $("paste").value = "";
+}
+function labsShown() { return P.LABS.filter((l) => year === "all" || String(l.y) === year); }
+function render() {
+  const labs = labsShown(), t = $("cls");
+  $("clsH").textContent = "Class table · " + cls.length + " student" + (cls.length === 1 ? "" : "s");
+  if (!cls.length) { t.innerHTML = `<tbody><tr><td class="none" style="cursor:default">No students yet. Paste their emails above.</td></tr></tbody>`; $("detail").innerHTML = ""; return; }
+  let h = "<thead><tr><th>Student</th>" + labs.map((l) => `<th class="y${l.y}" title="AS${l.as}">${esc(l.title)}${year === "all" ? " (Y" + l.y + ")" : ""}</th>`).join("") + "</tr></thead><tbody>";
+  cls.forEach((r, ri) => {
+    h += `<tr data-i="${ri}"${open === ri ? ' class="on"' : ""}><td class="nm">${esc(r.name)}<span class="sub">sent ${esc(r.d || "?")}</span></td>`;
+    labs.forEach((l) => { const m = r.s[l.id];
+      if (!P.started(m)) { h += `<td class="cell none">–</td>`; return; }
+      const e = lastExam(m);
+      h += `<td class="cell">${m.conf}/${m.total}${stack(m)}${e ? `<span class="gr" title="${esc(e.d)}">exam: ${examShort(e)}</span>` : ""}</td>`; });
+    h += "</tr>";
+  });
+  t.innerHTML = h + "</tbody>";
+  t.querySelectorAll("tbody tr[data-i]").forEach((tr) => tr.onclick = () => { open = open === +tr.dataset.i ? null : +tr.dataset.i; render(); });
+  const d = $("detail");
+  if (open == null || !cls[open]) { d.innerHTML = ""; return; }
+  const r = cls[open];
+  d.innerHTML = `<div class="row" style="justify-content:space-between;margin-top:6px"><h2 style="margin:0;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--lav)">${esc(r.name)}</h2><button class="btn warn no-print" id="rm" type="button">Remove this student</button></div><pre class="report"></pre>`;
+  d.querySelector("pre").textContent = P.report(r.name, r.s, "");
+  $("rm").onclick = () => { if (!confirm("Remove " + r.name + " from the table?")) return; cls.splice(open, 1); open = null; save(); render(); };
+}
+document.querySelectorAll(".chip").forEach((b) => b.onclick = () => { year = b.dataset.y; document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c === b))); render(); });
+$("add").onclick = () => addText($("paste").value);
+$("files").onchange = async (e) => { let all = ""; for (const f of e.target.files) all += "\n" + await f.text(); e.target.value = ""; addText(all); };
+$("clear").onclick = () => { if (!cls.length || !confirm("Remove every student from this table? (Students keep their own progress.)")) return; cls = []; open = null; save(); render(); };
+$("csv").onclick = () => {
+  const q = (v) => '"' + String(v == null ? "" : v).replace(/"/g, '""') + '"', H = ["Student", "Sent"];
+  P.LABS.forEach((l) => { const t = "Y" + l.y + " " + l.title; H.push(t + " confident", t + " getting there", t + " not yet", t + " statements", t + " last exam set", t + " weakest"); });
+  const rows = [H.map(q).join(",")];
+  cls.forEach((r) => { const c = [r.name, r.d];
+    P.LABS.forEach((l) => { const m = r.s[l.id]; if (!P.started(m)) { c.push("", "", "", "", "", ""); return; } const e = lastExam(m);
+      c.push(m.conf, m.get, m.not, m.total, e ? e.d + ": " + e.g.join(", ") : "", m.weak.join(" | ")); });
+    rows.push(c.map(q).join(",")); });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["﻿" + rows.join("\r\n")], { type: "text/csv" })); a.download = "class-progress.csv"; document.body.appendChild(a); a.click(); a.remove();
+};
+render();
+
+</script>
+</body>
+</html>
