@@ -5,6 +5,10 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.28 · 26 November 2026 (My progress and Teacher view move onto the home page)
+- My progress and the Teacher class table are now buttons in the home page's left rail, under ALL, Y12 and Y13, instead of separate pages. The My progress button in every lab opens the home page on that view.
+- The old progress.html and teacher.html addresses forward to the home page, so links in emails already sent still work.
+
 ## v1.27 · 26 November 2026 (Home, My progress and Teacher pages use the full width)
 - The home page, My progress and Teacher pages now fill the whole width of a computer screen, like the labs, instead of stopping at 1280 px.
 

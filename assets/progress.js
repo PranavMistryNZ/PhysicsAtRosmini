@@ -55,7 +55,7 @@ function watch(){if(watched)return;current=window.SiteLab?labById(window.SiteLab
 
 /* ---------- the "My progress" button in every lab's header ---------- */
 function addButton(){const home=document.querySelector('a[href="../index.html"]');if(!home||document.querySelector('a[data-site-progress]'))return;
- const b=home.cloneNode(false);b.href='../progress.html';b.dataset.siteProgress='1';b.title='My progress for the whole website: save it, or send it to your teacher';b.removeAttribute('id');
+ const b=home.cloneNode(false);b.href='../index.html#progress';b.dataset.siteProgress='1';b.title='My progress for the whole website: save it, or send it to your teacher';b.removeAttribute('id');
  b.innerHTML='<svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg><span>'+(/[a-z]/.test(home.textContent)?'My progress':'MY PROGRESS')+'</span>';
  home.insertAdjacentElement('afterend',b);const pc=getComputedStyle(home.parentElement);if(pc.display.indexOf('flex')<0&&pc.display.indexOf('grid')<0)b.style.marginTop='6px'}
 
