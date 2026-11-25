@@ -5,6 +5,9 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.25 · 26 November 2026 (Labs use the full width of the screen)
+- Every Year 12 and Year 13 lab now fills the whole width of a computer screen, instead of stopping at 1280 px (Year 12) or 1400 px (Year 13). Phones and tablets are unchanged.
+
 ## v1.24 · 25 November 2026 (Year 13 Electrical: circuit and phasor diagrams in 4.4 LCR Resonance)
 - 4.4 LCR Resonance has a switch between three views of the same circuit, all driven by the existing R, L, C and f sliders: the resonance curve (unchanged), circuit and phasor diagrams, and a 3D phasor spiral.
 - Circuit and phasor diagrams: a series circuit showing the voltage across each component at this instant (they add to the supply voltage) and its rms value; diagram 1 with each voltage drawn from the origin; diagram 2 combining V_L and V_C first, then completing the rectangle with V_R to give V_s and φ; an impedance triangle and the worked numbers. Still by default, with a "Rotate the phasors" button.
