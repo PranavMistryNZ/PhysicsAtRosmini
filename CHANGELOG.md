@@ -5,6 +5,9 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.27 · 26 November 2026 (Home, My progress and Teacher pages use the full width)
+- The home page, My progress and Teacher pages now fill the whole width of a computer screen, like the labs, instead of stopping at 1280 px.
+
 ## v1.26 · 26 November 2026 (One progress page for the whole website)
 - New **My progress** page (progress.html), linked from the home page and from a My progress button beside Home in every lab. It shows every topic: self-ratings, the 3 weakest statements to revise next, quiz bests, the last self-marked exam set and when each lab was last used.
 - One progress code now carries the whole website to another device. Older single-lab codes (W13., E13., M12. and so on) still load.
