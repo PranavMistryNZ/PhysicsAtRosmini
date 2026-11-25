@@ -18,8 +18,8 @@ const LABS=[
  {id:'y13elec',  y:13,as:'91526',title:'Electrical Systems',    path:'y13/electrical.html', keys:k=>/^emag-(scope|exam-last|exam-hist|ceo|spot)$/.test(k),old:'E13.'},
  {id:'y12waves', y:12,as:'91170',title:'Waves',                 path:'y12/waves.html',      pre:'y12waves-',rx:Y12NUC,old:'W12.'},
  {id:'y12mech',  y:12,as:'91171',title:'Mechanics',             path:'y12/mechanics.html',  pre:'y12mech-', rx:/^(ratings|order-2026|rr-done|ceo|spot|exam-last|exam-hist|best-[a-z]+)$/,old:'M12.'},
- {id:'y12elec',  y:12,as:'91173',title:'Electricity & Electromagnetism',path:'y12/electricity.html',pre:'y12elec-',rx:/^(ratings|rr-done|best-[a-z]+)$/,old:'E12.'},
  {id:'y12nuc',   y:12,as:'91172',title:'Atomic & Nuclear Physics',path:'y12/nuclear.html',  pre:'y12nuc-',  rx:Y12NUC,old:'N12.'},
+ {id:'y12elec',  y:12,as:'91173',title:'Electricity & Electromagnetism',path:'y12/electricity.html',pre:'y12elec-',rx:/^(ratings|rr-done|best-[a-z]+)$/,old:'E12.'},
  {id:'y12prac',  y:12,as:'91168',title:'Practical Investigation',path:'y12/practical.html', pre:'y12prac-', rx:Y12NUC,old:'P12.'}];
 LABS.forEach(L=>{if(L.pre)L.keys=k=>k.startsWith(L.pre)&&L.rx.test(k.slice(L.pre.length))});
 const SUM='site-sum-',ME='site-me';

@@ -5,6 +5,10 @@ branch (`version-1.0`, `version-1.1`, …) that never changes afterwards.
 To see or restore an older version, ask Claude, or pick the branch from the
 branch menu on GitHub.
 
+## v1.29 · 26 November 2026 (Home page topic order)
+- Year 12 topics now follow the same order as Year 13: Waves, Mechanics, Atomic & Nuclear Physics, Electricity & Electromagnetism, then Practical Investigation. My progress uses the same order.
+- Removed the Year 13 Practical Investigation (AS91521) card, as it is not taught.
+
 ## v1.28 · 26 November 2026 (My progress and Teacher view move onto the home page)
 - My progress and the Teacher class table are now buttons in the home page's left rail, under ALL, Y12 and Y13, instead of separate pages. The My progress button in every lab opens the home page on that view.
 - The old progress.html and teacher.html addresses forward to the home page, so links in emails already sent still work.
